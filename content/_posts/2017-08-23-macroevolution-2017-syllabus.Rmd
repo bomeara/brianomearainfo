@@ -1,0 +1,17 @@
+---
+author: brianomeara_ra6153
+comments: false
+date: 2017-08-23 13:26:35+00:00
+layout: post
+link: http://www.brianomeara.info/2017/08/23/macroevolution-2017-syllabus/
+slug: macroevolution-2017-syllabus
+title: 'Macroevolution 2017: Syllabus'
+wordpress_id: 750
+categories:
+- Macroevolution
+- Teaching
+---
+
+Here's the syllabus for EEB464, Macroevolution.
+
+[UTK_2017_Fall_EEB464_SyllabusV01.pdf](http://brianomeara.info/wordpress_beta/wp-content/uploads/2017/08/UTK_2017_Fall_EEB464_SyllabusV01.pdf) [UTK_2017_Fall_EEB464_SyllabusV01.docx](http://brianomeara.info/wordpress_beta/wp-content/uploads/2017/08/UTK_2017_Fall_EEB464_SyllabusV01.docx)

@@ -1,0 +1,82 @@
+---
+author: brianomeara_ra6153
+comments: false
+date: 2012-08-01 04:02:34+00:00
+layout: post
+link: http://www.brianomeara.info/2012/08/01/grad-core-phylogenetics-2012/
+slug: grad-core-phylogenetics-2012
+title: Grad Core Phylogenetics 2012
+wordpress_id: 89
+categories:
+- Grad Core
+---
+
+## Syllabus Fall 2012:
+
+
+
+
+### Day 1
+
+
+**Topics**:
+Why phylo?
+Continuous time Markov Chain finite state space
+Doing this in Geiger: get exercise [Discrete.R](http://brianomeara.info/sites/default/files/Discrete.R)
+Slides ([PDF](http://brianomeara.info/sites/default/files/2012xi04_UTKEEB_Core_Phylogenetics1.pdf))
+
+
+### Day 2
+
+
+**Topics**:
+[In class review quiz](https://docs.google.com/spreadsheet/viewform?formkey=dHc0bFF6b3NCYWN2VVFVdVNNbGVqVEE6MQ)
+Central limit theorem [CLT.R](http://brianomeara.info/sites/default/files/CLT.R)
+Brownian motion, Ornstein Uhlenbeck, Independent Contrasts
+Slides ([PDF](http://brianomeara.info/sites/default/files/2012xi07_UTKEEB_Core_ContinuousTraits.pdf))
+
+
+### Day 3
+
+
+**Topics**:
+[In class review quiz](https://docs.google.com/spreadsheet/viewform?formkey=dEtaN3R0YUItV1MxN2tGZFdrZkpWbVE6MQ)
+Likelihood vs Bayes redux
+Model comparison exercise
+Tree stretching
+Tree stretching exercise
+Slides ([PDF](http://brianomeara.info/sites/default/files/2012xi12_UTKEEB_Core_TreeStretching.pdf))
+
+
+### Day 4
+
+
+**Topics**:
+[In class review quiz](https://docs.google.com/spreadsheet/viewform?formkey=dFFGaEF2MUxTZ3ZieGF6OFN5Q1FoeUE6MQ)
+Working through homework. What did you conclude? What does it mean? (relevant R script is [here](http://brianomeara.info/sites/default/files/fitContinuousGeospiza.R))
+Delve deeper into how to do an analysis.
+Diversification
+Slides ([PDF](http://brianomeara.info/sites/default/files/2012xi14_UTKEEB_Core_Diversification.pdf))
+
+
+### Day 5
+
+
+**Topics**:
+Doing a good analysis
+Slides ([PDF](http://brianomeara.info/sites/default/files/2012xi26_UTKEEB_Core_Doing.pdf))
+
+
+### Day 6
+
+
+**Topics**
+Continuing pair analyses
+
+
+### Final
+
+
+Concatenation of all slides ([PDF](http://brianomeara.info/sites/default/files/UTKEEB_Core_2012_AllLectures.pdf))
+Study guide ([PDF](http://brianomeara.info/sites/default/files/OMearaStudyGuide2012.pdf))
+

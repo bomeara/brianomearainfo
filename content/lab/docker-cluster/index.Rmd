@@ -1,0 +1,62 @@
+---
+author: brianomeara_ra6153
+comments: false
+date: 2017-12-01 14:48:31+00:00
+layout: page
+link: http://www.brianomeara.info/lab/docker-cluster/
+slug: docker-cluster
+title: Docker cluster
+wordpress_id: 929
+---
+
+After futzing with various cluster approaches (HTCondor, Slurm, other approaches) I've settled (for now) on using `foreach` with `doRedis` talking to worker nodes running Docker instances.
+[Docker](https://www.docker.com/what-docker) is like a lightweight virtual machine that can run on another computer -- basically, a computer within a computer (though not as slow as this sounds). A container can store everything needed to, say, run R, and there are many, many containers. One advantage is rather than having to worry about all the dependencies, installing all the software, you can just type `docker run` followed by the container name and start it going. For example, I maintain a [phylogenetics container](https://github.com/bomeara/phydocker): after installing docker, you can go to the command line and type
+`docker run -it --name phydocker -v /Path/To/My/Folder:/data -p 8787:8787 bomeara/phydocker`
+replacing `/Path/To/My/Folder` with the actual path you want to use (i.e., `/Users/brianomeara/Desktop`) and then you can go to http://localhost:8787, login as user and password `rstudio`, and use an RStudio instance that has a bunch of phylogenetics packages already installed, and which has access to your folder (in my example above, my desktop) as the /data folder in the container (so you can save to it and it'll be saved on your actual Desktop). You can run multiple containers at once: download one that has python scripts you need, etc.
+I'm using this for our cluster, too. Rather than try to synchronize R versions, packages, etc. across a heterogeneous set of computers, I have a container that has a stable version of R and recent packages, and we can just add more to that when we need to and redeploy. It can also work across architectures: if someone has a big Linux or Windows machine, we could use that with our Macs seamlessly.
+For parallelization, we're using the [foreach](https://cran.r-project.org/web/packages/foreach/index.html) package. It's well-documented, frequently updated, and popular (but see the [CRAN High Performance Computing](https://cran.r-project.org/web/views/HighPerformanceComputing.html) task view for alternatives). Redis is a lightweight database; we're using that (an instance of it running on a server) to keep track of submitted jobs and worker nodes using the [doRedis](https://github.com/bwlewis/doRedis) package (the github version, which fixes a few bugs). There are other ways to handle this: real HPC software does stuff like prioritize jobs (person A, you ran a lot, so any job person B submits cuts ahead of yours in the queue) but we don't seem to have enough usage to make this worth the complexity (both in installation, which I failed at, and in submitting jobs).
+
+
+## File syncing
+
+
+We use Unison to synchronize files. For those on a Mac, you can install homebrew, then `brew install unison` . Make sure you deposit your public key on `~/.ssh/authorized_keys` on 13 (ask in person).
+Then (replacing SERVER_URL with the URL of our server; keep the double slashes)
+`mkdir /Users/Shared/cluster` on your computer
+`unison -testServer /Users/Shared/cluster ssh://SERVER_URL//Users/Shared/cluster`
+`unison -auto -batch /Users/Shared/cluster ssh://SERVER_URL//Users/Shared/cluster`
+Then do `crontab -e` and then add a line with
+`*/3 * * * * /usr/local/bin/unison -auto -batch /Users/Shared/cluster ssh://SERVER_URL//Users/Shared/cluster`
+
+
+## Job submission
+
+
+To submit a job, run `docker run -it -v /Users/Shared/cluster:/cluster bomeara/omearaclusterworker /bin/bash` (you'll need to download this first; I'll show you how, as I don't want it public), or on a mac you could just do `source(" /Users/Shared/cluster/redis/RedisScriptMac.R")` from within R.
+
+
+## Using foreach
+
+
+See the documentation
+
+
+
+    
+  * Using foreach [vignette](https://cran.r-project.org/web/packages/foreach/vignettes/foreach.pdf)
+
+    
+  * [Using doParallel and foreach](https://cran.r-project.org/web/packages/doParallel/vignettes/gettingstartedParallel.pdf)
+
+    
+  *  [Nesting foreach loops](https://cran.r-project.org/web/packages/foreach/vignettes/nested.pdf)
+
+    
+  * [doRedis vignette](https://cran.r-project.org/web/packages/doRedis/vignettes/doRedis.pdf)
+
+
+Note that as with most parallelization, you want to parallelize at the highest level possible. For example, take bootstrapping for likelihood. You make a new dataset from the old, and for each dataset, propose a set of parameter values (including topology), calculate the likelihood for each site, add these across sites, try a new parameter value, repeat. One way to parallelize would be every time the likelihood is calculated on a site, do this on a different machine for every site (really, site pattern, but that's quibbling). That's the lowest level possible -- sending lots of really tiny jobs out. The highest level would be sending out each bootstrap replicate as a different job. Basically, you want each node to be churning away on calculations, only talking back to the manager rarely. One can go too extreme -- send jobs off in months-long chunks, that have to be restarted when a computer inevitably shuts down.
+An example run is
+`foreach(j=1:17,.combine=paste, .multicombine=TRUE) %dopar%
+paste(system("hostname", intern=TRUE), system("whoami", intern=TRUE), Sys.getpid(), unname(system.time(mean(runif(1e6)))[3]))`
+Oh, one note about jargon: 13 is the manager, and the other machines are workers. Some documentation online talks about masters and slaves, which is pretty disgusting.

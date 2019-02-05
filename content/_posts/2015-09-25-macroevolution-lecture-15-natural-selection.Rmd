@@ -1,0 +1,37 @@
+---
+author: brianomeara_ra6153
+comments: false
+date: 2015-09-25 13:07:19+00:00
+layout: post
+link: http://www.brianomeara.info/2015/09/25/macroevolution-lecture-15-natural-selection/
+slug: macroevolution-lecture-15-natural-selection
+title: 'Macroevolution, Lecture 15: Natural selection'
+wordpress_id: 310
+categories:
+- Macroevolution
+- Teaching
+---
+
+Learning objectives:
+
+
+
+	
+  * What is required for natural selection
+
+	
+  * Selection versus drift versus mutational bias
+
+	
+  * Frequency dependent selection
+
+	
+  * Balancing selection
+
+	
+  * Selection now
+
+
+[UTKEEB464_Lecture15_NaturalSelection_2015.pdf](http://brianomeara.info/wordpress_beta/wp-content/uploads/2015/09/UTKEEB464_Lecture15_NaturalSelection_2015.pdf) [UTKEEB464_Lecture15_NaturalSelection_2015.pptx](http://brianomeara.info/wordpress_beta/wp-content/uploads/2015/09/UTKEEB464_Lecture15_NaturalSelection_2015.pptx)
+[mutationSelection.R](http://www.brianomeara.info/wp-content/uploads/2015/09/mutationSelection.r)
+Online exercise is [here](https://brianomeara.shinyapps.io/mutation_selection_shiny), relevant code is [server.r](http://www.brianomeara.info/wp-content/uploads/2015/09/server.r) and [ui.r](http://www.brianomeara.info/wp-content/uploads/2015/09/ui.r).

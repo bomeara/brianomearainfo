@@ -1,0 +1,15 @@
+---
+author: brianomeara_ra6153
+comments: false
+date: 2016-11-13 07:07:49+00:00
+layout: post
+link: http://www.brianomeara.info/2016/11/13/macroevolution-2016-lecture-33-domestication/
+slug: macroevolution-2016-lecture-33-domestication
+title: 'Macroevolution, 2016: Lecture 33, Domestication'
+wordpress_id: 635
+categories:
+- Macroevolution
+- Teaching
+---
+
+[utkeeb464_lecture33_2016_domestication.pdf](http://brianomeara.info/wordpress_beta/wp-content/uploads/2016/11/UTKEEB464_Lecture33_2016_Domestication.pdf) [utkeeb464_lecture33_2016_domestication.pptx](http://brianomeara.info/wordpress_beta/wp-content/uploads/2016/11/UTKEEB464_Lecture33_2016_Domestication.pptx)

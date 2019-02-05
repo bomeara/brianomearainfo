@@ -1,0 +1,32 @@
+---
+author: brianomeara_ra6153
+comments: false
+date: 2016-09-19 13:00:23+00:00
+layout: post
+link: http://www.brianomeara.info/2016/09/19/macroevolution-2016-lecture-13-diversification/
+slug: macroevolution-2016-lecture-13-diversification
+title: 'Macroevolution 2016: Lecture 13, Diversification'
+wordpress_id: 541
+categories:
+- Macroevolution
+- Teaching
+---
+
+Topics
+
+
+
+ 	
+  * Empirical diversity
+
+ 	
+  * Sister group comparisons
+
+ 	
+  * Exponential growth
+
+ 	
+  * Adaptive radiations
+
+
+[utkeeb464_lecture13_diversification_2016.pdf](http://brianomeara.info/wordpress_beta/wp-content/uploads/2016/09/UTKEEB464_Lecture13_Diversification_2016.pdf) [utkeeb464_lecture13_diversification_2016.pptx](http://brianomeara.info/wordpress_beta/wp-content/uploads/2016/09/UTKEEB464_Lecture13_Diversification_2016.pptx)

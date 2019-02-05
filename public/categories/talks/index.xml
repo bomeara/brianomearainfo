@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Talks on Academic</title>
+    <link>/categories/talks/</link>
+    <description>Recent content in Talks on Academic</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 08 Sep 2015 03:02:37 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/talks/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Texas A&amp;M EEB</title>
+      <link>/_posts/texas-am-eeb/</link>
+      <pubDate>Tue, 08 Sep 2015 03:02:37 +0000</pubDate>
+      
+      <guid>/_posts/texas-am-eeb/</guid>
+      <description>Talk on Sept 7, 2015, on “Dealing with the heterogeneity of life for comparative methods” to the EEB interdisciplinary program at Texas A&amp;amp;M; my hosts were Michelle Lawing and Claudio Casola. Work highlighted included Brownie, OUwie, hisse, FaMUSSE, and corhmm. The relevant papers can be seen at Google Scholar. Talk as PDF: 2015ix7_TexasAM.pdf</description>
+    </item>
+    
+  </channel>
+</rss>

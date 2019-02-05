@@ -1,0 +1,29 @@
+---
+author: brianomeara_ra6153
+comments: false
+date: 2017-11-10 14:34:35+00:00
+layout: post
+link: http://www.brianomeara.info/2017/11/10/macroevolution-2017-lecture-31-origin-of-life/
+slug: macroevolution-2017-lecture-31-origin-of-life
+title: 'Macroevolution 2017: Lecture 31, Origin of Life'
+wordpress_id: 896
+categories:
+- Macroevolution
+- Teaching
+---
+
+Learning objectives
+
+
+
+    
+  * Aspects requiring explanation about origin of life
+
+    
+  * Hypotheses
+
+    
+  * Life elsewhere
+
+
+[UTKEEB464_Lecture31_OriginOfLife_2017.pdf](http://brianomeara.info/wordpress_beta/wp-content/uploads/2017/11/UTKEEB464_Lecture31_OriginOfLife_2017.pdf) [UTKEEB464_Lecture31_OriginOfLife_2017.pptx](http://brianomeara.info/wordpress_beta/wp-content/uploads/2017/11/UTKEEB464_Lecture31_OriginOfLife_2017.pptx)

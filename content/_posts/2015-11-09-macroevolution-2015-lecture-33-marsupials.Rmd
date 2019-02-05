@@ -1,0 +1,16 @@
+---
+author: brianomeara_ra6153
+comments: false
+date: 2015-11-09 04:04:23+00:00
+layout: post
+link: http://www.brianomeara.info/2015/11/08/macroevolution-2015-lecture-33-marsupials/
+slug: macroevolution-2015-lecture-33-marsupials
+title: 'Macroevolution 2015: Lecture 33, Marsupials'
+wordpress_id: 411
+categories:
+- Macroevolution
+- Teaching
+---
+
+Look at potential tradeoffs of their reproductive system; discuss biogeographic history.
+[UTKEEB464_Lecture33_2015_Marsupials.pdf](http://brianomeara.info/wordpress_beta/wp-content/uploads/2015/11/UTKEEB464_Lecture33_2015_Marsupials.pdf) [UTKEEB464_Lecture33_2015_Marsupials.pptx](http://brianomeara.info/wordpress_beta/wp-content/uploads/2015/11/UTKEEB464_Lecture33_2015_Marsupials.pptx)

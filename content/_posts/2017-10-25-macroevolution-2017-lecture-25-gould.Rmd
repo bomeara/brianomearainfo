@@ -1,0 +1,21 @@
+---
+author: brianomeara_ra6153
+comments: false
+date: 2017-10-25 13:29:00+00:00
+layout: post
+link: http://www.brianomeara.info/2017/10/25/macroevolution-2017-lecture-25-gould/
+slug: macroevolution-2017-lecture-25-gould
+title: 'Macroevolution 2017: Lecture 25, Gould'
+wordpress_id: 868
+categories:
+- Macroevolution
+- Teaching
+---
+
+Learning objectives:
+Who was Gould?
+Punctuated equilibrium
+Adaptationism
+How we argue in macroevolution
+
+[UTKEEB464_Lecture25_2017_StephenJayGould_V01.pdf](http://brianomeara.info/wordpress_beta/wp-content/uploads/2017/10/UTKEEB464_Lecture25_2017_StephenJayGould_V01.pdf) [UTKEEB464_Lecture25_2017_StephenJayGould_V01.pptx](http://brianomeara.info/wordpress_beta/wp-content/uploads/2017/10/UTKEEB464_Lecture25_2017_StephenJayGould_V01.pptx)

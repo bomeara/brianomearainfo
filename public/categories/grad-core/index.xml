@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Grad Core on Academic</title>
+    <link>/categories/grad-core/</link>
+    <description>Recent content in Grad Core on Academic</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 01 Aug 2014 04:00:50 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/grad-core/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Grad Core Phylogenetics 2014</title>
+      <link>/_posts/grad-core-phylogenetics-2014/</link>
+      <pubDate>Fri, 01 Aug 2014 04:00:50 +0000</pubDate>
+      
+      <guid>/_posts/grad-core-phylogenetics-2014/</guid>
+      <description>UTK EEB requires new graduate students to take an intensive team-taught course covering ecology and evolution. I present the phylogenetics portion (tree creation and tree use). Note the anonymous feedback form: Suggest changes while it can still help you in class.
+Fall 2014: This year I am teaching the entire phylogenetics portion. Here is the syllabus (PDF) and lectures are below; the recorded videos are here.
+Intro to phylo (PDF), R exercise</description>
+    </item>
+    
+    <item>
+      <title>Grad Core Phylogenetics 2013</title>
+      <link>/_posts/grad-core-phylogenetics-2013/</link>
+      <pubDate>Thu, 01 Aug 2013 04:01:27 +0000</pubDate>
+      
+      <guid>/_posts/grad-core-phylogenetics-2013/</guid>
+      <description> Fall 2013: This year I co-taught the entire phylogenetics portion (tree building and tree using) with NIMBioS postdoc Jeremy Beaulieu. My slides (451 slides in total): Keynote (206 MB), PDF (61.1 MB) The YouTube channel with lectures from this class is here .
+ </description>
+    </item>
+    
+    <item>
+      <title>Grad Core Phylogenetics 2012</title>
+      <link>/_posts/grad-core-phylogenetics-2012/</link>
+      <pubDate>Wed, 01 Aug 2012 04:02:34 +0000</pubDate>
+      
+      <guid>/_posts/grad-core-phylogenetics-2012/</guid>
+      <description>Syllabus Fall 2012: Day 1 Topics: Why phylo? Continuous time Markov Chain finite state space Doing this in Geiger: get exercise Discrete.R Slides (PDF)
+ Day 2 Topics: In class review quiz Central limit theorem CLT.R Brownian motion, Ornstein Uhlenbeck, Independent Contrasts Slides (PDF)
+ Day 3 Topics: In class review quiz Likelihood vs Bayes redux Model comparison exercise Tree stretching Tree stretching exercise Slides (PDF)
+ Day 4 Topics: In class review quiz Working through homework.</description>
+    </item>
+    
+    <item>
+      <title>Grad Core Phylogenetics 2011</title>
+      <link>/_posts/grad-core-phylogenetics-2011/</link>
+      <pubDate>Mon, 01 Aug 2011 04:04:07 +0000</pubDate>
+      
+      <guid>/_posts/grad-core-phylogenetics-2011/</guid>
+      <description>Syllabus Fall 2011: Day 1 Topics: Speciation Hybridization Slides: PDF. **_For homework, due by start of class Monday, do steps 1-15 of this tutorial.**_
+ Day 2 Topics: What trees are used for history of life + cool discoveries about topology tree terminology clades (dinos birds, reptiles, fish) sister groups, crown/stem, etc. rank and its importance homology heuristic search treespace Slides: PDF.
+ Day 3 Topics: Distance Parsimony Long branch attraction Models Model selection Bayes/Likelihood Slides: PDF Homework: The next assignment should be pretty fun.</description>
+    </item>
+    
+    <item>
+      <title>Grad Core Phylogenetics 2010</title>
+      <link>/_posts/grad-core-phylogenetics-2010/</link>
+      <pubDate>Sun, 01 Aug 2010 04:05:27 +0000</pubDate>
+      
+      <guid>/_posts/grad-core-phylogenetics-2010/</guid>
+      <description>Syllabus Fall 2010: Day 1 Topics: What trees are used for history of life + cool discoveries about topology Tree terminology clades (dinos birds, reptiles, fish) sister groups, crown/stem, etc. rank and its importance homology Slides: pdf, keynote, mov (QuickTime movie) R assignment: By the start of class Wednesday, please: 1) Install R on a computer you can access (you don’t need to bring it in, so a desktop at home is fine).</description>
+    </item>
+    
+    <item>
+      <title>Grad Core Phylogenetics 2009</title>
+      <link>/_posts/grad-core-phylogenetics-2009/</link>
+      <pubDate>Sat, 01 Aug 2009 04:06:12 +0000</pubDate>
+      
+      <guid>/_posts/grad-core-phylogenetics-2009/</guid>
+      <description>Syllabus Fall 2009: Day 1 (W. Sept. 30, 50 minutes) Lecture1.pdf
+Readings: Gregory 2008, Crisp and Cook 2005
+Topics:
+What trees are used for
+history of life + cool discoveries about topology
+Tree terminology
+clades (dinos birds, reptiles, fish)
+sister groups, crown/stem, etc.
+rank and its importance
+homology
+ Day 2 (F. Oct. 2, 50 minutes) Lecture2.pdf
+Readings: Felsenstein 1978.
+Topics:
+Treespace/NP-nasty
+History
+Distance
+Parsimony
+Long branch attraction
+ Day 3 (M.</description>
+    </item>
+    
+  </channel>
+</rss>

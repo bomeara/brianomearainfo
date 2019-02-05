@@ -1,0 +1,35 @@
+---
+author: brianomeara_ra6153
+comments: true
+date: 2018-09-28 13:38:17+00:00
+layout: post
+link: http://www.brianomeara.info/2018/09/28/macroevolution-2018-class-15-natural-selection/
+slug: macroevolution-2018-class-15-natural-selection
+title: 'Macroevolution 2018: Class 15, Natural Selection'
+wordpress_id: 1517
+categories:
+- Macroevolution
+- Teaching
+---
+
+Learning objectives
+
+
+
+ 	
+  * Review basics of natural selection
+
+ 	
+  * Think about mutation selection balance
+
+ 	
+  * Consider ongoing selection in humans
+
+
+
+
+Web app for this class: https://brianomeara.shinyapps.io/mutation_selection_shiny/
+
+
+
+[UTKEEB464_Lecture15_NaturalSelection_2018.pptx](http://www.brianomeara.info/wp-content/uploads/2018/09/UTKEEB464_Lecture15_NaturalSelection_2018.pptx) [UTKEEB464_Lecture15_NaturalSelection_2018.pdf](http://www.brianomeara.info/wp-content/uploads/2018/09/UTKEEB464_Lecture15_NaturalSelection_2018-1.pdf)

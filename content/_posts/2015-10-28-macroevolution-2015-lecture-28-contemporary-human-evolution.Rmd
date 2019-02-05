@@ -1,0 +1,16 @@
+---
+author: brianomeara_ra6153
+comments: false
+date: 2015-10-28 05:02:00+00:00
+layout: post
+link: http://www.brianomeara.info/2015/10/28/macroevolution-2015-lecture-28-contemporary-human-evolution/
+slug: macroevolution-2015-lecture-28-contemporary-human-evolution
+title: 'Macroevolution 2015: Lecture 28, Contemporary Human Evolution'
+wordpress_id: 390
+categories:
+- Macroevolution
+- Teaching
+---
+
+[UTKEEB464_Lecture28_ContemporaryEvolution_2015.pdf](http://brianomeara.info/wordpress_beta/wp-content/uploads/2015/10/UTKEEB464_Lecture28_ContemporaryEvolution_2015.pdf)
+[UTKEEB464_Lecture28_ContemporaryEvolution_2015.pptx](http://brianomeara.info/wordpress_beta/wp-content/uploads/2015/10/UTKEEB464_Lecture28_ContemporaryEvolution_2015.pptx)

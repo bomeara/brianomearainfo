@@ -1,0 +1,40 @@
+---
+author: brianomeara_ra6153
+comments: false
+date: 2016-01-12 17:38:50+00:00
+layout: post
+link: http://www.brianomeara.info/2016/01/12/bio150-2015-syllabus/
+slug: bio150-2015-syllabus
+title: 'Bio150 2015: Syllabus'
+wordpress_id: 444
+categories:
+- Biodiversity
+- Teaching
+---
+
+Here's my syllabus ([PDF](http://brianomeara.info/wordpress_beta/wp-content/uploads/2016/01/OMearaBio150Syllabus.pdf), [docx](http://brianomeara.info/wordpress_beta/wp-content/uploads/2016/01/OMearaBio150Syllabus.docx)) for Bio150. This course is taught in parallel by multiple instructors: we have a shared set of topics to teach, and the same textbook, but then it is up to each instructor to develop her or his section. Mine this semester has 235 students. I will do a mixture of active learning, traditional lecturing, and other activities. In the past I had students use an app I wrote to find local species; this semester I am moving to use [iNaturalist](http://www.inaturalist.org) instead. I have created a [project](http://www.inaturalist.org/projects/bio150) for students to populate with six observations each. They must observe:
+
+
+
+	
+  * A fungus
+
+	
+  * A vertebrate that is not a rodent or bird
+
+	
+  * An insect
+
+	
+  * An invertebrate that is not an insect
+
+	
+  * An angiosperm
+
+	
+  * A plant that is not an angiosperm
+
+
+Grading 1410 observations will be a bit daunting, but I'm planning to use [rOpenSci](https://ropensci.org)'s [rinat](https://github.com/ropensci/rinat) (written by Vijay Barve and Edmund Hart) to help with that.
+I'm also banning laptops or other electronic devices for note taking (except for documented accommodations, of course). I include the justification for this in the syllabus: [Mueller and Oppenheimer (2014)](http://pss.sagepub.com/content/25/6/1159), which shows that retention is far better with hand-written notes than with a laptop (leaving aside all the distractions from things that aren't note taking that one can do on a laptop).
+I also suggest that students try to see some of BBC's great recent nature documentaries (Planet Earth, Life, Blue Planet) but did not add a Netflix subscription as a requirement -- college is expensive enough.

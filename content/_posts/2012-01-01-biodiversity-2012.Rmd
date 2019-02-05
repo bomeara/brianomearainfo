@@ -1,0 +1,22 @@
+---
+author: brianomeara_ra6153
+comments: false
+date: 2012-01-01 03:55:23+00:00
+layout: post
+link: http://www.brianomeara.info/2012/01/01/biodiversity-2012/
+slug: biodiversity-2012
+title: Biodiversity 2012
+wordpress_id: 80
+categories:
+- Biodiversity
+---
+
+This is Biodiversity 130, Spring 2012. It is a course covering basic evolution and a walk through various taxa. The main site content is set up on Blackboard (behind a log in wall). You may want to check out the [Lampyr](http://lampyr.org) web/iOS app being developed as part of this course. The syllabus is [here](http://brianomeara.info/sites/default/files/Biology130Syllabus_OMearaSpring2012.pdf).
+
+
+## Lectures
+
+
+[![Creative Commons License](http://brianomeara.info/sites/default/files/88x31.png)](http://creativecommons.org/licenses/by-nc-sa/3.0/)  
+You can adopt these for your own work, with attribution. Note that I have attempted to use only images licensed under such terms myself, but you should take care, especially with images from papers or embedded videos. I have attributed all the media used (with some exceptions for public domain items), and I think this is fair use for education, but I am not a lawyer.
+All lectures are available, concatenated, as [PDF](http://brianomeara.info/sites/default/files/Bio130_Concatenation.pdf) (344 MB) and [Apple Keynote](http://brianomeara.info/sites/default/files/Bio130_Concatenation.key) (3.6 GB).

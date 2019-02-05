@@ -1,0 +1,16 @@
+---
+author: brianomeara_ra6153
+comments: false
+date: 2016-08-19 03:26:33+00:00
+layout: post
+link: http://www.brianomeara.info/2016/08/18/macroevolution-2016-class-1-history-of-life-1/
+slug: macroevolution-2016-class-1-history-of-life-1
+title: 'Macroevolution 2016: Class 1, History of Life 1'
+wordpress_id: 490
+categories:
+- Macroevolution
+- Teaching
+---
+
+[UTKEEB464_Lecture1_History1_2016.pdf](http://brianomeara.info/wordpress_beta/wp-content/uploads/2016/08/UTKEEB464_Lecture1_History1_2016.pdf)
+[UTKEEB464_Lecture1_History1_2016.pptx](http://brianomeara.info/wordpress_beta/wp-content/uploads/2016/08/UTKEEB464_Lecture1_History1_2016.pptx)

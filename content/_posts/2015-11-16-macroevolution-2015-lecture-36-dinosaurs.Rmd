@@ -1,0 +1,26 @@
+---
+author: brianomeara_ra6153
+comments: false
+date: 2015-11-16 05:13:47+00:00
+layout: post
+link: http://www.brianomeara.info/2015/11/16/macroevolution-2015-lecture-36-dinosaurs/
+slug: macroevolution-2015-lecture-36-dinosaurs
+title: 'Macroevolution 2015: Lecture 36, Dinosaurs'
+wordpress_id: 426
+categories:
+- Macroevolution
+- Teaching
+---
+
+Learning objectives:
+
+
+
+	
+  * Evolutionary context
+
+	
+  * Applying macroevolutionary thinking to a group of organisms
+
+
+[UTKEEB464_Lecture36_Dinosaurs.pdf](http://brianomeara.info/wordpress_beta/wp-content/uploads/2015/11/UTKEEB464_Lecture36_Dinosaurs.pdf)

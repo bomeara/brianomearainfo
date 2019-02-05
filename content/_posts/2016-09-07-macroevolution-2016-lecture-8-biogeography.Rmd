@@ -1,0 +1,38 @@
+---
+author: brianomeara_ra6153
+comments: false
+date: 2016-09-07 12:57:01+00:00
+layout: post
+link: http://www.brianomeara.info/2016/09/07/macroevolution-2016-lecture-8-biogeography/
+slug: macroevolution-2016-lecture-8-biogeography
+title: 'Macroevolution 2016: Lecture 8, Biogeography'
+wordpress_id: 520
+categories:
+- Macroevolution
+- Teaching
+---
+
+Learning objectives: Understand
+
+
+
+ 	
+  * Continental drift
+
+ 	
+  * Dispersal and vicariance
+
+ 	
+  * Major biogeographic events
+
+ 	
+  * Phylogeography
+
+ 	
+  * Perils of methods
+
+ 	
+  * Uses of phylogeography
+
+
+[UTKEEB464_Lecture8_Biogeography_2016.pdf](http://brianomeara.info/wordpress_beta/wp-content/uploads/2016/09/UTKEEB464_Lecture8_Biogeography_2016.pdf) [UTKEEB464_Lecture8_Biogeography_2016.pptx](http://brianomeara.info/wordpress_beta/wp-content/uploads/2016/09/UTKEEB464_Lecture8_Biogeography_2016.pptx)

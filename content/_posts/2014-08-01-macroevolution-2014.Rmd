@@ -1,0 +1,199 @@
+---
+author: brianomeara_ra6153
+comments: false
+date: 2014-08-01 04:08:07+00:00
+layout: post
+link: http://www.brianomeara.info/2014/08/01/macroevolution-2014/
+slug: macroevolution-2014
+title: Macroevolution 2014
+wordpress_id: 97
+categories:
+- Macroevolution
+---
+
+## Macroevolution (EEB464, 2014)
+
+
+
+
+**Syllabus** [PDF](http://brianomeara.info/sites/default/files/UTK_2014_Fall_EEB464_SyllabusV01.pdf)
+
+
+
+
+**Slides**
+
+
+
+
+
+
+
+
+
+  * Lecture 1: History of Life, part 1: [PDF](http://brianomeara.info/sites/default/files/UTKEEB464_Lecture1_History1_2014.pdf)
+
+
+  * Lecture 2: History of Life, part 2: [PDF](http://brianomeara.info/sites/default/files/UTKEEB464_Lecture2_History2_2014.pdf)
+
+
+  * Lecture 3: Evidence: [PDF](http://brianomeara.info/sites/default/files/UTKEEB464_Lecture3_Evidence_2014.pdf)
+
+
+  * Lecture 4: Taphonomy: [PDF](http://brianomeara.info/sites/default/files/UTKEEB464_Lecture4_Taphonomy_2014.pdf)
+
+
+  * Lecture 5: Jargon: [PDF](http://brianomeara.info/sites/default/files/UTKEEB464_Lecture5_Jargon_2014.pdf)
+
+
+  * Lecture 6: Phylogenetics: [PDF](http://brianomeara.info/sites/default/files/UTKEEB464_Lecture6_Phylogenetics_2014.pdf)
+
+
+  * Lecture 7: Empirical distributions: [PDF](http://brianomeara.info/sites/default/files/UTKEEB464_Lecture7_EmpiricalDistributions_2014.pdf)
+
+
+  * Lecture 8: Biogeography: [PDF](http://brianomeara.info/sites/default/files/UTKEEB464_Lecture8_Biogeography_2014.pdf)
+
+
+  * Lecture 9: Speciation1: [PDF](http://brianomeara.info/sites/default/files/UTKEEB464_Lecture9_Speciation1_2014.pdf)
+
+
+  * Lecture 10: Speciation2: [PDF](http://brianomeara.info/sites/default/files/UTKEEB464_Lecture10_Speciation2_2014.pdf)
+
+
+  * Lecture 11: Extinction1: [PDF](http://brianomeara.info/sites/default/files/UTKEEB464_Lecture11_Extinction1_2014.pdf)
+
+
+  * Lecture 12: Extinction2: [PDF](http://brianomeara.info/sites/default/files/UTKEEB464_Lecture12_Extinction2_2014.pdf)
+
+
+  * Lecture 13: Diversification: [PDF](http://brianomeara.info/sites/default/files/UTKEEB464_Lecture13_Diversification_2014.pdf)
+
+
+  * Lecture 14: Diversification2: [PDF](http://brianomeara.info/sites/default/files/UTKEEB464_Lecture14_Diversification2_2014.pdf)
+
+
+  * Lecture 15: Natural Selection: [PDF](http://brianomeara.info/sites/default/files/UTKEEB464_Lecture15_NaturalSelection_2014.pdf). [mutationSelection.R](http://brianomeara.info/sites/default/files/mutationSelection.R). Do this on your local installation of R (download [here](http://cran.rstudio.com/)) or use the online implementations of R at [http://pbil.univ-lyon1.fr/Rweb/](http://pbil.univ-lyon1.fr/Rweb/) or [http://www.unt.edu/rss/Rinterface.htm](http://www.unt.edu/rss/Rinterface.htm)
+
+
+  * Lecture 16: Sex: [PDF](http://brianomeara.info/sites/default/files/UTKEEB464_Lecture16_Sex_2014.pdf)
+
+
+  * Lecture 17: Trends: [PDF](http://brianomeara.info/sites/default/files/UTKEEB464_Lecture17_Trends_2014.pdf)
+
+
+  * Lecture 18: Symbiosis: [PDF](http://brianomeara.info/sites/default/files/UTKEEB464_Lecture18_Symbiosis_2014.pdf)
+
+
+  * Lecture 19: Game theory: [PDF](http://brianomeara.info/sites/default/files/UTKEEB464_Lecture19_GameTheory_2014.pdf)
+
+
+  * Lecture 20: Inclusive fitness: [PDF](http://brianomeara.info/sites/default/files/UTKEEB464_Lecture20_InclusiveFitness_2014.pdf)
+
+
+  * Lecture 21: Systematics: [PDF](http://brianomeara.info/sites/default/files/UTKEEB464_Lecture21_Systematics_2014.pdf)
+
+
+  * Lecture 22: Darwin: [PDF](http://brianomeara.info/sites/default/files/UTKEEB464_Lecture22_Darwin_2014.pdf)
+
+
+  * Lecture 23 & 24: Escalation: [PDF](http://brianomeara.info/sites/default/files/UTKEEB464_Lecture23_Escalation_2014.pdf)
+
+
+  * Lecture 25: Flight: [PDF](http://brianomeara.info/sites/default/files/UTKEEB464_Lecture25_Flight_2014.pdf)
+
+
+  * Lecture 26: Dominance: [PDF](http://brianomeara.info/sites/default/files/UTKEEB464_Lecture26_Dominance_2014.pdf)
+
+
+  * Lecture 27: Invasive humans: [PDF](http://brianomeara.info/sites/default/files/UTKEEB464_Lecture27_InvasiveHumans_2014.pdf)
+
+
+  * Lecture 28: Disease evolution: [PDF](http://brianomeara.info/sites/default/files/UTKEEB464_Lecture28_DiseaseEvolution_2014.pdf)
+
+
+  * Lecture 29: Origin of life: [PDF](http://brianomeara.info/sites/default/files/UTKEEB464_Lecture29_OriginOfLife_2014.pdf)
+
+
+  * Lecture 30: Contemporary evolution: [PDF](http://brianomeara.info/sites/default/files/UTKEEB464_Lecture30_ContemporaryEvolution_2014.pdf)
+
+
+  * Lecture 31: Insects: [PDF](http://brianomeara.info/sites/default/files/UTKEEB464_Lecture31_Insects_2014.pdf)
+
+
+  * Lecture 32: Stephen Jay Gould: [PDF](http://brianomeara.info/sites/default/files/UTKEEB464_Lecture32_2014_StephenJayGould_V01.pdf)
+
+
+  * Lecture 33: Language evolution: [PDF](http://brianomeara.info/sites/default/files/UTKEEB464_Lecture33_2014_LanguageEvolution.pdf)
+
+
+  * Lecture 34: Evolution of intelligence: [PDF](http://brianomeara.info/sites/default/files/UTKEEB464_Lecture34_2014_EvolutionOfIntelligence.pdf)
+
+
+  * Lecture 35: Marsupials: [PDF](http://brianomeara.info/sites/default/files/UTKEEB464_Lecture35_2014_Marsupials.pdf)
+
+
+**Study guide for final**
+Some sample questions for the essay portion of the final:
+Study guide/possible exam questions for EEB464 Macroevolution. This focuses on the essay type questions for the exam.
+Why may life have been single celled for a long time?
+Describe a major event (such as a mass extinction, colonization of land, etc.) and its subsequent effects.
+How do we learn about organisms with no living descendants, such as trilobites? How would living descendants affect how we can learn about them?
+Can behavior be fossilized? If so, give two examples.
+How can something become a fossil?
+How has continental drift affected the location of organisms?
+Why don’t barracuda eat cleaner wrasse?
+Why bother making phylogenies?
+What is a phylogeny?
+Can species be treated as independent data points in a statistical analysis? Why or why not?
+How can movement of land lead to speciation?
+What was the Great Faunal Interchange?
+Describe island biogeography. Why is it relevant to this class?
+Contrast pre and postzygotic mating barriers
+What are Dobzhansky-Muller Incompatibilities?
+Compare allopatric and sympatric speciation.
+How might hybrids have greater fitness than their parents?
+Explain the importance of Wolbachia.
+Describe the cause of a contemporary group of extinctions.
+Give an example of a biological trait that may increase extinction risk. Why might it?
+How could phylogenetic diversity be useful for conservation?
+Describe a simple model for species diversification.
+Compare and contrast speciation rate and diversification rate.
+How may trait transitions and diversification rates together affect evolution of a group?
+Which requirement for natural selection is most important? Why?
+What, in the context of this class, is an advantage of sexual reproduction?
+Describe Muller’s ratchet
+Describe one mechanism of sexual selection.
+What is Cope’s rule? Why might it be true?
+Contrast what a passive and an active trend mean.
+How would you detect evidence of a trend?
+Contrast mutualism with parasitism. How can one change into the other?
+Give an example of a commensalism.
+Define what is an evolutionarily stable strategy?
+Why is “the good of the species” a problematic concept?
+Why might a prey item call out to a predator?
+What is inclusive fitness?
+What is Hamilton’s rule?
+Give a behavior the idea of inclusive fitness could explain.
+Why can it be empirically difficult to know if two populations are the same or different species?
+Relate Darwin’s work on reefs to his work on evolution.
+What are some potential reasons that gliding evolves much more often than flight?
+What evidence links humans to some megafaunal extinctions?
+Pasteur showed life does not spontaneously appear. Biologists believe life originally spontaneously appeared. Reconcile these views.
+Use insects as an example of a macroevolutionary process.
+What may explain evolution of intelligence?
+What factors affect evolution of virulence in diseases?
+How would you test the idea of punctuated equilibrium?
+Have marsupials converged on placental mammals more than you’d expect under a null model? Why or why not?
+Has development of agriculture and modern medicine stopped human evolution via natural selection? Provide evidence.
+
+
+* * *
+
+
+
+
+Don't forget the [anonymous feedback form](http://www.brianomeara.info/feedback)
+
+
+

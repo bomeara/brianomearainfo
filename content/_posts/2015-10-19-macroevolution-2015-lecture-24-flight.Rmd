@@ -1,0 +1,17 @@
+---
+author: brianomeara_ra6153
+comments: false
+date: 2015-10-19 02:37:17+00:00
+layout: post
+link: http://www.brianomeara.info/2015/10/18/macroevolution-2015-lecture-24-flight/
+slug: macroevolution-2015-lecture-24-flight
+title: 'Macroevolution 2015: Lecture 24, Flight'
+wordpress_id: 365
+categories:
+- Macroevolution
+- Teaching
+---
+
+Understand convergent evolution of a complex trait through the investigation of the evolution of flight.
+[UTKEEB464_Lecture24_Flight_2015.pptx](http://brianomeara.info/wordpress_beta/wp-content/uploads/2015/10/UTKEEB464_Lecture24_Flight_2015.pptx)
+[UTKEEB464_Lecture24_Flight_2015.pdf](http://brianomeara.info/wordpress_beta/wp-content/uploads/2015/10/UTKEEB464_Lecture24_Flight_2015.pdf)

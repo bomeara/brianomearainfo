@@ -1,0 +1,27 @@
+---
+author: brianomeara_ra6153
+comments: false
+date: 2016-10-03 13:57:14+00:00
+layout: post
+link: http://www.brianomeara.info/2016/10/03/macroevolution-2016-lecture-17-trends/
+slug: macroevolution-2016-lecture-17-trends
+title: 'Macroevolution 2016: Lecture 17, Trends'
+wordpress_id: 574
+categories:
+- Macroevolution
+- Teaching
+---
+
+Learning objectives:
+
+
+
+ 	
+  * What could explain a trend?
+
+ 	
+  * How could you test it?
+
+
+[utkeeb464_lecture17_trends_2016.pdf](http://brianomeara.info/wordpress_beta/wp-content/uploads/2016/10/UTKEEB464_Lecture17_Trends_2016.pdf)
+[utkeeb464_lecture17_trends_2016.pptx](http://brianomeara.info/wordpress_beta/wp-content/uploads/2016/10/UTKEEB464_Lecture17_Trends_2016.pptx)

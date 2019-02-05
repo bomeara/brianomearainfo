@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ECQ on Academic</title>
+    <link>/categories/ecq/</link>
+    <description>Recent content in ECQ on Academic</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 12 Aug 2015 20:05:22 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/ecq/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Evolutionary Quantitative Genetics 2015</title>
+      <link>/_posts/evolutionary-quantitative-genetics-2015/</link>
+      <pubDate>Wed, 12 Aug 2015 20:05:22 +0000</pubDate>
+      
+      <guid>/_posts/evolutionary-quantitative-genetics-2015/</guid>
+      <description>This will be my third year teaching in this course, organized by Steve Arnold and Joe Felsenstein. I am teaching about Brownian motion, Bayesian vs likelihood, and Ornstein-Uhlenbeck processes. Please see the ECQ2015 site for more information. Thanks to NIMBioS and American Society of Naturalists for funding.</description>
+    </item>
+    
+  </channel>
+</rss>

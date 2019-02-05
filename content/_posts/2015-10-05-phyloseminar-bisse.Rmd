@@ -1,0 +1,19 @@
+---
+author: brianomeara_ra6153
+comments: false
+date: 2015-10-05 04:00:38+00:00
+layout: post
+link: http://www.brianomeara.info/2015/10/05/phyloseminar-bisse/
+slug: phyloseminar-bisse
+title: Phyloseminar BiSSE
+wordpress_id: 340
+categories:
+- Phyloseminar
+- Teaching
+---
+
+Exercise by Rosana Zenil-Ferguson for understanding diversitree.
+[Week6-BisseTutorial.pdf](http://brianomeara.info/wordpress_beta/wp-content/uploads/2015/10/Week6-BisseTutorial.pdf)
+[Week6-BisseTutorial.Rmd](http://www.brianomeara.info/wp-content/uploads/2015/10/Week6-BisseTutorial.rmd)
+[bird_pruned_MB.newick](http://brianomeara.info/wordpress_beta/wp-content/uploads/2015/10/bird_pruned_MB.newick)
+[birdmigration.txt](http://brianomeara.info/wordpress_beta/wp-content/uploads/2015/10/birdmigration.txt)

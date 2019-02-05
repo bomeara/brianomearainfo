@@ -1,0 +1,28 @@
+---
+author: brianomeara_ra6153
+comments: false
+date: 2015-09-11 04:19:41+00:00
+layout: post
+link: http://www.brianomeara.info/2015/09/11/macroevolution-2015-lecture-9-speciation/
+slug: macroevolution-2015-lecture-9-speciation
+title: 'Macroevolution 2015: Lecture 9, Speciation'
+wordpress_id: 278
+categories:
+- Macroevolution
+- Teaching
+---
+
+Learning objectives:
+
+
+
+	
+  * Describe pre and postzygotic isolation
+
+	
+  * Understand potential barriers to gene flow
+
+
+
+
+[UTKEEB464_Lecture9_Speciation1_2015.pdf](http://brianomeara.info/wordpress_beta/wp-content/uploads/2015/09/UTKEEB464_Lecture9_Speciation1_2015.pdf) [UTKEEB464_Lecture9_Speciation1_2015.pptx](http://brianomeara.info/wordpress_beta/wp-content/uploads/2015/09/UTKEEB464_Lecture9_Speciation1_2015.pptx)

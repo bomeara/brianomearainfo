@@ -1,0 +1,802 @@
+---
+author: brianomeara_ra6153
+comments: false
+date: 2011-08-01 04:11:59+00:00
+layout: post
+link: http://www.brianomeara.info/2011/08/01/macroevolution-2011/
+slug: macroevolution-2011
+title: Macroevolution 2011
+wordpress_id: 103
+categories:
+- Macroevolution
+---
+
+## Macroevolution (EEB464, 2011)
+
+
+**Syllabus** [PDF](http://brianomeara.info/sites/default/files/UTK_2011_Fall_EEB464_SyllabusV01.pdf)
+**Lectures**
+ [![Creative Commons License](http://brianomeara.info/sites/default/files/88x31.png)](http://creativecommons.org/licenses/by-nc-sa/3.0/)  
+You can adopt these for your own work, with attribution. Note that I have attempted to use only images licensed under such terms myself, but you should take care, especially with images from papers or embedded videos. I have attributed all the media used (with some exceptions for public domain items), and I think this is fair use for education, but I am not a lawyer.
+Slides are generally available as PDFs below.
+This class is taught with a mixture of lecture, class discussions, readings, white board scribblings, and interactive programs, generally written de novo for the course. The slides alone thus do not contain all the information the students learned (or at least were exposed to).
+**Office hours**
+Meeting with a faculty member one on one is something that is not done enough by students. Rather than have a fixed time for office hours, where it might not be convenient for many students, they are by appointment. You can see empty slots in my schedule [here](http://www.brianomeara.info/calendars/omeara). Please email ahead of time for an appointment (and wait for a reply), don't just show up.
+Also, please do not forget the [anonymous feedback](http://brianomeara.info/feedback) form. If you see a way to improve the class, let me know while it can still benefit you.
+<table border="1" >
+ 
+ 
+ <tr >
+  
+<td >Date
+</td>
+  
+<td >Topic
+</td>
+  
+<td >Big question
+</td>
+  
+<td >Taxon to have learned
+</td>
+  
+<td >Assignment
+</td>
+ </tr>
+ <tr >
+  
+<td >W 08/17
+</td>
+  
+<td >Pre-test, [syllabus](http://brianomeara.info/sites/default/files/UTK_2011_Fall_EEB464_SyllabusV01.pdf)
+</td>
+  
+<td >
+</td>
+  
+<td >-
+</td>
+  
+<td >
+</td>
+ </tr>
+ <tr >
+  
+<td >F 08/19
+</td>
+  
+<td >[History of planet & life ](http://brianomeara.info/sites/default/files/UTKEEB464_Lecture1_18viii11_V01.pdf)
+</td>
+  
+<td >What is the history of life?
+</td>
+  
+<td >Crinoid
+</td>
+  
+<td >
+</td>
+ </tr>
+ <tr >
+  
+<td >M 08/22
+</td>
+  
+<td >[History of planet & life](http://brianomeara.info/sites/default/files/UTKEEB464_Lecture2_22xii11_V01.pdf)
+</td>
+  
+<td >What is the history of life?
+</td>
+  
+<td >Archaea
+</td>
+  
+<td >
+</td>
+ </tr>
+ <tr >
+  
+<td >W 08/24
+</td>
+  
+<td >[Evidence](http://brianomeara.info/sites/default/files/UTKEEB464_Lecture3_24viii11_V01_Evidence.pdf)
+</td>
+  
+<td >What is the history of life?
+</td>
+  
+<td >Bdelloid rotifers
+</td>
+  
+<td >
+</td>
+ </tr>
+ <tr >
+  
+<td >F 08/26
+</td>
+  
+<td >[Taphonomy](http://brianomeara.info/sites/default/files/UTKEEB461_Lecture4_26viii11_V01_Taphonomy.pdf)
+</td>
+  
+<td >What is the history of life?
+</td>
+  
+<td >Trilobite
+</td>
+  
+<td >
+</td>
+ </tr>
+ <tr >
+  
+<td >M 08/29
+</td>
+  
+<td >[Jargon](http://brianomeara.info/sites/default/files/UTKEEB461_Lecture5_29viii11_V01_Jargon.pdf)
+</td>
+  
+<td >
+</td>
+  
+<td >Acromyrmex
+</td>
+  
+<td >
+</td>
+ </tr>
+ <tr >
+  
+<td >W 08/31
+</td>
+  
+<td >[Phylogenetics](http://brianomeara.info/sites/default/files/UTKEEB464_Lecture6_31viii11_V0_1Phylogenetics.pdf)
+</td>
+  
+<td >What is the history of life?
+</td>
+  
+<td >Ammonite
+</td>
+  
+<td >
+</td>
+ </tr>
+ <tr >
+  
+<td >F 09/02
+</td>
+  
+<td >
+</td>
+  
+<td >What is the history of life? What explains
+  trait frequencies?
+</td>
+  
+<td >Ichthyornis dispar
+</td>
+  
+<td >
+</td>
+ </tr>
+ <tr >
+  
+<td >M 09/05
+</td>
+  
+<td >Labor day
+</td>
+  
+<td >
+</td>
+ </tr>
+ <tr >
+  
+<td >W 09/07
+</td>
+  
+<td >McClung field trip
+</td>
+  
+<td >What is the history of life? What
+  explains trait frequencies?
+</td>
+  
+<td >McClung foyer
+</td>
+  
+<td >
+</td>
+ </tr>
+ <tr >
+  
+<td >F 09/09
+</td>
+  
+<td >[Biogeography](http://brianomeara.info/sites/default/files/UTKEEB464_Lecture8_9ix11_V01_Biogeography.pdf)
+</td>
+  
+<td >What is the history of life?
+</td>
+  
+<td >Brachiopod
+</td>
+  
+<td >
+</td>
+ </tr>
+ <tr >
+  
+<td >M 09/12
+</td>
+  
+<td >[Speciation](http://brianomeara.info/sites/default/files/UTKEEB464_Lecture9_12ix11_V01_Speciation1.pdf)
+</td>
+  
+<td >Why are some groups more speciose than others?
+</td>
+  
+<td >Wolbachia
+</td>
+  
+<td >
+</td>
+ </tr>
+ <tr >
+  
+<td >W 09/14
+</td>
+  
+<td >[Speciation](http://brianomeara.info/sites/default/files/UTKEEB464_Lecture10_14ix11_V01_Speciation2.pdf)
+</td>
+  
+<td >Why are some groups more speciose than others?
+</td>
+  
+<td >Anomalocaris
+</td>
+  
+<td >
+</td>
+ </tr>
+ <tr >
+  
+<td >F 09/16
+</td>
+  
+<td >Guest lecture 1
+</td>
+  
+<td >HOX
+</td>
+  
+<td >Gasterosteus aculeatus
+</td>
+  
+<td >
+</td>
+ </tr>
+ <tr >
+  
+<td >M 09/19
+</td>
+  
+<td >[Extinction](http://brianomeara.info/sites/default/files/UTKEEB464_Lecture11_19ix11_V01_Extinction1.pdf)
+</td>
+  
+<td >Why are some groups more speciose than others?
+</td>
+  
+<td >Geospizinae
+</td>
+  
+<td >
+</td>
+ </tr>
+ <tr >
+  
+<td >W 09/21
+</td>
+  
+<td >[Extinction](http://brianomeara.info/sites/default/files/UTKEEB464_Lecture12_21ix11_V01_Extinction2.pdf)
+</td>
+  
+<td >Why are some groups more speciose than others?
+</td>
+  
+<td >Dionaea muscipula
+</td>
+  
+<td >
+</td>
+ </tr>
+ <tr >
+  
+<td >F 09/23
+</td>
+  
+<td >[Diversification](http://brianomeara.info/sites/default/files/UTKEEB464_Lecture13_23ix11_V01_Diversification1.pdf)
+</td>
+  
+<td >Why are some groups more speciose than others?
+</td>
+  
+<td >Tribolium
+</td>
+  
+<td >
+</td>
+ </tr>
+ <tr >
+  
+<td >M 09/26
+</td>
+  
+<td >[BISSE and ML/Bayes](http://brianomeara.info/sites/default/files/UTKEEB464_Lecture14_26ix11_BISSE_V01.pdf)
+</td>
+  
+<td >Why are some groups more speciose than others?
+</td>
+  
+<td >bonobo
+</td>
+  
+<td >
+</td>
+ </tr>
+ <tr >
+  
+<td >W 09/28
+</td>
+  
+<td >[Learning synthesis](http://brianomeara.info/sites/default/files/UTKEEB464_Lecture15_28ix11_TopicReview_V01.pdf)
+</td>
+  
+<td >
+</td>
+  
+<td >Lichen
+</td>
+  
+<td >In class fill out [this](https://docs.google.com/spreadsheet/viewform?formkey=dDB3ZkYyNzhKYTdYeE1PMEQwcHBLTVE6MQ).
+</td>
+ </tr>
+ <tr >
+  
+<td >F 09/30
+</td>
+  
+<td >Fall break
+</td>
+  
+<td >
+</td>
+ 
+<td >
+</td>
+ 
+<td >
+</td>
+ </tr>
+ <tr >
+  
+<td >M 10/03
+</td>
+  
+<td >[Natural selection & drift](http://brianomeara.info/sites/default/files/UTKEEB464_Lecture16_3x11_NaturalSelection_V01.pdf)
+</td>
+  
+<td >What explains trait frequencies? What sets the  rate of phenotypic evolution?
+</td>
+  
+<td >Fig wasp
+</td>
+  
+<td >
+</td>
+ </tr>
+ <tr >
+  
+<td >W 10/05
+</td>
+  
+<td >Discussion of speciation essays
+</td>
+  
+<td >
+</td>
+  
+<td >Anolis
+</td>
+  
+<td >
+</td>
+ </tr>
+ <tr >
+  
+<td >F 10/07
+</td>
+  
+<td >[Sex](http://brianomeara.info/sites/default/files/UTKEEB464_Lecture17_7x10_Sex_V01.pdf)
+</td>
+  
+<td >
+</td>
+  
+<td >Tunicates
+</td>
+  
+<td >
+</td>
+ </tr>
+ <tr >
+  
+<td >M 10/10
+</td>
+  
+<td >[Trends](http://brianomeara.info/sites/default/files/UTKEEB464_Lecture18_9x11_Trends_V01.pdf)
+</td>
+  
+<td >What explains trait frequencies? What sets the
+  rate of phenotypic evolution?
+</td>
+  
+<td >Spiny anteater
+</td>
+  
+<td >Midterm distributed
+</td>
+ </tr>
+ <tr >
+  
+<td >W 10/12
+</td>
+  
+<td >[Escalation](http://brianomeara.info/sites/default/files/UTKEEB464_Lecture19_11x11_Escalation_V01.pdf)
+</td>
+  
+<td >What explains trait frequencies? What sets the
+  rate of phenotypic evolution?
+</td>
+  
+<td >Eubacteria
+</td>
+  
+<td >
+</td>
+ </tr>
+ <tr >
+  
+<td >F 10/14
+</td>
+  
+<td >[Correlated Traits](http://brianomeara.info/sites/default/files/UTKEEB464_Lecture20_14x11_Correlation_V01.pdf)
+</td>
+  
+<td >What explains trait frequencies? What sets the
+  rate of phenotypic evolution?
+</td>
+  
+<td >Maiasaura
+</td>
+  
+<td >
+</td>
+ </tr>
+ <tr >
+  
+<td >M 10/17
+</td>
+ 
+<td >[Contingency](http://brianomeara.info/sites/default/files/UTKEEB464_Lecture21_16x11_Contingency_V01.pdf)
+</td>
+  
+<td >What explains trait frequencies? What sets the
+  rate of phenotypic evolution?
+</td>
+  
+<td >Isopod
+</td>
+  
+<td >Midterm due at 8 pm [postponed to Wed]
+</td>
+ </tr>
+ <tr >
+  
+<td >W 10/19
+</td>
+  
+<td >[Symbiosis](http://brianomeara.info/sites/default/files/UTKEEB464_Lecture22_19x11_Symbiosis_V01.pdf)
+</td>
+  
+<td >All
+</td>
+  
+<td >Riftia pachyptila
+</td>
+  
+<td >
+</td>
+ </tr>
+ <tr >
+  
+<td >F 10/21
+</td>
+  
+<td >[Systematics](http://brianomeara.info/sites/default/files/UTKEEB464_Lecture23_21x11_Systematics_V01.pdf)
+</td>
+  
+<td >What explains trait frequencies? What sets the
+  rate of phenotypic evolution?
+</td>
+ 
+<td >Ground sloth
+</td>
+  
+<td >
+</td>
+ </tr>
+ <tr >
+  
+<td >M 10/24
+</td>
+  
+<td >[Origin of life](http://brianomeara.info/sites/default/files/UTKEEB464_Lecture24_24x11_OriginOfLife_V01.pdf)
+</td>
+  
+<td >Basic
+</td>
+  
+<td >Thermus aquaticus
+</td>
+  
+<td >
+</td>
+ </tr>
+ <tr >
+  
+<td >W 10/26
+</td>
+  
+<td >[Evolution of flight](http://brianomeara.info/sites/default/files/UTKEEB464_Lecture25_26x11_EvolutionOfFLight_V01.pdf)
+</td>
+  
+<td >What explains trait frequencies? Why are some
+  groups more speciose than others?
+</td>
+  
+<td >Lycophytes
+</td>
+  
+<td >
+</td>
+ </tr>
+ <tr >
+  
+<td >F 10/28
+</td>
+  
+<td >[Heterochrony](http://brianomeara.info/sites/default/files/UTKEEB464_Lecture26_28x11_Heterochrony_V01.pdf)
+</td>
+  
+<td >What explains trait frequencies? Why are some
+  groups more speciose than others?
+</td>
+  
+<td >Strepsiptera
+</td>
+  
+<td >[heterochrony.zip](http://brianomeara.info/sites/default/files/heterochrony.zip)
+</td>
+ </tr>
+ <tr >
+  
+<td >M 10/31
+</td>
+ 
+<td >[Insects](http://brianomeara.info/sites/default/files/UTKEEB464_Lecture27_31x11_Insects_V01.pdf)
+</td>
+  
+<td >What is the history of life?
+</td>
+   
+<td >Diatom
+</td>
+  
+<td >Paper due at 8 pm
+</td>
+ </tr>
+ <tr >
+  
+<td >W 11/02
+</td>
+  
+<td >[Animal culture](http://brianomeara.info/sites/default/files/UTKEEB464_Lecture28_2xi11_AnimalCulture_V01.pdf)
+</td>
+  
+<td >
+</td>
+  
+<td >Dimetrodon
+</td>
+  
+<td >
+</td>
+ </tr>
+ <tr >
+  
+<td >F 11/04
+</td>
+  
+<td >[Contemporary human evolution](http://brianomeara.info/sites/default/files/UTKEEB464_Lecture29_4xi11_ContemporaryHumanEvolution_V01.pdf)
+</td>
+  
+<td >
+</td>
+  
+<td >Buchnera
+</td>
+  
+<td >
+</td>
+ </tr>
+ <tr >
+  
+<td >M 11/07
+</td>
+  
+<td >[Game theory](http://brianomeara.info/sites/default/files/UTKEEB464_Lecture30_7xi11_GameTheory_V01.pdf)
+</td>
+  
+<td >
+</td>
+  
+<td >Welwitschia
+</td>
+  
+<td >
+</td>
+ </tr>
+ <tr >
+  
+<td >W 11/09
+</td>
+  
+<td >[Animal play](http://brianomeara.info/sites/default/files/UTKEEB464_Lecture31_9xi11_AnimalPlay_V01.pdf)
+</td>
+  
+<td >
+</td>
+  
+<td >Ginkgo
+</td>
+  
+<td >
+</td>
+ </tr>
+ <tr >
+  
+<td >F 11/11
+</td>
+  
+<td >Work on presentations
+</td>
+  
+<td >
+</td>
+  
+<td >silversword
+</td>
+  
+<td >
+</td>
+ </tr>
+ <tr >
+  
+<td >M 11/14
+</td>
+  
+<td >[Evolution in Tennessee](http://brianomeara.info/sites/default/files/UTKEEB464_Lecture32_14xi11_TennesseeEvolution_V01.pdf)
+</td>
+  
+<td >
+</td>
+  
+<td >orca
+</td>
+  
+<td >
+</td>
+ </tr>
+ <tr >
+  
+<td >W 11/16
+</td>
+  
+<td >[Philosophy of science](http://brianomeara.info/sites/default/files/UTKEEB464_Lecture33_16xi11_PhilosophyOfScience_V01.pdf)
+</td>
+  
+<td >
+</td>
+  
+<td >Cordyceps
+</td>
+  
+<td >
+</td>
+ </tr>
+ <tr >
+  
+<td >F 11/18
+</td>
+  
+<td >Presentations
+</td>
+  
+<td >
+</td>
+  
+<td >Presentation
+</td>
+  
+<td >
+</td>
+ </tr>
+ <tr >
+  
+<td >M 11/21
+</td>
+  
+<td >Presentations
+</td>
+  
+<td >
+</td>
+  
+<td >Presentation
+</td>
+  
+<td >
+</td>
+ </tr>
+ <tr >
+  
+<td >W 11/23
+</td>
+  
+<td >Presentations
+</td>
+  
+<td >
+</td>
+  
+<td >Presentation
+</td>
+  
+<td >
+</td>
+ </tr>
+ <tr >
+  
+<td >F 11/25
+</td>
+  
+<td >Thanksgiving break
+</td>
+  
+<td >
+</td>
+ </tr>
+ <tr >
+  
+<td >M 11/28
+</td>
+  
+<td >Review
+</td>
+  
+<td >
+</td>
+ </tr>
+</table>

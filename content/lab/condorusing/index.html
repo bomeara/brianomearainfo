@@ -1,0 +1,65 @@
+---
+author: brianomeara_ra6153
+comments: false
+date: 2015-07-18 01:08:59+00:00
+layout: page
+link: http://www.brianomeara.info/lab/condorusing/
+slug: condorusing
+title: Condor Cluster
+wordpress_id: 18
+---
+
+
+
+<div id="how-to-use-condor" class="section level2">
+<h2>How to use condor:</h2>
+<p>First you need a job you want to run. Here is one, to be stored in a file called batch.R:
+<code>Sys.sleep(floor(runif(1,1,15))) #just to have this sample job take some time cat(date(),file=paste("datafile",floor(runif(1,0,100000)),".txt",sep=""),append=FALSE)</code>
+Then you need a bash script to run the job. Call it myprog. Here you can see it can run R, but also other commands, like echo
+<code>#! /bin/sh R CMD BATCH batch.R echo "I'm process id $$ on"</code>hostname<code>echo "This is sent to standard error" 1&gt;&amp;2 date echo "Running as binary $0" "$@" echo "My name (argument 1) is $1" echo "My sleep duration (argument 2) is $2" sleep $2 echo "Sleep of $2 seconds finished.  Exiting" exit 42</code>
+make the file executable: chmod u+x myprog
+Now make a script with commands for condor, call it myRjob.submit:
+<code>executable=myprog universe=vanilla arguments=Example.$(Cluster).$(Process) 5 output=results.output.$(Process) error=results.error.$(Process) transfer_input_files=batch.R log=results.log notification=never should_transfer_files=YES when_to_transfer_output = ON_EXIT queue 17</code>
+Include the names of any necessary input files in the transfer_input_files argument. Comma delimited, with NO spaces on either side of comma. Also see the <code>queue 17</code> argument: that will batch 17 copies of this job.
+Now to run: in terminal, do
+<code>condor_submit myRjob.submit</code>
+To get help with a command, do <code>command_name -h</code>
+<code>condor_submit</code>: followed by your submission file, sends off your jobs (like qsub)
+<code>condor_q</code>: tells you what is running (like qstat)
+Some of your jobs may be held. This means that at least one of them had an error. Condor stops submitting them until you think the error is fixed. You can then start them up again (even the one(s) that failed) using <code>condor_resume -username</code>, substituting your condor username for username. It could be that only one node is having problems, so you can just resume and hope that they’ll end up on other nodes. Better is to find the error, of course.
+<code>condor_status</code>: tells you the status of nodes
+<code>condor_rm</code>: followed by user name, removes that user’s jobs (no, you can’t delete someone else’s). You can also specify individual job numbers or cluster numbers (a set of related jobs). See <code>condor_rm -h</code> for more options.</p>
+</div>
+<div id="error-messages" class="section level2">
+<h2>Error messages:</h2>
+<p>“About to exec /condor/condor-install/var/execute/dir_7640/condor_exec.exe” followed by “Create_Process: child failed with errno 2 (No such file or directory) before exec()”: Probably means that something you’re trying to run is not installed on that machine.</p>
+</div>
+<div id="how-to-set-up-a-new-condor" class="section level2">
+<h2>How to set up a new condor</h2>
+<p>Our lab uses both UTK’s shared computing cluster, <a href="https://newton.utk.edu/">Newton</a>, which uses Sun Grid Engine for scheduling, and a set of <a href="http://www.brianomeara.info/lab/standards">Mac Pros</a> using <a href="http://www.cs.wisc.edu/condor/">Condor</a> for scheduling. Condor is nice as you can take advantage of unused CPU cycles on existing machines. It can be configured to only run when the computer is not otherwise being used (as measured by mouse/keyboard activity), though we run it so that jobs can keep running while people are working. Here is how we currently install Condor:</p>
+<ul>
+<li><p>Made a condor user using system preferences</p></li>
+<li><p><a href="http://support.apple.com/kb/ht1528">Enabled root user on OS X</a></p></li>
+<li><p>Used instructions at <a href="http://switchingtolinux.blogspot.com/2008/12/installing-condor-in-osx-105.html" class="uri">http://switchingtolinux.blogspot.com/2008/12/installing-condor-in-osx-105.html</a></p></li>
+<li><p>su to be superuser</p></li>
+<li><p>chmod a+rx ~condor</p></li>
+<li><p>cd /</p></li>
+<li><p>mkdir condor</p></li>
+<li><p>cd /condor</p></li>
+<li><p>put <em>tar.gz condor distro into /condor (will probably need to do this from another terminal window: sudo mv condir</em>.tar.gz /condor)</p></li>
+<li><p>tar -xvf *tar.gz</p></li>
+<li><p>cd condor-7*</p></li>
+<li><p><strong>If manager:</strong> ./condor_configure –install –install-dir=/condor/condor-installed –local-dir=/condor/condor-installed/var –owner=condor –type=manager,submit,execute<br />
+<strong>If execution/submission node:</strong> ./condor_configure –install –install-dir=/condor/condor-installed –local-dir=/condor/condor-installed/var –owner=condor –type=execute,submit –central-manager=omearalab13.bio.utk.edu</p></li>
+<li><p>PATH=$PATH:/condor/condor-installed/bin/:/condor/condor-installed/sbin/</p></li>
+<li><p>cp /PATH/TO/condor_config_TEMPLATE /condor/condor-installed/etc/condor_config (condor_config_TEMPLATE is my modification of the condor_config file)</p></li>
+<li><p>cp /PATH/TO/condor_config.local_TEMPLATE /condor/condor-installed/var/condor_config.local</p></li>
+<li><p>You may have to change CONDOR_IDS in condor_config.local to the output from “id -u condor”</p></li>
+<li><p>ln -s /condor/condor-installed/etc/condor_config ~condor/</p></li>
+<li><p>condor_master</p></li>
+<li><p>OS X will ask if you want to allow various condor daemons to have network access. You do.</p></li>
+<li><p>ps -ef|grep condor</p></li>
+<li><p>condor_status to see that it is running (might take a literal minute for polling the nodes)</p></li>
+<li><p>Edit root’s crontab: while still in su, crontab -e, then <span class="citation">@reboot</span> /condor/condor-installed/sbin//condor_master</p></li>
+</ul>
+</div>

@@ -1,0 +1,26 @@
+---
+author: brianomeara_ra6153
+comments: false
+date: 2017-10-11 03:03:30+00:00
+layout: post
+link: http://www.brianomeara.info/2017/10/10/macroevolution-lecture-19-game-theory/
+slug: macroevolution-lecture-19-game-theory
+title: 'Macroevolution: Lecture 19, Game theory'
+wordpress_id: 839
+categories:
+- Macroevolution
+- Teaching
+---
+
+Learning objectives
+
+
+
+    
+  * Learn basics of game theory
+
+    
+  * Understand classic examples
+
+
+[UTKEEB464_Lecture19_GameTheory_2017.pdf](http://brianomeara.info/wordpress_beta/wp-content/uploads/2017/10/UTKEEB464_Lecture19_GameTheory_2017.pdf) [UTKEEB464_Lecture19_GameTheory_2017.pptx](http://brianomeara.info/wordpress_beta/wp-content/uploads/2017/10/UTKEEB464_Lecture19_GameTheory_2017.pptx)

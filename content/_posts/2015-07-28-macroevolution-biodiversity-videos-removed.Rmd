@@ -1,0 +1,15 @@
+---
+author: brianomeara_ra6153
+comments: false
+date: 2015-07-28 04:24:29+00:00
+layout: post
+link: http://www.brianomeara.info/2015/07/28/macroevolution-biodiversity-videos-removed/
+slug: macroevolution-biodiversity-videos-removed
+title: Macroevolution / Biodiversity videos removed
+wordpress_id: 107
+categories:
+- Biodiversity
+- Macroevolution
+---
+
+I typically record videos of all my lectures and post them to YouTube. In my lectures, I may include a video clip or two available on YouTube, often from the BBC or a similar source of high quality videos. I make sure to credit these appropriately, and of course they're being used as short clips, educationally, with no ads or other commercial benefit to me. However, the BBC has lately been quite vigorous in scrubbing YouTube of any of my lectures with their content. I believe my use of their videos falls under "Fair Use", but I am not a lawyer, and I don't want to take the time to go through each of my lectures and scrub them of any video content or contest the BBC's claims. In any case, it is validly their content. I am thus turning all my videos from Macroevolution and Biodiversity "private": I can review them later to see what worked or didn't in class, but they are no longer available for anyone else to see. However, this is not a great loss: I have been surprised that in a class of ~200 students, most videos have 8 or fewer views, even on days where there were many students absent. I am keeping online my other videos, and will be creating more content for the Spring 2016 PhyloMeth class (which will be taught as a flipped class, with content available to everyone).

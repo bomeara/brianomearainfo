@@ -1,0 +1,19 @@
+---
+author: brianomeara_ra6153
+comments: false
+date: 2013-08-01 04:01:27+00:00
+layout: post
+link: http://www.brianomeara.info/2013/08/01/grad-core-phylogenetics-2013/
+slug: grad-core-phylogenetics-2013
+title: Grad Core Phylogenetics 2013
+wordpress_id: 87
+categories:
+- Grad Core
+---
+
+## Fall 2013:
+
+
+This year I co-taught the entire phylogenetics portion (tree building and tree using) with NIMBioS postdoc [Jeremy Beaulieu](http://www.jeremybeaulieu.org/). My slides (451 slides in total): Keynote ([206 MB](http://brianomeara.info/sites/default/files/OMearaPhylogenetics_Fall2013.key)), PDF ([61.1 MB](http://brianomeara.info/sites/default/files/OMearaPhylogenetics_Fall2013.pdf))
+The YouTube channel with lectures from this class is [here](http://www.youtube.com/playlist?list=PLGSdJRFzICcPqXyk64FqSVBX2XAvLVuVE) .
+

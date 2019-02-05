@@ -1,0 +1,17 @@
+---
+author: brianomeara_ra6153
+comments: false
+date: 2015-09-04 01:12:44+00:00
+layout: post
+link: http://www.brianomeara.info/2015/09/03/macroevolution-2015-lecture-7-empirical-distributions/
+slug: macroevolution-2015-lecture-7-empirical-distributions
+title: 'Macroevolution 2015: Lecture 7, Empirical Distributions'
+wordpress_id: 264
+categories:
+- Macroevolution
+- Teaching
+---
+
+Learning objective:
+Macroevolution is a process, but what patterns are we trying to describe?
+[UTKEEB464_Lecture7_EmpiricalDistributions_2015.pdf](http://brianomeara.info/wordpress_beta/wp-content/uploads/2015/09/UTKEEB464_Lecture7_EmpiricalDistributions_2015.pdf) [UTKEEB464_Lecture7_EmpiricalDistributions_2015.pptx](http://brianomeara.info/wordpress_beta/wp-content/uploads/2015/09/UTKEEB464_Lecture7_EmpiricalDistributions_2015.pptx)

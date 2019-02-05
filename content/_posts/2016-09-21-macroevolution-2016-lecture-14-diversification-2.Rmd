@@ -1,0 +1,26 @@
+---
+author: brianomeara_ra6153
+comments: false
+date: 2016-09-21 13:50:20+00:00
+layout: post
+link: http://www.brianomeara.info/2016/09/21/macroevolution-2016-lecture-14-diversification-2/
+slug: macroevolution-2016-lecture-14-diversification-2
+title: 'Macroevolution 2016: Lecture 14, Diversification 2'
+wordpress_id: 545
+categories:
+- Macroevolution
+- Teaching
+---
+
+Learning objectives
+
+
+
+ 	
+  * Understand a way to examine effect of traits on diversity
+
+ 	
+  * Be able to extend our discussions in class into new areas
+
+
+[utkeeb464_lecture14_diversification2_2016.pdf](http://brianomeara.info/wordpress_beta/wp-content/uploads/2016/09/UTKEEB464_Lecture14_Diversification2_2016.pdf) [utkeeb464_lecture14_diversification2_2016.pptx](http://brianomeara.info/wordpress_beta/wp-content/uploads/2016/09/UTKEEB464_Lecture14_Diversification2_2016.pptx)

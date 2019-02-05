@@ -1,0 +1,76 @@
+---
+author: brianomeara_ra6153
+comments: false
+date: 2011-08-01 04:04:07+00:00
+layout: post
+link: http://www.brianomeara.info/2011/08/01/grad-core-phylogenetics-2011/
+slug: grad-core-phylogenetics-2011
+title: Grad Core Phylogenetics 2011
+wordpress_id: 91
+categories:
+- Grad Core
+---
+
+## Syllabus Fall 2011:
+
+
+
+
+### Day 1
+
+
+**Topics**:
+Speciation
+Hybridization
+Slides: [PDF](http://brianomeara.info/sites/default/files/UTKEEB511_GradCore_12x11_Speciation.pdf).
+**_For homework, due by start of class Monday, do steps 1-15 of [this tutorial](http://www.brianomeara.info/tutorials/r_phylogenetics).**_
+
+
+### Day 2
+
+
+**Topics**:
+What trees are used for
+history of life + cool discoveries about topology
+tree terminology
+clades (dinos birds, reptiles, fish)
+sister groups, crown/stem, etc.
+rank and its importance
+homology
+heuristic search
+treespace
+Slides: [PDF](http://brianomeara.info/sites/default/files/2011x17_UTKEEB_Core_Phylogenetics1_V01.pdf).
+
+
+### Day 3
+
+
+**Topics**:
+Distance
+Parsimony
+Long branch attraction
+Models
+Model selection
+Bayes/Likelihood
+Slides: [PDF](http://brianomeara.info/sites/default/files/2011x19_UTKEEB_Core_Phylogenetics2_V01.pdf)
+Homework:
+The next assignment should be pretty fun. By next Monday, write a heuristic search algorithm for getting the maximum parsimony tree in R after downloading a set of GenBank sequences, also within R. I've sketched out a lot of the code -- the main tricky bit should be figuring out how to store the best tree as you go and learning how to use an if() function. Comments in ALL CAPS are the sections you should focus on for changing. You're encouraged to play with this assignment: maybe you want to plot the scores as you search, maybe you want to try different search strategies, etc. Feel free to email me for help or talk to your cohort-mates (remember you can use the blackboard forum, too). R template [here](http://brianomeara.info/sites/default/files/treesearch.R).
+
+
+### Day 4
+
+
+Slides: [PDF](http://brianomeara.info/sites/default/files/2011x24_UTKEEB_Core_Phylogenetics3_V01.pdf)
+
+
+### Day 5
+
+
+Slides: [PDF](http://brianomeara.info/sites/default/files/2011x26_UTKEEB_Core_Phylogenetics4_V01.pdf)
+
+
+### Day 6
+
+
+Slides: [PDF](http://brianomeara.info/sites/default/files/2011x31_UTKEEB_Core_Phylogenetics5_V01.pdf)
+

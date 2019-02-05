@@ -1,0 +1,59 @@
+---
+author: brianomeara_ra6153
+comments: false
+date: 2013-08-01 04:10:00+00:00
+layout: post
+link: http://www.brianomeara.info/2013/08/01/macroevolution-2013/
+slug: macroevolution-2013
+title: Macroevolution 2013
+wordpress_id: 99
+categories:
+- Macroevolution
+---
+
+
+
+
+## Macroevolution (EEB464, 2013)
+
+
+
+
+**Syllabus** On blackboard
+
+
+
+
+
+
+
+### Slides
+
+
+
+
+All slides up to Oct. 2, 2013
+
+
+
+
+[PDF](http://brianomeara.info/sites/default/files/UTKEEB464_AllLecturesUpTo2x13.pdf)
+
+
+
+
+[PowerPoint](http://brianomeara.info/sites/default/files/UTKEEB464_AllLecturesUpTo2x13.pptx)
+
+
+
+
+### Software
+
+
+
+
+[mutationSelection.R](http://brianomeara.info/sites/default/files/mutationSelection.R). Do this on your local installation of R (download [here](http://cran.rstudio.com/)) or use the online implementations of R at [http://pbil.univ-lyon1.fr/Rweb/](http://pbil.univ-lyon1.fr/Rweb/) or [http://www.unt.edu/rss/Rinterface.htm](http://www.unt.edu/rss/Rinterface.htm). This will generate an image such as   
+![mutation selection simulation](http://brianomeara.info/sites/default/files/mutationSelection.png).
+
+
+

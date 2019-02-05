@@ -1,0 +1,17 @@
+---
+author: brianomeara_ra6153
+comments: false
+date: 2016-10-12 13:46:32+00:00
+layout: post
+link: http://www.brianomeara.info/2016/10/12/macroevolution-2016-lecture-20-inclusive-fitness/
+slug: macroevolution-2016-lecture-20-inclusive-fitness
+title: 'Macroevolution 2016: Lecture 20, Inclusive Fitness'
+wordpress_id: 587
+categories:
+- Macroevolution
+- Teaching
+---
+
+Understand inclusive fitness, Hamilton's rule.
+
+[utkeeb464_lecture20_inclusivefitness_2016.pdf](http://brianomeara.info/wordpress_beta/wp-content/uploads/2016/10/UTKEEB464_Lecture20_InclusiveFitness_2016.pdf) [utkeeb464_lecture20_inclusivefitness_2016.pptx](http://brianomeara.info/wordpress_beta/wp-content/uploads/2016/10/UTKEEB464_Lecture20_InclusiveFitness_2016.pptx)

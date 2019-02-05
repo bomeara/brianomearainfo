@@ -1,0 +1,32 @@
+---
+author: brianomeara_ra6153
+comments: false
+date: 2016-09-12 12:58:05+00:00
+layout: post
+link: http://www.brianomeara.info/2016/09/12/macroevolution-2016-lecture-10-speciation-2/
+slug: macroevolution-2016-lecture-10-speciation-2
+title: 'Macroevolution 2016: Lecture 10, speciation 2'
+wordpress_id: 528
+categories:
+- Macroevolution
+- Teaching
+---
+
+Learning objectives
+
+
+
+ 	
+  * Hybridization
+
+ 	
+  * Reinforcement
+
+ 	
+  * Self-incompatibility & diversity
+
+ 	
+  * Cytoplasmic incompatibility
+
+
+[utkeeb464_lecture10_speciation2_2016.pdf](http://brianomeara.info/wordpress_beta/wp-content/uploads/2016/09/UTKEEB464_Lecture10_Speciation2_2016.pdf) [utkeeb464_lecture10_speciation2_2016.pptx](http://brianomeara.info/wordpress_beta/wp-content/uploads/2016/09/UTKEEB464_Lecture10_Speciation2_2016.pptx)

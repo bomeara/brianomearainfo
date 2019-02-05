@@ -1,0 +1,17 @@
+---
+author: brianomeara_ra6153
+comments: false
+date: 2015-09-08 03:02:37+00:00
+layout: post
+link: http://www.brianomeara.info/2015/09/07/texas-am-eeb/
+slug: texas-am-eeb
+title: Texas A&M EEB
+wordpress_id: 273
+categories:
+- Talks
+---
+
+Talk on Sept 7, 2015, on "Dealing with the heterogeneity of life for comparative methods" to the [EEB interdisciplinary program](http://eeb.tamu.edu) at Texas A&M; my hosts were [Michelle Lawing](http://people.tamu.edu/~alawing/) and [Claudio Casola](http://agrilife.org/casolalab/).
+Work highlighted included Brownie, OUwie, hisse, FaMUSSE, and corhmm.
+The relevant papers can be seen at [Google Scholar](https://scholar.google.com/citations?user=vpjEkQwAAAAJ&hl=en).
+Talk as PDF: [2015ix7_TexasAM.pdf](http://brianomeara.info/wordpress_beta/wp-content/uploads/2015/09/2015ix7_TexasAM.pdf)

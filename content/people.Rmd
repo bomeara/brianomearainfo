@@ -1,0 +1,12 @@
+---
+author: brianomeara_ra6153
+comments: false
+date: 2015-07-27 03:20:01+00:00
+layout: page
+link: http://www.brianomeara.info/people/
+slug: people
+title: People
+wordpress_id: 58
+---
+
+[advanced_iframe src="https://bomeara.github.io/webmaterial/people.html" frameborder="0" scrolling="no" height="2000" ]

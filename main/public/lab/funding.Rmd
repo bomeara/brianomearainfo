@@ -1,0 +1,105 @@
+---
+author: brianomeara_ra6153
+comments: false
+date: 2015-07-18 01:09:48+00:00
+layout: page
+link: http://www.brianomeara.info/lab/funding/
+slug: funding
+title: Funding
+wordpress_id: 20
+---
+
+This is a list of successful grant applications from our lab (over $2.2 million since the lab started 6 years ago). The list of unsuccessful ones is rather longer.
+
+
+
+	
+  * 2015: [NSF: CAREER](http://brianomeara.info/sites/default/files/OMearaNSFCAREER_2014_Pruned.pdf) Reducing barriers for comparative methods (5 year grant)
+
+	
+  * 2015: NSF: Co-PI on Collaborative Research: ABI Development: An open infrastructure to disseminate phylogenetic knowledge (3 year grant)
+
+	
+  * 2013: NSF: PI on Population genetics-based codon models (3 year grant). [Mike Gilchrist](http://www.tiem.utk.edu/~mikeg/) and [Russ Zaretzki](http://web.utk.edu/~rzaretzk/) are Co-PIs.
+
+	
+  * 2013: Encyclopedia of Life: Reol, an R interface to Encyclopedia of Life data. PI is [Barb Banbury](http://www.barbbanbury.info), O'Meara is a subcontractor on this
+
+	
+  * 2013: NSF: PI on Phylogeographic Inference using Approximate Likelihoods (3 year grant). [Bryan Carstens](https://eeob.osu.edu/people/carstens) is Co-PI (only funds to UTK shown)
+
+	
+  * 2012: The iPlant Collaborative: A Cyberinfrastructure-Centered Community for a New Plant Biology. Funding for postdoc and salary for [rplant](https://r-forge.r-project.org/projects/rplant/).
+
+	
+  * 2012: Google Summer of Code to a student to work on a project relating to our approximate Bayesian computation comparative method approach
+
+	
+  * 2011: NSF: CoPI on "[Historical naming traditions and cryptic speciation bias biodiversity estimates](http://nsf.gov/awardsearch/showAward.do?AwardNumber=1144974)". PI [Karen Hughes](http://www.bio.utk.edu/mycology/People/hughes.htm), Co-PI [Ron Petersen](http://www.bio.utk.edu/mycology/People/petersen.htm).
+
+	
+  * 2011: The iPlant Collaborative: A Cyberinfrastructure-Centered Community for a New Plant Biology. Funding for postdoc and salary for trait evolution work.
+
+	
+  * 2010: The iPlant Collaborative: A Cyberinfrastructure-Centered Community for a New Plant Biology. Funding for postdoc and salary for trait evolution work.
+
+	
+  * 2010: Haines-Morris grant for a 2010-2011 seminar and discussion series on phylogenetics and community ecology, with a special focus on women in science. Grant to the EEB and Microbiology departments (principal organizers Brian O'Meara and Nate Sanders, associate organizers Alison Buchan, Aimee Classen, Brandon Matheny, Steven Wilhelm, Paul Armsworth, and Ben Fitzpatrick). EEB and Microbiology are also contributing to this series.
+
+	
+  * 2010: Google Summer of Code to a student to work on a project putting Brownie into R
+
+	
+  * 2009: Federal stimulus money, administered by the U. of Tennessee, Knoxville, for a 20 MacBook cart for teaching in the Ecology and Evolutionary Biology department
+
+	
+  * 2008: Google Summer of Code to a student to work on a project making an interactive database viewer for TreeTapper
+
+	
+  * 2007: [NESCent postdoctoral fellowship](http://www.nescent.org/news/newsdetail.php?id=22) (Funded until Nov. 2009, though left early for a job)
+
+	
+  * 2006: NSF [Dissertation Improvement Grant](http://www.nsf.gov/awardsearch/showAward.do?AwardNumber=0608487)
+
+	
+  * 2005: Center for Biosystematics Research Grant
+
+	
+  * 2005: Center for Population Biology Research Award
+
+	
+  * 2004: Center for Biosystematics Research Grant
+
+	
+  * 2004: Center for Population Biology Research Award
+
+	
+  * 2004: Jastro-Shields Graduate Research Scholarship
+
+	
+  * 2003: Center for Population Biology Research Award
+
+	
+  * 2003: Jastro-Shields Graduate Research Scholarship
+
+	
+  * 2003: National Science Foundation [Graduate Research Fellowship](https://www.fastlane.nsf.gov/b9/B9GFAwdList03.htm) Award.
+
+	
+  * 2002: Population Biology First Year Fellowship
+
+	
+  * 2002: National Science Foundation [Graduate Research Fellowship](https://www.fastlane.nsf.gov/b9/B9GFAwdList02.htm) Honorable Mention.
+
+
+I am also starting to post some past grant proposals, inspired by the example of [C. Titus Brown](http://ged.msu.edu/research.html#grants). I am not posting all, since many involve intellectual contributions by others, but this should give you examples that could be helpful in writing your own grants. Differential access to examples may be one of the subtle biases in science (are you at a big university with lots of grants to look at, or are you the only one in your area at a smaller institution) so whatever we can do to make this more accessible could help broaden the pool of scientists. I will report on outcomes but not include reviews.
+
+
+
+	
+  * [CAREER proposal 2014](http://brianomeara.info/sites/default/files/OMearaNSFCAREER_2014_Pruned.pdf): I have pruned off my department head's letter and my personal information, but I have left on everything else, not just the project description, so you can have a sense of how NSF budgets work.
+
+	
+  * [AVAToL ideas lab 2011](http://brianomeara.info/sites/default/files/OMearaAVAToL_PreliminaryProposal2011.pdf): The NSF issued a call for an [Ideas Lab activity to stimulate transformative approaches to building, visualizing, and analyzing an interactive tree of life](http://www.nsf.gov/pubs/2011/nsf11534/nsf11534.htm). Selection for participation in this Ideas Lab was required for later involvement in the [grants arising from it](https://www.nsf.gov/news/news_summ.jsp?cntn_id=124386), but I was not selected for it, so this may not be a positive example to use. Note that for Ideas Lab proposals, NSF may use an occupational psychologist to advise about applicants' potential to work in teams, develop new research ideas, and so forth (and did in this case), so proposals may need tuning to appeal to this kind of reviewer, as well.
+
+

@@ -1,0 +1,154 @@
+---
+author: brianomeara_ra6153
+comments: false
+date: 2015-07-18 01:15:32+00:00
+layout: page
+link: http://www.brianomeara.info/lab/mac_setup/
+slug: mac_setup
+title: New Mac setup
+wordpress_id: 26
+---
+
+We are a Mac lab. Basic info when setting up a new one (modifying heavily from Bob Rudis' example [here](https://rud.is/b/2015/10/22/installing-r-on-os-x-100-homebrew-edition/)):
+
+
+
+    
+  * Turn on, create initial account, register with UTK.
+
+    
+  * Create temporary account with admin privileges.
+
+    
+  * Restart in this account, then use Migration Assistant to copy existing lab accounts and files from existing computer.
+
+    
+  * Update all software (Mac App store)
+
+    
+  * Install Xcode from the Mac App store.
+
+    
+  * Open the Terminal.app in /Applications/Utilities.
+
+    
+  * Install xcode command line tools by entering the following command in Terminal. [note: do the same for all commands listed in boxes: copy them, paste them in Terminal, hit return].
+
+    
+  * 
+
+    
+     xcode-select --install
+
+
+
+
+    
+  * Install homebrew. This is a package manager for Mac (there's a linux version, too) that makes it easy to install applications with complex dependencies (alternatives are MacPorts and Fink, though I've found this most helpful). It's a bit too cutesy with the "homebrew" aspect (tap, cask, caskroom, etc.) but it works well.
+
+
+
+    
+    <code>/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"</code>
+
+
+
+
+
+    
+  * It will ask for  you password at that stage
+
+    
+  * Then install necessary things
+
+    
+  * 
+
+    
+    brew install svn
+    brew install git
+    brew install Caskroom/cask/xquartz
+
+
+
+
+    
+  * It will ask for your password in the xquartz install
+
+    
+  * 
+
+    
+    brew cask install java
+    brew tap homebrew/science
+    brew install R
+
+
+
+
+    
+  * This step will take some time. Now, install other useful things like RStudio and MacTeX. This can take some time (MacTex is HUGE)
+
+    
+    brew install Caskroom/cask/rstudio
+    brew cask install mactex
+
+
+
+
+    
+  * Password again for mactex.
+
+    
+  * 
+
+    
+    brew install libsvg curl libxml2 gdal geos boost
+    R CMD javareconf JAVA_CPPFLAGS=-I/System/Library/Frameworks/JavaVM.framework/Headers
+    brew tap caskroom/fonts
+    brew cask install font-fira-code
+    brew cask install iterm2
+    brew install r-gui
+    brew linkapps
+    brew tap jonchang/biology
+    brew install -v treepl
+    brew install r8s
+    brew install raxml
+    brew install revbayes
+    brew install phylip
+    brew install phyutility
+    brew install phlawd
+
+
+
+
+    
+  * Yay, now we've installed almost everything we need. Now let's get R a bunch of packages and configure things. First, set our CRAN repo:
+
+    
+  * 
+
+    
+    echo "r <- getOption('repos'); r['CRAN'] <- 'https://cloud.r-project.org/'; options(repos = r);" > ~/.Rprofile
+
+
+
+
+    
+  * Now start installing packages
+
+    
+  * 
+
+    
+    Rscript -e "install.packages('devtools')"
+    Rscript -e "install.packages('ctv')"
+    Rscript -e "ctv::install.views(c('Phylogenetics', 'Optimization', 'HighPerformanceComputing', 'ReproducibleResearch', 'WebTechnologies'))"
+
+
+
+
+    
+  * When you're done, you can periodically 'brew update' and 'brew upgrade' to get new versions of your installed software.
+
+

@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+<meta name="author" content="brianomeara_ra6153" />
+
+
+<title>Location/Contact</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Brian O'Meara</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="people.html">People</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Lab
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="guidelines.html">Guidelines &amp; Recommendations</a>
+    </li>
+    <li>
+      <a href="funding.html">Funding</a>
+    </li>
+    <li>
+      <a href="location.html">Location/Contact</a>
+    </li>
+    <li>
+      <a href="learningobjectives.html">Learning objectives</a>
+    </li>
+    <li>
+      <a href="better-letter.html">BetterLetter</a>
+    </li>
+    <li>
+      <a href="shouldyougotogradschool.html">Should you go to grad school to be a professor?</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Tutorials
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="aic.html">AIC</a>
+    </li>
+    <li>
+      <a href="phylogenetics.html">Phylogenetics</a>
+    </li>
+  </ul>
+</li>
+<li>
+  <a href="general.html">General</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Location/Contact</h1>
+<h4 class="author">brianomeara_ra6153</h4>
+<h4 class="date">2015-07-18 01:13:16+00:00</h4>
+
+</div>
+
+
+<p>Our lab is located at the <a href="http://www.utk.edu">University of Tennessee, Knoxville</a> in the <a href="http://eeb.bio.utk.edu/">Department of Ecology and Evolutionary Biology</a>. The nearest airport is <a href="http://www.tys.org/">Knoxville McGhee Tyson Airport (TYS)</a> and we are at the intersection of I-40 and I-75. We’re about three hours by car from Atlanta and Nashville (the nearest airports with direct flights to many destinations). The nearest Amtrak station is about three hours away by car (Atlanta, GA), and we’re approx. 60 miles away from the Appalachian Trail.</p>
+<div id="actual-office" class="section level2">
+<h2>Actual office</h2>
+<p>Faculty office: 446 Hesler Postdoc/student/visitor office: 425a Hesler</p>
+</div>
+<div id="email" class="section level2">
+<h2>Email</h2>
+<p><a href="mailto:bomeara@utk.edu">bomeara@utk.edu</a></p>
+</div>
+<div id="social" class="section level2">
+<h2>Social</h2>
+<p><span class="citation">[Tweet to @omearabrian]</span>(<a href="https://twitter.com/intent/tweet?screen_name=omearabrian" class="uri">https://twitter.com/intent/tweet?screen_name=omearabrian</a>) <span class="citation">[Follow @omearabrian]</span>(<a href="https://twitter.com/omearabrian" class="uri">https://twitter.com/omearabrian</a>)</p>
+</div>
+<div id="mail" class="section level2">
+<h2>Mail</h2>
+<p>O’Meara Lab Department of Ecology &amp; Evolutionary Biology 569 Dabney Hall University of Tennessee Knoxville, Tennessee 37996-1610</p>
+</div>
+<div id="phone" class="section level2">
+<h2>Phone</h2>
+<p>Faculty office: 865-974-2804 Postdoc/student/visitor space: 865-974-2815</p>
+</div>
+<div id="fax" class="section level2">
+<h2>Fax</h2>
+<p>865-974-3067 (but honestly, faxing?)</p>
+</div>
+<div id="map" class="section level2">
+<h2>Map</h2>
+<p>(Also see this <a href="http://goo.gl/maps/Xn1Z">map</a> with annotations)</p>
+<p><a href="http://maps.google.com/?ie=UTF8&amp;hq=&amp;ll=35.957305,-83.925751&amp;spn=0.002171,0.00376&amp;z=18&amp;source=embed">View Larger Map</a></p>
+</div>
+<div id="external-view" class="section level2">
+<h2>External view</h2>
+<p><a href="http://maps.google.com/maps?q=university+of+tennessee+knoxville&amp;oe=utf-8&amp;client=firefox-a&amp;ie=UTF8&amp;hl=en&amp;hq=&amp;hnear=University+of+Tennessee,+Knoxville,+Tennessee&amp;layer=c&amp;cbll=35.956945,-83.926478&amp;panoid=UnCKNv_JSmSHfDhwQqzAhw&amp;cbp=13,194.74,,0,-2.57&amp;ll=35.950652,-83.926363&amp;spn=0.021817,0.048237&amp;z=14&amp;source=embed">View Larger Map</a></p>
+</div>
+<div id="parking" class="section level2">
+<h2>Parking</h2>
+<p>There is a parking garage on Stadium Drive, which is behind Austin Peay/Hesler.</p>
+<p><a href="http://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=stadium+drive,+knoxville,+tn&amp;sll=35.899582,-84.049481&amp;sspn=0.016739,0.031757&amp;ie=UTF8&amp;hq=&amp;hnear=Stadium+Dr,+Knoxville,+Knox,+Tennessee+37916&amp;layer=c&amp;cbll=35.956738,-83.927912&amp;panoid=MlZtk5OY8WwXq1gW1TUGEw&amp;cbp=11,210.93,,0,1.81&amp;ll=35.956738,-83.927912&amp;spn=0.000612,0.00302&amp;z=18&amp;iwloc=A">View Larger Map</a></p>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

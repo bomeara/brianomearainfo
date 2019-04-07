@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+<meta name="author" content="brianomeara_ra6153" />
+
+
+<title>Software</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Brian O'Meara</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="people.html">People</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Lab
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="guidelines.html">Guidelines &amp; Recommendations</a>
+    </li>
+    <li>
+      <a href="funding.html">Funding</a>
+    </li>
+    <li>
+      <a href="location.html">Location/Contact</a>
+    </li>
+    <li>
+      <a href="learningobjectives.html">Learning objectives</a>
+    </li>
+    <li>
+      <a href="better-letter.html">BetterLetter</a>
+    </li>
+    <li>
+      <a href="shouldyougotogradschool.html">Should you go to grad school to be a professor?</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Tutorials
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="aic.html">AIC</a>
+    </li>
+    <li>
+      <a href="phylogenetics.html">Phylogenetics</a>
+    </li>
+  </ul>
+</li>
+<li>
+  <a href="general.html">General</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Software</h1>
+<h4 class="author">brianomeara_ra6153</h4>
+<h4 class="date">2015-07-27 03:26:23+00:00</h4>
+
+</div>
+
+
+<p>I develop a variety of open source software and scripts. I generally use perl for scripts and C/C++ for software, but I also code in R, PHP, javascript, and Matlab.</p>
+<p>Major:</p>
+<ul>
+<li><p><a href="http://www.brianomeara.info/brownie">Brownie</a>: Software for analyzing rate of continuous character evolution and testing for different rates in different groups. A version in beta testing allows investigation of correlation of discrete and continuous traits, many more models for discrete and continuous trait evolution, species delimitation, and more. There is even a graphical user interface! The code hosting has moved to <a href="http://code.google.com/p/brownie/">Google code</a></p></li>
+<li><p><a href="http://r-forge.r-project.org/projects/phylobase/">phylobase:</a> I co-organized a <a href="https://www.nescent.org/wg_phyloinformatics/R_Hackathon_1">hackathon in comparative methods in R</a>; the project I became involved in was a new package for R for loading and manipulating phylogenetic trees and data. My main contribution, developed with Derrick Zwickl, was code to load in NEXUS files of both trees and data.</p></li>
+<li><p><a href="http://www.brianomeara.info/mrfisher">MrFisher</a>: MrBayes modified to do likelihood searches. It’s just being tested more before being released. Code available <a href="http://code.google.com/p/mrfisher/">here</a></p></li>
+<li><p><a href="http://treetapper.nescent.org">TreeTapper:</a> The TreeTapper site uses a mixture of PostgreSQL, PHP, and javascript to organize and display data, such as automatically linking authors to their collaborators. It’s still in very active development, but will be released once it’s stabilized. See the <a href="http://treetapper-dev.blogspot.com/">development blog</a> for more info.</p></li>
+<li><p><a href="http://www.brianomeara.info/phylorunner">PhyloRunner</a>: PhyloRunner is a little program that allows you to double-click an icon to start a program and use Finder to navigate to the input file you want. It’s a way of running command-line only programs (r8s, recent PAUP, raxml, etc.) without having to use Terminal or learning Unix commands.</p></li>
+</ul>
+<p>Minor:</p>
+<ul>
+<li><p><a href="http://code.google.com/p/superdouble/">Superdouble</a>: A header file with a new number class for C++ to reduce overflow and underflow errors (such as when calculating likelihoods on a tree and log-transforming isn’t an option). See <a href="http://treetapper-dev.blogspot.com/2008/10/using-large-trees-is-surprisingly.html">blog post</a> about this.</p></li>
+<li><p><a href="http://code.google.com/p/dbgraphnav/">DBGraphNav</a>: This was proposed by me but written and largely designed by <a href="http://thefire.us/">Paul McMillan</a>, a UC Berkeley undergraduate I mentored through <a href="http://code.google.com/soc/2008/">Google Summer of Code</a>. It allows visual navigation of elements in a relational database by generating GraphViz image maps. It’s used in <a href="http://www.treetapper.org">TreeTapper</a> for coauthorship networks.</p></li>
+<li><p><a href="http://www.brianomeara.info/cgi-bin/modelpartition.cgi">ModelPartition</a>: A simple online tool for generating partitioned search commands for MrBayes.</p></li>
+<li><p><a href="http://www.brianomeara.info/SGEscripts.html">SGE scripts</a>: A series of bash and perl scripts I use to manage my jobs on a Rocks Sun Grid Engine Cluster. It basically allows queuing on top of the SGE queue, so that if I have thousands of jobs to submit, I can do so gradually rather than preventing other users from getting on the queue.</p></li>
+<li><p><a href="http://www.brianomeara.info/sites/default/files/concatenatenexusfiles.zip">Concatenate nexus files</a> script (.zip compressed): A simple perl script that takes a list of taxon names and a folder containing nexus files for individual genes and makes a new nexus file containing all the genes, dealing with missing taxa from some of the datasets appropriately, and makes charsets representing each of the genes. If the gene datasets have information on codon position from Mesquite or MacClade, this is used to make charsets for each gene and codon position, including introns.</p></li>
+<li><p><a href="http://brianomeara.info/sites/default/files/compareclades.zip">Compare clades</a> script (.zip compressed): A simple perl script that takes a list of observed newick gene trees, a list of simulated newick gene trees, and a list of assigments of samples to species and uses them to count the number of times each observed tree occurs in the list of simulated trees taking into account the many to one mappings of samples to species. I.e., if species A has samples 1,2,3 and species B has samples 4,5,6, tree ((1,(2,4)),(3(5,6)) matches tree ((2,(3,6)),(1(5,4)) [because they are both ((A,(A,B)),(A(B,B))]</p></li>
+<li><p><a href="http://brianomeara.info/sites/default/files/ProtTestToRAxML.zip">ProtTest to RAxML</a> script (.zip compressed): A simple perl script that takes a ProtTest output file and runs the appropriate RAxML model. It is still a bit rough (though it seems to work), so double check (that is why it outputs info on the models it is not using). It is currently configured to start a 200 rep quick bootstrap run automatically – you can turn this off by deleting the line that says “system($systemstring)”</p></li>
+<li><p><a href="http://www.brianomeara.info/researchtools/">Research Tools</a>: Software to manage collections and sequencing projects, including posting real-time information to the web and making dichotomous keys. Still in development, but see it in action on the <a href="http://www.brianomeara.info/myrmecocystus">Myrmecocystus</a> pages.</p></li>
+</ul>
+<p>Helpful links:</p>
+<ul>
+<li><p><a href="http://sourceforge.net/projects/ncl/">Nexus Class Library</a>: Allows C++ software to read NEXUS files. An older version is used in Brownie.</p></li>
+<li><p><a href="http://www.wxwidgets.org">wxWidgets</a>: Cross-platform library for creation of graphical user interfaces.</p></li>
+<li><p><a href="http://www.gnu.org/software/gsl/">GNU Scientific Library</a>: C code for math (linear algebra, numerical optimization, etc.).</p></li>
+<li><p><a href="http://taxonomy.zoology.gla.ac.uk/rod/rod.html">Rod Page</a>: Brownie uses his TreeLib.</p></li>
+<li><p><a href="http://home.uchicago.edu/%7Erhudson1/source/mksamples.html">ms</a>: A program to simulate gene trees under various models of population structure.</p></li>
+<li><p><a href="http://developer.yahoo.com/yui/">Yahoo! User Interface Library</a> (YUI): Javascript library for Ajax, tables, etc. (competing libraries are Dojo and Prototype). YUI has the best documentation and examples of any of the various javascript libraries I’ve seen.</p></li>
+</ul>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

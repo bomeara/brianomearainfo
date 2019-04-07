@@ -11,7 +11,7 @@
 
 
 
-<title>Model Selection Using the Akaike Information Criterion (AIC)</title>
+<title>service.utf8.md</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -314,27 +314,6 @@ $(document).ready(function () {
     <li>
       <a href="shouldyougotogradschool.html">Should you go to grad school to be a professor?</a>
     </li>
-    <li>
-      <a href="tenure.html">Tenure materials</a>
-    </li>
-    <li>
-      <a href="promotion.html">Promotion to full materials</a>
-    </li>
-  </ul>
-</li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Teaching
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li>
-      <a href="eeb464.html">Macroevolution (EEB464)</a>
-    </li>
-    <li>
-      <a href="http://phylometh.info/">Phylogenetic Methods</a>
-    </li>
   </ul>
 </li>
 <li class="dropdown">
@@ -367,23 +346,34 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Model Selection Using the Akaike Information Criterion (AIC)</h1>
 
 </div>
 
 
-<p>This web page basically summarizes information from <a href="http://books.google.com/books?id=BQYR6js0CC8C">Burnham and Anderson (2002)</a>. Go there for more information.</p>
-<p>The Akaike Information Criterion (AIC) is a way of selecting a model from a set of models. The chosen model is the one that minimizes the Kullback-Leibler distance between the model and the truth. It’s based on information theory, but a heuristic way to think about it is as a criterion that seeks a model that has a good fit to the truth but few parameters. It is defined as:</p>
-<p>AIC = -2 ( ln ( likelihood )) + 2 K</p>
-<p>where likelihood is the probability of the data given a model and K is the number of free parameters in the model. AIC scores are often shown as ∆AIC scores, or difference between the best model (smallest AIC) and each model (so the best model has a ∆AIC of zero).</p>
-<p>The second order information criterion, often called AICc, takes into account sample size by, essentially, increasing the relative penalty for model complexity with small data sets. It is defined as:</p>
-<p>AICc = -2 ( ln ( likelihood )) + 2 K * (n / ( n - K - 1))</p>
-<p>where n is the sample size. As n gets larger, AICc converges to AIC ( n - K -1 -&gt; n as n gets much bigger than K, and so (n / ( n - K - 1)) approaches 1), and so there’s really no harm in always using AICc regardless of sample size. In phylogenetics, defining “sample size” isn’t always obvious. In model selection for tree inference, sample size often refers to the number of sites (i.e., Posada and Crandall (2001)). In model selection in comparative methods, sample size often refers to the number of taxa (Butler and King, 2004; O’Meara et al., 2006).</p>
-<p>Akaike weights are can be used in model averaging. They represent the relative likelihood of a model. To calculate them, for each model first calculate the relative likelihood of the model, which is just exp( -0.5 * ∆AIC score for that model). The Akaike weight for a model is this value divided by the sum of these values across all models.</p>
-<p>Burnham, K. P., and D. R. Anderson. 2002. Model selection and multimodel inference : a practical information-theoretic approach. Springer, New York.</p>
-<p>Butler, M. A., and A. A. King. 2004. Phylogenetic comparative analysis: A modeling approach for adaptive evolution. American Naturalist 164:683-695.</p>
-<p>O’Meara, B. C., C. Ane, M. J. Sanderson, and P. C. Wainwright. 2006. Testing for different rates of continuous trait evolution using likelihood. Evolution 60:922-933.</p>
-<p>Posada, D., and K. A. Crandall. 2001. Selecting the best-fit model of nucleotide substitution. Systematic Biology 50:580-601.</p>
+<div id="service" class="section level2">
+<h2>Service</h2>
+<ul>
+<li>Joint Code of Conduct committee for Society for the Study of Evolution, Society of Systematic Biologists, and American Society of Naturalists, 2018-present</li>
+<li>Communications Director for the Society of Systematic Biologists (SSB), 2016-2017</li>
+<li>Co-organizer of iEvoBio meeting, 2016</li>
+<li>Co-organizer of SSB symposium on Breaking Barriers: Empirical, Theoretical, and Gender Issues in Phylogenetics for Evolution meetings in Brazil, 2015</li>
+<li>Co-organizer of SSB satellite meeting in May, 2015</li>
+<li>Co-organizer of iEvoBio meeting (met with SSB) May 2015</li>
+<li>Co-organizer of Evolution meetings, 2014, including sole organizer for lightning talks</li>
+<li>Co-organizer of iEvoBio meeting, 2014</li>
+<li>Member of Phylotastic leadership team (group arranging hackathons for making trees more reusable), 2012-present</li>
+<li>Organizer of lighting talks for Evolution meetings, 2013</li>
+<li>UTK Faculty advisor for Darwin Day Tennessee, 2012-present</li>
+<li>UTK Department representative on Dean’s advisory council, 2012-2014</li>
+<li>UTK EEB Undergraduate affairs committee, 2012-2013</li>
+<li>UTK EEB Graduate admissions committee, 2013-present</li>
+<li>Chair, UTK EEB Web committee, 2011-present</li>
+<li>Co-organizer of Comparative Methods in R hackathon, 2007</li>
+<li>Bay Area Biosystematists Steering Committee: 2004-2007</li>
+<li>Secretary Cambridge Entomological Club, 2001-2002</li>
+<li>Reviewer for <em>Science, Heredity, Molecular Phylogenetics and Evolution, Systematic Biology, Evolution, Systematic Entomology, Proceedings of the Royal Society: Biological Sciences</em>, US National Science Foundation, and others.</li>
+</ul>
+</div>
 
 
 

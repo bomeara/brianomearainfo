@@ -21,6 +21,16 @@ navbar:
           href: better-letter.html
         - text: "Should you go to grad school to be a professor?"
           href: shouldyougotogradschool.html
+        - text: "Tenure materials"
+          href: tenure.html
+        - text: "Promotion to full materials"
+          href: promotion.html
+    - text: "Teaching"
+      menu:
+        - text: "Macroevolution (EEB464)"
+          href: eeb464.html
+        - text: "Phylogenetic Methods"
+          href: http://phylometh.info/
     - text: "Tutorials"
       menu:
         - text: "AIC"

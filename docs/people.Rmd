@@ -1,0 +1,8 @@
+---
+layout: page
+link: http://www.brianomeara.info/people/
+slug: people
+title: People
+---
+
+<iframe src="https://bomeara.github.io/webmaterial/people.html" frameborder="0" scrolling="no" height="2000"></iframe>

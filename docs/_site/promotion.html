@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+<meta name="author" content="brianomeara_ra6153" />
+
+
+<title>Promotion to full</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Brian O'Meara</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="general.html">General</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Lab
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="guidelines.html">Guidelines &amp; Recommendations</a>
+    </li>
+    <li>
+      <a href="funding.html">Funding</a>
+    </li>
+    <li>
+      <a href="location.html">Location/Contact</a>
+    </li>
+    <li>
+      <a href="learningobjectives.html">Learning objectives</a>
+    </li>
+    <li>
+      <a href="better-letter.html">BetterLetter</a>
+    </li>
+    <li>
+      <a href="shouldyougotogradschool.html">Should you go to grad school to be a professor?</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Promotion to full</h1>
+<h4 class="author">brianomeara_ra6153</h4>
+<h4 class="date">2018-06-22 16:58:43+00:00</h4>
+
+</div>
+
+
+<p>I went up for tenure in 2014-5 and was awarded it in 2015; at the suggestion of colleagues in the department I am now going up for promotion to full in 2018-9.  This page will have information on my materials as they develop. For those writing letters, please check here for the latest info as publications appear, etc. My updated CV is <a href="http://www.brianomeara.info/cv">here</a> but perhaps more useful is a <a href="https://bomeara.github.io/webmaterial/OMearaCV_diff.pdf">CV</a> highlighting products only created since my tenure packet went in (the work that is the main focus on the promotion decision is in black text, the earlier work (summer 2014 and earlier) is in gray) which is <a href="https://bomeara.github.io/webmaterial/OMearaCV_diff.pdf">here</a>.</p>
+<div id="summary" class="section level2">
+<h2>Summary</h2>
+<ul>
+<li><p><strong>Publications </strong>38 journal articles, including Science, Nature, Ann. Rev Ecology, Evolution &amp; Systematics, Systematic Biology, Evolution, etc.</p></li>
+<li><p><strong>Teaching</strong> Approximately 3 courses per year on average, ranging from large introductory biology courses to small graduate seminars</p></li>
+<li><p><strong>Mentoring</strong> 4 PhD students (two graduated), 15 postdocs, 3 faculty, and served on 27 graduate student committees</p></li>
+<li><p><strong>Service/Outreach</strong> Darwin Day TN advisor, co-organizer of women in science symposium, workshops, and other activities, co-organizer for scientific meetings, curator of R phylogenetics task view, instructor at workshops in Sweden, Switzerland, Brazil, and various US locations (Ohio, TN, NC)</p></li>
+<li><p><strong>Leadership</strong> Associate Head for Dept. of Ecology &amp; Evolutionary Biology, 2016-present; Associate Director for the National Institute for Mathematical and Biological Synthesis, 2016-present; Code of Conduct Committee for SSE/SSB/ASN, 2018-present; Communications Director for the Society of Systematic Biologists, 2016-2017; Society of Systematic Biologists Council, 2012-2014; iEvoBio co-organizer, 2014-2016.</p></li>
+<li><p><strong>Funding</strong> $2.67M in external support, including 5 NSF grants (including a CAREER grant) plus funding from iPlant and Encyclopedia of Life</p></li>
+<li><p><strong>Altmetrics</strong> Number of citations = 3299; h-index = 20; 107 public github repos; Erdős number = 4; papers have been tweeted about 933 times, and have been mentioned 30 times in the news</p></li>
+</ul>
+</div>
+<div id="key-papers" class="section level2">
+<h2>Key papers</h2>
+<p>A welcome and increasing trend is for folks to read intensely a few papers to get a sense of a scientist, rather than (or in addition to) looking at count, impact factor of the journals published in, etc. For those doing this, I’d recommend these as good papers to dig into:</p>
+<ul>
+<li><p><a href="http://rspb.royalsocietypublishing.org/content/283/1830/20152304">O’Meara, Smith, et. al. 2016</a> [equal first authors]. This has some interesting methods in it, but I think the key importance of the paper is its focus on nonequilibrium dynamics and interactions between traits: it took tens of millions of years for angiosperms to evolve the key floral trait combinations that led to fast diversification. <a href="http://rspb.royalsocietypublishing.org/content/283/1830/20152304">http://rspb.royalsocietypublishing.org/content/283/1830/20152304</a></p></li>
+<li><p><a href="https://academic.oup.com/sysbio/article/65/4/583/1753616">Beaulieu and O’Meara 2016</a>. This paper describes a new method for looking at traits leading to diversification that also allows for unexamined traits to have some or all of the effect. The importance of this paper is the focus on using models to help learn new things about organisms, rather than just rejecting trivial nulls: “Surprise is a necessary part of discovery that, to put it bluntly, has been relatively lacking in trait-dependent diversification studies until now. With HiSSE we can still test our intuitions about a particular character, but we can also discover that rates seem to be driven by some unknown and unmeasured character state, allowing the data to help us generate new hypotheses”  <a href="https://academic.oup.com/sysbio/article/65/4/583/1753616">https://academic.oup.com/sysbio/article/65/4/583/1753616</a></p></li>
+<li><p><a href="https://doi.org/10.1093/sysbio/syx001">Jackson, Morales, Carstens, and O’Meara, 2017</a>. This describes software for examining multiple phylogeographic hypotheses. Most current approaches focus on a testing a few key hypotheses, or have constraints such as not allowing gene flow between diverging populations. This approach lets biologists examine a wide variety of hypotheses about possible histories of connections and subdivision between populations (<a href="https://doi.org/10.1093/sysbio/syw117">later work</a> extends this for species delimitation with gene flow).  <a href="https://doi.org/10.1093/sysbio/syx001">https://doi.org/10.1093/sysbio/syx001</a></p></li>
+</ul>
+</div>
+<div id="promotion-process" class="section level2">
+<h2>Promotion process</h2>
+<p>The process involves discussion and decisions based on the promotion materials (provided by the candidate and also review letters), plus information generated at each level (votes, summaries of decisions). The levels involved are:</p>
+<ol style="list-style-type: decimal">
+<li><p>Full professors in the department</p></li>
+<li><p>Department head</p></li>
+<li><p>College promotion and tenure committee</p></li>
+<li><p>College Dean</p></li>
+<li><p>Provost’s office</p></li>
+<li><p>President</p></li>
+<li><p>Board of trustees</p></li>
+</ol>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

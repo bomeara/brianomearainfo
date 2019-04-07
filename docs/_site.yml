@@ -1,0 +1,33 @@
+name: "Brian O'Meara"
+output_dir: "."
+navbar:
+  title: "Brian O'Meara"
+  left:
+    - text: "Home"
+      href: index.html
+    - text: "People"
+      href: people.html
+    - text: "Lab"
+      menu:
+        - text: "Guidelines & Recommendations"
+          href: guidelines.html
+        - text: "Funding"
+          href: funding.html
+        - text: "Location/Contact"
+          href: location.html
+        - text: "Learning objectives"
+          href: learningobjectives.html
+        - text: "BetterLetter"
+          href: better-letter.html
+        - text: "Should you go to grad school to be a professor?"
+          href: shouldyougotogradschool.html
+    - text: "Tutorials"
+      menu:
+        - text: "AIC"
+          href: aic.html
+        - text: "Phylogenetics"
+          href: phylogenetics.html
+    - text: "General"
+      href: general.html
+ 
+        

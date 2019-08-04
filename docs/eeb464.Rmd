@@ -262,46 +262,51 @@ assess whether the articles have been read.
 
 Final letter grades will be assigned at the end of the semester using an
 instructor-specified scale. I aim for grading consistency across years
-and with other courses at UTK. A typical scale for this class is:
+and with other courses at UTK.
+
+![Fluttershy teaching about phylogenetics](FluttershyPhylogeny.jpg)
+
 
 #### Presentations
 
-Here are all the presentations (in Powerpoint pptx format, but which can be opened in a variety of programs). Each class starts with learning objectives for that class.
+Here are all the presentations (in Powerpoint pptx format and pdf). Each class starts with learning objectives for that class.
 
-* [History of earth 1](files/UTKEEB464_Lecture01_History1_2018.pptx)
-* [History of earth 1](files/UTKEEB464_Lecture02_History2_2018.pptx)
-* [Evidence](files/UTKEEB464_Lecture03_Evidence_2018.pptx)
-* [Taphonomy](files/UTKEEB464_Lecture04_Taphonomy_2018.pptx)
-* [Jargon](files/UTKEEB464_Lecture05_Jargon_2018.pptx)
-* [Phylogenetics](files/UTKEEB464_Lecture06_Phylogenetics_2018.pptx)
-* [Empirical distributions](files/UTKEEB464_Lecture07_EmpiricalDistributions_2018.pptx)
-* [Biogeography](files/UTKEEB464_Lecture08_Biogeography_2018.pptx)
-* [Speciation 1](files/UTKEEB464_Lecture09_Speciation1_2018.pptx)
-* [Speciation 2](files/UTKEEB464_Lecture10_Speciation2_2018.pptx)
-* [Extinction 1](files/UTKEEB464_Lecture11_Extinction1_2018.pptx)
-* [Extinction 2](files/UTKEEB464_Lecture12_Extinction2_2018.pptx)
-* [Diversification 1](files/UTKEEB464_Lecture13_Diversification_2018.pptx)
-* [Diversification 2](files/UTKEEB464_Lecture14_Diversification2_2018.pptx)
-* [Natural selection](files/UTKEEB464_Lecture15_NaturalSelection_2018.pptx)
-* [Sex](files/UTKEEB464_Lecture16_Sex_2018.pptx)
-* [Trends](files/UTKEEB464_Lecture17_Trends_2018.pptx)
-* [Symbiosis](files/UTKEEB464_Lecture18_Symbiosis_2018.pptx)
-* [Game theory](files/UTKEEB464_Lecture19_GameTheory_2018.pptx)
-* [Inclusive fitness](files/UTKEEB464_Lecture20_InclusiveFitness_2018.pptx)
-* [Systematics](files/UTKEEB464_Lecture21_Systematics_2018.pptx)
-* [Darwin](files/UTKEEB464_Lecture22_Darwin_2018.pptx)
-* [Disease evolution](files/UTKEEB464_Lecture23_DiseaseEvolution_2018.pptx)
-* [Flight](files/UTKEEB464_Lecture24_Flight_2018.pptx)
-* [Invasive humans](files/UTKEEB464_Lecture25_InvasiveHumans_2018.pptx)
-* [Origin of life](files/UTKEEB464_Lecture26_OriginOfLife_2018.pptx)
-* [Contemporary evolution](files/UTKEEB464_Lecture27_ContemporaryEvolution_2018.pptx)
-* [Language evolution](files/UTKEEB464_Lecture28_2018_LanguageEvolution.pptx)
-* [Domestication](files/UTKEEB464_Lecture29_2018_Domestication.pptx)
-* [Stephen Jay Gould](files/UTKEEB464_Lecture30_2018_StephenJayGould.pptx)
-* [Insects](files/UTKEEB464_Lecture31_Insects_2018.pptx)
-* [Evolution of intelligence](files/UTKEEB464_Lecture32_2018_EvolutionOfIntelligence.pptx)
-* [Spider evolution](files/UTKEEB464_Lecture33_SpiderEvolution_2018.pptx)
-* [Paleoart](files/UTKEEB464_Lecture34_Paleoart_2018.pptx)
+
+* History of earth 1 [pptx](files/UTKEEB464_Lecture01_History1_2018.pptx) [pdf](files/UTKEEB464_Lecture01_History1_2018.pdf)
+* History of earth 2 [pptx](files/UTKEEB464_Lecture02_History2_2018.pptx) [pdf](files/UTKEEB464_Lecture02_History2_2018.pdf)
+* Evidence [pptx](files/UTKEEB464_Lecture03_Evidence_2018.pptx) [pdf](files/UTKEEB464_Lecture03_Evidence_2018.pdf)
+* Taphonomy [pptx](files/UTKEEB464_Lecture04_Taphonomy_2018.pptx) [pdf](files/UTKEEB464_Lecture04_Taphonomy_2018.pdf)
+* Jargon [pptx](files/UTKEEB464_Lecture05_Jargon_2018.pptx) [pdf](files/UTKEEB464_Lecture05_Jargon_2018.pdf)
+* Phylogenetics [pptx](files/UTKEEB464_Lecture06_Phylogenetics_2018.pptx) [pdf](files/UTKEEB464_Lecture06_Phylogenetics_2018.pdf)
+* Empirical distributions [pptx](files/UTKEEB464_Lecture07_EmpiricalDistributions_2018.pptx) [pdf](files/UTKEEB464_Lecture07_EmpiricalDistributions_2018.pdf)
+* Biogeography [pptx](files/UTKEEB464_Lecture08_Biogeography_2018.pptx) [pdf](files/UTKEEB464_Lecture08_Biogeography_2018.pdf)
+* Speciation 1 [pptx](files/UTKEEB464_Lecture09_Speciation1_2018.pptx) [pdf](files/UTKEEB464_Lecture09_Speciation1_2018.pdf)
+* Speciation 2 [pptx](files/UTKEEB464_Lecture10_Speciation2_2018.pptx) [pdf](files/UTKEEB464_Lecture10_Speciation2_2018.pdf)
+* Extinction 1 [pptx](files/UTKEEB464_Lecture11_Extinction1_2018.pptx) [pdf](files/UTKEEB464_Lecture11_Extinction1_2018.pdf)
+* Extinction 2 [pptx](files/UTKEEB464_Lecture12_Extinction2_2018.pptx) [pdf](files/UTKEEB464_Lecture12_Extinction2_2018.pdf)
+* Diversification 1 [pptx](files/UTKEEB464_Lecture13_Diversification_2018.pptx) [pdf](files/UTKEEB464_Lecture13_Diversification_2018.pdf)
+* Diversification 2 [pptx](files/UTKEEB464_Lecture14_Diversification2_2018.pptx) [pdf](files/UTKEEB464_Lecture14_Diversification2_2018.pdf)
+* Natural selection [pptx](files/UTKEEB464_Lecture15_NaturalSelection_2018.pptx) [pdf](files/UTKEEB464_Lecture15_NaturalSelection_2018.pdf)
+* Sex [pptx](files/UTKEEB464_Lecture16_Sex_2018.pptx) [pdf](files/UTKEEB464_Lecture16_Sex_2018.pdf)
+* Trends [pptx](files/UTKEEB464_Lecture17_Trends_2018.pptx) [pdf](files/UTKEEB464_Lecture17_Trends_2018.pdf)
+* Symbiosis [pptx](files/UTKEEB464_Lecture18_Symbiosis_2018.pptx) [pdf](files/UTKEEB464_Lecture18_Symbiosis_2018.pdf)
+* Game theory [pptx](files/UTKEEB464_Lecture19_GameTheory_2018.pptx) [pdf](files/UTKEEB464_Lecture19_GameTheory_2018.pdf)
+* Inclusive fitness [pptx](files/UTKEEB464_Lecture20_InclusiveFitness_2018.pptx) [pdf](files/UTKEEB464_Lecture20_InclusiveFitness_2018.pdf)
+* Systematics [pptx](files/UTKEEB464_Lecture21_Systematics_2018.pptx) [pdf](files/UTKEEB464_Lecture21_Systematics_2018.pdf)
+* Darwin [pptx](files/UTKEEB464_Lecture22_Darwin_2018.pptx) [pdf](files/UTKEEB464_Lecture22_Darwin_2018.pdf)
+* Disease evolution [pptx](files/UTKEEB464_Lecture23_DiseaseEvolution_2018.pptx) [pdf](files/UTKEEB464_Lecture22_Darwin_2018.pdf)
+* Flight [pptx](files/UTKEEB464_Lecture24_Flight_2018.pptx) [pdf](files/UTKEEB464_Lecture24_Flight_2018.pdf)
+* Invasive humans [pptx](files/UTKEEB464_Lecture25_InvasiveHumans_2018.pptx) [pdf](files/UTKEEB464_Lecture25_InvasiveHumans_2018.pdf)
+* Origin of life [pptx](files/UTKEEB464_Lecture26_OriginOfLife_2018.pptx) [pdf](files/UTKEEB464_Lecture26_OriginOfLife_2018.pdf)
+* Contemporary evolution [pptx](files/UTKEEB464_Lecture27_ContemporaryEvolution_2018.pptx) [pdf](files/UTKEEB464_Lecture27_ContemporaryEvolution_2018.pdf)
+* Language evolution [pptx](files/UTKEEB464_Lecture28_2018_LanguageEvolution.pptx) [pdf](files/UTKEEB464_Lecture28_2018_LanguageEvolution.pdf)
+* Domestication [pptx](files/UTKEEB464_Lecture29_2018_Domestication.pptx) [pdf](files/UTKEEB464_Lecture29_2018_Domestication.pdf)
+* Stephen Jay Gould [pptx](files/UTKEEB464_Lecture30_2018_StephenJayGould.pptx) [pdf](files/UTKEEB464_Lecture30_2018_StephenJayGould.pdf)
+* Insects [pptx](files/UTKEEB464_Lecture31_Insects_2018.pptx) [pdf](files/UTKEEB464_Lecture31_Insects_2018.pdf)
+* Evolution of intelligence [pptx](files/UTKEEB464_Lecture32_2018_EvolutionOfIntelligence.pptx) [pdf](files/UTKEEB464_Lecture32_2018_EvolutionOfIntelligence.pdf)
+* Spider evolution [pptx](files/UTKEEB464_Lecture33_SpiderEvolution_2018.pptx) [pdf](files/UTKEEB464_Lecture33_SpiderEvolution_2018.pdf)
+* Paleoart [pptx](files/UTKEEB464_Lecture34_Paleoart_2018.pptx) [pdf](files/UTKEEB464_Lecture34_Paleoart_2018.pdf)
+
 
 #### Study guide
 

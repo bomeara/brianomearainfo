@@ -1,12 +1,46 @@
 
+people <- read.delim2("people.txt", stringsAsFactors=FALSE)
+people$Stop <- as.character(people$Stop)
+people$Stop[is.na(people$Stop)] <- "present"
+people$Duration <- paste(people$Start,"-",people$Stop, sep="")
+people$Name <- paste(people$First,people$Last)
+for (i in sequence(dim(people)[1])) {
+  if(nchar(people$URL[i])>3) {
+    people$Name[i] <- paste("[", people$First[i], " ",people$Last[i],"](",people$URL[i], ")", sep="")
+  }
+}
 
-## Mentoring, Faculty
-
-Our department now has faculty mentored by a committee of later career faculty. I have served on committees for folks hired after me.
 
 
-Name               Department 
------------------  -----------
-Liz Derryberry     EEB        
-Stephanie Kivlin   EEB        
-Kimberly Sheldon   EEB        
+cat('\n\n## Mentoring, Postdocs\n\nI have mentored numerous postdocs off of my own grants and/or as one of their chosen NIMBioS mentors. Note that NIMBioS postdocs pursue independent research projects but choose one faculty member to mentor them in math and another to mentor them in biology (I have served in both roles).', file=paste(outdir, "/people.md", sep=""), sep='\n', append=TRUE)
+postdocs <- subset(people, Stage=="Postdoc")
+postdocs <- postdocs[order(postdocs$Last),]
+postdocs.pretty <- postdocs[,c("Name", "Duration", "NIMBioS", "CurrentPosition")]
+names(postdocs.pretty)[4] <- "Current Position"
+cat(capture.output(knitr::kable(postdocs.pretty, row.names=FALSE)), file=paste(outdir, "/people.md", sep=""), sep='\n', append=TRUE)
+
+cat('\n\n## Mentoring, Grad students in my lab\n\n ', file=paste(outdir, "/people.md", sep=""), sep='\n', append=TRUE)
+grads <- subset(people, Stage=="PhD student")
+grads <- grads[order(grads$Last),]
+grads.pretty <- grads[,c("Name","Stage", "Duration", "Note")]
+names(grads.pretty)[3] <- "Time in Lab"
+cat(capture.output(knitr::kable(grads.pretty, row.names=FALSE)), file=paste(outdir, "/people.md", sep=""), sep='\n', append=TRUE)
+
+cat('\n\n## Mentoring, Undergrad students in my lab\n\n ', file=paste(outdir, "/people.md", sep=""), sep='\n', append=TRUE)
+undergrads <- subset(people, Stage=="Undergrad")
+undergrads <- undergrads[order(undergrads $Last),]
+undergrads.pretty <- undergrads[,c("Name","Stage", "Duration", "Note")]
+names(undergrads.pretty)[3] <- "Time in Lab"
+cat(capture.output(knitr::kable(undergrads.pretty, row.names=FALSE)), file=paste(outdir, "/people.md", sep=""), sep='\n', append=TRUE)
+
+cat('\n\n## Mentoring, Grad student committees\n\nIn addition to my own students, of course.', file=paste(outdir, "/people.md", sep=""), sep='\n', append=TRUE)
+com <- subset(people, Stage=="Committee")
+com <- com[order(com$Last),]
+com.pretty <- com[,c("Name","Department")]
+cat(capture.output(knitr::kable(com.pretty, row.names=FALSE)), file=paste(outdir, "/people.md", sep=""), sep='\n', append=TRUE)
+
+cat('\n\n## Mentoring, Faculty\n\nOur department now has faculty mentored by a committee of later career faculty. I have served on committees for folks hired after me.', file=paste(outdir, "/people.md", sep=""), sep='\n', append=FALSE)
+faculty <- subset(people, Stage=="Faculty")
+faculty <- faculty[order(faculty$Last),]
+faculty.pretty <- faculty[,c("Name", "Department")]
+cat(capture.output(knitr::kable(faculty.pretty, row.names=FALSE)), file=paste(outdir, "/people.md", sep=""), sep='\n', append=TRUE)

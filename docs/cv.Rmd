@@ -1,17 +1,6 @@
 ---
-author: brianomeara_ra6153
-comments: false
-date: 2015-07-27 07:32:35+00:00
 layout: page
 link: http://www.brianomeara.info/cv/
 slug: cv
 title: CV
-wordpress_id: 66
 ---
-
-This CV is from June 2018: to see recent publications, go to [Google Scholar](https://scholar.google.com/citations?hl=en&user=vpjEkQwAAAAJ&view_op=list_works&sortby=pubdate).
-You may also download a PDF from [here](https://bomeara.github.io/webmaterial/OMearaCV.pdf). The CV is generated using information from [Orcid](http://orcid.org/0000-0002-0337-5997), [ImpactStory](https://impactstory.org/u/0000-0002-0337-5997), [GitHub](https://github.com/bomeara), and [Google Scholar](https://scholar.google.com/citations?user=vpjEkQwAAAAJ&hl=en). The code used to generate this is freely available [here](https://github.com/bomeara/cv), though it has to be updated to deal with Orcid's recent API changes.
-
-[advanced_iframe src="https://bomeara.github.io/webmaterial/OMearaCV.html" frameborder="0" scrolling="no" height="8000" ]
-
-

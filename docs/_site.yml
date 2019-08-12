@@ -25,8 +25,14 @@ navbar:
           href: tenure.html
         - text: "Promotion to full materials"
           href: promotion.html
+    - text: "CV"
+      href: cv.html
+    - text: "Publications"
+      href: publications.html
     - text: "Teaching"
       menu:
+        - text: "Teaching overall"
+          href: teaching.html
         - text: "Macroevolution (EEB464)"
           href: eeb464.html
         - text: "Phylogenetic Methods"
@@ -39,5 +45,3 @@ navbar:
           href: phylogenetics.html
     - text: "General"
       href: general.html
- 
-        

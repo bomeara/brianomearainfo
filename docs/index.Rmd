@@ -5,19 +5,20 @@ slug: home
 title: Home
 ---
 
-```{r include=FALSE, echo=FALSE, warning=FALSE}
-library(remotes)
-remotes::install_github("bomeara/cv")
+```{r render_md, include=FALSE, echo=FALSE, warning=FALSE}
+#library(remotes)
+#remotes::install_github("bomeara/cv")
 library(cv)
-cv::CreateMarkdown(outdir=".")
+cv::CreateMarkdown(outdir=".") # If this stalls, it could be because you're not authenticated to orcid
+#cv::FinalCompileCV(outdir=".", open.files=FALSE)
 md.files <- list.files(pattern="\\.md")
 file.rename(md.files, gsub(".md", ".Rmd",md.files))
-``` 
+```
 
 _Most of this website is written for a specialist scientific audience; folks who aren't scientists are very welcome to look around, but [this page](http://www.brianomeara.info/general) might be a more accessible introduction. For a compressed version of information about me, please see my [CV](http://brianomeara.info/cv/)._
 I am an associate professor at [U of Tennessee, Knoxville](http://www.utk.edu/), in the department of [Ecology & Evolutionary Biology](http://eeb.bio.utk.edu/). In my lab, we develop and apply phylogenetic tools to address evolutionary questions.
 
-[!HiSSE image](hisse.jpg) 
+![HiSSE image](hisse.jpg)
 
 Diversification diagram using HiSSE (from Beaulieu & O'Meara, 2016)
 
@@ -46,7 +47,7 @@ I work on empirical systems in collaboration with others as well as other kinds 
 
   * **Phylogeography**:Often in phylogeography we look at just a handful of models. In other cases, models must be restricted in some way, by, say, prohibiting migration. What if there were something like ModeTest but for phylogeography rather than nucleotide models? We have developed software, [phrapl](https://r-forge.r-project.org/projects/phrapl/), for this.
 
-![Spinning diagram](phrapl.gif) 
+![Spinning diagram](phrapl.gif)
 
 PHRAPL model for three populations[/caption]
 
@@ -79,4 +80,4 @@ I have increasingly been involved in service. Part comes from organizing things 
 ## Funding
 
 
-In the last eight years, work in the lab has been funded by five NSF grants to me as PI or Co-PI as well as awards from iPlant, Encyclopedia of Life, and Google Summer of Code to me or people doing work in the lab (see more info [here](http://www.brianomeara.info/funding)). Grad students in the lab have been supported by teaching assistantships as well as a [PEER](http://web.utk.edu/~peer/) fellowship. The UT Knoxville-based [National Institute for Mathematical and Biological Synthesis (NIMBioS)](http://www.nimbios.org/) remains critically important for my work, whether by funding independent postdocs (I have mentored seven NIMBioS postdocs, in addition to three additional postdocs in my lab with other funds), sponsoring workshops, or organizing working groups.
+In the last ten years, work in the lab has been funded by six NSF grants to me as PI or Co-PI as well as awards from iPlant, Encyclopedia of Life, and Google Summer of Code to me or people doing work in the lab (see more info [here](http://www.brianomeara.info/funding)). Grad students in the lab have been supported by teaching assistantships as well as a [PEER](http://web.utk.edu/~peer/) fellowship. The UT Knoxville-based [National Institute for Mathematical and Biological Synthesis (NIMBioS)](http://www.nimbios.org/) remains critically important for my work, whether by funding independent postdocs (I have mentored seven NIMBioS postdocs, in addition to three additional postdocs in my lab with other funds), sponsoring workshops, or organizing working groups.

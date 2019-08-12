@@ -1,12 +1,8 @@
 ---
-author: brianomeara_ra6153
-comments: false
-date: 2016-01-12 18:08:30+00:00
 layout: page
 link: http://www.brianomeara.info/feedback/
 slug: feedback
 title: Feedback
-wordpress_id: 448
 ---
 
-[iframe src="https://docs.google.com/forms/d/1BbVrk5UuR84cCEhhGGFMXYNAExjHqllxOW7oUuAoG4w/viewform?embedded=true#start=embed" width="760" height="1000" frameborder="0" marginheight="0" marginwidth="0"]
+<iframe src="https://docs.google.com/forms/d/1BbVrk5UuR84cCEhhGGFMXYNAExjHqllxOW7oUuAoG4w/viewform?embedded=true#start=embed" style="border: 0" width="760" height="1000" frameborder="0" marginheight="0" marginwidth="0"></iframe>

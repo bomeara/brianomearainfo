@@ -275,8 +275,23 @@ $(document).ready(function () {
         <li>
   <a href="index.html">Home</a>
 </li>
-<li>
-  <a href="people.html">People</a>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    CV, etc.
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="cv.html">CV</a>
+    </li>
+    <li>
+      <a href="calendar.html">Calendar</a>
+    </li>
+    <li>
+      <a href="feedback.html">Feedback</a>
+    </li>
+  </ul>
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -286,10 +301,10 @@ $(document).ready(function () {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="guidelines.html">Guidelines &amp; Recommendations</a>
+      <a href="people.html">People</a>
     </li>
     <li>
-      <a href="funding.html">Funding</a>
+      <a href="guidelines.html">Guidelines &amp; Recommendations</a>
     </li>
     <li>
       <a href="location.html">Location/Contact</a>
@@ -304,18 +319,15 @@ $(document).ready(function () {
       <a href="shouldyougotogradschool.html">Should you go to grad school to be a professor?</a>
     </li>
     <li>
-      <a href="tenure.html">Tenure materials</a>
+      <a href="tenure.html">Materials for promotion to associate (and tenure)</a>
     </li>
     <li>
-      <a href="promotion.html">Promotion to full materials</a>
+      <a href="promotion.html">Materials for promotion to full</a>
+    </li>
+    <li>
+      <a href="general.html">Info for general public</a>
     </li>
   </ul>
-</li>
-<li>
-  <a href="cv.html">CV</a>
-</li>
-<li>
-  <a href="publications.html">Publications</a>
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -349,9 +361,6 @@ $(document).ready(function () {
       <a href="phylogenetics.html">Phylogenetics</a>
     </li>
   </ul>
-</li>
-<li>
-  <a href="general.html">General</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -391,11 +400,10 @@ $(document).ready(function () {
 </ul>
 <div style="float:right">
 <div class="figure">
-<img src="phrapl.gif" alt="Spinning diagram" />
-<p class="caption">Spinning diagram</p>
+<img src="phrapl.gif" alt="PHRAPL diagram" />
+<p class="caption">PHRAPL diagram</p>
 </div>
 </div>
-<p>PHRAPL model for three populations[/caption]</p>
 <ul>
 <li><p><strong>Dating</strong>: Stephen Smith and I worked on a reimplementation of Mike Sanderson’s penalized likelihood to scale to large trees: <a href="http://blackrim.org/programs/treepl/">treepl</a> (<a href="http://bioinformatics.oxfordjournals.org/content/28/20/2689.long">Smith and O’Meara 2012</a>). If you can get it installed, it works well. I am also working on <a href="http://www.datelife.org/">datelife.org</a>, a repository of chronograms inspired by TimeTree but with an eye for reusability.</p></li>
 <li><p><strong>DNA/AA evolution</strong>: Read a recent phylogeny paper: they probably used GTR+G or a similar model, perhaps partitioned. We know far more about how DNA evolves than can be fit in a few parameter model, but a full, free codon model is generally too parameter-rich to fit, either. We have a method <a href="https://github.com/bomeara/selac">selac</a> that can combine models for mutation on nucleotides with selection on amino acids.</p></li>

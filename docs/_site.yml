@@ -5,14 +5,20 @@ navbar:
   left:
     - text: "Home"
       href: index.html
-    - text: "People"
-      href: people.html
+    - text: "CV, etc."
+      menu:
+        - text: "CV"
+          href: cv.html
+        - text: "Calendar"
+          href: "calendar.html"
+        - text: "Feedback"
+          href: "feedback.html"
     - text: "Lab"
       menu:
+        - text: "People"
+          href: people.html
         - text: "Guidelines & Recommendations"
           href: guidelines.html
-        - text: "Funding"
-          href: funding.html
         - text: "Location/Contact"
           href: location.html
         - text: "Learning objectives"
@@ -25,10 +31,8 @@ navbar:
           href: tenure.html
         - text: "Materials for promotion to full"
           href: promotion.html
-    - text: "CV"
-      href: cv.html
-    - text: "Publications"
-      href: publications.html
+        - text: "Info for general public"
+          href: general.html
     - text: "Teaching"
       menu:
         - text: "Teaching overall"
@@ -43,5 +47,3 @@ navbar:
           href: aic.html
         - text: "Phylogenetics"
           href: phylogenetics.html
-    - text: "General"
-      href: general.html

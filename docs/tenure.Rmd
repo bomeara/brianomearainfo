@@ -1,12 +1,8 @@
 ---
-author: brianomeara_ra6153
-comments: false
-date: 2015-07-29 03:17:52+00:00
 layout: page
 link: http://www.brianomeara.info/tenure/
 slug: tenure
 title: Tenure
-wordpress_id: 150
 ---
 
 I was up for tenure in the Department of Ecology and Evolutionary Biology at the U. of Tennessee, Knoxville, over the 2014-2015 school year. This involves being evaluated at the department, college, and university level for a history of research, teaching, and service. If ultimately approved (it was in my case), it results in great job security (though not absolute, which is probably good); if rejected, it results in a year to find another position before being fired.
@@ -45,11 +41,11 @@ Over the course of my time as an assistant professor, I have:
 
   * Service in improving representation of women in science, Darwin Day outreach, numerous workshops, hackathons, and conferences
 
-**Talk animated GIF**  
+**Talk animated GIF**
 
 ![](http://brianomeara.info/sites/default/files/OMearaTenureSlides.gif)
 **Some unusual or key slides from the talk:**
-  
+
 
 ![](http://brianomeara.info/sites/default/files/OMearaTenureEEBNetwork2014.jpg)
 Figure showing my integration into this department. The connections within the department were one of the things that made this position attractive, and I have formed many connections since arriving.
@@ -76,4 +72,3 @@ Support from various sources as an assistant professor: PI on two NSF grants, Co
 A tongue-in-cheek artist's depiction of the Council of the Society for Systematic Biologists.
 I am an elected member of this council as just one of my service activities, which include co-organizing Evolution 2014, iEvoBio, and Phylotastic hackathons, being the faculty advisor for Darwin Day Tennessee, organizing various initiatives to improve diversity in science, maintaining the [CRAN Task View for Phylogenetics](http://cran.r-project.org/web/views/Phylogenetics.html), plus various other department, college, and professional service activities.
 Original image from user [ThatGuyWithHeadPhones](http://www.comicvine.com/forums/battles-7/akatsuki-vs-jedi-council-1451424/), modified by me.
-

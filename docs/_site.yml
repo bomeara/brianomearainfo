@@ -16,7 +16,7 @@ navbar:
     - text: "Lab"
       menu:
         - text: "People"
-          href: people.html
+          href: personnel.html
         - text: "Guidelines & Recommendations"
           href: guidelines.html
         - text: "Location/Contact"

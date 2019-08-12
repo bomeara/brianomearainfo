@@ -7,7 +7,9 @@ title: People
 
 One way of looking at people in the lab is, appropriately enough, as a tree:
 
-<iframe src="https://academictree.org/evolution/tree.php?pid=129230" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+<iframe src="https://academictree.org/evolution/tree.php?pid=129230" style="border: 0" width="800" height="800" frameborder="0" scrolling="no"></iframe>
+
+
 
 But here is a more traditional view:
 

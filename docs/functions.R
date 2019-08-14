@@ -108,11 +108,15 @@ GenerateSitemap <- function(base_url="https://www.brianomeara.info") {
   map_links <- function(l) {
     tmp <- GET(l)
     d <- tmp$headers[['last-modified']]
-
+    formatted_date <- NA
+    try(formatted_date <- format(as.Date(d,format="%a, %d %b %Y %H:%M:%S")))
+    if(is.na(formatted_date)) {
+      formatted_date <- "2019-08-14"
+    }
     list(loc=l,
-         lastmod=format(as.Date(d,format="%a, %d %b %Y %H:%M:%S")),
+         lastmod=formatted_date,
          changefreq="monthly",
-         priority=ifelse(grepl("pptx|pdf",l), "0.6", "0.8")
+         priority=ifelse(grepl("pptx|pdf",l), "0.6", "0.8"))
   }
 
   links <- lapply(links, map_links)

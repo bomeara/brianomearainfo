@@ -3,7 +3,7 @@
 ## Publications
 
 
-I would recommend reading a few of my best papers to get a sense of my work; good examples are [O'Meara, Smith, et al. (2016)](https://doi.org/10.1098/rspb.2015.2304) and [Beaulieu & O'Meara (2016)](https://doi.org/10.1093/sysbio/syw022). Metrics are not as great (for example, my work with software might get cited than someone else's work on a new discovery about evolution, but it is not clear that the former is 'better') , but I know some people find them useful, so: According to Google Scholar, my work has been cited 4193 times, and my h-index is 25. (Google Scholar tends to overestimate citations, however). If there were a journal of just my papers, its 2018 impact factor would be 11.909. Also note that I work under a very stringent criterion for when I get authorship -- I have to actively make a significant contribution to the research and writing to merit authorship. For example, in 2015-6, three lab members had papers in *Science* ([grad student Sam Borstein](http://science.sciencemag.org/content/350/6264/1077.long), [postdoc Nick Matzke](http://science.sciencemag.org/content/351/6268/28), and [postdoc Sandy Kawano](http://science.sciencemag.org/content/353/6295/154.full)) but I am, appropriately to my mind, not an author on any of these.
+According to Google Scholar, my work has been cited 4199 times, and my h-index is 25. (Google Scholar tends to overestimate citations, however). Also note that I work under a very stringent criterion for when I get authorship -- I have to actively make a significant contribution to the research and writing to merit authorship. For example, in 2015-6, three lab members had papers in *Science* ([grad student Sam Borstein](http://science.sciencemag.org/content/350/6264/1077.long), [postdoc Nick Matzke](http://science.sciencemag.org/content/351/6268/28), and [postdoc Sandy Kawano](http://science.sciencemag.org/content/353/6295/154.full)) but I am, appropriately to my mind, not an author on any of these.
 
 
 ### Papers
@@ -25,13 +25,13 @@ I would recommend reading a few of my best papers to get a sense of my work; goo
 | JM Bosco, SE Riechert, BC O'Meara | 2017 | "The ontogeny of personality traits in the desert funnel-web spider, Agelenopsis lisa (Araneae: Agelenidae)" NA 123 (9), 648-658 | [10.1111/eth.12639](https://doi.org/10.1111/eth.12639) | 1 | 
 | O Schwery, BC O’Meara | 2016 | "MonoPhy : a simple R package to find and visualize monophyly issues" NA 2, e56 | [10.7717/peerj-cs.56](https://doi.org/10.7717/peerj-cs.56) | 8 | 
 | O Schwery, BC O’Meara | 2016 | "MonoPhy: A simple R package to find and visualize monophyly issues" NA 2, e56 | [10.7717/peerj-cs.56](https://doi.org/10.7717/peerj-cs.56) | 8 | 
-| JM Beaulieu, BC O’Meara | 2016 | "Detecting hidden diversification shifts in models of trait-dependent speciation and extinction" NA 65 (4), 583-601 | [10.1093/sysbio/syw022](https://doi.org/10.1093/sysbio/syw022) | 148 | 
+| JM Beaulieu, BC O’Meara | 2016 | "Detecting hidden diversification shifts in models of trait-dependent speciation and extinction" NA 65 (4), 583-601 | [10.1093/sysbio/syw022](https://doi.org/10.1093/sysbio/syw022) | 149 | 
 | BC O'Meara, SD Smith, WS Armbruster, LD Harder, CR Hardy, ... | 2016 | "Non-equilibrium dynamics and floral trait interactions shape extant angiosperm diversity" NA 283 (1830), 20152304 | [10.1098/rspb.2015.2304](https://doi.org/10.1098/rspb.2015.2304) | 31 | 
 | BC O'Meara, JM Beaulieu | 2016 | "Past, future, and present of state-dependent models of diversification" NA 103 (5), 792-795 | [10.3732/ajb.1600012](https://doi.org/10.3732/ajb.1600012) | 18 | 
 |  | 2015 | "Erratum: Three keys to the radiation of angiosperms into freezing environments (Nature (2014) 506 (89-92) (Doi:10.1038/nature12872))" NA  | [10.1038/nature14371](https://doi.org/10.1038/nature14371) | NA | 
 | BC O’Meara, KL Graham, SM Pellis, GM Burghardt | 2015 | "Evolutionary models for the retention of adult–adult social play in primates: The roles of diet and other factors associated with resource acquisition" NA 23 (6), 381-391 | [10.1177/1059712315611733](https://doi.org/10.1177/1059712315611733) | 8 | 
 | JM Beaulieu, BC O'Meara | 2015 | "Extinction can be estimated from moderately sized molecular phylogenies" NA 69 (4), 1036-1043 | [10.1111/evo.12614](https://doi.org/10.1111/evo.12614) | 68 | 
-| JM Beaulieu, BC O'Meara, P Crane, MJ Donoghue | 2015 | "Heterogeneous rates of molecular evolution and diversification could explain the triassic age estimate for angiosperms" NA 64 (5), 869-878 | [10.1093/sysbio/syv027](https://doi.org/10.1093/sysbio/syv027) | 58 | 
+| JM Beaulieu, BC O'Meara, P Crane, MJ Donoghue | 2015 | "Heterogeneous rates of molecular evolution and diversification could explain the triassic age estimate for angiosperms" NA 64 (5), 869-878 | [10.1093/sysbio/syv027](https://doi.org/10.1093/sysbio/syv027) | 59 | 
 | MSP Aldrovandi, JE Johnson, B O’Meara, RH Petersen, KW Hughes | 2015 | "The Xeromphalina campanella/kauffmanii complex: Species delineation and biogeographical patterns of speciation" NA 107 (6), 1270-1284 | [10.3852/15-087](https://doi.org/10.3852/15-087) | 5 | 
 | AE Zanne, DC Tank, WK Cornwell, JM Eastman, SA Smith, RG FitzJohn, ... | 2015 | "Zanne et al. reply" NA 521 (7552), E6 | [10.1038/nature14394](https://doi.org/10.1038/nature14394) | 1 | 
 |  | 2014 | "Erratum: Three keys to the radiation of angiosperms into freezing environments (Nature (2014) 506 (89-92) DOI:10.1038/nature12872)" NA  | [10.1038/nature13842](https://doi.org/10.1038/nature13842) | NA | 
@@ -39,7 +39,7 @@ I would recommend reading a few of my best papers to get a sense of my work; goo
 | DC Jhwueng, S Huzurbazar, BC O’Meara, L Liu | 2014 | "Investigating the performance of AIC in selecting phylogenetic models" NA 13 (4), 459-475 | [10.1515/sagmb-2013-0048](https://doi.org/10.1515/sagmb-2013-0048) | 5 | 
 | BL Banbury, BC O'Meara | 2014 | "Reol: R interface to the encyclopedia of life" NA 4 (12), 2577-2583 | [10.1002/ece3.1109](https://doi.org/10.1002/ece3.1109) | 3 | 
 | JH Williams, ML Taylor, BC O'Meara | 2014 | "Repeated evolution of tricellular (and bicellular) pollen" NA 101 (4), 559-571 | [10.3732/ajb.1300423](https://doi.org/10.3732/ajb.1300423) | 27 | 
-| AE Zanne, DC Tank, WK Cornwell, JM Eastman, SA Smith, RG FitzJohn, ... | 2014 | "Three keys to the radiation of angiosperms into freezing environments" NA 506 (7486), 89 | [10.1038/nature12872](https://doi.org/10.1038/nature12872) | 562 | 
+| AE Zanne, DC Tank, WK Cornwell, JM Eastman, SA Smith, RG FitzJohn, ... | 2014 | "Three keys to the radiation of angiosperms into freezing environments" NA 506 (7486), 89 | [10.1038/nature12872](https://doi.org/10.1038/nature12872) | 565 | 
 | JM Beaulieu, BC O'Meara, MJ Donoghue | 2013 | "Identifying hidden rate changes in the evolution of a binary morphological character: The evolution of plant habit in campanulid angiosperms" NA 62 (5), 725-737 | [10.1093/sysbio/syt034](https://doi.org/10.1093/sysbio/syt034) | 144 | 
 | C Darrin Hulsey, BP Keck, H Alamillo, BC O'Meara | 2013 | "Mitochondrial genome primers for Lake Malawi cichlids" NA 13 (3), 347-353 | [10.1111/1755-0998.12066](https://doi.org/10.1111/1755-0998.12066) | 12 | 
 | DE Soltis, ME Mort, M Latvis, EV Mavrodiev, BC O'Meara, PS Soltis, ... | 2013 | "Phylogenetic relationships and character evolution analysis of Saxifragales using a supermatrix approach" NA 100 (5), 916-929 | [10.3732/ajb.1300044](https://doi.org/10.3732/ajb.1300044) | 51 | 
@@ -64,21 +64,7 @@ I would recommend reading a few of my best papers to get a sense of my work; goo
 
 | Authors | Year | Title | Book |
 | -- | -- | -- | -- |
-| B O’Meara | 2016 | "Phylogenetic Comparative Method" | Encyclopedia of Evolutionary Biology | 
-| JM Beaulieu, BC O’Meara | 2014 | "Hidden Markov Models for Studying the Evolution of Binary Morphological Characters" | Modern Phylogenetic Comparative Methods and Their Application in Evolutionary Biology: Concepts and Practice | 
-| BC O’Meara, JM Beaulieu | 2014 | "Modelling Stabilizing Selection: The Attraction of Ornstein--Uhlenbeck Models" | Modern Phylogenetic Comparative Methods and Their Application in Evolutionary Biology: Concepts and Practice | 
-### Packages 
-
-Software developed in R (often associated with a publication, but not always)
-
-| Package | Authors | Description | Downloads |
-| -- | -- | -- | -- |
-| AnnotationBustR | Samuel R. Borstein <sam@borstein.com>, Brian O'Meara <bomeara@utk.edu> | Extract Subsequences from GenBank Annotations | 9508 |
-| BMhyb | Dwueng-Chwuan Jhwueng,  Brian C. O'Meara | Comparative Methods for Phylogenetic Networks | 7416 |
-| BMhyd | Dwueng-Chwuan Jhwueng <djhwueng@umail.iu.edu> and Brian O'Meara <omeara.brian@gmail.com> | PCM for Hybridization | 17643 |
-| corHMM | Jeremy M. Beaulieu <jbeaulieu@nimbios.org>, Jeffrey C. Oliver,   <jeffreycoliver@gmail.com>, Brian O'Meara <bomeara@utk.edu> | Analysis of Binary Character Evolution | 36952 |
-| hisse | Jeremy Beaulieu,  Brian O'Meara,  Daniel Caetano | Hidden State Speciation and Extinction | 30632 |
-| OUwie | Jeremy M. Beaulieu <jbeaulieu@nimbios.org>, Brian O'Meara <bomeara@utk.edu> | Analysis of Evolutionary Rates in an OU Framework | 38362 |
-| phylobase | R Hackathon et al. (alphabetically: Ben Bolker, Marguerite Butler,   Peter Cowan, Damien de Vienne, Dirk Eddelbuettel, Mark Holder, Thibaut,   Jombart, Steve Kembel, Francois Michonneau, David Orme, Brian O'Meara,   Emmanuel Paradis, Jim Regetz, Derrick Zwickl) | Base Package for Phylogenetic Structures and Comparative Data | 112850 |
-| rncl | Francois Michonneau,   (<https://orcid.org/0000-0002-9092-966X>),  Ben Bolker (<https://orcid.org/0000-0002-2127-0443>),  Mark Holder (<https://orcid.org/0000-0001-5575-0536>),  Paul Lewis (<https://orcid.org/0000-0001-9852-8759>),  Brian O'Meara (<https://orcid.org/0000-0002-0337-5997>) | An Interface to the Nexus Class Library | 113997 |
-| selac | Jeremy Beaulieu,  JJ Chai,  Mike Gilchrist,  Cedric Landerer,  Graham Derryberry,  Brian O'Meara | Selection Models for Amino Acid and/or Codon Evolution | 1427 |
+| B O’Meara | 2016 | "Phylogenetic Comparative Method" | NA | 
+| JM Beaulieu, BC O’Meara | 2014 | "Hidden Markov Models for Studying the Evolution of Binary Morphological Characters" | NA | 
+| BC O’Meara, JM Beaulieu | 2014 | "Modelling Stabilizing Selection: The Attraction of Ornstein--Uhlenbeck Models" | NA | 
+|  | 2012 | "Encyclopedia of theoretical ecology" | NA | 

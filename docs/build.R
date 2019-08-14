@@ -1,0 +1,5 @@
+rmarkdown::render_site()
+source("functions.R")
+sitemap <- GenerateSitemap()
+cat(sitemap, file="sitemap.xml")
+system("git add .; git commit -m'updating site'; git push")

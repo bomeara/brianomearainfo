@@ -1,8 +1,12 @@
 ---
 layout: page
-link: http://www.brianomeara.info/tutorials/aic/
+link: http://www.brianomeara.info/aic/
 slug: aic
 title: Model Selection Using the Akaike Information Criterion (AIC)
+output:
+  html_document:
+    includes:
+       in_header: GA_Script.html
 ---
 
 This web page basically summarizes information from [Burnham and Anderson (2002)](http://books.google.com/books?id=BQYR6js0CC8C). Go there for more information.
@@ -28,4 +32,3 @@ Butler, M. A., and A. A. King. 2004. Phylogenetic comparative analysis: A modeli
 O'Meara, B. C., C. Ane, M. J. Sanderson, and P. C. Wainwright. 2006. Testing for different rates of continuous trait evolution using likelihood. Evolution 60:922-933.
 
 Posada, D., and K. A. Crandall. 2001. Selecting the best-fit model of nucleotide substitution. Systematic Biology 50:580-601.
-

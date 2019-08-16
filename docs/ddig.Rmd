@@ -1,12 +1,12 @@
 ---
-author: brianomeara_ra6153
-comments: false
-date: 2017-08-04 14:01:49+00:00
 layout: page
-link: http://www.brianomeara.info/lab/ddig/
+link: http://www.brianomeara.info/ddig
 slug: ddig
 title: DDIG
-wordpress_id: 733
+output:
+  html_document:
+    includes:
+       in_header: GA_Script.html
 ---
 
 The Doctoral Dissertation Improvement Grant was a beloved NSF program that gave small amounts of money (up to $19K) for projects to enhance the dissertations of PhD candidates.
@@ -16,4 +16,3 @@ The National Science Foundation has released aggregate information on the  [ove
 There have been a few proposals for replacing the DDIG program: [a group led by Maren Friesen](https://friesen.plantbiology.msu.edu/?p=681), an idea of having [awards with DDIG-like subawards](https://twitter.com/omearabrian/status/872488653246930945), and at least one proposal to have a university handle all subawards.
 Many scientists have also posted personal anecdotes about the DDIG's effect on their career, including its substantial return on investment. I have aggregated some of the most compelling below.
 [iframe src="//storify.com/omearabrian/ddig-5984773512f9c414e6627cfc/embed?border=false" height="8000" allowtransparency="true"]
-

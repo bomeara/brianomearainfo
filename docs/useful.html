@@ -12,7 +12,7 @@
 
 
 
-<title>Promotion to full</title>
+<title>Useful links</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -23,6 +23,15 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-103450-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-103450-1');
+</script>
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
@@ -377,45 +386,51 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Promotion to full</h1>
+<h1 class="title toc-ignore">Useful links</h1>
 
 </div>
 
 
-<p>I went up for tenure in 2014-5 and was awarded it in 2015; at the suggestion of colleagues in the department I went up for promotion to full in 2018-9. My CV highlighting products only created since my tenure packet went in (the work that is the main focus on the promotion decision is in black text, the earlier work (summer 2014 and earlier) is in gray) is <a href="https://bomeara.github.io/webmaterial/OMearaCV_diff.pdf">here</a>. This attempt for promotion was successful, and as of August 1, 2019, I am now a full professor at the U of Tennessee, Knoxville.</p>
-<div id="summary" class="section level2">
-<h2>Summary</h2>
+<p>Keeping sets of useful links has gone out of vogue, but I keep searching for the same things again and again. So, aggregate:</p>
+<div id="r" class="section level2">
+<h2>R</h2>
 <ul>
-<li><p><strong>Publications </strong>38 journal articles, including Science, Nature, Ann. Rev Ecology, Evolution &amp; Systematics, Systematic Biology, Evolution, etc.</p></li>
-<li><p><strong>Teaching</strong> Approximately 3 courses per year on average, ranging from large introductory biology courses to small graduate seminars</p></li>
-<li><p><strong>Mentoring</strong> 4 PhD students (two graduated), 15 postdocs, 3 faculty, and served on 27 graduate student committees</p></li>
-<li><p><strong>Service/Outreach</strong> Darwin Day TN advisor, co-organizer of women in science symposium, workshops, and other activities, co-organizer for scientific meetings, curator of R phylogenetics task view, instructor at workshops in Sweden, Switzerland, Brazil, and various US locations (Ohio, TN, NC)</p></li>
-<li><p><strong>Leadership</strong> Associate Head for Dept. of Ecology &amp; Evolutionary Biology, 2016-present; Associate Director for the National Institute for Mathematical and Biological Synthesis, 2016-present; Code of Conduct Committee for SSE/SSB/ASN, 2018-present; Communications Director for the Society of Systematic Biologists, 2016-2017; Society of Systematic Biologists Council, 2012-2014; iEvoBio co-organizer, 2014-2016.</p></li>
-<li><p><strong>Funding</strong> $2.67M in external support, including 5 NSF grants (including a CAREER grant) plus funding from iPlant and Encyclopedia of Life</p></li>
-<li><p><strong>Altmetrics</strong> Number of citations = 3299; h-index = 20; 107 public github repos; Erdős number = 4; papers have been tweeted about 933 times, and have been mentioned 30 times in the news</p></li>
+<li>Fast Rmarkdown websites (<code>rmarkdown::render_site()</code>): <a href="https://bookdown.org/yihui/rmarkdown/rmarkdown-site.html" class="uri">https://bookdown.org/yihui/rmarkdown/rmarkdown-site.html</a></li>
+<li>Figure out what dependencies are needed when making an R package: <a href="https://github.com/Thinkr-open/attachment" class="uri">https://github.com/Thinkr-open/attachment</a></li>
+<li></li>
 </ul>
 </div>
-<div id="key-papers" class="section level2">
-<h2>Key papers</h2>
-<p>A welcome and increasing trend is for folks to read intensely a few papers to get a sense of a scientist, rather than (or in addition to) looking at count, impact factor of the journals published in, etc. For those doing this, these are good papers:</p>
+<div id="diversity-in-science" class="section level2">
+<h2>Diversity in science</h2>
 <ul>
-<li><p><a href="http://rspb.royalsocietypublishing.org/content/283/1830/20152304">O’Meara, Smith, et. al. 2016</a> [equal first authors]. This has some interesting methods in it, but I think the key importance of the paper is its focus on nonequilibrium dynamics and interactions between traits: it took tens of millions of years for angiosperms to evolve the key floral trait combinations that led to fast diversification. <a href="http://rspb.royalsocietypublishing.org/content/283/1830/20152304">http://rspb.royalsocietypublishing.org/content/283/1830/20152304</a></p></li>
-<li><p><a href="https://academic.oup.com/sysbio/article/65/4/583/1753616">Beaulieu and O’Meara 2016</a>. This paper describes a new method for looking at traits leading to diversification that also allows for unexamined traits to have some or all of the effect. The importance of this paper is the focus on using models to help learn new things about organisms, rather than just rejecting trivial nulls: “Surprise is a necessary part of discovery that, to put it bluntly, has been relatively lacking in trait-dependent diversification studies until now. With HiSSE we can still test our intuitions about a particular character, but we can also discover that rates seem to be driven by some unknown and unmeasured character state, allowing the data to help us generate new hypotheses”  <a href="https://academic.oup.com/sysbio/article/65/4/583/1753616">https://academic.oup.com/sysbio/article/65/4/583/1753616</a></p></li>
-<li><p><a href="https://doi.org/10.1093/sysbio/syx001">Jackson, Morales, Carstens, and O’Meara, 2017</a>. This describes software for examining multiple phylogeographic hypotheses. Most current approaches focus on a testing a few key hypotheses, or have constraints such as not allowing gene flow between diverging populations. This approach lets biologists examine a wide variety of hypotheses about possible histories of connections and subdivision between populations (<a href="https://doi.org/10.1093/sysbio/syw117">later work</a> extends this for species delimitation with gene flow).  <a href="https://doi.org/10.1093/sysbio/syx001">https://doi.org/10.1093/sysbio/syx001</a></p></li>
+<li>National Academy report (you don’t have to buy it – go to the download free pdf or read online links): <a href="https://www.nap.edu/catalog/24994/sexual-harassment-of-women-climate-culture-and-consequences-in-academic" class="uri">https://www.nap.edu/catalog/24994/sexual-harassment-of-women-climate-culture-and-consequences-in-academic</a></li>
+<li>Overview of sexism facing women (links to many studies, good way to find evidence): <a href="https://nplusonemag.com/issue-34/essays/sexism-in-the-academy/" class="uri">https://nplusonemag.com/issue-34/essays/sexism-in-the-academy/</a></li>
+<li>Poster on behavior at Evolution: <a href="https://figshare.com/articles/Unwelcome_behaviors_at_the_Evolution_meetings_Survey_results/8311595" class="uri">https://figshare.com/articles/Unwelcome_behaviors_at_the_Evolution_meetings_Survey_results/8311595</a></li>
 </ul>
 </div>
-<div id="promotion-process" class="section level2">
-<h2>Promotion process</h2>
-<p>The process involves discussion and decisions based on the promotion materials (provided by the candidate and also review letters), plus information generated at each level (votes, summaries of decisions). The levels involved are:</p>
-<ol style="list-style-type: decimal">
-<li><p>Full professors in the department</p></li>
-<li><p>Department head</p></li>
-<li><p>College promotion and tenure committee</p></li>
-<li><p>College Dean</p></li>
-<li><p>Provost’s office</p></li>
-<li><p>President</p></li>
-<li><p>Board of trustees</p></li>
-</ol>
+<div id="knoxville" class="section level2">
+<h2>Knoxville</h2>
+<ul>
+<li>Distressed faculty and staff: <a href="https://hr.utk.edu/care/" class="uri">https://hr.utk.edu/care/</a> 865-946-2273</li>
+<li>Distressed students: <a href="https://dos.utk.edu/974-help/our-approach/" class="uri">https://dos.utk.edu/974-help/our-approach/</a> 865-974-4357</li>
+<li>Resources (discounts, child care options, policies, etc.): <a href="https://ascend.utk.edu/work-and-life/work-and-life-resources/" class="uri">https://ascend.utk.edu/work-and-life/work-and-life-resources/</a></li>
+<li>Campus map (note it includes info like lactation rooms, accessible building entrances): <a href="https://maps.utk.edu/?id=314" class="uri">https://maps.utk.edu/?id=314</a></li>
+<li>Campus dining hours: <a href="https://dining.utk.edu/hours/" class="uri">https://dining.utk.edu/hours/</a></li>
+<li>Academic calendar: <a href="https://registrar.utk.edu/calendar/academic-calendars/" class="uri">https://registrar.utk.edu/calendar/academic-calendars/</a></li>
+<li>EEB department: <a href="https://eeb.utk.edu/" class="uri">https://eeb.utk.edu/</a></li>
+</ul>
+</div>
+<div id="fun" class="section level2">
+<h2>Fun</h2>
+<div class="figure">
+<img src="https://www.air-resource.net/GRSMNFGap/gsng.jpg" alt="Image from Newfound Gap in the Smokies" />
+<p class="caption">Image from Newfound Gap in the Smokies</p>
+</div>
+<ul>
+<li>My academic ancestors and descendants (the latter is more diverse): <a href="https://academictree.org/evolution/tree.php?pid=129230" class="uri">https://academictree.org/evolution/tree.php?pid=129230</a></li>
+<li>Webcams of the Smokies: <a href="https://www.nps.gov/grsm/learn/photosmultimedia/webcams.htm" class="uri">https://www.nps.gov/grsm/learn/photosmultimedia/webcams.htm</a></li>
+<li>Also see R section.</li>
+</ul>
 </div>
 
 

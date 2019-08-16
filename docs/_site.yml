@@ -13,6 +13,8 @@ navbar:
           href: "calendar.html"
         - text: "Feedback"
           href: "feedback.html"
+        - text: "Useful links"
+          href: "useful.html"
     - text: "Lab"
       menu:
         - text: "People"

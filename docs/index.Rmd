@@ -3,6 +3,10 @@ layout: page
 link: http://www.brianomeara.info/
 slug: home
 title: Home
+output:
+  html_document:
+    includes:
+       in_header: GA_Script.html
 ---
 
 ```{r render_md, include=FALSE, echo=FALSE, warning=FALSE}

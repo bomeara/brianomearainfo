@@ -1,0 +1,82 @@
+---
+layout: page
+link: http://www.brianomeara.info/promotion/
+slug: promotion
+title: Promotion to full
+---
+
+I went up for tenure in 2014-5 and was awarded it in 2015; at the suggestion of colleagues in the department I went up for promotion to full in 2018-9. My CV highlighting products only created since my tenure packet went in (the work that is the main focus on the promotion decision is in black text, the earlier work (summer 2014 and earlier) is in gray)  is [here](https://bomeara.github.io/webmaterial/OMearaCV_diff.pdf). This attempt for promotion was successful, and as of August 1, 2019, I am now a full professor at the U of Tennessee, Knoxville.
+
+
+## Summary
+
+
+  * **Publications **38 journal articles, including Science, Nature, Ann. Rev Ecology, Evolution & Systematics, Systematic Biology, Evolution, etc.
+
+
+  * **Teaching** Approximately 3 courses per year on average, ranging from large introductory biology courses to small graduate seminars
+
+
+  * **Mentoring** 4 PhD students (two graduated), 15 postdocs, 3 faculty, and served on 27 graduate student committees
+
+
+  * **Service/Outreach** Darwin Day TN advisor, co-organizer of women in science symposium, workshops, and other activities, co-organizer for scientific meetings, curator of R phylogenetics task view, instructor at workshops in Sweden, Switzerland, Brazil, and various US locations (Ohio, TN, NC)
+
+
+  * **Leadership** Associate Head for Dept. of Ecology & Evolutionary Biology, 2016-present; Associate Director for the National Institute for Mathematical and Biological Synthesis, 2016-present; Code of Conduct Committee for SSE/SSB/ASN, 2018-present; Communications Director for the Society of Systematic Biologists, 2016-2017; Society of Systematic Biologists Council, 2012-2014; iEvoBio co-organizer, 2014-2016.
+
+
+  * **Funding** $2.67M in external support, including 5 NSF grants (including a CAREER grant) plus funding from iPlant and Encyclopedia of Life
+
+
+  * **Altmetrics** Number of citations = 3299; h-index = 20; 107 public github repos; Erdős number = 4; papers have been tweeted about 933 times, and have been mentioned 30 times in the news
+
+
+
+
+## Key papers
+
+
+A welcome and increasing trend is for folks to read intensely a few papers to get a sense of a scientist, rather than (or in addition to) looking at count, impact factor of the journals published in, etc. For those doing this, these are good papers:
+
+
+
+
+  * [O'Meara, Smith, et. al. 2016](http://rspb.royalsocietypublishing.org/content/283/1830/20152304) [equal first authors]. This has some interesting methods in it, but I think the key importance of the paper is its focus on nonequilibrium dynamics and interactions between traits: it took tens of millions of years for angiosperms to evolve the key floral trait combinations that led to fast diversification. [http://rspb.royalsocietypublishing.org/content/283/1830/20152304](http://rspb.royalsocietypublishing.org/content/283/1830/20152304)
+
+
+  * [Beaulieu and O'Meara 2016](https://academic.oup.com/sysbio/article/65/4/583/1753616). This paper describes a new method for looking at traits leading to diversification that also allows for unexamined traits to have some or all of the effect. The importance of this paper is the focus on using models to help learn new things about organisms, rather than just rejecting trivial nulls: "Surprise is a necessary part of discovery that, to put it bluntly, has been relatively lacking in trait-dependent diversification studies until now. With HiSSE we can still test our intuitions about a particular character, but we can also discover that rates seem to be driven by some unknown and unmeasured character state, allowing the data to help us generate new hypotheses"  [https://academic.oup.com/sysbio/article/65/4/583/1753616](https://academic.oup.com/sysbio/article/65/4/583/1753616)
+
+
+  * [Jackson, Morales, Carstens, and O'Meara, 2017](https://doi.org/10.1093/sysbio/syx001). This describes software for examining multiple phylogeographic hypotheses. Most current approaches focus on a testing a few key hypotheses, or have constraints such as not allowing gene flow between diverging populations. This approach lets biologists examine a wide variety of hypotheses about possible histories of connections and subdivision between populations ([later work](https://doi.org/10.1093/sysbio/syw117) extends this for species delimitation with gene flow).  [https://doi.org/10.1093/sysbio/syx001](https://doi.org/10.1093/sysbio/syx001)
+
+
+
+
+## Promotion process
+
+
+The process involves discussion and decisions based on the promotion materials (provided by the candidate and also review letters), plus information generated at each level (votes, summaries of decisions). The levels involved are:
+
+
+
+
+  1. Full professors in the department
+
+
+  2. Department head
+
+
+  3. College promotion and tenure committee
+
+
+  4. College Dean
+
+
+  5. Provost's office
+
+
+  6. President
+
+
+  7. Board of trustees

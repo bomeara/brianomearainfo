@@ -3,7 +3,7 @@
 ## Publications
 
 
-According to Google Scholar, my work has been cited 4204 times, and my h-index is 25. (Google Scholar tends to overestimate citations, however). Also note that I work under a very stringent criterion for when I get authorship -- I have to actively make a significant contribution to the research and writing to merit authorship. For example, in 2015-6, three lab members had papers in *Science* ([grad student Sam Borstein](http://science.sciencemag.org/content/350/6264/1077.long), [postdoc Nick Matzke](http://science.sciencemag.org/content/351/6268/28), and [postdoc Sandy Kawano](http://science.sciencemag.org/content/353/6295/154.full)) but I am, appropriately to my mind, not an author on any of these.
+According to Google Scholar, my work has been cited 4206 times, and my h-index is 25. (Google Scholar tends to overestimate citations, however). Also note that I work under a very stringent criterion for when I get authorship -- I have to actively make a significant contribution to the research and writing to merit authorship. For example, in 2015-6, three lab members had papers in *Science* ([grad student Sam Borstein](http://science.sciencemag.org/content/350/6264/1077.long), [postdoc Nick Matzke](http://science.sciencemag.org/content/351/6268/28), and [postdoc Sandy Kawano](http://science.sciencemag.org/content/353/6295/154.full)) but I am, appropriately to my mind, not an author on any of these.
 
 
 ### Papers
@@ -47,10 +47,10 @@ According to Google Scholar, my work has been cited 4204 times, and my h-index i
 | BC O'Meara | 2012 | "Evolutionary inferences from phylogenies: a review of methods" NA 43, 267-285 | [10.1146/annurev-ecolsys-110411-160331](https://doi.org/10.1146/annurev-ecolsys-110411-160331) | 151 | 
 | JM Beaulieu, DC Jhwueng, C Boettiger, BC O’Meara | 2012 | "Modeling stabilizing selection: Expanding the Ornstein-Uhlenbeck model of adaptive evolution" NA 66 (8), 2369-2383 | [10.1111/j.1558-5646.2012.01619.x](https://doi.org/10.1111/j.1558-5646.2012.01619.x) | 326 | 
 | A Stoltzfus, B O'meara, J Whitacre, R Mounce, EL Gillespie, S Kumar, ... | 2012 | "Sharing and re-use of phylogenetic trees (and associated data) to facilitate synthesis" NA 5 (1), 574 | [10.1186/1756-0500-5-574](https://doi.org/10.1186/1756-0500-5-574) | 40 | 
-| SA Smith, BC O’Meara | 2012 | "TreePL: Divergence time estimation using penalized likelihood for large phylogenies" NA 28 (20), 2689-2690 | [10.1093/bioinformatics/bts492](https://doi.org/10.1093/bioinformatics/bts492) | 153 | 
+| SA Smith, BC O’Meara | 2012 | "TreePL: Divergence time estimation using penalized likelihood for large phylogenies" NA 28 (20), 2689-2690 | [10.1093/bioinformatics/bts492](https://doi.org/10.1093/bioinformatics/bts492) | 154 | 
 | JC Stack, LJ Harmon, B O'Meara | 2011 | "RBrownie: an R package for testing hypotheses about rates of evolutionary change" NA 2 (6), 660-662 | [10.1111/j.2041-210x.2011.00112.x](https://doi.org/10.1111/j.2041-210x.2011.00112.x) | 11 | 
 | JM Abercrombie, BC O'Meara, AR Moffatt, JH Williams | 2011 | "Developmental evolution of flowering plant pollen tube cell walls: Callose synthase (CalS) gene expression patterns" NA 2 (1), 14 | [10.1186/2041-9139-2-14](https://doi.org/10.1186/2041-9139-2-14) | 30 | 
-| SA Goff, M Vaughn, S McKay, E Lyons, AE Stapleton, D Gessler, ... | 2011 | "The iPlant collaborative: Cyberinfrastructure for plant biology" NA 2, 34 | [10.3389/fpls.2011.00034](https://doi.org/10.3389/fpls.2011.00034) | 367 | 
+| SA Goff, M Vaughn, S McKay, E Lyons, AE Stapleton, D Gessler, ... | 2011 | "The iPlant collaborative: Cyberinfrastructure for plant biology" NA 2, 34 | [10.3389/fpls.2011.00034](https://doi.org/10.3389/fpls.2011.00034) | 368 | 
 | DC Collar, JA Schulte, BC O’meara, JB Losos | 2010 | "Habitat use affects morphological diversification in dragon lizards" NA 23 (5), 1033-1049 | [10.1111/j.1420-9101.2010.01971.x](https://doi.org/10.1111/j.1420-9101.2010.01971.x) | 60 | 
 | BC O'Meara | 2010 | "New heuristic methods for joint species delimitation and species tree inference" NA 59 (1), 59-73 | [10.1093/sysbio/syp077](https://doi.org/10.1093/sysbio/syp077) | 247 | 
 | SA Smith, BC O'Meara | 2009 | "Morphogenera, monophyly, and macroevolution" NA 106 (36), E97-E98 | [10.1073/pnas.0906918106](https://doi.org/10.1073/pnas.0906918106) | 4 | 

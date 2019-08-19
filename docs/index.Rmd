@@ -12,11 +12,7 @@ output:
 ```{r render_md, include=FALSE, echo=FALSE, warning=FALSE}
 #library(remotes)
 #remotes::install_github("bomeara/cv")
-library(cv)
-cv::CreateMarkdown(outdir=".") # If this stalls, it could be because you're not authenticated to orcid
-#cv::FinalCompileCV(outdir=".", open.files=FALSE)
-md.files <- list.files(pattern="\\.md")
-file.rename(md.files, gsub(".md", ".Rmd",md.files))
+
 ```
 
 _Most of this website is written for a specialist scientific audience; folks who aren't scientists are very welcome to look around, but [this page](http://www.brianomeara.info/general) might be a more accessible introduction. For a compressed version of information about me, please see my [CV](http://brianomeara.info/cv/)._

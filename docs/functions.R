@@ -83,7 +83,7 @@ crawl <- function(root, timeout = 300){
 
 
 
-GenerateSitemap <- function(base_url="https://www.brianomeara.info") {
+GenerateSitemap <- function(base_url="http://brianomeara.info") {
   links <- unique(c(base_url, unname(unlist(crawl(base_url)))))
   links <- links[!is.na(links)]
   require(whisker)

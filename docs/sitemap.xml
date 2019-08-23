@@ -8,7 +8,7 @@
       <priority>0.8</priority>
    </url>
    <url>
-      <loc>http://brianomeara.info/personnel.html</loc>
+      <loc>http://brianomeara.info/eeb464</loc>
       <lastmod>2019-08-22</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.8</priority>
@@ -33,6 +33,12 @@
    </url>
    <url>
       <loc>http://brianomeara.info/useful.html</loc>
+      <lastmod>2019-08-22</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+   </url>
+   <url>
+      <loc>http://brianomeara.info/personnel.html</loc>
       <lastmod>2019-08-22</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.8</priority>
@@ -110,12 +116,6 @@
       <priority>0.8</priority>
    </url>
    <url>
-      <loc>http://brianomeara.info/eeb464</loc>
-      <lastmod>2019-08-22</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.8</priority>
-   </url>
-   <url>
       <loc>http://brianomeara.info/category/macroevolution</loc>
       <lastmod>2019-08-14</lastmod>
       <changefreq>monthly</changefreq>
@@ -128,20 +128,8 @@
       <priority>0.8</priority>
    </url>
    <url>
-      <loc>http://brianomeara.info/files/UTKEEB464_Lecture01_History1_2018.pptx</loc>
-      <lastmod>2019-08-14</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.6</priority>
-   </url>
-   <url>
       <loc>http://brianomeara.info/files/UTKEEB464_Lecture01_History1_2018.pdf</loc>
       <lastmod>2019-08-22</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.6</priority>
-   </url>
-   <url>
-      <loc>http://brianomeara.info/files/UTKEEB464_Lecture02_History2_2018.pptx</loc>
-      <lastmod>2019-08-14</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.6</priority>
    </url>
@@ -152,20 +140,8 @@
       <priority>0.6</priority>
    </url>
    <url>
-      <loc>http://brianomeara.info/files/UTKEEB464_Lecture03_Evidence_2018.pptx</loc>
-      <lastmod>2019-08-14</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.6</priority>
-   </url>
-   <url>
       <loc>http://brianomeara.info/files/UTKEEB464_Lecture03_Evidence_2018.pdf</loc>
       <lastmod>2019-08-22</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.6</priority>
-   </url>
-   <url>
-      <loc>http://brianomeara.info/files/UTKEEB464_Lecture04_Taphonomy_2018.pptx</loc>
-      <lastmod>2019-08-14</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.6</priority>
    </url>
@@ -176,20 +152,8 @@
       <priority>0.6</priority>
    </url>
    <url>
-      <loc>http://brianomeara.info/files/UTKEEB464_Lecture05_Jargon_2018.pptx</loc>
-      <lastmod>2019-08-14</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.6</priority>
-   </url>
-   <url>
       <loc>http://brianomeara.info/files/UTKEEB464_Lecture05_Jargon_2018.pdf</loc>
       <lastmod>2019-08-22</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.6</priority>
-   </url>
-   <url>
-      <loc>http://brianomeara.info/files/UTKEEB464_Lecture06_Phylogenetics_2018.pptx</loc>
-      <lastmod>2019-08-14</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.6</priority>
    </url>
@@ -200,20 +164,8 @@
       <priority>0.6</priority>
    </url>
    <url>
-      <loc>http://brianomeara.info/files/UTKEEB464_Lecture07_EmpiricalDistributions_2018.pptx</loc>
-      <lastmod>2019-08-14</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.6</priority>
-   </url>
-   <url>
       <loc>http://brianomeara.info/files/UTKEEB464_Lecture07_EmpiricalDistributions_2018.pdf</loc>
       <lastmod>2019-08-22</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.6</priority>
-   </url>
-   <url>
-      <loc>http://brianomeara.info/files/UTKEEB464_Lecture08_Biogeography_2018.pptx</loc>
-      <lastmod>2019-08-14</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.6</priority>
    </url>
@@ -224,20 +176,8 @@
       <priority>0.6</priority>
    </url>
    <url>
-      <loc>http://brianomeara.info/files/UTKEEB464_Lecture09_Speciation1_2018.pptx</loc>
-      <lastmod>2019-08-14</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.6</priority>
-   </url>
-   <url>
       <loc>http://brianomeara.info/files/UTKEEB464_Lecture09_Speciation1_2018.pdf</loc>
       <lastmod>2019-08-22</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.6</priority>
-   </url>
-   <url>
-      <loc>http://brianomeara.info/files/UTKEEB464_Lecture10_Speciation2_2018.pptx</loc>
-      <lastmod>2019-08-14</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.6</priority>
    </url>
@@ -248,20 +188,8 @@
       <priority>0.6</priority>
    </url>
    <url>
-      <loc>http://brianomeara.info/files/UTKEEB464_Lecture11_Extinction1_2018.pptx</loc>
-      <lastmod>2019-08-14</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.6</priority>
-   </url>
-   <url>
       <loc>http://brianomeara.info/files/UTKEEB464_Lecture11_Extinction1_2018.pdf</loc>
       <lastmod>2019-08-22</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.6</priority>
-   </url>
-   <url>
-      <loc>http://brianomeara.info/files/UTKEEB464_Lecture12_Extinction2_2018.pptx</loc>
-      <lastmod>2019-08-14</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.6</priority>
    </url>
@@ -272,20 +200,8 @@
       <priority>0.6</priority>
    </url>
    <url>
-      <loc>http://brianomeara.info/files/UTKEEB464_Lecture13_Diversification_2018.pptx</loc>
-      <lastmod>2019-08-14</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.6</priority>
-   </url>
-   <url>
       <loc>http://brianomeara.info/files/UTKEEB464_Lecture13_Diversification_2018.pdf</loc>
       <lastmod>2019-08-22</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.6</priority>
-   </url>
-   <url>
-      <loc>http://brianomeara.info/files/UTKEEB464_Lecture14_Diversification2_2018.pptx</loc>
-      <lastmod>2019-08-14</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.6</priority>
    </url>
@@ -296,20 +212,8 @@
       <priority>0.6</priority>
    </url>
    <url>
-      <loc>http://brianomeara.info/files/UTKEEB464_Lecture15_NaturalSelection_2018.pptx</loc>
-      <lastmod>2019-08-14</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.6</priority>
-   </url>
-   <url>
       <loc>http://brianomeara.info/files/UTKEEB464_Lecture15_NaturalSelection_2018.pdf</loc>
       <lastmod>2019-08-22</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.6</priority>
-   </url>
-   <url>
-      <loc>http://brianomeara.info/files/UTKEEB464_Lecture16_Sex_2018.pptx</loc>
-      <lastmod>2019-08-14</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.6</priority>
    </url>
@@ -320,20 +224,8 @@
       <priority>0.6</priority>
    </url>
    <url>
-      <loc>http://brianomeara.info/files/UTKEEB464_Lecture17_Trends_2018.pptx</loc>
-      <lastmod>2019-08-14</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.6</priority>
-   </url>
-   <url>
       <loc>http://brianomeara.info/files/UTKEEB464_Lecture17_Trends_2018.pdf</loc>
       <lastmod>2019-08-22</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.6</priority>
-   </url>
-   <url>
-      <loc>http://brianomeara.info/files/UTKEEB464_Lecture18_Symbiosis_2018.pptx</loc>
-      <lastmod>2019-08-14</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.6</priority>
    </url>
@@ -344,20 +236,8 @@
       <priority>0.6</priority>
    </url>
    <url>
-      <loc>http://brianomeara.info/files/UTKEEB464_Lecture19_GameTheory_2018.pptx</loc>
-      <lastmod>2019-08-14</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.6</priority>
-   </url>
-   <url>
       <loc>http://brianomeara.info/files/UTKEEB464_Lecture19_GameTheory_2018.pdf</loc>
       <lastmod>2019-08-22</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.6</priority>
-   </url>
-   <url>
-      <loc>http://brianomeara.info/files/UTKEEB464_Lecture20_InclusiveFitness_2018.pptx</loc>
-      <lastmod>2019-08-14</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.6</priority>
    </url>
@@ -368,20 +248,8 @@
       <priority>0.6</priority>
    </url>
    <url>
-      <loc>http://brianomeara.info/files/UTKEEB464_Lecture21_Systematics_2018.pptx</loc>
-      <lastmod>2019-08-14</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.6</priority>
-   </url>
-   <url>
       <loc>http://brianomeara.info/files/UTKEEB464_Lecture21_Systematics_2018.pdf</loc>
       <lastmod>2019-08-22</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.6</priority>
-   </url>
-   <url>
-      <loc>http://brianomeara.info/files/UTKEEB464_Lecture22_Darwin_2018.pptx</loc>
-      <lastmod>2019-08-14</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.6</priority>
    </url>
@@ -392,26 +260,8 @@
       <priority>0.6</priority>
    </url>
    <url>
-      <loc>http://brianomeara.info/files/UTKEEB464_Lecture23_DiseaseEvolution_2018.pptx</loc>
-      <lastmod>2019-08-14</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.6</priority>
-   </url>
-   <url>
-      <loc>http://brianomeara.info/files/UTKEEB464_Lecture24_Flight_2018.pptx</loc>
-      <lastmod>2019-08-14</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.6</priority>
-   </url>
-   <url>
       <loc>http://brianomeara.info/files/UTKEEB464_Lecture24_Flight_2018.pdf</loc>
       <lastmod>2019-08-22</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.6</priority>
-   </url>
-   <url>
-      <loc>http://brianomeara.info/files/UTKEEB464_Lecture25_InvasiveHumans_2018.pptx</loc>
-      <lastmod>2019-08-14</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.6</priority>
    </url>
@@ -422,20 +272,8 @@
       <priority>0.6</priority>
    </url>
    <url>
-      <loc>http://brianomeara.info/files/UTKEEB464_Lecture26_OriginOfLife_2018.pptx</loc>
-      <lastmod>2019-08-14</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.6</priority>
-   </url>
-   <url>
       <loc>http://brianomeara.info/files/UTKEEB464_Lecture26_OriginOfLife_2018.pdf</loc>
       <lastmod>2019-08-22</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.6</priority>
-   </url>
-   <url>
-      <loc>http://brianomeara.info/files/UTKEEB464_Lecture27_ContemporaryEvolution_2018.pptx</loc>
-      <lastmod>2019-08-14</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.6</priority>
    </url>
@@ -446,20 +284,8 @@
       <priority>0.6</priority>
    </url>
    <url>
-      <loc>http://brianomeara.info/files/UTKEEB464_Lecture28_2018_LanguageEvolution.pptx</loc>
-      <lastmod>2019-08-14</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.6</priority>
-   </url>
-   <url>
       <loc>http://brianomeara.info/files/UTKEEB464_Lecture28_2018_LanguageEvolution.pdf</loc>
       <lastmod>2019-08-22</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.6</priority>
-   </url>
-   <url>
-      <loc>http://brianomeara.info/files/UTKEEB464_Lecture29_2018_Domestication.pptx</loc>
-      <lastmod>2019-08-14</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.6</priority>
    </url>
@@ -470,20 +296,8 @@
       <priority>0.6</priority>
    </url>
    <url>
-      <loc>http://brianomeara.info/files/UTKEEB464_Lecture30_2018_StephenJayGould.pptx</loc>
-      <lastmod>2019-08-14</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.6</priority>
-   </url>
-   <url>
       <loc>http://brianomeara.info/files/UTKEEB464_Lecture30_2018_StephenJayGould.pdf</loc>
       <lastmod>2019-08-22</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.6</priority>
-   </url>
-   <url>
-      <loc>http://brianomeara.info/files/UTKEEB464_Lecture31_Insects_2018.pptx</loc>
-      <lastmod>2019-08-14</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.6</priority>
    </url>
@@ -494,32 +308,14 @@
       <priority>0.6</priority>
    </url>
    <url>
-      <loc>http://brianomeara.info/files/UTKEEB464_Lecture32_2018_EvolutionOfIntelligence.pptx</loc>
-      <lastmod>2019-08-14</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.6</priority>
-   </url>
-   <url>
       <loc>http://brianomeara.info/files/UTKEEB464_Lecture32_2018_EvolutionOfIntelligence.pdf</loc>
       <lastmod>2019-08-22</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.6</priority>
    </url>
    <url>
-      <loc>http://brianomeara.info/files/UTKEEB464_Lecture33_SpiderEvolution_2018.pptx</loc>
-      <lastmod>2019-08-14</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.6</priority>
-   </url>
-   <url>
       <loc>http://brianomeara.info/files/UTKEEB464_Lecture33_SpiderEvolution_2018.pdf</loc>
       <lastmod>2019-08-22</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.6</priority>
-   </url>
-   <url>
-      <loc>http://brianomeara.info/files/UTKEEB464_Lecture34_Paleoart_2018.pptx</loc>
-      <lastmod>2019-08-14</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.6</priority>
    </url>
@@ -534,42 +330,6 @@
       <lastmod>2019-08-22</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.8</priority>
-   </url>
-   <url>
-      <loc>http://brianomeara.info/funding</loc>
-      <lastmod>2019-08-22</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.8</priority>
-   </url>
-   <url>
-      <loc>http://brianomeara.info/</loc>
-      <lastmod>2019-08-22</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.8</priority>
-   </url>
-   <url>
-      <loc>http://brianomeara.info/cv</loc>
-      <lastmod>2019-08-22</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.8</priority>
-   </url>
-   <url>
-      <loc>http://brianomeara.info/brownie</loc>
-      <lastmod>2019-08-14</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.8</priority>
-   </url>
-   <url>
-      <loc>http://brianomeara.info/research</loc>
-      <lastmod>2019-08-22</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.8</priority>
-   </url>
-   <url>
-      <loc>http://brianomeara.info/sites/default/files/OMearaNSFCAREER_2014_Pruned.pdf</loc>
-      <lastmod>2019-08-14</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.6</priority>
    </url>
    <url>
       <loc>http://brianomeara.info/files/OMearaTenurePacketPreliminary.pdf</loc>
@@ -590,8 +350,44 @@
       <priority>0.6</priority>
    </url>
    <url>
+      <loc>http://brianomeara.info/cv</loc>
+      <lastmod>2019-08-22</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+   </url>
+   <url>
+      <loc>http://brianomeara.info/research</loc>
+      <lastmod>2019-08-22</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+   </url>
+   <url>
+      <loc>http://brianomeara.info/sites/default/files/OMearaNSFCAREER_2014_Pruned.pdf</loc>
+      <lastmod>2019-08-14</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.6</priority>
+   </url>
+   <url>
+      <loc>http://brianomeara.info/funding</loc>
+      <lastmod>2019-08-22</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+   </url>
+   <url>
       <loc>http://brianomeara.info/links.html</loc>
       <lastmod>2019-08-14</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+   </url>
+   <url>
+      <loc>http://brianomeara.info/brownie</loc>
+      <lastmod>2019-08-14</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+   </url>
+   <url>
+      <loc>http://brianomeara.info/</loc>
+      <lastmod>2019-08-22</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.8</priority>
    </url>

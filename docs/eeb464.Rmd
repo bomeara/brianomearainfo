@@ -116,7 +116,7 @@ Final letter grades will be assigned at the end of the semester using an instruc
 | #   | Date   | Topic                       | Taxon to learn           | Assignment            |
 | --- | ------ | --------------------------- | ------------------------ | --------------------- |
 | 1   | 21-Aug | Pre-test, syllabus          |                          |                       |
-| 2   | 23-Aug | History of planet & life I  | Crinoid                  |                       |
+| 2   | 23-Aug | [History of planet & life I](files/UTKEEB464_Lecture01_History1_2018.pdf)  | Crinoid                  |                       |
 | 3   | 26-Aug | History of planet & life II | Archaea                  |                       |
 | 4   | 28-Aug | Evidence                    | *Anomalocaris*           |                       |
 | 5   | 30-Aug | Taphonomy                   | Trilobite                |                       |

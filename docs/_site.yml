@@ -15,6 +15,10 @@ navbar:
           href: "feedback.html"
         - text: "Useful links"
           href: "useful.html"
+        - text: "Materials for promotion to associate (and tenure)"
+          href: tenure.html
+        - text: "Materials for promotion to full"
+          href: promotion.html
     - text: "Lab"
       menu:
         - text: "People"

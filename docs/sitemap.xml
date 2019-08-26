@@ -38,6 +38,18 @@
       <priority>0.8</priority>
    </url>
    <url>
+      <loc>http://brianomeara.info/tenure.html</loc>
+      <lastmod>2019-08-23</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+   </url>
+   <url>
+      <loc>http://brianomeara.info/promotion.html</loc>
+      <lastmod>2019-08-23</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+   </url>
+   <url>
       <loc>http://brianomeara.info/personnel.html</loc>
       <lastmod>2019-08-23</lastmod>
       <changefreq>monthly</changefreq>
@@ -69,18 +81,6 @@
    </url>
    <url>
       <loc>http://brianomeara.info/shouldyougotogradschool.html</loc>
-      <lastmod>2019-08-23</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.8</priority>
-   </url>
-   <url>
-      <loc>http://brianomeara.info/tenure.html</loc>
-      <lastmod>2019-08-23</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.8</priority>
-   </url>
-   <url>
-      <loc>http://brianomeara.info/promotion.html</loc>
       <lastmod>2019-08-23</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.8</priority>

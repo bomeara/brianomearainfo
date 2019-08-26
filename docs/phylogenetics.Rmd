@@ -23,12 +23,10 @@ You may also check my page of [books for phylogenetics](http://www.brianomeara.i
 PAUP also has a [quick start
 tutorial](http://paup.csit.fsu.edu/downl.html#Anchor-58521) on its [web page](http://paup.csit.fsu.edu/)
 as well as a useful [discussion
-group](http://pauptech.si.edu/%7Epaupforum/) for asking questions. Useful software links can be found on
-my [general links](/links.html) page. Please direct any
-comments about this page to [me](mailto:bcomeara@ucdavis.edu).
+group](http://pauptech.si.edu/%7Epaupforum/) for asking questions.
 This page was last updated on February 3,
 2004 , though most of its information has not been
-updated since June 10, 2002. 
+updated since June 10, 2002.
 
 
 
@@ -40,39 +38,39 @@ engines, making it easier for others to find. Thanks!
 
 
 
-Each step listed individually  
+Each step listed individually
 
-NEXUS file preparation  
+NEXUS file preparation
 
-Batch files  
+Batch files
 
 Exhaustive and branch-and-bound searches
-(<13 taxa)  
+(<13 taxa)
 
-Heuristic searches  
+Heuristic searches
 
-Parsimony ratchet  
+Parsimony ratchet
 
-Bootstrap searches  
+Bootstrap searches
 
-Decay indices, including partitioned Bremer support  
+Decay indices, including partitioned Bremer support
 
 [Choosing a
-likelihood model](phylogenetics.html#likelihood)  
+likelihood model](phylogenetics.html#likelihood)
 
-Testing for a molecular clock  
+Testing for a molecular clock
 
-Calibrating using a published calibration  
+Calibrating using a published calibration
 
-Calibrating using fossil data  
+Calibrating using fossil data
 
-Computing error bars on node times  
+Computing error bars on node times
 
-Bayesian searches (MrBayes)  
+Bayesian searches (MrBayes)
 
-Hypothesis testing  
+Hypothesis testing
 
-Tree drawing and editing  
+Tree drawing and editing
 
 
 
@@ -110,7 +108,7 @@ Character Set".
 
   6. Make sure that the genetic code is correct for your loci by going
 to "Genetic Code..." in the Characters menu. For mixed nuclear and
-mitochondrial loci, choose _Drosophila_ mtDNA. 
+mitochondrial loci, choose _Drosophila_ mtDNA.
 
 
   7. For protein-coding loci, select all the characters in one exon,
@@ -172,7 +170,7 @@ instructions if you have only one locus or no coding regions].
 
 
   22. Start a new line. Type "CHARSET", a space, then "###first = ",
-replacing ### with the name of your first coding locus. 
+replacing ### with the name of your first coding locus.
 
 
   23. Look for the CODONS block. You should see something within this
@@ -216,15 +214,15 @@ another charset called coI, and the charparition command would be
 "CHARPARTITION locus = 28s:28s, coI:coI;" This is used in ILD tests.
 
 
-  29. Within the PAUP block, paste the following text:  
+  29. Within the PAUP block, paste the following text:
 
-  
+
 
 outgroup outgroup /only; set maxtrees=5000 increase=auto autoclose=no
 torder=right tcompress=yes taxlabels=full storebrlens=yes
-storetreewts=yes outroot=paraphyl;  
+storetreewts=yes outroot=paraphyl;
 
-  
+
 
 This sets the outgroup to be whatever you determined in the outgroup
 taxset, sets a reasonable starting maxtrees number, and sets other PAUP
@@ -235,16 +233,16 @@ can be included in the PAUP block as well.
   30. You may find it useful to keep a running log of all analyses
 done. This can be helpful in checking what p-values were of various
 tests, how many replicates were done in a particular search, etc. To do
-this, paste the following text within the PAUP block:   
+this, paste the following text within the PAUP block:
 
-  
 
-log file=[name] append=yes replace=no;  
 
-  
+log file=[name] append=yes replace=no;
+
+
 
 If you do this, delete the log commands from other batch files (see
-below) so that everything is logged to one file.  
+below) so that everything is logged to one file.
 
 
 
@@ -272,13 +270,13 @@ format:
 
 
 #nexus [Tells PAUP that
-this is a NEXUS file]  
+this is a NEXUS file]
 
-begin PAUP; [Starts the PAUP block]  
+begin PAUP; [Starts the PAUP block]
 
 _[PAUP commands]_;
 [Gives PAUP instructions on what to do -- the same thing you enter in
-the command line]  
+the command line]
 
 end; [Ends the PAUP block]
 
@@ -293,7 +291,7 @@ document, available from the [downloads](http://paup.csit.fsu.edu/downl.html) se
 its [website](http://paup.csit.fsu.edu/), is invaluable in
 constructing these. Finally, write "end;" at the end of the document.
 Save the document. Now, executing the document, the same way you
-execute a data file, will start the commands running. 
+execute a data file, will start the commands running.
 
 
 
@@ -324,7 +322,7 @@ and branch-and-bound searches (<13 taxa)
 Both these search strategies are guaranteed to find the
 optimal tree. However, they are not generally practical for even
 moderate numbers of taxa: finding the best tree is generally an [NP-hard ](http://en.wikipedia.org/wiki/NP-hard)problem.
-Thus, heuristic searches are necessary for most analyses.  
+Thus, heuristic searches are necessary for most analyses.
 
 
 
@@ -346,29 +344,29 @@ exhaustive or branch-and-bound searches. A good starting batch file is:
 
 <blockquote>
 
-> 
-> #nexus  
+>
+> #nexus
 
-begin PAUP;  
+begin PAUP;
 
-log file=hsearch1.log;  
+log file=hsearch1.log;
 
-set autoclose=yes;  
+set autoclose=yes;
 
 hsearch start=stepwise addseq=random nreps=**100**
-savereps=yes randomize=addseq rstatus=yes hold=1 swap=tbr multrees=yes;  
+savereps=yes randomize=addseq rstatus=yes hold=1 swap=tbr multrees=yes;
 
-savetrees file=hsearch1.all.tre brlen=yes;  
+savetrees file=hsearch1.all.tre brlen=yes;
 
-filter best=yes permdel=yes;  
+filter best=yes permdel=yes;
 
-savetrees file=hsearch1.best.tre brlen=yes;  
+savetrees file=hsearch1.best.tre brlen=yes;
 
-log stop;  
+log stop;
 
-end; 
-> 
-> 
+end;
+>
+>
 </blockquote>
 
 
@@ -389,7 +387,7 @@ matter what starting tree or taxon addition order. If this is the case,
 the treespace is fairly simple and we would probably move on to bootstrapping. If the island(s) with the best
 trees was hit nearly all the time, we'd probably be satisfied, as well.
 However, if the best trees are not recovered in many of the searches,
-we would need to search further. 
+we would need to search further.
 
 
 
@@ -426,33 +424,33 @@ batch file follows. You may want to change the nreps and timelimit.
 <blockquote>
 
 
-> 
-> 
+>
+>
 
-> 
-> #nexus  
+>
+> #nexus
 
-begin paup;  
+begin paup;
 
-log file=hsearch.tlimit.log;  
+log file=hsearch.tlimit.log;
 
-set maxtrees=10000 increase=auto;  
+set maxtrees=10000 increase=auto;
 
 hsearch rstatus=no limitperrep=yes nreps=5000 randomize=trees
-timelimit=5 savereps=yes;  
+timelimit=5 savereps=yes;
 
-savetrees file=hsearch.tlimit.all.tre brlen=yes;  
+savetrees file=hsearch.tlimit.all.tre brlen=yes;
 
-filter best=yes permdel=yes;  
+filter best=yes permdel=yes;
 
-savetrees file=hsearch.tlimit.best.tre brlen=yes;  
+savetrees file=hsearch.tlimit.best.tre brlen=yes;
 
-end; 
-> 
-> 
+end;
+>
+>
 
-> 
-> 
+>
+>
 
 </blockquote>
 
@@ -498,7 +496,7 @@ insert the commands:
 
 
 
-<blockquote>stopcmd "filter best=yes permdel=yes";  
+<blockquote>stopcmd "filter best=yes permdel=yes";
 
 stopcmd "savetrees file=mydata.best.tre"; </blockquote>
 
@@ -548,15 +546,15 @@ set at a low value of 10)]:
 
 
 
-<blockquote>#nexus  
+<blockquote>#nexus
 
-begin paup;  
+begin paup;
 
-set storetreewts=yes;  
+set storetreewts=yes;
 
 bootstrap nreps=**500**
 treefile=bootstrap1.tre replace=no brlen=yes/ start=stepwise addseq=random nreps=**10** savereps=no randomize=addseq hold=1
-swap=tbr multrees=yes;   
+swap=tbr multrees=yes;
 
 end; </blockquote>
 
@@ -568,7 +566,7 @@ Load all the bootstrap trees, making sure to store tree
 weights (an option which should have been made the default by the above
 batch file), to load all blocks, and NOT to eliminate duplicate trees.
 Executing the following batch file should set all these options and
-load the trees saved as bootstrap1.tre in the active folder. 
+load the trees saved as bootstrap1.tre in the active folder.
 
 
 
@@ -577,12 +575,12 @@ load the trees saved as bootstrap1.tre in the active folder.
 
 
 
-<blockquote>#nexus  
+<blockquote>#nexus
 
-begin paup;  
+begin paup;
 
 gettrees allblocks=yes duptrees=keep storetreewts=yes storebrlens=yes mode=7
-file=bootstrap1.tre;  
+file=bootstrap1.tre;
 
 end; </blockquote>
 
@@ -598,27 +596,27 @@ batch file for this is:
 
 <blockquote>
 
-> 
-> 
+>
+>
 
-> 
-> #nexus  
+>
+> #nexus
 
-begin paup;  
+begin paup;
 
-log file=bootstrapconsensus.log;  
+log file=bootstrapconsensus.log;
 
 contree /majrule=yes strict=no le50=yes usetreewts=yes showtree=yes
-treefile=finalbootstrap.tre grpfreq=yes;   
+treefile=finalbootstrap.tre grpfreq=yes;
 
-log stop;  
+log stop;
 
 end;
-> 
-> 
+>
+>
 
-> 
-> 
+>
+>
 </blockquote>
 
 
@@ -629,7 +627,7 @@ Note that this will create a bootstrap tree which will include nodes
 with support less than 50% which are consistent with the majority rule
 tree. Most authors choose to omit bootstrap numbers less than 50% while
 continuing to show the node; a better approach, if space allows, would
-be to show all bootstrap values.   
+be to show all bootstrap values.
 
 
 
@@ -640,7 +638,7 @@ Though likelihood is far slower than parsimony, this does not mean
 that likelihood is too slow for bootstrapping. To speed up likelihood
 bootstrap searches, one can fix the values of nuisance parameters (for
 example, use the lset output from ModelTest) and time limit each
-heuristic search.   
+heuristic search.
 
 
 
@@ -660,20 +658,20 @@ heuristic search.
 
 <blockquote>
 
-> 
-> 
+>
+>
 
-> 
+>
 > <blockquote>
 
->> 
->> 
+>>
+>>
 </blockquote>
-> 
-> 
+>
+>
 
-> 
-> 
+>
+>
 </blockquote>
 
 
@@ -724,44 +722,44 @@ paste this over the [LSCORES] lines in the following batch file:
 
 <blockquote>
 
-> 
-> #nexus  
+>
+> #nexus
 
-begin paup;  
+begin paup;
 
-set criterion=distance;  
+set criterion=distance;
 
-log file=clocktest.log;  
+log file=clocktest.log;
 
-DSet distance=JC objective=ME base=equal rates=equal pinv=0  
+DSet distance=JC objective=ME base=equal rates=equal pinv=0
 
-subst=all negbrlen=setzero;  
+subst=all negbrlen=setzero;
 
-NJ showtree=no breakties=random;  
+NJ showtree=no breakties=random;
 
-set criterion=likelihood;  
+set criterion=likelihood;
 
-lset clock=no;  
+lset clock=no;
 
-[LSCORES];  
+[LSCORES];
 
-;[!Non-clock score above, clock score below];  
+;[!Non-clock score above, clock score below];
 
-roottrees;   
+roottrees;
 
-lset clock=yes;  
+lset clock=yes;
 
-[LSCORES];  
+[LSCORES];
 
-;[!Clock score above];  
+;[!Clock score above];
 
-tstatus;   
+tstatus;
 
-log stop;  
+log stop;
 
 end;
-> 
-> 
+>
+>
 </blockquote>
 
 
@@ -783,7 +781,7 @@ the loci combined.
 
 
 Calibrating
-the tree I: Using a previously-published calibration 
+the tree I: Using a previously-published calibration
 
 
 
@@ -798,9 +796,9 @@ for your tree, compute all uncorrected pairwise distances for your taxa
 in PAUP. With menus, use File -> Save Distances to File, then
 Options -> Distance options and select uncorrected "p". The batch
 file would be (replacing [filename] with what you want to call the
-distance file, without brackets):  
+distance file, without brackets):
 
-  
+
 
 
 
@@ -813,18 +811,18 @@ distance file, without brackets):
 
 <blockquote>
 
-> 
-> #nexus  
+>
+> #nexus
 
-begin paup;  
+begin paup;
 
-dset distance=p;  
+dset distance=p;
 
-savedist format=onecolumn file=[filename] undefined=asterisk;  
+savedist format=onecolumn file=[filename] undefined=asterisk;
 
-end; 
-> 
-> 
+end;
+>
+>
 </blockquote>
 
 
@@ -887,7 +885,7 @@ compressed by the maximum or minimum rates -- the ratio of the ages of
 nodes does not change with the different rates. Other methods must be
 used to calculate error bars on the ages of nodes due to finite
 sequence length rather than uncertain calibration. These methods are
-explained below.  
+explained below.
 
 
 
@@ -928,56 +926,56 @@ the likelihood parameters, and load your clock tree.
 
 <blockquote>
 
-> 
-> #nexus   
+>
+> #nexus
 
-begin paup;   
+begin paup;
 
-charset rep1 = 1 - 2432 ;  
+charset rep1 = 1 - 2432 ;
 
-charset rep2 = 2433 - 4864 ;  
+charset rep2 = 2433 - 4864 ;
 
-charset rep3 = 4865 - 7296 ;  
-
-_[.... repetitive commands not included here. Just use Excel to
-follow the pattern....]  
-
-_charset rep500 = 1213569 - 1216000 ;   
-
-exclude all;   
-
-include rep1 ; [! rep 1 ]  
-
-savetrees root=yes brlen=yes maxdecimals=6 replace=no append=yes
-file=brlenwbootstrapdata.tre;   
-
-exclude all;   
-
-include rep2 ; [! rep 2 ]  
-
-savetrees root=yes brlen=yes maxdecimals=6 replace=no append=yes
-file=brlenwbootstrapdata.tre;   
-
-exclude all;   
-
-include rep3 ; [! rep 3 ]  
-
-savetrees root=yes brlen=yes maxdecimals=6 replace=no append=yes
-file=brlenwbootstrapdata.tre;   
+charset rep3 = 4865 - 7296 ;
 
 _[.... repetitive commands not included here. Just use Excel to
-follow the pattern....]_  
+follow the pattern....]
 
-exclude all;   
+_charset rep500 = 1213569 - 1216000 ;
 
-include rep500 ; [! rep 500 ]  
+exclude all;
+
+include rep1 ; [! rep 1 ]
 
 savetrees root=yes brlen=yes maxdecimals=6 replace=no append=yes
-file=brlenwbootstrapdata.tre;   
+file=brlenwbootstrapdata.tre;
+
+exclude all;
+
+include rep2 ; [! rep 2 ]
+
+savetrees root=yes brlen=yes maxdecimals=6 replace=no append=yes
+file=brlenwbootstrapdata.tre;
+
+exclude all;
+
+include rep3 ; [! rep 3 ]
+
+savetrees root=yes brlen=yes maxdecimals=6 replace=no append=yes
+file=brlenwbootstrapdata.tre;
+
+_[.... repetitive commands not included here. Just use Excel to
+follow the pattern....]_
+
+exclude all;
+
+include rep500 ; [! rep 500 ]
+
+savetrees root=yes brlen=yes maxdecimals=6 replace=no append=yes
+file=brlenwbootstrapdata.tre;
 
 end;
-> 
-> 
+>
+>
 </blockquote>
 
 
@@ -990,7 +988,7 @@ to the node of interest is computed for each tree and divided by the
 distance from the root to the tips. Then the percentile function is
 used in Microsoft Excel to determine the 95% confidence interval on the
 distance from the root to the node of interest, with the distance
-expressed as proportion of total tree length. 
+expressed as proportion of total tree length.
 
 
 
@@ -1005,7 +1003,7 @@ trees and tree support, in terms of probability of the topology given
 the data and your prior beliefs (or the default prior beliefs of your
 program). I use [MrBayes](http://brahms.biology.rochester.edu/software.html)
 for this. Good introductions to the proper use of MrBayes (such as
-diagnosing convergence) can be found at Frederick Ronquist's [site](http://www.csit.fsu.edu/%7Eronquist/mrbayes/). 
+diagnosing convergence) can be found at Frederick Ronquist's [site](http://www.csit.fsu.edu/%7Eronquist/mrbayes/).
 
 
 

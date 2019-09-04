@@ -134,8 +134,14 @@
       <priority>0.6</priority>
    </url>
    <url>
-      <loc>http://brianomeara.info/files/UTKEEB464_Lecture04_Taphonomy_201.pdf</loc>
-      <lastmod>2019-08-14</lastmod>
+      <loc>http://brianomeara.info/files/UTKEEB464_Lecture04_Taphonomy_2019.pdf</loc>
+      <lastmod>2019-09-04</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.6</priority>
+   </url>
+   <url>
+      <loc>http://brianomeara.info/files/UTKEEB464_Lecture05_Jargon_2019.pdf</loc>
+      <lastmod>2019-09-04</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.6</priority>
    </url>

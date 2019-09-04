@@ -119,9 +119,9 @@ Final letter grades will be assigned at the end of the semester using an instruc
 | 2   | 23-Aug | [History of planet & life I](files/UTKEEB464_Lecture1_History1_2019.pdf)  | Crinoid                  |                       |
 | 3   | 26-Aug | [History of planet & life II](files/UTKEEB464_Lecture02_History2_2019.pdf) | Archaea                  |                       |
 | 4   | 28-Aug | [Evidence](files/UTKEEB464_Lecture03_Evidence_2019.pdf)                    | *Anomalocaris*           |                       |
-| 5   | 30-Aug | [Taphonomy](files/UTKEEB464_Lecture04_Taphonomy_201.pdf)                   | Trilobite                |                       |
+| 5   | 30-Aug | [Taphonomy](files/UTKEEB464_Lecture04_Taphonomy_2019.pdf)                   | Trilobite                |                       |
 |     | 2-Sep  | Labor day                   |                          |                       |
-| 6   | 4-Sep  | Jargon                      | *Acromyrmex*             |                       |
+| 6   | 4-Sep  | [Jargon](files/UTKEEB464_Lecture05_Jargon_2019.pdf)                    | *Acromyrmex*             |                       |
 | 7   | 6-Sep  | Empirical distributions     | Spiny anteater           |                       |
 | 8   | 9-Sep  | Biogeography                | Geospizinae              |                       |
 | 9   | 11-Sep | Speciation I                | *Wolbachia*              |                       |

@@ -1,0 +1,45 @@
+---
+layout: opportunities
+link: http://www.brianomeara.info/opportunities/
+slug: opportunities
+title: Opportunities
+---
+
+There are several kinds of opportunities for joining the lab. I am now accepting grad students (see below), and undergrads can choose to work with me on projects of mutual interest. With students in general, I don't see your job as helping me with my research program -- it's my role to help you develop yours. I'm clearly better at certain areas than others, but generally if it involves evolution or informatics, I can help (and if I think someone else would be better, I'll tell you). For postdocs, since they're funded by grants with targets, there are more limits in what can be done. However, note it's postdoctoral *training*, not technician hiring -- I want you for your expertise and interest, but if you're lacking some skills, those can generally be taught. Please don't let lack of some skill make you feel you're ineligible for the position.
+
+Standard lab policy is that you should reach out to current and past lab members for feedback on what it's like here, and never tell me what they say, positive or negative. That way, they know they can be frank with you.
+
+I also suggest you tell me about other things you may need -- spousal accommodations, info about child care, etc. -- only once you receive an official offer. I can try to work with you on ways to help, but this way, neither I nor anyone else involved can discriminate against you based on these factors, even unconsciously, before you get an offer.
+
+You might look at [lab guidelines](http://brianomeara.info/guidelines.html) to get a sense of how the lab works. Materials I created for [promotion](http://brianomeara.info/promotion.html), especially the promotion packet itself ([PDF](http://brianomeara.info/files/OMearaPromotionPacket.pdf)) may give you a good summary of where my teaching, research, and service have been and are going.
+
+## Knoxville
+
+Knoxville is a moderate-sized city fairly close to the Smoky Mountains, an area of the US with great biodiversity, especially flowering plants and salamanders. I've been struck by the spectacular fall and spring here. The Ecology and Evolutionary Biology Department strives to be an inclusive, welcoming place to all, and most people seem pretty happy here overall. It is affordable enough that some grad students still buy houses during grad school.
+
+## Postdocs
+
+Sept. 2019:
+
+There are three postdoc positions. They can be remote or local to Knoxville. In general, the lab is run in such a way that working remotely is fine -- lab meetings are virtual for everyone, we have a group chat in slack, we do work through GitHub, etc. It can be good to be here (seminars, social connections with others) but not everyone has the flexibility to move.
+
+Two are for continuing development of Approximate Bayesian Computation approaches for phylogenetics. We have a method for single continuous traits almost ready (doing final simulations on it now) but we want to extend it to discrete traits, multivariate traits, and more. To apply for this, go to [here](https://ut.taleo.net/careersection/ut_system/jobdetail.ftl?job=19000001LL&tz=GMT-04%3A00&tzname=America%2FNew_York).
+
+The other is for a postdoc working on ascertainment bias in diversification models. This is for a grant in collaboration with [Jeremy Beaulieu](https://www.jeremybeaulieu.org/).
+
+Please reach out to me for details. Positions are open until filled, but I want to fill them soon.
+
+## Grad students
+
+I am looking for a grad student or students to start in August 2020. They can be Masters or PhD students. Some things to know:
+
+* Students admitted to the program, not to the lab. That means that it's not just up to me, and if you don't end up liking the first lab you join, moving is possible. You still have to have a faculty member saying, "I want them in my lab" to get in.
+* Reach out to me ([email](mailto:bomeara@utk.edu) or [twitter](https://twitter.com/omearabrian) work well). We can talk about your interests, expectations, etc. There's also the possibility of fee waivers for applying (not really a waiver -- just that the lab will pay your fee to the graduate school). Like an [increasing number of other programs](https://www.sciencemag.org/careers/2019/05/wave-graduate-programs-drop-gre-application-requirement) that care about pulling students from a talented, diverse pool, rather than the pool who can pay to prove they know about odd numbers, parallel lines, and bar graphs ([really](https://www.ets.org/gre/revised_general/prepare/quantitative_reasoning/)), we no longer require the GRE (however, some programs still do -- you should be applying to several programs, so see if any on your list still use the GRE before you decide not to take it at all).
+* I can teach you about active questions in evolution, methods use and development, programming, and more. I cannot make you curious and driven. Given how our graduate program and especially how my lab runs, you shouldn't expect to be handed a research topic from above -- you will develop your research topic(s) with my help and the help of your committee. I will thus ask you to propose some concrete research ideas as a filter -- it's not a commitment that you're going to work on them, but a way to see if you care about particular ideas.
+* We try to treat graduate students humanely: for those making adequate progress, tuition is covered (but not [fees](https://onestop.utk.edu/tuition-detail/)), you're in a health care plan, you get a $20K/year stipend. In exchange, you're expected to TA every semester (but not summer) -- the TA time load is ~20 hours per week. 90% of our students report that this is functionally a living wage for the area (but some students feel this is too low). Students also can apply for research funds (most students receive them, but in varying amounts) and of course there are other grants as well. There is also an active graduate student group, [GREBE](https://grebeemail.wixsite.com/grebe), which has representatives at faculty meetings and most committees (they're excluded them from the grad admissions committee over privacy concerns).
+* Grad school is a path to many careers: governmental agencies, private companies, NGOs, academia, and more. I will try to support you in whatever career you feel is best for you (and this can change during your time in grad school), and your intended career plays no role in whether I want you in the lab or not. Do note that, like most academics, my training and professional contacts are generally in academia, but that does not mean I won't be able to help with other careers.
+* Grad school, especially for people with the intention of ending up in a tenure track job, has benefits and costs that not all people applying may know about. I have a [page](http://brianomeara.info/shouldyougotogradschool.html) on this -- please read it before choosing this path.
+
+## Undergrads
+
+There are no entry level jobs in the lab: there are no turtles to feed, labware to clean, seeds to count. Instead, I typically work with students to develop research questions they care about (past ones have included Slavic language evolution and evolution of salamander development). It is like a graduate student dissertation, just shorter and perhaps more accessible. So if you have some question you're curious about, even if it's vague ("I really like speciation", "Phylogenetic trees are awesome"), email me to set up a time we can talk. We can typically arrange for you to receive research credit for the research you are doing. The earlier you do this, the better -- it gives you time to learn more skills to better answer your questions.

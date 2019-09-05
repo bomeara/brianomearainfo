@@ -398,6 +398,12 @@
       <priority>0.8</priority>
    </url>
    <url>
+      <loc>http://brianomeara.info/files/OMearaPromotionPacket.pdf</loc>
+      <lastmod>2019-09-04</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.6</priority>
+   </url>
+   <url>
       <loc>http://brianomeara.info/research</loc>
       <lastmod>2019-09-04</lastmod>
       <changefreq>monthly</changefreq>

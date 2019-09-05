@@ -27,6 +27,8 @@ navbar:
           href: guidelines.html
         - text: "Location/Contact"
           href: location.html
+        - text: "Opportunities"
+          href: opportunities.html
         - text: "Learning objectives"
           href: learningobjectives.html
         - text: "BetterLetter"

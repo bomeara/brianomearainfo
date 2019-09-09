@@ -123,7 +123,7 @@ Final letter grades will be assigned at the end of the semester using an instruc
 |     | 2-Sep  | Labor day                   |                          |                       |
 | 6   | 4-Sep  | [Jargon](files/UTKEEB464_Lecture05_Jargon_2019.pdf)                    | *Acromyrmex*             |                       |
 | 7   | 6-Sep  | [Phylogenetics](files/UTKEEB464_Lecture06_Phylogenetics_2019.pdf)     | Spiny anteater           |                       |
-| 8   | 9-Sep  | Biogeography                | Geospizinae              |                       |
+| 8   | 9-Sep  | [Empirical Distributions](files/UTKEEB464_Lecture07_EmpiricalDistributions_2019.pdf)                | Geospizinae              |                       |
 | 9   | 11-Sep | Speciation I                | *Wolbachia*              |                       |
 | 10  | 13-Sep | Speciation II               | *Anolis*                 |                       |
 | 11  | 16-Sep | Exinction I                 | *Gasterosteus aculeatus* |                       |

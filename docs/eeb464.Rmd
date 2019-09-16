@@ -126,7 +126,7 @@ Final letter grades will be assigned at the end of the semester using an instruc
 | 8   | 9-Sep  | [Empirical Distributions](files/UTKEEB464_Lecture07_EmpiricalDistributions_2019.pdf)                | Geospizinae              |                       |
 | 9   | 11-Sep | [Biogeography](files/UTKEEB464_Lecture08_Biogeography_2019.pdf)                | *Wolbachia*              |                       |
 | 10  | 13-Sep | [Speciation I](files/UTKEEB464_Lecture09_Speciation1_2019.pdf)               | *Anolis*                 |                       |
-| 11  | 16-Sep | Exinction I                 | *Gasterosteus aculeatus* |                       |
+| 11  | 16-Sep | [Speciation II](files/UTKEEB464_Lecture10_Speciation2_2019.pdf)                 | *Gasterosteus aculeatus* |                       |
 | 12  | 18-Sep | Extinction II               | Brachiopod               |                       |
 | 13  | 20-Sep | Diversification I           | Isopod                   | Midterm 1 distributed |
 | 14  | 23-Sep | Diversification II          | *Amborella*              |                       |

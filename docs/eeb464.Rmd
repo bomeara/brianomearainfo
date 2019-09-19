@@ -128,7 +128,7 @@ Final letter grades will be assigned at the end of the semester using an instruc
 | 10  | 13-Sep | [Speciation I](files/UTKEEB464_Lecture09_Speciation1_2019.pdf)               | *Anolis*                 |                       |
 | 11  | 16-Sep | [Speciation II](files/UTKEEB464_Lecture10_Speciation2_2019.pdf)                 | *Gasterosteus aculeatus* |                       |
 | 12  | 18-Sep | [Extinction I](files/UTKEEB464_Lecture11_Extinction1_2019.pdf)               | Brachiopod               |                       |
-| 13  | 20-Sep | Diversification I           | Isopod                   | Midterm 1 distributed |
+| 13  | 20-Sep | [Diversification I](files/UTKEEB464_Lecture12_Diversification1_2019.pdf)           | Isopod                   | Midterm 1 distributed |
 | 14  | 23-Sep | Diversification II          | *Amborella*              |                       |
 | 15  | 25-Sep | Natural selection & drift   | *Tribolium*              |                       |
 | 16  | 27-Sep | Sex                         | Bdelloid rotifer         | Midterm 1 due at 8 pm |
@@ -162,6 +162,20 @@ Final letter grades will be assigned at the end of the semester using an instruc
 | 41  | 2-Dec  | Paleoart                    | *Quetzalcoatlus*         |                       |
 | 42  | 4-Dec  | Review                      |                          |                       |
 |     | 9-Dec  | **Final** 10:15 am          |                          |                       |
+
+
+#### Midterm 1:
+
+12.5 points per question. Do not talk to any human about the questions, but looking information up is ok.
+ 
+1. “We think early metazoan life was marine due to taphonomic bias,” says your friend. Argue for or against this statement.
+2. Describe Dobzhansky-Muller incompatibilities and their importance.
+3. Describe a major event in earth history and how life would be different today had it not happened. It cannot be the KT extinction or the end Permian extinction. 
+4. What would happen if Australia merged again with South America due to continental drift? 
+5. Give three examples, not from class, of how we can use phylogenies to understand macroevolution. 
+6. There is a fairly new method that lets you predict a speciation rate from the age of a species. How will you know if you can trust this?
+7. How is knowing about causes of modern extinctions useful for understanding past extinctions? How could it be misleading?
+8. Neanderthals and Homo sapiens interbred successfully in the past. A. Does this mean we were the same species? B. Why or why not? C. Does this matter, and why / why not?
 
 
 ### 2018

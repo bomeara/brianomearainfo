@@ -130,7 +130,7 @@ Final letter grades will be assigned at the end of the semester using an instruc
 | 12  | 18-Sep | [Extinction I](files/UTKEEB464_Lecture11_Extinction1_2019.pdf)               | Brachiopod               |                       |
 | 13  | 20-Sep | [Diversification I](files/UTKEEB464_Lecture12_Diversification1_2019.pdf)           | Isopod                   | Midterm 1 distributed |
 | 14  | 23-Sep | [Diversification II](files/UTKEEB464_Lecture13_Diversification2_2019.pdf)         | *Amborella*              |                       |
-| 15  | 25-Sep | Natural selection & drift   | *Tribolium*              |                       |
+| 15  | 25-Sep | [Natural selection & drift](files/UTKEEB464_Lecture14_NaturalSelection_2019.pdf)   | *Tribolium*              |                       |
 | 16  | 27-Sep | Sex                         | Bdelloid rotifer         | Midterm 1 due at 8 pm |
 | 17  | 30-Sep | Game theory                 | Lichen                   |                       |
 | 18  | 2-Oct  | Inclusive fitness           | Naked mole rat           |                       |

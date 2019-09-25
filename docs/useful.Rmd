@@ -16,6 +16,12 @@ Keeping sets of useful links has gone out of vogue, but I keep searching for the
 * Fast Rmarkdown websites (`rmarkdown::render_site()`): https://bookdown.org/yihui/rmarkdown/rmarkdown-site.html
 * Figure out what dependencies are needed when making an R package: https://github.com/Thinkr-open/attachment
 * drake: awesome way to handle batch analyses: https://github.com/ropensci/drake. Also see its manual: https://ropenscilabs.github.io/drake-manual/
+* ropensci have a ton of useful packages: https://ropensci.org/
+* rorcid is a way to pull info from the Orcid repository of information: https://github.com/ropensci/rorcid for the package, my Orcid page is at https://orcid.org/0000-0002-0337-5997 (free, get your own)
+
+## Other software
+
+* I usually use [httrack](https://www.httrack.com/) to download entire websites, but https://github.com/Y2Z/monolith looks interesting (pulls down javascript, too)
 
 ## Diversity in science
 
@@ -39,7 +45,7 @@ Keeping sets of useful links has gone out of vogue, but I keep searching for the
 * EEB department: https://eeb.utk.edu/
 * Local newspaper: https://www.knoxnews.com/ (they often have deals -- support local journalism if you're able)
 * Inside of Knoxville: https://insideofknoxville.com/. blog about goings on downtown. See the ten day planner: https://insideofknoxville.com/ten-day-planner/https://insideofknoxville.com/
-* Lawyers in Knoxville: [Legal aid of East TN](https://www.laet.org),  [Knoxville Bar Association find a lawyer service](https://www.knoxbar.org/index.cfm?pg=onlinereferralform). Groups like the [ACLU](https://www.aclu-tn.org/) may also be helpful for some legal questions. 
+* Lawyers in Knoxville: [Legal aid of East TN](https://www.laet.org),  [Knoxville Bar Association find a lawyer service](https://www.knoxbar.org/index.cfm?pg=onlinereferralform). Groups like the [ACLU](https://www.aclu-tn.org/) may also be helpful for some legal questions.
 
 
 ## Fun

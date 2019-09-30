@@ -132,13 +132,13 @@ Final letter grades will be assigned at the end of the semester using an instruc
 | 14  | 23-Sep | [Diversification II](files/UTKEEB464_Lecture13_Diversification2_2019.pdf)         | *Amborella*              |                       |
 | 15  | 25-Sep | [Natural selection & drift](files/UTKEEB464_Lecture14_NaturalSelection_2019.pdf)   | *Tribolium*              |                       |
 | 16  | 27-Sep | [Sex](files/UTKEEB464_Lecture15_Sex_2019.pdf)                         | Bdelloid rotifer         | Midterm 1 due at 8 pm |
-| 17  | 30-Sep | Game theory                 | Lichen                   |                       |
+| 17  | 30-Sep | [Trends](files/UTKEEB464_Lecture16_Trends_2019.pdf)              | Lichen                   |                       |
 | 18  | 2-Oct  | Inclusive fitness           | Naked mole rat           |                       |
 | 19  | 4-Oct  | Symbiosis                   | Fig wasp                 |                       |
 | 20  | 7-Oct  | Presentations 1             |                          | Talk                  |
 | 21  | 9-Oct  | Presentations 2             |                          | Talk                  |
 | 22  | 11-Oct | Presentations 3             |                          | Talk                  |
-| 23  | 14-Oct | Trends                      | *Maiasaura*              |                       |
+| 23  | 14-Oct | Game Theory                      | *Maiasaura*              |                       |
 | 24  | 16-Oct | Darwin                      | *Dionaea muscipula*      |                       |
 |     | 18-Oct | Fall break                  |                          |                       |
 | 25  | 21-Oct | Systematics                 | Ground sloth             |                       |

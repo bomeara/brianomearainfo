@@ -134,7 +134,7 @@ Final letter grades will be assigned at the end of the semester using an instruc
 | 16  | 27-Sep | [Sex](files/UTKEEB464_Lecture15_Sex_2019.pdf)                         | Bdelloid rotifer         | Midterm 1 due at 8 pm |
 | 17  | 30-Sep | [Trends](files/UTKEEB464_Lecture16_Trends_2019.pdf)              | Lichen                   |                       |
 | 18  | 2-Oct  | [Symbiosis](files/UTKEEB464_Lecture17_Symbiosis_2019.pdf)           | Naked mole rat           |                       |
-| 19  | 4-Oct  | Inclusive fitness                   | Fig wasp                 |                       |
+| 19  | 4-Oct  | [Inclusive fitness](UTKEEB464_Lecture18_InclusiveFitness_2019.pdf)                   | Fig wasp                 |                       |
 | 20  | 7-Oct  | Presentations 1             |                          | Talk                  |
 | 21  | 9-Oct  | Presentations 2             |                          | Talk                  |
 | 22  | 11-Oct | Presentations 3             |                          | Talk                  |

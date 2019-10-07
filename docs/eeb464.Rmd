@@ -135,11 +135,11 @@ Final letter grades will be assigned at the end of the semester using an instruc
 | 17  | 30-Sep | [Trends](files/UTKEEB464_Lecture16_Trends_2019.pdf)              | Lichen                   |                       |
 | 18  | 2-Oct  | [Symbiosis](files/UTKEEB464_Lecture17_Symbiosis_2019.pdf)           | Naked mole rat           |                       |
 | 19  | 4-Oct  | [Inclusive fitness](UTKEEB464_Lecture18_InclusiveFitness_2019.pdf)                   | Fig wasp                 |                       |
-| 20  | 7-Oct  | Presentations 1             |                          | Talk                  |
-| 21  | 9-Oct  | Presentations 2             |                          | Talk                  |
-| 22  | 11-Oct | Presentations 3             |                          | Talk                  |
-| 23  | 14-Oct | Game Theory                      | *Maiasaura*              |                       |
-| 24  | 16-Oct | Darwin                      | *Dionaea muscipula*      |                       |
+| 20  | 7-Oct  | [Game Theory](UTKEEB464_Lecture19_GameTheory_2019.pdf)             |                          | Talk                  |
+| 21  | 9-Oct  | Darwin             |                          | Talk                  |
+| 22  | 11-Oct | Systematics             |                          | Talk                  |
+| 23  | 14-Oct | Presentations 1                      | *Maiasaura*              |                       |
+| 24  | 16-Oct | Presentations 2                      | *Dionaea muscipula*      |                       |
 |     | 18-Oct | Fall break                  |                          |                       |
 | 25  | 21-Oct | Systematics                 | Ground sloth             |                       |
 | 26  | 23-Oct | Origin of life              | *Thermus aquaticus*      | Midterm 2 distributed |

@@ -137,7 +137,7 @@ Final letter grades will be assigned at the end of the semester using an instruc
 | 19  | 4-Oct  | [Inclusive fitness](UTKEEB464_Lecture18_InclusiveFitness_2019.pdf)                   | Fig wasp                 |                       |
 | 20  | 7-Oct  | [Game Theory](UTKEEB464_Lecture19_GameTheory_2019.pdf)             |                          | Talk                  |
 | 21  | 9-Oct  | [Darwin](UTKEEB464_Lecture20_Darwin_2019.pdf)             |                          |                   |
-| 22  | 11-Oct | Systematics             |                          |                   |
+| 22  | 11-Oct | [Systematics](UTKEEB464_Lecture21_Systematics_2019.pdf)             |                          |                   |
 | 23  | 14-Oct | Presentations 1                      | *Maiasaura*              |                       |
 | 24  | 16-Oct | Presentations 2                      | *Dionaea muscipula*      |                       |
 |     | 18-Oct | Fall break                  |                          |                       |

@@ -141,9 +141,9 @@ Final letter grades will be assigned at the end of the semester using an instruc
 | 23  | 14-Oct | Presentations 1                      | *Maiasaura*              |                       |
 | 24  | 16-Oct | Presentations 2                      | *Dionaea muscipula*      |                       |
 |     | 18-Oct | Fall break                  |                          |                       |
-| 25  | 21-Oct | Systematics                 | Ground sloth             |                       |
+| 25  | 21-Oct | [Disease evolution](UTKEEB464_Lecture22_DiseaseEvolution_2019.pdf)                 | Ground sloth             |                       |
 | 26  | 23-Oct | Origin of life              | *Thermus aquaticus*      | Midterm 2 distributed |
-| 27  | 25-Oct | Disease evolution           | Lycophytes               |                       |
+| 27  | 25-Oct |            | Lycophytes               |                       |
 | 28  | 28-Oct | Adaptationism / SJ Gould    | *Spinosaurus*            |                       |
 | 29  | 30-Oct | Language evolution          | Bonobo                   | Midterm 2 due at 8 pm |
 | 30  | 1-Nov  | Insects                     | *Buchnera*               |                       |

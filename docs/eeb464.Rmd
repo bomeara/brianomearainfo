@@ -134,19 +134,19 @@ Final letter grades will be assigned at the end of the semester using an instruc
 | 16  | 27-Sep | [Sex](files/UTKEEB464_Lecture15_Sex_2019.pdf)                         | Bdelloid rotifer         | Midterm 1 due at 8 pm |
 | 17  | 30-Sep | [Trends](files/UTKEEB464_Lecture16_Trends_2019.pdf)              | Lichen                   |                       |
 | 18  | 2-Oct  | [Symbiosis](files/UTKEEB464_Lecture17_Symbiosis_2019.pdf)           | Naked mole rat           |                       |
-| 19  | 4-Oct  | [Inclusive fitness](UTKEEB464_Lecture18_InclusiveFitness_2019.pdf)                   | Fig wasp                 |                       |
-| 20  | 7-Oct  | [Game Theory](UTKEEB464_Lecture19_GameTheory_2019.pdf)             |                          | Talk                  |
-| 21  | 9-Oct  | [Darwin](UTKEEB464_Lecture20_Darwin_2019.pdf)             |                          |                   |
-| 22  | 11-Oct | [Systematics](UTKEEB464_Lecture21_Systematics_2019.pdf)             |                          |                   |
+| 19  | 4-Oct  | [Inclusive fitness](files/UTKEEB464_Lecture18_InclusiveFitness_2019.pdf)                   | Fig wasp                 |                       |
+| 20  | 7-Oct  | [Game Theory](files/UTKEEB464_Lecture19_GameTheory_2019.pdf)             |                          | Talk                  |
+| 21  | 9-Oct  | [Darwin](files/UTKEEB464_Lecture20_Darwin_2019.pdf)             |                          |                   |
+| 22  | 11-Oct | [Systematics](files/UTKEEB464_Lecture21_Systematics_2019.pdf)             |                          |                   |
 | 23  | 14-Oct | Presentations 1                      | *Maiasaura*              |                       |
 | 24  | 16-Oct | Presentations 2                      | *Dionaea muscipula*      |                       |
 |     | 18-Oct | Fall break                  |                          |                       |
-| 25  | 21-Oct | [Disease evolution](UTKEEB464_Lecture22_DiseaseEvolution_2019.pdf)                 | Ground sloth             |                       |
-| 26  | 23-Oct | [Adaptationism / SJ Gould](UTKEEB464_Lecture23_2019_StephenJayGould.pdf)          | *Thermus aquaticus*      | |
-| 27  | 25-Oct |  [Flight](UTKEEB464_Lecture24_Flight_2019.pdf) | Lycophytes               |                       |
-| 28  | 28-Oct |  Origin of life   | *Spinosaurus*            |                       |
+| 25  | 21-Oct | [Disease evolution](files/UTKEEB464_Lecture22_DiseaseEvolution_2019.pdf)                 | Ground sloth             |                       |
+| 26  | 23-Oct | [Adaptationism / SJ Gould](files/UTKEEB464_Lecture23_2019_StephenJayGould.pdf)          | *Thermus aquaticus*      | |
+| 27  | 25-Oct |  [Flight](files/UTKEEB464_Lecture24_Flight_2019.pdf) | Lycophytes               |                       |
+| 28  | 28-Oct |  [Insects](files/UTKEEB464_Lecture25_Insects_2019.pdf)   | *Spinosaurus*            |                       |
 | 29  | 30-Oct | Language evolution          | Bonobo                   | Midterm 2 due at 8 pm |
-| 30  | 1-Nov  | Insects                     | *Buchnera*               |                       |
+| 30  | 1-Nov  |  Origin of life            | *Buchnera*               |                       |
 | 31  | 4-Nov  | Evolution of intelligence   | Cuttlefish               |                       |
 | 32  | 6-Nov  | Flight                      | Silverfish               |                       |
 | 33  | 8-Nov  | Invasive humans             | Cave bear                |                       |

@@ -145,7 +145,7 @@ Final letter grades will be assigned at the end of the semester using an instruc
 | 26  | 23-Oct | [Adaptationism / SJ Gould](files/UTKEEB464_Lecture23_2019_StephenJayGould.pdf)          | *Thermus aquaticus*      | |
 | 27  | 25-Oct |  [Flight](files/UTKEEB464_Lecture24_Flight_2019.pdf) | Lycophytes               |                       |
 | 28  | 28-Oct |  [Insects](files/UTKEEB464_Lecture25_Insects_2019.pdf)   | *Spinosaurus*            |                       |
-| 29  | 30-Oct | Language evolution          | Bonobo                   | Midterm 2 due at 8 pm |
+| 29  | 30-Oct | [Language evolution](files/UTKEEB464_Lecture26_LanguageEvolution_2019.pdf)          | Bonobo                   | Midterm 2 due at 8 pm |
 | 30  | 1-Nov  |  Origin of life            | *Buchnera*               |                       |
 | 31  | 4-Nov  | Evolution of intelligence   | Cuttlefish               |                       |
 | 32  | 6-Nov  | Flight                      | Silverfish               |                       |

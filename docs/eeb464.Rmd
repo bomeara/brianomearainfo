@@ -147,8 +147,8 @@ Final letter grades will be assigned at the end of the semester using an instruc
 | 28  | 28-Oct |  [Insects](files/UTKEEB464_Lecture25_Insects_2019.pdf)   | *Spinosaurus*            |                       |
 | 29  | 30-Oct | [Language evolution](files/UTKEEB464_Lecture26_LanguageEvolution_2019.pdf)          | Bonobo                   |  |
 | 30  | 1-Nov  |  [Domestication](files/UTKEEB464_Lecture27_2019_Domestication.pptx)          | *Buchnera*               |                       |
-| 31  | 4-Nov  | Evolution of intelligence   | Cuttlefish               |                       |
-| 32  | 6-Nov  | Flight                      | Silverfish               |                       |
+| 31  | 4-Nov  | [Origin of life](files/UTKEEB464_Lecture28_OriginOfLife_2019.pdf)   | Cuttlefish               |                       |
+| 32  | 6-Nov  | Evolution of intelligence                      | Silverfish               |                       |
 | 33  | 8-Nov  | Invasive humans             | Cave bear                |                       |
 | 34  | 11-Nov | Contemporary Evolution      | Malaria                  |                       |
 | 35  | 13-Nov | Recent discoveries          | *Trillium*               |                       |

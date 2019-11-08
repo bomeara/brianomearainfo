@@ -22,6 +22,7 @@ Keeping sets of useful links has gone out of vogue, but I keep searching for the
 ## Other software
 
 * I usually use [httrack](https://www.httrack.com/) to download entire websites, but https://github.com/Y2Z/monolith looks interesting (pulls down javascript, too)
+* [NSF Jetstream](https://jetstream-cloud.org/), [cyverse](https://www.cyverse.org/) for running analyses.
 
 ## Diversity in science
 

@@ -149,8 +149,8 @@ Final letter grades will be assigned at the end of the semester using an instruc
 | 30  | 1-Nov  |  [Domestication](files/UTKEEB464_Lecture27_2019_Domestication.pptx)          | *Buchnera*               |                       |
 | 31  | 4-Nov  | [Origin of life](files/UTKEEB464_Lecture28_OriginOfLife_2019.pdf)   | Cuttlefish               |                       |
 | 32  | 6-Nov  |   [Invasive humans](files/UTKEEB464_Lecture29_InvasiveHumans_2019.pdf)                    | Silverfish               |                       |
-| 33  | 8-Nov  | [Evolution of intelligence](UTKEEB464_Lecture30_2019_EvolutionOfIntelligence.pdf)           | Cave bear                |                       |
-| 34  | 11-Nov | Contemporary Evolution      | Malaria                  |                       |
+| 33  | 8-Nov  | [Evolution of intelligence](files/UTKEEB464_Lecture30_2019_EvolutionOfIntelligence.pdf)           | Cave bear                |                       |
+| 34  | 11-Nov | [Contemporary Human Evolution](files/UTKEEB464_Lecture31_ContemporaryEvolution_2019.pdf)      | Malaria                  |                       |
 | 35  | 13-Nov | Recent discoveries          | *Trillium*               |                       |
 | 36  | 15-Nov | Evolutionary medicine       | HIV                      |                       |
 | 37  | 18-Nov | Domestication               | Passiflora               | Paper due at 8 pm     |

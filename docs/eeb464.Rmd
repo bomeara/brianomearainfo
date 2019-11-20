@@ -153,8 +153,8 @@ Final letter grades will be assigned at the end of the semester using an instruc
 | 34  | 11-Nov | [Contemporary Human Evolution](files/UTKEEB464_Lecture31_ContemporaryEvolution_2019.pdf)      | Malaria                  |                       |
 | 35  | 13-Nov | [Paleoart](files/UTKEEB464_Lecture32_Paleoart_2019.pdf)          | *Trillium*               |                       |
 | 36  | 15-Nov | [Parthenogenesis](files/UTKEEB464_Lecture33_Parthenogenesis_2019.pdf)       | HIV                      |                       |
-| 37  | 18-Nov | [Insect metamorphosis](files/UTKEEB464_Lecture34_InsectMetamorphosis_2019.pdf)              | Passiflora               | Paper due at 8 pm     |
-| 38  | 20-Nov | Free topic 1                |                          |                       |
+| 37  | 18-Nov | [Insect metamorphosis](files/UTKEEB464_Lecture34_InsectMetamorphosis_2019.pdf)              | Passiflora               |      |
+| 38  | 20-Nov | [Cephalopods](files/UTKEEB464_Lecture35_Cephalopods_2019.pdf)              |                          |                       |
 | 39  | 22-Nov | Free topic 2                |                          |                       |
 | 40  | 25-Nov | Evolutionary medicine               |                          |                       |
 |     | 27-Nov | No class                    |                          |                       |

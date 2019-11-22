@@ -155,7 +155,7 @@ Final letter grades will be assigned at the end of the semester using an instruc
 | 36  | 15-Nov | [Parthenogenesis](files/UTKEEB464_Lecture33_Parthenogenesis_2019.pdf)       | HIV                      |                       |
 | 37  | 18-Nov | [Insect metamorphosis](files/UTKEEB464_Lecture34_InsectMetamorphosis_2019.pdf)              | Passiflora               |      |
 | 38  | 20-Nov | [Cephalopods](files/UTKEEB464_Lecture35_Cephalopods_2019.pdf)              |                          |                       |
-| 39  | 22-Nov | Free topic 2                |                          |                       |
+| 39  | 22-Nov | [Lensky experiment](files/UTKEEB464_Lecture36_LenskiExperiment_2019.pdf)              |                          |                       |
 | 40  | 25-Nov | Evolutionary medicine               |                          |                       |
 |     | 27-Nov | No class                    |                          |                       |
 |     | 29-Nov | No class                    |                          |                       |

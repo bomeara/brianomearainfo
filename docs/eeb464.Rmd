@@ -156,10 +156,10 @@ Final letter grades will be assigned at the end of the semester using an instruc
 | 37  | 18-Nov | [Insect metamorphosis](files/UTKEEB464_Lecture34_InsectMetamorphosis_2019.pdf)              | Passiflora               |      |
 | 38  | 20-Nov | [Cephalopods](files/UTKEEB464_Lecture35_Cephalopods_2019.pdf)              |                          |                       |
 | 39  | 22-Nov | [Lensky experiment](files/UTKEEB464_Lecture36_LenskiExperiment_2019.pdf)              |                          |                       |
-| 40  | 25-Nov | [Eye evolution](UTK_2018_Fall_EEB464_Macroevolution/Lectures/UTKEEB464_Lecture37_EyeEvolution_2019.pptx)              |                          |                       |
+| 40  | 25-Nov | [Eye evolution](files/UTKEEB464_Lecture37_EyeEvolution_2019.pptx)              |                          |                       |
 |     | 27-Nov | No class                    |                          |                       |
 |     | 29-Nov | No class                    |                          |                       |
-| 41  | 2-Dec  | Paleoart                    | *Quetzalcoatlus*         |                       |
+| 41  | 2-Dec  | [Spider Evolution](files/UTKEEB464_Lecture38_SpiderEvolution_2019.pdf)                    | *Quetzalcoatlus*         |                       |
 | 42  | 4-Dec  | Review                      |                          |                       |
 |     | 9-Dec  | **Final** 10:15 am          |                          |                       |
 

@@ -177,6 +177,167 @@ Final letter grades will be assigned at the end of the semester using an instruc
 7. How is knowing about causes of modern extinctions useful for understanding past extinctions? How could it be misleading?
 8. Neanderthals and Homo sapiens interbred successfully in the past. A. Does this mean we were the same species? B. Why or why not? C. Does this matter, and why / why not?
 
+#### Midterm 2:
+
+12.5 points per question. Do not talk to any human about the questions, but looking information up is ok.
+
+1.	Some species use temperature for sex determination: in alligators, if it is warmer they develop as males, for example. How do you expect their sex ratio to change as temperatures rise over the next 100 years? Why?
+2.	One hypothesis is that there is a trend for animal social structures to get more complex through time. How could you test this?
+3.	What is chirality and why does it pose a challenge to many hypotheses for origins of life?
+4.	Which hypothesis for evolution of bird flight do you find most compelling? Why?
+5.	How would antiviral drugs that slow reproduction of viruses affect evolution of their virulence, and why?
+6.	What was a mistake you think Darwin made? Explain why.
+7.	Describe two ways species are delimited.
+8.	How could pre-industrial humans have caused extinctions of large megafauna?
+
+
+#### Final Study Guide
+
+Study guide/possible exam questions for EEB464 Macroevolution. This focuses on the essay type questions for the exam, but there will be shorter answer (and remember the organism of the day).
+
+
+1.	Why may life have been single celled for a long time?
+
+2.	Describe a major event (such as a mass extinction, colonization of land, etc.) and its subsequent effects.
+
+3.	How do we learn about organisms with no living descendants, such as trilobites? How would living descendants affect how we can learn about them?
+
+4.	Can behavior be fossilized? If so, give two examples.
+
+5.	How can something become a fossil?
+
+6.	How has continental drift affected the location of organisms?
+
+7.	Why don’t barracuda eat cleaner wrasse?
+
+8.	Why bother making phylogenies?
+
+9.	What is a phylogeny?
+
+10.	Are species statistically independent?
+
+11.	How can movement of land lead to speciation?
+
+12.	What was the Great Faunal Interchange?
+
+13.	Describe island biogeography. Why is it relevant to this class?
+
+14.	Contrast pre and postzygotic mating barriers
+
+15.	What are Dobzhansky-Muller Incompatibilities?
+
+16.	Compare allopatric and sympatric speciation.
+
+17.	How might hybrids have greater fitness than their parents?
+
+18.	Explain the importance of Wolbachia.
+
+19.	Describe the cause of a contemporary group of extinctions.
+
+20.	Give an example of a biological trait that may increase extinction risk. Why might it?
+
+21.	How could phylogenetic diversity be useful for conservation?
+
+22.	Describe a simple model for species diversification.
+
+23.	Compare and contrast speciation rate and diversification rate.
+
+24.	How may trait transitions and diversification rates together affect evolution of a group?
+
+25.	Which requirement for natural selection is most important? Why?
+
+26.	What, in the context of this class, is an advantage of sexual reproduction?
+
+27.	Describe Muller’s ratchet
+
+28.	Describe one mechanism of sexual selection.
+
+29.	What is Cope’s rule? Why might it be true?
+
+30.	Contrast a passive and an active trend.
+
+31.	How would you detect evidence of a trend?
+
+32.	Contrast mutualism with parasitism. How can one change into the other?
+
+33.	Give an example of a commensalism.
+
+34.	What is an evolutionarily stable strategy?
+
+35.	Why is “the good of the species” a problematic concept?
+
+36.	Why might a prey item call out to a predator?
+
+37.	What is inclusive fitness?
+
+38.	What is Hamilton’s rule?
+
+39.	Give a behavior the idea of inclusive fitness could explain.
+
+40.	Why can delimiting two species be hard?
+
+41.	Relate Darwin’s work on reefs to his work on evolution.
+
+42.	What are some potential reasons that gliding evolves much more often than flight?
+
+43.	Why does science utilize peer review?
+
+44.	What evidence links humans to some megafaunal extinctions?
+
+45.	How did Gould contribute to macroevolution?
+
+46.	What is the utility of simulation for understanding macroevolution?
+
+47.	Pasteur showed life does not spontaneously appear. Biologists believe life originally spontaneously appeared. Reconcile these views.
+
+48.	Use insects as an example of a macroevolutionary process.
+
+49.	What factors affect evolution of virulence? Why?
+
+50.	What is domestication? How does it happen?
+
+51.	Does flight lead to lower extinction risk? What is your hypothesis, and how would you evaluate this?
+
+52.	What are some ways that parthenogenesis evolves?
+
+53.	How can we assess whether (pre-writing) human arrival in an area led to an extinction of macrofauna?
+
+54.	Give an example from class of evolution happening in modern humans.
+
+55.	Compare and contrast a squid, human, and fly eye. Are they homologous?
+
+56.	Draw a phylogeny of 10 species; label three synapomorphies.
+
+57.	Based on information from this class, why is there only evidence for one origin of life on the planet?
+
+58.	How can we reconstruct language evolution?
+
+59.	Are mutations usually adaptive? How do we know?
+
+60.	How has paleoart for dinosaurs changed over time?
+
+61.	How does paleoart matter for macroevolution?
+
+62.	Describe major events in spider evolution
+
+63.	Which is more intelligent, dolphins or ravens? How would you test this?
+
+64.	How can we assess parthenogenesis in wild specimens?
+
+65.	Compare and contrast Hamilton’s rule and inclusive fitness.
+
+66.	Scientists recently found a tree stump that was kept alive by connecting to a network of other roots: it respired but did not photosynthesize. How could this ability have evolved?
+
+67.	Is insect metamorphosis adaptive? How could you test this?
+
+68.	Ignoring invasive species, development of pesticides, or similar effects, how would the advent of the US interstate network, which allowed more connection between insect populations, have affected virulence of diseases in insects? Why?
+
+69.	NASA is planning missions to explore Europa, which has an ice-covered water ocean. Assuming there is life there, what you predict it will be (nutrition, size, etc.)? Why?
+
+70.	Can evolution ever lead to loss of defensive structures? Give an example
+
+
+---------------------
 
 ### 2018
 

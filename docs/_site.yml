@@ -19,6 +19,8 @@ navbar:
           href: tenure.html
         - text: "Materials for promotion to full"
           href: promotion.html
+        - text: "Candidacy for SSB president"
+          href: SSB.html
     - text: "Lab"
       menu:
         - text: "People"

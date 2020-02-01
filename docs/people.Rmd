@@ -27,7 +27,7 @@ I have mentored numerous postdocs off of my own grants and/or as one of their ch
 
 ## Mentoring, Grad students in my lab
 
-
+ 
 
 
 |Name                                                                 |Stage       |Time in Lab  |Note                           |
@@ -40,16 +40,13 @@ I have mentored numerous postdocs off of my own grants and/or as one of their ch
 
 ## Mentoring, Undergrad students in my lab
 
+ 
 
 
+|Name                                                                      |Stage     |Time in Lab |Note |
+|:-------------------------------------------------------------------------|:---------|:-----------|:----|
+|[Christian Yarber](https://www.researchgate.net/profile/Christian_Yarber) |Undergrad |2015-2016   |     |
 
-|Name                                                                      |Stage     |Time in Lab  |Note |
-|:-------------------------------------------------------------------------|:---------|:------------|:----|
-|[Christian Yarber](https://www.researchgate.net/profile/Christian_Yarber) |Undergrad |2015-2016    |     |
-|Zach Tharpe                                                               |Undergrad |2018-present |     |
-|Kylie Hannahs                                                             |Undergrad |2019-present |     |
-|Tyler-Christian Daniels                                                   |Undergrad |2019-present |     |
-|Stephen Ray                                                               |Undergrad |2019-present |     |
 
 ## Mentoring, Grad student committees
 

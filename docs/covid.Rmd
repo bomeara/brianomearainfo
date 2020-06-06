@@ -1,0 +1,97 @@
+---
+author: Brian O'Meara
+---
+
+Here are notes and links I personally find useful, all gathered in one place. Note I am not an expert in epidemiology, so when I am plotting things, it's for my own interest.
+
+<a href="https://www.utk.edu/coronavirus/">UTK coronavirus information</a>. See especially the <a href="https://chancellor.utk.edu/re-imagining-fall-task-force/report/">current task force report</a>.
+
+Projections for Tennessee
+
+<iframe src="https://covid19-projections.com/us-tn" width=600 height=600></iframe>
+
+Downtown Gatlinburg, a tourist town near us
+
+<iframe src="http://www.smokyfrontier.com/"  width=600 height=600></iframe>
+
+Newfound Gap in the Smokies
+
+<iframe src="https://www.air-resource.net/grsmnfgap/" width=600 height=600></iframe>
+
+Market Square
+
+<iframe src="https://www.knoxnews.com/pages/interactives/market-square-cam/" width=600 height=600></iframe>
+
+Here are some plots, created in R using data from https://covid19datahub.io (Guidotti, E., Ardia, D., (2020), "COVID-19 Data Hub", Working paper, doi: 10.13140/RG.2.2.11649.81763), as well as information from Google and plotting and analysis using the `forecast`, `ggplot2`, `reshape2`, and `dplyr` packages.
+
+```{r plots, echo=FALSE, message=FALSE, warning=FALSE}
+library(COVID19)
+library(forecast)
+library(ggplot2)
+library(reshape2)
+library(dplyr)
+gmr <- "https://www.gstatic.com/covid19/mobility/Global_Mobility_Report.csv"
+
+
+us <- COVID19::covid19(country="US", level=3, gmr=gmr, start="2020-03-01", verbose=FALSE)
+tn <- subset(us, administrative_area_level_2=="Tennessee")
+knox <- subset(us, administrative_area_level_3=="Knox" & administrative_area_level_2=="Tennessee")
+knox$percentconfirmed <- 100*knox$confirmed/knox$population
+
+
+tn_aggregate <- tn %>% group_by(date) %>% summarise(confirmed = sum(confirmed), population=sum(population))
+tn_aggregate$percentconfirmed <- 100*tn_aggregate$confirmed/tn_aggregate$population
+
+tn_diff <- data.frame(date=tn_aggregate$date[-1], daily_confirmed=diff(tn_aggregate$confirmed), daily_percent_confirmed=diff(tn_aggregate$percentconfirmed))
+
+
+us_aggregate <- us %>% group_by(date) %>% summarise(confirmed = sum(confirmed), population=sum(population))
+us_aggregate$percentconfirmed <- 100*us_aggregate$confirmed/us_aggregate$population
+
+us_diff <- data.frame(date=us_aggregate$date[-1], daily_confirmed=diff(us_aggregate$confirmed), daily_percent_confirmed=diff(tn_aggregate$percentconfirmed))
+
+knox_diff <- data.frame(
+  date=knox$date[-1],
+  daily_confirmed=diff(knox$confirmed),
+  daily_tested=diff(knox$tests),
+  daily_recovered=diff(knox$recovered),
+  daily_workplace=diff(knox$workplaces_percent_change_from_baseline),
+  daily_retail_recreation=diff(knox$retail_and_recreation_percent_change_from_baseline),
+  daily_residential=diff(knox$residential_percent_change_from_baseline),
+  daily_percent_confirmed = diff(knox$percentconfirmed)
+)
+
+
+
+knox_diff_last_three_weeks <- tail(knox_diff,21)
+knox_diff_last_three_weeks$daily_retail_recreation_2wk_lag <- head(tail(knox_diff$daily_retail_recreation, 21+14),21)
+
+# par(mfcol=c(1,2))
+# plot(knox$date, knox$confirmed, type="l")
+# confirmed.ts <- ts(data=knox$confirmed, start=knox$date[1], end=knox$date[length(knox$date)])
+# confirmed_plot <- confirmed.ts %>%
+#   auto.arima() %>%
+#   forecast(h=20) %>%
+#   autoplot()
+# print(confirmed_plot)
+
+knox_activity <- reshape2::melt(knox[,c("date", colnames(knox)[grepl("baseline", colnames(knox))])],id.var='date')
+knox_activity <- knox_activity[!grepl("transit", knox_activity$variable),]
+knox_activity$variable <- gsub("_percent_change_from_baseline", "", knox_activity$variable )
+knox_activity <- knox_activity[!is.na(knox_activity$value),]
+g <- ggplot(knox_activity, aes(x=date, y=value, col=variable)) + geom_smooth() + ylab("Activity in Knox County over time relative to baseline\nData from Google")
+g <- g + geom_hline(yintercept=0, col="black")
+print(g)
+
+# p <- ggplot(knox_diff, aes(x=date, y=daily_confirmed)) + geom_smooth(span=14/nrow(knox_diff)) + geom_point()
+# print(p)
+
+
+all_confirmed <- data.frame(date=c(us_aggregate$date, tn_aggregate$date, knox$date), percentconfirmed=c(us_aggregate$percentconfirmed, tn_aggregate$percentconfirmed, knox$percentconfirmed), region=c(rep("US", nrow(us_aggregate)),rep("TN", nrow(tn_aggregate)), rep("Knox", nrow(knox))))
+con <- ggplot(all_confirmed, aes(x=date, y=percentconfirmed, color=region)) + geom_smooth(span=14/nrow(knox_diff)) + geom_point() + ylab("Percent of population with confirmed tests")
+print(con)
+
+diff_confirmed <-  data.frame(date=c(us_diff$date, tn_diff$date, knox_diff$date), daily_percent_confirmed=c(us_diff$daily_percent_confirmed, tn_diff$daily_percent_confirmed, knox_diff$daily_percent_confirmed), region=c(rep("US", nrow(us_diff)),rep("TN", nrow(tn_diff)), rep("Knox", nrow(knox_diff))))
+diffplot <- ggplot(diff_confirmed, aes(x=date, y=daily_percent_confirmed, color=region)) + geom_smooth(span=14/nrow(knox_diff)) + geom_point() + ylab("Percent of population new confirmed tests daily")
+print(diffplot)
+```

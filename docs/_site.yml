@@ -43,6 +43,8 @@ navbar:
           href: promotion.html
         - text: "Info for general public"
           href: general.html
+        - text: "COVID"
+          href: covid.html
     - text: "Teaching"
       menu:
         - text: "Teaching overall"

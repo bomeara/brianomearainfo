@@ -6,21 +6,9 @@ Here are notes and links I personally find useful, all gathered in one place. No
 
 <a href="https://www.utk.edu/coronavirus/">UTK coronavirus information</a>. See especially the <a href="https://chancellor.utk.edu/re-imagining-fall-task-force/report/">current task force report</a>.
 
-Projections for Tennessee
+<a href="https://covid19-projections.com/us-tn">Projections for Tennessee</a>
 
-<iframe src="https://covid19-projections.com/us-tn" width=600 height=600></iframe>
-
-Downtown Gatlinburg, a tourist town near us
-
-<iframe src="http://www.smokyfrontier.com/"  width=600 height=600></iframe>
-
-Newfound Gap in the Smokies
-
-<iframe src="https://www.air-resource.net/grsmnfgap/" width=600 height=600></iframe>
-
-Market Square
-
-<iframe src="https://www.knoxnews.com/pages/interactives/market-square-cam/" width=600 height=600></iframe>
+<a href="https://covid.knoxcountytn.gov/case-count.html#covid_data">Knox County data</a>
 
 Here are some plots, created in R using data from https://covid19datahub.io (Guidotti, E., Ardia, D., (2020), "COVID-19 Data Hub", Working paper, doi: 10.13140/RG.2.2.11649.81763), as well as information from Google and plotting and analysis using the `forecast`, `ggplot2`, `reshape2`, and `dplyr` packages. Plots created on `r Sys.Date()`.
 
@@ -95,3 +83,17 @@ diff_confirmed <-  data.frame(date=c(us_diff$date, tn_diff$date, knox_diff$date)
 diffplot <- ggplot(diff_confirmed, aes(x=date, y=daily_percent_confirmed, color=region)) + geom_smooth(span=14/nrow(knox_diff)) + geom_point() + ylab("Percent of population new confirmed tests daily")
 print(diffplot)
 ```
+
+<h2>Local webcams</h2>
+
+Downtown Gatlinburg <a href="http://www.smokyfrontier.com/">webcam</a>, a tourist town near us
+
+<iframe src="http://www.smokyfrontier.com/"  width=600 height=600 scrolling="no"></iframe>
+
+<a href="https://www.air-resource.net/grsmnfgap/">Newfound Gap in the Smokies</a>
+
+<iframe src="https://www.air-resource.net/grsmnfgap/" width=600 height=500 scrolling="no"></iframe>
+
+<a href="https://www.knoxnews.com/pages/interactives/market-square-cam/">Market Square</a>
+
+<iframe src="https://www.knoxnews.com/pages/interactives/market-square-cam/" width=600 height=600 scrolling="yes"></iframe>

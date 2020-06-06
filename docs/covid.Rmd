@@ -22,7 +22,7 @@ Market Square
 
 <iframe src="https://www.knoxnews.com/pages/interactives/market-square-cam/" width=600 height=600></iframe>
 
-Here are some plots, created in R using data from https://covid19datahub.io (Guidotti, E., Ardia, D., (2020), "COVID-19 Data Hub", Working paper, doi: 10.13140/RG.2.2.11649.81763), as well as information from Google and plotting and analysis using the `forecast`, `ggplot2`, `reshape2`, and `dplyr` packages.
+Here are some plots, created in R using data from https://covid19datahub.io (Guidotti, E., Ardia, D., (2020), "COVID-19 Data Hub", Working paper, doi: 10.13140/RG.2.2.11649.81763), as well as information from Google and plotting and analysis using the `forecast`, `ggplot2`, `reshape2`, and `dplyr` packages. Plots created on `r Sys.Date()`.
 
 ```{r plots, echo=FALSE, message=FALSE, warning=FALSE}
 library(COVID19)
@@ -33,7 +33,7 @@ library(dplyr)
 gmr <- "https://www.gstatic.com/covid19/mobility/Global_Mobility_Report.csv"
 
 
-us <- COVID19::covid19(country="US", level=3, gmr=gmr, start="2020-03-01", verbose=FALSE)
+us <- COVID19::covid19(country="US", level=3, gmr=gmr, verbose=FALSE)
 tn <- subset(us, administrative_area_level_2=="Tennessee")
 knox <- subset(us, administrative_area_level_3=="Knox" & administrative_area_level_2=="Tennessee")
 knox$percentconfirmed <- 100*knox$confirmed/knox$population

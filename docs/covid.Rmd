@@ -110,7 +110,7 @@ print(knox_testing)
 
 ```
 
-I've been curious about how active people have been -- are they still going out, etc. The webcams at the bottom of the page are a glimpse of that, but Google has also been tracking activity data. Here are smoothed plots of activity over time (the raw data are much more variable).
+I've been curious about how active people have been -- are they still going out, etc. The webcams at the bottom of the page are a glimpse of that, but Google has also been tracking activity data. Here are smoothed plots of activity over time, as a percentage of activity pre-COVID19 (the raw data are much more variable).
 
 ```{r plotsC, echo=FALSE, message=FALSE, warning=FALSE}
 
@@ -118,7 +118,7 @@ knox_activity <- reshape2::melt(knox[,c("date", colnames(knox)[grepl("baseline",
 knox_activity <- knox_activity[!grepl("transit", knox_activity$variable),]
 knox_activity$variable <- gsub("_percent_change_from_baseline", "", knox_activity$variable )
 knox_activity <- knox_activity[!is.na(knox_activity$value),]
-g <- ggplot(knox_activity, aes(x=date, y=value, col=variable)) + geom_smooth() + ylab("Activity in Knox County over time relative to baseline\nData from Google")
+g <- ggplot(knox_activity, aes(x=date, y=value, col=variable)) + geom_smooth() + ylab("Activity in Knox County over time as percentage of baseline activity\nData from Google")
 g <- g + geom_hline(yintercept=0, col="black")
 print(g)
 
@@ -127,7 +127,7 @@ print(g)
 
 ```
 
-Finally, some plots of how cases in Knox County compare to those in Tennessee and the US as a whole (Knox data are used in all of these). To normalize it, I'm plotting as a percentage of the population for each.
+Finally, some plots of how cases in Knox County compare to those in Tennessee and the US as a whole (Knox data are used in all of these). To normalize it, I'm plotting as a percentage of the population for each. Note that the axes show percentage: that is, "0.6" is really 0.6%, not 60%. 
 
 
 ```{r plotsD, echo=FALSE, message=FALSE, warning=FALSE}

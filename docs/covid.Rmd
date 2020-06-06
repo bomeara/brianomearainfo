@@ -1,8 +1,9 @@
 ---
 author: Brian O'Meara
+title: Local COVID data
 ---
 
-Here are notes and links I personally find useful, all gathered in one place. Note I am not an expert in epidemiology, so when I am plotting things, it's for my own interest.
+Here are notes and links I personally find useful, all gathered in one place. Note I am not an expert in epidemiology, so when I am plotting things, it's for my own interest. Mostly, I kept looking at webcams to see whether people are practicing social distancing and decided to put them all in one place, along with a bit of plotting of data.
 
 <a href="https://www.utk.edu/coronavirus/">UTK coronavirus information</a>. See especially the <a href="https://chancellor.utk.edu/re-imagining-fall-task-force/report/">current task force report</a>.
 
@@ -76,12 +77,25 @@ print(g)
 
 
 all_confirmed <- data.frame(date=c(us_aggregate$date, tn_aggregate$date, knox$date), percentconfirmed=c(us_aggregate$percentconfirmed, tn_aggregate$percentconfirmed, knox$percentconfirmed), region=c(rep("US", nrow(us_aggregate)),rep("TN", nrow(tn_aggregate)), rep("Knox", nrow(knox))))
-con <- ggplot(all_confirmed, aes(x=date, y=percentconfirmed, color=region)) + geom_smooth(span=14/nrow(knox_diff)) + geom_point() + ylab("Percent of population with confirmed tests")
+con <- ggplot(all_confirmed, aes(x=date, y=percentconfirmed, color=region)) + geom_smooth() + geom_point() + ylab("Percent of population with confirmed tests")
 print(con)
+
+three_weeks_ago <- tail(sort(unique(all_confirmed$date)),21)[1]
+all_confirmed_3 <- all_confirmed[all_confirmed$date>=three_weeks_ago,]
+
+con3 <- ggplot(all_confirmed_3, aes(x=date, y=percentconfirmed, color=region)) + geom_smooth() + geom_point() + ylab("Percent of population with confirmed tests")
+print(con3)
 
 diff_confirmed <-  data.frame(date=c(us_diff$date, tn_diff$date, knox_diff$date), daily_percent_confirmed=c(us_diff$daily_percent_confirmed, tn_diff$daily_percent_confirmed, knox_diff$daily_percent_confirmed), region=c(rep("US", nrow(us_diff)),rep("TN", nrow(tn_diff)), rep("Knox", nrow(knox_diff))))
 diffplot <- ggplot(diff_confirmed, aes(x=date, y=daily_percent_confirmed, color=region)) + geom_smooth(span=14/nrow(knox_diff)) + geom_point() + ylab("Percent of population new confirmed tests daily")
 print(diffplot)
+
+
+diff_confirmed_3 <- diff_confirmed[diff_confirmed$date>=three_weeks_ago,]
+diffplot3 <- ggplot(diff_confirmed_3, aes(x=date, y=daily_percent_confirmed, color=region)) + geom_smooth() + geom_point() + ylab("Percent of population new confirmed tests daily")
+print(diffplot3)
+
+
 ```
 
 <h2>Local webcams</h2>

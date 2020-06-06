@@ -3,15 +3,19 @@ author: Brian O'Meara
 title: Local COVID data
 ---
 
-Here are notes and links I personally find useful, all gathered in one place. Note I am not an expert in epidemiology, so when I am plotting things, it's for my own interest. Mostly, I kept looking at webcams to see whether people are practicing social distancing and decided to put them all in one place, along with a bit of plotting of data.
+Here are notes and links I personally find useful, all gathered in one place. Mostly, I kept looking at webcams to see whether people are practicing social distancing and decided to put them all in one place. I also gather data when nervous, so I also have plots of things like testing, activity, and cases over time so I can see the info directly myself (for example, <a href="https://covid.knoxcountytn.gov/case-count.html#covid_data">Knox County Health Department</a> plots cases per day with a trendline, but so far their trendline is only a straight line - I was curious if a more flexible fitting might be more informative. <b>I am not an epidemiologist</b>, so please do not draw any advice from this page (and I've been careful NOT to do projections or anything like that -- there is a lot that goes into modeling, see <a href="https://www.youtube.com/watch?v=Ewuo_2pzNNw">this video</a> by my colleague <a href="http://feffermanlab.org/">Nina Fefferman</a>, who actually knows what she's doing, for more on models). This is just me poking around with the data to make myself feel better -- the raw code is <a href="https://github.com/bomeara/brianomearainfo/blob/master/docs/covid.Rmd">here</a> if you'd like to play with it yourself.
 
 <a href="https://www.utk.edu/coronavirus/">UTK coronavirus information</a>. See especially the <a href="https://chancellor.utk.edu/re-imagining-fall-task-force/report/">current task force report</a>.
 
-<a href="https://covid19-projections.com/us-tn">Projections for Tennessee</a>
-
 <a href="https://covid.knoxcountytn.gov/case-count.html#covid_data">Knox County data</a>
 
-Here are some plots, created in R using data from https://covid19datahub.io (Guidotti, E., Ardia, D., (2020), "COVID-19 Data Hub", Working paper, doi: 10.13140/RG.2.2.11649.81763), as well as information from Google and plotting and analysis using the `forecast`, `ggplot2`, `reshape2`, and `dplyr` packages. Plots created on `r Sys.Date()`.
+<a href="https://covid19-projections.com/us-tn">Projections for Tennessee</a>
+
+<a href="https://nextstrain.org/ncov">COVID-19 phylogeny</a>
+
+<hr />
+
+Here are some plots, created in R using data from https://covid19datahub.io (Guidotti, E., Ardia, D., (2020), "COVID-19 Data Hub", Working paper, doi: 10.13140/RG.2.2.11649.81763), as well as information from Google and the <a href="https://www.tn.gov/health/cedep/ncov/data/downloadable-datasets.html">state of Tennessee dataset page</a> and plotting and analysis using the `forecast`, `ggplot2`, `reshape2`, and `dplyr` packages. Plots created on `r Sys.Date()`.
 
 ```{r data, echo=FALSE, message=FALSE, warning=FALSE}
 library(COVID19)
@@ -150,6 +154,8 @@ print(diffplot3)
 
 ```
 
+<hr />
+
 <h2>Local webcams</h2>
 
 Downtown Gatlinburg <a href="http://www.smokyfrontier.com/">webcam</a>, a tourist town near us
@@ -159,7 +165,3 @@ Downtown Gatlinburg <a href="http://www.smokyfrontier.com/">webcam</a>, a touris
 <a href="https://www.air-resource.net/grsmnfgap/">Newfound Gap in the Smokies</a>
 
 <iframe src="https://www.air-resource.net/grsmnfgap/" width=600 height=500 scrolling="no"></iframe>
-
-<a href="https://www.knoxnews.com/pages/interactives/market-square-cam/">Market Square</a>
-
-<iframe src="https://www.knoxnews.com/pages/interactives/market-square-cam/" width=600 height=600 scrolling="yes"></iframe>

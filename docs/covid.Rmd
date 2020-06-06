@@ -13,12 +13,14 @@ Here are notes and links I personally find useful, all gathered in one place. No
 
 Here are some plots, created in R using data from https://covid19datahub.io (Guidotti, E., Ardia, D., (2020), "COVID-19 Data Hub", Working paper, doi: 10.13140/RG.2.2.11649.81763), as well as information from Google and plotting and analysis using the `forecast`, `ggplot2`, `reshape2`, and `dplyr` packages. Plots created on `r Sys.Date()`.
 
-```{r plots, echo=FALSE, message=FALSE, warning=FALSE}
+```{r data, echo=FALSE, message=FALSE, warning=FALSE}
 library(COVID19)
 library(forecast)
 library(ggplot2)
 library(reshape2)
 library(dplyr)
+library(readxl)
+
 gmr <- "https://www.gstatic.com/covid19/mobility/Global_Mobility_Report.csv"
 
 
@@ -55,6 +57,44 @@ knox_diff <- data.frame(
 knox_diff_last_three_weeks <- tail(knox_diff,21)
 knox_diff_last_three_weeks$daily_retail_recreation_2wk_lag <- head(tail(knox_diff$daily_retail_recreation, 21+14),21)
 
+
+
+temp = tempfile(fileext = ".xlsx")
+dataURL <- "https://www.tn.gov/content/dam/tn/health/documents/cedep/novel-coronavirus/datasets/Public-Dataset-County-New.XLSX"
+download.file(dataURL, destfile=temp, mode='wb')
+
+daily <- readxl::read_excel(temp, sheet =1)
+
+daily_knox <- subset(daily, COUNTY=="Knox")
+
+knox_pop <- max(knox$population)
+
+```
+
+The number of new and active cases should be not be going up if things are well-controlled, and ideally should be going down. The number of active cases is the number of positive cases minus the number of recovered cases (or deaths, I believe).
+
+```{r plotsA, echo=FALSE, message=FALSE, warning=FALSE}
+
+
+knox_new <- ggplot(daily_knox[!is.na(daily_knox$NEW_CASES),], aes(x=DATE, y=NEW_CASES)) + geom_smooth() + geom_point() + ylab("Number of new cases in Knox each day") + xlab("Date") + ylim(0,NA)
+print(knox_new)
+
+knox_active <- ggplot(daily_knox[!is.na(daily_knox$TOTAL_ACTIVE),], aes(x=DATE, y=TOTAL_ACTIVE)) + geom_smooth() + geom_point() + ylab("Number of active cases in Knox each day") + xlab("Date") + ylim(0,NA)
+print(knox_active)
+
+```
+
+A question is whether testing is adequate. The White House has said about 30 tests per 1000 people per month is adequate; others have argued that around 45 tests per 1000 people per month is better, though with variation depending on infection rate (see <a href="https://www.statnews.com/2020/04/27/coronavirus-many-states-short-of-testing-levels-needed-for-safe-reopening/">here</a>). These are the black lines on the plots below (calculated as tests per day, given Knox County's population of `r knox_pop`).
+
+
+```{r plotsB, echo=FALSE, message=FALSE, warning=FALSE}
+
+
+knox_testing <- ggplot(daily_knox[!is.na(daily_knox$NEW_TESTS),], aes(x=DATE, y=NEW_TESTS)) + geom_smooth() + geom_point() + ylab("Number of new tests in Knox each day") + xlab("Date") + ylim(0,NA)
+knox_testing <- knox_testing + geom_hline(yintercept=(knox_pop*45/1000)/30, col="black") + geom_hline(yintercept=(knox_pop*30/1000)/30, col="black")
+print(knox_testing)
+
+
 # par(mfcol=c(1,2))
 # plot(knox$date, knox$confirmed, type="l")
 # confirmed.ts <- ts(data=knox$confirmed, start=knox$date[1], end=knox$date[length(knox$date)])
@@ -63,6 +103,12 @@ knox_diff_last_three_weeks$daily_retail_recreation_2wk_lag <- head(tail(knox_dif
 #   forecast(h=20) %>%
 #   autoplot()
 # print(confirmed_plot)
+
+```
+
+I've been curious about how active people have been -- are they still going out, etc. The webcams at the bottom of the page are a glimpse of that, but Google has also been tracking activity data. Here are smoothed plots of activity over time (the raw data are much more variable).
+
+```{r plotsC, echo=FALSE, message=FALSE, warning=FALSE}
 
 knox_activity <- reshape2::melt(knox[,c("date", colnames(knox)[grepl("baseline", colnames(knox))])],id.var='date')
 knox_activity <- knox_activity[!grepl("transit", knox_activity$variable),]
@@ -74,6 +120,13 @@ print(g)
 
 # p <- ggplot(knox_diff, aes(x=date, y=daily_confirmed)) + geom_smooth(span=14/nrow(knox_diff)) + geom_point()
 # print(p)
+
+```
+
+Finally, some plots of how cases in Knox County compare to those in Tennessee and the US as a whole (Knox data are used in all of these). To normalize it, I'm plotting as a percentage of the population for each.
+
+
+```{r plotsD, echo=FALSE, message=FALSE, warning=FALSE}
 
 
 all_confirmed <- data.frame(date=c(us_aggregate$date, tn_aggregate$date, knox$date), percentconfirmed=c(us_aggregate$percentconfirmed, tn_aggregate$percentconfirmed, knox$percentconfirmed), region=c(rep("US", nrow(us_aggregate)),rep("TN", nrow(tn_aggregate)), rep("Knox", nrow(knox))))
@@ -94,7 +147,6 @@ print(diffplot)
 diff_confirmed_3 <- diff_confirmed[diff_confirmed$date>=three_weeks_ago,]
 diffplot3 <- ggplot(diff_confirmed_3, aes(x=date, y=daily_percent_confirmed, color=region)) + geom_smooth() + geom_point() + ylab("Percent of population new confirmed tests daily")
 print(diffplot3)
-
 
 ```
 

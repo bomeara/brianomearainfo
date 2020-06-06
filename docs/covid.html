@@ -12,7 +12,7 @@
 <meta name="author" content="Brian O’Meara" />
 
 
-<title>covid.utf8</title>
+<title>Local COVID data</title>
 
 <script src="site_libs/header-attrs-2.2/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
@@ -393,16 +393,21 @@ $(document).ready(function () {
 
 
 
+<h1 class="title toc-ignore">Local COVID data</h1>
+<h4 class="author">Brian O’Meara</h4>
 
 </div>
 
 
-<p>Here are notes and links I personally find useful, all gathered in one place. Note I am not an expert in epidemiology, so when I am plotting things, it’s for my own interest.</p>
+<p>Here are notes and links I personally find useful, all gathered in one place. Note I am not an expert in epidemiology, so when I am plotting things, it’s for my own interest. Mostly, I kept looking at webcams to see whether people are practicing social distancing and decided to put them all in one place, along with a bit of plotting of data.</p>
 <p><a href="https://www.utk.edu/coronavirus/">UTK coronavirus information</a>. See especially the <a href="https://chancellor.utk.edu/re-imagining-fall-task-force/report/">current task force report</a>.</p>
 <p><a href="https://covid19-projections.com/us-tn">Projections for Tennessee</a></p>
 <p><a href="https://covid.knoxcountytn.gov/case-count.html#covid_data">Knox County data</a></p>
 <p>Here are some plots, created in R using data from <a href="https://covid19datahub.io" class="uri">https://covid19datahub.io</a> (Guidotti, E., Ardia, D., (2020), “COVID-19 Data Hub”, Working paper, doi: 10.13140/RG.2.2.11649.81763), as well as information from Google and plotting and analysis using the <code>forecast</code>, <code>ggplot2</code>, <code>reshape2</code>, and <code>dplyr</code> packages. Plots created on 2020-06-06.</p>
-<p><img src="covid_files/figure-html/plots-1.png" width="672" /><img src="covid_files/figure-html/plots-2.png" width="672" /><img src="covid_files/figure-html/plots-3.png" width="672" /><img src="covid_files/figure-html/plots-4.png" width="672" /><img src="covid_files/figure-html/plots-5.png" width="672" /></p>
+<p>The number of new and active cases should be not be going up if things are well-controlled, and ideally should be going down. The number of active cases is the number of positive cases minus the number of recovered cases (or deaths, I believe).</p>
+<p><img src="covid_files/figure-html/plotsA-1.png" width="672" /><img src="covid_files/figure-html/plotsA-2.png" width="672" /></p>
+<p>A question is whether testing is adequate. The White House has said about 30 tests per 1000 people per month is adequate; others have argued that around 45 tests per 1000 people per month is better, though with variation depending on infection rate (see <a href="https://www.statnews.com/2020/04/27/coronavirus-many-states-short-of-testing-levels-needed-for-safe-reopening/">here</a>). These are the black lines on the plots below (calculated as tests per day, given Knox County’s population of 470313).</p>
+<p><img src="covid_files/figure-html/plotsB-1.png" width="672" /><img src="covid_files/figure-html/plotsB-2.png" width="672" /><img src="covid_files/figure-html/plotsB-3.png" width="672" /><img src="covid_files/figure-html/plotsB-4.png" width="672" /><img src="covid_files/figure-html/plotsB-5.png" width="672" /><img src="covid_files/figure-html/plotsB-6.png" width="672" /></p>
 <h2>
 Local webcams
 </h2>

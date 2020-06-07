@@ -3,19 +3,23 @@ author: Brian O'Meara
 title: Local COVID data
 ---
 
-Here are notes and links I personally find useful, all gathered in one place. Mostly, I kept looking at webcams to see whether people are practicing social distancing and decided to put them all in one page. I also gather data when nervous, so I also have plots of things like testing, activity, and cases over time so I can see the info directly myself (for example, <a href="https://covid.knoxcountytn.gov/case-count.html#covid_data">Knox County Health Department</a> plots cases per day with a trendline, but so far their trendline is only a straight line - I was curious if a more flexible fitting might be more informative. <b>I am not an epidemiologist</b>, so please do not draw any advice from this page (and I've been careful NOT to do projections or anything like that -- there is a lot that goes into modeling, see <a href="https://www.youtube.com/watch?v=Ewuo_2pzNNw">this video</a> by my colleague <a href="http://feffermanlab.org/">Nina Fefferman</a>, who actually knows what she's doing, for more on models). This is just me poking around with the data to make myself feel better -- the raw code is <a href="https://github.com/bomeara/brianomearainfo/blob/master/docs/covid.Rmd">here</a> if you'd like to examine it yourself.
-
-<a href="https://www.utk.edu/coronavirus/">UTK coronavirus information</a>. See especially the <a href="https://chancellor.utk.edu/re-imagining-fall-task-force/report/">current task force report</a>.
-
-<a href="https://covid.knoxcountytn.gov/case-count.html#covid_data">Knox County data</a>
-
-<a href="https://covid19-projections.com/us-tn">Projections for Tennessee</a>
-
-<a href="https://nextstrain.org/ncov">COVID-19 phylogeny</a>
+Here are notes and links I personally find useful, all gathered in one place. Mostly, I kept looking at webcams to see whether people are practicing social distancing and decided to put them all in one page. I also gather data when nervous, so I also have plots of things like testing, activity, and cases over time so I can see the info directly myself (for example, <a href="https://covid.knoxcountytn.gov/case-count.html#covid_data">Knox County Health Department</a> plots cases per day with a trendline, but so far their trendline is only a straight line - I was curious if a more flexible fitting might be more informative). <b>I am not an epidemiologist</b>, so please do not draw any advice from this page (and I've been careful NOT to do projections or anything like that -- there is a lot that goes into modeling, see <a href="https://www.youtube.com/watch?v=Ewuo_2pzNNw">this video</a> by my colleague <a href="http://feffermanlab.org/">Nina Fefferman</a>, who actually knows what she's doing, for more on models). This is just me poking around with the data to make myself feel better -- the raw code is <a href="https://github.com/bomeara/brianomearainfo/blob/master/docs/covid.Rmd">here</a> if you'd like to examine it yourself.
 
 <hr />
 
-Here are some plots, created in R using data from https://covid19datahub.io (Guidotti, E., Ardia, D., (2020), "COVID-19 Data Hub", Working paper, doi: 10.13140/RG.2.2.11649.81763), as well as information from Google and the <a href="https://www.tn.gov/health/cedep/ncov/data/downloadable-datasets.html">state of Tennessee dataset page</a> and plotting and analysis using the `forecast`, `ggplot2`, `reshape2`, and `dplyr` packages. Plots created on `r Sys.Date()`.
+<a href="https://www.utk.edu/coronavirus/">UTK coronavirus information</a>. See especially the <a href="https://chancellor.utk.edu/re-imagining-fall-task-force/report/">current task force report</a>.
+
+<a href="https://covid.knoxcountytn.gov/case-count.html#covid_data">Knox County data</a>. This also includes info about Knox's reopening plan and the benchmarks they're using.
+
+<a href="https://covid19-projections.com/us-tn">Projections for Tennessee</a>
+
+<a href="https://nextstrain.org/ncov">COVID-19 phylogeny</a>. Family tree of the COVID-19 viruses around the world. This can be used by experts to understand how the disease has spread and is continuing to spread, as well as possible evolution during its spread. 
+
+<a href="https://projects.propublica.org/reopening-america/">ProPublica's tracker of state status</a>. Click on the play button below their map to see how rates are changing over time, and dig into info on your state.
+
+<hr />
+
+Here are some plots, created in R using data from https://covid19datahub.io (Guidotti, E., Ardia, D., (2020), "COVID-19 Data Hub", Working paper, doi: 10.13140/RG.2.2.11649.81763), as well as information from Google and the <a href="https://www.tn.gov/health/cedep/ncov/data/downloadable-datasets.html">state of Tennessee dataset page</a> and plotting and analysis using the `forecast`, `ggplot2`, `reshape2`, and `dplyr` packages. Plots created on `r Sys.time()`. I use `ggplot2`'s `geom_smooth()` function for the smoothed regression plots with its default formula, which uses loess smoothing for this many points. This is  not based on a model of disease spread or anything like that, just drawing a smooth curve to summarize noisy points (see <a href="https://www.itl.nist.gov/div898/handbook/pmd/section1/pmd144.htm">here</a> for more details).
 
 ```{r data, echo=FALSE, message=FALSE, warning=FALSE}
 library(COVID19)
@@ -88,7 +92,7 @@ print(knox_active)
 
 ```
 
-A question is whether testing is adequate. The White House has said about 30 tests per 1000 people per month is adequate; others have argued that around 45 tests per 1000 people per month is better, though with variation depending on infection rate (see <a href="https://www.statnews.com/2020/04/27/coronavirus-many-states-short-of-testing-levels-needed-for-safe-reopening/">here</a>). These are the black lines on the plots below (calculated as tests per day, given Knox County's population of `r knox_pop`).
+A question is whether testing is adequate. The White House has said about 30 tests per 1000 people per month is adequate (this is also what <a href="https://projects.propublica.org/reopening-america/#notes">ProPublica</a> uses); others have argued that around 45 tests per 1000 people per month is better, though with variation depending on infection rate (see <a href="https://www.statnews.com/2020/04/27/coronavirus-many-states-short-of-testing-levels-needed-for-safe-reopening/">here</a>). These are the black lines on the plots below (calculated as tests per day, given Knox County's population of `r knox_pop`).
 
 
 ```{r plotsB, echo=FALSE, message=FALSE, warning=FALSE}
@@ -127,7 +131,7 @@ print(g)
 
 ```
 
-Finally, some plots of how cases in Knox County compare to those in Tennessee and the US as a whole (Knox data are used in all of these). To normalize it, I'm plotting as a percentage of the population for each. Note that the axes show percentage: that is, "0.6" is really 0.6%, not 60%. 
+Finally, some plots of how cases in Knox County compare to those in Tennessee and the US as a whole (Knox data are used in all of these). To normalize it, I'm plotting as a percentage of the population for each. Note that the axes show percentage: that is, "0.6" is really 0.6%, not 60%.
 
 
 ```{r plotsD, echo=FALSE, message=FALSE, warning=FALSE}

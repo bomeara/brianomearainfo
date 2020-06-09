@@ -3,7 +3,7 @@ author: Brian O'Meara
 title: Local COVID data
 ---
 
-Here are notes and links I personally find useful, all gathered in one place. Mostly, I kept looking at webcams to see whether people are practicing social distancing and decided to put them all in one page. I also gather data when nervous, so I also have plots of things like testing, activity, and cases over time so I can see the info directly myself (for example, <a href="https://covid.knoxcountytn.gov/case-count.html#covid_data">Knox County Health Department</a> plots cases per day with a trendline, but so far their trendline is only a straight line - I was curious if a more flexible fitting might be more informative). <b>I am not an epidemiologist</b>, so please do not draw any advice from this page (and I've been careful NOT to do projections or anything like that -- there is a lot that goes into modeling, see <a href="https://www.youtube.com/watch?v=Ewuo_2pzNNw">this video</a> by my colleague <a href="http://feffermanlab.org/">Nina Fefferman</a>, who actually knows what she's doing, for more on models). This is just me poking around with the data to make myself feel better -- the raw code is <a href="https://github.com/bomeara/brianomearainfo/blob/master/docs/covid.Rmd">here</a> if you'd like to examine it yourself.
+Here are notes and links I personally find useful, all gathered in one place. Mostly, I kept looking at webcams to see whether people are practicing social distancing and decided to put them all in one page. I also gather data when nervous, so I also have plots of things like testing, activity, and cases over time so I can see the info directly myself (for example, <a href="https://covid.knoxcountytn.gov/case-count.html#covid_data">Knox County Health Department</a> plots cases per day with a trendline, but so far their trendline is only a straight line - I was curious if a more flexible fitting might be more informative). <b>I am not an epidemiologist</b>, so please do not draw any advice from this page (and I've been careful NOT to do projections or anything like that -- there is a lot that goes into modeling, see <a href="https://www.youtube.com/watch?v=Ewuo_2pzNNw">this video</a> by my colleague <a href="http://feffermanlab.org/">Nina Fefferman</a>, who unlike me is an expert in this, for more on models). This is just me poking around with the data to make myself feel better -- the raw code is <a href="https://github.com/bomeara/brianomearainfo/blob/master/docs/covid.Rmd">here</a> if you'd like to examine it yourself.
 
 <hr />
 
@@ -13,7 +13,7 @@ Here are notes and links I personally find useful, all gathered in one place. Mo
 
 <a href="https://covid19-projections.com/us-tn">Projections for Tennessee</a>
 
-<a href="https://nextstrain.org/ncov">COVID-19 phylogeny</a>. Family tree of the COVID-19 viruses around the world. This can be used by experts to understand how the disease has spread and is continuing to spread, as well as possible evolution during its spread. 
+<a href="https://nextstrain.org/ncov">COVID-19 phylogeny</a>. Family tree of the COVID-19 viruses around the world. This can be used by experts to understand how the disease has spread and is continuing to spread, as well as possible evolution during its spread.
 
 <a href="https://projects.propublica.org/reopening-america/">ProPublica's tracker of state status</a>. Click on the play button below their map to see how rates are changing over time, and dig into info on your state.
 
@@ -166,6 +166,11 @@ Downtown Gatlinburg <a href="http://www.smokyfrontier.com/">webcam</a>, a touris
 
 <iframe src="http://www.smokyfrontier.com/"  width=600 height=600 scrolling="no"></iframe>
 
+
+
+
 <a href="https://www.air-resource.net/grsmnfgap/">Newfound Gap in the Smokies</a>
+
+Note that at night there are typically no lights here, so it will be a black screen. During the day you can see a parking lot in the mountains.
 
 <iframe src="https://www.air-resource.net/grsmnfgap/" width=600 height=500 scrolling="no"></iframe>

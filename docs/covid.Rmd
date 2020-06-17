@@ -77,7 +77,7 @@ knox_pop <- max(knox$population)
 
 ```
 
-The number of new and active cases should be not be going up if things are well-controlled, and ideally should be going down. The number of active cases is the number of positive cases minus the total of recovered or deceased cases. This uses data from https://www.tn.gov/health/cedep/ncov/data/downloadable-datasets.html.
+The number of new and active cases should be not be going up if things are well-controlled, and ideally should be going down. The number of active cases is the number of positive cases minus the total of recovered or deceased cases. This uses data from https://www.tn.gov/health/cedep/ncov/data/downloadable-datasets.html. Note that the number of active cases in Knox County reported by the state differs from the <a href="https://covid.knoxcountytn.gov/case-count.html#covid_data">county website</a>, sometimes dramatically (on June 16, the county website said 102 active cases, while the state says 178, for example) -- I suspect this is based on the number of recovered cases not being updated as quickly in the state data, but I do not know. Knox County does not seem to offer a download of their data through time, so I am using the state's data. The number of new cases per day seems to align fairly well, but not perfectly, between the state and county data, too.
 
 ```{r plotsA, echo=FALSE, message=FALSE, warning=FALSE}
 

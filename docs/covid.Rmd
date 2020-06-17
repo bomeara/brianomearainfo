@@ -71,7 +71,7 @@ temp = tempfile(fileext = ".xlsx")
 dataURL <- "https://www.tn.gov/content/dam/tn/health/documents/cedep/novel-coronavirus/datasets/Public-Dataset-County-New.XLSX"
 download.file(dataURL, destfile=temp, mode='wb')
 
-daily <- readxl::read_excel(temp, sheet =1)
+daily <- readxl::read_xlsx(temp, sheet =1, col_types=c("date", "text", rep("numeric",18)))
 
 daily_knox <- subset(daily, COUNTY=="Knox")
 
@@ -79,7 +79,7 @@ knox_pop <- max(knox$population)
 
 ```
 
-The number of new and active cases should be not be going up if things are well-controlled, and ideally should be going down. The number of active cases is the number of positive cases minus the number of recovered cases (or deaths, I believe).
+The number of new and active cases should be not be going up if things are well-controlled, and ideally should be going down. The number of active cases is the number of positive cases minus the total of recovered or deceased cases. This uses data from https://www.tn.gov/health/cedep/ncov/data/downloadable-datasets.html.
 
 ```{r plotsA, echo=FALSE, message=FALSE, warning=FALSE}
 
@@ -89,6 +89,7 @@ print(knox_new)
 
 knox_active <- ggplot(daily_knox[!is.na(daily_knox$TOTAL_ACTIVE),], aes(x=DATE, y=TOTAL_ACTIVE)) + geom_smooth() + geom_point() + ylab("Number of active cases in Knox each day") + xlab("Date") + ylim(0,NA)
 print(knox_active)
+
 
 ```
 
@@ -131,32 +132,50 @@ print(g)
 
 ```
 
-Finally, some plots of how cases in Knox County compare to those in Tennessee and the US as a whole (Knox data are used in all of these). To normalize it, I'm plotting as a percentage of the population for each. Note that the axes show percentage: that is, "0.6" is really 0.6%, not 60%.
+Finally, plots of hospitalization.
 
 
 ```{r plotsD, echo=FALSE, message=FALSE, warning=FALSE}
 
 
-all_confirmed <- data.frame(date=c(us_aggregate$date, tn_aggregate$date, knox$date), percentconfirmed=c(us_aggregate$percentconfirmed, tn_aggregate$percentconfirmed, knox$percentconfirmed), region=c(rep("US", nrow(us_aggregate)),rep("TN", nrow(tn_aggregate)), rep("Knox", nrow(knox))))
-con <- ggplot(all_confirmed, aes(x=date, y=percentconfirmed, color=region)) + geom_smooth() + geom_point() + ylab("Percent of population with confirmed tests")
-print(con)
+knox_new_hospitalization <- ggplot(daily_knox[!is.na(daily_knox$NEW_HOSPITALIZED),], aes(x=DATE, y=NEW_HOSPITALIZED)) + geom_smooth() + geom_point() + ylab("Number of new covid hospitalizations in Knox each day") + xlab("Date") + ylim(0,NA)
+print(knox_new_hospitalization)
 
-three_weeks_ago <- tail(sort(unique(all_confirmed$date)),21)[1]
-all_confirmed_3 <- all_confirmed[all_confirmed$date>=three_weeks_ago,]
-
-con3 <- ggplot(all_confirmed_3, aes(x=date, y=percentconfirmed, color=region)) + geom_smooth() + geom_point() + ylab("Percent of population with confirmed tests")
-print(con3)
-
-diff_confirmed <-  data.frame(date=c(us_diff$date, tn_diff$date, knox_diff$date), daily_percent_confirmed=c(us_diff$daily_percent_confirmed, tn_diff$daily_percent_confirmed, knox_diff$daily_percent_confirmed), region=c(rep("US", nrow(us_diff)),rep("TN", nrow(tn_diff)), rep("Knox", nrow(knox_diff))))
-diffplot <- ggplot(diff_confirmed, aes(x=date, y=daily_percent_confirmed, color=region)) + geom_smooth(span=14/nrow(knox_diff)) + geom_point() + ylab("Percent of population new confirmed tests daily")
-print(diffplot)
+tn_daily_aggregate <- daily %>% group_by(DATE) %>% summarise(new_hosp = sum(NEW_HOSPITALIZED))
 
 
-diff_confirmed_3 <- diff_confirmed[diff_confirmed$date>=three_weeks_ago,]
-diffplot3 <- ggplot(diff_confirmed_3, aes(x=date, y=daily_percent_confirmed, color=region)) + geom_smooth() + geom_point() + ylab("Percent of population new confirmed tests daily")
-print(diffplot3)
+tn_new_hospitalization <- ggplot(tn_daily_aggregate[!is.na(tn_daily_aggregate$new_hosp),], aes(x=DATE, y=new_hosp)) + geom_smooth() + geom_point() + ylab("Number of new covid hospitalizations in TN") + xlab("Date") + ylim(0,NA)
+print(tn_new_hospitalization)
+
+# all_confirmed <- data.frame(date=c(us_aggregate$date, tn_aggregate$date, knox$date), percentconfirmed=c(us_aggregate$percentconfirmed, tn_aggregate$percentconfirmed, knox$percentconfirmed), region=c(rep("US", nrow(us_aggregate)),rep("TN", nrow(tn_aggregate)), rep("Knox", nrow(knox))))
+# con <- ggplot(all_confirmed, aes(x=date, y=percentconfirmed, color=region)) + geom_smooth() + geom_point() + ylab("Percent of population with confirmed tests")
+# print(con)
+# 
+# three_weeks_ago <- tail(sort(unique(all_confirmed$date)),21)[1]
+# all_confirmed_3 <- all_confirmed[all_confirmed$date>=three_weeks_ago,]
+# 
+# con3 <- ggplot(all_confirmed_3, aes(x=date, y=percentconfirmed, color=region)) + geom_smooth() + geom_point() + ylab("Percent of population with confirmed tests")
+# print(con3)
+# 
+# diff_confirmed <-  data.frame(date=c(us_diff$date, tn_diff$date, knox_diff$date), daily_percent_confirmed=c(us_diff$daily_percent_confirmed, tn_diff$daily_percent_confirmed, knox_diff$daily_percent_confirmed), region=c(rep("US", nrow(us_diff)),rep("TN", nrow(tn_diff)), rep("Knox", nrow(knox_diff))))
+# diffplot <- ggplot(diff_confirmed, aes(x=date, y=daily_percent_confirmed, color=region)) + geom_smooth(span=14/nrow(knox_diff)) + geom_point() + ylab("Percent of population new confirmed tests daily")
+# print(diffplot)
+# 
+# 
+# diff_confirmed_3 <- diff_confirmed[diff_confirmed$date>=three_weeks_ago,]
+# diffplot3 <- ggplot(diff_confirmed_3, aes(x=date, y=daily_percent_confirmed, color=region)) + geom_smooth() + geom_point() + ylab("Percent of population new confirmed tests daily")
+# print(diffplot3)
 
 ```
+
+<hr />
+
+<h2>Other aggregators</h2>
+
+
+<a href="https://covidactnow.org/">Covid ActNow website</a>, which has detailed information about testing, growth rate, contact tracing and more. <a href="https://covidactnow.org/us/tn?s=49762">Tennessee</a> and <a href="https://covidactnow.org/us/tn/county/knox_county?s=49762">Knox County</a>.
+
+<iframe src="https://covidactnow.org/us/tn?s=49762" width=800 height=600>
 
 <hr />
 

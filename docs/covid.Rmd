@@ -142,7 +142,7 @@ print(knox_new_hospitalization)
 tn_daily_aggregate <- daily %>% group_by(DATE) %>% summarise(new_hosp = sum(NEW_HOSPITALIZED))
 
 
-tn_new_hospitalization <- ggplot(tn_daily_aggregate[!is.na(tn_daily_aggregate$new_hosp),], aes(x=DATE, y=new_hosp)) + geom_smooth() + geom_point() + ylab("Number of new covid hospitalizations in TN") + xlab("Date") + ylim(0,NA)
+tn_new_hospitalization <- ggplot(tn_daily_aggregate[!is.na(tn_daily_aggregate$new_hosp),], aes(x=DATE, y=new_hosp)) + geom_smooth() + geom_point() + ylab("Number of new covid hospitalizations in TN each day") + xlab("Date") + ylim(0,NA)
 print(tn_new_hospitalization)
 
 # all_confirmed <- data.frame(date=c(us_aggregate$date, tn_aggregate$date, knox$date), percentconfirmed=c(us_aggregate$percentconfirmed, tn_aggregate$percentconfirmed, knox$percentconfirmed), region=c(rep("US", nrow(us_aggregate)),rep("TN", nrow(tn_aggregate)), rep("Knox", nrow(knox))))
@@ -173,9 +173,9 @@ print(tn_new_hospitalization)
 
 <a href="https://covidactnow.org/">Covid ActNow website</a>, which has detailed information about testing, growth rate, contact tracing and more. <a href="https://covidactnow.org/us/tn?s=49762">Tennessee</a> and <a href="https://covidactnow.org/us/tn/county/knox_county?s=49762">Knox County</a>.
 
-<iframe src="https://covidactnow.org/us/tn?s=49762" width=800 height=600></iframe>
+<iframe src="https://covidactnow.org/us/tn?s=49762" width=800 height=650></iframe>
 
-<iframe src="https://covidactnow.org/us/tn/county/knox_county_loudon_county?s=49762" width=800 height=600></iframe>
+<iframe src="https://covidactnow.org/us/tn/county/knox_county_loudon_county?s=49762" width=800 height=650></iframe>
 
 
 <hr />

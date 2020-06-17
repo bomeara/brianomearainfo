@@ -11,7 +11,7 @@ Here are notes and links I personally find useful, all gathered in one place. Mo
 * <a href="https://www.utk.edu/coronavirus/">UTK coronavirus information</a>. See especially the <a href="https://chancellor.utk.edu/re-imagining-fall-task-force/report/">current task force report</a>.
 * <a href="https://covid.knoxcountytn.gov/case-count.html#covid_data">Knox County data</a>. This also includes info about Knox's reopening plan and the benchmarks they're using.
 * <a href="https://covid19-projections.com/us-tn">Projections for Tennessee</a>
-* <a href="https://covidactnow.org/us/tn?s=49762">Covid ActNow aggregate of information, including contact tracing, infection rate, and more</a>
+* <a href="https://covidactnow.org/us/tn?s=49762">Covid ActNow aggregate</a> of information, including contact tracing, infection rate, and more
 * <a href="https://nextstrain.org/ncov">COVID-19 phylogeny</a>. Family tree of the COVID-19 viruses around the world. This can be used by experts to understand how the disease has spread and is continuing to spread, as well as possible evolution during its spread.
 * <a href="https://projects.propublica.org/reopening-america/">ProPublica's tracker of state status</a>. Click on the play button below their map to see how rates are changing over time, and dig into info on your state.
 

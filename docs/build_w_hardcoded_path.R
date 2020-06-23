@@ -1,4 +1,5 @@
 originalwd <- getwd()
+Sys.setenv(RSTUDIO_PANDOC="/Applications/RStudio.app/Contents/MacOS/pandoc")
 setwd("/Users/bomeara/Documents/MyDocuments/GitClones/brianomearainfo/docs")
 rmarkdown::render_site()
 source("functions.R")

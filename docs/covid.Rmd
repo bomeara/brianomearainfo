@@ -91,6 +91,43 @@ print(knox_active)
 
 ```
 
+Knox County has published <a href="https://covid.knoxcountytn.gov/case-count.html#covid_data">its guidelines</a>. For it to be green for the number of new cases, it requires "No three-day shifts of 1.5 standard deviations above a rolling mean (based on data from the previous 14 days)." It's not quite clear to me what this means (the average of the three days can't exceed this or **all** or **any** of the three days can't exceed it?);  I'm taking the interpretation that if the three day mean is above this value, there's a problem. They update their stop lights weekly; this looks at each day to see if the average of that day and the two previous days exceeds what seems to be their threshold. Remember that this is just me playing with the data -- they're the experts to decide if cases are growing enough to be worrisome.
+
+```{r greenzone, echo=FALSE, message=FALSE, warning=FALSE}
+
+GetZone <- function(cases) {
+  if(length(cases[!is.na(cases)])<17) {
+    return("black")
+  }
+  old.cases <- head(tail(cases,17),14)
+  new.cases <- tail(cases,3)
+  max.allowed.green <- mean(old.cases)+1.5*sd(old.cases)
+  max.allowed.yellow <- mean(old.cases)+3*sd(old.cases)
+  result <- "red"
+  if(mean(new.cases)<max.allowed.yellow) {
+    result <- "yellow"
+  }
+  if(mean(new.cases)<max.allowed.green) {
+    result <- "green"
+  }
+  return(result)
+}
+
+daily3_knox <- data.frame(date=daily_knox$DATE[-(1:2)], avg=NA, col="darkgray", stringsAsFactors = FALSE)
+for(i in sequence(nrow(daily3_knox))) {
+  daily3_knox$avg[i] <- mean(daily_knox$NEW_CASES[i:(i+2)])
+  daily3_knox$col[i] <- GetZone(head(daily_knox$NEW_CASES,i+2))
+}
+
+daily3_knox <- daily3_knox[!is.na(daily3_knox$avg),]
+daily3_knox$col <- gsub("yellow", "yellow2", daily3_knox$col)
+daily3_knox$col <- gsub("black", "darkgray", daily3_knox$col)
+
+knox_new3 <- ggplot(daily3_knox, aes(x=date, y=avg)) + geom_smooth() + geom_point(shape=21, colour="black", fill=daily3_knox$col) + ylab("Three day average of new cases") + xlab("Date") + ylim(0,NA)
+print(knox_new3)
+
+```
+
 A question is whether testing is adequate. The White House has said about 30 tests per 1000 people per month is adequate (this is also what <a href="https://projects.propublica.org/reopening-america/#notes">ProPublica</a> uses); others have argued that around 45 tests per 1000 people per month is better, though with variation depending on infection rate (see <a href="https://www.statnews.com/2020/04/27/coronavirus-many-states-short-of-testing-levels-needed-for-safe-reopening/">here</a>). These are the black lines on the plots below (calculated as tests per day, given Knox County's population of `r knox_pop`).
 
 
@@ -111,6 +148,36 @@ print(knox_testing)
 #   autoplot()
 # print(confirmed_plot)
 
+```
+
+Another question is what is happening at UT as campus opens up and testing ramps up. There is some information on active cases available.
+
+```{r utactive, echo=FALSE, message=FALSE, warning=FALSE}
+library(stringr)
+library(anytime)
+webfiles <- list.files(path="/Users/bomeara/Dropbox/UTKCovid", pattern="*html", full.names =TRUE)
+utk.cases <- data.frame()
+for(i in seq_along(webfiles)) {
+  raw <- paste0(readLines(webfiles[i]),collapse=" ")
+  raw <- gsub('\\x3c', '', raw, fixed=TRUE)
+  raw <- gsub('\\x3d', '', raw, fixed=TRUE)
+  raw <- gsub('\\x3e', '', raw, fixed=TRUE)
+  raw <- gsub('/span/tdtd style\"width: 50.0000%;\"span style\"font-size: 18px;\"', '', raw, fixed=TRUE)
+  raw <- gsub('/span/tdtd style\"width: 50%; text-align: left;\"span style\"font-size: 18px;\"', '', raw, fixed=TRUE)
+  students <- as.numeric(gsub("Students", "", stringr::str_extract(raw, "Students\\d+")))
+    faculty <- as.numeric(gsub("Faculty", "", stringr::str_extract(raw, "Faculty\\d+")))
+    staff <- as.numeric(gsub("Staff", "", stringr::str_extract(raw, "Staff\\d+")))
+  actual_time <- anytime::anytime(stringr::str_extract(webfiles[i], "\\d+_\\d+_\\d+_\\d+_\\d+_\\d+"))
+  result <- data.frame(date=rep(actual_time, 3), count=c(students, faculty, staff), group=c("students", "faculty", "staff"))
+  if(i==1) {
+    utk.cases <- result
+  } else {
+    utk.cases <- rbind(utk.cases, result)
+  }
+}
+utk.cases$group <- as.factor(utk.cases$group)
+utk_plot <- ggplot(utk.cases, aes(x=date, y=count, group=group)) + geom_smooth(aes(colour=group)) + geom_point(aes(colour=group)) + ylab("Number of active cases at UTK") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)
+print(utk_plot)
 ```
 
 I've been curious about how active people have been -- are they still going out, etc. The webcams at the bottom of the page are a glimpse of that, but Google has also been tracking activity data. Here are smoothed plots of activity over time, as a percentage of activity pre-COVID19 (the raw data are much more variable).

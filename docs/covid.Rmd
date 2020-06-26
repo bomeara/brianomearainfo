@@ -176,7 +176,7 @@ for(i in seq_along(webfiles)) {
   }
 }
 utk.cases$group <- as.factor(utk.cases$group)
-utk_plot <- ggplot(utk.cases, aes(x=date, y=count, group=group)) + geom_smooth(aes(colour=group)) + geom_point(aes(colour=group)) + ylab("Number of active cases at UTK") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)
+utk_plot <- ggplot(utk.cases, aes(x=date, y=count, group=group)) + geom_line(aes(colour=group)) + geom_point(aes(colour=group)) + ylab("Number of active cases at UTK") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)
 print(utk_plot)
 ```
 

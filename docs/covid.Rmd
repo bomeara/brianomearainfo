@@ -218,6 +218,7 @@ print(g)
 ```{r hospitalcapacitydata, echo=FALSE, message=FALSE, warning=FALSE}
 hospitalfiles <- list.files(path="/Users/bomeara/Dropbox/KnoxCovid", pattern="*bed*", full.names =TRUE)
 capacity.df <- data.frame()
+previoushospitaldata <- data.frame()
 current.capacity.df <- data.frame()
 for (i in seq_along(hospitalfiles)) {
   actual_time <- anytime::anytime(stringr::str_extract(hospitalfiles[i], "\\d+_\\d+_\\d+_\\d+_\\d+_\\d+"))
@@ -228,8 +229,12 @@ for (i in seq_along(hospitalfiles)) {
 
   if(i==1) {
     capacity.df <- hospitaldata
+    previoushospitaldata <- hospitaldata
   } else {
-    capacity.df <- rbind(capacity.df, hospitaldata)
+    if(any(hospitaldata!=previoushospitaldata)) {
+      capacity.df <- rbind(capacity.df, hospitaldata)
+      previoushospitaldata <- hospitaldata
+    }
   }
   current.capacity.df <- hospitaldata
   rownames(current.capacity.df) <- current.capacity.df$Resource
@@ -238,7 +243,7 @@ for (i in seq_along(hospitalfiles)) {
 }
 ```
 
-Currently, regional hospitals have `r current.capacity.df['ICU Beds', 'Available']` ICU beds available of `r current.capacity.df['ICU Beds', 'Total.Capacity']` total, and `r current.capacity.df['Ventilators', 'Available']` available ventilators out of `r current.capacity.df['Ventilators', 'Total.Capacity']` total. There is surge capacity on top of this, however. Note that these data are updated only once a week.
+Currently, regional hospitals have `r current.capacity.df['ICU Beds', 'Available']` ICU beds available of `r current.capacity.df['ICU Beds', 'Total.Capacity']` total, and `r current.capacity.df['Ventilators', 'Available']` available ventilators out of `r current.capacity.df['Ventilators', 'Total.Capacity']` total. When a line hits 100%, the local hospitals are theoretically full for that resource (for all patients, not just covid patients), though there is surge capacity on top of this. Note that these data are updated only once a week: I use a dot at the first point for a new set of data.
 
 
 ```{r hospitalcapacityplot, echo=FALSE, message=FALSE, warning=FALSE}

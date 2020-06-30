@@ -26,6 +26,9 @@ library(ggplot2)
 library(reshape2)
 library(dplyr)
 library(readxl)
+library(stringr)
+library(anytime)
+
 
 gmr <- "https://www.gstatic.com/covid19/mobility/Global_Mobility_Report.csv"
 
@@ -165,8 +168,6 @@ print(knox_proportion_pos)
 Another question is what is happening at UT as campus opens up and testing ramps up. There is some information on active cases available.
 
 ```{r utactive, echo=FALSE, message=FALSE, warning=FALSE}
-library(stringr)
-library(anytime)
 webfiles <- list.files(path="/Users/bomeara/Dropbox/UTKCovid", pattern="*html", full.names =TRUE)
 utk.cases <- data.frame()
 for(i in seq_along(webfiles)) {
@@ -211,6 +212,39 @@ print(g)
 
 Finally, plots of hospitalization.
 
+```{r hospitalcapacitydata, echo=FALSE, message=FALSE, warning=FALSE}
+hospitalfiles <- list.files(path="/Users/bomeara/Dropbox/KnoxCovid", pattern="*bed*", full.names =TRUE)
+capacity.df <- data.frame()
+current.capacity.df <- data.frame()
+for (i in seq_along(hospitalfiles)) {
+  actual_time <- anytime::anytime(stringr::str_extract(hospitalfiles[i], "\\d+_\\d+_\\d+_\\d+_\\d+_\\d+"))
+  hospitaldata <- read.csv(hospitalfiles[i], stringsAsFactors=FALSE)
+  hospitaldata$Current.Utilization <- as.numeric(gsub('%', '', hospitaldata$Current.Utilization))
+  hospitaldata$Date <- actual_time
+  hospitaldata$Resource <- hospitaldata$East.Region.Hospitals
+
+  if(i==1) {
+    capacity.df <- hospitaldata
+  } else {
+    capacity.df <- rbind(capacity.df, hospitaldata)
+  }
+  current.capacity.df <- hospitaldata
+  rownames(current.capacity.df) <- current.capacity.df$Resource
+
+
+}
+```
+
+Currently, regional hospitals have `r current.capacity.df['ICU Beds', 'Available']` ICU beds available of `r current.capacity.df['ICU Beds', 'Total.Capacity']` total, and `r current.capacity.df['Ventilators', 'Available']` ventilators of `r current.capacity.df['Ventilators', 'Total.Capacity']`
+
+
+```{r hospitalcapacityplot, echo=FALSE, message=FALSE, warning=FALSE}
+hosp_plot <- ggplot(capacity.df, aes(x=Date, y=Current.Utilization, group=Resource)) + geom_line(aes(colour=Resource)) + geom_point(aes(colour=Resource)) + ylab("Percent Utilization in East Tennessee Region") + xlab("Date") + ylim(0,100) + scale_colour_viridis_d(end=0.8)
+print(hosp_plot)
+
+```
+
+Trends in hospitalization of covid patients over time
 
 ```{r plotsD, echo=FALSE, message=FALSE, warning=FALSE}
 

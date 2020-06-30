@@ -210,7 +210,10 @@ print(g)
 
 ```
 
-Finally, plots of hospitalization.
+<hr />
+
+<h2>Hospitalization</h2>
+
 
 ```{r hospitalcapacitydata, echo=FALSE, message=FALSE, warning=FALSE}
 hospitalfiles <- list.files(path="/Users/bomeara/Dropbox/KnoxCovid", pattern="*bed*", full.names =TRUE)
@@ -235,7 +238,7 @@ for (i in seq_along(hospitalfiles)) {
 }
 ```
 
-Currently, regional hospitals have `r current.capacity.df['ICU Beds', 'Available']` ICU beds available of `r current.capacity.df['ICU Beds', 'Total.Capacity']` total, and `r current.capacity.df['Ventilators', 'Available']` available ventilators out of `r current.capacity.df['Ventilators', 'Total.Capacity']` total. There is surge capacity on top of this, however.
+Currently, regional hospitals have `r current.capacity.df['ICU Beds', 'Available']` ICU beds available of `r current.capacity.df['ICU Beds', 'Total.Capacity']` total, and `r current.capacity.df['Ventilators', 'Available']` available ventilators out of `r current.capacity.df['Ventilators', 'Total.Capacity']` total. There is surge capacity on top of this, however. Note that these data are updated only once a week.
 
 
 ```{r hospitalcapacityplot, echo=FALSE, message=FALSE, warning=FALSE}
@@ -278,18 +281,6 @@ print(tn_new_hospitalization)
 # print(diffplot3)
 
 ```
-
-<hr />
-
-<h2>Other aggregators</h2>
-
-
-<a href="https://covidactnow.org/">Covid ActNow website</a>, which has detailed information about testing, growth rate, contact tracing and more. <a href="https://covidactnow.org/us/tn?s=49762">Tennessee</a> and <a href="https://covidactnow.org/us/tn/county/knox_county?s=49762">Knox County</a>.
-
-<iframe src="https://covidactnow.org/us/tn?s=49762" width=800 height=650></iframe>
-
-<iframe src="https://covidactnow.org/us/tn/county/knox_county_loudon_county?s=49762" width=800 height=650></iframe>
-
 
 <hr />
 

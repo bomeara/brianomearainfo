@@ -224,16 +224,17 @@ for (i in seq_along(hospitalfiles)) {
   actual_time <- anytime::anytime(stringr::str_extract(hospitalfiles[i], "\\d+_\\d+_\\d+_\\d+_\\d+_\\d+"))
   hospitaldata <- read.csv(hospitalfiles[i], stringsAsFactors=FALSE)
   hospitaldata$Current.Utilization <- as.numeric(gsub('%', '', hospitaldata$Current.Utilization))
-  hospitaldata$Date <- actual_time
   hospitaldata$Resource <- hospitaldata$East.Region.Hospitals
 
   if(i==1) {
-    capacity.df <- hospitaldata
     previoushospitaldata <- hospitaldata
+    hospitaldata$Date <- actual_time
+    capacity.df <- hospitaldata
   } else {
     if(any(hospitaldata!=previoushospitaldata)) {
-      capacity.df <- rbind(capacity.df, hospitaldata)
       previoushospitaldata <- hospitaldata
+      hospitaldata$Date <- actual_time
+      capacity.df <- rbind(capacity.df, hospitaldata)
     }
   }
   current.capacity.df <- hospitaldata

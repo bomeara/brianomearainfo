@@ -235,7 +235,7 @@ for (i in seq_along(hospitalfiles)) {
 }
 ```
 
-Currently, regional hospitals have `r current.capacity.df['ICU Beds', 'Available']` ICU beds available of `r current.capacity.df['ICU Beds', 'Total.Capacity']` total, and `r current.capacity.df['Ventilators', 'Available']` ventilators of `r current.capacity.df['Ventilators', 'Total.Capacity']`
+Currently, regional hospitals have `r current.capacity.df['ICU Beds', 'Available']` ICU beds available of `r current.capacity.df['ICU Beds', 'Total.Capacity']` total, and `r current.capacity.df['Ventilators', 'Available']` available ventilators out of `r current.capacity.df['Ventilators', 'Total.Capacity']` total. There is surge capacity on top of this, however.
 
 
 ```{r hospitalcapacityplot, echo=FALSE, message=FALSE, warning=FALSE}

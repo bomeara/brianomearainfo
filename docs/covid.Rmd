@@ -104,13 +104,13 @@ GetZone <- function(cases) {
   }
   old.cases <- head(tail(cases,17),14)
   new.cases <- tail(cases,3)
-  max.allowed.green <- mean(old.cases)+1.5*sd(old.cases)
-  max.allowed.yellow <- mean(old.cases)+3*sd(old.cases)
+  max.allowed.green <- mean(old.cases, na.rm=TRUE)+1.5*sd(old.cases, na.rm=TRUE)
+  max.allowed.yellow <- mean(old.cases, na.rm=TRUE)+3*sd(old.cases, na.rm=TRUE)
   result <- "red"
-  if(mean(new.cases)<max.allowed.yellow) {
+  if(mean(new.cases, na.rm=TRUE)<max.allowed.yellow) {
     result <- "yellow"
   }
-  if(mean(new.cases)<max.allowed.green) {
+  if(mean(new.cases, na.rm=TRUE)<max.allowed.green) {
     result <- "green"
   }
   return(result)

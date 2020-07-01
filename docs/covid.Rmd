@@ -212,7 +212,22 @@ print(g)
 
 Another question is people doing searching. From Google Trends:
 
-<script type="text/javascript" src="https://ssl.gstatic.com/trends_nrtr/2213_RC01/embed_loader.js"></script> <script type="text/javascript"> trends.embed.renderExploreWidget("TIMESERIES", {"comparisonItem":[{"keyword":"covid symptoms","geo":"US-TN-557","time":"today 3-m"}],"category":0,"property":""}, {"exploreQuery":"date=today%203-m&geo=US-TN-557&q=covid%20symptoms","guestPath":"https://trends.google.com:443/trends/embed/"}); </script> 
+<script type="text/javascript" src="https://ssl.gstatic.com/trends_nrtr/2213_RC01/embed_loader.js"></script> <script type="text/javascript"> trends.embed.renderExploreWidget("TIMESERIES", {"comparisonItem":[{"keyword":"covid symptoms","geo":"US-TN-557","time":"today 3-m"}],"category":0,"property":""}, {"exploreQuery":"date=today%203-m&geo=US-TN-557&q=covid%20symptoms","guestPath":"https://trends.google.com:443/trends/embed/"}); </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <hr />
 

@@ -233,10 +233,12 @@ for (i in seq_along(hospitalfiles)) {
     hospitaldata$Date <- actual_time
     capacity.df <- hospitaldata
   } else {
-    if(any(hospitaldata!=previoushospitaldata)) {
-      previoushospitaldata <- hospitaldata
-      hospitaldata$Date <- actual_time
-      capacity.df <- rbind(capacity.df, hospitaldata)
+    if(all(dim(hospitaldata)==dim(previoushospitaldata))) {
+      if(any(hospitaldata!=previoushospitaldata)) {
+        previoushospitaldata <- hospitaldata
+        hospitaldata$Date <- actual_time
+        capacity.df <- rbind(capacity.df, hospitaldata)
+      }
     }
   }
   current.capacity.df <- hospitaldata

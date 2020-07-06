@@ -252,8 +252,8 @@ Currently, regional hospitals have `r current.capacity.df['ICU Beds', 'Available
 
 
 ```{r hospitalcapacityplot, echo=FALSE, message=FALSE, warning=FALSE}
-hosp_plot <- ggplot(capacity.df, aes(x=Date, y=Current.Utilization, group=Resource)) + geom_line(aes(colour=Resource)) + geom_point(aes(colour=Resource)) + ylab("Percent Utilization in East Tennessee Region") + xlab("Date") + ylim(0,100) + scale_colour_viridis_d(end=0.8)
-print(hosp_plot)
+try(hosp_plot <- ggplot(capacity.df, aes(x=Date, y=Current.Utilization, group=Resource)) + geom_line(aes(colour=Resource)) + geom_point(aes(colour=Resource)) + ylab("Percent Utilization in East Tennessee Region") + xlab("Date") + ylim(0,100) + scale_colour_viridis_d(end=0.8))
+try(print(hosp_plot))
 
 ```
 

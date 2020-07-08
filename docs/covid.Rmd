@@ -33,6 +33,7 @@ library(anytime)
 # devtools::install_github("mtna/rds-r", build_vignettes = TRUE)
 library(rds.r)
 library(ggrepel)
+library(ggpubr)
 
 
 gmr <- "https://www.gstatic.com/covid19/mobility/Global_Mobility_Report.csv"
@@ -183,25 +184,51 @@ print(focal_proportion_pos)
 Which age groups are being infected is an important question as local schools open up. These are data from Knox county alone.
 
 ```{r age, echo=FALSE, message=FALSE, warning=FALSE, error=FALSE}
-covidServer <- get.rds("https://knxhx.richdataservices.com/rds")
-catalog <- getCatalog(covidServer, "kcdh")
-products <- getDataProducts(catalog)
-dataProduct <- getDataProduct(catalog, "us_tn_kchd_age")
-{ sink("/dev/null"); ages <- rds.select(dataProduct, autoPage =  TRUE)@records; sink(); }
-ages$Age <- as.character(ages$age_group)
-ages$age_group <- as.numeric(as.character(ages$age_group))
-ages$Age[(ages$age_group%%10==1)] <- paste(ages$age_group[(ages$age_group%%10==1)],"-",ages$age_group[(ages$age_group%%10==1)]+9, sep="")
-ages$Age[ages$age_group==0] <- "0-10"
-ages$Age[ages$age_group==99] <- "100+"
-ages$pct_confirmed <- as.numeric(as.character(ages$pct_confirmed))
+# covidServer <- get.rds("https://knxhx.richdataservices.com/rds")
+# catalog <- getCatalog(covidServer, "kcdh")
+# products <- getDataProducts(catalog)
+# dataProduct <- getDataProduct(catalog, "us_tn_kchd_age")
+# { sink("/dev/null"); ages <- rds.select(dataProduct, autoPage =  TRUE)@records; sink(); }
+# ages$Age <- as.character(ages$age_group)
+# ages$age_group <- as.numeric(as.character(ages$age_group))
+# ages$Age[(ages$age_group%%10==1)] <- paste(ages$age_group[(ages$age_group%%10==1)],"-",ages$age_group[(ages$age_group%%10==1)]+9, sep="")
+# ages$Age[ages$age_group==0] <- "0-10"
+# ages$Age[ages$age_group==99] <- "100+"
+# ages$pct_confirmed <- as.numeric(as.character(ages$pct_confirmed))
+#
+# label_indices <- which(ages$date_stamp == min(ages$date_stamp) | ages$date_stamp == max(ages$date_stamp))
+# labels <- rep("", nrow(ages))
+# labels[label_indices] <- ages$Age[label_indices]
+# ages$Label <- labels
+#
+# ageplot <- ggplot(ages, aes(x=date_stamp, y=pct_confirmed, group=Age)) + geom_line(aes(colour=Age)) + ylab("Cumulative percent of cases in each age group") + xlab("Date") + scale_colour_viridis_d(end=0.8) + geom_label_repel(aes(label = Label),na.rm = TRUE) + guides(colour = "none")
+# print(ageplot)
+```
 
-label_indices <- which(ages$date_stamp == min(ages$date_stamp) | ages$date_stamp == max(ages$date_stamp))
-labels <- rep("", nrow(ages))
-labels[label_indices] <- ages$Age[label_indices]
-ages$Label <- labels
+```{r age2, echo=FALSE, message=FALSE, warning=FALSE, error=FALSE}
 
-ageplot <- ggplot(ages, aes(x=date_stamp, y=pct_confirmed, group=Age)) + geom_line(aes(colour=Age)) + ylab("Cumulative percent of cases in each age group") + xlab("Date") + scale_colour_viridis_d(end=0.8) + geom_label_repel(aes(label = Label),na.rm = TRUE) + guides(colour = "none")
-print(ageplot)
+temp = tempfile(fileext = ".xlsx")
+dataURL <- "https://www.tn.gov/content/dam/tn/health/documents/cedep/novel-coronavirus/datasets/Public-Dataset-Daily-County-Age-Group.XLSX"
+download.file(dataURL, destfile=temp, mode='wb')
+
+age_county <- readxl::read_xlsx(temp, sheet =1)
+age_county <- subset(age_county, AGE_GROUP != "Pending")
+
+age_county$AGE_GROUP_SIMPLE <- age_county$AGE_GROUP
+age_county$AGE_GROUP_SIMPLE <- gsub("71-80 years", "71+ years", age_county$AGE_GROUP_SIMPLE)
+age_county$AGE_GROUP_SIMPLE <- gsub("81\\+ years", "71+ years", age_county$AGE_GROUP_SIMPLE)
+age_county %<>% group_by(COUNTY, AGE_GROUP_SIMPLE, DATE) %>% mutate(SUM_CASE_COUNT = sum(CASE_COUNT))
+age_county <- subset(age_county, AGE_GROUP != "81+ years") #get rid of pruned
+age_county <- data.frame(DATE=age_county$DATE, COUNTY=age_county$COUNTY, AGE_GROUP = age_county$AGE_GROUP_SIMPLE, CASE_COUNT=age_county$SUM_CASE_COUNT)
+
+age_county %<>% group_by(COUNTY, AGE_GROUP) %>% mutate(Difference=CASE_COUNT - lag(CASE_COUNT))
+age_county %<>% group_by(COUNTY, DATE) %>% mutate(PercentDaily=100*Difference/sum(Difference), PercentCumulative=100*CASE_COUNT/sum(CASE_COUNT))
+
+ageplot_knox_daily <- ggplot(subset(age_county, COUNTY=="Knox"), aes(x=DATE, y=PercentDaily, group=AGE_GROUP)) + geom_smooth(aes(colour=AGE_GROUP), se=FALSE) + ylab("Daily percentage of cases in each age group in Knox County (smoothed)") + xlab("Date") + scale_colour_brewer(type="qual", palette="Dark2")
+ageplot_knox_cumulative <- ggplot(subset(age_county, COUNTY=="Knox"), aes(x=DATE, y=PercentCumulative, group=AGE_GROUP)) + geom_line(aes(colour=AGE_GROUP)) + ylab("Cumulative percentage of cases in each age group in Knox County") + xlab("Date") + scale_colour_brewer(type="qual", palette="Dark2")
+ageplot_knox_both <- ggarrange(ageplot_knox_daily, ageplot_knox_cumulative, labels=c("Daily", "Cumulative"), ncol=2, nrow=1)
+print(ageplot_knox_both)
+
 ```
 
 Another question is what is happening at UT as campus opens up and testing ramps up. There is some information on active cases available.

@@ -19,7 +19,7 @@ Here are notes and links I personally find useful, all gathered in one place. Mo
 
 <hr />
 
-Here are some plots, created in R using data from https://covid19datahub.io (Guidotti, E., Ardia, D., (2020), "COVID-19 Data Hub", Working paper, doi: 10.13140/RG.2.2.11649.81763), as well as information from Google and the <a href="https://www.tn.gov/health/cedep/ncov/data/downloadable-datasets.html">state of Tennessee dataset page</a> and plotting and analysis using the `forecast`, `ggplot2`, `reshape2`, and `dplyr` packages. Plots created on `r Sys.time()`. I use `ggplot2`'s `geom_smooth()` function for the smoothed regression plots with its default formula, which uses loess smoothing for this many points. This is  not based on a model of disease spread or anything similarly sophisticated, just drawing a smooth curve to summarize noisy points (see <a href="https://www.itl.nist.gov/div898/handbook/pmd/section1/pmd144.htm">here</a> for more details).
+Here are some plots, created in R using data from https://covid19datahub.io (Guidotti, E., Ardia, D., (2020), "COVID-19 Data Hub", Working paper, doi: 10.13140/RG.2.2.11649.81763), as well as information from Google and the <a href="https://www.tn.gov/health/cedep/ncov/data/downloadable-datasets.html">state of Tennessee dataset page</a> and plotting and analysis using the `forecast`, `ggplot2`, `reshape2`, and `dplyr` packages. It also uses the <a href="https://github.com/mtna/rds-r">rds-r</a> package from https://www.richdataservices.com/. Plots created on `r Sys.time()`. I use `ggplot2`'s `geom_smooth()` function for the smoothed regression plots with its default formula, which uses loess smoothing for this many points. This is  not based on a model of disease spread or anything similarly sophisticated, just drawing a smooth curve to summarize noisy points (see <a href="https://www.itl.nist.gov/div898/handbook/pmd/section1/pmd144.htm">here</a> for more details).
 
 ```{r data, echo=FALSE, message=FALSE, warning=FALSE}
 library(COVID19)
@@ -30,6 +30,9 @@ library(dplyr)
 library(readxl)
 library(stringr)
 library(anytime)
+# devtools::install_github("mtna/rds-r", build_vignettes = TRUE)
+library(rds.r)
+library(ggrepel)
 
 
 gmr <- "https://www.gstatic.com/covid19/mobility/Global_Mobility_Report.csv"
@@ -63,10 +66,10 @@ knox_diff <- data.frame(
   daily_percent_confirmed = diff(knox$percentconfirmed)
 )
 
-
-
-knox_diff_last_three_weeks <- tail(knox_diff,21)
-knox_diff_last_three_weeks$daily_retail_recreation_2wk_lag <- head(tail(knox_diff$daily_retail_recreation, 21+14),21)
+#
+#
+# knox_diff_last_three_weeks <- tail(knox_diff,21)
+# knox_diff_last_three_weeks$daily_retail_recreation_2wk_lag <- head(tail(knox_diff$daily_retail_recreation, 21+14),21)
 
 
 
@@ -77,6 +80,8 @@ download.file(dataURL, destfile=temp, mode='wb')
 daily <- readxl::read_xlsx(temp, sheet =1, col_types=c("date", "text", rep("numeric",18)))
 
 daily_knox <- subset(daily, COUNTY=="Knox")
+
+daily_focal <- subset(daily, COUNTY %in% c("Knox", "Anderson", "Sevier"))
 
 knox_pop <- max(knox$population)
 
@@ -96,9 +101,11 @@ print(knox_active)
 
 ```
 
-Knox County has published <a href="https://covid.knoxcountytn.gov/case-count.html#covid_data">its guidelines</a>. For it to be green for the number of new cases, it requires "No three-day shifts of 1.5 standard deviations above a rolling mean (based on data from the previous 14 days)." It's not quite clear to me what this means (the average of the three days can't exceed this or **all** or **any** of the three days can't exceed it?);  I'm taking the interpretation that if the three day mean is above this value, there's a problem. They update their stop lights weekly; this looks at each day to see if the average of that day and the two previous days exceeds what seems to be their threshold. Remember that this is just me playing with the data -- they're the experts to decide if cases are growing enough to be worrisome.
 
-```{r greenzone, echo=FALSE, message=FALSE, warning=FALSE}
+
+```{r greenzone, echo=FALSE, message=FALSE, warning=FALSE, eval=FALSE}
+# Knox County has published <a href="https://covid.knoxcountytn.gov/case-count.html#covid_data">its guidelines</a>. For it to be green for the number of new cases, it requires "No three-day shifts of 1.5 standard deviations above a rolling mean (based on data from the previous 14 days)." It's not quite clear to me what this means (the average of the three days can't exceed this or **all** or **any** of the three days can't exceed it?);  I'm taking the interpretation that if the three day mean is above this value, there's a problem. They update their stop lights weekly; this looks at each day to see if the average of that day and the two previous days exceeds what seems to be their threshold. Remember that this is just me playing with the data -- they're the experts to decide if cases are growing enough to be worrisome.
+
 
 GetZone <- function(cases) {
   if(length(cases[!is.na(cases)])<17) {
@@ -146,15 +153,21 @@ print(knox_testing)
 
 ```
 
-Another way to look at testing (or disease spread) is to look at the proportion of positive tests: they can go up if a greater proportion of symptomatic people are being tested and/or if the frequency of the disease is increasing. WHO recommends testing should be 10% positive or lower (black line).
+Another way to look at testing (or disease spread) is to look at the proportion of positive tests ("positivity rate"): they can go up if a greater proportion of symptomatic people are being tested and/or if the frequency of the disease is increasing. WHO recommends testing should be 10% positive or lower (black line). Here, I'm including two nearby counties, Anderson (home of Oak Ridge) and Sevier (home of Pigeon Forge, Gatlinburg, and Sevierville).
 
 
 ```{r plotsB2, echo=FALSE, message=FALSE, warning=FALSE}
 
-daily_knox$NEW_PROPORTION_CONFIRMED <- 100*daily_knox$NEW_CONFIRMED/daily_knox$NEW_TESTS
+# daily_knox$NEW_PROPORTION_CONFIRMED <- 100*daily_knox$NEW_CONFIRMED/daily_knox$NEW_TESTS
+#
+# knox_proportion_pos <- ggplot(daily_knox[!is.na(daily_knox$NEW_PROPORTION_CONFIRMED),], aes(x=DATE, y=NEW_PROPORTION_CONFIRMED)) + geom_smooth() + geom_point() + ylab("Percentage of positive tests in Knox each day") + xlab("Date") + ylim(0,NA) + geom_hline(yintercept=10, col="black")
+# print(knox_proportion_pos)
 
-knox_proportion_pos <- ggplot(daily_knox[!is.na(daily_knox$NEW_PROPORTION_CONFIRMED),], aes(x=DATE, y=NEW_PROPORTION_CONFIRMED)) + geom_smooth() + geom_point() + ylab("Percentage of positive tests in Knox each day") + xlab("Date") + ylim(0,NA) + geom_hline(yintercept=10, col="black")
-print(knox_proportion_pos)
+
+daily_focal$NEW_PROPORTION_CONFIRMED <- 100*daily_focal$NEW_CONFIRMED/daily_focal$NEW_TESTS
+
+focal_proportion_pos <- ggplot(daily_focal[!is.na(daily_focal$NEW_PROPORTION_CONFIRMED),], aes(x=DATE, y=NEW_PROPORTION_CONFIRMED, group=COUNTY)) + geom_smooth(aes(colour=COUNTY)) + ylab("Percentage of positive tests in focal counties each day") + xlab("Date") + ylim(0,NA) + geom_hline(yintercept=10, col="black") + scale_colour_viridis_d(end=0.8)
+print(focal_proportion_pos)
 
 # par(mfcol=c(1,2))
 # plot(knox$date, knox$confirmed, type="l")
@@ -167,6 +180,30 @@ print(knox_proportion_pos)
 
 ```
 
+Which age groups are being infected is an important question as local schools open up.
+
+```{r age, echo=FALSE, message=FALSE, warning=FALSE}
+covidServer <- get.rds("https://knxhx.richdataservices.com/rds")
+catalog <- getCatalog(covidServer, "kcdh")
+products <- getDataProducts(catalog)
+dataProduct <- getDataProduct(catalog, "us_tn_kchd_age")
+ages <- rds.select(dataProduct, autoPage =  TRUE)@records
+ages$Age <- as.character(ages$age_group)
+ages$age_group <- as.numeric(as.character(ages$age_group))
+ages$Age[(ages$age_group%%10==1)] <- paste(ages$age_group[(ages$age_group%%10==1)],"-",ages$age_group[(ages$age_group%%10==1)]+9, sep="")
+ages$Age[ages$age_group==0] <- "0-10"
+ages$Age[ages$age_group==99] <- "100+"
+ages$pct_confirmed <- as.numeric(as.character(ages$pct_confirmed))
+
+label_indices <- which(ages$date_stamp == min(ages$date_stamp) | ages$date_stamp == max(ages$date_stamp))
+labels <- rep("", nrow(ages))
+labels[label_indices] <- ages$Age[label_indices]
+ages$Label <- labels
+
+ageplot <- ggplot(ages, aes(x=date_stamp, y=pct_confirmed, group=Age)) + geom_line(aes(colour=Age)) + ylab("Cumulative percent of cases in each age group") + xlab("Date") + scale_colour_viridis_d(end=0.8) + geom_label_repel(aes(label = Label),na.rm = TRUE) + guides(colour = "none")
+print(ageplot)
+```
+
 Another question is what is happening at UT as campus opens up and testing ramps up. There is some information on active cases available.
 
 ```{r utactive, echo=FALSE, message=FALSE, warning=FALSE}
@@ -177,8 +214,8 @@ for(i in seq_along(webfiles)) {
   raw <- gsub('\\x3c', '', raw, fixed=TRUE)
   raw <- gsub('\\x3d', '', raw, fixed=TRUE)
   raw <- gsub('\\x3e', '', raw, fixed=TRUE)
-  raw <- gsub('/span/tdtd style\"width: 50.0000%;\"span style\"font-size: 18px;\"', '', raw, fixed=TRUE)
-  raw <- gsub('/span/tdtd style\"width: 50%; text-align: left;\"span style\"font-size: 18px;\"', '', raw, fixed=TRUE)
+  raw <- gsub('/span/tdtd style\"width: \\d+\\.*\\d*%;\"span style\"font-size: 18px;\"', '', raw, fixed=FALSE)
+  raw <- gsub('/span/tdtd style\"width: \\d+\\.*\\d*%; text-align: left;\"span style\"font-size: 18px;\"', '', raw, fixed=FALSE)
   students <- as.numeric(gsub("Students", "", stringr::str_extract(raw, "Students\\d+")))
     faculty <- as.numeric(gsub("Faculty", "", stringr::str_extract(raw, "Faculty\\d+")))
     staff <- as.numeric(gsub("Staff", "", stringr::str_extract(raw, "Staff\\d+")))

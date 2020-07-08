@@ -180,14 +180,14 @@ print(focal_proportion_pos)
 
 ```
 
-Which age groups are being infected is an important question as local schools open up.
+Which age groups are being infected is an important question as local schools open up. These are data from Knox county alone.
 
-```{r age, echo=FALSE, message=FALSE, warning=FALSE}
+```{r age, echo=FALSE, message=FALSE, warning=FALSE, error=FALSE}
 covidServer <- get.rds("https://knxhx.richdataservices.com/rds")
 catalog <- getCatalog(covidServer, "kcdh")
 products <- getDataProducts(catalog)
 dataProduct <- getDataProduct(catalog, "us_tn_kchd_age")
-ages <- rds.select(dataProduct, autoPage =  TRUE)@records
+{ sink("/dev/null"); ages <- rds.select(dataProduct, autoPage =  TRUE)@records; sink(); }
 ages$Age <- as.character(ages$age_group)
 ages$age_group <- as.numeric(as.character(ages$age_group))
 ages$Age[(ages$age_group%%10==1)] <- paste(ages$age_group[(ages$age_group%%10==1)],"-",ages$age_group[(ages$age_group%%10==1)]+9, sep="")

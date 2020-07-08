@@ -226,8 +226,9 @@ age_county %<>% group_by(COUNTY, DATE) %>% mutate(PercentDaily=100*Difference/su
 
 ageplot_knox_daily <- ggplot(subset(age_county, COUNTY=="Knox"), aes(x=DATE, y=PercentDaily, group=AGE_GROUP)) + geom_smooth(aes(colour=AGE_GROUP), se=FALSE) + ylab("Daily percentage of cases in each age group in Knox County (smoothed)") + xlab("Date") + scale_colour_brewer(type="qual", palette="Dark2")
 ageplot_knox_cumulative <- ggplot(subset(age_county, COUNTY=="Knox"), aes(x=DATE, y=PercentCumulative, group=AGE_GROUP)) + geom_line(aes(colour=AGE_GROUP)) + ylab("Cumulative percentage of cases in each age group in Knox County") + xlab("Date") + scale_colour_brewer(type="qual", palette="Dark2")
-ageplot_knox_both <- ggarrange(ageplot_knox_daily, ageplot_knox_cumulative, labels=c("Daily", "Cumulative"), ncol=2, nrow=1)
-print(ageplot_knox_both)
+#ageplot_knox_both <- ggarrange(ageplot_knox_daily, #ageplot_knox_cumulative, labels=c("Daily", "Cumulative"), ncol=2, nrow=1)
+print(ageplot_knox_daily)
+print(ageplot_knox_cumulative)
 
 ```
 
@@ -282,41 +283,55 @@ print(g)
 
 
 ```{r hospitalcapacitydata, echo=FALSE, message=FALSE, warning=FALSE}
-hospitalfiles <- list.files(path="/Users/bomeara/Dropbox/KnoxCovid", pattern="*bed*", full.names =TRUE)
-capacity.df <- data.frame()
-previoushospitaldata <- data.frame()
-current.capacity.df <- data.frame()
-for (i in seq_along(hospitalfiles)) {
-  actual_time <- anytime::anytime(stringr::str_extract(hospitalfiles[i], "\\d+_\\d+_\\d+_\\d+_\\d+_\\d+"))
-  hospitaldata <- read.csv(hospitalfiles[i], stringsAsFactors=FALSE)
-  hospitaldata$Current.Utilization <- as.numeric(gsub('%', '', hospitaldata$Current.Utilization))
-  hospitaldata$Resource <- hospitaldata$East.Region.Hospitals
 
-  if(i==1) {
-    previoushospitaldata <- hospitaldata
-    hospitaldata$Date <- actual_time
-    capacity.df <- hospitaldata
-  } else {
-    if(all(dim(hospitaldata)==dim(previoushospitaldata))) {
-      if(any(hospitaldata!=previoushospitaldata)) {
-        previoushospitaldata <- hospitaldata
-        hospitaldata$Date <- actual_time
-        capacity.df <- rbind(capacity.df, hospitaldata)
-      }
-    }
-  }
-  current.capacity.df <- hospitaldata
-  rownames(current.capacity.df) <- current.capacity.df$Resource
+covidServer <- get.rds("https://knxhx.richdataservices.com/rds")
+catalog <- getCatalog(covidServer, "kcdh")
+products <- getDataProducts(catalog)
+dataProduct <- getDataProduct(catalog, "us_tn_kchd_capacity")
+{ sink("/dev/null"); hospital_resources <- rds.select(dataProduct, autoPage =  TRUE)@records; sink(); }
+hospital_resources$label = NA
+hospital_resources$label[hospital_resources$resource_type==0] <- "All beds"
+hospital_resources$label[hospital_resources$resource_type==1] <- "ICU beds"
+hospital_resources$label[hospital_resources$resource_type==2] <- "Ventilators"
+hospital_resources$cnt_available <- as.numeric(as.character(hospital_resources$cnt_available))
+hospital_resources$cnt_capacity <- as.numeric(as.character(hospital_resources$cnt_capacity))
+hospital_resources$pct_used <- as.numeric(as.character(hospital_resources$pct_used))
+hospital_resources$pct_available <- as.numeric(as.character(hospital_resources$pct_available))
 
 
-}
+# hospitalfiles <- list.files(path="/Users/bomeara/Dropbox/KnoxCovid", pattern="*bed*", full.names =TRUE)
+# capacity.df <- data.frame()
+# previoushospitaldata <- data.frame()
+# current.capacity.df <- data.frame()
+# for (i in seq_along(hospitalfiles)) {
+#   actual_time <- anytime::anytime(stringr::str_extract(hospitalfiles[i], "\\d+_\\d+_\\d+_\\d+_\\d+_\\d+"))
+#   hospitaldata <- read.csv(hospitalfiles[i], stringsAsFactors=FALSE)
+#   hospitaldata$Current.Utilization <- as.numeric(gsub('%', '', hospitaldata$Current.Utilization))
+#   hospitaldata$Resource <- hospitaldata$East.Region.Hospitals
+#
+#   if(i==1) {
+#     previoushospitaldata <- hospitaldata
+#     hospitaldata$Date <- actual_time
+#     capacity.df <- hospitaldata
+#   } else {
+#     if(all(dim(hospitaldata)==dim(previoushospitaldata))) {
+#       if(any(hospitaldata!=previoushospitaldata)) {
+#         previoushospitaldata <- hospitaldata
+#         hospitaldata$Date <- actual_time
+#         capacity.df <- rbind(capacity.df, hospitaldata)
+#       }
+#     }
+#   }
+#   current.capacity.df <- hospitaldata
+#   rownames(current.capacity.df) <- current.capacity.df$Resource
+# }
 ```
 
-Currently, regional hospitals have `r current.capacity.df['ICU Beds', 'Available']` ICU beds available of `r current.capacity.df['ICU Beds', 'Total.Capacity']` total, and `r current.capacity.df['Ventilators', 'Available']` available ventilators out of `r current.capacity.df['Ventilators', 'Total.Capacity']` total. When a line hits 100%, the local hospitals are theoretically full for that resource (for all patients, not just covid patients), though there is surge capacity on top of this. Note that these data are updated every few days: I use a dot at the first point for a new set of data.
+Currently, regional hospitals have `r tail(subset(hospital_resources, label=="ICU beds")$cnt_available,1)` ICU beds available of `r tail(subset(hospital_resources, label=="ICU beds")$cnt_capacity,1)` total, and `r tail(subset(hospital_resources, label=="Ventilators")$cnt_available,1)` available ventilators out of `r tail(subset(hospital_resources, label=="Ventilators")$cnt_capacity,1)` total. When a line hits 100%, the local hospitals are theoretically full for that resource (for all patients, not just covid patients), though there is surge capacity on top of this. Note that these data are not updated frequently, so current conditions maybe be much better or worse than these plots show. Data from <a href="https://knxhx.richdataservices.com/">https://knxhx.richdataservices.com/</a>.
 
 
 ```{r hospitalcapacityplot, echo=FALSE, message=FALSE, warning=FALSE}
-try(hosp_plot <- ggplot(capacity.df, aes(x=Date, y=Current.Utilization, group=Resource)) + geom_line(aes(colour=Resource)) + geom_point(aes(colour=Resource)) + ylab("Percent Utilization in East Tennessee Region") + xlab("Date") + ylim(0,100) + scale_colour_viridis_d(end=0.8))
+try(hosp_plot <- ggplot(hospital_resources, aes(x=date_stamp, y=pct_used, group=label)) + geom_line(aes(colour=label)) + ylab("Percent Utilization in East Tennessee Region") + xlab("Date") + ylim(0,100) + scale_colour_viridis_d(end=0.8))
 try(print(hosp_plot))
 
 ```

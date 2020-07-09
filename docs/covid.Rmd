@@ -224,8 +224,8 @@ age_county <- data.frame(DATE=age_county$DATE, COUNTY=age_county$COUNTY, AGE_GRO
 age_county %<>% group_by(COUNTY, AGE_GROUP) %>% mutate(Difference=CASE_COUNT - lag(CASE_COUNT))
 age_county %<>% group_by(COUNTY, DATE) %>% mutate(PercentDaily=100*Difference/sum(Difference), PercentCumulative=100*CASE_COUNT/sum(CASE_COUNT))
 
-ageplot_knox_daily <- ggplot(subset(age_county, COUNTY=="Knox"), aes(x=DATE, y=PercentDaily, group=AGE_GROUP)) + geom_smooth(aes(colour=AGE_GROUP), se=FALSE) + ylab("Daily percentage of cases in each age group in Knox County (smoothed)") + xlab("Date") + scale_colour_brewer(type="qual", palette="Dark2")
-ageplot_knox_cumulative <- ggplot(subset(age_county, COUNTY=="Knox"), aes(x=DATE, y=PercentCumulative, group=AGE_GROUP)) + geom_line(aes(colour=AGE_GROUP)) + ylab("Cumulative percentage of cases in each age group in Knox County") + xlab("Date") + scale_colour_brewer(type="qual", palette="Dark2")
+ageplot_knox_daily <- ggplot(subset(age_county, COUNTY=="Knox"), aes(x=DATE, y=PercentDaily, group=AGE_GROUP)) + geom_smooth(aes(colour=AGE_GROUP), se=FALSE) + ylab("Daily percentage of cases by age group in Knox County (smoothed)") + xlab("Date") + scale_colour_brewer(type="qual", palette="Dark2")
+ageplot_knox_cumulative <- ggplot(subset(age_county, COUNTY=="Knox"), aes(x=DATE, y=PercentCumulative, group=AGE_GROUP)) + geom_line(aes(colour=AGE_GROUP)) + ylab("Cumulative percentage of cases by age group in Knox County") + xlab("Date") + scale_colour_brewer(type="qual", palette="Dark2")
 #ageplot_knox_both <- ggarrange(ageplot_knox_daily, #ageplot_knox_cumulative, labels=c("Daily", "Cumulative"), ncol=2, nrow=1)
 print(ageplot_knox_daily)
 print(ageplot_knox_cumulative)

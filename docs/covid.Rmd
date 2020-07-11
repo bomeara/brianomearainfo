@@ -285,7 +285,7 @@ print(g)
 ```{r hospitalcapacitydata, echo=FALSE, message=FALSE, warning=FALSE}
 
 covidServer <- get.rds("https://knxhx.richdataservices.com/rds")
-catalog <- getCatalog(covidServer, "kcdh")
+catalog <- getCatalog(covidServer, "kchd")
 products <- getDataProducts(catalog)
 dataProduct <- getDataProduct(catalog, "us_tn_kchd_capacity")
 { sink("/dev/null"); hospital_resources <- rds.select(dataProduct, autoPage =  TRUE)@records; sink(); }

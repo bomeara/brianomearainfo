@@ -82,7 +82,7 @@ daily <- readxl::read_xlsx(temp, sheet =1, col_types=c("date", "text", rep("nume
 
 daily_knox <- subset(daily, COUNTY=="Knox")
 
-daily_focal <- subset(daily, COUNTY %in% c("Knox", "Anderson", "Sevier"))
+daily_focal <- subset(daily, COUNTY %in% c("Knox", "Anderson"))
 
 knox_pop <- max(knox$population)
 
@@ -154,7 +154,7 @@ print(knox_testing)
 
 ```
 
-Another way to look at testing (or disease spread) is to look at the proportion of positive tests ("positivity rate"): they can go up if a greater proportion of symptomatic people are being tested and/or if the frequency of the disease is increasing. WHO recommends testing should be 10% positive or lower (black line). Here, I'm including two nearby counties, Anderson (home of Oak Ridge) and Sevier (home of Pigeon Forge, Gatlinburg, and Sevierville).
+Another way to look at testing (or disease spread) is to look at the proportion of positive tests ("positivity rate"): they can go up if a greater proportion of symptomatic people are being tested and/or if the frequency of the disease is increasing. WHO recommends testing should be 10% positive or lower (black line). Here, I'm including a nearby county, Anderson (home of Oak Ridge), where some people at UT live and where there are reearch collaborations.
 
 
 ```{r plotsB2, echo=FALSE, message=FALSE, warning=FALSE}

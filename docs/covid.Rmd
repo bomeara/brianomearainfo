@@ -317,7 +317,7 @@ try(print(hosp_plot))
 
 ```
 
-Trends in hospitalization of covid patients over time. The vertical dotted line shows the last day with updated capacity information.
+Trends in hospitalization of covid patients over time. The vertical dotted line shows the last day with updated capacity information, when there were `r tail(subset(hospital_resources, label=="ICU beds")$cnt_available,1)` ICU beds available (ignoring surge capacity) for people in the East Tennessee region.
 
 ```{r plotsD, echo=FALSE, message=FALSE, warning=FALSE}
 

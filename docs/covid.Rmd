@@ -112,7 +112,9 @@ daily_region$Region <- "East TN"
 daily_region$Population <- region_pop
 
 daily_focal <- rbind(daily_knox, daily_oakridge, daily_region)
-daily_focal$Tests_per_1000 <- 1000*(daily_focal$NEW_TESTS/daily_focal$Population)
+daily_focal$Tests_per_10k <- 10000*(daily_focal$NEW_TESTS/daily_focal$Population)
+daily_focal$New_cases_per_10k <- 10000*(daily_focal$NEW_CASES/daily_focal$Population)
+daily_focal$Active_cases_per_10k <- 10000*(daily_focal$TOTAL_ACTIVE/daily_focal$Population)
 
 ```
 
@@ -122,7 +124,7 @@ I plot three regions
 
 * Knox County (which includes Knoxville)
 * "Oak Ridge" (Roane and Anderson Counties, which include the town of Oak Ridge)
-* East TN (the `r length(counties_in_hospital_region)` counties that have acute care Hospitals in Knox County/East Region according to Knox County)
+* East TN (the `r length(counties_in_hospital_region)` counties that have acute care hospitals in Knox County/East Region according to Knox County)
 
 For most of these plots, I am now showing the smoothed curves rather than the raw points per day -- these can jump around quite a bit.
 
@@ -138,7 +140,20 @@ print(local_active)
 
 ```
 
+Here are the same plots, but normalized so it's per 10,000 residents in each area per day (making it easier to see patterns in less populous areas):
 
+
+```{r plotsA2, echo=FALSE, message=FALSE, warning=FALSE}
+
+
+local_new_10k <- ggplot(daily_focal[!is.na(daily_focal$New_cases_per_10k),], aes(x=DATE, y=New_cases_per_10k, group=Region)) + geom_smooth(aes(colour=Region))  + ylab("Number of new cases in area each day per 10K residents") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)
+print(local_new_10k)
+
+local_active_10k <- ggplot(daily_focal[!is.na(daily_focal$Active_cases_per_10k),], aes(x=DATE, y=Active_cases_per_10k, group=Region)) +  geom_smooth(aes(colour=Region)) + ylab("Number of active cases in area each day per 10K residents") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)
+print(local_active_10k)
+
+
+```
 
 ```{r greenzone, echo=FALSE, message=FALSE, warning=FALSE, eval=FALSE}
 # Knox County has published <a href="https://covid.knoxcountytn.gov/case-count.html#covid_data">its guidelines</a>. For it to be green for the number of new cases, it requires "No three-day shifts of 1.5 standard deviations above a rolling mean (based on data from the previous 14 days)." It's not quite clear to me what this means (the average of the three days can't exceed this or **all** or **any** of the three days can't exceed it?);  I'm taking the interpretation that if the three day mean is above this value, there's a problem. They update their stop lights weekly; this looks at each day to see if the average of that day and the two previous days exceeds what seems to be their threshold. Remember that this is just me playing with the data -- they're the experts to decide if cases are growing enough to be worrisome.
@@ -177,10 +192,10 @@ print(knox_new3)
 
 ```
 
-A question is whether testing is adequate. The White House has said about 30 tests per 1000 people per month is adequate (this is also what <a href="https://projects.propublica.org/reopening-america/#notes">ProPublica</a> uses); others have argued that around 45 tests per 1000 people per month is better, though with variation depending on infection rate (see <a href="https://www.statnews.com/2020/04/27/coronavirus-many-states-short-of-testing-levels-needed-for-safe-reopening/">here</a>). These are the black lines on the plots below (calculated as tests per day, given Knox County's population of `r knox_pop`, and assuming 30 days per month).
 
+```{r plotsB, echo=FALSE, message=FALSE, warning=FALSE, eval=FALSE}
 
-```{r plotsB, echo=FALSE, message=FALSE, warning=FALSE}
+# A question is whether testing is adequate. The White House has said about 30 tests per 1000 people per month is adequate (this is also what <a href="https://projects.propublica.org/reopening-america/#notes">ProPublica</a> uses); others have argued that around 45 tests per 1000 people per month is better, though with variation depending on infection rate (see <a href="https://www.statnews.com/2020/04/27/coronavirus-many-states-short-of-testing-levels-needed-for-safe-reopening/">here</a>). These are the black lines on the plots below (calculated as tests per day, given Knox County's population of `r knox_pop`, and assuming 30 days per month).
 
 
 knox_testing <- ggplot(daily_knox[!is.na(daily_knox$NEW_TESTS),], aes(x=DATE, y=NEW_TESTS)) + geom_smooth() + geom_point() + ylab("Number of new tests in Knox each day") + xlab("Date") + ylim(0,NA)
@@ -190,12 +205,12 @@ print(knox_testing)
 
 ```
 
-This can be done for the region. Here are Knox County, Oak Ridge and its counties (Anderson and Roane), and all the East TN counties combined (the same ones used for regional hospital reporting for bed availability). This plots shows the daily number of tests per 1000 residents.
+This can be done for the region. Here are Knox County, Oak Ridge and its counties (Anderson and Roane), and all the East TN counties combined (the same ones used for regional hospital reporting for bed availability). This plots shows the daily number of tests per 10,000 residents.
 
 ```{r plotsB2, echo=FALSE, message=FALSE, warning=FALSE}
 
 
-proportional_testing <- ggplot(daily_focal[!is.na(daily_focal$NEW_TESTS),], aes(x=DATE, y=Tests_per_1000, group=Region)) + geom_smooth(aes(colour=Region))  + ylab("Number of new tests per 1000 residents each day") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)
+proportional_testing <- ggplot(daily_focal[!is.na(daily_focal$Tests_per_10k),], aes(x=DATE, y=Tests_per_10k, group=Region)) + geom_smooth(aes(colour=Region))  + ylab("Number of new tests per 10,000 residents each day") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)
 print(proportional_testing)
 
 

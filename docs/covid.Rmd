@@ -39,9 +39,13 @@ library(ggpubr)
 gmr <- "https://www.gstatic.com/covid19/mobility/Global_Mobility_Report.csv"
 
 
+counties_in_hospital_region <- c("Knox", "Anderson", "Roane", "Scott", "Blount", "Claiborne", "Jefferson", "Campbell", "Sevier", "Loudon", "Hamblen", "Cocke", "Monroe", "McMinn")
+
 us <- COVID19::covid19(country="US", level=3, gmr=gmr, verbose=FALSE)
 tn <- subset(us, administrative_area_level_2=="Tennessee")
 knox <- subset(us, administrative_area_level_3=="Knox" & administrative_area_level_2=="Tennessee")
+oakridge <- subset(us, administrative_area_level_3 %in% c("Roane", "Anderson") & administrative_area_level_2=="Tennessee")
+region <-  subset(us, administrative_area_level_3 %in% counties_in_hospital_region & administrative_area_level_2=="Tennessee")
 knox$percentconfirmed <- 100*knox$confirmed/knox$population
 
 
@@ -54,7 +58,15 @@ tn_diff <- data.frame(date=tn_aggregate$date[-1], daily_confirmed=diff(tn_aggreg
 us_aggregate <- us %>% group_by(date) %>% summarise(confirmed = sum(confirmed), population=sum(population))
 us_aggregate$percentconfirmed <- 100*us_aggregate$confirmed/us_aggregate$population
 
+oakridge_aggregate <- oakridge %>% group_by(date) %>% summarise(confirmed = sum(confirmed), population=sum(population))
+oakridge_aggregate$percentconfirmed <- 100*oakridge_aggregate$confirmed/oakridge_aggregate$population
+
+region_aggregate <- region %>% group_by(date) %>% summarise(confirmed = sum(confirmed), population=sum(population))
+region_aggregate$percentconfirmed <- 100*region_aggregate$confirmed/region_aggregate$population
+
 us_diff <- data.frame(date=us_aggregate$date[-1], daily_confirmed=diff(us_aggregate$confirmed), daily_percent_confirmed=diff(tn_aggregate$percentconfirmed))
+
+
 
 knox_diff <- data.frame(
   date=knox$date[-1],
@@ -66,6 +78,11 @@ knox_diff <- data.frame(
   daily_residential=diff(knox$residential_percent_change_from_baseline),
   daily_percent_confirmed = diff(knox$percentconfirmed)
 )
+
+
+knox_pop <- max(knox$population)
+oakridge_pop <- max(oakridge_aggregate$population)
+region_pop <- max(region_aggregate$population)
 
 #
 #
@@ -80,11 +97,22 @@ download.file(dataURL, destfile=temp, mode='wb')
 
 daily <- readxl::read_xlsx(temp, sheet =1, col_types=c("date", "text", rep("numeric",18)))
 
-daily_knox <- subset(daily, COUNTY=="Knox")
+daily_knox <- subset(daily, COUNTY=="Knox") %>% select(-"COUNTY")
+daily_knox$Region <- "Knox County"
+daily_knox$Population <- knox_pop
 
-daily_focal <- subset(daily, COUNTY %in% c("Knox", "Anderson"))
+daily_oakridge <- subset(daily, COUNTY %in% c("Roane", "Anderson")) %>% select(-"COUNTY")
+daily_oakridge$Region <- "Oak Ridge"
+daily_oakridge$Population <- oakridge_pop
 
-knox_pop <- max(knox$population)
+
+daily_region<- subset(daily, COUNTY %in% counties_in_hospital_region) %>% group_by(DATE) %>% select(-"COUNTY") %>% summarise_all(sum)
+
+daily_region$Region <- "East TN"
+daily_region$Population <- region_pop
+
+daily_focal <- rbind(daily_knox, daily_oakridge, daily_region)
+daily_focal$Tests_per_1000 <- 1000*(daily_focal$NEW_TESTS/daily_focal$Population)
 
 ```
 
@@ -141,7 +169,7 @@ print(knox_new3)
 
 ```
 
-A question is whether testing is adequate. The White House has said about 30 tests per 1000 people per month is adequate (this is also what <a href="https://projects.propublica.org/reopening-america/#notes">ProPublica</a> uses); others have argued that around 45 tests per 1000 people per month is better, though with variation depending on infection rate (see <a href="https://www.statnews.com/2020/04/27/coronavirus-many-states-short-of-testing-levels-needed-for-safe-reopening/">here</a>). These are the black lines on the plots below (calculated as tests per day, given Knox County's population of `r knox_pop`).
+A question is whether testing is adequate. The White House has said about 30 tests per 1000 people per month is adequate (this is also what <a href="https://projects.propublica.org/reopening-america/#notes">ProPublica</a> uses); others have argued that around 45 tests per 1000 people per month is better, though with variation depending on infection rate (see <a href="https://www.statnews.com/2020/04/27/coronavirus-many-states-short-of-testing-levels-needed-for-safe-reopening/">here</a>). These are the black lines on the plots below (calculated as tests per day, given Knox County's population of `r knox_pop`, and assuming 30 days per month).
 
 
 ```{r plotsB, echo=FALSE, message=FALSE, warning=FALSE}
@@ -154,10 +182,21 @@ print(knox_testing)
 
 ```
 
-Another way to look at testing (or disease spread) is to look at the proportion of positive tests ("positivity rate"): they can go up if a greater proportion of symptomatic people are being tested and/or if the frequency of the disease is increasing. WHO recommends testing should be 10% positive or lower (black line). Here, I'm including a nearby county, Anderson (home of Oak Ridge), where some people at UT live and where there are reearch collaborations.
-
+This can be done for the region. Here are Knox County, Oak Ridge and its counties (Anderson and Roane), and all the East TN counties combined (the same ones used for regional hospital reporting for bed availability). This plots shows the daily number of tests per 1000 residents.
 
 ```{r plotsB2, echo=FALSE, message=FALSE, warning=FALSE}
+
+
+proportional_testing <- ggplot(daily_focal[!is.na(daily_focal$NEW_TESTS),], aes(x=DATE, y=Tests_per_1000, group=Region)) + geom_smooth(aes(colour=Region))  + ylab("Number of new tests per 1000 residents each day") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)
+print(proportional_testing)
+
+
+```
+
+Another way to look at testing (or disease spread) is to look at the proportion of positive tests ("positivity rate"): they can go up if a greater proportion of symptomatic people are being tested and/or if the frequency of the disease is increasing. Updated WHO guidelines recommend testing should be 5% positive or lower (black line).
+
+
+```{r plotsB3, echo=FALSE, message=FALSE, warning=FALSE}
 
 # daily_knox$NEW_PROPORTION_CONFIRMED <- 100*daily_knox$NEW_CONFIRMED/daily_knox$NEW_TESTS
 #
@@ -167,7 +206,7 @@ Another way to look at testing (or disease spread) is to look at the proportion 
 
 daily_focal$NEW_PROPORTION_CONFIRMED <- 100*daily_focal$NEW_CONFIRMED/daily_focal$NEW_TESTS
 
-focal_proportion_pos <- ggplot(daily_focal[!is.na(daily_focal$NEW_PROPORTION_CONFIRMED),], aes(x=DATE, y=NEW_PROPORTION_CONFIRMED, group=COUNTY)) + geom_smooth(aes(colour=COUNTY)) + ylab("Percentage of positive tests in focal counties each day") + xlab("Date") + ylim(0,NA) + geom_hline(yintercept=10, col="black") + scale_colour_viridis_d(end=0.8)
+focal_proportion_pos <- ggplot(daily_focal[!is.na(daily_focal$NEW_PROPORTION_CONFIRMED),], aes(x=DATE, y=NEW_PROPORTION_CONFIRMED, group=Region)) + geom_smooth(aes(colour=Region)) + ylab("Percentage of positive tests in focal areas each day") + xlab("Date") + ylim(0,NA) + geom_hline(yintercept=5, col="black") + scale_colour_viridis_d(end=0.8)
 print(focal_proportion_pos)
 
 # par(mfcol=c(1,2))
@@ -232,9 +271,10 @@ print(ageplot_knox_cumulative)
 
 ```
 
-Another question is what is happening at UT as campus opens up and testing ramps up. There is some information on active cases available.
+Another question is what is happening at UT as campus opens up and testing ramps up. There is some information on active cases available. Note that this is based on parsing a website without clean tables of data, and which sometimes drops labels for the data.
 
 ```{r utactive, echo=FALSE, message=FALSE, warning=FALSE}
+# cached downloads of https://veoci.com/veoci/p/form/4jmds5x4jj4j#tab=entryForm
 webfiles <- list.files(path="/Users/bomeara/Dropbox/UTKCovid", pattern="*html", full.names =TRUE)
 utk.cases <- data.frame()
 for(i in seq_along(webfiles)) {
@@ -256,7 +296,7 @@ for(i in seq_along(webfiles)) {
   }
 }
 utk.cases$group <- as.factor(utk.cases$group)
-utk_plot <- ggplot(utk.cases, aes(x=date, y=count, group=group)) + geom_line(aes(colour=group)) + ylab("Number of active cases at UTK") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)
+utk_plot <- ggplot(utk.cases[!is.na(utk.cases$count),], aes(x=date, y=count, group=group)) + geom_line(aes(colour=group)) + ylab("Number of active cases at UTK") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)
 print(utk_plot)
 ```
 
@@ -283,6 +323,8 @@ print(g)
 
 
 ```{r hospitalcapacitydata, echo=FALSE, message=FALSE, warning=FALSE}
+
+
 
 covidServer <- get.rds("https://knxhx.richdataservices.com/rds")
 catalog <- getCatalog(covidServer, "kchd")
@@ -327,7 +369,7 @@ hospital_resources$pct_available <- as.numeric(as.character(hospital_resources$p
 # }
 ```
 
-Currently, regional hospitals have `r tail(subset(hospital_resources, label=="ICU beds")$cnt_available,1)` ICU beds available of `r tail(subset(hospital_resources, label=="ICU beds")$cnt_capacity,1)` total, and `r tail(subset(hospital_resources, label=="Ventilators")$cnt_available,1)` available ventilators out of `r tail(subset(hospital_resources, label=="Ventilators")$cnt_capacity,1)` total. When a line hits 100%, the local hospitals are theoretically full for that resource (for all patients, not just covid patients), though there is surge capacity on top of this. Note that these data are not updated frequently, so current conditions maybe be much better or worse than these plots show. Data from <a href="https://knxhx.richdataservices.com/">https://knxhx.richdataservices.com/</a>.
+Currently, regional hospitals have `r tail(subset(hospital_resources, label=="ICU beds")$cnt_available,1)` ICU beds available of `r tail(subset(hospital_resources, label=="ICU beds")$cnt_capacity,1)` total, and `r tail(subset(hospital_resources, label=="Ventilators")$cnt_available,1)` available ventilators out of `r tail(subset(hospital_resources, label=="Ventilators")$cnt_capacity,1)` total. This is based on 19 hospitals in the East TN region, serving `r formatC(region_pop, format="d", big.mark=",")` people from `r length(counties_in_hospital_region)` counties. When a line hits 100%, the local hospitals are theoretically full for that resource (for all patients, not just covid patients), though there is surge capacity on top of this. Note that these data are not updated frequently, so current conditions maybe be much better or worse than these plots show. Data on capacity from <a href="https://knxhx.richdataservices.com/">https://knxhx.richdataservices.com/</a>, data on hospitalizations and testing over time from the state data.
 
 
 ```{r hospitalcapacityplot, echo=FALSE, message=FALSE, warning=FALSE}

@@ -101,7 +101,7 @@ daily_knox <- subset(daily, COUNTY=="Knox") %>% select(-"COUNTY")
 daily_knox$Region <- "Knox County"
 daily_knox$Population <- knox_pop
 
-daily_oakridge <- subset(daily, COUNTY %in% c("Roane", "Anderson")) %>% select(-"COUNTY")
+daily_oakridge <- subset(daily, COUNTY %in% c("Roane", "Anderson")) %>% group_by(DATE) %>% select(-"COUNTY") %>% summarise_all(sum)
 daily_oakridge$Region <- "Oak Ridge"
 daily_oakridge$Population <- oakridge_pop
 
@@ -250,7 +250,11 @@ print(focal_proportion_pos)
 Many of the local schools are adopting a hybrid approach, where families can choose whether to send their kids to school or do online learning (sometimes with reduced options). The <i>New York Times</i> <a href="https://www.nytimes.com/2020/07/14/us/coronavirus-schools-fall.html">reports</a> on July 14, 2020, that, "As education leaders decide whether to reopen classrooms in the fall amid a raging pandemic, many are looking to a standard generally agreed upon among epidemiologists: To control community spread of the coronavirus, the average daily infection rate among those who are tested should not exceed 5 percent." Many districts nationally are not hitting that goal, but a question is whether local ones will. The first district to open in our area will be Oak Ridge public schools, who have a start date for students in person on July 29, 2020. Following the procedure of the <i>NYT</i>'s article, I am plotting the seven day average of positivity rate for tests for the counties including Oak Ridge (Roane and Anderson).
 
 ```{r oakridge7, echo=FALSE, message=FALSE, warning=FALSE}
-oakridge_seven <- data.frame(daily_oakridge$DATE, zoo::rollsum(daily_oakridge$NEW_CONFIRMED, k=7, align="right", fill=NA), zoo::rollsum(daily_oakridge$NEW_CONFIRMED, k=7, align="right", fill=NA))
+oakridge_seven <- data.frame(DATE=daily_oakridge$DATE, new_confirmed=zoo::rollsum(daily_oakridge$NEW_CONFIRMED, k=7, align="right", fill=NA), new_tests=zoo::rollsum(daily_oakridge$NEW_TESTS, k=7, align="right", fill=NA))
+oakridge_seven$positivity = 100*oakridge_seven$new_confirmed/oakridge_seven$new_tests
+plot_oakridge_seven <- ggplot(oakridge_seven[!is.na(oakridge_seven$positivity),], aes(x=DATE, y=positivity)) + geom_line() + geom_smooth() + ylab("Percentage of positive tests over seven days ending with date") + xlab("Date") + ylim(0,NA) + geom_hline(yintercept=5, col="black", lty="dotted") + geom_rect(mapping=aes(xmin=as.POSIXct("2020/07/29"), xmax=as.POSIXct("2020/07/30"), ymin=0, ymax=5))
+
+print(plot_oakridge_seven)
 ```
 
 

@@ -16,9 +16,13 @@ library(ggpubr)
 gmr <- "https://www.gstatic.com/covid19/mobility/Global_Mobility_Report.csv"
 
 
+counties_in_hospital_region <- c("Knox", "Anderson", "Roane", "Scott", "Blount", "Claiborne", "Jefferson", "Campbell", "Sevier", "Loudon", "Hamblen", "Cocke", "Monroe", "McMinn")
+
 us <- COVID19::covid19(country="US", level=3, gmr=gmr, verbose=FALSE)
 tn <- subset(us, administrative_area_level_2=="Tennessee")
 knox <- subset(us, administrative_area_level_3=="Knox" & administrative_area_level_2=="Tennessee")
+oakridge <- subset(us, administrative_area_level_3 %in% c("Roane", "Anderson") & administrative_area_level_2=="Tennessee")
+region <-  subset(us, administrative_area_level_3 %in% counties_in_hospital_region & administrative_area_level_2=="Tennessee")
 knox$percentconfirmed <- 100*knox$confirmed/knox$population
 
 
@@ -31,7 +35,15 @@ tn_diff <- data.frame(date=tn_aggregate$date[-1], daily_confirmed=diff(tn_aggreg
 us_aggregate <- us %>% group_by(date) %>% summarise(confirmed = sum(confirmed), population=sum(population))
 us_aggregate$percentconfirmed <- 100*us_aggregate$confirmed/us_aggregate$population
 
+oakridge_aggregate <- oakridge %>% group_by(date) %>% summarise(confirmed = sum(confirmed), population=sum(population))
+oakridge_aggregate$percentconfirmed <- 100*oakridge_aggregate$confirmed/oakridge_aggregate$population
+
+region_aggregate <- region %>% group_by(date) %>% summarise(confirmed = sum(confirmed), population=sum(population))
+region_aggregate$percentconfirmed <- 100*region_aggregate$confirmed/region_aggregate$population
+
 us_diff <- data.frame(date=us_aggregate$date[-1], daily_confirmed=diff(us_aggregate$confirmed), daily_percent_confirmed=diff(tn_aggregate$percentconfirmed))
+
+
 
 knox_diff <- data.frame(
   date=knox$date[-1],
@@ -43,6 +55,11 @@ knox_diff <- data.frame(
   daily_residential=diff(knox$residential_percent_change_from_baseline),
   daily_percent_confirmed = diff(knox$percentconfirmed)
 )
+
+
+knox_pop <- max(knox$population)
+oakridge_pop <- max(oakridge_aggregate$population)
+region_pop <- max(region_aggregate$population)
 
 #
 #
@@ -57,22 +74,47 @@ download.file(dataURL, destfile=temp, mode='wb')
 
 daily <- readxl::read_xlsx(temp, sheet =1, col_types=c("date", "text", rep("numeric",18)))
 
-daily_knox <- subset(daily, COUNTY=="Knox")
+daily_knox <- subset(daily, COUNTY=="Knox") %>% select(-"COUNTY")
+daily_knox$Region <- "Knox County"
+daily_knox$Population <- knox_pop
 
-daily_focal <- subset(daily, COUNTY %in% c("Knox", "Anderson"))
+daily_oakridge <- subset(daily, COUNTY %in% c("Roane", "Anderson")) %>% group_by(DATE) %>% select(-"COUNTY") %>% summarise_all(sum)
+daily_oakridge$Region <- "Oak Ridge"
+daily_oakridge$Population <- oakridge_pop
 
-knox_pop <- max(knox$population)
+
+daily_region<- subset(daily, COUNTY %in% counties_in_hospital_region) %>% group_by(DATE) %>% select(-"COUNTY") %>% summarise_all(sum)
+
+daily_region$Region <- "East TN"
+daily_region$Population <- region_pop
+
+daily_focal <- rbind(daily_knox, daily_oakridge, daily_region)
+daily_focal$Tests_per_10k <- 10000*(daily_focal$NEW_TESTS/daily_focal$Population)
+daily_focal$New_cases_per_10k <- 10000*(daily_focal$NEW_CASES/daily_focal$Population)
+daily_focal$Active_cases_per_10k <- 10000*(daily_focal$TOTAL_ACTIVE/daily_focal$Population)
 
 
 
 ## ----plotsA, echo=FALSE, message=FALSE, warning=FALSE-------------------------
 
 
-knox_new <- ggplot(daily_knox[!is.na(daily_knox$NEW_CASES),], aes(x=DATE, y=NEW_CASES)) + geom_smooth() + geom_point() + ylab("Number of new cases in Knox each day") + xlab("Date") + ylim(0,NA)
-print(knox_new)
+local_new <- ggplot(daily_focal[!is.na(daily_focal$NEW_CASES),], aes(x=DATE, y=NEW_CASES, group=Region)) + geom_smooth(aes(colour=Region))  + ylab("Number of new cases in area each day") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)
+print(local_new)
 
-knox_active <- ggplot(daily_knox[!is.na(daily_knox$TOTAL_ACTIVE),], aes(x=DATE, y=TOTAL_ACTIVE)) + geom_smooth() + geom_point() + ylab("Number of active cases in Knox each day") + xlab("Date") + ylim(0,NA)
-print(knox_active)
+local_active <- ggplot(daily_focal[!is.na(daily_focal$TOTAL_ACTIVE),], aes(x=DATE, y=TOTAL_ACTIVE, group=Region)) +  geom_smooth(aes(colour=Region)) + ylab("Number of active cases in area each day") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)
+print(local_active)
+
+
+
+
+## ----plotsA2, echo=FALSE, message=FALSE, warning=FALSE------------------------
+
+
+local_new_10k <- ggplot(daily_focal[!is.na(daily_focal$New_cases_per_10k),], aes(x=DATE, y=New_cases_per_10k, group=Region)) + geom_smooth(aes(colour=Region))  + ylab("Number of new cases in area each day per 10K residents") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)
+print(local_new_10k)
+
+local_active_10k <- ggplot(daily_focal[!is.na(daily_focal$Active_cases_per_10k),], aes(x=DATE, y=Active_cases_per_10k, group=Region)) +  geom_smooth(aes(colour=Region)) + ylab("Number of active cases in area each day per 10K residents") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)
+print(local_active_10k)
 
 
 
@@ -114,17 +156,28 @@ print(knox_active)
 ## 
 
 
-## ----plotsB, echo=FALSE, message=FALSE, warning=FALSE-------------------------
-
-
-knox_testing <- ggplot(daily_knox[!is.na(daily_knox$NEW_TESTS),], aes(x=DATE, y=NEW_TESTS)) + geom_smooth() + geom_point() + ylab("Number of new tests in Knox each day") + xlab("Date") + ylim(0,NA)
-knox_testing <- knox_testing + geom_hline(yintercept=(knox_pop*45/1000)/30, col="black") + geom_hline(yintercept=(knox_pop*30/1000)/30, col="black")
-print(knox_testing)
-
-
+## ----plotsB, echo=FALSE, message=FALSE, warning=FALSE, eval=FALSE-------------
+## 
+## # A question is whether testing is adequate. The White House has said about 30 tests per 1000 people per month is adequate (this is also what <a href="https://projects.propublica.org/reopening-america/#notes">ProPublica</a> uses); others have argued that around 45 tests per 1000 people per month is better, though with variation depending on infection rate (see <a href="https://www.statnews.com/2020/04/27/coronavirus-many-states-short-of-testing-levels-needed-for-safe-reopening/">here</a>). These are the black lines on the plots below (calculated as tests per day, given Knox County's population of `r knox_pop`, and assuming 30 days per month).
+## 
+## 
+## knox_testing <- ggplot(daily_knox[!is.na(daily_knox$NEW_TESTS),], aes(x=DATE, y=NEW_TESTS)) + geom_smooth() + geom_point() + ylab("Number of new tests in Knox each day") + xlab("Date") + ylim(0,NA)
+## knox_testing <- knox_testing + geom_hline(yintercept=(knox_pop*45/1000)/30, col="black") + geom_hline(yintercept=(knox_pop*30/1000)/30, col="black")
+## print(knox_testing)
+## 
+## 
 
 
 ## ----plotsB2, echo=FALSE, message=FALSE, warning=FALSE------------------------
+
+
+proportional_testing <- ggplot(daily_focal[!is.na(daily_focal$Tests_per_10k),], aes(x=DATE, y=Tests_per_10k, group=Region)) + geom_smooth(aes(colour=Region))  + ylab("Number of new tests per 10,000 residents each day") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)
+print(proportional_testing)
+
+
+
+
+## ----plotsB3, echo=FALSE, message=FALSE, warning=FALSE------------------------
 
 # daily_knox$NEW_PROPORTION_CONFIRMED <- 100*daily_knox$NEW_CONFIRMED/daily_knox$NEW_TESTS
 #
@@ -134,7 +187,7 @@ print(knox_testing)
 
 daily_focal$NEW_PROPORTION_CONFIRMED <- 100*daily_focal$NEW_CONFIRMED/daily_focal$NEW_TESTS
 
-focal_proportion_pos <- ggplot(daily_focal[!is.na(daily_focal$NEW_PROPORTION_CONFIRMED),], aes(x=DATE, y=NEW_PROPORTION_CONFIRMED, group=COUNTY)) + geom_smooth(aes(colour=COUNTY)) + ylab("Percentage of positive tests in focal counties each day") + xlab("Date") + ylim(0,NA) + geom_hline(yintercept=10, col="black") + scale_colour_viridis_d(end=0.8)
+focal_proportion_pos <- ggplot(daily_focal[!is.na(daily_focal$NEW_PROPORTION_CONFIRMED),], aes(x=DATE, y=NEW_PROPORTION_CONFIRMED, group=Region)) + geom_smooth(aes(colour=Region)) + ylab("Percentage of positive tests in focal areas each day") + xlab("Date") + ylim(0,NA) + geom_hline(yintercept=5, col="black") + scale_colour_viridis_d(end=0.8)
 print(focal_proportion_pos)
 
 # par(mfcol=c(1,2))
@@ -145,6 +198,111 @@ print(focal_proportion_pos)
 #   forecast(h=20) %>%
 #   autoplot()
 # print(confirmed_plot)
+
+
+
+## ----oakridge7, echo=FALSE, message=FALSE, warning=FALSE----------------------
+oakridge_seven <- data.frame(DATE=daily_oakridge$DATE, new_confirmed=zoo::rollsum(daily_oakridge$NEW_CONFIRMED, k=7, align="right", fill=NA), new_tests=zoo::rollsum(daily_oakridge$NEW_TESTS, k=7, align="right", fill=NA))
+oakridge_seven$positivity = 100*oakridge_seven$new_confirmed/oakridge_seven$new_tests
+plot_oakridge_seven <- ggplot(oakridge_seven[!is.na(oakridge_seven$positivity),], aes(x=DATE, y=positivity)) + geom_line() + geom_smooth() + ylab("Percentage of positive tests over seven days ending with date") + xlab("Date") + ylim(0,NA) + geom_hline(yintercept=5, col="black", lty="dotted") + geom_rect(mapping=aes(xmin=as.POSIXct("2020/07/29"), xmax=as.POSIXct("2020/07/30"), ymin=0, ymax=5))
+
+print(plot_oakridge_seven)
+
+
+## ----hospitalcapacitydata, echo=FALSE, message=FALSE, warning=FALSE-----------
+
+
+
+covidServer <- get.rds("https://knxhx.richdataservices.com/rds")
+catalog <- getCatalog(covidServer, "kchd")
+products <- getDataProducts(catalog)
+dataProduct <- getDataProduct(catalog, "us_tn_kchd_capacity")
+{ sink("/dev/null"); hospital_resources <- rds.select(dataProduct, autoPage =  TRUE)@records; sink(); }
+hospital_resources$label = NA
+hospital_resources$label[hospital_resources$resource_type==0] <- "All beds"
+hospital_resources$label[hospital_resources$resource_type==1] <- "ICU beds"
+hospital_resources$label[hospital_resources$resource_type==2] <- "Ventilators"
+hospital_resources$cnt_available <- as.numeric(as.character(hospital_resources$cnt_available))
+hospital_resources$cnt_capacity <- as.numeric(as.character(hospital_resources$cnt_capacity))
+hospital_resources$pct_used <- as.numeric(as.character(hospital_resources$pct_used))
+hospital_resources$pct_available <- as.numeric(as.character(hospital_resources$pct_available))
+
+last_hospital_update <- hospital_resources$date_stamp[1]
+for (resource_index in c(0,1,2)) {
+  hospital_resources_subset <- subset(hospital_resources, resource_type==resource_index)
+  cnt_used_previous = hospital_resources_subset$cnt_used[1]
+  for(row_index in 2:nrow(hospital_resources_subset)) {
+    if(hospital_resources_subset$cnt_used[row_index] != cnt_used_previous) {
+      cnt_used_previous <- hospital_resources_subset$cnt_used[row_index]
+      last_hospital_update <- max(last_hospital_update, hospital_resources_subset$date_stamp[row_index])
+    }
+  }
+}
+
+# hospitalfiles <- list.files(path="/Users/bomeara/Dropbox/KnoxCovid", pattern="*bed*", full.names =TRUE)
+# capacity.df <- data.frame()
+# previoushospitaldata <- data.frame()
+# current.capacity.df <- data.frame()
+# for (i in seq_along(hospitalfiles)) {
+#   actual_time <- anytime::anytime(stringr::str_extract(hospitalfiles[i], "\\d+_\\d+_\\d+_\\d+_\\d+_\\d+"))
+#   hospitaldata <- read.csv(hospitalfiles[i], stringsAsFactors=FALSE)
+#   hospitaldata$Current.Utilization <- as.numeric(gsub('%', '', hospitaldata$Current.Utilization))
+#   hospitaldata$Resource <- hospitaldata$East.Region.Hospitals
+#
+#   if(i==1) {
+#     previoushospitaldata <- hospitaldata
+#     hospitaldata$Date <- actual_time
+#     capacity.df <- hospitaldata
+#   } else {
+#     if(all(dim(hospitaldata)==dim(previoushospitaldata))) {
+#       if(any(hospitaldata!=previoushospitaldata)) {
+#         previoushospitaldata <- hospitaldata
+#         hospitaldata$Date <- actual_time
+#         capacity.df <- rbind(capacity.df, hospitaldata)
+#       }
+#     }
+#   }
+#   current.capacity.df <- hospitaldata
+#   rownames(current.capacity.df) <- current.capacity.df$Resource
+# }
+
+
+## ----hospitalcapacityplot, echo=FALSE, message=FALSE, warning=FALSE-----------
+try(hosp_plot <- ggplot(hospital_resources, aes(x=date_stamp, y=pct_used, group=label)) + geom_line(aes(colour=label)) + ylab("Percent Utilization in East Tennessee Region") + xlab("Date") + ylim(0,100) + scale_colour_viridis_d(end=0.8))
+try(print(hosp_plot))
+
+
+
+## ----plotsD, echo=FALSE, message=FALSE, warning=FALSE-------------------------
+
+
+new_hospitalization <- ggplot(daily_focal[!is.na(daily_focal$NEW_HOSPITALIZED),], aes(x=DATE, y=NEW_HOSPITALIZED, group=Region)) + geom_smooth(aes(colour=Region)) + ylab("Number of new covid hospitalizations each day") + xlab("Date") + ylim(0,NA)  + scale_colour_viridis_d(end=0.8) + geom_vline(xintercept=as.POSIXct(last_hospital_update), col="black", linetype="dotted")
+print(new_hospitalization)
+
+# tn_daily_aggregate <- daily %>% group_by(DATE) %>% summarise(new_hosp = sum(NEW_HOSPITALIZED))
+#
+#
+# tn_new_hospitalization <- ggplot(tn_daily_aggregate[!is.na(tn_daily_aggregate$new_hosp),], aes(x=DATE, y=new_hosp)) + geom_smooth() + geom_point() + ylab("Number of new covid hospitalizations in TN each day") + xlab("Date") + ylim(0,NA)
+# print(tn_new_hospitalization)
+
+# all_confirmed <- data.frame(date=c(us_aggregate$date, tn_aggregate$date, knox$date), percentconfirmed=c(us_aggregate$percentconfirmed, tn_aggregate$percentconfirmed, knox$percentconfirmed), region=c(rep("US", nrow(us_aggregate)),rep("TN", nrow(tn_aggregate)), rep("Knox", nrow(knox))))
+# con <- ggplot(all_confirmed, aes(x=date, y=percentconfirmed, color=region)) + geom_smooth() + geom_point() + ylab("Percent of population with confirmed tests")
+# print(con)
+#
+# three_weeks_ago <- tail(sort(unique(all_confirmed$date)),21)[1]
+# all_confirmed_3 <- all_confirmed[all_confirmed$date>=three_weeks_ago,]
+#
+# con3 <- ggplot(all_confirmed_3, aes(x=date, y=percentconfirmed, color=region)) + geom_smooth() + geom_point() + ylab("Percent of population with confirmed tests")
+# print(con3)
+#
+# diff_confirmed <-  data.frame(date=c(us_diff$date, tn_diff$date, knox_diff$date), daily_percent_confirmed=c(us_diff$daily_percent_confirmed, tn_diff$daily_percent_confirmed, knox_diff$daily_percent_confirmed), region=c(rep("US", nrow(us_diff)),rep("TN", nrow(tn_diff)), rep("Knox", nrow(knox_diff))))
+# diffplot <- ggplot(diff_confirmed, aes(x=date, y=daily_percent_confirmed, color=region)) + geom_smooth(span=14/nrow(knox_diff)) + geom_point() + ylab("Percent of population new confirmed tests daily")
+# print(diffplot)
+#
+#
+# diff_confirmed_3 <- diff_confirmed[diff_confirmed$date>=three_weeks_ago,]
+# diffplot3 <- ggplot(diff_confirmed_3, aes(x=date, y=daily_percent_confirmed, color=region)) + geom_smooth() + geom_point() + ylab("Percent of population new confirmed tests daily")
+# print(diffplot3)
 
 
 
@@ -198,6 +356,7 @@ print(ageplot_knox_cumulative)
 
 
 ## ----utactive, echo=FALSE, message=FALSE, warning=FALSE-----------------------
+# cached downloads of https://veoci.com/veoci/p/form/4jmds5x4jj4j#tab=entryForm
 webfiles <- list.files(path="/Users/bomeara/Dropbox/UTKCovid", pattern="*html", full.names =TRUE)
 utk.cases <- data.frame()
 for(i in seq_along(webfiles)) {
@@ -219,7 +378,7 @@ for(i in seq_along(webfiles)) {
   }
 }
 utk.cases$group <- as.factor(utk.cases$group)
-utk_plot <- ggplot(utk.cases, aes(x=date, y=count, group=group)) + geom_line(aes(colour=group)) + ylab("Number of active cases at UTK") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)
+utk_plot <- ggplot(utk.cases[!is.na(utk.cases$count),], aes(x=date, y=count, group=group)) + geom_line(aes(colour=group)) + ylab("Number of active cases at UTK") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)
 print(utk_plot)
 
 
@@ -235,92 +394,5 @@ print(g)
 
 # p <- ggplot(knox_diff, aes(x=date, y=daily_confirmed)) + geom_smooth(span=14/nrow(knox_diff)) + geom_point()
 # print(p)
-
-
-
-## ----hospitalcapacitydata, echo=FALSE, message=FALSE, warning=FALSE-----------
-
-counties_in_region <- c("Knox", "Anderson", "Roane", "Scott", "Blount", "Claiborne", "Jefferson", "Campbell", "Sevier", "Loudon", "Hamblen", "Cocke", "Monroe", "McMinn")
-daily_in_region <- subset(daily, COUNTY %in% counties_in_region)
-
-covidServer <- get.rds("https://knxhx.richdataservices.com/rds")
-catalog <- getCatalog(covidServer, "kchd")
-products <- getDataProducts(catalog)
-dataProduct <- getDataProduct(catalog, "us_tn_kchd_capacity")
-{ sink("/dev/null"); hospital_resources <- rds.select(dataProduct, autoPage =  TRUE)@records; sink(); }
-hospital_resources$label = NA
-hospital_resources$label[hospital_resources$resource_type==0] <- "All beds"
-hospital_resources$label[hospital_resources$resource_type==1] <- "ICU beds"
-hospital_resources$label[hospital_resources$resource_type==2] <- "Ventilators"
-hospital_resources$cnt_available <- as.numeric(as.character(hospital_resources$cnt_available))
-hospital_resources$cnt_capacity <- as.numeric(as.character(hospital_resources$cnt_capacity))
-hospital_resources$pct_used <- as.numeric(as.character(hospital_resources$pct_used))
-hospital_resources$pct_available <- as.numeric(as.character(hospital_resources$pct_available))
-
-
-# hospitalfiles <- list.files(path="/Users/bomeara/Dropbox/KnoxCovid", pattern="*bed*", full.names =TRUE)
-# capacity.df <- data.frame()
-# previoushospitaldata <- data.frame()
-# current.capacity.df <- data.frame()
-# for (i in seq_along(hospitalfiles)) {
-#   actual_time <- anytime::anytime(stringr::str_extract(hospitalfiles[i], "\\d+_\\d+_\\d+_\\d+_\\d+_\\d+"))
-#   hospitaldata <- read.csv(hospitalfiles[i], stringsAsFactors=FALSE)
-#   hospitaldata$Current.Utilization <- as.numeric(gsub('%', '', hospitaldata$Current.Utilization))
-#   hospitaldata$Resource <- hospitaldata$East.Region.Hospitals
-#
-#   if(i==1) {
-#     previoushospitaldata <- hospitaldata
-#     hospitaldata$Date <- actual_time
-#     capacity.df <- hospitaldata
-#   } else {
-#     if(all(dim(hospitaldata)==dim(previoushospitaldata))) {
-#       if(any(hospitaldata!=previoushospitaldata)) {
-#         previoushospitaldata <- hospitaldata
-#         hospitaldata$Date <- actual_time
-#         capacity.df <- rbind(capacity.df, hospitaldata)
-#       }
-#     }
-#   }
-#   current.capacity.df <- hospitaldata
-#   rownames(current.capacity.df) <- current.capacity.df$Resource
-# }
-
-
-## ----hospitalcapacityplot, echo=FALSE, message=FALSE, warning=FALSE-----------
-try(hosp_plot <- ggplot(hospital_resources, aes(x=date_stamp, y=pct_used, group=label)) + geom_line(aes(colour=label)) + ylab("Percent Utilization in East Tennessee Region") + xlab("Date") + ylim(0,100) + scale_colour_viridis_d(end=0.8))
-try(print(hosp_plot))
-
-
-
-## ----plotsD, echo=FALSE, message=FALSE, warning=FALSE-------------------------
-
-
-knox_new_hospitalization <- ggplot(daily_knox[!is.na(daily_knox$NEW_HOSPITALIZED),], aes(x=DATE, y=NEW_HOSPITALIZED)) + geom_smooth() + geom_point() + ylab("Number of new covid hospitalizations in Knox each day") + xlab("Date") + ylim(0,NA)
-print(knox_new_hospitalization)
-
-tn_daily_aggregate <- daily %>% group_by(DATE) %>% summarise(new_hosp = sum(NEW_HOSPITALIZED))
-
-
-tn_new_hospitalization <- ggplot(tn_daily_aggregate[!is.na(tn_daily_aggregate$new_hosp),], aes(x=DATE, y=new_hosp)) + geom_smooth() + geom_point() + ylab("Number of new covid hospitalizations in TN each day") + xlab("Date") + ylim(0,NA)
-print(tn_new_hospitalization)
-
-# all_confirmed <- data.frame(date=c(us_aggregate$date, tn_aggregate$date, knox$date), percentconfirmed=c(us_aggregate$percentconfirmed, tn_aggregate$percentconfirmed, knox$percentconfirmed), region=c(rep("US", nrow(us_aggregate)),rep("TN", nrow(tn_aggregate)), rep("Knox", nrow(knox))))
-# con <- ggplot(all_confirmed, aes(x=date, y=percentconfirmed, color=region)) + geom_smooth() + geom_point() + ylab("Percent of population with confirmed tests")
-# print(con)
-#
-# three_weeks_ago <- tail(sort(unique(all_confirmed$date)),21)[1]
-# all_confirmed_3 <- all_confirmed[all_confirmed$date>=three_weeks_ago,]
-#
-# con3 <- ggplot(all_confirmed_3, aes(x=date, y=percentconfirmed, color=region)) + geom_smooth() + geom_point() + ylab("Percent of population with confirmed tests")
-# print(con3)
-#
-# diff_confirmed <-  data.frame(date=c(us_diff$date, tn_diff$date, knox_diff$date), daily_percent_confirmed=c(us_diff$daily_percent_confirmed, tn_diff$daily_percent_confirmed, knox_diff$daily_percent_confirmed), region=c(rep("US", nrow(us_diff)),rep("TN", nrow(tn_diff)), rep("Knox", nrow(knox_diff))))
-# diffplot <- ggplot(diff_confirmed, aes(x=date, y=daily_percent_confirmed, color=region)) + geom_smooth(span=14/nrow(knox_diff)) + geom_point() + ylab("Percent of population new confirmed tests daily")
-# print(diffplot)
-#
-#
-# diff_confirmed_3 <- diff_confirmed[diff_confirmed$date>=three_weeks_ago,]
-# diffplot3 <- ggplot(diff_confirmed_3, aes(x=date, y=daily_percent_confirmed, color=region)) + geom_smooth() + geom_point() + ylab("Percent of population new confirmed tests daily")
-# print(diffplot3)
 
 

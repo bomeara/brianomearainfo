@@ -367,7 +367,7 @@ print(new_hospitalization)
 
 <hr />
 
-Which age groups are being infected is an important question as local schools open up. These are data from Knox county alone.
+Which age groups are being infected is an important question as local schools open up. These are data from Knox county alone. Note that one important bias here could be testing rate: if two year olds aren't being tested, the age 0-10 results will be lower than the actual rate of infection, for example.
 
 ```{r age, echo=FALSE, message=FALSE, warning=FALSE, error=FALSE}
 # covidServer <- get.rds("https://knxhx.richdataservices.com/rds")

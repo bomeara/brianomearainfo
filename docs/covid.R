@@ -72,7 +72,7 @@ temp = tempfile(fileext = ".xlsx")
 dataURL <- "https://www.tn.gov/content/dam/tn/health/documents/cedep/novel-coronavirus/datasets/Public-Dataset-County-New.XLSX"
 download.file(dataURL, destfile=temp, mode='wb')
 
-daily <- readxl::read_xlsx(temp, sheet =1, col_types=c("date", "text", rep("numeric",18)))
+daily <- readxl::read_xlsx(temp, sheet =1, col_types=c("date", "text", rep("numeric",19)))
 
 daily_knox <- subset(daily, COUNTY=="Knox") %>% select(-"COUNTY")
 daily_knox$Region <- "Knox County"
@@ -98,10 +98,10 @@ daily_focal$Active_cases_per_10k <- 10000*(daily_focal$TOTAL_ACTIVE/daily_focal$
 ## ----plotsA, echo=FALSE, message=FALSE, warning=FALSE-------------------------
 
 
-local_new <- ggplot(daily_focal[!is.na(daily_focal$NEW_CASES),], aes(x=DATE, y=NEW_CASES, group=Region)) + geom_smooth(aes(colour=Region))  + ylab("Number of new cases in area each day") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)
+local_new <- ggplot(daily_focal[!is.na(daily_focal$NEW_CASES),], aes(x=DATE, y=NEW_CASES, group=Region)) + geom_smooth(aes(colour=Region), se=FALSE) + geom_point(aes(colour=Region), size=0.5)  + ylab("Number of new cases in area each day") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)
 print(local_new)
 
-local_active <- ggplot(daily_focal[!is.na(daily_focal$TOTAL_ACTIVE),], aes(x=DATE, y=TOTAL_ACTIVE, group=Region)) +  geom_smooth(aes(colour=Region)) + ylab("Number of active cases in area each day") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)
+local_active <- ggplot(daily_focal[!is.na(daily_focal$TOTAL_ACTIVE),], aes(x=DATE, y=TOTAL_ACTIVE, group=Region)) +  geom_smooth(aes(colour=Region), se=FALSE) + geom_point(aes(colour=Region), size=0.5) + ylab("Number of active cases in area each day") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)
 print(local_active)
 
 
@@ -110,10 +110,10 @@ print(local_active)
 ## ----plotsA2, echo=FALSE, message=FALSE, warning=FALSE------------------------
 
 
-local_new_10k <- ggplot(daily_focal[!is.na(daily_focal$New_cases_per_10k),], aes(x=DATE, y=New_cases_per_10k, group=Region)) + geom_smooth(aes(colour=Region))  + ylab("Number of new cases in area each day per 10K residents") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)
+local_new_10k <- ggplot(daily_focal[!is.na(daily_focal$New_cases_per_10k),], aes(x=DATE, y=New_cases_per_10k, group=Region)) + geom_smooth(aes(colour=Region), se=FALSE) + geom_point(aes(colour=Region), size=0.5)  + ylab("Number of new cases in area each day per 10K residents") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)
 print(local_new_10k)
 
-local_active_10k <- ggplot(daily_focal[!is.na(daily_focal$Active_cases_per_10k),], aes(x=DATE, y=Active_cases_per_10k, group=Region)) +  geom_smooth(aes(colour=Region)) + ylab("Number of active cases in area each day per 10K residents") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)
+local_active_10k <- ggplot(daily_focal[!is.na(daily_focal$Active_cases_per_10k),], aes(x=DATE, y=Active_cases_per_10k, group=Region)) +  geom_smooth(aes(colour=Region), se=FALSE) + geom_point(aes(colour=Region), size=0.5) + ylab("Number of active cases in area each day per 10K residents") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)
 print(local_active_10k)
 
 
@@ -171,7 +171,7 @@ print(local_active_10k)
 ## ----plotsB2, echo=FALSE, message=FALSE, warning=FALSE------------------------
 
 
-proportional_testing <- ggplot(daily_focal[!is.na(daily_focal$Tests_per_10k),], aes(x=DATE, y=Tests_per_10k, group=Region)) + geom_smooth(aes(colour=Region))  + ylab("Number of new tests per 10,000 residents each day") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)
+proportional_testing <- ggplot(daily_focal[!is.na(daily_focal$Tests_per_10k),], aes(x=DATE, y=Tests_per_10k, group=Region)) + geom_smooth(aes(colour=Region), se=FALSE) + geom_point(aes(colour=Region), size=0.5)  + ylab("Number of new tests per 10,000 residents each day") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)
 print(proportional_testing)
 
 
@@ -187,7 +187,7 @@ print(proportional_testing)
 
 daily_focal$NEW_PROPORTION_CONFIRMED <- 100*daily_focal$NEW_CONFIRMED/daily_focal$NEW_TESTS
 
-focal_proportion_pos <- ggplot(daily_focal[!is.na(daily_focal$NEW_PROPORTION_CONFIRMED),], aes(x=DATE, y=NEW_PROPORTION_CONFIRMED, group=Region)) + geom_smooth(aes(colour=Region)) + ylab("Percentage of positive tests in focal areas each day") + xlab("Date") + ylim(0,NA) + geom_hline(yintercept=5, col="black") + scale_colour_viridis_d(end=0.8)
+focal_proportion_pos <- ggplot(daily_focal[!is.na(daily_focal$NEW_PROPORTION_CONFIRMED),], aes(x=DATE, y=NEW_PROPORTION_CONFIRMED, group=Region)) + geom_point(aes(colour=Region), size=0.5)+ geom_smooth(aes(colour=Region),se=FALSE) + ylab("Percentage of positive tests in focal areas each day") + xlab("Date") + ylim(0,NA) + geom_hline(yintercept=5, col="black") + scale_colour_viridis_d(end=0.8)
 print(focal_proportion_pos)
 
 # par(mfcol=c(1,2))
@@ -204,7 +204,7 @@ print(focal_proportion_pos)
 ## ----oakridge7, echo=FALSE, message=FALSE, warning=FALSE----------------------
 oakridge_seven <- data.frame(DATE=daily_oakridge$DATE, new_confirmed=zoo::rollsum(daily_oakridge$NEW_CONFIRMED, k=7, align="right", fill=NA), new_tests=zoo::rollsum(daily_oakridge$NEW_TESTS, k=7, align="right", fill=NA))
 oakridge_seven$positivity = 100*oakridge_seven$new_confirmed/oakridge_seven$new_tests
-plot_oakridge_seven <- ggplot(oakridge_seven[!is.na(oakridge_seven$positivity),], aes(x=DATE, y=positivity)) + geom_line() + geom_smooth() + ylab("Percentage of positive tests over seven days ending with date") + xlab("Date") + ylim(0,NA) + geom_hline(yintercept=5, col="black", lty="dotted") + geom_rect(mapping=aes(xmin=as.POSIXct("2020/07/29"), xmax=as.POSIXct("2020/07/30"), ymin=0, ymax=5))
+plot_oakridge_seven <- ggplot(oakridge_seven[!is.na(oakridge_seven$positivity),], aes(x=DATE, y=positivity)) + geom_line() + geom_smooth(se=FALSE) + ylab("Percentage of positive tests over seven days ending with date") + xlab("Date") + ylim(0,NA) + geom_hline(yintercept=5, col="black", lty="dotted") + geom_rect(mapping=aes(xmin=as.POSIXct("2020/07/29"), xmax=as.POSIXct("2020/08/04"), ymin=0, ymax=5), fill="pale green")
 
 print(plot_oakridge_seven)
 
@@ -276,7 +276,7 @@ try(print(hosp_plot))
 ## ----plotsD, echo=FALSE, message=FALSE, warning=FALSE-------------------------
 
 
-new_hospitalization <- ggplot(daily_focal[!is.na(daily_focal$NEW_HOSPITALIZED),], aes(x=DATE, y=NEW_HOSPITALIZED, group=Region)) + geom_smooth(aes(colour=Region)) + ylab("Number of new covid hospitalizations each day") + xlab("Date") + ylim(0,NA)  + scale_colour_viridis_d(end=0.8) + geom_vline(xintercept=as.POSIXct(last_hospital_update), col="black", linetype="dotted")
+new_hospitalization <- ggplot(daily_focal[!is.na(daily_focal$NEW_HOSPITALIZED),], aes(x=DATE, y=NEW_HOSPITALIZED, group=Region)) + geom_point(aes(colour=Region), size=0.5) + geom_smooth(aes(colour=Region), se=FALSE) + ylab("Number of new covid hospitalizations each day") + xlab("Date") + ylim(0,NA)  + scale_colour_viridis_d(end=0.8) + geom_vline(xintercept=as.POSIXct(last_hospital_update), col="black", linetype="dotted")
 print(new_hospitalization)
 
 # tn_daily_aggregate <- daily %>% group_by(DATE) %>% summarise(new_hosp = sum(NEW_HOSPITALIZED))

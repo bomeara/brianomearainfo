@@ -209,6 +209,16 @@ plot_oakridge_seven <- ggplot(oakridge_seven[!is.na(oakridge_seven$positivity),]
 print(plot_oakridge_seven)
 
 
+## ----andersonstandards, echo=FALSE, message=FALSE, warning=FALSE--------------
+
+daily_focal$Active_cases_percent <- 100*daily_focal$Active_cases_per_10k/10000
+
+local_active_percent <- ggplot(daily_focal[!is.na(daily_focal$Active_cases_percent),], aes(x=DATE, y=Active_cases_percent, group=Region)) +
+geom_rect(mapping=aes(xmin=min(daily_focal$DATE), xmax=max(daily_focal$DATE), ymin=-0.2, ymax=0), fill="light blue") +
+ geom_smooth(aes(colour=Region), se=FALSE) + geom_point(aes(colour=Region), size=0.5) + ylab("Percent of residents with active covid infections") + xlab("Date") + ylim(-0.2,1) + scale_colour_viridis_d(end=0.8)
+print(local_active_percent)
+
+
 ## ----hospitalcapacitydata, echo=FALSE, message=FALSE, warning=FALSE-----------
 
 

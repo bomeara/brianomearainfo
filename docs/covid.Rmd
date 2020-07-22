@@ -257,7 +257,7 @@ plot_oakridge_seven <- ggplot(oakridge_seven[!is.na(oakridge_seven$positivity),]
 print(plot_oakridge_seven)
 ```
 
-<a href="https://www.acs.ac/">Anderson County</a> has a school plan based on the percentage of the community actively infected with covid. Their schools open later than Oak Ridge schools, but it might be a useful indicator for community thinking. Remember the "Oak Ridge" line is Anderson and Roane counties combined. Note that Anderson's metric is also based on the *number* of people with active covid (those with positive tests who are not yet recovered or deceased) and so it may be sensitive to the number of tests in a way that the positivity rate is not.  
+<a href="https://www.acs.ac/">Anderson County</a> has a school plan based on the percentage of the community actively infected with covid. Their schools open later than Oak Ridge schools, but it might be a useful indicator for community thinking. Remember the "Oak Ridge" line is Anderson and Roane counties combined. Note that Anderson's metric is based on the *number* of people with active covid (those with positive tests who are not yet recovered or deceased) and so it may be sensitive to the number of tests in a way that the positivity rate is not; in the areas between phases they use other information to make a determination, such as number of absences of students and teachers.
 
 ```{r andersonstandards, echo=FALSE, message=FALSE, warning=FALSE}
 
@@ -271,6 +271,7 @@ geom_rect(mapping=aes(xmin=min(daily_focal$DATE), xmax=max(daily_focal$DATE), ym
 geom_rect(mapping=aes(xmin=min(daily_focal$DATE), xmax=max(daily_focal$DATE), ymin=.5, ymax=.7), fill="yellow") +
 geom_rect(mapping=aes(xmin=min(daily_focal$DATE), xmax=max(daily_focal$DATE), ymin=.7, ymax=.8), fill="orange") +
 geom_rect(mapping=aes(xmin=min(daily_focal$DATE), xmax=max(daily_focal$DATE), ymin=.8, ymax=1), fill="red") +
+annotate("text", x = min(daily_focal$DATE), y=c(-0.1, 0.25, 0.6, 0.9), label = c("Phase 0, all normal", "Phase 1, schools open and virtual option", "Phase 2, blended learning plan", "Phase 3, all schools closed, all students virtual"), hjust=0) +
  geom_smooth(aes(colour=Region), se=FALSE) + geom_point(aes(colour=Region), size=0.5) + ylab("Percent of residents with active covid infections") + xlab("Date") + ylim(-0.2,1) + scale_colour_viridis_d(end=0.9, option="A")
 print(local_active_percent)
 ```

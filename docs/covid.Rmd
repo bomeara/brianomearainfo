@@ -7,6 +7,7 @@ Here are notes and links I personally find useful, all gathered in one place. Mo
 
 <hr />
 
+Other sources for data and other information:
 
 * <a href="https://www.utk.edu/coronavirus/">UTK coronavirus information</a>. See especially the <a href="https://chancellor.utk.edu/re-imagining-fall-task-force/report/">current task force report</a>.
 * <a href="https://covid.knoxcountytn.gov/case-count.html#covid_data">Knox County data</a>. This also includes info about Knox's reopening plan and the benchmarks they're using
@@ -19,7 +20,18 @@ Here are notes and links I personally find useful, all gathered in one place. Mo
 
 <hr />
 
-Here are some plots, created in R using data from https://covid19datahub.io (Guidotti, E., Ardia, D., (2020), "COVID-19 Data Hub", Working paper, doi: 10.13140/RG.2.2.11649.81763), as well as information from Google and the <a href="https://www.tn.gov/health/cedep/ncov/data/downloadable-datasets.html">state of Tennessee dataset page</a> and plotting and analysis using the `forecast`, `ggplot2`, `reshape2`, and `dplyr` packages. It also uses the <a href="https://github.com/mtna/rds-r">rds-r</a> package from https://www.richdataservices.com/. Plots created on `r Sys.time()`. I use `ggplot2`'s `geom_smooth()` function for the smoothed regression plots with its default formula, which uses loess smoothing for this many points. This is  not based on a model of disease spread or anything similarly sophisticated, just drawing a smooth curve to summarize noisy points (see <a href="https://www.itl.nist.gov/div898/handbook/pmd/section1/pmd144.htm">here</a> for more details).
+And sections of my page:
+
+* Info about <a href="#cases">cases</a> over time
+* Info about <a href="#testing">testing</a> in the local area, including positivity rate
+* Info potentially relevant about <a href="#schooling">schools</a>
+* Info on <a href="#hospitalization">hospitalization</a> in the region, including data on availability of ventilators and ICU beds
+* Info about <a href="#ages">ages</a> of the people getting positive tests (though the frequency with which people of differing age groups are being tested is not available)
+* Info about cases at <a href="#ut">U. of Tennessee, Knoxville</a> (using public information only)
+* Info about <a href="#activity">activity</a> based on data from Google about activity at different locations
+* <a href="#webcams">Webcams</a> showing activity at local sites, though not quite at the resolution to point to mask usage or not
+
+The following plots are created in R using data from https://covid19datahub.io (Guidotti, E., Ardia, D., (2020), "COVID-19 Data Hub", Working paper, doi: 10.13140/RG.2.2.11649.81763), as well as information from Google and the <a href="https://www.tn.gov/health/cedep/ncov/data/downloadable-datasets.html">state of Tennessee dataset page</a> and plotting and analysis using the `forecast`, `ggplot2`, `reshape2`, and `dplyr` packages. It also uses the <a href="https://github.com/mtna/rds-r">rds-r</a> package from https://www.richdataservices.com/. Plots created on `r Sys.time()`. I use `ggplot2`'s `geom_smooth()` function for the smoothed regression plots with its default formula, which uses loess smoothing for this many points. This is  not based on a model of disease spread or anything similarly sophisticated, just drawing a smooth curve to summarize noisy points (see <a href="https://www.itl.nist.gov/div898/handbook/pmd/section1/pmd144.htm">here</a> for more details).
 
 ```{r data, echo=FALSE, message=FALSE, warning=FALSE}
 library(COVID19)
@@ -118,6 +130,8 @@ daily_focal$Active_cases_per_10k <- 10000*(daily_focal$TOTAL_ACTIVE/daily_focal$
 
 ```
 
+<h2 id="cases">Cases</h2>
+
 The number of new and active cases should be not be going up if things are well-controlled, and ideally should be going down. The number of active cases is the number of positive cases minus the total of recovered or deceased cases: note it is from those tested and shown to be positive, but there are likely more people with covid who have not been tested. This uses data from https://www.tn.gov/health/cedep/ncov/data/downloadable-datasets.html. Note that the number of active cases in Knox County reported by the state differs from the <a href="https://covid.knoxcountytn.gov/case-count.html#covid_data">county website</a>, sometimes dramatically (on June 16, the county website said 102 active cases, while the state says 178, for example) -- I suspect this is based on the number of recovered cases not being updated as quickly in the state data, but I do not know. Knox County does not seem to offer a download of their data through time, so I am using the state's data. The number of new cases per day seems to align fairly well, but not perfectly, between the state and county data, too.
 
 I plot three regions
@@ -205,7 +219,9 @@ print(knox_testing)
 
 ```
 
-This can be done for the region. Here are Knox County, Oak Ridge and its counties (Anderson and Roane), and all the East TN counties combined (the same ones used for regional hospital reporting for bed availability). This plots shows the daily number of tests per 10,000 residents.
+<h2 id="testing">Testing</h2>
+
+Testing is a key part of getting a handle on the pandemic. Here are Knox County, Oak Ridge and its counties (Anderson and Roane), and all the East TN counties combined (the same ones used for regional hospital reporting for bed availability). This plots shows the daily number of tests per 10,000 residents.
 
 ```{r plotsB2, echo=FALSE, message=FALSE, warning=FALSE}
 
@@ -245,7 +261,7 @@ print(focal_proportion_pos)
 
 <hr />
 
-<h2><a href="#schooling">Schooling</a></h2>
+<h2 id="schooling">Schooling</h2>
 
 Many of the local schools are adopting a hybrid approach, where families can choose whether to send their kids to school or do online learning (sometimes with reduced options). The <i>New York Times</i> <a href="https://www.nytimes.com/2020/07/14/us/coronavirus-schools-fall.html">reports</a> on July 14, 2020, that, "As education leaders decide whether to reopen classrooms in the fall amid a raging pandemic, many are looking to a standard generally agreed upon among epidemiologists: To control community spread of the coronavirus, the average daily infection rate among those who are tested should not exceed 5 percent." Many districts nationally are not hitting that goal, but a question is whether local ones will. The first district to open in our area will be Oak Ridge public schools, who have a start date for students in person on July 29, 2020. Following the procedure of the <i>NYT</i>'s article, I am plotting the seven day average of positivity rate for tests for the counties including Oak Ridge (Roane and Anderson). The black line is the seven day rolling mean (total new confirmed / total new tests, not a mean of this ratio per day), the blue line is this smoothed, the dotted line is the 5% threshold, and the green rectangle is the first week of school -- the positivity should be in that rectangle to meet epidemiologists' goals. Oak Ridge is giving families options of whether to enroll their children in online or in person school: their plan, and the way to choose either mode, is <a href="https://www.ortn.edu/reopening-plan-2020-2021/">here</a>. They have updated their in person plan to require masks when possible but not social distancing; when individuals test positive, the possibly affected parts of the building will be closed for 2-5 days. We've opted for the online option for our family.
 
@@ -279,7 +295,7 @@ print(local_active_percent)
 
 <hr />
 
-<h2>Hospitalization</h2>
+<h2 id="hospitalization">Hospitalization</h2>
 
 
 ```{r hospitalcapacitydata, echo=FALSE, message=FALSE, warning=FALSE}
@@ -386,6 +402,8 @@ print(new_hospitalization)
 
 <hr />
 
+<h2 id="ages">Ages</h2>
+
 Which age groups are being infected is an important question as local schools open up. These are data from Knox county alone. Note that one important bias here could be testing rate: if two year olds aren't being tested, the age 0-10 results will be lower than the actual rate of infection, for example.
 
 ```{r age, echo=FALSE, message=FALSE, warning=FALSE, error=FALSE}
@@ -440,6 +458,8 @@ print(ageplot_knox_cumulative)
 
 <hr />
 
+<h2 id="ut">University of Tennessee, Knoxville</h2>
+
 Another question is what is happening at UT as campus opens up and testing ramps up. There is some information on active cases available. Note that this is based on parsing a website without clean tables of data, and which sometimes drops labels for the data.
 
 ```{r utactive, echo=FALSE, message=FALSE, warning=FALSE}
@@ -472,6 +492,8 @@ print(utk_plot)
 
 <hr />
 
+<h2 id="activity">Activity</h2>
+
 I've been curious about how active people have been -- are they still going out, etc. The webcams at the bottom of the page are a glimpse of that, but Google has also been tracking activity data. Here are smoothed plots of activity over time, as a percentage of activity pre-COVID19 (the raw data are much more variable).
 
 ```{r plotsC, echo=FALSE, message=FALSE, warning=FALSE}
@@ -491,7 +513,7 @@ print(g)
 
 <hr />
 
-<h2>Local webcams</h2>
+<h2 id="webcams">Local webcams</h2>
 
 Downtown Gatlinburg <a href="http://www.smokyfrontier.com/">webcam</a>, a tourist town near us
 

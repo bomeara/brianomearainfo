@@ -401,6 +401,7 @@ $(document).ready(function () {
 
 <p>Here are notes and links I personally find useful, all gathered in one place. Mostly, I kept looking at webcams to see whether people are practicing social distancing and decided to put them all in one page. I also gather data when nervous, so I also have plots of things like testing, activity, and cases over time so I can see the info directly myself (for example, <a href="https://covid.knoxcountytn.gov/case-count.html#covid_data">Knox County Health Department</a> plots cases per day with a trendline, but so far their trendline is only a straight line - I was curious if a more flexible fitting might be more informative). <b>I am not an epidemiologist</b>, so please do not draw any advice from this page (and I’ve been careful NOT to do projections or anything like that – there is a lot that goes into modeling, see <a href="https://www.youtube.com/watch?v=Ewuo_2pzNNw">this video</a> by my colleague <a href="http://feffermanlab.org/">Nina Fefferman</a>, who unlike me is an expert in this, for more on models). This is just me poking around with the data to make myself feel better – the raw code is <a href="https://github.com/bomeara/brianomearainfo/blob/master/docs/covid.Rmd">here</a> if you’d like to examine it yourself.</p>
 <hr />
+<p>Other sources for data and other information:</p>
 <ul>
 <li><a href="https://www.utk.edu/coronavirus/">UTK coronavirus information</a>. See especially the <a href="https://chancellor.utk.edu/re-imagining-fall-task-force/report/">current task force report</a>.</li>
 <li><a href="https://covid.knoxcountytn.gov/case-count.html#covid_data">Knox County data</a>. This also includes info about Knox’s reopening plan and the benchmarks they’re using</li>
@@ -412,7 +413,21 @@ $(document).ready(function () {
 <li><a href="https://projects.propublica.org/reopening-america/">ProPublica’s tracker of state status</a>. Click on the play button below their map to see how rates are changing over time, and dig into info on your state.</li>
 </ul>
 <hr />
-<p>Here are some plots, created in R using data from <a href="https://covid19datahub.io" class="uri">https://covid19datahub.io</a> (Guidotti, E., Ardia, D., (2020), “COVID-19 Data Hub”, Working paper, doi: 10.13140/RG.2.2.11649.81763), as well as information from Google and the <a href="https://www.tn.gov/health/cedep/ncov/data/downloadable-datasets.html">state of Tennessee dataset page</a> and plotting and analysis using the <code>forecast</code>, <code>ggplot2</code>, <code>reshape2</code>, and <code>dplyr</code> packages. It also uses the <a href="https://github.com/mtna/rds-r">rds-r</a> package from <a href="https://www.richdataservices.com/" class="uri">https://www.richdataservices.com/</a>. Plots created on 2020-07-21 23:48:31. I use <code>ggplot2</code>’s <code>geom_smooth()</code> function for the smoothed regression plots with its default formula, which uses loess smoothing for this many points. This is not based on a model of disease spread or anything similarly sophisticated, just drawing a smooth curve to summarize noisy points (see <a href="https://www.itl.nist.gov/div898/handbook/pmd/section1/pmd144.htm">here</a> for more details).</p>
+<p>And sections of my page:</p>
+<ul>
+<li>Info about <a href="#cases">cases</a> over time</li>
+<li>Info about <a href="#testing">testing</a> in the local area, including positivity rate</li>
+<li>Info potentially relevant about <a href="#schooling">schools</a></li>
+<li>Info on <a href="#hospitalization">hospitalization</a> in the region, including data on availability of ventilators and ICU beds</li>
+<li>Info about <a href="#ages">ages</a> of the people getting positive tests (though the frequency with which people of differing age groups are being tested is not available)</li>
+<li>Info about cases at <a href="#ut">U. of Tennessee, Knoxville</a> (using public information only)</li>
+<li>Info about <a href="#activity">activity</a> based on data from Google about activity at different locations</li>
+<li><a href="#webcams">Webcams</a> showing activity at local sites, though not quite at the resolution to point to mask usage or not</li>
+</ul>
+<p>The following plots are created in R using data from <a href="https://covid19datahub.io" class="uri">https://covid19datahub.io</a> (Guidotti, E., Ardia, D., (2020), “COVID-19 Data Hub”, Working paper, doi: 10.13140/RG.2.2.11649.81763), as well as information from Google and the <a href="https://www.tn.gov/health/cedep/ncov/data/downloadable-datasets.html">state of Tennessee dataset page</a> and plotting and analysis using the <code>forecast</code>, <code>ggplot2</code>, <code>reshape2</code>, and <code>dplyr</code> packages. It also uses the <a href="https://github.com/mtna/rds-r">rds-r</a> package from <a href="https://www.richdataservices.com/" class="uri">https://www.richdataservices.com/</a>. Plots created on 2020-07-22 00:06:43. I use <code>ggplot2</code>’s <code>geom_smooth()</code> function for the smoothed regression plots with its default formula, which uses loess smoothing for this many points. This is not based on a model of disease spread or anything similarly sophisticated, just drawing a smooth curve to summarize noisy points (see <a href="https://www.itl.nist.gov/div898/handbook/pmd/section1/pmd144.htm">here</a> for more details).</p>
+<h2 id="cases">
+Cases
+</h2>
 <p>The number of new and active cases should be not be going up if things are well-controlled, and ideally should be going down. The number of active cases is the number of positive cases minus the total of recovered or deceased cases: note it is from those tested and shown to be positive, but there are likely more people with covid who have not been tested. This uses data from <a href="https://www.tn.gov/health/cedep/ncov/data/downloadable-datasets.html" class="uri">https://www.tn.gov/health/cedep/ncov/data/downloadable-datasets.html</a>. Note that the number of active cases in Knox County reported by the state differs from the <a href="https://covid.knoxcountytn.gov/case-count.html#covid_data">county website</a>, sometimes dramatically (on June 16, the county website said 102 active cases, while the state says 178, for example) – I suspect this is based on the number of recovered cases not being updated as quickly in the state data, but I do not know. Knox County does not seem to offer a download of their data through time, so I am using the state’s data. The number of new cases per day seems to align fairly well, but not perfectly, between the state and county data, too.</p>
 <p>I plot three regions</p>
 <ul>
@@ -424,37 +439,49 @@ $(document).ready(function () {
 <p><img src="covid_files/figure-html/plotsA-1.png" width="672" /><img src="covid_files/figure-html/plotsA-2.png" width="672" /></p>
 <p>Here are the same plots, but normalized so it’s per 10,000 residents in each area per day (making it easier to see patterns in less populous areas):</p>
 <p><img src="covid_files/figure-html/plotsA2-1.png" width="672" /><img src="covid_files/figure-html/plotsA2-2.png" width="672" /></p>
-<p>This can be done for the region. Here are Knox County, Oak Ridge and its counties (Anderson and Roane), and all the East TN counties combined (the same ones used for regional hospital reporting for bed availability). This plots shows the daily number of tests per 10,000 residents.</p>
+<h2 id="testing">
+Testing
+</h2>
+<p>Testing is a key part of getting a handle on the pandemic. Here are Knox County, Oak Ridge and its counties (Anderson and Roane), and all the East TN counties combined (the same ones used for regional hospital reporting for bed availability). This plots shows the daily number of tests per 10,000 residents.</p>
 <p><img src="covid_files/figure-html/plotsB2-1.png" width="672" /></p>
 <p>Another way to look at testing (or disease spread) is to look at the proportion of positive tests (“positivity rate”): they can go up if a greater proportion of symptomatic people are being tested and/or if the frequency of the disease is increasing. Updated WHO guidelines recommend testing should be 5% positive or lower (black line). Remember that the solid lines are smoothed across days but may still reflect recent points more so than a seven day average would.</p>
 <p><img src="covid_files/figure-html/plotsB3-1.png" width="672" /></p>
 <hr />
-<h2>
-<a href="#schooling">Schooling</a>
+<h2 id="schooling">
+Schooling
 </h2>
 <p>Many of the local schools are adopting a hybrid approach, where families can choose whether to send their kids to school or do online learning (sometimes with reduced options). The <i>New York Times</i> <a href="https://www.nytimes.com/2020/07/14/us/coronavirus-schools-fall.html">reports</a> on July 14, 2020, that, “As education leaders decide whether to reopen classrooms in the fall amid a raging pandemic, many are looking to a standard generally agreed upon among epidemiologists: To control community spread of the coronavirus, the average daily infection rate among those who are tested should not exceed 5 percent.” Many districts nationally are not hitting that goal, but a question is whether local ones will. The first district to open in our area will be Oak Ridge public schools, who have a start date for students in person on July 29, 2020. Following the procedure of the <i>NYT</i>‘s article, I am plotting the seven day average of positivity rate for tests for the counties including Oak Ridge (Roane and Anderson). The black line is the seven day rolling mean (total new confirmed / total new tests, not a mean of this ratio per day), the blue line is this smoothed, the dotted line is the 5% threshold, and the green rectangle is the first week of school – the positivity should be in that rectangle to meet epidemiologists’ goals. Oak Ridge is giving families options of whether to enroll their children in online or in person school: their plan, and the way to choose either mode, is <a href="https://www.ortn.edu/reopening-plan-2020-2021/">here</a>. They have updated their in person plan to require masks when possible but not social distancing; when individuals test positive, the possibly affected parts of the building will be closed for 2-5 days. We’ve opted for the online option for our family.</p>
 <p><img src="covid_files/figure-html/oakridge7-1.png" width="672" /></p>
 <p><a href="https://www.acs.ac/">Anderson County</a> has a school plan based on the percentage of the community actively infected with covid. Their schools open later than Oak Ridge schools, but it might be a useful indicator for community thinking. Remember the “Oak Ridge” line is Anderson and Roane counties combined. Note that Anderson’s metric is based on the <em>number</em> of people with active covid (those with positive tests who are not yet recovered or deceased) and so it may be sensitive to the number of tests in a way that the positivity rate is not; in the areas between phases they use other information to make a determination, such as number of absences of students and teachers.</p>
 <p><img src="covid_files/figure-html/andersonstandards-1.png" width="672" /></p>
 <hr />
-<h2>
+<h2 id="hospitalization">
 Hospitalization
 </h2>
-<p>As of the last time the data were updated (likely 6 days ago), regional hospitals had 24 ICU beds available of 272 total, and 134 available ventilators out of 242 total. This is based on 19 acute care hospitals in the East TN region; based on the 14 counties these hospitals are in, these serve at least 1,235,720 people. When a line hits 100%, the local hospitals are theoretically full for that resource (for all patients, not just covid patients), though there is surge capacity on top of this. Note that these data are not updated frequently, so current conditions maybe be much better or worse than these plots show. Data on capacity from <a href="https://knxhx.richdataservices.com/">https://knxhx.richdataservices.com/</a>, data on hospitalizations and testing over time from the state data.</p>
+<p>As of the last time the data were updated (likely 7 days ago), regional hospitals had 24 ICU beds available of 272 total, and 134 available ventilators out of 242 total. This is based on 19 acute care hospitals in the East TN region; based on the 14 counties these hospitals are in, these serve at least 1,235,720 people. When a line hits 100%, the local hospitals are theoretically full for that resource (for all patients, not just covid patients), though there is surge capacity on top of this. Note that these data are not updated frequently, so current conditions maybe be much better or worse than these plots show. Data on capacity from <a href="https://knxhx.richdataservices.com/">https://knxhx.richdataservices.com/</a>, data on hospitalizations and testing over time from the state data.</p>
 <p><img src="covid_files/figure-html/hospitalcapacityplot-1.png" width="672" /></p>
 <p>Trends in hospitalization of covid patients over time. The vertical dotted line shows the last day with updated capacity information, when there were 24 ICU beds available (ignoring surge capacity) for people in the East Tennessee region.</p>
 <p><img src="covid_files/figure-html/plotsD-1.png" width="672" /></p>
 <hr />
+<h2 id="ages">
+Ages
+</h2>
 <p>Which age groups are being infected is an important question as local schools open up. These are data from Knox county alone. Note that one important bias here could be testing rate: if two year olds aren’t being tested, the age 0-10 results will be lower than the actual rate of infection, for example.</p>
 <p><img src="covid_files/figure-html/age2-1.png" width="672" /><img src="covid_files/figure-html/age2-2.png" width="672" /></p>
 <hr />
+<h2 id="ut">
+University of Tennessee, Knoxville
+</h2>
 <p>Another question is what is happening at UT as campus opens up and testing ramps up. There is some information on active cases available. Note that this is based on parsing a website without clean tables of data, and which sometimes drops labels for the data.</p>
 <p><img src="covid_files/figure-html/utactive-1.png" width="672" /></p>
 <hr />
+<h2 id="activity">
+Activity
+</h2>
 <p>I’ve been curious about how active people have been – are they still going out, etc. The webcams at the bottom of the page are a glimpse of that, but Google has also been tracking activity data. Here are smoothed plots of activity over time, as a percentage of activity pre-COVID19 (the raw data are much more variable).</p>
 <p><img src="covid_files/figure-html/plotsC-1.png" width="672" /></p>
 <hr />
-<h2>
+<h2 id="webcams">
 Local webcams
 </h2>
 <p>Downtown Gatlinburg <a href="http://www.smokyfrontier.com/">webcam</a>, a tourist town near us</p>

@@ -257,7 +257,7 @@ plot_oakridge_seven <- ggplot(oakridge_seven[!is.na(oakridge_seven$positivity),]
 print(plot_oakridge_seven)
 ```
 
-<a href="https://www.acs.ac/">Anderson County</a> has a school plan based on the percentage of the community actively infected with covid. Their schools open later than Oak Ridge schools, but it might be a useful indicator for community thinking. Remember the "Oak Ridge" line is Anderson and Roane counties combined. Anderson's metric is also based on the *number* of people with active covid (those with positive tests who are not yet recovered or deceased) and so it may be sensitive to the number of tests in a way that the positivity rate is not (for example, though this is extreme, if every test came back positive, but few people were tested, it would not hit the number of people threshold).  
+<a href="https://www.acs.ac/">Anderson County</a> has a school plan based on the percentage of the community actively infected with covid. Their schools open later than Oak Ridge schools, but it might be a useful indicator for community thinking. Remember the "Oak Ridge" line is Anderson and Roane counties combined. Note that Anderson's metric is also based on the *number* of people with active covid (those with positive tests who are not yet recovered or deceased) and so it may be sensitive to the number of tests in a way that the positivity rate is not.  
 
 ```{r andersonstandards, echo=FALSE, message=FALSE, warning=FALSE}
 

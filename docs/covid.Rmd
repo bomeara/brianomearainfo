@@ -28,7 +28,6 @@ And sections of my page:
 * Info on <a href="#hospitalization">hospitalization</a> in the region, including data on availability of ventilators and ICU beds
 * Info about <a href="#ages">ages</a> of the people getting positive tests (though the frequency with which people of differing age groups are being tested is not available)
 * Info about cases at <a href="#ut">U. of Tennessee, Knoxville</a> (using public information only)
-* Info about <a href="#activity">activity</a> based on data from Google about activity at different locations
 * <a href="#webcams">Webcams</a> showing activity at local sites, though not quite at the resolution to point to mask usage or not
 
 The following plots are created in R using data from https://covid19datahub.io (Guidotti, E., Ardia, D., (2020), "COVID-19 Data Hub", Working paper, doi: 10.13140/RG.2.2.11649.81763), as well as information from Google and the <a href="https://www.tn.gov/health/cedep/ncov/data/downloadable-datasets.html">state of Tennessee dataset page</a> and plotting and analysis using the `forecast`, `ggplot2`, `reshape2`, and `dplyr` packages. It also uses the <a href="https://github.com/mtna/rds-r">rds-r</a> package from https://www.richdataservices.com/. Plots created on `r Sys.time()`. I use `ggplot2`'s `geom_smooth()` function for the smoothed regression plots with its default formula, which uses loess smoothing for this many points. This is  not based on a model of disease spread or anything similarly sophisticated, just drawing a smooth curve to summarize noisy points (see <a href="https://www.itl.nist.gov/div898/handbook/pmd/section1/pmd144.htm">here</a> for more details).
@@ -48,12 +47,12 @@ library(ggrepel)
 library(ggpubr)
 
 
-gmr <- "https://www.gstatic.com/covid19/mobility/Global_Mobility_Report.csv"
+#gmr <- "https://www.gstatic.com/covid19/mobility/Global_Mobility_Report.csv"
 
 
 counties_in_hospital_region <- c("Knox", "Anderson", "Roane", "Scott", "Blount", "Claiborne", "Jefferson", "Campbell", "Sevier", "Loudon", "Hamblen", "Cocke", "Monroe", "McMinn")
 
-us <- COVID19::covid19(country="US", level=3, gmr=gmr, verbose=FALSE)
+us <- COVID19::covid19(country="US", level=3, verbose=FALSE)
 tn <- subset(us, administrative_area_level_2=="Tennessee")
 knox <- subset(us, administrative_area_level_3=="Knox" & administrative_area_level_2=="Tennessee")
 oakridge <- subset(us, administrative_area_level_3 %in% c("Roane", "Anderson") & administrative_area_level_2=="Tennessee")
@@ -85,9 +84,9 @@ knox_diff <- data.frame(
   daily_confirmed=diff(knox$confirmed),
   daily_tested=diff(knox$tests),
   daily_recovered=diff(knox$recovered),
-  daily_workplace=diff(knox$workplaces_percent_change_from_baseline),
-  daily_retail_recreation=diff(knox$retail_and_recreation_percent_change_from_baseline),
-  daily_residential=diff(knox$residential_percent_change_from_baseline),
+#  daily_workplace=diff(knox$workplaces_percent_change_from_baseline),
+  #daily_retail_recreation=diff(knox$retail_and_recreation_percent_change_from_baseline),
+#  daily_residential=diff(knox$residential_percent_change_from_baseline),
   daily_percent_confirmed = diff(knox$percentconfirmed)
 )
 
@@ -489,27 +488,6 @@ utk_plot <- ggplot(utk.cases[!is.na(utk.cases$count),], aes(x=date, y=count, gro
 print(utk_plot)
 ```
 
-
-<hr />
-
-<h2 id="activity">Activity</h2>
-
-I've been curious about how active people have been -- are they still going out, etc. The webcams at the bottom of the page are a glimpse of that, but Google has also been tracking activity data. Here are smoothed plots of activity over time, as a percentage of activity pre-COVID19 (the raw data are much more variable).
-
-```{r plotsC, echo=FALSE, message=FALSE, warning=FALSE}
-
-knox_activity <- reshape2::melt(knox[,c("date", colnames(knox)[grepl("baseline", colnames(knox))])],id.var='date')
-knox_activity <- knox_activity[!grepl("transit", knox_activity$variable),]
-knox_activity$variable <- gsub("_percent_change_from_baseline", "", knox_activity$variable )
-knox_activity <- knox_activity[!is.na(knox_activity$value),]
-g <- ggplot(knox_activity, aes(x=date, y=value, col=variable)) + geom_smooth() + ylab("Activity in Knox County over time as percentage of baseline activity\nData from Google")
-g <- g + geom_hline(yintercept=0, col="black")
-print(g)
-
-# p <- ggplot(knox_diff, aes(x=date, y=daily_confirmed)) + geom_smooth(span=14/nrow(knox_diff)) + geom_point()
-# print(p)
-
-```
 
 <hr />
 

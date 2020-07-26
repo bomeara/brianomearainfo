@@ -13,12 +13,12 @@ library(ggrepel)
 library(ggpubr)
 
 
-gmr <- "https://www.gstatic.com/covid19/mobility/Global_Mobility_Report.csv"
+#gmr <- "https://www.gstatic.com/covid19/mobility/Global_Mobility_Report.csv"
 
 
 counties_in_hospital_region <- c("Knox", "Anderson", "Roane", "Scott", "Blount", "Claiborne", "Jefferson", "Campbell", "Sevier", "Loudon", "Hamblen", "Cocke", "Monroe", "McMinn")
 
-us <- COVID19::covid19(country="US", level=3, gmr=gmr, verbose=FALSE)
+us <- COVID19::covid19(country="US", level=3, verbose=FALSE)
 tn <- subset(us, administrative_area_level_2=="Tennessee")
 knox <- subset(us, administrative_area_level_3=="Knox" & administrative_area_level_2=="Tennessee")
 oakridge <- subset(us, administrative_area_level_3 %in% c("Roane", "Anderson") & administrative_area_level_2=="Tennessee")
@@ -72,7 +72,7 @@ temp = tempfile(fileext = ".xlsx")
 dataURL <- "https://www.tn.gov/content/dam/tn/health/documents/cedep/novel-coronavirus/datasets/Public-Dataset-County-New.XLSX"
 download.file(dataURL, destfile=temp, mode='wb')
 
-daily <- readxl::read_xlsx(temp, sheet =1, col_types=c("date", "text", rep("numeric",19)))
+daily <- readxl::read_xlsx(temp, sheet =1, col_types=c("date", "text", rep("numeric",20)))
 
 daily_knox <- subset(daily, COUNTY=="Knox") %>% select(-"COUNTY")
 daily_knox$Region <- "Knox County"
@@ -212,10 +212,17 @@ print(plot_oakridge_seven)
 ## ----andersonstandards, echo=FALSE, message=FALSE, warning=FALSE--------------
 
 daily_focal$Active_cases_percent <- 100*daily_focal$Active_cases_per_10k/10000
-
+daily_focal<-daily_focal[!is.na(daily_focal$Active_cases_percent),]
 local_active_percent <- ggplot(daily_focal[!is.na(daily_focal$Active_cases_percent),], aes(x=DATE, y=Active_cases_percent, group=Region)) +
 geom_rect(mapping=aes(xmin=min(daily_focal$DATE), xmax=max(daily_focal$DATE), ymin=-0.2, ymax=0), fill="light blue") +
- geom_smooth(aes(colour=Region), se=FALSE) + geom_point(aes(colour=Region), size=0.5) + ylab("Percent of residents with active covid infections") + xlab("Date") + ylim(-0.2,1) + scale_colour_viridis_d(end=0.8)
+geom_rect(mapping=aes(xmin=min(daily_focal$DATE), xmax=max(daily_focal$DATE), ymin=0, ymax=.1), fill="pale green") +
+geom_rect(mapping=aes(xmin=min(daily_focal$DATE), xmax=max(daily_focal$DATE), ymin=.1, ymax=.4), fill="olivedrab3") +
+geom_rect(mapping=aes(xmin=min(daily_focal$DATE), xmax=max(daily_focal$DATE), ymin=.4, ymax=.5), fill="olivedrab1") +
+geom_rect(mapping=aes(xmin=min(daily_focal$DATE), xmax=max(daily_focal$DATE), ymin=.5, ymax=.7), fill="yellow") +
+geom_rect(mapping=aes(xmin=min(daily_focal$DATE), xmax=max(daily_focal$DATE), ymin=.7, ymax=.8), fill="orange") +
+geom_rect(mapping=aes(xmin=min(daily_focal$DATE), xmax=max(daily_focal$DATE), ymin=.8, ymax=1), fill="red") +
+annotate("text", x = min(daily_focal$DATE), y=c(-0.1, 0.25, 0.6, 0.9), label = c("Phase 0, all normal", "Phase 1, schools open and virtual option", "Phase 2, blended learning plan", "Phase 3, all schools closed, all students virtual"), hjust=0) +
+ geom_smooth(aes(colour=Region), se=FALSE) + geom_point(aes(colour=Region), size=0.5) + ylab("Percent of residents with active covid infections") + xlab("Date") + ylim(-0.2,1) + scale_colour_viridis_d(end=0.9, option="A")
 print(local_active_percent)
 
 

@@ -50,9 +50,9 @@ knox_diff <- data.frame(
   daily_confirmed=diff(knox$confirmed),
   daily_tested=diff(knox$tests),
   daily_recovered=diff(knox$recovered),
-  daily_workplace=diff(knox$workplaces_percent_change_from_baseline),
-  daily_retail_recreation=diff(knox$retail_and_recreation_percent_change_from_baseline),
-  daily_residential=diff(knox$residential_percent_change_from_baseline),
+#  daily_workplace=diff(knox$workplaces_percent_change_from_baseline),
+  #daily_retail_recreation=diff(knox$retail_and_recreation_percent_change_from_baseline),
+#  daily_residential=diff(knox$residential_percent_change_from_baseline),
   daily_percent_confirmed = diff(knox$percentconfirmed)
 )
 
@@ -81,6 +81,8 @@ daily_knox$Population <- knox_pop
 daily_oakridge <- subset(daily, COUNTY %in% c("Roane", "Anderson")) %>% group_by(DATE) %>% select(-"COUNTY") %>% summarise_all(sum)
 daily_oakridge$Region <- "Oak Ridge"
 daily_oakridge$Population <- oakridge_pop
+#daily_oakridge$New_cases_per_100k <- 100000*(daily_oakridge$NEW_CASES/daily_oakridge$Population)
+
 
 
 daily_region<- subset(daily, COUNTY %in% counties_in_hospital_region) %>% group_by(DATE) %>% select(-"COUNTY") %>% summarise_all(sum)
@@ -89,9 +91,9 @@ daily_region$Region <- "East TN"
 daily_region$Population <- region_pop
 
 daily_focal <- rbind(daily_knox, daily_oakridge, daily_region)
-daily_focal$Tests_per_10k <- 10000*(daily_focal$NEW_TESTS/daily_focal$Population)
-daily_focal$New_cases_per_10k <- 10000*(daily_focal$NEW_CASES/daily_focal$Population)
-daily_focal$Active_cases_per_10k <- 10000*(daily_focal$TOTAL_ACTIVE/daily_focal$Population)
+daily_focal$Tests_per_100k <- 100000*(daily_focal$NEW_TESTS/daily_focal$Population)
+daily_focal$New_cases_per_100k <- 100000*(daily_focal$NEW_CASES/daily_focal$Population)
+daily_focal$Active_cases_per_100k <- 100000*(daily_focal$TOTAL_ACTIVE/daily_focal$Population)
 
 
 
@@ -110,11 +112,11 @@ print(local_active)
 ## ----plotsA2, echo=FALSE, message=FALSE, warning=FALSE------------------------
 
 
-local_new_10k <- ggplot(daily_focal[!is.na(daily_focal$New_cases_per_10k),], aes(x=DATE, y=New_cases_per_10k, group=Region)) + geom_smooth(aes(colour=Region), se=FALSE) + geom_point(aes(colour=Region), size=0.5)  + ylab("Number of new cases in area each day per 10K residents") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)
-print(local_new_10k)
+local_new_100k <- ggplot(daily_focal[!is.na(daily_focal$New_cases_per_100k),], aes(x=DATE, y=New_cases_per_100k, group=Region)) + geom_smooth(aes(colour=Region), se=FALSE) + geom_point(aes(colour=Region), size=0.5)  + ylab("Number of new cases in area each day per 100,000 residents") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)
+print(local_new_100k)
 
-local_active_10k <- ggplot(daily_focal[!is.na(daily_focal$Active_cases_per_10k),], aes(x=DATE, y=Active_cases_per_10k, group=Region)) +  geom_smooth(aes(colour=Region), se=FALSE) + geom_point(aes(colour=Region), size=0.5) + ylab("Number of active cases in area each day per 10K residents") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)
-print(local_active_10k)
+local_active_100k <- ggplot(daily_focal[!is.na(daily_focal$Active_cases_per_100k),], aes(x=DATE, y=Active_cases_per_100k, group=Region)) +  geom_smooth(aes(colour=Region), se=FALSE) + geom_point(aes(colour=Region), size=0.5) + ylab("Number of active cases in area each day per 100,000 residents") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)
+print(local_active_100k)
 
 
 
@@ -170,8 +172,7 @@ print(local_active_10k)
 
 ## ----plotsB2, echo=FALSE, message=FALSE, warning=FALSE------------------------
 
-
-proportional_testing <- ggplot(daily_focal[!is.na(daily_focal$Tests_per_10k),], aes(x=DATE, y=Tests_per_10k, group=Region)) + geom_smooth(aes(colour=Region), se=FALSE) + geom_point(aes(colour=Region), size=0.5)  + ylab("Number of new tests per 10,000 residents each day") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)
+proportional_testing <- ggplot(daily_focal[!is.na(daily_focal$Tests_per_100k),], aes(x=DATE, y=Tests_per_100k, group=Region)) + geom_smooth(aes(colour=Region), se=FALSE) + geom_point(aes(colour=Region), size=0.5)  + ylab("Number of new tests per 100,000 residents each day") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)
 print(proportional_testing)
 
 
@@ -202,16 +203,28 @@ print(focal_proportion_pos)
 
 
 ## ----oakridge7, echo=FALSE, message=FALSE, warning=FALSE----------------------
-oakridge_seven <- data.frame(DATE=daily_oakridge$DATE, new_confirmed=zoo::rollsum(daily_oakridge$NEW_CONFIRMED, k=7, align="right", fill=NA), new_tests=zoo::rollsum(daily_oakridge$NEW_TESTS, k=7, align="right", fill=NA))
+daily_oakridge2 <- subset(daily_focal, Region=="Oak Ridge")
+oakridge_seven <- data.frame(DATE=daily_oakridge2$DATE, new_confirmed=zoo::rollsum(daily_oakridge2$NEW_CONFIRMED, k=7, align="right", fill=NA), new_tests=zoo::rollsum(daily_oakridge2$NEW_TESTS, k=7, align="right", fill=NA), New_cases_per_100k=zoo::rollmean(daily_oakridge2$New_cases_per_100k, k=7, align="right", fill=NA))
 oakridge_seven$positivity = 100*oakridge_seven$new_confirmed/oakridge_seven$new_tests
 plot_oakridge_seven <- ggplot(oakridge_seven[!is.na(oakridge_seven$positivity),], aes(x=DATE, y=positivity)) + geom_line() + geom_smooth(se=FALSE) + ylab("Percentage of positive tests over seven days ending with date") + xlab("Date") + ylim(0,NA) + geom_hline(yintercept=5, col="black", lty="dotted") + geom_rect(mapping=aes(xmin=as.POSIXct("2020/07/29"), xmax=as.POSIXct("2020/08/04"), ymin=0, ymax=5), fill="pale green")
 
 print(plot_oakridge_seven)
 
 
+## ----harvardstandards, echo=FALSE, message=FALSE, warning=FALSE---------------
+harvard_oakridge <- ggplot(oakridge_seven[!is.na(oakridge_seven$New_cases_per_100k),], aes(x=DATE, y=New_cases_per_100k)) + geom_line() + geom_smooth(se=FALSE) + ylab("New cases per day") + xlab("Date") + ylim(0,NA) +
+  geom_rect(mapping=aes(xmin=min(oakridge_seven$DATE), xmax=max(oakridge_seven$DATE), ymin=0, ymax=1), fill="green") +
+  geom_rect(mapping=aes(xmin=min(oakridge_seven$DATE), xmax=max(oakridge_seven$DATE), ymin=1, ymax=10), fill="yellow") +
+  geom_rect(mapping=aes(xmin=min(oakridge_seven$DATE), xmax=max(oakridge_seven$DATE), ymin=10, ymax=25), fill="orange") +
+  geom_rect(mapping=aes(xmin=min(oakridge_seven$DATE), xmax=max(oakridge_seven$DATE), ymin=25, ymax=max(30, max(oakridge_seven$new_cases_per_100K, na.rm=TRUE))), fill="red") +
+ annotate("text", x = min(daily_focal$DATE), y=c(0.5, 5.5, 17.5, 27.5), label = c("All schools open", "First: PreK-5 and special ed preK-8, Second: 6-8 and special ed 9-12; Third: 9-12 on hybrid schedule", "First: PreK-5 and special ed preK-8, Second: 6-8 and special ed 9-12; None: 9-12 online only", "All learning remote for everyone"), hjust=0)
+print(harvard_oakridge)
+
+
+
 ## ----andersonstandards, echo=FALSE, message=FALSE, warning=FALSE--------------
 
-daily_focal$Active_cases_percent <- 100*daily_focal$Active_cases_per_10k/10000
+daily_focal$Active_cases_percent <- 100*daily_focal$Active_cases_per_100k/100000
 daily_focal<-daily_focal[!is.na(daily_focal$Active_cases_percent),]
 local_active_percent <- ggplot(daily_focal[!is.na(daily_focal$Active_cases_percent),], aes(x=DATE, y=Active_cases_percent, group=Region)) +
 geom_rect(mapping=aes(xmin=min(daily_focal$DATE), xmax=max(daily_focal$DATE), ymin=-0.2, ymax=0), fill="light blue") +
@@ -397,19 +410,4 @@ for(i in seq_along(webfiles)) {
 utk.cases$group <- as.factor(utk.cases$group)
 utk_plot <- ggplot(utk.cases[!is.na(utk.cases$count),], aes(x=date, y=count, group=group)) + geom_line(aes(colour=group)) + ylab("Number of active cases at UTK") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)
 print(utk_plot)
-
-
-## ----plotsC, echo=FALSE, message=FALSE, warning=FALSE-------------------------
-
-knox_activity <- reshape2::melt(knox[,c("date", colnames(knox)[grepl("baseline", colnames(knox))])],id.var='date')
-knox_activity <- knox_activity[!grepl("transit", knox_activity$variable),]
-knox_activity$variable <- gsub("_percent_change_from_baseline", "", knox_activity$variable )
-knox_activity <- knox_activity[!is.na(knox_activity$value),]
-g <- ggplot(knox_activity, aes(x=date, y=value, col=variable)) + geom_smooth() + ylab("Activity in Knox County over time as percentage of baseline activity\nData from Google")
-g <- g + geom_hline(yintercept=0, col="black")
-print(g)
-
-# p <- ggplot(knox_diff, aes(x=date, y=daily_confirmed)) + geom_smooth(span=14/nrow(knox_diff)) + geom_point()
-# print(p)
-
 

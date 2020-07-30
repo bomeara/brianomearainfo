@@ -123,8 +123,8 @@ print(local_active_100k)
 
 ## ----greenzone, echo=FALSE, message=FALSE, warning=FALSE, eval=FALSE----------
 ## # Knox County has published <a href="https://covid.knoxcountytn.gov/case-count.html#covid_data">its guidelines</a>. For it to be green for the number of new cases, it requires "No three-day shifts of 1.5 standard deviations above a rolling mean (based on data from the previous 14 days)." It's not quite clear to me what this means (the average of the three days can't exceed this or **all** or **any** of the three days can't exceed it?);  I'm taking the interpretation that if the three day mean is above this value, there's a problem. They update their stop lights weekly; this looks at each day to see if the average of that day and the two previous days exceeds what seems to be their threshold. Remember that this is just me playing with the data -- they're the experts to decide if cases are growing enough to be worrisome.
-## 
-## 
+##
+##
 ## GetZone <- function(cases) {
 ##   if(length(cases[!is.na(cases)])<17) {
 ##     return("black")
@@ -142,32 +142,32 @@ print(local_active_100k)
 ##   }
 ##   return(result)
 ## }
-## 
+##
 ## daily3_knox <- data.frame(date=daily_knox$DATE[-(1:2)], avg=NA, col="darkgray", stringsAsFactors = FALSE)
 ## for(i in sequence(nrow(daily3_knox))) {
 ##   daily3_knox$avg[i] <- mean(daily_knox$NEW_CASES[i:(i+2)])
 ##   daily3_knox$col[i] <- GetZone(head(daily_knox$NEW_CASES,i+2))
 ## }
-## 
+##
 ## daily3_knox <- daily3_knox[!is.na(daily3_knox$avg),]
 ## daily3_knox$col <- gsub("yellow", "yellow2", daily3_knox$col)
 ## daily3_knox$col <- gsub("black", "darkgray", daily3_knox$col)
-## 
+##
 ## knox_new3 <- ggplot(daily3_knox, aes(x=date, y=avg)) + geom_smooth() + geom_point(shape=21, colour="black", fill=daily3_knox$col) + ylab("Three day average of new cases") + xlab("Date") + ylim(0,NA)
 ## print(knox_new3)
-## 
+##
 
 
 ## ----plotsB, echo=FALSE, message=FALSE, warning=FALSE, eval=FALSE-------------
-## 
+##
 ## # A question is whether testing is adequate. The White House has said about 30 tests per 1000 people per month is adequate (this is also what <a href="https://projects.propublica.org/reopening-america/#notes">ProPublica</a> uses); others have argued that around 45 tests per 1000 people per month is better, though with variation depending on infection rate (see <a href="https://www.statnews.com/2020/04/27/coronavirus-many-states-short-of-testing-levels-needed-for-safe-reopening/">here</a>). These are the black lines on the plots below (calculated as tests per day, given Knox County's population of `r knox_pop`, and assuming 30 days per month).
-## 
-## 
+##
+##
 ## knox_testing <- ggplot(daily_knox[!is.na(daily_knox$NEW_TESTS),], aes(x=DATE, y=NEW_TESTS)) + geom_smooth() + geom_point() + ylab("Number of new tests in Knox each day") + xlab("Date") + ylim(0,NA)
 ## knox_testing <- knox_testing + geom_hline(yintercept=(knox_pop*45/1000)/30, col="black") + geom_hline(yintercept=(knox_pop*30/1000)/30, col="black")
 ## print(knox_testing)
-## 
-## 
+##
+##
 
 
 ## ----plotsB2, echo=FALSE, message=FALSE, warning=FALSE------------------------
@@ -206,18 +206,20 @@ print(focal_proportion_pos)
 daily_oakridge2 <- subset(daily_focal, Region=="Oak Ridge")
 oakridge_seven <- data.frame(DATE=daily_oakridge2$DATE, new_confirmed=zoo::rollsum(daily_oakridge2$NEW_CONFIRMED, k=7, align="right", fill=NA), new_tests=zoo::rollsum(daily_oakridge2$NEW_TESTS, k=7, align="right", fill=NA), New_cases_per_100k=zoo::rollmean(daily_oakridge2$New_cases_per_100k, k=7, align="right", fill=NA))
 oakridge_seven$positivity = 100*oakridge_seven$new_confirmed/oakridge_seven$new_tests
-plot_oakridge_seven <- ggplot(oakridge_seven[!is.na(oakridge_seven$positivity),], aes(x=DATE, y=positivity)) + geom_line() + geom_smooth(se=FALSE) + ylab("Percentage of positive tests over seven days ending with date") + xlab("Date") + ylim(0,NA) + geom_hline(yintercept=5, col="black", lty="dotted") + geom_rect(mapping=aes(xmin=as.POSIXct("2020/07/29"), xmax=as.POSIXct("2020/08/04"), ymin=0, ymax=5), fill="pale green")
+plot_oakridge_seven <- ggplot(oakridge_seven[!is.na(oakridge_seven$positivity),], aes(x=DATE, y=positivity)) + geom_rect(mapping=aes(xmin=as.POSIXct("2020/07/29"), xmax=as.POSIXct("2020/08/04"), ymin=5, ymax=max(oakridge_seven$positivity, na.rm=TRUE)), fill="indianred1") + geom_rect(mapping=aes(xmin=as.POSIXct("2020/07/29"), xmax=as.POSIXct("2020/08/04"), ymin=0, ymax=5), fill="pale green") + geom_line() + geom_smooth(se=FALSE) + ylab("Percentage of positive tests over seven days ending with date") + xlab("Date") + ylim(0,NA) + geom_hline(yintercept=5, col="black", lty="dotted") 
 
 print(plot_oakridge_seven)
 
 
 ## ----harvardstandards, echo=FALSE, message=FALSE, warning=FALSE---------------
-harvard_oakridge <- ggplot(oakridge_seven[!is.na(oakridge_seven$New_cases_per_100k),], aes(x=DATE, y=New_cases_per_100k)) + geom_line() + geom_smooth(se=FALSE) + ylab("New cases per day") + xlab("Date") + ylim(0,NA) +
-  geom_rect(mapping=aes(xmin=min(oakridge_seven$DATE), xmax=max(oakridge_seven$DATE), ymin=0, ymax=1), fill="green") +
-  geom_rect(mapping=aes(xmin=min(oakridge_seven$DATE), xmax=max(oakridge_seven$DATE), ymin=1, ymax=10), fill="yellow") +
-  geom_rect(mapping=aes(xmin=min(oakridge_seven$DATE), xmax=max(oakridge_seven$DATE), ymin=10, ymax=25), fill="orange") +
-  geom_rect(mapping=aes(xmin=min(oakridge_seven$DATE), xmax=max(oakridge_seven$DATE), ymin=25, ymax=max(30, max(oakridge_seven$new_cases_per_100K, na.rm=TRUE))), fill="red") +
- annotate("text", x = min(daily_focal$DATE), y=c(0.5, 5.5, 17.5, 27.5), label = c("All schools open", "First: PreK-5 and special ed preK-8, Second: 6-8 and special ed 9-12; Third: 9-12 on hybrid schedule", "First: PreK-5 and special ed preK-8, Second: 6-8 and special ed 9-12; None: 9-12 online only", "All learning remote for everyone"), hjust=0)
+maxval <- max(30, max(oakridge_seven$New_cases_per_100k, na.rm=TRUE))
+harvard_oakridge <- ggplot(oakridge_seven[!is.na(oakridge_seven$New_cases_per_100k),], aes(x=DATE, y=New_cases_per_100k)) + ylab("Average new cases per day per 100K population") + xlab("Date") + ylim(0,NA) +
+  geom_rect(mapping=aes(xmin=min(oakridge_seven$DATE), xmax=max(oakridge_seven$DATE), ymin=0, ymax=1), fill="darkolivegreen1") +
+  geom_rect(mapping=aes(xmin=min(oakridge_seven$DATE), xmax=max(oakridge_seven$DATE), ymin=1, ymax=10), fill="khaki1") +
+  geom_rect(mapping=aes(xmin=min(oakridge_seven$DATE), xmax=max(oakridge_seven$DATE), ymin=10, ymax=25), fill="tan1") +
+  geom_rect(mapping=aes(xmin=min(oakridge_seven$DATE), xmax=max(oakridge_seven$DATE), ymin=25, ymax=maxval), fill="indianred1") +
+ annotate("text", x = min(oakridge_seven$DATE), y=c(0.5, 5.5, 17.5, mean(c(25, maxval))), label = c("", "First reopening priority: PreK-5 and special ed preK-8\nSecond reopening priority: 6-8 and special ed 9-12\nThird reopening priority: 9-12 on hybrid schedule", "First reopening priority: PreK-5 and special ed preK-8\nSecond reopening priority: 6-8 and special ed 9-12\nOnline only: 9-12", "All learning remote for everyone"), hjust=0) +
+ geom_line() + geom_smooth(se=FALSE)
 print(harvard_oakridge)
 
 
@@ -410,4 +412,3 @@ for(i in seq_along(webfiles)) {
 utk.cases$group <- as.factor(utk.cases$group)
 utk_plot <- ggplot(utk.cases[!is.na(utk.cases$count),], aes(x=date, y=count, group=group)) + geom_line(aes(colour=group)) + ylab("Number of active cases at UTK") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)
 print(utk_plot)
-

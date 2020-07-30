@@ -206,7 +206,7 @@ print(focal_proportion_pos)
 daily_oakridge2 <- subset(daily_focal, Region=="Oak Ridge")
 oakridge_seven <- data.frame(DATE=daily_oakridge2$DATE, new_confirmed=zoo::rollsum(daily_oakridge2$NEW_CONFIRMED, k=7, align="right", fill=NA), new_tests=zoo::rollsum(daily_oakridge2$NEW_TESTS, k=7, align="right", fill=NA), New_cases_per_100k=zoo::rollmean(daily_oakridge2$New_cases_per_100k, k=7, align="right", fill=NA))
 oakridge_seven$positivity = 100*oakridge_seven$new_confirmed/oakridge_seven$new_tests
-plot_oakridge_seven <- ggplot(oakridge_seven[!is.na(oakridge_seven$positivity),], aes(x=DATE, y=positivity)) + geom_rect(mapping=aes(xmin=as.POSIXct("2020/07/29"), xmax=as.POSIXct("2020/08/04"), ymin=5, ymax=max(oakridge_seven$positivity, na.rm=TRUE)), fill="indianred1") + geom_rect(mapping=aes(xmin=as.POSIXct("2020/07/29"), xmax=as.POSIXct("2020/08/04"), ymin=0, ymax=5), fill="pale green") + geom_line() + geom_smooth(se=FALSE) + ylab("Percentage of positive tests over seven days ending with date") + xlab("Date") + ylim(0,NA) + geom_hline(yintercept=5, col="black", lty="dotted") 
+plot_oakridge_seven <- ggplot(oakridge_seven[!is.na(oakridge_seven$positivity),], aes(x=DATE, y=positivity)) + geom_rect(mapping=aes(xmin=as.POSIXct("2020/07/29"), xmax=as.POSIXct("2020/08/04"), ymin=5, ymax=max(c(10,oakridge_seven$positivity), na.rm=TRUE)), fill="indianred1") + geom_rect(mapping=aes(xmin=as.POSIXct("2020/07/29"), xmax=as.POSIXct("2020/08/04"), ymin=0, ymax=5), fill="pale green") + geom_line() + geom_smooth(se=FALSE) + ylab("Percentage of positive tests over seven days ending with date") + xlab("Date") + ylim(0,NA) + geom_hline(yintercept=5, col="black", lty="dotted") 
 
 print(plot_oakridge_seven)
 

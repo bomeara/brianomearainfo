@@ -30,7 +30,7 @@ And sections of my page:
 * Info about cases at <a href="#ut">U. of Tennessee, Knoxville</a> (using public information only)
 * <a href="#webcams">Webcams</a> showing activity at local sites, though not quite at the resolution to point to mask usage or not
 
-The following plots are created in R using data from https://covid19datahub.io (Guidotti, E., Ardia, D., (2020), "COVID-19 Data Hub", Working paper, doi: 10.13140/RG.2.2.11649.81763), as well as information from Google and the <a href="https://www.tn.gov/health/cedep/ncov/data/downloadable-datasets.html">state of Tennessee dataset page</a> and plotting and analysis using the `forecast`, `ggplot2`, `reshape2`, and `dplyr` packages. It also uses the <a href="https://github.com/mtna/rds-r">rds-r</a> package from https://www.richdataservices.com/. Plots created on `r Sys.time()`. I use `ggplot2`'s `geom_smooth()` function for the smoothed regression plots with its default formula, which uses loess smoothing for this many points. This is  not based on a model of disease spread or anything similarly sophisticated, just drawing a smooth curve to summarize noisy points (see <a href="https://www.itl.nist.gov/div898/handbook/pmd/section1/pmd144.htm">here</a> for more details).
+The following plots are created in R using data from https://covid19datahub.io (Guidotti, E., Ardia, D., (2020), "COVID-19 Data Hub", Working paper, doi: 10.13140/RG.2.2.11649.81763), as well as information from Google and the <a href="https://www.tn.gov/health/cedep/ncov/data/downloadable-datasets.html">state of Tennessee dataset page</a> and plotting and analysis using the `forecast`, `ggplot2`, `reshape2`, and `dplyr` packages. Plots created on `r Sys.time()`. I use `ggplot2`'s `geom_smooth()` function for the smoothed regression plots with its default formula, which uses loess smoothing for this many points. This is  not based on a model of disease spread or anything similarly sophisticated, just drawing a smooth curve to summarize noisy points (see <a href="https://www.itl.nist.gov/div898/handbook/pmd/section1/pmd144.htm">here</a> for more details).
 
 ```{r data, echo=FALSE, message=FALSE, warning=FALSE}
 library(COVID19)
@@ -113,7 +113,7 @@ daily_knox$Region <- "Knox County"
 daily_knox$Population <- knox_pop
 
 daily_oakridge <- subset(daily, COUNTY %in% c("Roane", "Anderson")) %>% group_by(DATE) %>% select(-"COUNTY") %>% summarise_all(sum)
-daily_oakridge$Region <- "Oak Ridge"
+daily_oakridge$Region <- "Anderson + Roane"
 daily_oakridge$Population <- oakridge_pop
 #daily_oakridge$New_cases_per_100k <- 100000*(daily_oakridge$NEW_CASES/daily_oakridge$Population)
 
@@ -129,6 +129,27 @@ daily_focal$Tests_per_100k <- 100000*(daily_focal$NEW_TESTS/daily_focal$Populati
 daily_focal$New_cases_per_100k <- 100000*(daily_focal$NEW_CASES/daily_focal$Population)
 daily_focal$Active_cases_per_100k <- 100000*(daily_focal$TOTAL_ACTIVE/daily_focal$Population)
 
+
+
+temp = tempfile(fileext = ".xlsx")
+dataURL <- "https://www.tn.gov/content/dam/tn/health/documents/cedep/novel-coronavirus/datasets/Public-Dataset-Daily-County-School.XLSX"
+download.file(dataURL, destfile=temp, mode='wb')
+
+schoolkids <- readxl::read_xlsx(temp, sheet =1, col_types=c("date", "text", rep("numeric",2)))
+
+schoolkids_region<- subset(schoolkids, COUNTY %in% counties_in_hospital_region) %>% group_by(DATE) %>% select(-"COUNTY") %>% summarise_all(sum)
+
+schoolkids_oakridge<- subset(schoolkids, COUNTY %in% c("Anderson", "Roane")) %>% group_by(DATE) %>% select(-"COUNTY") %>% summarise_all(sum)
+
+schoolkids_knox<- subset(schoolkids, COUNTY %in% c("Knox")) %>% group_by(DATE) %>% select(-"COUNTY") %>% summarise_all(sum)
+
+schoolkids_region$Region <- "East TN"
+schoolkids_knox$Region <- "Knox County"
+schoolkids_oakridge$Region <- "Anderson + Roane"
+schoolkids_daily <- rbind(schoolkids_knox, schoolkids_oakridge, schoolkids_region)
+
+
+
 ```
 
 <h2 id="cases">Cases</h2>
@@ -138,7 +159,7 @@ The number of new and active cases should be not be going up if things are well-
 I plot three regions
 
 * Knox County (which includes Knoxville)
-* "Oak Ridge" (Roane and Anderson Counties, which include the town of Oak Ridge)
+* Anderson & Roane Counties, which include the town of Oak Ridge
 * East TN (the `r length(counties_in_hospital_region)` counties that have acute care hospitals in Knox County/East Region according to Knox County)
 
 For most of these plots, I am now showing the smoothed curves rather than the raw points per day -- these can jump around quite a bit.
@@ -222,7 +243,7 @@ print(knox_testing)
 
 <h2 id="testing">Testing</h2>
 
-Testing is a key part of getting a handle on the pandemic. Here are Knox County, Oak Ridge and its counties (Anderson and Roane), and all the East TN counties combined (the same ones used for regional hospital reporting for bed availability). This plots shows the daily number of tests per 100,000 residents.
+Testing is a key part of getting a handle on the pandemic. Here are Knox County, Oak Ridge's counties (Anderson and Roane), and all the East TN counties combined (the same ones used for regional hospital reporting for bed availability). This plots shows the daily number of tests per 100,000 residents.
 
 
 ```{r plotsB2, echo=FALSE, message=FALSE, warning=FALSE}
@@ -264,10 +285,10 @@ print(focal_proportion_pos)
 
 <h2 id="schooling">Schooling</h2>
 
-Many of the local schools are adopting a hybrid approach, where families can choose whether to send their kids to school or do online learning (sometimes with reduced options). The <i>New York Times</i> <a href="https://www.nytimes.com/2020/07/14/us/coronavirus-schools-fall.html">reports</a> on July 14, 2020, that, "As education leaders decide whether to reopen classrooms in the fall amid a raging pandemic, many are looking to a standard generally agreed upon among epidemiologists: To control community spread of the coronavirus, the average daily infection rate among those who are tested should not exceed 5 percent." Many districts nationally are not hitting that goal, but a question is whether local ones will. The first district to open in our area will be Oak Ridge public schools, who have a start date for students in person on July 29, 2020. Following the procedure of the <i>NYT</i>'s article, I am plotting the seven day average of positivity rate for tests for the counties including Oak Ridge (Roane and Anderson). The black line is the seven day rolling mean (total new confirmed / total new tests, not a mean of this ratio per day), the blue line is this smoothed, the dotted line is the 5% threshold, and the green rectangle is the first week of school -- the positivity should be in that rectangle to meet epidemiologists' goals. Oak Ridge is giving families options of whether to enroll their children in online or in person school: their plan, and the way to choose either mode, is <a href="https://www.ortn.edu/reopening-plan-2020-2021/">here</a>. They have updated their in person plan to require masks when possible but not social distancing; when individuals test positive, the possibly affected parts of the building will be closed for 2-5 days. We've opted for the online option for our family.
+Many of the local schools are adopting a hybrid approach, where families can choose whether to send their kids to school or do online learning (sometimes with reduced options). The <i>New York Times</i> <a href="https://www.nytimes.com/2020/07/14/us/coronavirus-schools-fall.html">reports</a> on July 14, 2020, that, "As education leaders decide whether to reopen classrooms in the fall amid a raging pandemic, many are looking to a standard generally agreed upon among epidemiologists: To control community spread of the coronavirus, the average daily infection rate among those who are tested should not exceed 5 percent." Many districts nationally are not hitting that goal, but a question is whether local ones will. The first district to open in our area will be Oak Ridge public schools, who have a start date for students in person on July 29, 2020. Following the procedure of the <i>NYT</i>'s article, I am plotting the seven day average of positivity rate for tests for the counties including Oak Ridge's counties (Roane and Anderson). The black line is the seven day rolling mean (total new confirmed / total new tests, not a mean of this ratio per day), the blue line is this smoothed, the dotted line is the 5% threshold, and the green rectangle is the first week of school -- the positivity should be in that rectangle to meet epidemiologists' goals. Oak Ridge is giving families options of whether to enroll their children in online or in person school: their plan, and the way to choose either mode, is <a href="https://www.ortn.edu/reopening-plan-2020-2021/">here</a>. They have updated their in person plan to require masks when possible but not social distancing; when individuals test positive, the possibly affected parts of the building will be closed for 2-5 days. We've opted for the online option for our family.
 
 ```{r oakridge7, echo=FALSE, message=FALSE, warning=FALSE}
-daily_oakridge2 <- subset(daily_focal, Region=="Oak Ridge")
+daily_oakridge2 <- subset(daily_focal, Region=="Anderson + Roane")
 oakridge_seven <- data.frame(DATE=daily_oakridge2$DATE, new_confirmed=zoo::rollsum(daily_oakridge2$NEW_CONFIRMED, k=7, align="right", fill=NA), new_tests=zoo::rollsum(daily_oakridge2$NEW_TESTS, k=7, align="right", fill=NA), New_cases_per_100k=zoo::rollmean(daily_oakridge2$New_cases_per_100k, k=7, align="right", fill=NA))
 oakridge_seven$positivity = 100*oakridge_seven$new_confirmed/oakridge_seven$new_tests
 plot_oakridge_seven <- ggplot(oakridge_seven[!is.na(oakridge_seven$positivity),], aes(x=DATE, y=positivity)) + geom_line() + geom_smooth(se=FALSE) + ylab("Percentage of positive tests over seven days ending with date") + xlab("Date") + ylim(0,NA) + geom_hline(yintercept=5, col="black", lty="dotted") + geom_rect(mapping=aes(xmin=as.POSIXct("2020/07/29"), xmax=as.POSIXct("2020/08/04"), ymin=0, ymax=5), fill="pale green")
@@ -290,7 +311,18 @@ print(harvard_oakridge)
 
 ```
 
-<a href="https://www.acs.ac/">Anderson County</a> has a school plan based on the percentage of the community actively infected with covid. Their schools open later than Oak Ridge schools, but it might be a useful indicator for community thinking. Remember the "Oak Ridge" line is Anderson and Roane counties combined. Note that Anderson's metric is based on the *number* of people with active covid (those with positive tests who are not yet recovered or deceased) and so it may be sensitive to the number of tests in a way that the positivity rate is not; in the areas between phases they use other information to make a determination, such as number of absences of students and teachers.
+Tennessee now breaks out covid test results for school age children (age 5-18). The number of tests in this age group and the underlying population size aren't known, so things like positivity rate and proportion of students infected cannot be determined, but the raw number of students infected can be shown:
+
+```{r studentinfections, echo=FALSE, message=FALSE, warning=FALSE}
+try(student_covid_total <- ggplot(schoolkids_daily, aes(x=DATE, y=CASE_COUNT, group=Region)) + geom_line(aes(colour=Region)) +  ylab("Number of students with positive covid results") + xlab("Date") + scale_colour_viridis_d(end=0.8))
+try(print(student_covid_total))
+
+try(student_covid_daily <- ggplot(schoolkids_daily, aes(x=DATE, y=NEW_CASES, group=Region)) + geom_line(aes(colour=Region)) +  ylab("Number of students with new positive covid results daily") + xlab("Date") + scale_colour_viridis_d(end=0.8))
+try(print(student_covid_daily))
+```
+
+
+<a href="https://www.acs.ac/">Anderson County</a> has a school plan based on the percentage of the community actively infected with covid. Their schools open later than Oak Ridge schools, but it might be a useful indicator for community thinking. Note that Anderson's metric is based on the *number* of people with active covid (those with positive tests who are not yet recovered or deceased) and so it may be sensitive to the number of tests in a way that the positivity rate is not; in the areas between phases they use other information to make a determination, such as number of absences of students and teachers.
 
 
 
@@ -319,30 +351,45 @@ print(local_active_percent)
 
 ```{r hospitalcapacitydata, echo=FALSE, message=FALSE, warning=FALSE}
 
+hospital_knox_files <- list.files(path="/Users/bomeara/Dropbox/KnoxCovid", pattern="*covid_bed_capacity.csv", full.names=TRUE)
+hospital_knox <- data.frame()
+for (i in seq_along(hospital_knox_files)) {
+  local_beds <- read.csv(hospital_knox_files[i])
+  local_beds$Total.Capacity <- as.numeric(gsub(",",'', local_beds$Total.Capacity))
+  local_beds$Current.Census <- as.numeric(gsub(",",'', local_beds$Current.Census))
+  local_beds$Current.Utilization <- as.numeric(gsub('%','', local_beds$Current.Utilization))
+  local_beds$Available.Capacity <- as.numeric(gsub('%','', local_beds$Available.Capacity))
+  local_beds$Date <- anytime::anytime(stringr::str_extract(hospital_knox_files[i], "\\d+_\\d+_\\d+_\\d+_\\d+_\\d+"))
+  if (i==1) {
+    hospital_knox <- local_beds
+  } else {
+    hospital_knox <- rbind(hospital_knox, local_beds)
+  }
+}
 
+# covidServer <- get.rds("https://knxhx.richdataservices.com/rds")
+# catalog <- getCatalog(covidServer, "kchd")
+# products <- getDataProducts(catalog)
+# dataProduct <- getDataProduct(catalog, "us_tn_kchd_capacity")
+# { sink("/dev/null"); hospital_resources <- rds.select(dataProduct, autoPage =  TRUE)@records; sink(); }
+# hospital_resources$label = NA
+# hospital_resources$label[hospital_resources$resource_type==0] <- "All beds"
+# hospital_resources$label[hospital_resources$resource_type==1] <- "ICU beds"
+# hospital_resources$label[hospital_resources$resource_type==2] <- "Ventilators"
+# hospital_resources$cnt_available <- as.numeric(as.character(hospital_resources$cnt_available))
+# hospital_resources$cnt_capacity <- as.numeric(as.character(hospital_resources$cnt_capacity))
+# hospital_resources$pct_used <- as.numeric(as.character(hospital_resources$pct_used))
+# hospital_resources$pct_available <- as.numeric(as.character(hospital_resources$pct_available))
 
-covidServer <- get.rds("https://knxhx.richdataservices.com/rds")
-catalog <- getCatalog(covidServer, "kchd")
-products <- getDataProducts(catalog)
-dataProduct <- getDataProduct(catalog, "us_tn_kchd_capacity")
-{ sink("/dev/null"); hospital_resources <- rds.select(dataProduct, autoPage =  TRUE)@records; sink(); }
-hospital_resources$label = NA
-hospital_resources$label[hospital_resources$resource_type==0] <- "All beds"
-hospital_resources$label[hospital_resources$resource_type==1] <- "ICU beds"
-hospital_resources$label[hospital_resources$resource_type==2] <- "Ventilators"
-hospital_resources$cnt_available <- as.numeric(as.character(hospital_resources$cnt_available))
-hospital_resources$cnt_capacity <- as.numeric(as.character(hospital_resources$cnt_capacity))
-hospital_resources$pct_used <- as.numeric(as.character(hospital_resources$pct_used))
-hospital_resources$pct_available <- as.numeric(as.character(hospital_resources$pct_available))
-
-last_hospital_update <- hospital_resources$date_stamp[1]
-for (resource_index in c(0,1,2)) {
-  hospital_resources_subset <- subset(hospital_resources, resource_type==resource_index)
-  cnt_used_previous = hospital_resources_subset$cnt_used[1]
+last_hospital_update <- hospital_knox$Date[1]
+resources <- unique(hospital_knox$East.Region.Hospitals)
+for (resource_index in sequence(length(resources))) {
+  hospital_resources_subset <- subset(hospital_knox, East.Region.Hospitals==resources[resource_index])
+  cnt_used_previous = hospital_resources_subset$Current.Census[1]
   for(row_index in 2:nrow(hospital_resources_subset)) {
-    if(hospital_resources_subset$cnt_used[row_index] != cnt_used_previous) {
-      cnt_used_previous <- hospital_resources_subset$cnt_used[row_index]
-      last_hospital_update <- max(last_hospital_update, hospital_resources_subset$date_stamp[row_index])
+    if(hospital_resources_subset$Current.Census[row_index] != cnt_used_previous) {
+      cnt_used_previous <- hospital_resources_subset$Current.Census[row_index]
+      last_hospital_update <- max(last_hospital_update, hospital_resources_subset$Date[row_index])
     }
   }
 }
@@ -375,16 +422,16 @@ for (resource_index in c(0,1,2)) {
 # }
 ```
 
-As of the last time the data were updated (likely `r as.numeric(difftime(Sys.Date(), as.Date(last_hospital_update), units="days"))` days ago), regional hospitals had `r tail(subset(hospital_resources, label=="ICU beds")$cnt_available,1)` ICU beds available of `r tail(subset(hospital_resources, label=="ICU beds")$cnt_capacity,1)` total, and `r tail(subset(hospital_resources, label=="Ventilators")$cnt_available,1)` available ventilators out of `r tail(subset(hospital_resources, label=="Ventilators")$cnt_capacity,1)` total. This is based on 19 acute care hospitals in the East TN region; based on the `r length(counties_in_hospital_region)` counties these hospitals are in, these serve at least `r formatC(region_pop, format="d", big.mark=",")` people. When a line hits 100%, the local hospitals are theoretically full for that resource (for all patients, not just covid patients), though there is surge capacity on top of this. Note that these data are not updated frequently, so current conditions maybe be much better or worse than these plots show. Data on capacity from <a href="https://knxhx.richdataservices.com/">https://knxhx.richdataservices.com/</a>, data on hospitalizations and testing over time from the state data.
+As of the last time the data were updated (likely `r as.numeric(difftime(Sys.Date(), as.Date(last_hospital_update), units="days"))` days ago), regional hospitals had `r tail(subset(hospital_knox, East.Region.Hospitals=="ICU Beds")$Available,1)` ICU beds available of `r tail(subset(hospital_knox, East.Region.Hospitals=="ICU Beds")$Total.Capacity,1)` total, and `r tail(subset(hospital_knox, East.Region.Hospitals=="Ventilators")$Available,1)` available ventilators out of `r tail(subset(hospital_knox, East.Region.Hospitals=="Ventilators")$Total.Capacity,1)` total. This is based on 19 acute care hospitals in the East TN region; based on the `r length(counties_in_hospital_region)` counties these hospitals are in, these serve at least `r formatC(region_pop, format="d", big.mark=",")` people. When a line hits 100%, the local hospitals are theoretically full for that resource (for all patients, not just covid patients), though there is surge capacity on top of this. Note that these data are updated only weekly, so current conditions maybe be much better or worse than these plots show. Data on capacity from Knox County's dashboard, data on hospitalizations and testing over time from the state data.
 
 
 ```{r hospitalcapacityplot, echo=FALSE, message=FALSE, warning=FALSE}
-try(hosp_plot <- ggplot(hospital_resources, aes(x=date_stamp, y=pct_used, group=label)) + geom_line(aes(colour=label)) + ylab("Percent Utilization in East Tennessee Region") + xlab("Date") + ylim(0,100) + scale_colour_viridis_d(end=0.8))
+try(hosp_plot <- ggplot(hospital_knox, aes(x=Date, y=Current.Utilization, group=East.Region.Hospitals)) + geom_line(aes(colour=East.Region.Hospitals)) +  ylab("Percent Utilization in East Tennessee Region") + xlab("Date") + ylim(0,100) + scale_colour_viridis_d(end=0.8))
 try(print(hosp_plot))
 
 ```
 
-Trends in hospitalization of covid patients over time. The vertical dotted line shows the last day with updated capacity information, when there were `r tail(subset(hospital_resources, label=="ICU beds")$cnt_available,1)` ICU beds available (ignoring surge capacity) for people in the East Tennessee region.
+Trends in hospitalization of covid patients over time. The vertical dotted line shows the last day with updated capacity information, when there were `r tail(subset(hospital_knox, East.Region.Hospitals=="ICU Beds")$Available,1)` ICU beds available (ignoring surge capacity) for people in the East Tennessee region.
 
 ```{r plotsD, echo=FALSE, message=FALSE, warning=FALSE}
 

@@ -287,7 +287,7 @@ print(focal_proportion_pos)
 
 Many of the local schools are adopting a hybrid approach, where families can choose whether to send their kids to school or do online learning (sometimes with reduced options). The <i>New York Times</i> <a href="https://www.nytimes.com/2020/07/14/us/coronavirus-schools-fall.html">reports</a> on July 14, 2020, that, "As education leaders decide whether to reopen classrooms in the fall amid a raging pandemic, many are looking to a standard generally agreed upon among epidemiologists: To control community spread of the coronavirus, the average daily infection rate among those who are tested should not exceed 5 percent." Many districts nationally are not hitting that goal, but a question is whether local ones will. The first district to open in our area was Oak Ridge public schools, who had a start date for students in person on July 29, 2020. Following the procedure of the <i>NYT</i>'s article, I am plotting the seven day average of positivity rate for tests for the counties including Oak Ridge's counties (Roane and Anderson). The black line is the seven day rolling mean (total new confirmed / total new tests, not a mean of this ratio per day), the blue line is this smoothed, the dotted line is the 5% threshold, and the green rectangle is the goal and starts at the start of school -- the positivity should be in that rectangle to meet epidemiologists' goals. Oak Ridge is giving families options of whether to enroll their children in online or in person school: their plan, and the way to choose either mode, is <a href="https://www.ortn.edu/reopening-plan-2020-2021/">here</a>. They have updated their in person plan to require masks when possible but not social distancing; when individuals test positive, the possibly affected parts of the building will be closed for 2-5 days. We've opted for the online option for our family.
 
-```{r oakridge7, echo=FALSE, message=FALSE, warning=FALSE}
+```{r oakridgesevendays, echo=FALSE, message=FALSE, warning=FALSE}
 daily_oakridge2 <- subset(daily_focal, Region=="Anderson + Roane")
 oakridge_seven <- data.frame(DATE=daily_oakridge2$DATE, new_confirmed=zoo::rollsum(daily_oakridge2$NEW_CONFIRMED, k=7, align="right", fill=NA), new_tests=zoo::rollsum(daily_oakridge2$NEW_TESTS, k=7, align="right", fill=NA), New_cases_per_100k=zoo::rollmean(daily_oakridge2$New_cases_per_100k, k=7, align="right", fill=NA))
 oakridge_seven$positivity = 100*oakridge_seven$new_confirmed/oakridge_seven$new_tests
@@ -312,7 +312,7 @@ print(harvard_oakridge)
 
 ```
 
-Tennessee now breaks out covid test results for school age children (age 5-18). The number of tests in this age group and the underlying population size aren't known, so things like positivity rate and proportion of students infected cannot be determined, but the raw number of students infected can be shown:
+Tennessee now breaks out covid test results for school age children (age 5-18). The number of tests in this age group and the underlying population size aren't known to me, so things like positivity rate and proportion of students infected cannot be determined, but the raw number of students infected can be shown:
 
 ```{r studentinfections, echo=FALSE, message=FALSE, warning=FALSE}
 try(student_covid_total <- ggplot(schoolkids_daily, aes(x=DATE, y=CASE_COUNT, group=Region)) + geom_line(aes(colour=Region)) +  ylab("Number of students with positive covid results") + xlab("Date") + scale_colour_viridis_d(end=0.8))

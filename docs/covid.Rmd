@@ -315,7 +315,7 @@ print(harvard_oakridge)
 Tennessee now breaks out covid test results for school age children (age 5-18). The number of tests in this age group and the underlying population size aren't known to me, so things like positivity rate and proportion of students infected cannot be determined, but the raw number of students infected can be shown:
 
 ```{r studentinfections, echo=FALSE, message=FALSE, warning=FALSE}
-try(student_covid_total <- ggplot(schoolkids_daily, aes(x=DATE, y=CASE_COUNT, group=Region)) + geom_line(aes(colour=Region)) +  ylab("Number of students with positive covid results") + xlab("Date") + scale_colour_viridis_d(end=0.8))
+try(student_covid_total <- ggplot(schoolkids_daily, aes(x=DATE, y=CASE_COUNT, group=Region)) + geom_line(aes(colour=Region)) +  ylab("Total number of students who have tested positive") + xlab("Date") + scale_colour_viridis_d(end=0.8))
 try(print(student_covid_total))
 
 try(student_covid_daily <- ggplot(schoolkids_daily, aes(x=DATE, y=NEW_CASES, group=Region)) + geom_line(aes(colour=Region)) +  ylab("Number of students with new positive covid results daily") + xlab("Date") + scale_colour_viridis_d(end=0.8))

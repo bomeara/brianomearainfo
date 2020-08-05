@@ -97,6 +97,27 @@ daily_focal$Active_cases_per_100k <- 100000*(daily_focal$TOTAL_ACTIVE/daily_foca
 
 
 
+temp = tempfile(fileext = ".xlsx")
+dataURL <- "https://www.tn.gov/content/dam/tn/health/documents/cedep/novel-coronavirus/datasets/Public-Dataset-Daily-County-School.XLSX"
+download.file(dataURL, destfile=temp, mode='wb')
+
+schoolkids <- readxl::read_xlsx(temp, sheet =1, col_types=c("date", "text", rep("numeric",2)))
+
+schoolkids_region<- subset(schoolkids, COUNTY %in% counties_in_hospital_region) %>% group_by(DATE) %>% select(-"COUNTY") %>% summarise_all(sum)
+
+schoolkids_oakridge<- subset(schoolkids, COUNTY %in% c("Anderson", "Roane")) %>% group_by(DATE) %>% select(-"COUNTY") %>% summarise_all(sum)
+
+schoolkids_knox<- subset(schoolkids, COUNTY %in% c("Knox")) %>% group_by(DATE) %>% select(-"COUNTY") %>% summarise_all(sum)
+
+schoolkids_region$Region <- "East TN"
+schoolkids_knox$Region <- "Knox County"
+schoolkids_oakridge$Region <- "Anderson + Roane"
+schoolkids_daily <- rbind(schoolkids_knox, schoolkids_oakridge, schoolkids_region)
+
+
+
+
+
 ## ----plotsA, echo=FALSE, message=FALSE, warning=FALSE-------------------------
 
 
@@ -123,8 +144,8 @@ print(local_active_100k)
 
 ## ----greenzone, echo=FALSE, message=FALSE, warning=FALSE, eval=FALSE----------
 ## # Knox County has published <a href="https://covid.knoxcountytn.gov/case-count.html#covid_data">its guidelines</a>. For it to be green for the number of new cases, it requires "No three-day shifts of 1.5 standard deviations above a rolling mean (based on data from the previous 14 days)." It's not quite clear to me what this means (the average of the three days can't exceed this or **all** or **any** of the three days can't exceed it?);  I'm taking the interpretation that if the three day mean is above this value, there's a problem. They update their stop lights weekly; this looks at each day to see if the average of that day and the two previous days exceeds what seems to be their threshold. Remember that this is just me playing with the data -- they're the experts to decide if cases are growing enough to be worrisome.
-##
-##
+## 
+## 
 ## GetZone <- function(cases) {
 ##   if(length(cases[!is.na(cases)])<17) {
 ##     return("black")
@@ -142,32 +163,32 @@ print(local_active_100k)
 ##   }
 ##   return(result)
 ## }
-##
+## 
 ## daily3_knox <- data.frame(date=daily_knox$DATE[-(1:2)], avg=NA, col="darkgray", stringsAsFactors = FALSE)
 ## for(i in sequence(nrow(daily3_knox))) {
 ##   daily3_knox$avg[i] <- mean(daily_knox$NEW_CASES[i:(i+2)])
 ##   daily3_knox$col[i] <- GetZone(head(daily_knox$NEW_CASES,i+2))
 ## }
-##
+## 
 ## daily3_knox <- daily3_knox[!is.na(daily3_knox$avg),]
 ## daily3_knox$col <- gsub("yellow", "yellow2", daily3_knox$col)
 ## daily3_knox$col <- gsub("black", "darkgray", daily3_knox$col)
-##
+## 
 ## knox_new3 <- ggplot(daily3_knox, aes(x=date, y=avg)) + geom_smooth() + geom_point(shape=21, colour="black", fill=daily3_knox$col) + ylab("Three day average of new cases") + xlab("Date") + ylim(0,NA)
 ## print(knox_new3)
-##
+## 
 
 
 ## ----plotsB, echo=FALSE, message=FALSE, warning=FALSE, eval=FALSE-------------
-##
+## 
 ## # A question is whether testing is adequate. The White House has said about 30 tests per 1000 people per month is adequate (this is also what <a href="https://projects.propublica.org/reopening-america/#notes">ProPublica</a> uses); others have argued that around 45 tests per 1000 people per month is better, though with variation depending on infection rate (see <a href="https://www.statnews.com/2020/04/27/coronavirus-many-states-short-of-testing-levels-needed-for-safe-reopening/">here</a>). These are the black lines on the plots below (calculated as tests per day, given Knox County's population of `r knox_pop`, and assuming 30 days per month).
-##
-##
+## 
+## 
 ## knox_testing <- ggplot(daily_knox[!is.na(daily_knox$NEW_TESTS),], aes(x=DATE, y=NEW_TESTS)) + geom_smooth() + geom_point() + ylab("Number of new tests in Knox each day") + xlab("Date") + ylim(0,NA)
 ## knox_testing <- knox_testing + geom_hline(yintercept=(knox_pop*45/1000)/30, col="black") + geom_hline(yintercept=(knox_pop*30/1000)/30, col="black")
 ## print(knox_testing)
-##
-##
+## 
+## 
 
 
 ## ----plotsB2, echo=FALSE, message=FALSE, warning=FALSE------------------------
@@ -202,11 +223,12 @@ print(focal_proportion_pos)
 
 
 
-## ----oakridge7, echo=FALSE, message=FALSE, warning=FALSE----------------------
+## ----oakridgesevendays, echo=FALSE, message=FALSE, warning=FALSE--------------
 daily_oakridge2 <- subset(daily_focal, Region=="Anderson + Roane")
 oakridge_seven <- data.frame(DATE=daily_oakridge2$DATE, new_confirmed=zoo::rollsum(daily_oakridge2$NEW_CONFIRMED, k=7, align="right", fill=NA), new_tests=zoo::rollsum(daily_oakridge2$NEW_TESTS, k=7, align="right", fill=NA), New_cases_per_100k=zoo::rollmean(daily_oakridge2$New_cases_per_100k, k=7, align="right", fill=NA))
 oakridge_seven$positivity = 100*oakridge_seven$new_confirmed/oakridge_seven$new_tests
-plot_oakridge_seven <- ggplot(oakridge_seven[!is.na(oakridge_seven$positivity),], aes(x=DATE, y=positivity)) + geom_rect(mapping=aes(xmin=as.POSIXct("2020/07/29"), xmax=as.POSIXct("2020/08/04"), ymin=5, ymax=max(c(10,oakridge_seven$positivity), na.rm=TRUE)), fill="indianred1") + geom_rect(mapping=aes(xmin=as.POSIXct("2020/07/29"), xmax=as.POSIXct("2020/08/04"), ymin=0, ymax=5), fill="pale green") + geom_line() + geom_smooth(se=FALSE) + ylab("Percentage of positive tests over seven days ending with date") + xlab("Date") + ylim(0,NA) + geom_hline(yintercept=5, col="black", lty="dotted")
+
+plot_oakridge_seven <- ggplot(oakridge_seven[!is.na(oakridge_seven$positivity),], aes(x=DATE, y=positivity)) + geom_rect(mapping=aes(xmin=as.POSIXct("2020/07/29"), xmax=as.POSIXct(Sys.Date()+7), ymin=0, ymax=5), fill="pale green") + geom_rect(mapping=aes(xmin=as.POSIXct("2020/07/29"), xmax=as.POSIXct(Sys.Date()+7), ymin=5, ymax=0.5+max(oakridge_seven$positivity,na.rm=TRUE)), fill="indianred1") + geom_line() + geom_smooth(se=FALSE) + ylab("Percentage of positive tests over seven days ending with date") + xlab("Date") + ylim(0,NA) + geom_hline(yintercept=5, col="black", lty="dotted")
 
 print(plot_oakridge_seven)
 
@@ -222,6 +244,14 @@ harvard_oakridge <- ggplot(oakridge_seven[!is.na(oakridge_seven$New_cases_per_10
  geom_line() + geom_smooth(se=FALSE)
 print(harvard_oakridge)
 
+
+
+## ----studentinfections, echo=FALSE, message=FALSE, warning=FALSE--------------
+try(student_covid_total <- ggplot(schoolkids_daily, aes(x=DATE, y=CASE_COUNT, group=Region)) + geom_line(aes(colour=Region)) +  ylab("Total number of students who have tested positive") + xlab("Date") + scale_colour_viridis_d(end=0.8))
+try(print(student_covid_total))
+
+try(student_covid_daily <- ggplot(schoolkids_daily, aes(x=DATE, y=NEW_CASES, group=Region)) + geom_line(aes(colour=Region)) +  ylab("Number of students with new positive covid results daily") + xlab("Date") + scale_colour_viridis_d(end=0.8))
+try(print(student_covid_daily))
 
 
 ## ----andersonstandards, echo=FALSE, message=FALSE, warning=FALSE--------------
@@ -243,30 +273,45 @@ print(local_active_percent)
 
 ## ----hospitalcapacitydata, echo=FALSE, message=FALSE, warning=FALSE-----------
 
+hospital_knox_files <- list.files(path="/Users/bomeara/Dropbox/KnoxCovid", pattern="*covid_bed_capacity.csv", full.names=TRUE)
+hospital_knox <- data.frame()
+for (i in seq_along(hospital_knox_files)) {
+  local_beds <- read.csv(hospital_knox_files[i])
+  local_beds$Total.Capacity <- as.numeric(gsub(",",'', local_beds$Total.Capacity))
+  local_beds$Current.Census <- as.numeric(gsub(",",'', local_beds$Current.Census))
+  local_beds$Current.Utilization <- as.numeric(gsub('%','', local_beds$Current.Utilization))
+  local_beds$Available.Capacity <- as.numeric(gsub('%','', local_beds$Available.Capacity))
+  local_beds$Date <- anytime::anytime(stringr::str_extract(hospital_knox_files[i], "\\d+_\\d+_\\d+_\\d+_\\d+_\\d+"))
+  if (i==1) {
+    hospital_knox <- local_beds
+  } else {
+    hospital_knox <- rbind(hospital_knox, local_beds)
+  }
+}
 
+# covidServer <- get.rds("https://knxhx.richdataservices.com/rds")
+# catalog <- getCatalog(covidServer, "kchd")
+# products <- getDataProducts(catalog)
+# dataProduct <- getDataProduct(catalog, "us_tn_kchd_capacity")
+# { sink("/dev/null"); hospital_resources <- rds.select(dataProduct, autoPage =  TRUE)@records; sink(); }
+# hospital_resources$label = NA
+# hospital_resources$label[hospital_resources$resource_type==0] <- "All beds"
+# hospital_resources$label[hospital_resources$resource_type==1] <- "ICU beds"
+# hospital_resources$label[hospital_resources$resource_type==2] <- "Ventilators"
+# hospital_resources$cnt_available <- as.numeric(as.character(hospital_resources$cnt_available))
+# hospital_resources$cnt_capacity <- as.numeric(as.character(hospital_resources$cnt_capacity))
+# hospital_resources$pct_used <- as.numeric(as.character(hospital_resources$pct_used))
+# hospital_resources$pct_available <- as.numeric(as.character(hospital_resources$pct_available))
 
-covidServer <- get.rds("https://knxhx.richdataservices.com/rds")
-catalog <- getCatalog(covidServer, "kchd")
-products <- getDataProducts(catalog)
-dataProduct <- getDataProduct(catalog, "us_tn_kchd_capacity")
-{ sink("/dev/null"); hospital_resources <- rds.select(dataProduct, autoPage =  TRUE)@records; sink(); }
-hospital_resources$label = NA
-hospital_resources$label[hospital_resources$resource_type==0] <- "All beds"
-hospital_resources$label[hospital_resources$resource_type==1] <- "ICU beds"
-hospital_resources$label[hospital_resources$resource_type==2] <- "Ventilators"
-hospital_resources$cnt_available <- as.numeric(as.character(hospital_resources$cnt_available))
-hospital_resources$cnt_capacity <- as.numeric(as.character(hospital_resources$cnt_capacity))
-hospital_resources$pct_used <- as.numeric(as.character(hospital_resources$pct_used))
-hospital_resources$pct_available <- as.numeric(as.character(hospital_resources$pct_available))
-
-last_hospital_update <- hospital_resources$date_stamp[1]
-for (resource_index in c(0,1,2)) {
-  hospital_resources_subset <- subset(hospital_resources, resource_type==resource_index)
-  cnt_used_previous = hospital_resources_subset$cnt_used[1]
+last_hospital_update <- hospital_knox$Date[1]
+resources <- unique(hospital_knox$East.Region.Hospitals)
+for (resource_index in sequence(length(resources))) {
+  hospital_resources_subset <- subset(hospital_knox, East.Region.Hospitals==resources[resource_index])
+  cnt_used_previous = hospital_resources_subset$Current.Census[1]
   for(row_index in 2:nrow(hospital_resources_subset)) {
-    if(hospital_resources_subset$cnt_used[row_index] != cnt_used_previous) {
-      cnt_used_previous <- hospital_resources_subset$cnt_used[row_index]
-      last_hospital_update <- max(last_hospital_update, hospital_resources_subset$date_stamp[row_index])
+    if(hospital_resources_subset$Current.Census[row_index] != cnt_used_previous) {
+      cnt_used_previous <- hospital_resources_subset$Current.Census[row_index]
+      last_hospital_update <- max(last_hospital_update, hospital_resources_subset$Date[row_index])
     }
   }
 }
@@ -300,7 +345,7 @@ for (resource_index in c(0,1,2)) {
 
 
 ## ----hospitalcapacityplot, echo=FALSE, message=FALSE, warning=FALSE-----------
-try(hosp_plot <- ggplot(hospital_resources, aes(x=date_stamp, y=pct_used, group=label)) + geom_line(aes(colour=label)) + ylab("Percent Utilization in East Tennessee Region") + xlab("Date") + ylim(0,100) + scale_colour_viridis_d(end=0.8))
+try(hosp_plot <- ggplot(hospital_knox, aes(x=Date, y=Current.Utilization, group=East.Region.Hospitals)) + geom_line(aes(colour=East.Region.Hospitals)) +  ylab("Percent Utilization in East Tennessee Region") + xlab("Date") + ylim(0,100) + scale_colour_viridis_d(end=0.8))
 try(print(hosp_plot))
 
 
@@ -412,3 +457,4 @@ for(i in seq_along(webfiles)) {
 utk.cases$group <- as.factor(utk.cases$group)
 utk_plot <- ggplot(utk.cases[!is.na(utk.cases$count),], aes(x=date, y=count, group=group)) + geom_line(aes(colour=group)) + ylab("Number of active cases at UTK") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)
 print(utk_plot)
+

@@ -410,6 +410,7 @@ $(document).ready(function () {
 <li><a href="https://covidactnow.org/us/tn?s=49762">Covid ActNow aggregate</a> of information, including contact tracing, infection rate, and more</li>
 <li><a href="https://nextstrain.org/ncov">COVID-19 phylogeny</a>. Family tree of the COVID-19 viruses around the world. This can be used by experts to understand how the disease has spread and is continuing to spread, as well as possible evolution during its spread.</li>
 <li><a href="https://projects.propublica.org/reopening-america/">ProPublica’s tracker of state status</a>. Click on the play button below their map to see how rates are changing over time, and dig into info on your state.</li>
+<li><a href="https://www.tn.gov/health/cedep/ncov/data/downloadable-datasets.html">Tennessee Downloadable Datasets</a></li>
 </ul>
 <hr />
 <p>And sections of my page:</p>
@@ -422,7 +423,7 @@ $(document).ready(function () {
 <li>Info about cases at <a href="#ut">U. of Tennessee, Knoxville</a> (using public information only)</li>
 <li><a href="#webcams">Webcams</a> showing activity at local sites, though not quite at the resolution to point to mask usage or not</li>
 </ul>
-<p>The following plots are created in R using data from <a href="https://covid19datahub.io" class="uri">https://covid19datahub.io</a> (Guidotti, E., Ardia, D., (2020), “COVID-19 Data Hub”, Working paper, doi: 10.13140/RG.2.2.11649.81763), as well as information from Google and the <a href="https://www.tn.gov/health/cedep/ncov/data/downloadable-datasets.html">state of Tennessee dataset page</a> and plotting and analysis using the <code>forecast</code>, <code>ggplot2</code>, <code>reshape2</code>, and <code>dplyr</code> packages. Plots created on 2020-08-11 09:00:09. I use <code>ggplot2</code>’s <code>geom_smooth()</code> function for the smoothed regression plots with its default formula, which uses loess smoothing for this many points. This is not based on a model of disease spread or anything similarly sophisticated, just drawing a smooth curve to summarize noisy points (see <a href="https://www.itl.nist.gov/div898/handbook/pmd/section1/pmd144.htm">here</a> for more details).</p>
+<p>The following plots are created in R using data from <a href="https://covid19datahub.io" class="uri">https://covid19datahub.io</a> (Guidotti, E., Ardia, D., (2020), “COVID-19 Data Hub”, Working paper, doi: 10.13140/RG.2.2.11649.81763), as well as information from Google and the <a href="https://www.tn.gov/health/cedep/ncov/data/downloadable-datasets.html">state of Tennessee dataset page</a> and plotting and analysis using the <code>forecast</code>, <code>ggplot2</code>, <code>reshape2</code>, and <code>dplyr</code> packages. Plots created on 2020-08-11 11:54:15. I use <code>ggplot2</code>’s <code>geom_smooth()</code> function for the smoothed regression plots with its default formula, which uses loess smoothing for this many points. This is not based on a model of disease spread or anything similarly sophisticated, just drawing a smooth curve to summarize noisy points (see <a href="https://www.itl.nist.gov/div898/handbook/pmd/section1/pmd144.htm">here</a> for more details).</p>
 <h2 id="cases">
 Cases
 </h2>

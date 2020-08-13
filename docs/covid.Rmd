@@ -562,10 +562,6 @@ print(utk_plot)
 
 <h2 id="webcams">Local webcams</h2>
 
-Downtown Gatlinburg <a href="http://www.smokyfrontier.com/">webcam</a>, a tourist town near us. It's a big grainy, but a potential way to see mask usage.
-
-<iframe src="http://www.smokyfrontier.com/"  width=600 height=600 scrolling="no"></iframe>
-
 Also see <a href="https://therock.utk.edu/livestream/">UT's webcam of the Rock</a>, a campus landmark, to see how UT's community is choosing to protect others. You will have to click to start the stream.
 
 <iframe src="https://therock.utk.edu/livestream/"  width=600 height=600 scrolling="no"></iframe>

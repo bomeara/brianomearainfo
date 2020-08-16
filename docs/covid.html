@@ -423,7 +423,7 @@ $(document).ready(function () {
 <li>Info about cases at <a href="#ut">U. of Tennessee, Knoxville</a> (using public information only)</li>
 <li><a href="#webcams">Webcams</a> showing activity at local sites, though not quite at the resolution to point to mask usage or not</li>
 </ul>
-<p>The following plots are created in R using data from <a href="https://covid19datahub.io" class="uri">https://covid19datahub.io</a> (Guidotti, E., Ardia, D., (2020), “COVID-19 Data Hub”, Working paper, doi: 10.13140/RG.2.2.11649.81763), as well as information from Google and the <a href="https://www.tn.gov/health/cedep/ncov/data/downloadable-datasets.html">state of Tennessee dataset page</a> and plotting and analysis using the <code>forecast</code>, <code>ggplot2</code>, <code>reshape2</code>, and <code>dplyr</code> packages. Plots created on 2020-08-15 22:14:04. I use <code>ggplot2</code>’s <code>geom_smooth()</code> function for the smoothed regression plots with its default formula, which uses loess smoothing for this many points. This is not based on a model of disease spread or anything similarly sophisticated, just drawing a smooth curve to summarize noisy points (see <a href="https://www.itl.nist.gov/div898/handbook/pmd/section1/pmd144.htm">here</a> for more details).</p>
+<p>The following plots are created in R using data from <a href="https://covid19datahub.io" class="uri">https://covid19datahub.io</a> (Guidotti, E., Ardia, D., (2020), “COVID-19 Data Hub”, Working paper, doi: 10.13140/RG.2.2.11649.81763), as well as information from Google and the <a href="https://www.tn.gov/health/cedep/ncov/data/downloadable-datasets.html">state of Tennessee dataset page</a> and plotting and analysis using the <code>forecast</code>, <code>ggplot2</code>, <code>reshape2</code>, and <code>dplyr</code> packages. Plots created on 2020-08-15 22:18:57. I use <code>ggplot2</code>’s <code>geom_smooth()</code> function for the smoothed regression plots with its default formula, which uses loess smoothing for this many points. This is not based on a model of disease spread or anything similarly sophisticated, just drawing a smooth curve to summarize noisy points (see <a href="https://www.itl.nist.gov/div898/handbook/pmd/section1/pmd144.htm">here</a> for more details).</p>
 <h2 id="cases">
 Cases
 </h2>
@@ -434,7 +434,7 @@ Cases
 <li>Anderson &amp; Roane Counties, which include the town of Oak Ridge</li>
 <li>East TN (the 14 counties that have acute care hospitals in Knox County/East Region according to Knox County)</li>
 </ul>
-<p>For most of these plots, I am now showing the smoothed curves rather than the raw points per day – these can jump around quite a bit.</p>
+<p>For many of these plots, I am now showing the smoothed curves rather than line connecting the raw points per day – these can jump around quite a bit (such as for things like tests per day). However, where the loess smoothing seems to be obscuring rather than clarifying, I just plot the line connecting the points.</p>
 <p><img src="covid_files/figure-html/plotsA-1.png" width="672" /><img src="covid_files/figure-html/plotsA-2.png" width="672" /></p>
 <p>Here are the same plots, but normalized so it’s per 100,000 residents in each area per day (making it easier to see patterns in less populous areas):</p>
 <p><img src="covid_files/figure-html/plotsA2-1.png" width="672" /><img src="covid_files/figure-html/plotsA2-2.png" width="672" /></p>
@@ -455,8 +455,6 @@ Schooling
 <p><img src="covid_files/figure-html/harvardstandards-1.png" width="672" /></p>
 <p>Tennessee now breaks out covid test results for school age children (age 5-18). The number of tests in this age group and the underlying population size aren’t known to me, so things like positivity rate and proportion of students infected cannot be determined, but the raw number of students infected can be shown:</p>
 <p><img src="covid_files/figure-html/studentinfections-1.png" width="672" /><img src="covid_files/figure-html/studentinfections-2.png" width="672" /></p>
-<p><a href="https://www.acs.ac/">Anderson County</a> has a school plan based on the percentage of the community actively infected with covid. Their schools open later than Oak Ridge schools, but it might be a useful indicator for community thinking. Note that Anderson’s metric is based on the <em>number</em> of people with active covid (those with positive tests who are not yet recovered or deceased) and so it may be sensitive to the number of tests in a way that the positivity rate is not; in the areas between phases they use other information to make a determination, such as number of absences of students and teachers.</p>
-<p><img src="covid_files/figure-html/andersonstandards-1.png" width="672" /></p>
 <hr />
 <h2 id="hospitalization">
 Hospitalization

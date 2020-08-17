@@ -530,9 +530,11 @@ print(ageplot_knox_cumulative)
 
 <h2 id="ut">University of Tennessee, Knoxville</h2>
 
-Another question is what is happening at UT as campus opens up and testing ramps up. There is some information on active cases available. Note that this is based on parsing a website without clean tables of data, and which sometimes drops labels for the data. The drop to zero for a bit less than a day in mid August was presumably an error, but as it reflects the official website I am keeping it as is.
+Another question is what is happening at UT as campus opens up and testing ramps up.
 
-```{r utactive, echo=FALSE, message=FALSE, warning=FALSE}
+<iframe src="https://datastudio.google.com/u/0/reporting/bb71d0fd-2817-4e14-9f84-7f74a1e503b5/page/Qr2ZB"  width=600 height=600 scrolling="no"></iframe>
+
+```{r utactive, echo=FALSE, message=FALSE, warning=FALSE, eval=FALSE}
 # cached downloads of https://veoci.com/veoci/p/form/4jmds5x4jj4j#tab=entryForm
 webfiles <- list.files(path="/Users/bomeara/Dropbox/UTKCovid", pattern="*html", full.names =TRUE)
 utk.cases <- data.frame()

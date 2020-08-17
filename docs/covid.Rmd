@@ -310,7 +310,7 @@ harvard_oakridge <- ggplot(oakridge_seven[!is.na(oakridge_seven$New_cases_per_10
   geom_rect(mapping=aes(xmin=min(oakridge_seven$DATE), xmax=max(oakridge_seven$DATE), ymin=10, ymax=25), fill="tan1") +
   geom_rect(mapping=aes(xmin=min(oakridge_seven$DATE), xmax=max(oakridge_seven$DATE), ymin=25, ymax=maxval), fill="indianred1") +
  annotate("text", x = min(oakridge_seven$DATE), y=c(0.5, 5.5, 17.5, mean(c(25, maxval))), label = c("", "First reopening priority: PreK-5 and special ed preK-8\nSecond reopening priority: 6-8 and special ed 9-12\nThird reopening priority: 9-12 on hybrid schedule", "First reopening priority: PreK-5 and special ed preK-8\nSecond reopening priority: 6-8 and special ed 9-12\nOnline only: 9-12", "All learning remote for everyone"), hjust=0) +
- geom_line() + geom_smooth(se=FALSE)
+ geom_line()
 print(harvard_oakridge)
 
 ```

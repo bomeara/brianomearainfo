@@ -532,7 +532,7 @@ print(ageplot_knox_cumulative)
 
 Another question is what is happening at UT as campus opens up and testing ramps up. Earlier dashboards with data have been taken down by UT, but there is some information available at https://www.utk.edu/coronavirus/guides/data-monitoring-and-contingency-options.
 
-<iframe src="https://datastudio.google.com/embed/reporting/bb71d0fd-2817-4e14-9f84-7f74a1e503b5/page/Qr2ZB"></iframe>
+<iframe src="https://datastudio.google.com/embed/reporting/bb71d0fd-2817-4e14-9f84-7f74a1e503b5/page/Qr2ZB" width=600 height=300></iframe>
 
 ```{r utactive, echo=FALSE, message=FALSE, warning=FALSE, eval=FALSE}
 # cached downloads of https://veoci.com/veoci/p/form/4jmds5x4jj4j#tab=entryForm

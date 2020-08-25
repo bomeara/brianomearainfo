@@ -98,7 +98,7 @@ daily_focal$Active_cases_per_100k <- 100000*(daily_focal$TOTAL_ACTIVE/daily_foca
 
 
 temp = tempfile(fileext = ".xlsx")
-dataURL <- "https://www.tn.gov/content/dam/tn/health/documents/cedep/novel-coronavirus/datasets/Public-Dataset-Daily-County-School.XLSX"
+dataURL <- "https://www.tn.gov/content/dam/tn/health/documents/cedep/novel-coronavirus/datasets/Public-Dataset-Daily-County-Cases-5-18-Years.XLSX"
 download.file(dataURL, destfile=temp, mode='wb')
 
 schoolkids <- readxl::read_xlsx(temp, sheet =1, col_types=c("date", "text", rep("numeric",2)))
@@ -124,7 +124,8 @@ schoolkids_daily <- rbind(schoolkids_knox, schoolkids_oakridge, schoolkids_regio
 local_new <- ggplot(daily_focal[!is.na(daily_focal$NEW_CASES),], aes(x=DATE, y=NEW_CASES, group=Region)) + geom_smooth(aes(colour=Region), se=FALSE) + geom_point(aes(colour=Region), size=0.5)  + ylab("Number of new cases in area each day") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)
 print(local_new)
 
-local_active <- ggplot(daily_focal[!is.na(daily_focal$TOTAL_ACTIVE),], aes(x=DATE, y=TOTAL_ACTIVE, group=Region)) +  geom_smooth(aes(colour=Region), se=FALSE) + geom_point(aes(colour=Region), size=0.5) + ylab("Number of active cases in area each day") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)
+#local_active <- ggplot(daily_focal[!is.na(daily_focal$TOTAL_ACTIVE),], aes(x=DATE, y=TOTAL_ACTIVE, group=Region)) +  geom_smooth(aes(colour=Region), se=FALSE) + geom_point(aes(colour=Region), size=0.5) + ylab("Number of active cases in area each day") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)
+local_active <- ggplot(daily_focal[!is.na(daily_focal$TOTAL_ACTIVE),], aes(x=DATE, y=TOTAL_ACTIVE, group=Region)) +  geom_line(aes(colour=Region)) + geom_point(aes(colour=Region), size=0.5) + ylab("Number of active cases in area each day") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)
 print(local_active)
 
 
@@ -136,7 +137,8 @@ print(local_active)
 local_new_100k <- ggplot(daily_focal[!is.na(daily_focal$New_cases_per_100k),], aes(x=DATE, y=New_cases_per_100k, group=Region)) + geom_smooth(aes(colour=Region), se=FALSE) + geom_point(aes(colour=Region), size=0.5)  + ylab("Number of new cases in area each day per 100,000 residents") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)
 print(local_new_100k)
 
-local_active_100k <- ggplot(daily_focal[!is.na(daily_focal$Active_cases_per_100k),], aes(x=DATE, y=Active_cases_per_100k, group=Region)) +  geom_smooth(aes(colour=Region), se=FALSE) + geom_point(aes(colour=Region), size=0.5) + ylab("Number of active cases in area each day per 100,000 residents") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)
+#local_active_100k <- ggplot(daily_focal[!is.na(daily_focal$Active_cases_per_100k),], aes(x=DATE, y=Active_cases_per_100k, group=Region)) +  geom_smooth(aes(colour=Region), se=FALSE) + geom_point(aes(colour=Region), size=0.5) + ylab("Number of active cases in area each day per 100,000 residents") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)
+local_active_100k <- ggplot(daily_focal[!is.na(daily_focal$Active_cases_per_100k),], aes(x=DATE, y=Active_cases_per_100k, group=Region)) +  geom_line(aes(colour=Region)) + geom_point(aes(colour=Region), size=0.5) + ylab("Number of active cases in area each day per 100,000 residents") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)
 print(local_active_100k)
 
 
@@ -241,7 +243,7 @@ harvard_oakridge <- ggplot(oakridge_seven[!is.na(oakridge_seven$New_cases_per_10
   geom_rect(mapping=aes(xmin=min(oakridge_seven$DATE), xmax=max(oakridge_seven$DATE), ymin=10, ymax=25), fill="tan1") +
   geom_rect(mapping=aes(xmin=min(oakridge_seven$DATE), xmax=max(oakridge_seven$DATE), ymin=25, ymax=maxval), fill="indianred1") +
  annotate("text", x = min(oakridge_seven$DATE), y=c(0.5, 5.5, 17.5, mean(c(25, maxval))), label = c("", "First reopening priority: PreK-5 and special ed preK-8\nSecond reopening priority: 6-8 and special ed 9-12\nThird reopening priority: 9-12 on hybrid schedule", "First reopening priority: PreK-5 and special ed preK-8\nSecond reopening priority: 6-8 and special ed 9-12\nOnline only: 9-12", "All learning remote for everyone"), hjust=0) +
- geom_line() + geom_smooth(se=FALSE)
+ geom_line()
 print(harvard_oakridge)
 
 
@@ -254,21 +256,22 @@ try(student_covid_daily <- ggplot(schoolkids_daily, aes(x=DATE, y=NEW_CASES, gro
 try(print(student_covid_daily))
 
 
-## ----andersonstandards, echo=FALSE, message=FALSE, warning=FALSE--------------
-
-daily_focal$Active_cases_percent <- 100*daily_focal$Active_cases_per_100k/100000
-daily_focal<-daily_focal[!is.na(daily_focal$Active_cases_percent),]
-local_active_percent <- ggplot(daily_focal[!is.na(daily_focal$Active_cases_percent),], aes(x=DATE, y=Active_cases_percent, group=Region)) +
-geom_rect(mapping=aes(xmin=min(daily_focal$DATE), xmax=max(daily_focal$DATE), ymin=-0.2, ymax=0), fill="light blue") +
-geom_rect(mapping=aes(xmin=min(daily_focal$DATE), xmax=max(daily_focal$DATE), ymin=0, ymax=.1), fill="pale green") +
-geom_rect(mapping=aes(xmin=min(daily_focal$DATE), xmax=max(daily_focal$DATE), ymin=.1, ymax=.4), fill="olivedrab3") +
-geom_rect(mapping=aes(xmin=min(daily_focal$DATE), xmax=max(daily_focal$DATE), ymin=.4, ymax=.5), fill="olivedrab1") +
-geom_rect(mapping=aes(xmin=min(daily_focal$DATE), xmax=max(daily_focal$DATE), ymin=.5, ymax=.7), fill="yellow") +
-geom_rect(mapping=aes(xmin=min(daily_focal$DATE), xmax=max(daily_focal$DATE), ymin=.7, ymax=.8), fill="orange") +
-geom_rect(mapping=aes(xmin=min(daily_focal$DATE), xmax=max(daily_focal$DATE), ymin=.8, ymax=1), fill="red") +
-annotate("text", x = min(daily_focal$DATE), y=c(-0.1, 0.25, 0.6, 0.9), label = c("Phase 0, all normal", "Phase 1, schools open and virtual option", "Phase 2, blended learning plan", "Phase 3, all schools closed, all students virtual"), hjust=0) +
- geom_smooth(aes(colour=Region), se=FALSE) + geom_point(aes(colour=Region), size=0.5) + ylab("Percent of residents with active covid infections") + xlab("Date") + ylim(-0.2,1) + scale_colour_viridis_d(end=0.9, option="A")
-print(local_active_percent)
+## ----andersonstandards, echo=FALSE, message=FALSE, warning=FALSE, include=FALSE, eval=FALSE----
+## #<a href="https://www.acs.ac/">Anderson County</a> had a school plan based on the percentage of the community actively infected with covid. Their schools open later than Oak Ridge schools, but it might be a useful indicator for community thinking. Note that Anderson's metric is based on the *number* of people with active covid (those with positive tests who are not yet recovered or deceased) and so it may be sensitive to the number of tests in a way that the positivity rate is not; in the areas between phases they use other information to make a determination, such as number of absences of students and teachers.
+## 
+## daily_focal$Active_cases_percent <- 100*daily_focal$Active_cases_per_100k/100000
+## daily_focal<-daily_focal[!is.na(daily_focal$Active_cases_percent),]
+## local_active_percent <- ggplot(daily_focal[!is.na(daily_focal$Active_cases_percent),], aes(x=DATE, y=Active_cases_percent, group=Region)) +
+## geom_rect(mapping=aes(xmin=min(daily_focal$DATE), xmax=max(daily_focal$DATE), ymin=-0.2, ymax=0), fill="light blue") +
+## geom_rect(mapping=aes(xmin=min(daily_focal$DATE), xmax=max(daily_focal$DATE), ymin=0, ymax=.1), fill="pale green") +
+## geom_rect(mapping=aes(xmin=min(daily_focal$DATE), xmax=max(daily_focal$DATE), ymin=.1, ymax=.4), fill="olivedrab3") +
+## geom_rect(mapping=aes(xmin=min(daily_focal$DATE), xmax=max(daily_focal$DATE), ymin=.4, ymax=.5), fill="olivedrab1") +
+## geom_rect(mapping=aes(xmin=min(daily_focal$DATE), xmax=max(daily_focal$DATE), ymin=.5, ymax=.7), fill="yellow") +
+## geom_rect(mapping=aes(xmin=min(daily_focal$DATE), xmax=max(daily_focal$DATE), ymin=.7, ymax=.8), fill="orange") +
+## geom_rect(mapping=aes(xmin=min(daily_focal$DATE), xmax=max(daily_focal$DATE), ymin=.8, ymax=1), fill="red") +
+## annotate("text", x = min(daily_focal$DATE), y=c(-0.1, 0.25, 0.6, 0.9), label = c("Phase 0, all normal", "Phase 1, schools open and virtual option", "Phase 2, blended learning plan", "Phase 3, all schools closed, all students virtual"), hjust=0) +
+##  geom_line(aes(colour=Region)) + geom_point(aes(colour=Region), size=0.5) + ylab("Percent of residents with active covid infections") + xlab("Date") + ylim(-0.2,1) + scale_colour_viridis_d(end=0.9, option="A")
+## print(local_active_percent)
 
 
 ## ----hospitalcapacitydata, echo=FALSE, message=FALSE, warning=FALSE-----------
@@ -432,29 +435,29 @@ print(ageplot_knox_cumulative)
 
 
 
-## ----utactive, echo=FALSE, message=FALSE, warning=FALSE-----------------------
-# cached downloads of https://veoci.com/veoci/p/form/4jmds5x4jj4j#tab=entryForm
-webfiles <- list.files(path="/Users/bomeara/Dropbox/UTKCovid", pattern="*html", full.names =TRUE)
-utk.cases <- data.frame()
-for(i in seq_along(webfiles)) {
-  raw <- paste0(readLines(webfiles[i]),collapse=" ")
-  raw <- gsub('\\x3c', '', raw, fixed=TRUE)
-  raw <- gsub('\\x3d', '', raw, fixed=TRUE)
-  raw <- gsub('\\x3e', '', raw, fixed=TRUE)
-  raw <- gsub('/span/tdtd style\"width: \\d+\\.*\\d*%;\"span style\"font-size: 18px;\"', '', raw, fixed=FALSE)
-  raw <- gsub('/span/tdtd style\"width: \\d+\\.*\\d*%; text-align: left;\"span style\"font-size: 18px;\"', '', raw, fixed=FALSE)
-  students <- as.numeric(gsub("Students", "", stringr::str_extract(raw, "Students\\d+")))
-    faculty <- as.numeric(gsub("Faculty", "", stringr::str_extract(raw, "Faculty\\d+")))
-    staff <- as.numeric(gsub("Staff", "", stringr::str_extract(raw, "Staff\\d+")))
-  actual_time <- anytime::anytime(stringr::str_extract(webfiles[i], "\\d+_\\d+_\\d+_\\d+_\\d+_\\d+"))
-  result <- data.frame(date=rep(actual_time, 3), count=c(students, faculty, staff), group=c("students", "faculty", "staff"))
-  if(i==1) {
-    utk.cases <- result
-  } else {
-    utk.cases <- rbind(utk.cases, result)
-  }
-}
-utk.cases$group <- as.factor(utk.cases$group)
-utk_plot <- ggplot(utk.cases[!is.na(utk.cases$count),], aes(x=date, y=count, group=group)) + geom_line(aes(colour=group)) + ylab("Number of active cases at UTK") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)
-print(utk_plot)
+## ----utactive, echo=FALSE, message=FALSE, warning=FALSE, eval=FALSE-----------
+## # cached downloads of https://veoci.com/veoci/p/form/4jmds5x4jj4j#tab=entryForm
+## webfiles <- list.files(path="/Users/bomeara/Dropbox/UTKCovid", pattern="*html", full.names =TRUE)
+## utk.cases <- data.frame()
+## for(i in seq_along(webfiles)) {
+##   raw <- paste0(readLines(webfiles[i]),collapse=" ")
+##   raw <- gsub('\\x3c', '', raw, fixed=TRUE)
+##   raw <- gsub('\\x3d', '', raw, fixed=TRUE)
+##   raw <- gsub('\\x3e', '', raw, fixed=TRUE)
+##   raw <- gsub('/span/tdtd style\"width: \\d+\\.*\\d*%;\"span style\"font-size: 18px;\"', '', raw, fixed=FALSE)
+##   raw <- gsub('/span/tdtd style\"width: \\d+\\.*\\d*%; text-align: left;\"span style\"font-size: 18px;\"', '', raw, fixed=FALSE)
+##   students <- as.numeric(gsub("Students", "", stringr::str_extract(raw, "Students\\d+")))
+##     faculty <- as.numeric(gsub("Faculty", "", stringr::str_extract(raw, "Faculty\\d+")))
+##     staff <- as.numeric(gsub("Staff", "", stringr::str_extract(raw, "Staff\\d+")))
+##   actual_time <- anytime::anytime(stringr::str_extract(webfiles[i], "\\d+_\\d+_\\d+_\\d+_\\d+_\\d+"))
+##   result <- data.frame(date=rep(actual_time, 3), count=c(students, faculty, staff), group=c("students", "faculty", "staff"))
+##   if(i==1) {
+##     utk.cases <- result
+##   } else {
+##     utk.cases <- rbind(utk.cases, result)
+##   }
+## }
+## utk.cases$group <- as.factor(utk.cases$group)
+## utk_plot <- ggplot(utk.cases[!is.na(utk.cases$count),], aes(x=date, y=count, group=group)) + geom_line(aes(colour=group)) + ylab("Number of active cases at UTK") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)
+## print(utk_plot)
 

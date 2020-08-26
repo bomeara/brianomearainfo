@@ -110,8 +110,8 @@ GenerateSitemap <- function(base_url="http://brianomeara.info") {
     d <- tmp$headers[['last-modified']]
     formatted_date <- NA
     try(formatted_date <- format(as.Date(d,format="%a, %d %b %Y %H:%M:%S")))
-    if(is.na(formatted_date)) {
-      formatted_date <- "2019-08-14"
+    if(is.na(ifelse(length(formatted_date)==1,formatted_date, NA))) {
+      formatted_date <- Sys.Date()
     }
     list(loc=l,
          lastmod=formatted_date,

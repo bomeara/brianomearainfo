@@ -76,7 +76,7 @@ oakridge_aggregate$percentconfirmed <- 100*oakridge_aggregate$confirmed/oakridge
 region_aggregate <- region %>% group_by(date) %>% summarise(confirmed = sum(confirmed), population=sum(population))
 region_aggregate$percentconfirmed <- 100*region_aggregate$confirmed/region_aggregate$population
 
-us_diff <- data.frame(date=us_aggregate$date[-1], daily_confirmed=diff(us_aggregate$confirmed), daily_percent_confirmed=diff(tn_aggregate$percentconfirmed))
+#us_diff <- data.frame(date=us_aggregate$date[-1], daily_confirmed=diff(us_aggregate$confirmed), daily_percent_confirmed=diff(tn_aggregate$percentconfirmed))
 
 
 

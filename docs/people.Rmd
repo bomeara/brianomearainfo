@@ -30,12 +30,14 @@ I have mentored numerous postdocs off of my own grants and/or as one of their ch
  
 
 
-|Name                                                                 |Stage       |Time in Lab  |Note                           |
-|:--------------------------------------------------------------------|:-----------|:------------|:------------------------------|
-|[Sam Borstein](https://fish4thought.wordpress.com/)                  |PhD student |2014-2019    |                               |
-|[Jenn Bosco](https://sites.google.com/site/jenniferboscoinfo/home)   |PhD student |2012-2017    |Co-advised with Susan Riechert |
-|[Katie Massana](https://sites.google.com/site/kathrynamassana/home)  |PhD student |2012-2017    |                               |
-|[Orlando Schwery](https://sites.google.com/site/orlandoschwery/home) |PhD student |2014-present |                               |
+|Name                                                                      |Stage       |Time in Lab  |Note                           |
+|:-------------------------------------------------------------------------|:-----------|:------------|:------------------------------|
+|[Sam Borstein](https://fish4thought.wordpress.com/)                       |PhD student |2014-2019    |                               |
+|[Jenn Bosco](https://sites.google.com/site/jenniferboscoinfo/home)        |PhD student |2012-2017    |Co-advised with Susan Riechert |
+|[Krista De Cooke](https://www.linkedin.com/in/krista-de-cooke-163a87116/) |PhD student |2020-present |Co-advised with Dan Simberloff |
+|[Katie Massana](https://sites.google.com/site/kathrynamassana/home)       |PhD student |2012-2017    |                               |
+|[Orlando Schwery](https://sites.google.com/site/orlandoschwery/home)      |PhD student |2014-2020    |                               |
+|[Jenn Summers](https://cubalibrejenn.wixsite.com/jennsummers)             |PhD student |2020-present |                               |
 
 
 ## Mentoring, Undergrad students in my lab
@@ -43,9 +45,12 @@ I have mentored numerous postdocs off of my own grants and/or as one of their ch
  
 
 
-|Name                                                                      |Stage     |Time in Lab |Note |
-|:-------------------------------------------------------------------------|:---------|:-----------|:----|
-|[Christian Yarber](https://www.researchgate.net/profile/Christian_Yarber) |Undergrad |2015-2016   |     |
+|Name                                                                      |Stage     |Time in Lab  |Note |
+|:-------------------------------------------------------------------------|:---------|:------------|:----|
+|Tyler-Christian Daniels                                                   |Undergrad |2019-present |     |
+|Stephen Ray                                                               |Undergrad |2019-present |     |
+|Zach Tharpe                                                               |Undergrad |2019-present |     |
+|[Christian Yarber](https://www.researchgate.net/profile/Christian_Yarber) |Undergrad |2015-2016    |     |
 
 
 ## Mentoring, Grad student committees
@@ -69,6 +74,7 @@ In addition to my own students, of course.
 |Ivan Juric               |EEB          |
 |Cedric Landerer          |EEB          |
 |Jasper Lee               |Microbiology |
+|Sara Lipshutz            |EEB          |
 |Bryan Looney             |EEB          |
 |Liam Mueller             |EEB          |
 |Tyson Paulson            |EEB          |

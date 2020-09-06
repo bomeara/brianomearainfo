@@ -7,6 +7,10 @@ In Feb. 2020 I applied for a [position as department head](https://cbs.umn.edu/b
 ## Science talk
 
 
+### Papers from talk
+
+* [O'Meara, Smith, et al. 2016](https://doi.org/10.1098/rspb.2015.2304): paper on floral evolution. Note that it has two co-lead authors and two co-senior authors (Fenster and Diggle)
+
 
 
 ## Leadership talk
@@ -16,17 +20,21 @@ In Feb. 2020 I applied for a [position as department head](https://cbs.umn.edu/b
 
 * [Safe Evolution](https://www.evolutionmeetings.org/safe-evolution.html), especially the [poster](https://figshare.com/articles/Unwelcome_behaviors_at_the_Evolution_meetings_Survey_results/8311595), and transparency reports for [2017-2018](https://www.evolutionmeetings.org/uploads/4/8/8/0/48804503/transparency_report.pdf) and [2019](https://www.evolutionmeetings.org/uploads/4/8/8/0/48804503/transparency_report__2019.pdf)
 * [Academic Misconduct Database](https://academic-sexual-misconduct-database.org/): Created initially by Julie Libarkin, tracks publicly resolved and ongoing cases of sexual misconduct perpetrated by U.S. faculty, administrators and other staff. See [here](https://academic-sexual-misconduct-database.org/incidents?query=Minnesota) for Minnesota cases.
-*  [Better Letter](http://brianomeara.info/better-letter.html): Resource I made to make it easier to look for biases in letters of rec 
-*  Teaching: My senior level [macroevolution class](http://brianomeara.info/eeb464.html) and [graduate course in phylogenetics](http://phylometh.info/)
-*  [UTK EEB Community of Practice](https://eeb.utk.edu/eeb-community-of-practice/): how we are ensuring labs can open safely while respecting the needs of everyone inside them
+* [Better Letter](http://brianomeara.info/better-letter.html): Resource I made to make it easier to look for biases in letters of rec 
+* Teaching: My senior level [macroevolution class](http://brianomeara.info/eeb464.html) and [graduate course in phylogenetics](http://phylometh.info/)
+* [UTK EEB Community of Practice](https://eeb.utk.edu/eeb-community-of-practice/): how we are ensuring labs can open safely while respecting the needs of everyone inside them
+* [NSF Survey of Earned Doctorates](https://www.nsf.gov/statistics/srvydoctorates/): PhDs by various categories per year
+* [NSF Awards Advanced Search](https://www.nsf.gov/awardsearch/advancedSearch.jsp): to look up awarded funding
+* [scholar R package](https://github.com/jkeirstead/scholar): for pulling publication information from Google Scholar
 
 
 ### UMN-specific links
 
+* ["Racism with a smile"](https://www.nytimes.com/2020/06/01/us/minneapolis-racism-minnesota.html): *New York Times* article on racism in Minneapolis following the attention garnered by George Floyd's murder
 * [Bias Reponse Referral Network](https://bias-response.umn.edu/): reporting incidents of bias, includes transparency reports of how past incidents were handled
 * [Aurora Center for Advocacy & Education](http://aurora.umn.edu/get-help): help all victims/survivors/concerned people of sexual assault, relationship violence, stalking, and sexual harassment, including information on [reporting options](http://aurora.umn.edu/get-help/reporting-options)
 * [Ureport](https://compliance.umn.edu/report): to report misconduct in general. Includes an anonymous reporting option. Also see [https://onestop.umn.edu/terms-and-conditions/student-complaints-and-grievances](https://onestop.umn.edu/terms-and-conditions/student-complaints-and-grievances) for additional options open to students (and others, in some cases).
-* [StarTribune article on grad students confronting racism](https://www.startribune.com/at-university-of-minnesota-students-pressure-faculty-to-confront-racism-in-academia/571908082/), including the actions of UMN EEB students and faculty response
+* [*StarTribune* article on grad students confronting racism](https://www.startribune.com/at-university-of-minnesota-students-pressure-faculty-to-confront-racism-in-academia/571908082/), including the actions of UMN EEB students and faculty response
 * [Student Ombuds](https://sos.dl.umn.edu/ombuds): confidential resource for students to help resolve any university-related conflict or concern
 * [Crisis services](https://counseling.umn.edu/crisis-services): includes crisis line, 612-301-4673
 * [Self-Help](https://counseling.umn.edu/self-help): anonymous mental health screenings, alcohol assessment, and more

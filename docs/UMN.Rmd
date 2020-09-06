@@ -1,7 +1,36 @@
 ---
-author: Brian O'Meara
-title: UMN
+title: U. Minnesota EEB Head
 ---
 
-In Feb. 2020 I applied for a [position as department head](https://cbs.umn.edu/blogs/cbs-connect/ecology-evolution-and-behavior-seeking-department-head-candidates) for the University of Minnesota Ecology, Evolution, and Behavior Department. I have made it to the interview stage in Sept. 2020. Here is information and materials relevant to my application.
+In Feb. 2020 I applied for a [position as department head](https://cbs.umn.edu/blogs/cbs-connect/ecology-evolution-and-behavior-seeking-department-head-candidates) for the University of Minnesota Ecology, Evolution, and Behavior Department. I have made it to the interview stage in Sept. 2020. Here is information and materials relevant to my application. You may be interested in my [CV](http://brianomeara.info/cv.html) and [people who have been through my lab](http://brianomeara.info/personnel.html).
+
+## Science talk
+
+
+
+
+## Leadership talk
+
+
+### General links from talk
+
+* [Safe Evolution](https://www.evolutionmeetings.org/safe-evolution.html), especially the [poster](https://figshare.com/articles/Unwelcome_behaviors_at_the_Evolution_meetings_Survey_results/8311595), and transparency reports for [2017-2018](https://www.evolutionmeetings.org/uploads/4/8/8/0/48804503/transparency_report.pdf) and [2019](https://www.evolutionmeetings.org/uploads/4/8/8/0/48804503/transparency_report__2019.pdf)
+* [Academic Misconduct Database](https://academic-sexual-misconduct-database.org/): Created initially by Julie Libarkin, tracks publicly resolved and ongoing cases of sexual misconduct perpetrated by U.S. faculty, administrators and other staff. See [here](https://academic-sexual-misconduct-database.org/incidents?query=Minnesota) for Minnesota cases.
+*  [Better Letter](http://brianomeara.info/better-letter.html): Resource I made to make it easier to look for biases in letters of rec 
+*  Teaching: My senior level [macroevolution class](http://brianomeara.info/eeb464.html) and [graduate course in phylogenetics](http://phylometh.info/)
+*  [UTK EEB Community of Practice](https://eeb.utk.edu/eeb-community-of-practice/): how we are ensuring labs can open safely while respecting the needs of everyone inside them
+
+
+### UMN-specific links
+
+* [Bias Reponse Referral Network](https://bias-response.umn.edu/): reporting incidents of bias, includes transparency reports of how past incidents were handled
+* [Aurora Center for Advocacy & Education](http://aurora.umn.edu/get-help): help all victims/survivors/concerned people of sexual assault, relationship violence, stalking, and sexual harassment, including information on [reporting options](http://aurora.umn.edu/get-help/reporting-options)
+* [Ureport](https://compliance.umn.edu/report): to report misconduct in general. Includes an anonymous reporting option. Also see [https://onestop.umn.edu/terms-and-conditions/student-complaints-and-grievances](https://onestop.umn.edu/terms-and-conditions/student-complaints-and-grievances) for additional options open to students (and others, in some cases).
+* [StarTribune article on grad students confronting racism](https://www.startribune.com/at-university-of-minnesota-students-pressure-faculty-to-confront-racism-in-academia/571908082/), including the actions of UMN EEB students and faculty response
+* [Student Ombuds](https://sos.dl.umn.edu/ombuds): confidential resource for students to help resolve any university-related conflict or concern
+* [Crisis services](https://counseling.umn.edu/crisis-services): includes crisis line, 612-301-4673
+* [Self-Help](https://counseling.umn.edu/self-help): anonymous mental health screenings, alcohol assessment, and more
+* [Student Counseling](https://counseling.umn.edu/): Individual and group therapy and more
+* [BIPOC Mental Health Collective](https://counseling.umn.edu/bipoc-mental-health-collective): meets second Thursday of each month
+* [Employee Assistance Program](https://humanresources.umn.edu/benefits/employee-assistance): confidential consulting on mental health, relationships, stress, and more
 

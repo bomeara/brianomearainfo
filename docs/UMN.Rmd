@@ -10,10 +10,13 @@ In Feb. 2020 I applied for a [position as department head](https://cbs.umn.edu/b
 ### Papers from talk
 
 * [O'Meara, Smith, et al. 2016](https://doi.org/10.1098/rspb.2015.2304): paper on floral evolution. Note that it has two co-lead authors and two co-senior authors (Fenster and Diggle)
-
+* [Beaulieu et al. 2020](https://www.biorxiv.org/content/10.1101/2020.05.12.091744v2): preprint on ultraconserved elements model
 
 
 ## Leadership talk
+
+
+
 
 
 ### General links from talk
@@ -32,7 +35,7 @@ In Feb. 2020 I applied for a [position as department head](https://cbs.umn.edu/b
 
 * ["Racism with a smile"](https://www.nytimes.com/2020/06/01/us/minneapolis-racism-minnesota.html): *New York Times* article on racism in Minneapolis following the attention garnered by George Floyd's murder
 * [Bias Reponse Referral Network](https://bias-response.umn.edu/): reporting incidents of bias, includes transparency reports of how past incidents were handled
-* [Aurora Center for Advocacy & Education](http://aurora.umn.edu/get-help): help all victims/survivors/concerned people of sexual assault, relationship violence, stalking, and sexual harassment, including information on [reporting options](http://aurora.umn.edu/get-help/reporting-options)
+* [UMN Aurora Center for Advocacy & Education](http://aurora.umn.edu/get-help): help all victims/survivors/concerned people of sexual assault, relationship violence, stalking, and sexual harassment, including information on [reporting options](http://aurora.umn.edu/get-help/reporting-options)
 * [Ureport](https://compliance.umn.edu/report): to report misconduct in general. Includes an anonymous reporting option. Also see [https://onestop.umn.edu/terms-and-conditions/student-complaints-and-grievances](https://onestop.umn.edu/terms-and-conditions/student-complaints-and-grievances) for additional options open to students (and others, in some cases).
 * [*StarTribune* article on grad students confronting racism](https://www.startribune.com/at-university-of-minnesota-students-pressure-faculty-to-confront-racism-in-academia/571908082/), including the actions of UMN EEB students and faculty response
 * [Student Ombuds](https://sos.dl.umn.edu/ombuds): confidential resource for students to help resolve any university-related conflict or concern
@@ -41,4 +44,17 @@ In Feb. 2020 I applied for a [position as department head](https://cbs.umn.edu/b
 * [Student Counseling](https://counseling.umn.edu/): Individual and group therapy and more
 * [BIPOC Mental Health Collective](https://counseling.umn.edu/bipoc-mental-health-collective): meets second Thursday of each month
 * [Employee Assistance Program](https://humanresources.umn.edu/benefits/employee-assistance): confidential consulting on mental health, relationships, stress, and more
+
+### References from talk
+
+* [Boring 2017](https://doi.org/10.1016/j.jpubeco.2016.11.006): Gender biases in student evaluations of teaching
+* [Bosshardt & Watts 2001](https://doi.org/10.1080/00220480109595166): Comparing Student and Instructor Evaluations of Teaching
+* [Hofstra et al. 2020](https://doi.org/10.1073/pnas.1915378117): The diversity-innovation paradox in science
+* [MacNell et al. 2015](https://doi.org/10.1007/s10755-014-9313-4): What’s in a Name: Exposing Gender Bias in Student Ratings of Teaching
+* [McLeod & Lobel 1992](https://journals.aom.org/doi/pdf/10.5465/ambpp.1992.17515639): The effects of ethnic diversity on idea generation in small groups
+* [McLeod et al. 1996](https://journals.sagepub.com/doi/10.1177/1046496496272003): Ethnic diversity and creativity in small groups
+* [Nielsen et al. 2017](https://doi.org/10.1073/pnas.1700616114): Opinion: Gender diversity leads to better science
+* [Nikaj et al. 2018](https://faseb.onlinelibrary.wiley.com/doi/epdf/10.1096/fj.201800639): Examining trends in the diversity of the US National Institutes of Health participating and funded workforce
+* [O'Meara et al. 2019](https://figshare.com/articles/Unwelcome_behaviors_at_the_Evolution_meetings_Survey_results/8311595): Unwelcome behaviors at the Evolution meetings: Survey results
+* [Russ et al. 2002](https://doi.org/10.1080/03634520216516): Coming out in the classroom... An occupational hazard? The influence of sexual orientation on teacher credibility and perceived student learning. 
 

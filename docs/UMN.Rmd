@@ -2,7 +2,7 @@
 title: U. Minnesota EEB Head
 ---
 
-In Feb. 2020 I applied for a [position as department head](https://cbs.umn.edu/blogs/cbs-connect/ecology-evolution-and-behavior-seeking-department-head-candidates) for the University of Minnesota Ecology, Evolution, and Behavior Department. I have made it to the interview stage in Sept. 2020. Here is information and materials relevant to my application. You may be interested in my [CV](http://brianomeara.info/cv.html) and [people who have been through my lab](http://brianomeara.info/personnel.html).
+In Feb. 2020 I applied for a [position as department head](https://cbs.umn.edu/blogs/cbs-connect/ecology-evolution-and-behavior-seeking-department-head-candidates) for the University of Minnesota Ecology, Evolution, and Behavior Department. I have made it to the interview stage in Sept. 2020. Here are materials relevant to my application. You may be interested in my [CV](http://brianomeara.info/cv.html) and [people who have been through my lab](http://brianomeara.info/personnel.html). If you have any questions, please reach out at omeara.brian@gmail.com.
 
 ## Science talk
 
@@ -81,6 +81,7 @@ See my [CV](http://brianomeara.info/cv.html) for more on publications and softwa
 * [Academic Misconduct Database](https://academic-sexual-misconduct-database.org/): Created initially by Julie Libarkin, tracks publicly resolved and ongoing cases of sexual misconduct perpetrated by U.S. faculty, administrators and other staff. See [here](https://academic-sexual-misconduct-database.org/incidents?query=Minnesota) for Minnesota cases.
 * [Better Letter](http://brianomeara.info/better-letter.html): Resource I made to make it easier to look for biases in letters of rec 
 * Teaching: My senior level [macroevolution class](http://brianomeara.info/eeb464.html) and [graduate course in phylogenetics](http://phylometh.info/)
+* [Course Schedule Maker](https://brianomeara.shinyapps.io/CourseScheduleMaker): Prototype app to make course choosing easier for undergraduates
 * [UTK EEB Community of Practice](https://eeb.utk.edu/eeb-community-of-practice/): how we are ensuring labs can open safely while respecting the needs of everyone inside them
 * [NSF Survey of Earned Doctorates](https://www.nsf.gov/statistics/srvydoctorates/): PhDs by various categories per year
 * [NSF Awards Advanced Search](https://www.nsf.gov/awardsearch/advancedSearch.jsp): to look up awarded funding

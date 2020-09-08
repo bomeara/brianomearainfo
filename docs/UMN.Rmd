@@ -10,18 +10,64 @@ In Feb. 2020 I applied for a [position as department head](https://cbs.umn.edu/b
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/BvUwQZo_FGM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-<iframe src="https://drive.google.com/file/d/1GOQ7Xw11LwN3MMWoUMoMJMNEQcIEmUnn/preview" width="640" height="480"></iframe>
 
-### Papers from talk
+### Links from talk
+
+
+#### Recent papers mentioned
+
+* [Nguyen et al. 2020](https://doi.org/10.1177/1176934319899384): description of the Phylotastic project to make the tree of life more available. See [https://phylotastic.org/](https://phylotastic.org/), including the [results of our teacher workshop](https://jwiggi18.github.io/phyloEd/)
+* [Landerer et al. 2020](https://doi.org/10.1186/s12862-020-01649-w): understanding transfer of part of a chromosome in yeast
+* [Cope et al. 2020](https://doi.org/10.1186/s12864-020-6761-3): using phylogenies to infer gene coevolution
+* [Meireles et al. 2020](https://doi.org/10.1111/nph.16771): leaf reflectance to capture plant evolutionary history. Also see [https://www.spectralbiology.org/](https://www.spectralbiology.org/), the new $12.5M center to study spectral biology, headed up by UMN Professor Jeannine Cavender-Bares (note that I have no connection to the center -- it's just a great thing that recently started up)
+* [McGee, Borstein, et al. 2020](https://doi.org/10.1038/s41586-020-2652-7): cichlid evolution, including the possible evidence for and impact of hybridization
+* [Jhwueng & O'Meara 2020](https://doi.org/10.1177/1176934320901721): paper on numerical properties of phylogenetic tree matrices (which affects precision of parameter estimates)
+
+
+#### Floral evolution project
 
 * [O'Meara, Smith, et al. 2016](https://doi.org/10.1098/rspb.2015.2304): paper on floral evolution. Note that it has two co-lead authors and two co-senior authors (Fenster and Diggle)
+* [NESCent project page](https://nescent.org/science/awards_summary.php-id=90.html)
+
+
+#### PHRAPL
+
+* [Jackson et al. 2017](https://doi.org/10.1093/sysbio/syx001): basic PHRAPL phylogeographic model
+* [Carstens et al. 2017](https://doi.org/10.1016/j.ympev.2017.08.018): analyzing the choices biologists make in models
+* [Morales et al. 2017](https://doi.org/10.1093/sysbio/syw100): empirical case of speciation with gene flow in *Myotis* 
+* [Jackson et al. 2017](https://doi.org/10.1093/sysbio/syw117): species delimitation using PHRAPL
+
+
+#### Protein and UCE model
+
 * [Beaulieu et al. 2020](https://www.biorxiv.org/content/10.1101/2020.05.12.091744v2): preprint on ultraconserved elements model
+* [Beaulieu et al. 2019](https://doi.org/10.1093/molbev/msy222): core model for protein evolution
+
+
+#### Hidden Side
+
+* [Caetano et al. 2018](10.1111/evo.13602): biogeographic model
+* [O'Meara & Beaulieu 2016](https://doi.org/10.3732/ajb.1600012): overview of state-dependent diversification models
+* [Beaulieu & O'Meara 2016](https://doi.org/10.1093/sysbio/syw022): hidden state diversification model
+* [Beaulieu et al. 2013](https://doi.org/10.1093/sysbio/syt034): hidden model for binary trait transitions
+
+
+#### Relevant software
+
+* [hisse](https://cran.r-project.org/web/packages/hisse/index.html): diversification models with hidden states
+* [PHRAPL](http://www.phrapl.org/): phylogeography model
+* [corhmm](https://cran.r-project.org/web/packages/corHMM/index.html): hidden state trait model
+* [selac/selon](https://cran.r-project.org/web/packages/selac/index.html): amino acid / UCE model
+
+See my [CV](http://brianomeara.info/cv.html) for more on publications and software.
+
+
+<hr />
 
 
 ## Leadership talk
 
 [Slides (large PDF)](https://drive.google.com/file/d/1Bvurhw4qnzfQppVGFYi7s4KXzNkPVzCk/view)
-
 
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/LfXevYdz_s0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -54,6 +100,7 @@ In Feb. 2020 I applied for a [position as department head](https://cbs.umn.edu/b
 * [Student Counseling](https://counseling.umn.edu/): Individual and group therapy and more
 * [BIPOC Mental Health Collective](https://counseling.umn.edu/bipoc-mental-health-collective): meets second Thursday of each month
 * [Employee Assistance Program](https://humanresources.umn.edu/benefits/employee-assistance): confidential consulting on mental health, relationships, stress, and more
+
 
 ### References from talk
 

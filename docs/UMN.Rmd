@@ -116,3 +116,12 @@ See my [CV](http://brianomeara.info/cv.html) for more on publications and softwa
 * [O'Meara et al. 2019](https://figshare.com/articles/Unwelcome_behaviors_at_the_Evolution_meetings_Survey_results/8311595): Unwelcome behaviors at the Evolution meetings: Survey results
 * [Russ et al. 2002](https://doi.org/10.1080/03634520216516): Coming out in the classroom... An occupational hazard? The influence of sexual orientation on teacher credibility and perceived student learning. 
 
+### Some key figures from talk
+
+Figure showing coauthorship and NSF grants (2010-present, only grants through UMN, other than O'Meara grants). Only tenured faculty shown.
+
+![Coauthorship / Grant Diagram](files/UMNNetworkGraph.png)
+
+Heatmap showing per year probability of publishing in each of the top 50 most frequently-used journals by UMN EEB faculty (total articles published in that journal by that author divided by the total years since that author's first publication in any journal). Only associate (A) and full (F) faculty are shown.
+
+![Heatmap of publications](files/UMNJournalHeatmap.png)

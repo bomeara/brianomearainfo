@@ -196,13 +196,13 @@ print(local_new)
 
 ```
 
-Here are the same plots, but normalized so it's per 100,000 residents in each area per day (making it easier to see patterns in less populous areas):
+Here are the same plots, but normalized so it's per 100,000 people in each area per day (making it easier to see patterns in less populous areas):
 
 
 ```{r plotsA2, echo=FALSE, message=FALSE, warning=FALSE}
 
 
-local_new_100k <- ggplot(daily_focal[!is.na(daily_focal$New_cases_per_100k),], aes(x=DATE, y=New_cases_per_100k, group=Region)) + geom_smooth(aes(colour=Region), se=FALSE) + geom_point(aes(colour=Region), size=0.5)  + ylab("Number of new cases in area each day per 100,000 residents") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)
+local_new_100k <- ggplot(daily_focal[!is.na(daily_focal$New_cases_per_100k),], aes(x=DATE, y=New_cases_per_100k, group=Region)) + geom_smooth(aes(colour=Region), se=FALSE) + geom_point(aes(colour=Region), size=0.5)  + ylab("Number of new cases in area each day per 100,000 people") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)
 print(local_new_100k)
 
 #local_active_100k <- ggplot(daily_focal[!is.na(daily_focal$Active_cases_per_100k),], aes(x=DATE, y=Active_cases_per_100k, group=Region)) +  geom_smooth(aes(colour=Region), se=FALSE) + geom_point(aes(colour=Region), size=0.5) + ylab("Number of active cases in area each day per 100,000 residents") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)
@@ -264,7 +264,7 @@ print(knox_testing)
 
 <h2 id="testing">Testing</h2>
 
-Testing is a key part of getting a handle on the pandemic. Here are Knox County, Oak Ridge's counties (Anderson and Roane), and all the East TN counties combined (the same ones used for regional hospital reporting for bed availability). This plots shows the daily number of tests per 100,000 residents. It also includes testing done by UT student health, using data compiled by Alex Zukowski (Zukowski, Taylor A. “University of Tennessee, Knoxville COVID-19 Dataset.” COVID-19 in The University of Tennessee, Knoxville, 2020, sites.google.com/view/utk-covid19/data).
+Testing is a key part of getting a handle on the pandemic. Here are Knox County, Oak Ridge's counties (Anderson and Roane), and all the East TN counties combined (the same ones used for regional hospital reporting for bed availability). This plots shows the daily number of tests per 100,000 residents. It also includes testing done by UT student health, using data compiled by Alex Zukowski (Zukowski, Taylor A. “University of Tennessee, Knoxville COVID-19 Dataset.” COVID-19 in The University of Tennessee, Knoxville, 2020, sites.google.com/view/utk-covid19/data). For the UT data, I am plotting against number of students (30,000).
 
 
 ```{r plotsB2, echo=FALSE, message=FALSE, warning=FALSE}
@@ -361,7 +361,7 @@ geom_rect(mapping=aes(xmin=min(daily_focal$DATE), xmax=max(daily_focal$DATE), ym
 geom_rect(mapping=aes(xmin=min(daily_focal$DATE), xmax=max(daily_focal$DATE), ymin=.7, ymax=.8), fill="orange") +
 geom_rect(mapping=aes(xmin=min(daily_focal$DATE), xmax=max(daily_focal$DATE), ymin=.8, ymax=1), fill="red") +
 annotate("text", x = min(daily_focal$DATE), y=c(-0.1, 0.25, 0.6, 0.9), label = c("Phase 0, all normal", "Phase 1, schools open and virtual option", "Phase 2, blended learning plan", "Phase 3, all schools closed, all students virtual"), hjust=0) +
- geom_line(aes(colour=Region)) + geom_point(aes(colour=Region), size=0.5) + ylab("Percent of residents with active covid infections") + xlab("Date") + ylim(-0.2,1) + scale_colour_viridis_d(end=0.9, option="A")
+ geom_line(aes(colour=Region)) + geom_point(aes(colour=Region), size=0.5) + ylab("Percent of people with active covid infections") + xlab("Date") + ylim(-0.2,1) + scale_colour_viridis_d(end=0.9, option="A")
 print(local_active_percent)
 ```
 

@@ -11,6 +11,7 @@ library(anytime)
 library(rds.r)
 library(ggrepel)
 library(ggpubr)
+library(lubridate)
 
 
 #gmr <- "https://www.gstatic.com/covid19/mobility/Global_Mobility_Report.csv"
@@ -25,6 +26,10 @@ oakridge <- subset(us, administrative_area_level_3 %in% c("Roane", "Anderson") &
 region <-  subset(us, administrative_area_level_3 %in% counties_in_hospital_region & administrative_area_level_2=="Tennessee")
 knox$percentconfirmed <- 100*knox$confirmed/knox$population
 
+utk_testing_zukowski <- read.csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vRRoX-icFl5a6T5OVpSllMJ3QGVplgdDEKPHtuvEjcDKNEvw5X6dcgGYSMGmynFcdxUwH2u4kZjBTiT/pub?gid=1083850404&single=true&output=csv")
+utk_testing_zukowski$Date <- lubridate::mdy(paste(utk_testing_zukowski$Date, 2020, sep=", "))
+
+utk_reported_zukowski <- read.csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vRRoX-icFl5a6T5OVpSllMJ3QGVplgdDEKPHtuvEjcDKNEvw5X6dcgGYSMGmynFcdxUwH2u4kZjBTiT/pub?gid=1053792052&single=true&output=csv")
 
 tn_aggregate <- tn %>% group_by(date) %>% summarise(confirmed = sum(confirmed), population=sum(population))
 tn_aggregate$percentconfirmed <- 100*tn_aggregate$confirmed/tn_aggregate$population
@@ -41,7 +46,7 @@ oakridge_aggregate$percentconfirmed <- 100*oakridge_aggregate$confirmed/oakridge
 region_aggregate <- region %>% group_by(date) %>% summarise(confirmed = sum(confirmed), population=sum(population))
 region_aggregate$percentconfirmed <- 100*region_aggregate$confirmed/region_aggregate$population
 
-us_diff <- data.frame(date=us_aggregate$date[-1], daily_confirmed=diff(us_aggregate$confirmed), daily_percent_confirmed=diff(tn_aggregate$percentconfirmed))
+#us_diff <- data.frame(date=us_aggregate$date[-1], daily_confirmed=diff(us_aggregate$confirmed), daily_percent_confirmed=diff(tn_aggregate$percentconfirmed))
 
 
 
@@ -72,7 +77,7 @@ temp = tempfile(fileext = ".xlsx")
 dataURL <- "https://www.tn.gov/content/dam/tn/health/documents/cedep/novel-coronavirus/datasets/Public-Dataset-County-New.XLSX"
 download.file(dataURL, destfile=temp, mode='wb')
 
-daily <- readxl::read_xlsx(temp, sheet =1, col_types=c("date", "text", rep("numeric",20)))
+daily <- readxl::read_xlsx(temp, sheet =1, col_types=c("date", "text", rep("numeric",22)))
 
 daily_knox <- subset(daily, COUNTY=="Knox") %>% select(-"COUNTY")
 daily_knox$Region <- "Knox County"
@@ -90,7 +95,14 @@ daily_region<- subset(daily, COUNTY %in% counties_in_hospital_region) %>% group_
 daily_region$Region <- "East TN"
 daily_region$Population <- region_pop
 
-daily_focal <- rbind(daily_knox, daily_oakridge, daily_region)
+daily_utk_testing_zukowski <- data.frame(DATE=utk_testing_zukowski$Date, TOTAL_CASES=utk_testing_zukowski$TESTS_POS_TOTAL, NEW_CASES=utk_testing_zukowski$TESTS_POS_NEW, TOTAL_CONFIRMED=utk_testing_zukowski$TESTS_POS_TOTAL, NEW_CONFIRMED=utk_testing_zukowski$TESTS_POS_NEW, POS_TESTS=utk_testing_zukowski$TESTS_POS_TOTAL, NEW_POS_TESTS=utk_testing_zukowski$TESTS_POS_NEW, NEG_TESTS=utk_testing_zukowski$TESTS_NEG_TOTAL, NEW_NEG_TESTS=utk_testing_zukowski$TESTS_NEG_NEW, TOTAL_TESTS=utk_testing_zukowski$TESTS_TOTAL, NEW_TESTS=utk_testing_zukowski$TESTS_NEW, Population=30000, Region="UTK Student Testing")
+
+daily_utk_reported_zukowski <- data.frame(DATE=lubridate::ymd(utk_reported_zukowski$DATE), TOTAL_CASES=utk_reported_zukowski$CASES_TOTAL, NEW_CASES=utk_reported_zukowski$CASES_NEW, TOTAL_CONFIRMED=utk_reported_zukowski$CASES_TOTAL, NEW_CONFIRMED=utk_reported_zukowski$CASES_NEW,  TOTAL_ACTIVE=utk_reported_zukowski$CASES_ACTIVE, Population=30000, Region="UTK Reported")
+
+#daily_focal <- dplyr::bind_rows(daily_knox, daily_oakridge, daily_region, daily_utk_testing_zukowski, daily_utk_reported_zukowski)
+
+daily_focal <- dplyr::bind_rows(daily_knox, daily_oakridge, daily_utk_testing_zukowski, daily_utk_reported_zukowski)
+
 daily_focal$Tests_per_100k <- 100000*(daily_focal$NEW_TESTS/daily_focal$Population)
 daily_focal$New_cases_per_100k <- 100000*(daily_focal$NEW_CASES/daily_focal$Population)
 daily_focal$Active_cases_per_100k <- 100000*(daily_focal$TOTAL_ACTIVE/daily_focal$Population)
@@ -125,8 +137,8 @@ local_new <- ggplot(daily_focal[!is.na(daily_focal$NEW_CASES),], aes(x=DATE, y=N
 print(local_new)
 
 #local_active <- ggplot(daily_focal[!is.na(daily_focal$TOTAL_ACTIVE),], aes(x=DATE, y=TOTAL_ACTIVE, group=Region)) +  geom_smooth(aes(colour=Region), se=FALSE) + geom_point(aes(colour=Region), size=0.5) + ylab("Number of active cases in area each day") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)
-local_active <- ggplot(daily_focal[!is.na(daily_focal$TOTAL_ACTIVE),], aes(x=DATE, y=TOTAL_ACTIVE, group=Region)) +  geom_line(aes(colour=Region)) + geom_point(aes(colour=Region), size=0.5) + ylab("Number of active cases in area each day") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)
-print(local_active)
+#local_active <- ggplot(daily_focal[!is.na(daily_focal$TOTAL_ACTIVE),], aes(x=DATE, y=TOTAL_ACTIVE, group=Region)) +  geom_line(aes(colour=Region)) + geom_point(aes(colour=Region), size=0.5) + ylab("Number of active cases in area each day") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)
+#print(local_active)
 
 
 
@@ -138,8 +150,8 @@ local_new_100k <- ggplot(daily_focal[!is.na(daily_focal$New_cases_per_100k),], a
 print(local_new_100k)
 
 #local_active_100k <- ggplot(daily_focal[!is.na(daily_focal$Active_cases_per_100k),], aes(x=DATE, y=Active_cases_per_100k, group=Region)) +  geom_smooth(aes(colour=Region), se=FALSE) + geom_point(aes(colour=Region), size=0.5) + ylab("Number of active cases in area each day per 100,000 residents") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)
-local_active_100k <- ggplot(daily_focal[!is.na(daily_focal$Active_cases_per_100k),], aes(x=DATE, y=Active_cases_per_100k, group=Region)) +  geom_line(aes(colour=Region)) + geom_point(aes(colour=Region), size=0.5) + ylab("Number of active cases in area each day per 100,000 residents") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)
-print(local_active_100k)
+#local_active_100k <- ggplot(daily_focal[!is.na(daily_focal$Active_cases_per_100k),], aes(x=DATE, y=Active_cases_per_100k, group=Region)) +  geom_line(aes(colour=Region)) + geom_point(aes(colour=Region), size=0.5) + ylab("Number of active cases in area each day per 100,000 residents") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)
+#print(local_active_100k)
 
 
 
@@ -195,7 +207,7 @@ print(local_active_100k)
 
 ## ----plotsB2, echo=FALSE, message=FALSE, warning=FALSE------------------------
 
-proportional_testing <- ggplot(daily_focal[!is.na(daily_focal$Tests_per_100k),], aes(x=DATE, y=Tests_per_100k, group=Region)) + geom_smooth(aes(colour=Region), se=FALSE) + geom_point(aes(colour=Region), size=0.5)  + ylab("Number of new tests per 100,000 residents each day") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)
+proportional_testing <- ggplot(daily_focal[!is.na(daily_focal$Tests_per_100k),], aes(x=DATE, y=Tests_per_100k, group=Region)) + geom_smooth(aes(colour=Region), se=FALSE) + geom_point(aes(colour=Region), size=0.5)  + ylab("Number of new tests per 100,000 people each day") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)
 print(proportional_testing)
 
 

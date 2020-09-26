@@ -48,6 +48,7 @@ library(anytime)
 library(rds.r)
 library(ggrepel)
 library(ggpubr)
+library(lubridate)
 
 
 #gmr <- "https://www.gstatic.com/covid19/mobility/Global_Mobility_Report.csv"
@@ -62,6 +63,10 @@ oakridge <- subset(us, administrative_area_level_3 %in% c("Roane", "Anderson") &
 region <-  subset(us, administrative_area_level_3 %in% counties_in_hospital_region & administrative_area_level_2=="Tennessee")
 knox$percentconfirmed <- 100*knox$confirmed/knox$population
 
+utk_testing_zukowski <- read.csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vRRoX-icFl5a6T5OVpSllMJ3QGVplgdDEKPHtuvEjcDKNEvw5X6dcgGYSMGmynFcdxUwH2u4kZjBTiT/pub?gid=1083850404&single=true&output=csv")
+utk_testing_zukowski$Date <- lubridate::mdy(paste(utk_testing_zukowski$Date, 2020, sep=", "))
+
+utk_reported_zukowski <- read.csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vRRoX-icFl5a6T5OVpSllMJ3QGVplgdDEKPHtuvEjcDKNEvw5X6dcgGYSMGmynFcdxUwH2u4kZjBTiT/pub?gid=1053792052&single=true&output=csv")
 
 tn_aggregate <- tn %>% group_by(date) %>% summarise(confirmed = sum(confirmed), population=sum(population))
 tn_aggregate$percentconfirmed <- 100*tn_aggregate$confirmed/tn_aggregate$population
@@ -127,7 +132,14 @@ daily_region<- subset(daily, COUNTY %in% counties_in_hospital_region) %>% group_
 daily_region$Region <- "East TN"
 daily_region$Population <- region_pop
 
-daily_focal <- rbind(daily_knox, daily_oakridge, daily_region)
+daily_utk_testing_zukowski <- data.frame(DATE=utk_testing_zukowski$Date, TOTAL_CASES=utk_testing_zukowski$TESTS_POS_TOTAL, NEW_CASES=utk_testing_zukowski$TESTS_POS_NEW, TOTAL_CONFIRMED=utk_testing_zukowski$TESTS_POS_TOTAL, NEW_CONFIRMED=utk_testing_zukowski$TESTS_POS_NEW, POS_TESTS=utk_testing_zukowski$TESTS_POS_TOTAL, NEW_POS_TESTS=utk_testing_zukowski$TESTS_POS_NEW, NEG_TESTS=utk_testing_zukowski$TESTS_NEG_TOTAL, NEW_NEG_TESTS=utk_testing_zukowski$TESTS_NEG_NEW, TOTAL_TESTS=utk_testing_zukowski$TESTS_TOTAL, NEW_TESTS=utk_testing_zukowski$TESTS_NEW, Population=30000, Region="UTK Student Testing")
+
+daily_utk_reported_zukowski <- data.frame(DATE=lubridate::ymd(utk_reported_zukowski$DATE), TOTAL_CASES=utk_reported_zukowski$CASES_TOTAL, NEW_CASES=utk_reported_zukowski$CASES_NEW, TOTAL_CONFIRMED=utk_reported_zukowski$CASES_TOTAL, NEW_CONFIRMED=utk_reported_zukowski$CASES_NEW,  TOTAL_ACTIVE=utk_reported_zukowski$CASES_ACTIVE, Population=30000, Region="UTK Reported")
+
+#daily_focal <- dplyr::bind_rows(daily_knox, daily_oakridge, daily_region, daily_utk_testing_zukowski, daily_utk_reported_zukowski)
+
+daily_focal <- dplyr::bind_rows(daily_knox, daily_oakridge, daily_utk_testing_zukowski, daily_utk_reported_zukowski)
+
 daily_focal$Tests_per_100k <- 100000*(daily_focal$NEW_TESTS/daily_focal$Population)
 daily_focal$New_cases_per_100k <- 100000*(daily_focal$NEW_CASES/daily_focal$Population)
 daily_focal$Active_cases_per_100k <- 100000*(daily_focal$TOTAL_ACTIVE/daily_focal$Population)
@@ -159,11 +171,15 @@ schoolkids_daily <- rbind(schoolkids_knox, schoolkids_oakridge, schoolkids_regio
 
 The number of new should be not be going up if things are well-controlled, and ideally should be going down. I used to plot active cases, but how those are tracked has changed (it used to be based on recoveries, now it's just a two weeek lag of active). This uses data from https://www.tn.gov/health/cedep/ncov/data/downloadable-datasets.html. The number of new cases per day seems to align fairly well, but not perfectly, between the state and county data.
 
-I plot three regions
+I plot five regions (though for simplicity, for some of the plots I omit East TN, and regions with no data automatically do not get plotted for certain measures)
 
 * Knox County (which includes Knoxville)
 * Anderson & Roane Counties, which include the town of Oak Ridge
 * East TN (the `r length(counties_in_hospital_region)` counties that have acute care hospitals in Knox County/East Region according to Knox County)
+* UTK Student Testing, from tests done at the UTK student health center
+* UTK Reported, from all cases UT includes on their dashboard (student cases from the health center, cases reported from tests off campus that are communicated)
+
+Information from the last two datasets comes from the hard work of Alex Zukowski, who requests the testing data and who aggregates the reported data. Zukowski, Taylor A. “University of Tennessee, Knoxville COVID-19 Dataset.” COVID-19 in The University of Tennessee, Knoxville, 2020, sites.google.com/view/utk-covid19/data.  
 
 For many of these plots, I am now showing the smoothed curves rather than line connecting the raw points per day -- these can jump around quite a bit (such as for things like tests per day). However, where the loess smoothing seems to be obscuring rather than clarifying, I just plot the line connecting the points.
 
@@ -248,12 +264,12 @@ print(knox_testing)
 
 <h2 id="testing">Testing</h2>
 
-Testing is a key part of getting a handle on the pandemic. Here are Knox County, Oak Ridge's counties (Anderson and Roane), and all the East TN counties combined (the same ones used for regional hospital reporting for bed availability). This plots shows the daily number of tests per 100,000 residents.
+Testing is a key part of getting a handle on the pandemic. Here are Knox County, Oak Ridge's counties (Anderson and Roane), and all the East TN counties combined (the same ones used for regional hospital reporting for bed availability). This plots shows the daily number of tests per 100,000 residents. It also includes testing done by UT student health, using data compiled by Alex Zukowski (Zukowski, Taylor A. “University of Tennessee, Knoxville COVID-19 Dataset.” COVID-19 in The University of Tennessee, Knoxville, 2020, sites.google.com/view/utk-covid19/data).
 
 
 ```{r plotsB2, echo=FALSE, message=FALSE, warning=FALSE}
 
-proportional_testing <- ggplot(daily_focal[!is.na(daily_focal$Tests_per_100k),], aes(x=DATE, y=Tests_per_100k, group=Region)) + geom_smooth(aes(colour=Region), se=FALSE) + geom_point(aes(colour=Region), size=0.5)  + ylab("Number of new tests per 100,000 residents each day") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)
+proportional_testing <- ggplot(daily_focal[!is.na(daily_focal$Tests_per_100k),], aes(x=DATE, y=Tests_per_100k, group=Region)) + geom_smooth(aes(colour=Region), se=FALSE) + geom_point(aes(colour=Region), size=0.5)  + ylab("Number of new tests per 100,000 people each day") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)
 print(proportional_testing)
 
 

@@ -179,7 +179,7 @@ I plot five regions (though for simplicity, for some of the plots I omit East TN
 * UTK Student Testing, from tests done at the UTK student health center
 * UTK Reported, from all cases UT includes on their dashboard (student cases from the health center, cases reported from tests off campus that are communicated)
 
-Information from the last two datasets comes from the hard work of Alex Zukowski, who requests the testing data and who aggregates the reported data. Zukowski, Taylor A. “University of Tennessee, Knoxville COVID-19 Dataset.” COVID-19 in The University of Tennessee, Knoxville, 2020, sites.google.com/view/utk-covid19/data.  
+Information from the last two datasets comes from the hard work of Alex Zukowski, who requests the testing data and who aggregates the reported data. Zukowski, Taylor A. “University of Tennessee, Knoxville COVID-19 Dataset.” COVID-19 in The University of Tennessee, Knoxville, 2020, sites.google.com/view/utk-covid19/data. I recommend going to [https://sites.google.com/view/utk-covid19](https://sites.google.com/view/utk-covid19) for more on this dataset and the work going into gathering it.
 
 For many of these plots, I am now showing the smoothed curves rather than line connecting the raw points per day -- these can jump around quite a bit (such as for things like tests per day). However, where the loess smoothing seems to be obscuring rather than clarifying, I just plot the line connecting the points.
 

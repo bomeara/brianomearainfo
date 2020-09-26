@@ -18,6 +18,8 @@ Other sources for data and other information:
 * <a href="https://nextstrain.org/ncov">COVID-19 phylogeny</a>. Family tree of the COVID-19 viruses around the world. This can be used by experts to understand how the disease has spread and is continuing to spread, as well as possible evolution during its spread.
 * <a href="https://projects.propublica.org/reopening-america/">ProPublica's tracker of state status</a>. Click on the play button below their map to see how rates are changing over time, and dig into info on your state.
 * <a href="https://www.tn.gov/health/cedep/ncov/data/downloadable-datasets.html">Tennessee Downloadable Datasets</a>
+* <a href="https://sites.google.com/view/utk-covid19">Alex Zukowski's UTK dashboard</a>, including testing numbers that are available due to his work requesting them
+* <a href="https://datastudio.google.com/u/0/reporting/9d4c8edd-0634-4dc4-a647-5de19183a437/page/IxOeB">Matthew Martin's UTK dashboard</a>
 
 <hr />
 
@@ -155,9 +157,7 @@ schoolkids_daily <- rbind(schoolkids_knox, schoolkids_oakridge, schoolkids_regio
 
 <h2 id="cases">Cases</h2>
 
-The number of new and active cases should be not be going up if things are well-controlled, and ideally should be going down. The number of active cases is the number of positive cases minus the total of recovered or deceased cases: note it is from those tested and shown to be positive, but there are likely more people with covid who have not been tested. This uses data from https://www.tn.gov/health/cedep/ncov/data/downloadable-datasets.html. Note that the number of active cases in Knox County reported by the state differs from the <a href="https://covid.knoxcountytn.gov/case-count.html#covid_data">county website</a>, sometimes dramatically (on June 16, the county website said 102 active cases, while the state says 178, for example) -- I suspect this is based on the number of recovered cases not being updated as quickly in the state data, but I do not know. Knox County does not seem to offer a download of their data through time, so I am using the state's data. The number of new cases per day seems to align fairly well, but not perfectly, between the state and county data, too.
-
-<b>Around Sept. 4, the reported number of active cases dramatically dropped: Knox calculations of what constituted an active case changed from being based on recoveries to just a certain number of days after a positive test. So do not compare numbers across that date boundary.</b>
+The number of new should be not be going up if things are well-controlled, and ideally should be going down. I used to plot active cases, but how those are tracked has changed (it used to be based on recoveries, now it's just a two weeek lag of active). This uses data from https://www.tn.gov/health/cedep/ncov/data/downloadable-datasets.html. The number of new cases per day seems to align fairly well, but not perfectly, between the state and county data.
 
 I plot three regions
 
@@ -174,8 +174,8 @@ local_new <- ggplot(daily_focal[!is.na(daily_focal$NEW_CASES),], aes(x=DATE, y=N
 print(local_new)
 
 #local_active <- ggplot(daily_focal[!is.na(daily_focal$TOTAL_ACTIVE),], aes(x=DATE, y=TOTAL_ACTIVE, group=Region)) +  geom_smooth(aes(colour=Region), se=FALSE) + geom_point(aes(colour=Region), size=0.5) + ylab("Number of active cases in area each day") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)
-local_active <- ggplot(daily_focal[!is.na(daily_focal$TOTAL_ACTIVE),], aes(x=DATE, y=TOTAL_ACTIVE, group=Region)) +  geom_line(aes(colour=Region)) + geom_point(aes(colour=Region), size=0.5) + ylab("Number of active cases in area each day") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)
-print(local_active)
+#local_active <- ggplot(daily_focal[!is.na(daily_focal$TOTAL_ACTIVE),], aes(x=DATE, y=TOTAL_ACTIVE, group=Region)) +  geom_line(aes(colour=Region)) + geom_point(aes(colour=Region), size=0.5) + ylab("Number of active cases in area each day") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)
+#print(local_active)
 
 
 ```
@@ -190,8 +190,8 @@ local_new_100k <- ggplot(daily_focal[!is.na(daily_focal$New_cases_per_100k),], a
 print(local_new_100k)
 
 #local_active_100k <- ggplot(daily_focal[!is.na(daily_focal$Active_cases_per_100k),], aes(x=DATE, y=Active_cases_per_100k, group=Region)) +  geom_smooth(aes(colour=Region), se=FALSE) + geom_point(aes(colour=Region), size=0.5) + ylab("Number of active cases in area each day per 100,000 residents") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)
-local_active_100k <- ggplot(daily_focal[!is.na(daily_focal$Active_cases_per_100k),], aes(x=DATE, y=Active_cases_per_100k, group=Region)) +  geom_line(aes(colour=Region)) + geom_point(aes(colour=Region), size=0.5) + ylab("Number of active cases in area each day per 100,000 residents") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)
-print(local_active_100k)
+#local_active_100k <- ggplot(daily_focal[!is.na(daily_focal$Active_cases_per_100k),], aes(x=DATE, y=Active_cases_per_100k, group=Region)) +  geom_line(aes(colour=Region)) + geom_point(aes(colour=Region), size=0.5) + ylab("Number of active cases in area each day per 100,000 residents") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)
+#print(local_active_100k)
 
 
 ```

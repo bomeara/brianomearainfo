@@ -146,7 +146,7 @@ print(local_new)
 ## ----plotsA2, echo=FALSE, message=FALSE, warning=FALSE------------------------
 
 
-local_new_100k <- ggplot(daily_focal[!is.na(daily_focal$New_cases_per_100k),], aes(x=DATE, y=New_cases_per_100k, group=Region)) + geom_smooth(aes(colour=Region), se=FALSE) + geom_point(aes(colour=Region), size=0.5)  + ylab("Number of new cases in area each day per 100,000 residents") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)
+local_new_100k <- ggplot(daily_focal[!is.na(daily_focal$New_cases_per_100k),], aes(x=DATE, y=New_cases_per_100k, group=Region)) + geom_smooth(aes(colour=Region), se=FALSE) + geom_point(aes(colour=Region), size=0.5)  + ylab("Number of new cases in area each day per 100,000 people") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)
 print(local_new_100k)
 
 #local_active_100k <- ggplot(daily_focal[!is.na(daily_focal$Active_cases_per_100k),], aes(x=DATE, y=Active_cases_per_100k, group=Region)) +  geom_smooth(aes(colour=Region), se=FALSE) + geom_point(aes(colour=Region), size=0.5) + ylab("Number of active cases in area each day per 100,000 residents") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)
@@ -154,6 +154,16 @@ print(local_new_100k)
 #print(local_active_100k)
 
 
+
+
+## ----log1pnew, echo=FALSE, message=FALSE, warning=FALSE, eval=TRUE------------
+local_new_100k_log1p <- ggplot(daily_focal[!is.na(daily_focal$New_cases_per_100k),], aes(x=DATE, y=New_cases_per_100k, group=Region)) + 
+geom_rect(mapping=aes(xmin=min(daily_focal$DATE), xmax=max(daily_focal$DATE), ymin=0, ymax=1), fill="darkolivegreen1") +
+  geom_rect(mapping=aes(xmin=min(daily_focal$DATE), xmax=max(daily_focal$DATE), ymin=1, ymax=10), fill="khaki1") +
+  geom_rect(mapping=aes(xmin=min(daily_focal$DATE), xmax=max(daily_focal$DATE), ymin=10, ymax=25), fill="tan1") +
+  geom_rect(mapping=aes(xmin=min(daily_focal$DATE), xmax=max(daily_focal$DATE), ymin=25, ymax=max(daily_focal$New_cases_per_100k, na.rm=TRUE)), fill="indianred1") + 
+geom_smooth(aes(colour=Region), se=FALSE) + geom_point(aes(colour=Region), size=0.5)  + ylab("Number of new cases in area each day per 100,000 people") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8) + scale_y_continuous(trans = "log1p", breaks = c(1, 9.5, 24.5))
+print(local_new_100k_log1p)
 
 
 ## ----greenzone, echo=FALSE, message=FALSE, warning=FALSE, eval=FALSE----------
@@ -282,7 +292,7 @@ try(print(student_covid_daily))
 ## geom_rect(mapping=aes(xmin=min(daily_focal$DATE), xmax=max(daily_focal$DATE), ymin=.7, ymax=.8), fill="orange") +
 ## geom_rect(mapping=aes(xmin=min(daily_focal$DATE), xmax=max(daily_focal$DATE), ymin=.8, ymax=1), fill="red") +
 ## annotate("text", x = min(daily_focal$DATE), y=c(-0.1, 0.25, 0.6, 0.9), label = c("Phase 0, all normal", "Phase 1, schools open and virtual option", "Phase 2, blended learning plan", "Phase 3, all schools closed, all students virtual"), hjust=0) +
-##  geom_line(aes(colour=Region)) + geom_point(aes(colour=Region), size=0.5) + ylab("Percent of residents with active covid infections") + xlab("Date") + ylim(-0.2,1) + scale_colour_viridis_d(end=0.9, option="A")
+##  geom_line(aes(colour=Region)) + geom_point(aes(colour=Region), size=0.5) + ylab("Percent of people with active covid infections") + xlab("Date") + ylim(-0.2,1) + scale_colour_viridis_d(end=0.9, option="A")
 ## print(local_active_percent)
 
 

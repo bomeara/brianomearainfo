@@ -212,6 +212,19 @@ print(local_new_100k)
 
 ```
 
+Given the spike at UT (testing has dropped substantially since then, as well as new indications of cases), it can be worth putting new cases on a log plot. I also here use the [Harvard Global Health Institute's](https://globalepidemics.org/key-metrics-for-covid-suppression/) standards for guidance of control. Yellow means "rigorous test and trace programs advised", orange means "stay-at-home orders and/or rigorous test and trace programs advised", and red means "stay-at-home orders necessary".
+
+```{r log1pnew, echo=FALSE, message=FALSE, warning=FALSE, eval=TRUE}
+daily_focal_away_from_zero <- subset(daily_focal, New_cases_per_100k>0.5) #to keep the plot from blowing up towards zero
+local_new_100k_log1p <- ggplot(daily_focal_away_from_zero[!is.na(daily_focal_away_from_zero$New_cases_per_100k),], aes(x=DATE, y=New_cases_per_100k, group=Region)) + 
+geom_rect(mapping=aes(xmin=min(daily_focal_away_from_zero$DATE), xmax=max(daily_focal_away_from_zero$DATE), ymin=0, ymax=1), fill="darkolivegreen1") +
+  geom_rect(mapping=aes(xmin=min(daily_focal_away_from_zero$DATE), xmax=max(daily_focal_away_from_zero$DATE), ymin=1, ymax=10), fill="khaki1") +
+  geom_rect(mapping=aes(xmin=min(daily_focal_away_from_zero$DATE), xmax=max(daily_focal_away_from_zero$DATE), ymin=10, ymax=25), fill="tan1") +
+  geom_rect(mapping=aes(xmin=min(daily_focal_away_from_zero$DATE), xmax=max(daily_focal_away_from_zero$DATE), ymin=25, ymax=max(daily_focal_away_from_zero$New_cases_per_100k, na.rm=TRUE)), fill="indianred1") + 
+geom_smooth(aes(colour=Region), se=FALSE) + geom_point(aes(colour=Region), size=0.5)  + ylab("Number of new cases in area each day per 100,000 people") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8) + scale_y_continuous(trans = "log1p", breaks = c(1, 9.5, 24.5))
+print(local_new_100k_log1p)
+```
+
 ```{r greenzone, echo=FALSE, message=FALSE, warning=FALSE, eval=FALSE}
 # Knox County has published <a href="https://covid.knoxcountytn.gov/case-count.html#covid_data">its guidelines</a>. For it to be green for the number of new cases, it requires "No three-day shifts of 1.5 standard deviations above a rolling mean (based on data from the previous 14 days)." It's not quite clear to me what this means (the average of the three days can't exceed this or **all** or **any** of the three days can't exceed it?);  I'm taking the interpretation that if the three day mean is above this value, there's a problem. They update their stop lights weekly; this looks at each day to see if the average of that day and the two previous days exceeds what seems to be their threshold. Remember that this is just me playing with the data -- they're the experts to decide if cases are growing enough to be worrisome.
 

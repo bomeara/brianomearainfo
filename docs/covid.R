@@ -157,12 +157,13 @@ print(local_new_100k)
 
 
 ## ----log1pnew, echo=FALSE, message=FALSE, warning=FALSE, eval=TRUE------------
-local_new_100k_log1p <- ggplot(daily_focal[!is.na(daily_focal$New_cases_per_100k),], aes(x=DATE, y=New_cases_per_100k, group=Region)) + 
-geom_rect(mapping=aes(xmin=min(daily_focal$DATE), xmax=max(daily_focal$DATE), ymin=0, ymax=1), fill="darkolivegreen1") +
-  geom_rect(mapping=aes(xmin=min(daily_focal$DATE), xmax=max(daily_focal$DATE), ymin=1, ymax=10), fill="khaki1") +
-  geom_rect(mapping=aes(xmin=min(daily_focal$DATE), xmax=max(daily_focal$DATE), ymin=10, ymax=25), fill="tan1") +
-  geom_rect(mapping=aes(xmin=min(daily_focal$DATE), xmax=max(daily_focal$DATE), ymin=25, ymax=max(daily_focal$New_cases_per_100k, na.rm=TRUE)), fill="indianred1") + 
-geom_smooth(aes(colour=Region), se=FALSE) + geom_point(aes(colour=Region), size=0.5)  + ylab("Number of new cases in area each day per 100,000 people") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8) + scale_y_continuous(trans = "log1p", breaks = c(1, 9.5, 24.5))
+daily_focal_away_from_zero <- subset(daily_focal, New_cases_per_100k>0.5) #to keep the plot from blowing up towards zero
+local_new_100k_log1p <- ggplot(daily_focal_away_from_zero[!is.na(daily_focal_away_from_zero$New_cases_per_100k),], aes(x=DATE, y=New_cases_per_100k, group=Region)) + 
+geom_rect(mapping=aes(xmin=min(daily_focal_away_from_zero$DATE), xmax=max(daily_focal_away_from_zero$DATE), ymin=0, ymax=1), fill="darkolivegreen1") +
+  geom_rect(mapping=aes(xmin=min(daily_focal_away_from_zero$DATE), xmax=max(daily_focal_away_from_zero$DATE), ymin=1, ymax=10), fill="khaki1") +
+  geom_rect(mapping=aes(xmin=min(daily_focal_away_from_zero$DATE), xmax=max(daily_focal_away_from_zero$DATE), ymin=10, ymax=25), fill="tan1") +
+  geom_rect(mapping=aes(xmin=min(daily_focal_away_from_zero$DATE), xmax=max(daily_focal_away_from_zero$DATE), ymin=25, ymax=max(daily_focal_away_from_zero$New_cases_per_100k, na.rm=TRUE)), fill="indianred1") + 
+geom_smooth(aes(colour=Region), se=FALSE) + geom_point(aes(colour=Region), size=0.5)  + ylab("Number of new cases in area each day per 100,000 people") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8) + scale_y_continuous(trans = "log1p", breaks = c(1, 10, 25))
 print(local_new_100k_log1p)
 
 
@@ -301,16 +302,19 @@ try(print(student_covid_daily))
 hospital_knox_files <- list.files(path="/Users/bomeara/Dropbox/KnoxCovid", pattern="*covid_bed_capacity.csv", full.names=TRUE)
 hospital_knox <- data.frame()
 for (i in seq_along(hospital_knox_files)) {
-  local_beds <- read.csv(hospital_knox_files[i])
-  local_beds$Total.Capacity <- as.numeric(gsub(",",'', local_beds$Total.Capacity))
-  local_beds$Current.Census <- as.numeric(gsub(",",'', local_beds$Current.Census))
-  local_beds$Current.Utilization <- as.numeric(gsub('%','', local_beds$Current.Utilization))
-  local_beds$Available.Capacity <- as.numeric(gsub('%','', local_beds$Available.Capacity))
-  local_beds$Date <- anytime::anytime(stringr::str_extract(hospital_knox_files[i], "\\d+_\\d+_\\d+_\\d+_\\d+_\\d+"))
-  if (i==1) {
-    hospital_knox <- local_beds
-  } else {
-    hospital_knox <- rbind(hospital_knox, local_beds)
+  local_beds <- NA
+  try(local_beds <- read.csv(hospital_knox_files[i]))
+  if(!is.na(local_beds)) {
+	local_beds$Total.Capacity <- as.numeric(gsub(",",'', local_beds$Total.Capacity))
+	local_beds$Current.Census <- as.numeric(gsub(",",'', local_beds$Current.Census))
+	local_beds$Current.Utilization <- as.numeric(gsub('%','', local_beds$Current.Utilization))
+	local_beds$Available.Capacity <- as.numeric(gsub('%','', local_beds$Available.Capacity))
+	local_beds$Date <- anytime::anytime(stringr::str_extract(hospital_knox_files[i], "\\d+_\\d+_\\d+_\\d+_\\d+_\\d+"))
+	if (i==1) {
+		hospital_knox <- local_beds
+	} else {
+		hospital_knox <- rbind(hospital_knox, local_beds)
+	}
   }
 }
 

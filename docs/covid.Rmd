@@ -389,16 +389,19 @@ print(local_active_percent)
 hospital_knox_files <- list.files(path="/Users/bomeara/Dropbox/KnoxCovid", pattern="*covid_bed_capacity.csv", full.names=TRUE)
 hospital_knox <- data.frame()
 for (i in seq_along(hospital_knox_files)) {
-  local_beds <- read.csv(hospital_knox_files[i])
-  local_beds$Total.Capacity <- as.numeric(gsub(",",'', local_beds$Total.Capacity))
-  local_beds$Current.Census <- as.numeric(gsub(",",'', local_beds$Current.Census))
-  local_beds$Current.Utilization <- as.numeric(gsub('%','', local_beds$Current.Utilization))
-  local_beds$Available.Capacity <- as.numeric(gsub('%','', local_beds$Available.Capacity))
-  local_beds$Date <- anytime::anytime(stringr::str_extract(hospital_knox_files[i], "\\d+_\\d+_\\d+_\\d+_\\d+_\\d+"))
-  if (i==1) {
-    hospital_knox <- local_beds
-  } else {
-    hospital_knox <- rbind(hospital_knox, local_beds)
+  local_beds <- NA
+  try(local_beds <- read.csv(hospital_knox_files[i]))
+  if(!is.na(local_beds)) {
+	local_beds$Total.Capacity <- as.numeric(gsub(",",'', local_beds$Total.Capacity))
+	local_beds$Current.Census <- as.numeric(gsub(",",'', local_beds$Current.Census))
+	local_beds$Current.Utilization <- as.numeric(gsub('%','', local_beds$Current.Utilization))
+	local_beds$Available.Capacity <- as.numeric(gsub('%','', local_beds$Available.Capacity))
+	local_beds$Date <- anytime::anytime(stringr::str_extract(hospital_knox_files[i], "\\d+_\\d+_\\d+_\\d+_\\d+_\\d+"))
+	if (i==1) {
+		hospital_knox <- local_beds
+	} else {
+		hospital_knox <- rbind(hospital_knox, local_beds)
+	}
   }
 }
 

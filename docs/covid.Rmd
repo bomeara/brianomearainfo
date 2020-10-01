@@ -288,9 +288,7 @@ print(proportional_testing)
 
 ```
 
-Another way to look at testing (or disease spread) is to look at the proportion of positive tests ("positivity rate"): they can go up if a greater proportion of symptomatic people are being tested and/or if the frequency of the disease is increasing. Updated WHO guidelines recommend testing should be 5% positive or lower (black line). Remember that the solid lines are smoothed across days but may still reflect recent points more so than a seven day average would.
-
-UT's testing on some days has 100% positivity rate, but that is partially due to low sample size (as well as the underlying incidence rate and bias in who gets tested). For ease of visualization, the positivity scale is cut off at 30%, but points above this are used to help inform the smoothed trend lines.
+Another way to look at testing (or disease spread) is to look at the proportion of positive tests ("positivity rate"): they can go up if a greater proportion of symptomatic people are being tested and/or if the frequency of the disease is increasing. Updated WHO guidelines recommend testing should be 5% positive or lower (black line). Remember that the solid lines are smoothed across days but may still reflect recent points more so than a seven day average would. The first plot shows the positivity rate on a linear scale; the second shows it on a log1p scale to better highlight dynamics at the 5% positivity rate (the high positivity rate for some of UT's testing leads to difficulty visualizing this otherwise).
 
 
 ```{r plotsB3, echo=FALSE, message=FALSE, warning=FALSE}
@@ -303,8 +301,11 @@ UT's testing on some days has 100% positivity rate, but that is partially due to
 
 daily_focal$NEW_PROPORTION_CONFIRMED <- 100*daily_focal$NEW_CONFIRMED/daily_focal$NEW_TESTS
 
-focal_proportion_pos <- ggplot(daily_focal[!is.na(daily_focal$NEW_PROPORTION_CONFIRMED),], aes(x=DATE, y=NEW_PROPORTION_CONFIRMED, group=Region)) + geom_point(aes(colour=Region), size=0.5)+ geom_smooth(aes(colour=Region),se=FALSE) + ylab("Percentage of positive tests in focal areas each day") + xlab("Date") + ylim(0,30) + geom_hline(yintercept=5, col="black") + scale_colour_viridis_d(end=0.8)
+focal_proportion_pos <- ggplot(daily_focal[!is.na(daily_focal$NEW_PROPORTION_CONFIRMED),], aes(x=DATE, y=NEW_PROPORTION_CONFIRMED, group=Region)) + geom_point(aes(colour=Region), size=0.5)+ geom_smooth(aes(colour=Region),se=FALSE) + ylab("Percentage of positive tests in focal areas each day") + xlab("Date") + geom_hline(yintercept=5, col="black") + scale_colour_viridis_d(end=0.8)
 print(focal_proportion_pos)
+
+focal_proportion_pos_log1p <- ggplot(daily_focal[!is.na(daily_focal$NEW_PROPORTION_CONFIRMED),], aes(x=DATE, y=NEW_PROPORTION_CONFIRMED, group=Region)) + geom_point(aes(colour=Region), size=0.5)+ geom_smooth(aes(colour=Region),se=FALSE) + ylab("Percentage of positive tests in focal areas each day") + xlab("Date") + geom_hline(yintercept=5, col="black") + scale_colour_viridis_d(end=0.8) + scale_y_continuous(trans = "log1p", breaks = c(1, 5, 10, 25, 50, 100))
+print(focal_proportion_pos_log1p)
 
 # par(mfcol=c(1,2))
 # plot(knox$date, knox$confirmed, type="l")

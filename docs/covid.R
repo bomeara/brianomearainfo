@@ -12,6 +12,7 @@ library(rds.r)
 library(ggrepel)
 library(ggpubr)
 library(lubridate)
+library(tidyquant)
 
 
 #gmr <- "https://www.gstatic.com/covid19/mobility/Global_Mobility_Report.csv"
@@ -146,7 +147,8 @@ print(local_new)
 ## ----plotsA2, echo=FALSE, message=FALSE, warning=FALSE------------------------
 
 
-local_new_100k <- ggplot(daily_focal[!is.na(daily_focal$New_cases_per_100k),], aes(x=DATE, y=New_cases_per_100k, group=Region)) + geom_smooth(aes(colour=Region), se=FALSE) + geom_point(aes(colour=Region), size=0.5)  + ylab("Number of new cases in area each day per 100,000 people") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)
+#local_new_100k <- ggplot(daily_focal[!is.na(daily_focal$New_cases_per_100k),], aes(x=DATE, y=New_cases_per_100k, group=Region)) + geom_smooth(aes(colour=Region), se=FALSE) + geom_point(aes(colour=Region), size=0.5)  + ylab("Number of new cases in area each day per 100,000 people") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)
+local_new_100k <- ggplot(daily_focal[!is.na(daily_focal$New_cases_per_100k),], aes(x=DATE, y=New_cases_per_100k, group=Region)) + geom_ma(aes(colour=Region, linetype="a"), n=7) + guides(linetype = FALSE) + geom_point(aes(colour=Region), size=0.5)  + ylab("Number of new cases in area each day per 100,000 people") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)
 print(local_new_100k)
 
 #local_active_100k <- ggplot(daily_focal[!is.na(daily_focal$Active_cases_per_100k),], aes(x=DATE, y=Active_cases_per_100k, group=Region)) +  geom_smooth(aes(colour=Region), se=FALSE) + geom_point(aes(colour=Region), size=0.5) + ylab("Number of active cases in area each day per 100,000 residents") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)
@@ -218,7 +220,7 @@ print(local_new_100k_log1p)
 
 ## ----plotsB2, echo=FALSE, message=FALSE, warning=FALSE------------------------
 
-proportional_testing <- ggplot(daily_focal[!is.na(daily_focal$Tests_per_100k),], aes(x=DATE, y=Tests_per_100k, group=Region)) + geom_smooth(aes(colour=Region), se=FALSE) + geom_point(aes(colour=Region), size=0.5)  + ylab("Number of new tests per 100,000 people each day") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)
+proportional_testing <- ggplot(daily_focal[!is.na(daily_focal$Tests_per_100k),], aes(x=DATE, y=Tests_per_100k, group=Region)) + geom_ma(aes(colour=Region, linetype="a"), n=7) + guides(linetype = FALSE) + geom_point(aes(colour=Region), size=0.5)  + ylab("Number of new tests per 100,000 people each day") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)
 print(proportional_testing)
 
 
@@ -234,8 +236,11 @@ print(proportional_testing)
 
 daily_focal$NEW_PROPORTION_CONFIRMED <- 100*daily_focal$NEW_CONFIRMED/daily_focal$NEW_TESTS
 
-focal_proportion_pos <- ggplot(daily_focal[!is.na(daily_focal$NEW_PROPORTION_CONFIRMED),], aes(x=DATE, y=NEW_PROPORTION_CONFIRMED, group=Region)) + geom_point(aes(colour=Region), size=0.5)+ geom_smooth(aes(colour=Region),se=FALSE) + ylab("Percentage of positive tests in focal areas each day") + xlab("Date") + ylim(0,NA) + geom_hline(yintercept=5, col="black") + scale_colour_viridis_d(end=0.8)
+focal_proportion_pos <- ggplot(daily_focal[!is.na(daily_focal$NEW_PROPORTION_CONFIRMED),], aes(x=DATE, y=NEW_PROPORTION_CONFIRMED, group=Region)) + geom_point(aes(colour=Region), size=0.5)+ geom_ma(aes(colour=Region, linetype="a"), n=7) + guides(linetype = FALSE) + ylab("Percentage of positive tests in focal areas each day") + xlab("Date") + geom_hline(yintercept=5, col="black") + scale_colour_viridis_d(end=0.8)
 print(focal_proportion_pos)
+
+focal_proportion_pos_log1p <- ggplot(daily_focal[!is.na(daily_focal$NEW_PROPORTION_CONFIRMED),], aes(x=DATE, y=NEW_PROPORTION_CONFIRMED, group=Region)) + geom_point(aes(colour=Region), size=0.5)+ geom_ma(aes(colour=Region, linetype="a"), n=7) + guides(linetype = FALSE) + ylab("Percentage of positive tests in focal areas each day") + xlab("Date") + geom_hline(yintercept=5, col="black") + scale_colour_viridis_d(end=0.8) + scale_y_continuous(trans = "log1p", breaks = c(1, 5, 10, 25, 50, 100))
+print(focal_proportion_pos_log1p)
 
 # par(mfcol=c(1,2))
 # plot(knox$date, knox$confirmed, type="l")
@@ -382,7 +387,7 @@ try(print(hosp_plot))
 ## ----plotsD, echo=FALSE, message=FALSE, warning=FALSE-------------------------
 
 
-new_hospitalization <- ggplot(daily_focal[!is.na(daily_focal$NEW_HOSPITALIZED),], aes(x=DATE, y=NEW_HOSPITALIZED, group=Region)) + geom_point(aes(colour=Region), size=0.5) + geom_smooth(aes(colour=Region), se=FALSE) + ylab("Number of new covid hospitalizations each day") + xlab("Date") + ylim(0,NA)  + scale_colour_viridis_d(end=0.8) + geom_vline(xintercept=as.POSIXct(last_hospital_update), col="black", linetype="dotted")
+new_hospitalization <- ggplot(daily_focal[!is.na(daily_focal$NEW_HOSPITALIZED),], aes(x=DATE, y=NEW_HOSPITALIZED, group=Region)) + geom_point(aes(colour=Region), size=0.5) + geom_ma(aes(colour=Region, linetype="a"), n=7) + guides(linetype = FALSE) + ylab("Number of new covid hospitalizations each day") + xlab("Date") + ylim(0,NA)  + scale_colour_viridis_d(end=0.8) + geom_vline(xintercept=as.POSIXct(last_hospital_update), col="black", linetype="dotted")
 print(new_hospitalization)
 
 # tn_daily_aggregate <- daily %>% group_by(DATE) %>% summarise(new_hosp = sum(NEW_HOSPITALIZED))
@@ -453,7 +458,7 @@ age_county <- data.frame(DATE=age_county$DATE, COUNTY=age_county$COUNTY, AGE_GRO
 age_county %<>% group_by(COUNTY, AGE_GROUP) %>% mutate(Difference=CASE_COUNT - lag(CASE_COUNT))
 age_county %<>% group_by(COUNTY, DATE) %>% mutate(PercentDaily=100*Difference/sum(Difference), PercentCumulative=100*CASE_COUNT/sum(CASE_COUNT))
 
-ageplot_knox_daily <- ggplot(subset(age_county, COUNTY=="Knox"), aes(x=DATE, y=PercentDaily, group=AGE_GROUP)) + geom_smooth(aes(colour=AGE_GROUP), se=FALSE) + ylab("Daily percentage of cases by age group in Knox County (smoothed)") + xlab("Date") + scale_colour_brewer(type="qual", palette="Dark2")
+ageplot_knox_daily <- ggplot(subset(age_county, COUNTY=="Knox"), aes(x=DATE, y=PercentDaily, group=AGE_GROUP)) + geom_ma(aes(colour=AGE_GROUP, linetype="a"), n=7) + guides(linetype = FALSE) + ylab("Daily percentage of cases by age group in Knox County (smoothed)") + xlab("Date") + scale_colour_brewer(type="qual", palette="Dark2")
 ageplot_knox_cumulative <- ggplot(subset(age_county, COUNTY=="Knox"), aes(x=DATE, y=PercentCumulative, group=AGE_GROUP)) + geom_line(aes(colour=AGE_GROUP)) + ylab("Cumulative percentage of cases by age group in Knox County") + xlab("Date") + scale_colour_brewer(type="qual", palette="Dark2")
 #ageplot_knox_both <- ggarrange(ageplot_knox_daily, #ageplot_knox_cumulative, labels=c("Daily", "Cumulative"), ncol=2, nrow=1)
 print(ageplot_knox_daily)

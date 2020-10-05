@@ -395,7 +395,7 @@ hospital_knox_files <- list.files(path="/Users/bomeara/Dropbox/KnoxCovid", patte
 hospital_knox <- data.frame()
 for (i in seq_along(hospital_knox_files)) {
   local_beds <- NA
-  try(local_beds <- read.csv(hospital_knox_files[i]))
+  try(local_beds <- read.csv(hospital_knox_files[i]), silent=TRUE)
   if(!is.na(local_beds)) {
 	local_beds$Total.Capacity <- as.numeric(gsub(",",'', local_beds$Total.Capacity))
 	local_beds$Current.Census <- as.numeric(gsub(",",'', local_beds$Current.Census))

@@ -134,7 +134,7 @@ schoolkids_daily <- rbind(schoolkids_knox, schoolkids_oakridge, schoolkids_regio
 ## ----plotsA, echo=FALSE, message=FALSE, warning=FALSE-------------------------
 
 
-local_new <- ggplot(daily_focal[!is.na(daily_focal$NEW_CASES),], aes(x=DATE, y=NEW_CASES, group=Region)) + geom_smooth(aes(colour=Region), se=FALSE) + geom_point(aes(colour=Region), size=0.5)  + ylab("Number of new cases in area each day") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)
+local_new <- ggplot(daily_focal[!is.na(daily_focal$NEW_CASES),], aes(x=DATE, y=NEW_CASES, group=Region)) + geom_ma(aes(colour=Region, linetype="a"), n=7) + guides(linetype = FALSE) + geom_point(aes(colour=Region), size=0.5)  + ylab("Number of new cases in area each day") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)
 print(local_new)
 
 #local_active <- ggplot(daily_focal[!is.na(daily_focal$TOTAL_ACTIVE),], aes(x=DATE, y=TOTAL_ACTIVE, group=Region)) +  geom_smooth(aes(colour=Region), se=FALSE) + geom_point(aes(colour=Region), size=0.5) + ylab("Number of active cases in area each day") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)
@@ -165,7 +165,7 @@ geom_rect(mapping=aes(xmin=min(daily_focal_away_from_zero$DATE), xmax=max(daily_
   geom_rect(mapping=aes(xmin=min(daily_focal_away_from_zero$DATE), xmax=max(daily_focal_away_from_zero$DATE), ymin=1, ymax=10), fill="khaki1") +
   geom_rect(mapping=aes(xmin=min(daily_focal_away_from_zero$DATE), xmax=max(daily_focal_away_from_zero$DATE), ymin=10, ymax=25), fill="tan1") +
   geom_rect(mapping=aes(xmin=min(daily_focal_away_from_zero$DATE), xmax=max(daily_focal_away_from_zero$DATE), ymin=25, ymax=max(daily_focal_away_from_zero$New_cases_per_100k, na.rm=TRUE)), fill="indianred1") + 
-geom_smooth(aes(colour=Region), se=FALSE) + geom_point(aes(colour=Region), size=0.5)  + ylab("Number of new cases in area each day per 100,000 people") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8) + scale_y_continuous(trans = "log1p", breaks = c(1, 10, 25))
+geom_ma(aes(colour=Region, linetype="a"), n=7) + guides(linetype = FALSE) + geom_point(aes(colour=Region), size=0.5)  + ylab("Number of new cases in area each day per 100,000 people") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8) + scale_y_continuous(trans = "log1p", breaks = c(1, 10, 25))
 print(local_new_100k_log1p)
 
 
@@ -308,7 +308,7 @@ hospital_knox_files <- list.files(path="/Users/bomeara/Dropbox/KnoxCovid", patte
 hospital_knox <- data.frame()
 for (i in seq_along(hospital_knox_files)) {
   local_beds <- NA
-  try(local_beds <- read.csv(hospital_knox_files[i]))
+  try(local_beds <- read.csv(hospital_knox_files[i]), silent=TRUE)
   if(!is.na(local_beds)) {
 	local_beds$Total.Capacity <- as.numeric(gsub(",",'', local_beds$Total.Capacity))
 	local_beds$Current.Census <- as.numeric(gsub(",",'', local_beds$Current.Census))
@@ -458,7 +458,7 @@ age_county <- data.frame(DATE=age_county$DATE, COUNTY=age_county$COUNTY, AGE_GRO
 age_county %<>% group_by(COUNTY, AGE_GROUP) %>% mutate(Difference=CASE_COUNT - lag(CASE_COUNT))
 age_county %<>% group_by(COUNTY, DATE) %>% mutate(PercentDaily=100*Difference/sum(Difference), PercentCumulative=100*CASE_COUNT/sum(CASE_COUNT))
 
-ageplot_knox_daily <- ggplot(subset(age_county, COUNTY=="Knox"), aes(x=DATE, y=PercentDaily, group=AGE_GROUP)) + geom_ma(aes(colour=AGE_GROUP, linetype="a"), n=7) + guides(linetype = FALSE) + ylab("Daily percentage of cases by age group in Knox County (smoothed)") + xlab("Date") + scale_colour_brewer(type="qual", palette="Dark2")
+ageplot_knox_daily <- ggplot(subset(age_county, COUNTY=="Knox"), aes(x=DATE, y=PercentDaily, group=AGE_GROUP)) + geom_ma(aes(colour=AGE_GROUP, linetype="a"), n=7) + guides(linetype = FALSE) + ylab("Daily percentage of cases by age group in Knox County (7 day average)") + xlab("Date") + scale_colour_brewer(type="qual", palette="Dark2")
 ageplot_knox_cumulative <- ggplot(subset(age_county, COUNTY=="Knox"), aes(x=DATE, y=PercentCumulative, group=AGE_GROUP)) + geom_line(aes(colour=AGE_GROUP)) + ylab("Cumulative percentage of cases by age group in Knox County") + xlab("Date") + scale_colour_brewer(type="qual", palette="Dark2")
 #ageplot_knox_both <- ggarrange(ageplot_knox_daily, #ageplot_knox_cumulative, labels=c("Daily", "Cumulative"), ncol=2, nrow=1)
 print(ageplot_knox_daily)

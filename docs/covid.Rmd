@@ -180,7 +180,7 @@ I plot five regions (though for simplicity, for some of the plots I omit East TN
 * UTK Student Testing, from tests done at the UTK student health center
 * UTK Reported, from all cases UT includes on their dashboard (student cases from the health center, cases reported from tests off campus that are communicated)
 
-Information from the last two datasets comes from the hard work of Alex Zukowski, who requests the testing data and who aggregates the reported data. Zukowski, Taylor A. “University of Tennessee, Knoxville COVID-19 Dataset.” COVID-19 in The University of Tennessee, Knoxville, 2020, sites.google.com/view/utk-covid19/data. I recommend going to [https://sites.google.com/view/utk-covid19](https://sites.google.com/view/utk-covid19) for more on this dataset and the work going into gathering it.
+Information from the last two datasets comes from the hard work of Alex Zukowski, who requests the testing data and who aggregates the reported data. Zukowski, Taylor A. “University of Tennessee, Knoxville COVID-19 Dataset.” COVID-19 in The University of Tennessee, Knoxville, 2020, sites.[google.com/view/utk-covid19/data](google.com/view/utk-covid19/data). I recommend going to [https://sites.google.com/view/utk-covid19](https://sites.google.com/view/utk-covid19) for more on this dataset and the work going into gathering it.
 
 For many of these plots, I am now showing the seven day averages.
 
@@ -571,7 +571,7 @@ print(ageplot_knox_cumulative)
 
 Another question is what is happening at UTK. There is official information available at https://www.utk.edu/coronavirus/guides/data-monitoring-and-contingency-options, of which I show one figure below. There are also reports in the news media, such as <a href="https://www.knoxnews.com/story/sports/college/university-of-tennessee/football/2020/08/17/tennessee-football-covid-19-cases-jeremy-pruitt-vols/5586379002/">this article from Aug. 18</a> showing that 23 of 91 football players (over 25%) have had positive covid tests since returning but before the start of classes. New York has <a href="https://www.nbcnewyork.com/news/local/alarming-indefensible-cuomo-ny-health-chief-blast-cdc-over-guidelines-change/2588146/">set a threshold of 100 cases or 5% positive tests</a> for colleges to move online; UT has had over that many active cases; its positivity rate is not officially public (as of now), though [this site](https://sites.google.com/view/utk-covid19) provides such information. The numbers of cases and tests have dramatically dropped recently at UT; one troubling suggestion for why is [reports of "pacts"](https://www.wvlt.tv/2020/09/15/covid-19-pacts-happening-among-ut-students/) by students not to get tested locally so as to avoid notifying the university. This violates the agreement students made before classes started and puts the local community, both on and off campus, at greater risk. UT is trying tests of sewage and saliva tests, but as of now (Sep. 27, 2020), I am unaware of any reports of their results.
 
-I show just one plot here (and include information about UT in some of the plots above), but for a detailed look at UT, check out [https://sites.google.com/view/utk-covid19](https://sites.google.com/view/utk-covid19), for work done on an individual basis by a UTK student, Alex Zukowski. UT's official dashboard is at https://www.utk.edu/coronavirus/guides/data-monitoring-and-contingency-options/ but has less detail.
+I show just one plot here from that dashboard (and include information about UT in some of the plots above), but for a detailed look at UT, check out [https://sites.google.com/view/utk-covid19](https://sites.google.com/view/utk-covid19), for work done on an individual basis by a UTK student, Alex Zukowski. UT's official dashboard is at https://www.utk.edu/coronavirus/guides/data-monitoring-and-contingency-options/ but has less detail.
 
 <iframe src="https://datastudio.google.com/embed/reporting/bb71d0fd-2817-4e14-9f84-7f74a1e503b5/page/Qr2ZB" width=600 height=300></iframe>
 
@@ -602,6 +602,17 @@ utk_plot <- ggplot(utk.cases[!is.na(utk.cases$count),], aes(x=date, y=count, gro
 print(utk_plot)
 ```
 
+Testing at UT is also a question. The plot below shows reported number of tests at the student health center, based on data aggregated by Alex Zukowski (see above). Note that these are the raw number of reported tests: a value of 20 means out of all 30,0000 UTK students, only 20 individuals were tested that day at the student health center. Not included here are athletes, who have much more frequent testing. There also isn't much public information on the new saliva based tests yet: [a test at White and Hess Halls](https://www.wbir.com/article/news/health/coronavirus/ut-to-begin-pooled-saliva-tests-to-find-covid-19-clusters/51-ae2fa1cb-f0b7-4d1e-b8a4-5ad67dcc5dff) resulted in an estimate of about 3.6% of residents being positive, though some of those would be false positives (I have not seen reporting on the followup tests conducted to help eliminate false positives). 
+
+ The red line on the plot shows the date of a [news story about covid pacts among students to avoid getting tested locally so they could avoid quarantine or isolation](https://www.wvlt.tv/2020/09/15/covid-19-pacts-happening-among-ut-students/). The drop in testing after that line may be purely coincidental, but it is a remarkable drop. Other universities test more intensely; for example, [U. of Illinois tests several thousand per day, not a few dozen](https://splunk-public.machinedata.illinois.edu/en-US/app/uofi_shield_public_APP/home). Not being an epidemiologist I do not want to weigh in on what strategy is optimal, but it is remarkable contrast in approaches.
+
+```{r plotstestingut, echo=FALSE, message=FALSE, warning=FALSE}
+
+daily_utk <- subset(daily_focal, Region=="UTK Student Testing")
+ut_testing <- ggplot(daily_utk[!is.na(daily_utk$NEW_TESTS),], aes(x=DATE, y=NEW_TESTS,)) + geom_ma(aes(linetype="a"), n=7) + guides(linetype = FALSE) + geom_point(size=0.5)  + ylab("Actual number of new tests in student health center each day") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8) + geom_vline(xintercept=as.POSIXct("2020-09-15 UTC"), color="red")
+print(ut_testing)
+
+```
 
 <hr />
 

@@ -492,3 +492,11 @@ print(ageplot_knox_cumulative)
 ## utk_plot <- ggplot(utk.cases[!is.na(utk.cases$count),], aes(x=date, y=count, group=group)) + geom_line(aes(colour=group)) + ylab("Number of active cases at UTK") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)
 ## print(utk_plot)
 
+
+## ----plotstestingut, echo=FALSE, message=FALSE, warning=FALSE-----------------
+
+daily_utk <- subset(daily_focal, Region=="UTK Student Testing")
+ut_testing <- ggplot(daily_utk[!is.na(daily_utk$NEW_TESTS),], aes(x=DATE, y=NEW_TESTS,)) + geom_ma(aes(linetype="a"), n=7) + guides(linetype = FALSE) + geom_point(size=0.5)  + ylab("Actual number of new tests in student health center each day") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8) + geom_vline(xintercept=as.POSIXct("2020-09-15 UTC"), color="red")
+print(ut_testing)
+
+

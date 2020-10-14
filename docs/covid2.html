@@ -426,7 +426,7 @@ $(document).ready(function () {
 <li>Info about cases at <a href="#ut">U. of Tennessee, Knoxville</a> (using public information only)</li>
 <li><a href="#webcams">Webcams</a> showing activity at local sites, though not quite at the resolution to point to mask usage or not</li>
 </ul>
-<p>The following plots are created in R using data from <a href="https://covid19datahub.io" class="uri">https://covid19datahub.io</a> (Guidotti, E., Ardia, D., (2020), “COVID-19 Data Hub”, Working paper, doi: 10.13140/RG.2.2.11649.81763), as well as information from Google and the <a href="https://www.tn.gov/health/cedep/ncov/data/downloadable-datasets.html">state of Tennessee dataset page</a> and plotting and analysis using the <code>forecast</code>, <code>ggplot2</code>, <code>reshape2</code>, and <code>dplyr</code> packages. Plots created on 2020-10-14 10:03:27. I use a seven day rolling average for most plots using the <code>geom_ma</code> function of <code>tidyquant</code>.</p>
+<p>The following plots are created in R using data from <a href="https://covid19datahub.io" class="uri">https://covid19datahub.io</a> (Guidotti, E., Ardia, D., (2020), “COVID-19 Data Hub”, Working paper, doi: 10.13140/RG.2.2.11649.81763), as well as information from Google and the <a href="https://www.tn.gov/health/cedep/ncov/data/downloadable-datasets.html">state of Tennessee dataset page</a> and plotting and analysis using the <code>forecast</code>, <code>ggplot2</code>, <code>reshape2</code>, and <code>dplyr</code> packages. Plots created on 2020-10-14 10:05:17. I use a seven day rolling average for most plots using the <code>geom_ma</code> function of <code>tidyquant</code>.</p>
 <h2 id="cases">
 Cases
 </h2>
@@ -441,42 +441,42 @@ Cases
 </ul>
 <p>Information from the last two datasets comes from the hard work of Alex Zukowski, who requests the testing data and who aggregates the reported data. Zukowski, Taylor A. “University of Tennessee, Knoxville COVID-19 Dataset.” COVID-19 in The University of Tennessee, Knoxville, 2020, sites.<a href="google.com/view/utk-covid19/data">google.com/view/utk-covid19/data</a>. I recommend going to <a href="https://sites.google.com/view/utk-covid19">https://sites.google.com/view/utk-covid19</a> for more on this dataset and the work going into gathering it.</p>
 <p>For many of these plots, I am now showing the seven day averages.</p>
-<p><img src="covid_files/figure-html/plotsA-1.png" width="672" /></p>
+<p><img src="covid2_files/figure-html/plotsA-1.png" width="672" /></p>
 <p>Here are the same plots, but normalized so it’s per 100,000 people in each area per day (making it easier to see patterns in less populous areas):</p>
-<p><img src="covid_files/figure-html/plotsA2-1.png" width="672" /></p>
+<p><img src="covid2_files/figure-html/plotsA2-1.png" width="672" /></p>
 <p>Given the spike at UT (testing has dropped substantially since then, as well as new indications of cases), it can be worth putting new cases on a log plot. I also here use the <a href="https://globalepidemics.org/key-metrics-for-covid-suppression/">Harvard Global Health Institute’s</a> standards for guidance of control. Yellow means “rigorous test and trace programs advised”, orange means “stay-at-home orders and/or rigorous test and trace programs advised”, and red means “stay-at-home orders necessary”.</p>
-<p><img src="covid_files/figure-html/log1pnew-1.png" width="672" /></p>
+<p><img src="covid2_files/figure-html/log1pnew-1.png" width="672" /></p>
 <h2 id="testing">
 Testing
 </h2>
 <p>Testing is a key part of getting a handle on the pandemic. Here are Knox County, Oak Ridge’s counties (Anderson and Roane), and all the East TN counties combined (the same ones used for regional hospital reporting for bed availability). This plots shows the daily number of tests per 100,000 residents. It also includes testing done by UT student health, using data compiled by Alex Zukowski (Zukowski, Taylor A. “University of Tennessee, Knoxville COVID-19 Dataset.” COVID-19 in The University of Tennessee, Knoxville, 2020, sites.google.com/view/utk-covid19/data). For the UT data, I am plotting against number of students (30,000).</p>
-<p><img src="covid_files/figure-html/plotsB2-1.png" width="672" /></p>
+<p><img src="covid2_files/figure-html/plotsB2-1.png" width="672" /></p>
 <p>Another way to look at testing (or disease spread) is to look at the proportion of positive tests (“positivity rate”): they can go up if a greater proportion of symptomatic people are being tested and/or if the frequency of the disease is increasing. Updated WHO guidelines recommend testing should be 5% positive or lower (black line). The lines show the seven day averages. The first plot shows the positivity rate on a linear scale; the second shows it on a log1p scale to better highlight dynamics at the 5% positivity rate (the high positivity rate for some of UT’s testing leads to difficulty visualizing this otherwise).</p>
-<p><img src="covid_files/figure-html/plotsB3-1.png" width="672" /><img src="covid_files/figure-html/plotsB3-2.png" width="672" /></p>
+<p><img src="covid2_files/figure-html/plotsB3-1.png" width="672" /><img src="covid2_files/figure-html/plotsB3-2.png" width="672" /></p>
 <hr />
 <h2 id="schooling">
 Schooling
 </h2>
 <p>Many of the local schools are adopting a hybrid approach, where families can choose whether to send their kids to school or do online learning (sometimes with reduced options). The <i>New York Times</i> <a href="https://www.nytimes.com/2020/07/14/us/coronavirus-schools-fall.html">reports</a> on July 14, 2020, that, “As education leaders decide whether to reopen classrooms in the fall amid a raging pandemic, many are looking to a standard generally agreed upon among epidemiologists: To control community spread of the coronavirus, the average daily infection rate among those who are tested should not exceed 5 percent.” Many districts nationally are not hitting that goal, but a question is whether local ones will. The first district to open in our area was Oak Ridge public schools, who had a start date for students in person on July 29, 2020. Following the procedure of the <i>NYT</i>‘s article, I am plotting the seven day average of positivity rate for tests for the counties including Oak Ridge’s counties (Roane and Anderson). The black line is the seven day rolling mean (total new confirmed / total new tests, not a mean of this ratio per day), the blue line is this smoothed, the dotted line is the 5% threshold, and the green rectangle is the goal and starts at the start of school – the positivity should be in that rectangle to meet epidemiologists’ goals. Oak Ridge is giving families options of whether to enroll their children in online or in person school: their plan, and the way to choose either mode, is <a href="https://www.ortn.edu/reopening-plan-2020-2021/">here</a>. They have updated their in person plan to require masks when possible but not social distancing; when individuals test positive, the possibly affected parts of the building will be closed for 2-5 days. We’ve opted for the online option for our family.</p>
-<p><img src="covid_files/figure-html/oakridgesevendays-1.png" width="672" /></p>
+<p><img src="covid2_files/figure-html/oakridgesevendays-1.png" width="672" /></p>
 <p>Harvard’s Edmond J. Safra Center for Ethics and the Harvard Global Health Institute have created (July 19, 2020) <a href="https://globalhealth.harvard.edu/path-to-zero-schools-achieving-pandemic-resilient-teaching-and-learning-spaces/">guidelines for schools reopening</a> (see also their <a href="https://globalepidemics.org/wp-content/uploads/2020/07/pandemic_resilient_schools_briefing_7.19.20.pdf">full report PDF</a>). They distinguish students by age group: “With COVID-19, people 18 and younger have far lower risk of death, hospitalization, and severe outcomes and are also less likely to get infected. Within this group, students in the younger age band of 10 and under also transmit at lower rates. This last point about lower rates of transmission may also pertain to people 15 and younger, a point that research should clarify in coming weeks. Keeping levels of risk low for young children via pandemic resilient teaching and learning spaces is more readily achievable than doing so for high school age students and the adult educators and staff in the school building.” They provide suggestions on building ventilation, social distancing, and more, and mention the utility of looking at multiple metrics (such as positivity rate, hospitalization, and more), but focus on daily new cases per 100,000 people (with a caution about missing cases if testing is not adequate; for example, if positivity rate is above 10%). The plot below has summaries of their recommendations for priority for which grade levels can meet in person, <strong>if there are conditions for pandemic resistant teaching and learning</strong>. The black line is the rolling seven day average of new cases per day for the counties containing Oak Ridge (Roane and Anderson), the blue line is this smoothed.</p>
-<p><img src="covid_files/figure-html/harvardstandards-1.png" width="672" /></p>
+<p><img src="covid2_files/figure-html/harvardstandards-1.png" width="672" /></p>
 <p>Tennessee now breaks out covid test results for school age children (age 5-18). The number of tests in this age group and the underlying population size aren’t known to me, so things like positivity rate and proportion of students infected cannot be determined, but the raw number of students infected can be shown:</p>
-<p><img src="covid_files/figure-html/studentinfections-1.png" width="672" /><img src="covid_files/figure-html/studentinfections-2.png" width="672" /></p>
+<p><img src="covid2_files/figure-html/studentinfections-1.png" width="672" /><img src="covid2_files/figure-html/studentinfections-2.png" width="672" /></p>
 <hr />
 <h2 id="hospitalization">
 Hospitalization
 </h2>
 <p>As of the last time the data were updated (likely 7 days ago), regional hospitals had 31 ICU beds available of 278 total, and 138 available ventilators out of 245 total. This is based on 19 acute care hospitals in the East TN region; based on the 14 counties these hospitals are in, these serve at least 1,235,720 people. When a line hits 100%, the local hospitals are theoretically full for that resource (for all patients, not just covid patients), though there is surge capacity on top of this. Note that these data are updated only weekly, so current conditions maybe be much better or worse than these plots show. Data on capacity from Knox County’s dashboard, data on hospitalizations and testing over time from the state data.</p>
-<p><img src="covid_files/figure-html/hospitalcapacityplot-1.png" width="672" /></p>
+<p><img src="covid2_files/figure-html/hospitalcapacityplot-1.png" width="672" /></p>
 <p>Trends in hospitalization of covid patients over time. The vertical dotted line shows the last day with updated capacity information, when there were 31 ICU beds available (ignoring surge capacity) for people in the East Tennessee region.</p>
-<p><img src="covid_files/figure-html/plotsD-1.png" width="672" /></p>
+<p><img src="covid2_files/figure-html/plotsD-1.png" width="672" /></p>
 <hr />
 <h2 id="ages">
 Ages
 </h2>
 <p>Which age groups are being infected is an important question as local schools open up. These are data from Knox county alone. Note that one important bias here could be testing rate: if two year olds aren’t being tested as often as forty year olds, the age 0-10 results will be lower than the actual rate of infection, for example.</p>
-<p><img src="covid_files/figure-html/age2-1.png" width="672" /><img src="covid_files/figure-html/age2-2.png" width="672" /></p>
+<p><img src="covid2_files/figure-html/age2-1.png" width="672" /><img src="covid2_files/figure-html/age2-2.png" width="672" /></p>
 <hr />
 <h2 id="ut">
 University of Tennessee, Knoxville
@@ -487,7 +487,7 @@ University of Tennessee, Knoxville
 </iframe>
 <p>Testing at UT is also a question. The plot below shows reported number of tests at the student health center, based on data aggregated by Alex Zukowski (see above). Note that these are the raw number of reported tests: a value of 20 means out of all 30,0000 UTK students, only 20 individuals were tested that day at the student health center. Not included here are athletes, who have much more frequent testing. There also isn’t much public information on the new saliva based tests yet: <a href="https://www.wbir.com/article/news/health/coronavirus/ut-to-begin-pooled-saliva-tests-to-find-covid-19-clusters/51-ae2fa1cb-f0b7-4d1e-b8a4-5ad67dcc5dff">a test at White and Hess Halls</a> resulted in an estimate of about 3.6% of residents being positive, though some of those would be false positives (I have not seen reporting on the followup tests conducted to help eliminate false positives).</p>
 <p>The red line on the plot shows the date of a <a href="https://www.wvlt.tv/2020/09/15/covid-19-pacts-happening-among-ut-students/">news story about covid pacts among students to avoid getting tested locally so they could avoid quarantine or isolation</a>. Spread by infected individuals matters, even if they personally are asymptomatic, so personal actions to avoid testing and quarantine / isolation can lead to disease spread to others who might not be so lucky, so it’s very disappointing to hear of this. The drop in testing after that line may be purely coincidental, but it is a remarkable change in trend. Other universities test more intensely; for example, <a href="https://splunk-public.machinedata.illinois.edu/en-US/app/uofi_shield_public_APP/home">U. of Illinois tests several thousand per day, not a few dozen</a>. Not being an epidemiologist I do not want to weigh in on what strategy is optimal, but it is a remarkable contrast in approaches.</p>
-<p><img src="covid_files/figure-html/plotstestingut-1.png" width="672" /></p>
+<p><img src="covid2_files/figure-html/plotstestingut-1.png" width="672" /></p>
 <hr />
 <h2 id="webcams">
 Local webcams

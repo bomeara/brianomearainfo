@@ -50,7 +50,7 @@ library(ggrepel)
 library(ggpubr)
 library(lubridate)
 library(tidyquant)
-
+library(binom)
 
 #gmr <- "https://www.gstatic.com/covid19/mobility/Global_Mobility_Report.csv"
 
@@ -642,20 +642,23 @@ saliva_data <- read.csv(file="7 LIVE_saliva_test_data_Page 1_Table.csv", strings
 saliva_data$Active_cases_per_100k = 100000*saliva_data$Positive.diagnostic.tests./saliva_data$Samples.processed
 saliva_data$New_cases_per_100k = saliva_data$Active_cases_per_100k / 14
 saliva_data$DATE <- as.Date(saliva_data$Week,"%m/%d/%y")
+saliva_data$New_cases_per_100k_lower <- 100000*binom::binom.confint(saliva_data$Positive.diagnostic.tests., saliva_data$Samples.processed, method="exact")$lower/14
+saliva_data$New_cases_per_100k_upper<- 100000*binom::binom.confint(saliva_data$Positive.diagnostic.tests., saliva_data$Samples.processed, method="exact")$upper/14
+
 ```
 
 We can also use the UTK saliva data to estimate the number of new cases: the proportion of students who ultimately test postive out of those tested by the saliva scans. Given poor compliance, the true proportions may be much higher than this (if students want to endanger others by not isolating, they may avoid testing if they think they have been exposed). Depending on the date of the test, between `r paste(paste("1 of every ", range(round(1/(saliva_data$Positive.diagnostic.tests./saliva_data$Samples.processed))), sep=""), collapse=" to ")` of students who contributed samples had active covid infections. 
 
-I am converting the saliva test info to new cases per 100K to correspond with the [Harvard Global Health Institute's](https://globalepidemics.org/key-metrics-for-covid-suppression/) standards for guidance of control. However, these guidelines are for daily new cases but the saliva data are active cases. I am using the assumption that Knox County uses that new cases are only active for 14 days, so I'm computing the new case estimate as 1/14 the active case estimate. The green, yellow, and orange bands are the same as for Knox and Anderson+Roane counties above; the red band looks much thicker because it has the same lower bound as the others but no maximum, and some of the estimates for UTK are outside the range for the county-wide data.
+I am converting the saliva test info to new cases per 100K to correspond with the [Harvard Global Health Institute's](https://globalepidemics.org/key-metrics-for-covid-suppression/) standards for guidance of control (yellow is community spread; red is the highest risk possible in their guidance -- for a county, that would mean "stay-at-home orders necessary" according to them, though how that translates into actions on a college campus is different). These guidelines are for daily new cases but the saliva data are active cases at a point in time. I am adopting the assumption that Knox County uses that new cases are only active for 14 days, so I'm computing the new case estimate as 1/14 the active case estimate. The green, yellow, and orange bands are the same as for Knox and Anderson+Roane counties above; the red band looks much thicker because it has the same lower bound as the others but no maximum, and some of the estimates for UTK are outside the range for the county-wide data. I include the 95% confidence interval for the estimate of new cases per 100,000 people, though this is an underestimate of the uncertainty (are dorms good random samples or are results clustered, are students who refuse testing similar to those who get tested, etc.).
 
 
 ```{r plotsaliva100k, echo=FALSE, message=FALSE, warning=FALSE}
 saliva_plot <- ggplot(saliva_data, aes(x=DATE, y=New_cases_per_100k)) + 
-geom_rect(mapping=aes(xmin=min(saliva_data$DATE), xmax=max(saliva_data$DATE), ymin=0, ymax=1), fill="darkolivegreen1") +
-  geom_rect(mapping=aes(xmin=min(saliva_data$DATE), xmax=max(saliva_data$DATE), ymin=1, ymax=10), fill="khaki1") +
-  geom_rect(mapping=aes(xmin=min(saliva_data$DATE), xmax=max(saliva_data$DATE), ymin=10, ymax=25), fill="tan1") +
-  geom_rect(mapping=aes(xmin=min(saliva_data$DATE), xmax=max(saliva_data$DATE), ymin=25, ymax=max(saliva_data$New_cases_per_100k)), fill="indianred1") + 
-geom_point() + ylab("Est. daily new cases 100,000 people based on UTK saliva samples") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8) 
+geom_rect(mapping=aes(xmin=min(DATE), xmax=max(DATE), ymin=0, ymax=1), fill="darkolivegreen1") +
+  geom_rect(mapping=aes(xmin=min(DATE), xmax=max(DATE), ymin=1, ymax=10), fill="khaki1") +
+  geom_rect(mapping=aes(xmin=min(DATE), xmax=max(DATE), ymin=10, ymax=25), fill="tan1") +
+  geom_rect(mapping=aes(xmin=min(DATE), xmax=max(DATE), ymin=25, ymax=max(New_cases_per_100k_upper)), fill="indianred1") + 
+geom_point() + ylab("Est. daily new cases 100,000 people based on UTK saliva samples") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8) + geom_errorbar(aes(ymin=New_cases_per_100k_lower, ymax=New_cases_per_100k_upper), width=0.1)
 print(saliva_plot)
 ```
 

@@ -221,8 +221,8 @@ local_new_100k_harvard <- ggplot(daily_focal_no_ut[!is.na(daily_focal_no_ut$New_
 geom_rect(mapping=aes(xmin=min(daily_focal_no_ut$DATE), xmax=max(daily_focal_no_ut$DATE), ymin=0, ymax=1), fill="darkolivegreen1") +
   geom_rect(mapping=aes(xmin=min(daily_focal_no_ut$DATE), xmax=max(daily_focal_no_ut$DATE), ymin=1, ymax=10), fill="khaki1") +
   geom_rect(mapping=aes(xmin=min(daily_focal_no_ut$DATE), xmax=max(daily_focal_no_ut$DATE), ymin=10, ymax=25), fill="tan1") +
-  geom_rect(mapping=aes(xmin=min(daily_focal_no_ut$DATE), xmax=max(daily_focal_no_ut$DATE), ymin=25, ymax=40), fill="indianred1") + 
-geom_ma(aes(colour=Region, linetype="a"), n=7) + guides(linetype = FALSE) + ylab("Number of new cases in area each day per 100,000 people") + xlab("Date") + ylim(0,40) + scale_colour_viridis_d(end=0.8) 
+  geom_rect(mapping=aes(xmin=min(daily_focal_no_ut$DATE), xmax=max(daily_focal_no_ut$DATE), ymin=25, ymax=35), fill="indianred1") + 
+geom_ma(aes(colour=Region, linetype="a"), n=7) + guides(linetype = FALSE) + ylab("Number of new cases in area each day per 100,000 people") + xlab("Date") + ylim(0,35) + scale_colour_viridis_d(end=0.8) 
 # daily_focal_away_from_zero <- daily_focal_no_ut
 # local_new_100k_log1p <- ggplot(daily_focal_away_from_zero[!is.na(daily_focal_away_from_zero$New_cases_per_100k),], aes(x=DATE, y=New_cases_per_100k, group=Region)) + 
 # geom_rect(mapping=aes(xmin=min(daily_focal_away_from_zero$DATE), xmax=max(daily_focal_away_from_zero$DATE), ymin=0, ymax=1), fill="darkolivegreen1") +

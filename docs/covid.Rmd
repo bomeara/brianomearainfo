@@ -224,7 +224,7 @@ geom_rect(mapping=aes(xmin=min(daily_focal_away_from_zero$DATE), xmax=max(daily_
   geom_rect(mapping=aes(xmin=min(daily_focal_away_from_zero$DATE), xmax=max(daily_focal_away_from_zero$DATE), ymin=1, ymax=10), fill="khaki1") +
   geom_rect(mapping=aes(xmin=min(daily_focal_away_from_zero$DATE), xmax=max(daily_focal_away_from_zero$DATE), ymin=10, ymax=25), fill="tan1") +
   geom_rect(mapping=aes(xmin=min(daily_focal_away_from_zero$DATE), xmax=max(daily_focal_away_from_zero$DATE), ymin=25, ymax=40), fill="indianred1") + 
-geom_ma(aes(colour=Region, linetype="a"), n=7) + guides(linetype = FALSE) + ylab("Number of new cases in area each day per 100,000 people") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8) 
+geom_ma(aes(colour=Region, linetype="a"), n=7) + guides(linetype = FALSE) + ylab("Number of new cases in area each day per 100,000 people") + xlab("Date") + ylim(0,40) + scale_colour_viridis_d(end=0.8) 
 #+ scale_y_continuous(trans = "log1p", breaks = c(1, 10, 25))
 print(local_new_100k_log1p)
 ```
@@ -359,7 +359,7 @@ Tennessee now breaks out covid test results for school age children (age 5-18). 
 try(student_covid_total <- ggplot(schoolkids_daily, aes(x=DATE, y=CASE_COUNT, group=Region)) + geom_line(aes(colour=Region)) +  ylab("Total number of students who have tested positive") + xlab("Date") + scale_colour_viridis_d(end=0.8))
 try(print(student_covid_total))
 
-try(student_covid_daily <- ggplot(schoolkids_daily, aes(x=DATE, y=NEW_CASES, group=Region)) +  geom_ma(aes(colour=Region, linetype="a")) +  guides(linetype = FALSE) + ylab("Number of students with new positive covid results daily, 7 day average") + xlab("Date") + scale_colour_viridis_d(end=0.8))
+try(student_covid_daily <- ggplot(schoolkids_daily, aes(x=DATE, y=NEW_CASES, group=Region)) +  geom_ma(aes(colour=Region, linetype="a")) +  guides(linetype = FALSE) + ylab("Number of students with new positive covid results daily, 7 day avg") + xlab("Date") + scale_colour_viridis_d(end=0.8))
 try(print(student_covid_daily))
 ```
 
@@ -467,7 +467,7 @@ for (resource_index in sequence(length(resources))) {
 # }
 ```
 
-As of the last time the data were updated (likely `r as.numeric(difftime(Sys.Date(), as.Date(last_hospital_update), units="days"))` days ago), regional hospitals had `r tail(subset(hospital_knox, East.Region.Hospitals=="ICU Beds")$Available,1)` ICU beds available of `r tail(subset(hospital_knox, East.Region.Hospitals=="ICU Beds")$Total.Capacity,1)` total, and `r tail(subset(hospital_knox, East.Region.Hospitals=="Ventilators")$Available,1)` available ventilators out of `r tail(subset(hospital_knox, East.Region.Hospitals=="Ventilators")$Total.Capacity,1)` total. This is based on 19 acute care hospitals in the East TN region; based on the `r length(counties_in_hospital_region)` counties these hospitals are in, these serve at least `r formatC(region_pop, format="d", big.mark=",")` people. When a line hits 100%, the local hospitals are theoretically full for that resource (for all patients, not just covid patients), though there is surge capacity on top of this. Note that these data are updated only weekly, so current conditions maybe be much better or worse than these plots show. Data on capacity from Knox County's dashboard, data on hospitalizations and testing over time from the state data.
+As of the last time the data were updated (likely `r as.numeric(difftime(Sys.Date(), as.Date(last_hospital_update), units="days"))` days ago), regional hospitals had `r tail(subset(hospital_knox, East.Region.Hospitals=="ICU Beds")$Available,1)` ICU beds available of `r tail(subset(hospital_knox, East.Region.Hospitals=="ICU Beds")$Total.Capacity,1)` total (so was at `r 100-round(100*( as.numeric(tail(subset(hospital_knox, East.Region.Hospitals=="ICU Beds")$Available,1)) / as.numeric(tail(subset(hospital_knox, East.Region.Hospitals=="ICU Beds")$Total.Capacity,1))))` percent capacity), and `r tail(subset(hospital_knox, East.Region.Hospitals=="Ventilators")$Available,1)` available ventilators out of `r tail(subset(hospital_knox, East.Region.Hospitals=="Ventilators")$Total.Capacity,1)` total, (so was at `r 100-round(100*( as.numeric(tail(subset(hospital_knox, East.Region.Hospitals=="Ventilators")$Available,1)) / as.numeric(tail(subset(hospital_knox, East.Region.Hospitals=="Ventilators")$Total.Capacity,1))))` percent capacity). The hospitals overall had `r tail(subset(hospital_knox, East.Region.Hospitals=="All Hospital Beds")$Available,1)` beds available of `r tail(subset(hospital_knox, East.Region.Hospitals=="All Hospital Beds")$Total.Capacity,1)` total (so was at `r 100-round(100*( as.numeric(tail(subset(hospital_knox, East.Region.Hospitals=="All Hospital Beds")$Available,1)) / as.numeric(tail(subset(hospital_knox, East.Region.Hospitals=="All Hospital Beds")$Total.Capacity,1))))` percent capacity). This is based on 19 acute care hospitals in the East TN region; based on the `r length(counties_in_hospital_region)` counties these hospitals are in, these serve at least `r formatC(region_pop, format="d", big.mark=",")` people. When a line hits 100%, the local hospitals are theoretically full for that resource (for all patients, not just covid patients), though there is surge capacity on top of this. Note that these data are updated only weekly, so current conditions maybe be much better or worse than these plots show. Data on capacity from Knox County's dashboard, data on hospitalizations and testing over time from the state data.
 
 
 ```{r hospitalcapacityplot, echo=FALSE, message=FALSE, warning=FALSE}
@@ -481,7 +481,7 @@ Trends in hospitalization of covid patients over time. The vertical dotted line 
 ```{r plotsD, echo=FALSE, message=FALSE, warning=FALSE}
 
 
-new_hospitalization <- ggplot(daily_focal[!is.na(daily_focal$NEW_HOSPITALIZED),], aes(x=DATE, y=NEW_HOSPITALIZED, group=Region)) + geom_ma(aes(colour=Region, linetype="a"), n=7) + guides(linetype = FALSE) + ylab("Number of new covid hospitalizations each day (7 day average)") + xlab("Date") + ylim(0,NA)  + scale_colour_viridis_d(end=0.8) + geom_vline(xintercept=as.POSIXct(last_hospital_update), col="black", linetype="dotted")
+new_hospitalization <- ggplot(daily_focal[!is.na(daily_focal$NEW_HOSPITALIZED),], aes(x=DATE, y=NEW_HOSPITALIZED, group=Region)) + geom_ma(aes(colour=Region, linetype="a"), n=7) + guides(linetype = FALSE) + ylab("Number of new covid hospitalizations each day (7 day avg)") + xlab("Date") + ylim(0,NA)  + scale_colour_viridis_d(end=0.8) + geom_vline(xintercept=as.POSIXct(last_hospital_update), col="black", linetype="dotted")
 print(new_hospitalization)
 
 # tn_daily_aggregate <- daily %>% group_by(DATE) %>% summarise(new_hosp = sum(NEW_HOSPITALIZED))
@@ -558,7 +558,7 @@ age_county <- data.frame(DATE=age_county$DATE, COUNTY=age_county$COUNTY, AGE_GRO
 age_county %<>% group_by(COUNTY, AGE_GROUP) %>% mutate(Difference=CASE_COUNT - lag(CASE_COUNT))
 age_county %<>% group_by(COUNTY, DATE) %>% mutate(PercentDaily=100*Difference/sum(Difference), PercentCumulative=100*CASE_COUNT/sum(CASE_COUNT))
 
-ageplot_knox_daily <- ggplot(subset(age_county, COUNTY=="Knox"), aes(x=DATE, y=PercentDaily, group=AGE_GROUP)) + geom_ma(aes(colour=AGE_GROUP, linetype="a"), n=7) + guides(linetype = FALSE) + ylab("Daily percentage of cases by age group in Knox County (7 day average)") + xlab("Date") + scale_colour_brewer(type="qual", palette="Dark2")
+ageplot_knox_daily <- ggplot(subset(age_county, COUNTY=="Knox"), aes(x=DATE, y=PercentDaily, group=AGE_GROUP)) + geom_ma(aes(colour=AGE_GROUP, linetype="a"), n=7) + guides(linetype = FALSE) + ylab("Daily percentage of cases by age group in Knox County (7 day avg)") + xlab("Date") + scale_colour_brewer(type="qual", palette="Dark2")
 ageplot_knox_cumulative <- ggplot(subset(age_county, COUNTY=="Knox"), aes(x=DATE, y=PercentCumulative, group=AGE_GROUP)) + geom_line(aes(colour=AGE_GROUP)) + ylab("Cumulative percentage of cases by age group in Knox County") + xlab("Date") + scale_colour_brewer(type="qual", palette="Dark2")
 #ageplot_knox_both <- ggarrange(ageplot_knox_daily, #ageplot_knox_cumulative, labels=c("Daily", "Cumulative"), ncol=2, nrow=1)
 print(ageplot_knox_daily)
@@ -611,19 +611,19 @@ Testing at UT is also a question. The plot below shows reported number of tests 
 ```{r plotstestingut, echo=FALSE, message=FALSE, warning=FALSE}
 
 daily_utk <- subset(daily_focal, Region=="UTK Student Testing")
-ut_testing <- ggplot(daily_utk[!is.na(daily_utk$NEW_TESTS),], aes(x=DATE, y=NEW_TESTS,)) + geom_ma(aes(linetype="a"), n=7) + guides(linetype = FALSE) + ylab("Actual number of new tests in student health center each day (7 day average)") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8) + geom_vline(xintercept=as.POSIXct("2020-09-15 UTC"), color="red")
+ut_testing <- ggplot(daily_utk[!is.na(daily_utk$NEW_TESTS),], aes(x=DATE, y=NEW_TESTS,)) + geom_ma(aes(linetype="a"), n=7) + guides(linetype = FALSE) + ylab("Actual number of new tests in student health center each day (7 day avg)") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8) + geom_vline(xintercept=as.POSIXct("2020-09-15 UTC"), color="red")
 print(ut_testing)
 
 ```
 
-As for the county data, the positivity rate can also be important: if all the tests show up positive, likey symptomatic, cases, then there are likely other people being missed. The <i>New York Times</i> <a href="https://www.nytimes.com/2020/07/14/us/coronavirus-schools-fall.html">reports</a> on July 14, 2020, that, "As education leaders decide whether to reopen classrooms in the fall amid a raging pandemic, many are looking to a standard generally agreed upon among epidemiologists: To control community spread of the coronavirus, the average daily infection rate among those who are tested should not exceed 5 percent." The horizontal black line below shows that guidance. The CDC provides thoughts about possible testing strategies at colleges and universities [here](https://www.cdc.gov/coronavirus/2019-ncov/community/colleges-universities/ihe-testing.html#when-to-test).
+As for the county data, the positivity rate can also be important: if all the tests show up positive, likey symptomatic, cases, then there are likely other people being missed. The <i>New York Times</i> <a href="https://www.nytimes.com/2020/07/14/us/coronavirus-schools-fall.html">reports</a> on July 14, 2020, that, "As education leaders decide whether to reopen classrooms in the fall amid a raging pandemic, many are looking to a standard generally agreed upon among epidemiologists: To control community spread of the coronavirus, the average daily infection rate among those who are tested should not exceed 5 percent." The horizontal black line below shows that guidance. The CDC provides thoughts about possible testing strategies at colleges and universities [here](https://www.cdc.gov/coronavirus/2019-ncov/community/colleges-universities/ihe-testing.html#when-to-test) but not a firm number for how much testing they believe is necessary.
 
 
 ```{r plotsutkproportion, echo=FALSE, message=FALSE, warning=FALSE}
 
 daily_utk$NEW_PROPORTION_CONFIRMED <- 100*daily_utk$NEW_CONFIRMED/daily_utk$NEW_TESTS
 
-focal_proportion_pos_utk <- ggplot(daily_utk[!is.na(daily_utk$NEW_PROPORTION_CONFIRMED),], aes(x=DATE, y=NEW_PROPORTION_CONFIRMED, group=Region)) + geom_ma(aes(colour=Region, linetype="a"), n=7) + guides(linetype = FALSE) + ylab("Percentage of positive tests in student center (7 day avg)") + xlab("Date") + geom_hline(yintercept=5, col="black") + scale_colour_viridis_d(end=0.8)
+focal_proportion_pos_utk <- ggplot(daily_utk[!is.na(daily_utk$NEW_PROPORTION_CONFIRMED),], aes(x=DATE, y=NEW_PROPORTION_CONFIRMED, group=Region)) + geom_ma(aes(colour=Region, linetype="a"), n=7) + guides(linetype = FALSE) + ylab("Percentage of positive tests in student center (7 day avg)") + xlab("Date") + geom_hline(yintercept=5, col="black") + scale_colour_viridis_d(end=0.8) + ylim(0,NA)
 print(focal_proportion_pos_utk)
 ```
 

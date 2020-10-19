@@ -637,6 +637,28 @@ focal_proportion_pos_utk <- ggplot(daily_utk[!is.na(daily_utk$NEW_PROPORTION_CON
 print(focal_proportion_pos_utk)
 ```
 
+```{r salivadata, echo=FALSE, message=FALSE, warning=FALSE}
+saliva_data <- read.csv(file="7 LIVE_saliva_test_data_Page 1_Table.csv", stringsAsFactors=FALSE)
+saliva_data$Active_cases_per_100k = 100000*saliva_data$Positive.diagnostic.tests./saliva_data$Samples.processed
+saliva_data$New_cases_per_100k = saliva_data$Active_cases_per_100k / 14
+saliva_data$DATE <- as.Date(saliva_data$Week,"%m/%d/%y")
+```
+
+We can also use the UTK saliva data to estimate the number of new cases: the proportion of students who ultimately test postive out of those tested by the saliva scans. Given poor compliance, the true proportions may be much higher than this (if students want to endanger others by not isolating, they may avoid testing if they think they have been exposed). Depending on the date of the test, between `r paste(paste("1 of every ", range(round(1/(saliva_data$Positive.diagnostic.tests./saliva_data$Samples.processed))), sep=""), collapse=" to ")` of students who contributed samples had active covid infections. 
+
+I am converting the saliva test info to new cases per 100K to correspond with the [Harvard Global Health Institute's](https://globalepidemics.org/key-metrics-for-covid-suppression/) standards for guidance of control. However, these guidelines are for daily new cases but the saliva data are active cases. I am using the assumption that Knox County uses that new cases are only active for 14 days, so I'm computing the new case estimate as 1/14 the active case estimate. 
+
+
+```{r plotsaliva100k, echo=FALSE, message=FALSE, warning=FALSE}
+saliva_plot <- ggplot(saliva_data, aes(x=DATE, y=New_cases_per_100k)) + 
+geom_rect(mapping=aes(xmin=min(saliva_data$DATE), xmax=max(saliva_data$DATE), ymin=0, ymax=1), fill="darkolivegreen1") +
+  geom_rect(mapping=aes(xmin=min(saliva_data$DATE), xmax=max(saliva_data$DATE), ymin=1, ymax=10), fill="khaki1") +
+  geom_rect(mapping=aes(xmin=min(saliva_data$DATE), xmax=max(saliva_data$DATE), ymin=10, ymax=25), fill="tan1") +
+  geom_rect(mapping=aes(xmin=min(saliva_data$DATE), xmax=max(saliva_data$DATE), ymin=25, ymax=max(saliva_data$New_cases_per_100k)), fill="indianred1") + 
+geom_point() + ylab("Est. new cases in area each day per 100,000 people") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8) 
+print(saliva_plot)
+```
+
 <hr />
 
 <h2 id="webcams">Local webcams</h2>

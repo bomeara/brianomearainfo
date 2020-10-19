@@ -186,8 +186,8 @@ For many of these plots, I am now showing the seven day averages.
 
 ```{r plotsA, echo=FALSE, message=FALSE, warning=FALSE}
 
-
-local_new <- ggplot(daily_focal[!is.na(daily_focal$NEW_CASES),], aes(x=DATE, y=NEW_CASES, group=Region)) + geom_ma(aes(colour=Region, linetype="a"), n=7) + guides(linetype = FALSE)  + ylab("Number of new cases in area each day") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)
+daily_focal_no_ut <- daily_focal[!grepl("UTK", daily_focal$Region), ]
+local_new <- ggplot(daily_focal_no_ut[!is.na(daily_focal_no_ut$NEW_CASES),], aes(x=DATE, y=NEW_CASES, group=Region)) + geom_ma(aes(colour=Region, linetype="a"), n=7) + guides(linetype = FALSE)  + ylab("Number of new cases in area each day") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)
 print(local_new)
 
 #local_active <- ggplot(daily_focal[!is.na(daily_focal$TOTAL_ACTIVE),], aes(x=DATE, y=TOTAL_ACTIVE, group=Region)) +  geom_smooth(aes(colour=Region), se=FALSE) + geom_point(aes(colour=Region), size=0.5) + ylab("Number of active cases in area each day") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)
@@ -204,7 +204,7 @@ Here are the same plots, but normalized so it's per 100,000 people in each area 
 
 
 #local_new_100k <- ggplot(daily_focal[!is.na(daily_focal$New_cases_per_100k),], aes(x=DATE, y=New_cases_per_100k, group=Region)) + geom_smooth(aes(colour=Region), se=FALSE) + geom_point(aes(colour=Region), size=0.5)  + ylab("Number of new cases in area each day per 100,000 people") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)
-local_new_100k <- ggplot(daily_focal[!is.na(daily_focal$New_cases_per_100k),], aes(x=DATE, y=New_cases_per_100k, group=Region)) + geom_ma(aes(colour=Region, linetype="a"), n=7) + guides(linetype = FALSE)  + ylab("Number of new cases in area each day per 100,000 people") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)
+local_new_100k <- ggplot(daily_focal_no_ut[!is.na(daily_focal_no_ut$New_cases_per_100k),], aes(x=DATE, y=New_cases_per_100k, group=Region)) + geom_ma(aes(colour=Region, linetype="a"), n=7) + guides(linetype = FALSE)  + ylab("Number of new cases in area each day per 100,000 people") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)
 print(local_new_100k)
 
 #local_active_100k <- ggplot(daily_focal[!is.na(daily_focal$Active_cases_per_100k),], aes(x=DATE, y=Active_cases_per_100k, group=Region)) +  geom_smooth(aes(colour=Region), se=FALSE) + geom_point(aes(colour=Region), size=0.5) + ylab("Number of active cases in area each day per 100,000 residents") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)
@@ -214,16 +214,18 @@ print(local_new_100k)
 
 ```
 
-Given the spike at UT (testing has dropped substantially since then, as well as new indications of cases), it can be worth putting new cases on a log plot. I also here use the [Harvard Global Health Institute's](https://globalepidemics.org/key-metrics-for-covid-suppression/) standards for guidance of control. Yellow means "rigorous test and trace programs advised", orange means "stay-at-home orders and/or rigorous test and trace programs advised", and red means "stay-at-home orders necessary".
+I here use the [Harvard Global Health Institute's](https://globalepidemics.org/key-metrics-for-covid-suppression/) standards for guidance of control. Yellow means "rigorous test and trace programs advised", orange means "stay-at-home orders and/or rigorous test and trace programs advised", and red means "stay-at-home orders necessary".
 
 ```{r log1pnew, echo=FALSE, message=FALSE, warning=FALSE, eval=TRUE}
-daily_focal_away_from_zero <- subset(daily_focal, New_cases_per_100k>0.5) #to keep the plot from blowing up towards zero
+#daily_focal_away_from_zero <- subset(daily_focal_no_ut, New_cases_per_100k>0.5) #to keep the plot from blowing up towards zero
+daily_focal_away_from_zero <- daily_focal_no_ut
 local_new_100k_log1p <- ggplot(daily_focal_away_from_zero[!is.na(daily_focal_away_from_zero$New_cases_per_100k),], aes(x=DATE, y=New_cases_per_100k, group=Region)) + 
 geom_rect(mapping=aes(xmin=min(daily_focal_away_from_zero$DATE), xmax=max(daily_focal_away_from_zero$DATE), ymin=0, ymax=1), fill="darkolivegreen1") +
   geom_rect(mapping=aes(xmin=min(daily_focal_away_from_zero$DATE), xmax=max(daily_focal_away_from_zero$DATE), ymin=1, ymax=10), fill="khaki1") +
   geom_rect(mapping=aes(xmin=min(daily_focal_away_from_zero$DATE), xmax=max(daily_focal_away_from_zero$DATE), ymin=10, ymax=25), fill="tan1") +
   geom_rect(mapping=aes(xmin=min(daily_focal_away_from_zero$DATE), xmax=max(daily_focal_away_from_zero$DATE), ymin=25, ymax=max(daily_focal_away_from_zero$New_cases_per_100k, na.rm=TRUE)), fill="indianred1") + 
-geom_ma(aes(colour=Region, linetype="a"), n=7) + guides(linetype = FALSE) + ylab("Number of new cases in area each day per 100,000 people") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8) + scale_y_continuous(trans = "log1p", breaks = c(1, 10, 25))
+geom_ma(aes(colour=Region, linetype="a"), n=7) + guides(linetype = FALSE) + ylab("Number of new cases in area each day per 100,000 people") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8) 
+#+ scale_y_continuous(trans = "log1p", breaks = c(1, 10, 25))
 print(local_new_100k_log1p)
 ```
 
@@ -290,7 +292,7 @@ print(proportional_testing)
 
 ```
 
-Another way to look at testing (or disease spread) is to look at the proportion of positive tests ("positivity rate"): they can go up if a greater proportion of symptomatic people are being tested and/or if the frequency of the disease is increasing. Updated WHO guidelines recommend testing should be 5% positive or lower (black line). The lines show the seven day averages. The first plot shows the positivity rate on a linear scale; the second shows it on a log1p scale to better highlight dynamics at the 5% positivity rate (the high positivity rate for some of UT's testing leads to difficulty visualizing this otherwise).
+Another way to look at testing (or disease spread) is to look at the proportion of positive tests ("positivity rate"): they can go up if a greater proportion of symptomatic people are being tested and/or if the frequency of the disease is increasing. Updated WHO guidelines recommend testing should be 5% positive or lower (black line). The lines show the seven day averages. UT's testing positivity rate (using student health data is so high it obscures the county data, so it is reported separately).
 
 
 ```{r plotsB3, echo=FALSE, message=FALSE, warning=FALSE}
@@ -301,13 +303,13 @@ Another way to look at testing (or disease spread) is to look at the proportion 
 # print(knox_proportion_pos)
 
 
-daily_focal$NEW_PROPORTION_CONFIRMED <- 100*daily_focal$NEW_CONFIRMED/daily_focal$NEW_TESTS
+daily_focal_no_ut$NEW_PROPORTION_CONFIRMED <- 100*daily_focal_no_ut$NEW_CONFIRMED/daily_focal_no_ut$NEW_TESTS
 
-focal_proportion_pos <- ggplot(daily_focal[!is.na(daily_focal$NEW_PROPORTION_CONFIRMED),], aes(x=DATE, y=NEW_PROPORTION_CONFIRMED, group=Region)) + geom_ma(aes(colour=Region, linetype="a"), n=7) + guides(linetype = FALSE) + ylab("Percentage of positive tests in focal areas each day") + xlab("Date") + geom_hline(yintercept=5, col="black") + scale_colour_viridis_d(end=0.8)
+focal_proportion_pos <- ggplot(daily_focal_no_ut[!is.na(daily_focal_no_ut$NEW_PROPORTION_CONFIRMED),], aes(x=DATE, y=NEW_PROPORTION_CONFIRMED, group=Region)) + geom_ma(aes(colour=Region, linetype="a"), n=7) + guides(linetype = FALSE) + ylab("Percentage of positive tests in focal areas each day (7 day avg)") + xlab("Date") + geom_hline(yintercept=5, col="black") + scale_colour_viridis_d(end=0.8)
 print(focal_proportion_pos)
 
-focal_proportion_pos_log1p <- ggplot(daily_focal[!is.na(daily_focal$NEW_PROPORTION_CONFIRMED),], aes(x=DATE, y=NEW_PROPORTION_CONFIRMED, group=Region)) + geom_ma(aes(colour=Region, linetype="a"), n=7) + guides(linetype = FALSE) + ylab("Percentage of positive tests in focal areas each day") + xlab("Date") + geom_hline(yintercept=5, col="black") + scale_colour_viridis_d(end=0.8) + scale_y_continuous(trans = "log1p", breaks = c(1, 5, 10, 25, 50, 100))
-print(focal_proportion_pos_log1p)
+#focal_proportion_pos_log1p <- ggplot(daily_focal[!is.na(daily_focal$NEW_PROPORTION_CONFIRMED),], aes(x=DATE, y=NEW_PROPORTION_CONFIRMED, group=Region)) + geom_ma(aes(colour=Region, linetype="a"), n=7) + guides(linetype = FALSE) + ylab("Percentage of positive tests in focal areas each day") + xlab("Date") + geom_hline(yintercept=5, col="black") + scale_colour_viridis_d(end=0.8) + scale_y_continuous(trans = "log1p", breaks = c(1, 5, 10, 25, 50, 100))
+#print(focal_proportion_pos_log1p)
 
 # par(mfcol=c(1,2))
 # plot(knox$date, knox$confirmed, type="l")
@@ -357,7 +359,7 @@ Tennessee now breaks out covid test results for school age children (age 5-18). 
 try(student_covid_total <- ggplot(schoolkids_daily, aes(x=DATE, y=CASE_COUNT, group=Region)) + geom_line(aes(colour=Region)) +  ylab("Total number of students who have tested positive") + xlab("Date") + scale_colour_viridis_d(end=0.8))
 try(print(student_covid_total))
 
-try(student_covid_daily <- ggplot(schoolkids_daily, aes(x=DATE, y=NEW_CASES, group=Region)) +  geom_ma(aes(colour=Region, linetype="a")) +  ylab("Number of students with new positive covid results daily, 7 day average") + xlab("Date") + scale_colour_viridis_d(end=0.8))
+try(student_covid_daily <- ggplot(schoolkids_daily, aes(x=DATE, y=NEW_CASES, group=Region)) +  geom_ma(aes(colour=Region, linetype="a")) +  guides(linetype = FALSE) + ylab("Number of students with new positive covid results daily, 7 day average") + xlab("Date") + scale_colour_viridis_d(end=0.8))
 try(print(student_covid_daily))
 ```
 
@@ -371,13 +373,13 @@ try(print(student_covid_daily))
 daily_focal$Active_cases_percent <- 100*daily_focal$Active_cases_per_100k/100000
 daily_focal<-daily_focal[!is.na(daily_focal$Active_cases_percent),]
 local_active_percent <- ggplot(daily_focal[!is.na(daily_focal$Active_cases_percent),], aes(x=DATE, y=Active_cases_percent, group=Region)) +
-geom_rect(mapping=aes(xmin=min(daily_focal$DATE), xmax=max(daily_focal$DATE), ymin=-0.2, ymax=0), fill="light blue") +
-geom_rect(mapping=aes(xmin=min(daily_focal$DATE), xmax=max(daily_focal$DATE), ymin=0, ymax=.1), fill="pale green") +
-geom_rect(mapping=aes(xmin=min(daily_focal$DATE), xmax=max(daily_focal$DATE), ymin=.1, ymax=.4), fill="olivedrab3") +
-geom_rect(mapping=aes(xmin=min(daily_focal$DATE), xmax=max(daily_focal$DATE), ymin=.4, ymax=.5), fill="olivedrab1") +
-geom_rect(mapping=aes(xmin=min(daily_focal$DATE), xmax=max(daily_focal$DATE), ymin=.5, ymax=.7), fill="yellow") +
-geom_rect(mapping=aes(xmin=min(daily_focal$DATE), xmax=max(daily_focal$DATE), ymin=.7, ymax=.8), fill="orange") +
-geom_rect(mapping=aes(xmin=min(daily_focal$DATE), xmax=max(daily_focal$DATE), ymin=.8, ymax=1), fill="red") +
+geom_rect(mapping=aes(xmin=min(daily_focal$DATE), xmax=max(daily_focal$DATE), ymin=-0.2, ymax=0), color="light blue", fill=NA) +
+geom_rect(mapping=aes(xmin=min(daily_focal$DATE), xmax=max(daily_focal$DATE), ymin=0, ymax=.1), color="pale green", fill=NA) +
+geom_rect(mapping=aes(xmin=min(daily_focal$DATE), xmax=max(daily_focal$DATE), ymin=.1, ymax=.4), color="olivedrab3", fill=NA) +
+geom_rect(mapping=aes(xmin=min(daily_focal$DATE), xmax=max(daily_focal$DATE), ymin=.4, ymax=.5), color="olivedrab1", fill=NA) +
+geom_rect(mapping=aes(xmin=min(daily_focal$DATE), xmax=max(daily_focal$DATE), ymin=.5, ymax=.7), color="yellow", fill=NA) +
+geom_rect(mapping=aes(xmin=min(daily_focal$DATE), xmax=max(daily_focal$DATE), ymin=.7, ymax=.8), color="orange", fill=NA) +
+geom_rect(mapping=aes(xmin=min(daily_focal$DATE), xmax=max(daily_focal$DATE), ymin=.8, ymax=1), color="red", fill=NA) +
 annotate("text", x = min(daily_focal$DATE), y=c(-0.1, 0.25, 0.6, 0.9), label = c("Phase 0, all normal", "Phase 1, schools open and virtual option", "Phase 2, blended learning plan", "Phase 3, all schools closed, all students virtual"), hjust=0) +
  geom_line(aes(colour=Region)) + ylab("Percent of people with active covid infections") + xlab("Date") + ylim(-0.2,1) + scale_colour_viridis_d(end=0.9, option="A")
 print(local_active_percent)
@@ -612,6 +614,16 @@ daily_utk <- subset(daily_focal, Region=="UTK Student Testing")
 ut_testing <- ggplot(daily_utk[!is.na(daily_utk$NEW_TESTS),], aes(x=DATE, y=NEW_TESTS,)) + geom_ma(aes(linetype="a"), n=7) + guides(linetype = FALSE) + ylab("Actual number of new tests in student health center each day (7 day average)") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8) + geom_vline(xintercept=as.POSIXct("2020-09-15 UTC"), color="red")
 print(ut_testing)
 
+```
+
+As for the county data, the positivity rate can also be important: if all the tests show up positive, likey symptomatic, cases, then there are likely other people being missed. The <i>New York Times</i> <a href="https://www.nytimes.com/2020/07/14/us/coronavirus-schools-fall.html">reports</a> on July 14, 2020, that, "As education leaders decide whether to reopen classrooms in the fall amid a raging pandemic, many are looking to a standard generally agreed upon among epidemiologists: To control community spread of the coronavirus, the average daily infection rate among those who are tested should not exceed 5 percent." The horizontal black line below shows that guidance. The CDC provides thoughts about possible testing strategies at colleges and universities [here](https://www.cdc.gov/coronavirus/2019-ncov/community/colleges-universities/ihe-testing.html#when-to-test).
+
+
+```
+daily_utk$NEW_PROPORTION_CONFIRMED <- 100*daily_utk$NEW_CONFIRMED/daily_utk$NEW_TESTS
+
+focal_proportion_pos_utk <- ggplot(daily_focal_no_ut[!is.na(daily_utk$NEW_PROPORTION_CONFIRMED),], aes(x=DATE, y=NEW_PROPORTION_CONFIRMED, group=Region)) + geom_ma(aes(colour=Region, linetype="a"), n=7) + guides(linetype = FALSE) + ylab("Percentage of positive tests in student center (7 day avg)") + xlab("Date") + geom_hline(yintercept=5, col="black") + scale_colour_viridis_d(end=0.8)
+print(focal_proportion_pos_utk)
 ```
 
 <hr />

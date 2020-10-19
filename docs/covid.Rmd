@@ -223,7 +223,7 @@ local_new_100k_log1p <- ggplot(daily_focal_away_from_zero[!is.na(daily_focal_awa
 geom_rect(mapping=aes(xmin=min(daily_focal_away_from_zero$DATE), xmax=max(daily_focal_away_from_zero$DATE), ymin=0, ymax=1), fill="darkolivegreen1") +
   geom_rect(mapping=aes(xmin=min(daily_focal_away_from_zero$DATE), xmax=max(daily_focal_away_from_zero$DATE), ymin=1, ymax=10), fill="khaki1") +
   geom_rect(mapping=aes(xmin=min(daily_focal_away_from_zero$DATE), xmax=max(daily_focal_away_from_zero$DATE), ymin=10, ymax=25), fill="tan1") +
-  geom_rect(mapping=aes(xmin=min(daily_focal_away_from_zero$DATE), xmax=max(daily_focal_away_from_zero$DATE), ymin=25, ymax=max(daily_focal_away_from_zero$New_cases_per_100k, na.rm=TRUE)), fill="indianred1") + 
+  geom_rect(mapping=aes(xmin=min(daily_focal_away_from_zero$DATE), xmax=max(daily_focal_away_from_zero$DATE), ymin=25, ymax=40), fill="indianred1") + 
 geom_ma(aes(colour=Region, linetype="a"), n=7) + guides(linetype = FALSE) + ylab("Number of new cases in area each day per 100,000 people") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8) 
 #+ scale_y_continuous(trans = "log1p", breaks = c(1, 10, 25))
 print(local_new_100k_log1p)
@@ -343,10 +343,10 @@ Harvard’s Edmond J. Safra Center for Ethics and the Harvard Global Health Inst
 ```{r harvardstandards, echo=FALSE, message=FALSE, warning=FALSE}
 maxval <- max(30, max(oakridge_seven$New_cases_per_100k, na.rm=TRUE))
 harvard_oakridge <- ggplot(oakridge_seven[!is.na(oakridge_seven$New_cases_per_100k),], aes(x=DATE, y=New_cases_per_100k)) + ylab("Average new cases per day per 100K population") + xlab("Date") + ylim(0,NA) +
-  geom_rect(mapping=aes(xmin=min(oakridge_seven$DATE), xmax=max(oakridge_seven$DATE), ymin=0, ymax=1), color="darkolivegreen1", fill=NA) +
-  geom_rect(mapping=aes(xmin=min(oakridge_seven$DATE), xmax=max(oakridge_seven$DATE), ymin=1, ymax=10), color="khaki1", fill=NA) +
-  geom_rect(mapping=aes(xmin=min(oakridge_seven$DATE), xmax=max(oakridge_seven$DATE), ymin=10, ymax=25), color="tan1", fill=NA) +
-  geom_rect(mapping=aes(xmin=min(oakridge_seven$DATE), xmax=max(oakridge_seven$DATE), ymin=25, ymax=maxval), color="indianred1", fill=NA) +
+  geom_rect(mapping=aes(xmin=min(oakridge_seven$DATE), xmax=max(oakridge_seven$DATE), ymin=0, ymax=1), fill="darkolivegreen1") +
+  geom_rect(mapping=aes(xmin=min(oakridge_seven$DATE), xmax=max(oakridge_seven$DATE), ymin=1, ymax=10), fill="khaki1") +
+  geom_rect(mapping=aes(xmin=min(oakridge_seven$DATE), xmax=max(oakridge_seven$DATE), ymin=10, ymax=25), fill="tan1") +
+  geom_rect(mapping=aes(xmin=min(oakridge_seven$DATE), xmax=max(oakridge_seven$DATE), ymin=25, ymax=maxval), fill="indianred1") +
  annotate("text", x = min(oakridge_seven$DATE), y=c(0.5, 5.5, 17.5, mean(c(25, maxval))), label = c("", "First reopening priority: PreK-5 and special ed preK-8\nSecond reopening priority: 6-8 and special ed 9-12\nThird reopening priority: 9-12 on hybrid schedule", "First reopening priority: PreK-5 and special ed preK-8\nSecond reopening priority: 6-8 and special ed 9-12\nOnline only: 9-12", "All learning remote for everyone"), hjust=0) +
  geom_line()
 print(harvard_oakridge)
@@ -619,10 +619,11 @@ print(ut_testing)
 As for the county data, the positivity rate can also be important: if all the tests show up positive, likey symptomatic, cases, then there are likely other people being missed. The <i>New York Times</i> <a href="https://www.nytimes.com/2020/07/14/us/coronavirus-schools-fall.html">reports</a> on July 14, 2020, that, "As education leaders decide whether to reopen classrooms in the fall amid a raging pandemic, many are looking to a standard generally agreed upon among epidemiologists: To control community spread of the coronavirus, the average daily infection rate among those who are tested should not exceed 5 percent." The horizontal black line below shows that guidance. The CDC provides thoughts about possible testing strategies at colleges and universities [here](https://www.cdc.gov/coronavirus/2019-ncov/community/colleges-universities/ihe-testing.html#when-to-test).
 
 
-```
+```{r plotsutkproportion, echo=FALSE, message=FALSE, warning=FALSE}
+
 daily_utk$NEW_PROPORTION_CONFIRMED <- 100*daily_utk$NEW_CONFIRMED/daily_utk$NEW_TESTS
 
-focal_proportion_pos_utk <- ggplot(daily_focal_no_ut[!is.na(daily_utk$NEW_PROPORTION_CONFIRMED),], aes(x=DATE, y=NEW_PROPORTION_CONFIRMED, group=Region)) + geom_ma(aes(colour=Region, linetype="a"), n=7) + guides(linetype = FALSE) + ylab("Percentage of positive tests in student center (7 day avg)") + xlab("Date") + geom_hline(yintercept=5, col="black") + scale_colour_viridis_d(end=0.8)
+focal_proportion_pos_utk <- ggplot(daily_utk[!is.na(daily_utk$NEW_PROPORTION_CONFIRMED),], aes(x=DATE, y=NEW_PROPORTION_CONFIRMED, group=Region)) + geom_ma(aes(colour=Region, linetype="a"), n=7) + guides(linetype = FALSE) + ylab("Percentage of positive tests in student center (7 day avg)") + xlab("Date") + geom_hline(yintercept=5, col="black") + scale_colour_viridis_d(end=0.8)
 print(focal_proportion_pos_utk)
 ```
 

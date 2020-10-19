@@ -197,10 +197,9 @@ print(local_new)
 
 ```
 
-Here are the same plots, but normalized so it's per 100,000 people in each area per day (making it easier to see patterns in less populous areas):
 
 
-```{r plotsA2, echo=FALSE, message=FALSE, warning=FALSE}
+```{r plotsA2, echo=FALSE, message=FALSE, warning=FALSE, eval=FALSE}
 
 
 #local_new_100k <- ggplot(daily_focal[!is.na(daily_focal$New_cases_per_100k),], aes(x=DATE, y=New_cases_per_100k, group=Region)) + geom_smooth(aes(colour=Region), se=FALSE) + geom_point(aes(colour=Region), size=0.5)  + ylab("Number of new cases in area each day per 100,000 people") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)
@@ -214,19 +213,25 @@ print(local_new_100k)
 
 ```
 
-I here use the [Harvard Global Health Institute's](https://globalepidemics.org/key-metrics-for-covid-suppression/) standards for guidance of control. Yellow means "rigorous test and trace programs advised", orange means "stay-at-home orders and/or rigorous test and trace programs advised", and red means "stay-at-home orders necessary".
+Here are the same plots, but normalized so it's per 100,000 people in each area per day (making it easier to see patterns in less populous areas). I here use the [Harvard Global Health Institute's](https://globalepidemics.org/key-metrics-for-covid-suppression/) standards for guidance of control. Yellow means "rigorous test and trace programs advised", orange means "stay-at-home orders and/or rigorous test and trace programs advised", and red means "stay-at-home orders necessary".
 
-```{r log1pnew, echo=FALSE, message=FALSE, warning=FALSE, eval=TRUE}
+```{r newcasesharvard, echo=FALSE, message=FALSE, warning=FALSE, eval=TRUE}
 #daily_focal_away_from_zero <- subset(daily_focal_no_ut, New_cases_per_100k>0.5) #to keep the plot from blowing up towards zero
-daily_focal_away_from_zero <- daily_focal_no_ut
-local_new_100k_log1p <- ggplot(daily_focal_away_from_zero[!is.na(daily_focal_away_from_zero$New_cases_per_100k),], aes(x=DATE, y=New_cases_per_100k, group=Region)) + 
-geom_rect(mapping=aes(xmin=min(daily_focal_away_from_zero$DATE), xmax=max(daily_focal_away_from_zero$DATE), ymin=0, ymax=1), fill="darkolivegreen1") +
-  geom_rect(mapping=aes(xmin=min(daily_focal_away_from_zero$DATE), xmax=max(daily_focal_away_from_zero$DATE), ymin=1, ymax=10), fill="khaki1") +
-  geom_rect(mapping=aes(xmin=min(daily_focal_away_from_zero$DATE), xmax=max(daily_focal_away_from_zero$DATE), ymin=10, ymax=25), fill="tan1") +
-  geom_rect(mapping=aes(xmin=min(daily_focal_away_from_zero$DATE), xmax=max(daily_focal_away_from_zero$DATE), ymin=25, ymax=40), fill="indianred1") + 
+local_new_100k_harvard <- ggplot(daily_focal_no_ut[!is.na(daily_focal_no_ut$New_cases_per_100k),], aes(x=DATE, y=New_cases_per_100k, group=Region)) + 
+geom_rect(mapping=aes(xmin=min(daily_focal_no_ut$DATE), xmax=max(daily_focal_no_ut$DATE), ymin=0, ymax=1), fill="darkolivegreen1") +
+  geom_rect(mapping=aes(xmin=min(daily_focal_no_ut$DATE), xmax=max(daily_focal_no_ut$DATE), ymin=1, ymax=10), fill="khaki1") +
+  geom_rect(mapping=aes(xmin=min(daily_focal_no_ut$DATE), xmax=max(daily_focal_no_ut$DATE), ymin=10, ymax=25), fill="tan1") +
+  geom_rect(mapping=aes(xmin=min(daily_focal_no_ut$DATE), xmax=max(daily_focal_no_ut$DATE), ymin=25, ymax=40), fill="indianred1") + 
 geom_ma(aes(colour=Region, linetype="a"), n=7) + guides(linetype = FALSE) + ylab("Number of new cases in area each day per 100,000 people") + xlab("Date") + ylim(0,40) + scale_colour_viridis_d(end=0.8) 
+# daily_focal_away_from_zero <- daily_focal_no_ut
+# local_new_100k_log1p <- ggplot(daily_focal_away_from_zero[!is.na(daily_focal_away_from_zero$New_cases_per_100k),], aes(x=DATE, y=New_cases_per_100k, group=Region)) + 
+# geom_rect(mapping=aes(xmin=min(daily_focal_away_from_zero$DATE), xmax=max(daily_focal_away_from_zero$DATE), ymin=0, ymax=1), fill="darkolivegreen1") +
+#   geom_rect(mapping=aes(xmin=min(daily_focal_away_from_zero$DATE), xmax=max(daily_focal_away_from_zero$DATE), ymin=1, ymax=10), fill="khaki1") +
+#   geom_rect(mapping=aes(xmin=min(daily_focal_away_from_zero$DATE), xmax=max(daily_focal_away_from_zero$DATE), ymin=10, ymax=25), fill="tan1") +
+#   geom_rect(mapping=aes(xmin=min(daily_focal_away_from_zero$DATE), xmax=max(daily_focal_away_from_zero$DATE), ymin=25, ymax=40), fill="indianred1") + 
+# geom_ma(aes(colour=Region, linetype="a"), n=7) + guides(linetype = FALSE) + ylab("Number of new cases in area each day per 100,000 people") + xlab("Date") + ylim(0,40) + scale_colour_viridis_d(end=0.8) 
 #+ scale_y_continuous(trans = "log1p", breaks = c(1, 10, 25))
-print(local_new_100k_log1p)
+print(local_new_100k_harvard)
 ```
 
 ```{r greenzone, echo=FALSE, message=FALSE, warning=FALSE, eval=FALSE}

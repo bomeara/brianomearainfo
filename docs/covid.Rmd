@@ -341,23 +341,23 @@ Harvard’s Edmond J. Safra Center for Ethics and the Harvard Global Health Inst
 ```{r harvardstandards, echo=FALSE, message=FALSE, warning=FALSE}
 maxval <- max(30, max(oakridge_seven$New_cases_per_100k, na.rm=TRUE))
 harvard_oakridge <- ggplot(oakridge_seven[!is.na(oakridge_seven$New_cases_per_100k),], aes(x=DATE, y=New_cases_per_100k)) + ylab("Average new cases per day per 100K population") + xlab("Date") + ylim(0,NA) +
-  geom_rect(mapping=aes(xmin=min(oakridge_seven$DATE), xmax=max(oakridge_seven$DATE), ymin=0, ymax=1), fill="darkolivegreen1") +
-  geom_rect(mapping=aes(xmin=min(oakridge_seven$DATE), xmax=max(oakridge_seven$DATE), ymin=1, ymax=10), fill="khaki1") +
-  geom_rect(mapping=aes(xmin=min(oakridge_seven$DATE), xmax=max(oakridge_seven$DATE), ymin=10, ymax=25), fill="tan1") +
-  geom_rect(mapping=aes(xmin=min(oakridge_seven$DATE), xmax=max(oakridge_seven$DATE), ymin=25, ymax=maxval), fill="indianred1") +
+  geom_rect(mapping=aes(xmin=min(oakridge_seven$DATE), xmax=max(oakridge_seven$DATE), ymin=0, ymax=1), color="darkolivegreen1", fill=NA) +
+  geom_rect(mapping=aes(xmin=min(oakridge_seven$DATE), xmax=max(oakridge_seven$DATE), ymin=1, ymax=10), color="khaki1", fill=NA) +
+  geom_rect(mapping=aes(xmin=min(oakridge_seven$DATE), xmax=max(oakridge_seven$DATE), ymin=10, ymax=25), color="tan1", fill=NA) +
+  geom_rect(mapping=aes(xmin=min(oakridge_seven$DATE), xmax=max(oakridge_seven$DATE), ymin=25, ymax=maxval), color="indianred1", fill=NA) +
  annotate("text", x = min(oakridge_seven$DATE), y=c(0.5, 5.5, 17.5, mean(c(25, maxval))), label = c("", "First reopening priority: PreK-5 and special ed preK-8\nSecond reopening priority: 6-8 and special ed 9-12\nThird reopening priority: 9-12 on hybrid schedule", "First reopening priority: PreK-5 and special ed preK-8\nSecond reopening priority: 6-8 and special ed 9-12\nOnline only: 9-12", "All learning remote for everyone"), hjust=0) +
  geom_line()
 print(harvard_oakridge)
 
 ```
 
-Tennessee now breaks out covid test results for school age children (age 5-18). The number of tests in this age group and the underlying population size aren't known to me, so things like positivity rate and proportion of students infected cannot be determined, but the raw number of students infected can be shown:
+Tennessee now breaks out covid test results for school age children (age 5-18). The number of tests in this age group and the underlying population size aren't known to me, so things like positivity rate and proportion of students infected cannot be determined, but the raw number of students infected can be shown (doing a seven day average):
 
 ```{r studentinfections, echo=FALSE, message=FALSE, warning=FALSE}
 try(student_covid_total <- ggplot(schoolkids_daily, aes(x=DATE, y=CASE_COUNT, group=Region)) + geom_line(aes(colour=Region)) +  ylab("Total number of students who have tested positive") + xlab("Date") + scale_colour_viridis_d(end=0.8))
 try(print(student_covid_total))
 
-try(student_covid_daily <- ggplot(schoolkids_daily, aes(x=DATE, y=NEW_CASES, group=Region)) + geom_line(aes(colour=Region)) +  ylab("Number of students with new positive covid results daily") + xlab("Date") + scale_colour_viridis_d(end=0.8))
+try(student_covid_daily <- ggplot(schoolkids_daily, aes(x=DATE, y=NEW_CASES, group=Region)) +  geom_ma(aes(colour=Region, linetype="a")) +  ylab("Number of students with new positive covid results daily, 7 day average") + xlab("Date") + scale_colour_viridis_d(end=0.8))
 try(print(student_covid_daily))
 ```
 
@@ -474,12 +474,12 @@ try(print(hosp_plot))
 
 ```
 
-Trends in hospitalization of covid patients over time. The vertical dotted line shows the last day with updated capacity information, when there were `r tail(subset(hospital_knox, East.Region.Hospitals=="ICU Beds")$Available,1)` ICU beds available (ignoring surge capacity) for people in the East Tennessee region.
+Trends in hospitalization of covid patients over time. The vertical dotted line shows the last day with updated capacity information, when there were `r tail(subset(hospital_knox, East.Region.Hospitals=="ICU Beds")$Available,1)` ICU beds available (ignoring surge capacity) for people in the East Tennessee region. The seven day average is shown.
 
 ```{r plotsD, echo=FALSE, message=FALSE, warning=FALSE}
 
 
-new_hospitalization <- ggplot(daily_focal[!is.na(daily_focal$NEW_HOSPITALIZED),], aes(x=DATE, y=NEW_HOSPITALIZED, group=Region)) + geom_ma(aes(colour=Region, linetype="a"), n=7) + guides(linetype = FALSE) + ylab("Number of new covid hospitalizations each day") + xlab("Date") + ylim(0,NA)  + scale_colour_viridis_d(end=0.8) + geom_vline(xintercept=as.POSIXct(last_hospital_update), col="black", linetype="dotted")
+new_hospitalization <- ggplot(daily_focal[!is.na(daily_focal$NEW_HOSPITALIZED),], aes(x=DATE, y=NEW_HOSPITALIZED, group=Region)) + geom_ma(aes(colour=Region, linetype="a"), n=7) + guides(linetype = FALSE) + ylab("Number of new covid hospitalizations each day (7 day average)") + xlab("Date") + ylim(0,NA)  + scale_colour_viridis_d(end=0.8) + geom_vline(xintercept=as.POSIXct(last_hospital_update), col="black", linetype="dotted")
 print(new_hospitalization)
 
 # tn_daily_aggregate <- daily %>% group_by(DATE) %>% summarise(new_hosp = sum(NEW_HOSPITALIZED))
@@ -609,7 +609,7 @@ Testing at UT is also a question. The plot below shows reported number of tests 
 ```{r plotstestingut, echo=FALSE, message=FALSE, warning=FALSE}
 
 daily_utk <- subset(daily_focal, Region=="UTK Student Testing")
-ut_testing <- ggplot(daily_utk[!is.na(daily_utk$NEW_TESTS),], aes(x=DATE, y=NEW_TESTS,)) + geom_ma(aes(linetype="a"), n=7) + guides(linetype = FALSE) + ylab("Actual number of new tests in student health center each day") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8) + geom_vline(xintercept=as.POSIXct("2020-09-15 UTC"), color="red")
+ut_testing <- ggplot(daily_utk[!is.na(daily_utk$NEW_TESTS),], aes(x=DATE, y=NEW_TESTS,)) + geom_ma(aes(linetype="a"), n=7) + guides(linetype = FALSE) + ylab("Actual number of new tests in student health center each day (7 day average)") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8) + geom_vline(xintercept=as.POSIXct("2020-09-15 UTC"), color="red")
 print(ut_testing)
 
 ```

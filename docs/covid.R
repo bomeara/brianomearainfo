@@ -521,7 +521,9 @@ print(focal_proportion_pos_utk)
 saliva_data <- read.csv(file="7 LIVE_saliva_test_data_Page 1_Table.csv", stringsAsFactors=FALSE)
 saliva_data$Active_cases_per_100k = 100000*saliva_data$Positive.diagnostic.tests./saliva_data$Samples.processed
 saliva_data$New_cases_per_100k = saliva_data$Active_cases_per_100k / 14
-saliva_data$DATE <- as.Date(saliva_data$Week,"%m/%d/%y")
+#saliva_data$DATE <- as.Date(saliva_data$Week,"%m/%d/%y")
+saliva_data$DATE <- as.Date(saliva_data$Week,"%b %d, %y")
+
 saliva_data$New_cases_per_100k_lower <- 100000*binom::binom.confint(saliva_data$Positive.diagnostic.tests., saliva_data$Samples.processed, method="exact")$lower/14
 saliva_data$New_cases_per_100k_upper<- 100000*binom::binom.confint(saliva_data$Positive.diagnostic.tests., saliva_data$Samples.processed, method="exact")$upper/14
 

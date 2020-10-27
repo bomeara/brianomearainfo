@@ -614,9 +614,23 @@ utk_plot <- ggplot(utk.cases[!is.na(utk.cases$count),], aes(x=date, y=count, gro
 print(utk_plot)
 ```
 
+```{r salivadata, echo=FALSE, message=FALSE, warning=FALSE}
+saliva_data <- read.csv(file="7 LIVE_saliva_test_data_Page 1_Table.csv", stringsAsFactors=FALSE)
+saliva_data$Active_cases_per_100k = 100000*saliva_data$Positive.diagnostic.tests./saliva_data$Samples
+saliva_data$Active_cases_per_30k = 30000*saliva_data$Positive.diagnostic.tests./saliva_data$Samples
+saliva_data$New_cases_per_100k = saliva_data$Active_cases_per_100k / 14
+#saliva_data$DATE <- as.Date(saliva_data$Week,"%m/%d/%y")
+saliva_data$DATE <- as.Date(saliva_data$Week,"%b %d, %y")
+#saliva_data$DATE <- as.Date(saliva_data$Week,"%d-%m-%y")
+
+saliva_data$New_cases_per_100k_lower <- 100000*binom::binom.confint(saliva_data$Positive.diagnostic.tests., saliva_data$Samples, method="exact")$lower/14
+saliva_data$New_cases_per_100k_upper<- 100000*binom::binom.confint(saliva_data$Positive.diagnostic.tests., saliva_data$Samples, method="exact")$upper/14
+
+```
+
 Testing at UT is also a question. The plot below shows reported number of tests at the student health center, based on data aggregated by Alex Zukowski (see above). Note that these are the raw number of reported tests: a value of 20 means out of all 30,0000 UTK students, only 20 individuals were tested that day at the student health center. Not included here are athletes, who have much more frequent testing. 
 
- The red line on the plot shows the date of a [news story about covid pacts among students to avoid getting tested locally so they could avoid quarantine or isolation](https://www.wvlt.tv/2020/09/15/covid-19-pacts-happening-among-ut-students/). Spread by infected individuals matters, even if they personally are asymptomatic, so personal actions to avoid testing and quarantine / isolation can lead to disease spread to others who might not be so lucky, so it's very disappointing to hear of this. The drop in testing after that line may be purely coincidental, but it is a remarkable change in trend. Other universities test more intensely; for example, [U. of Illinois tests several thousand per day, not a few dozen](https://splunk-public.machinedata.illinois.edu/en-US/app/uofi_shield_public_APP/home). Not being an epidemiologist I do not want to weigh in on what strategy is optimal, but it is a remarkable contrast in approaches.
+ The red line on the plot shows the date of a [news story about covid pacts among students to avoid getting tested locally so they could avoid quarantine or isolation](https://www.wvlt.tv/2020/09/15/covid-19-pacts-happening-among-ut-students/). Spread by infected individuals matters, even if they personally are asymptomatic, so personal actions to avoid testing and quarantine / isolation can lead to disease spread to others who might not be so lucky, so it's very disappointing to hear of this. The drop in testing after that line may be purely coincidental, but it is a remarkable change in trend. Other universities test more intensely; for example, [U. of Illinois tests several thousand per day, not a few dozen](https://splunk-public.machinedata.illinois.edu/en-US/app/uofi_shield_public_APP/home). Not being an epidemiologist I do not want to weigh in on what strategy is optimal, but it is a remarkable contrast in approaches. UT is also starting to report on mandatory saliva-based testing, where they ask everyone residing in a dorm for a saliva sample, pool 3-5 individuals in a tube, test each tube, and then bring back individuals from pools that tested positive for individual testing. From `r paste(range(round(100*(1-saliva_data$Participation.rate),1)), collapse=" to ")` percent of the students listed as being in these dorms do not contribute samples.
 
 ```{r plotstestingut, echo=FALSE, message=FALSE, warning=FALSE}
 
@@ -637,19 +651,12 @@ focal_proportion_pos_utk <- ggplot(daily_utk[!is.na(daily_utk$NEW_PROPORTION_CON
 print(focal_proportion_pos_utk)
 ```
 
-```{r salivadata, echo=FALSE, message=FALSE, warning=FALSE}
-saliva_data <- read.csv(file="7 LIVE_saliva_test_data_Page 1_Table.csv", stringsAsFactors=FALSE)
-saliva_data$Active_cases_per_100k = 100000*saliva_data$Positive.diagnostic.tests./saliva_data$Samples.processed
-saliva_data$New_cases_per_100k = saliva_data$Active_cases_per_100k / 14
-#saliva_data$DATE <- as.Date(saliva_data$Week,"%m/%d/%y")
-saliva_data$DATE <- as.Date(saliva_data$Week,"%b %d, %y")
-
-saliva_data$New_cases_per_100k_lower <- 100000*binom::binom.confint(saliva_data$Positive.diagnostic.tests., saliva_data$Samples.processed, method="exact")$lower/14
-saliva_data$New_cases_per_100k_upper<- 100000*binom::binom.confint(saliva_data$Positive.diagnostic.tests., saliva_data$Samples.processed, method="exact")$upper/14
-
-```
 
 We can also use the UTK saliva data to estimate the number of new cases: the proportion of students who ultimately test postive out of those tested by the saliva scans. Given poor compliance, the true proportions may be much higher than this (if students want to endanger others by not isolating, they may avoid testing if they think they have been exposed). Depending on the date of the test, between `r paste(paste("1 of every ", range(round(1/(saliva_data$Positive.diagnostic.tests./saliva_data$Samples.processed))), sep=""), collapse=" to ")` of students who contributed samples had active covid infections. 
+
+
+At the date of the most recent set of samples, from `r as.character(max(saliva_data$DATE))`, UTK reported `r utk_reported_zukowski$CASES_ACTIVE[utk_reported_zukowski$DATE %in% as.character(max(saliva_data$DATE))]` active cases overall (this presumably includes the `r saliva_data$Positive.diagnostic.tests.[nrow(saliva_data)]` positive diagnostic tests from the sampling). If the pool of students from this sample, `r saliva_data$Locations[nrow(saliva_data)]`, which has a participation rate of , `r round(100*(saliva_data$Participation.rate[nrow(saliva_data)]),1)` percent, is representative of the 30,000 person student body as a whole, that would mean there would be `r round(saliva_data$Active_cases_per_30k[nrow(saliva_data)])` actual active cases among the students on that date. 
+
 
 I am converting the saliva test info to new cases per 100K to correspond with the [Harvard Global Health Institute's](https://globalepidemics.org/key-metrics-for-covid-suppression/) standards for guidance of control (yellow is community spread; red is the highest risk possible in their guidance -- for a county, that would mean "stay-at-home orders necessary" according to them, though how that translates into actions on a college campus is different). These guidelines are for daily new cases but the saliva data are active cases at a point in time. I am adopting the assumption that Knox County uses that new cases are only active for 14 days, so I'm computing the new case estimate as 1/14 the active case estimate. The green, yellow, and orange bands are the same as for Knox and Anderson+Roane counties above; the red band looks much thicker because it has the same lower bound as the others but no maximum, and some of the estimates for UTK are outside the range for the county-wide data. I include the 95% confidence interval for the estimate of new cases per 100,000 people, though this is an underestimate of the uncertainty (are dorms good random samples or are results clustered, are students who refuse testing similar to those who get tested, etc.).
 

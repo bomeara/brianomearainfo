@@ -228,7 +228,7 @@ print(local_new_100k_harvard)
 
 ## ----plotsB2, echo=FALSE, message=FALSE, warning=FALSE------------------------
 
-proportional_testing <- ggplot(daily_focal[!is.na(daily_focal$Tests_per_100k),], aes(x=DATE, y=Tests_per_100k, group=Region)) + geom_ma(aes(colour=Region, linetype="a"), n=7) + guides(linetype = FALSE) + ylab("Number of new tests per 100,000 people each day") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)
+proportional_testing <- ggplot(daily_focal_no_ut[!is.na(daily_focal_no_ut$Tests_per_100k),], aes(x=DATE, y=Tests_per_100k, group=Region)) + geom_ma(aes(colour=Region, linetype="a"), n=7) + guides(linetype = FALSE) + ylab("Number of new tests per 100,000 people each day") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)
 print(proportional_testing)
 
 
@@ -501,22 +501,6 @@ print(ageplot_knox_cumulative)
 ## print(utk_plot)
 
 
-## ----plotstestingut, echo=FALSE, message=FALSE, warning=FALSE-----------------
-
-daily_utk <- subset(daily_focal, Region=="UTK Student Testing")
-ut_testing <- ggplot(daily_utk[!is.na(daily_utk$NEW_TESTS),], aes(x=DATE, y=NEW_TESTS,)) + geom_ma(aes(linetype="a"), n=7) + guides(linetype = FALSE) + ylab("Actual number of new tests in student health center each day (7 day avg)") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8) + geom_vline(xintercept=as.POSIXct("2020-09-15 UTC"), color="red")
-print(ut_testing)
-
-
-
-## ----plotsutkproportion, echo=FALSE, message=FALSE, warning=FALSE-------------
-
-daily_utk$NEW_PROPORTION_CONFIRMED <- 100*daily_utk$NEW_CONFIRMED/daily_utk$NEW_TESTS
-
-focal_proportion_pos_utk <- ggplot(daily_utk[!is.na(daily_utk$NEW_PROPORTION_CONFIRMED),], aes(x=DATE, y=NEW_PROPORTION_CONFIRMED, group=Region)) + geom_ma(aes(colour=Region, linetype="a"), n=7) + guides(linetype = FALSE) + ylab("Percentage of positive tests in student center (7 day avg)") + xlab("Date") + geom_hline(yintercept=5, col="black") + scale_colour_viridis_d(end=0.8) + ylim(0,NA)
-print(focal_proportion_pos_utk)
-
-
 ## ----salivadata, echo=FALSE, message=FALSE, warning=FALSE---------------------
 saliva_data <- read.csv(file="7 LIVE_saliva_test_data_Page 1_Table.csv", stringsAsFactors=FALSE)
 saliva_data$Active_cases_per_100k = 100000*saliva_data$Positive.diagnostic.tests./saliva_data$Samples
@@ -531,12 +515,28 @@ saliva_data$New_cases_per_100k_upper<- 100000*binom::binom.confint(saliva_data$P
 
 
 
+## ----plotstestingut, echo=FALSE, message=FALSE, warning=FALSE-----------------
+
+daily_utk <- subset(daily_focal, Region=="UTK Student Testing")
+ut_testing <- ggplot(daily_utk[!is.na(daily_utk$NEW_TESTS),], aes(x=DATE, y=NEW_TESTS,)) + geom_ma(aes(linetype="a"), n=7) + guides(linetype = FALSE) + ylab("Actual number of new tests in student health center each day (7 day avg)") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8) + geom_vline(xintercept=as.POSIXct("2020-09-15 UTC"), color="red") + xlim(NA, Sys.Date())
+print(ut_testing)
+
+
+
+## ----plotsutkproportion, echo=FALSE, message=FALSE, warning=FALSE-------------
+
+daily_utk$NEW_PROPORTION_CONFIRMED <- 100*daily_utk$NEW_CONFIRMED/daily_utk$NEW_TESTS
+
+focal_proportion_pos_utk <- ggplot(daily_utk[!is.na(daily_utk$NEW_PROPORTION_CONFIRMED),], aes(x=DATE, y=NEW_PROPORTION_CONFIRMED, group=Region)) + geom_ma(aes(colour=Region, linetype="a"), n=7) + guides(linetype = FALSE) + ylab("Percentage of positive tests in student center (7 day avg)") + xlab("Date") + geom_hline(yintercept=5, col="black") + scale_colour_viridis_d(end=0.8) + ylim(0,NA) + xlim(NA, Sys.Date())
+print(focal_proportion_pos_utk)
+
+
 ## ----plotsaliva100k, echo=FALSE, message=FALSE, warning=FALSE-----------------
 saliva_plot <- ggplot(saliva_data, aes(x=DATE, y=New_cases_per_100k)) + 
 geom_rect(mapping=aes(xmin=min(DATE), xmax=max(DATE), ymin=0, ymax=1), fill="darkolivegreen1") +
   geom_rect(mapping=aes(xmin=min(DATE), xmax=max(DATE), ymin=1, ymax=10), fill="khaki1") +
   geom_rect(mapping=aes(xmin=min(DATE), xmax=max(DATE), ymin=10, ymax=25), fill="tan1") +
   geom_rect(mapping=aes(xmin=min(DATE), xmax=max(DATE), ymin=25, ymax=max(New_cases_per_100k_upper)), fill="indianred1") + 
-geom_point() + ylab("Est. daily new cases 100,000 people based on UTK saliva samples") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8) + geom_errorbar(aes(ymin=New_cases_per_100k_lower, ymax=New_cases_per_100k_upper), width=0.1)
+geom_point() + ylab("Est. daily new cases 100,000 people based on UTK saliva samples") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8) + geom_errorbar(aes(ymin=New_cases_per_100k_lower, ymax=New_cases_per_100k_upper), width=0.1) + xlim(NA, Sys.Date())
 print(saliva_plot)
 

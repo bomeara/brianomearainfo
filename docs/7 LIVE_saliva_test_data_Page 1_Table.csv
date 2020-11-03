@@ -1,11 +1,16 @@
 Week,Locations,Participation rate,Samples,Typical pool size,Pools,Positive pools,Individual samples referred for diagnostic testing,Positive diagnostic tests*
-"Sep 21, 2020","Hess, White",0.739,574,5,116,20,26,14
-"Sep 28, 2020","Dogwood, Magnolia",0.809,531,3,179,2,6,1
-"Oct 5, 2020","Carrick North, Carrick South, Fraternity Park, Makeup tests",0.717,1126,"3, 5",322,18,58,12
-"Oct 12, 2020","Fred Brown, Orange, 
-Kappa Alpha, Reese, 
-Makeup tests",0.752,1122,"3, 4",338,8,34,4
+"Oct 26, 2020","Stokely,
+Hess,
+Kappa Sigma
+White,
+Makeup tests",0.734,974,"3, 4",317,16,53,9
 "Oct 19, 2020","Clement, 
 Volunteer,
 Laurel,
-Makeup tests",0.775,1341,"3, 4, 5",361,14,62,8
+Makeup tests",0.775,1341,"3, 4, 5",361,14,62,10
+"Oct 12, 2020","Fred Brown, Orange, 
+Kappa Alpha, Reese, 
+Makeup tests",0.752,1122,"3, 4",338,8,34,4
+"Oct 5, 2020","Carrick North, Carrick South, Fraternity Park, Makeup tests",0.717,1126,"3, 5",322,18,58,13
+"Sep 28, 2020","Dogwood, Magnolia",0.809,531,3,179,2,6,1
+"Sep 21, 2020","Hess, White",0.739,574,5,116,20,26,14

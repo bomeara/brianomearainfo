@@ -677,7 +677,7 @@ print(focal_proportion_pos_utk)
 We can also use the UTK saliva data to estimate the number of new cases: the proportion of students who ultimately test postive out of those tested by the saliva scans. Given poor compliance, the true proportions may be much higher than this (if students want to endanger others by not isolating, they may avoid testing if they think they have been exposed). Depending on the date of the test, between `r paste(paste("1 of every ", range(round(1/(saliva_data$Positive.diagnostic.tests./saliva_data$Samples))), sep=""), collapse=" to ")` of students who contributed samples had active covid infections. 
 
 
-At the date of the most recent set of samples, from `r as.character(max(saliva_data$DATE))`, UTK reported <b>`r utk_reported_zukowski$CASES_ACTIVE[utk_reported_zukowski$DATE %in% as.character(max(saliva_data$DATE))]` active cases overall</b> (this presumably includes the `r saliva_data$Positive.diagnostic.tests.[nrow(saliva_data)]` positive diagnostic tests from the sampling). If the pool of students from this sample, `r saliva_data$Locations[nrow(saliva_data)]`, which has a participation rate of `r round(100*(saliva_data$Participation.rate[nrow(saliva_data)]),1)` percent, is representative of the 30,000 person student body as a whole, that would mean there would be <b>`r round(saliva_data$Active_cases_per_30k[nrow(saliva_data)])` actual active cases</b> among the students on that date. 
+At the date of the most recent set of samples, from `r as.character(max(saliva_data$DATE))`, UTK reported <b>`r utk_reported_zukowski$CASES_ACTIVE[utk_reported_zukowski$DATE %in% as.character(max(saliva_data$DATE))]` active cases overall</b> (this presumably includes the `r saliva_data$Positive.diagnostic.tests.[nrow(saliva_data)]` positive diagnostic tests from the sampling). If the pool of students from this sample, which has a participation rate of `r round(100*(saliva_data$Participation.rate[nrow(saliva_data)]),1)` percent, is representative of the 30,000 person student body as a whole, that would mean there would be <b>`r round(saliva_data$Active_cases_per_30k[nrow(saliva_data)])` actual active cases</b> among the students on that date. 
 
 
 I am converting the saliva test info to new cases per 100K to correspond with the [Harvard Global Health Institute's](https://globalepidemics.org/key-metrics-for-covid-suppression/) standards for guidance of control (yellow is community spread; red is the highest risk possible in their guidance -- for a county, that would mean "stay-at-home orders necessary" according to them, though how that translates into actions on a college campus is different). These guidelines are for daily new cases but the saliva data are active cases at a point in time. I am adopting the assumption that Knox County uses that new cases are only active for 14 days, so I'm computing the new case estimate as 1/14 the active case estimate. The green, yellow, and orange bands are the same as for Knox and Anderson+Roane counties above; the red band looks much thicker because it has the same lower bound as the others but no maximum, and some of the estimates for UTK are outside the range for the county-wide data. I include the 95% confidence interval for the estimate of new cases per 100,000 people, though this is an underestimate of the uncertainty (are dorms good random samples or are results clustered, are students who refuse testing similar to those who get tested, etc.).
@@ -691,6 +691,41 @@ geom_rect(mapping=aes(xmin=min(DATE), xmax=Sys.Date(), ymin=0, ymax=1), fill="da
   geom_rect(mapping=aes(xmin=min(DATE), xmax=Sys.Date(), ymin=25, ymax=max(New_cases_per_100k_upper)), fill="indianred1") + 
 geom_point() + ylab("Est. daily new cases 100,000 people based on UTK saliva samples") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8) + geom_errorbar(aes(ymin=New_cases_per_100k_lower, ymax=New_cases_per_100k_upper), width=0.1) 
 print(saliva_plot)
+```
+
+
+A different way to consider this is what percent of the community has active covid infections at any one time. There are two ways to get this. One is assuming that every person who has active covid 1) knows this through testing and 2) reports this to UT. This uses the active case numbers reported by UT (gotten through the intermediary of Alex Zukowski). The other way is to assume that the random saliva testing at the dorms is a better way to get this estimate. This avoids issues of asymptomatic or presymptomatic individuals not getting tested, but it could be biased in other ways: maybe the ~25% of students who skip mandatory testing are more likely to have covid (or maybe they're studying at home and not using the dorm at all), maybe the dorms selected are selected based on the results of sewage testing for covid, etc. My guess is that the saliva testing is the better estimate.
+
+```{r plotutactiveproportion, echo=FALSE, message=FALSE, warning=FALSE}
+utk_active_proportion_df <- rbind(
+	data.frame(DATE=as.Date(utk_reported_zukowski$DATE), Active_percentage=100*utk_reported_zukowski$CASES_ACTIVE/30000, Assumption="Every active case knows and reports"),
+	data.frame(DATE=as.Date(saliva_data$DATE), Active_percentage=100*saliva_data$Positive.diagnostic.tests. / saliva_data$Samples, Assumption="Student saliva testing is representative")
+)
+utk_active_proportion_plot <- ggplot(utk_active_proportion_df, aes(x=DATE, y=Active_percentage, group=Assumption)) + geom_line(aes(colour=Assumption)) + scale_colour_viridis_d(end=0.8) 
+print(utk_active_proportion_plot)
+
+
+saliva_active <- saliva_data$Active_cases_per_30k[nrow(saliva_data)]
+reported_active <- utk_reported_zukowski$CASES_ACTIVE[utk_reported_zukowski$DATE %in% as.character(max(saliva_data$DATE))]
+reported_isolation_total <- utk_reported_zukowski$SELF_ISOLATED_TOTAL[utk_reported_zukowski$DATE %in% as.character(max(saliva_data$DATE))]
+
+max_spreader_proportion <- (saliva_active-reported_active)/30000
+min_spreader_proportion <- (max(0,saliva_active-reported_isolation_total))/30000
+group_sizes <- seq(from=1, to=100, by=1)
+avoidance_df <- rbind(
+	data.frame(Group_size = group_sizes, Percentage_infected_groups=100*(1-dbinom(0, size=group_sizes, prob=max_spreader_proportion)), Assumption="No one self isolating without knowing they have active covid has covid"),
+	data.frame(Group_size = group_sizes, Percentage_infected_groups=100*(1-dbinom(0, size=group_sizes, prob=min_spreader_proportion)), Assumption="Every single person self isolating has covid, leaving far fewer with covid still at large")
+)
+```
+
+Given the estimated percentage of individuals with active cases, what is the chance that in a given group of people at UT, there is someone there with covid? This is hard to know, as people with active cases who know about them are hopefully isolating themselves, and others are isolating who have been exposed and who may have active cases but do not know that yet. If we assume that the saliva samples are the best estimates of proportion of active cases (since it does not rely on students deciding to go to student health due to symptoms), we can use that to estimate the true number of active cases. We can then compare that to the number of people isolating due to active cases to figure out how many active cases are not in the self-reported situation. They could still be isolating because they have close contacts who are isolating, or they might not, so we can use both those assumptions. For example, on the last date of saliva samples, `r as.character(max(saliva_data$DATE))`, there were `r reported_active` individuals at UT with active reported covid infections, `r reported_isolation_total` individuals isolating (including presumably all the reported active cases), but based on the saliva proportion of active cases there would be `r saliva_active` active cases across the 30,000 students. So the point estimate of the number of people who may be active and not in isolation may be between `r saliva_active-reported_active` and `r max(0,saliva_active-reported_isolation_total)` individuals, depending on how many of the ones who are active but don't know it are self isolating anyway. And of course remember that all these numbers are very uncertain, especially those based on small sample sizes. But we can use this to get a gut sense of the probability of encountering someone who actively has covid in different group sizes -- perhaps important for showing the importance of avoiding large unmasked groups, especially before returning home to family over the winter break. For example, for a thirty person party some weekend, there is between a `r round(min(subset(avoidance_df, Group_size==50)$Percentage_infected_groups))` to `r round(max(subset(avoidance_df, Group_size==50)$Percentage_infected_groups))` chance that at least one person at that party actively has covid during the party (the lower estimate assumes that *every* person in isolation, whether they know it or not, is one of the people with active covid, but that still leaves many to continue spreading it (and people outside UT's campus also have covid, too)). Even repeated small group interactions pose a risk. If someone does not have covid, and repeatedly meets with random groups of three other people who might have it, there is only a `r min(round(subset(avoidance_df, Group_size==3)$Percentage_infected_groups,1))`% chance of someone else in each group having covid, but by the time the person has met with five such groups there is a `r round(100* 1-dnorm(0, 5, min((subset(avoidance_df, Group_size==3)$Percentage_infected_groups))))`% chance that the person will have been exposed to someone with covid in at least one of these groups.
+
+```{r plotencounterprob, echo=FALSE, message=FALSE, warning=FALSE}
+
+utk_active_spreader_plot <- ggplot(avoidance_df, aes(x=Group_size, y=Percentage_infected_groups, group=Assumption)) + geom_line(aes(colour=Assumption)) + scale_colour_viridis_d(end=0.8)
+print(utk_active_spreader_plot)
+
+
 ```
 
 <hr />

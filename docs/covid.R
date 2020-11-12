@@ -522,9 +522,24 @@ daily_utk <- subset(daily_focal, Region=="UTK Student Testing")
 daily_utk$DATE <- as.Date(daily_utk$DATE)
 utk_official_testing <- read.csv(file="8 LIVE_SHC_test_data_Page 1_Table.csv", stringsAsFactors=FALSE)
 utk_official_testing$DATE <- as.Date(utk_official_testing$Week,"%b %d, %y")
+utk_official_testing$NEW_TESTS <- utk_official_testing$Total/7
+utk_official_testing$DailyNegative <- utk_official_testing$Negative.tests/7
+utk_official_testing$NEW_CONFIRMED <- utk_official_testing$Positive.tests/7
+real_rows <- nrow(utk_official_testing)
+for (i in 1:6) {
+	next_day <- utk_official_testing[1:real_rows,]
+	next_day$DATE <- next_day$DATE+i
+	utk_official_testing <- rbind(utk_official_testing, next_day)
+}
 
-ut_testing <- ggplot(daily_utk[!is.na(daily_utk$NEW_TESTS),], aes(x=DATE, y=NEW_TESTS,)) + geom_ma(aes(linetype="a"), n=7) + guides(linetype = FALSE) + ylab("Actual number of new tests in student health center each day (7 day avg)") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8) + geom_vline(xintercept=as.POSIXct("2020-09-15 UTC"), color="red") + scale_x_date(limits=as.Date(range(c(daily_utk$DATE[!is.na(daily_utk$TOTAL_TESTS)], as.POSIXct(Sys.Date()))))) 
-print(ut_testing)
+daily_utk$Data_source <- "UTK Zukowski release"
+utk_official_testing$Data_source <- "UTK weekly release"
+daily_utk <- plyr::rbind.fill(daily_utk, utk_official_testing)
+daily_utk <- daily_utk[order(daily_utk$DATE), ]
+
+
+ut_testing_plot <- ggplot(daily_utk[!is.na(daily_utk$NEW_TESTS),], aes(x=DATE, y=NEW_TESTS, group=Data_source)) + geom_line(aes(colour=Data_source)) + guides(linetype = FALSE) + ylab("Actual number of new tests in student health center each day") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8) + geom_vline(xintercept=as.Date("2020-09-15"), color="black", lty="dotted") + scale_x_date(limits=as.Date(range(c(daily_utk$DATE[!is.na(daily_utk$TOTAL_TESTS)], as.POSIXct(Sys.Date()))))) 
+print(ut_testing_plot)
 
 
 
@@ -532,7 +547,9 @@ print(ut_testing)
 
 daily_utk$NEW_PROPORTION_CONFIRMED <- 100*daily_utk$NEW_CONFIRMED/daily_utk$NEW_TESTS
 
-focal_proportion_pos_utk <- ggplot(daily_utk[!is.na(daily_utk$NEW_PROPORTION_CONFIRMED),], aes(x=DATE, y=NEW_PROPORTION_CONFIRMED, group=Region)) + geom_ma(aes(colour=Region, linetype="a"), n=7) + guides(linetype = FALSE) + ylab("Percentage of positive tests in student center (7 day avg)") + xlab("Date") + geom_hline(yintercept=5, col="black") + scale_colour_viridis_d(end=0.8) + ylim(0,NA) + scale_x_date(limits=as.Date(range(c(daily_utk$DATE[!is.na(daily_utk$TOTAL_TESTS)], as.POSIXct(Sys.Date())))))
+
+#focal_proportion_pos_utk <- ggplot(daily_utk[!is.na(daily_utk$NEW_PROPORTION_CONFIRMED),], aes(x=DATE, y=NEW_PROPORTION_CONFIRMED, group=Region)) + geom_ma(aes(colour=Region, linetype="a"), n=7) + guides(linetype = FALSE) + ylab("Percentage of positive tests in student center (7 day avg)") + xlab("Date") + geom_hline(yintercept=5, col="black") + scale_colour_viridis_d(end=0.8) + ylim(0,NA) + scale_x_date(limits=as.Date(range(c(daily_utk$DATE[!is.na(daily_utk$TOTAL_TESTS)], as.POSIXct(Sys.Date())))))
+focal_proportion_pos_utk <- ggplot(daily_utk[!is.na(daily_utk$NEW_PROPORTION_CONFIRMED),], aes(x=DATE, y=NEW_PROPORTION_CONFIRMED, group=Region)) + geom_line(aes(colour=Data_source)) + guides(linetype = FALSE) + ylab("Percentage of positive tests in student center") + xlab("Date") + geom_hline(yintercept=5, col="black") + scale_colour_viridis_d(end=0.8) + ylim(0,NA) + scale_x_date(limits=as.Date(range(c(daily_utk$DATE[!is.na(daily_utk$TOTAL_TESTS)], as.POSIXct(Sys.Date())))))
 print(focal_proportion_pos_utk)
 
 

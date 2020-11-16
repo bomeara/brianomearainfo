@@ -562,3 +562,33 @@ geom_rect(mapping=aes(xmin=min(DATE), xmax=Sys.Date(), ymin=0, ymax=1), fill="da
 geom_point() + ylab("Est. daily new cases 100,000 people based on UTK saliva samples") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8) + geom_errorbar(aes(ymin=New_cases_per_100k_lower, ymax=New_cases_per_100k_upper), width=0.1) 
 print(saliva_plot)
 
+
+## ----plotutactiveproportion, echo=FALSE, message=FALSE, warning=FALSE---------
+utk_active_proportion_df <- rbind(
+	data.frame(DATE=as.Date(utk_reported_zukowski$DATE), Active_percentage=100*utk_reported_zukowski$CASES_ACTIVE/30000, Assumption="Every active case knows and reports"),
+	data.frame(DATE=as.Date(saliva_data$DATE), Active_percentage=100*saliva_data$Positive.diagnostic.tests. / saliva_data$Samples, Assumption="Student saliva testing is representative")
+)
+utk_active_proportion_plot <- ggplot(utk_active_proportion_df, aes(x=DATE, y=Active_percentage, group=Assumption)) + geom_line(aes(colour=Assumption)) + scale_colour_viridis_d(end=0.8) 
+print(utk_active_proportion_plot)
+
+
+saliva_active <- round(saliva_data$Active_cases_per_30k[nrow(saliva_data)])
+reported_active <- round(utk_reported_zukowski$CASES_ACTIVE[utk_reported_zukowski$DATE %in% as.character(max(saliva_data$DATE))])
+reported_isolation_total <- round(utk_reported_zukowski$SELF_ISOLATED_TOTAL[utk_reported_zukowski$DATE %in% as.character(max(saliva_data$DATE))])
+
+max_spreader_proportion <- (saliva_active-reported_active)/30000
+min_spreader_proportion <- (max(0,saliva_active-reported_isolation_total))/30000
+group_sizes <- seq(from=1, to=100, by=1)
+avoidance_df <- rbind(
+	data.frame(Group_size = group_sizes, Percentage_infected_groups=100*(1-dbinom(0, size=group_sizes, prob=min_spreader_proportion)), Assumption="Everyone self-isolating has covid"),
+	data.frame(Group_size = group_sizes, Percentage_infected_groups=100*(1-dbinom(0, size=group_sizes, prob=max_spreader_proportion)), Assumption="Minimal self isolation of infected individuals")
+)
+
+
+## ----plotencounterprob, echo=FALSE, message=FALSE, warning=FALSE--------------
+
+utk_active_spreader_plot <- ggplot(avoidance_df, aes(x=Group_size, y=Percentage_infected_groups, group=Assumption)) + geom_line(aes(colour=Assumption)) + scale_colour_viridis_d(end=0.8)
+print(utk_active_spreader_plot)
+
+
+

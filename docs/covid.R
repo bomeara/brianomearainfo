@@ -319,6 +319,7 @@ for (i in seq_along(hospital_knox_files)) {
   local_beds <- NA
   try(local_beds <- read.csv(hospital_knox_files[i]), silent=TRUE)
   if(!is.na(local_beds)) {
+	local_beds$East.Region.Hospitals <- gsub('All Hospital Beds*', 'All Hospital Beds *', gsub('All Hospital Beds *', 'All Hospital Beds', local_beds$East.Region.Hospitals, fixed=TRUE), fixed=TRUE)
 	local_beds$Total.Capacity <- as.numeric(gsub(",",'', local_beds$Total.Capacity))
 	local_beds$Current.Census <- as.numeric(gsub(",",'', local_beds$Current.Census))
 	local_beds$Current.Utilization <- as.numeric(gsub('%','', local_beds$Current.Utilization))
@@ -331,6 +332,7 @@ for (i in seq_along(hospital_knox_files)) {
 	}
   }
 }
+hospital_knox <- subset(hospital_knox, East.Region.Hospitals != "Adult Floor Beds/Non-ICU")
 
 # covidServer <- get.rds("https://knxhx.richdataservices.com/rds")
 # catalog <- getCatalog(covidServer, "kchd")
@@ -360,6 +362,7 @@ for (resource_index in sequence(length(resources))) {
 	  }
   }
 }
+
 
 # hospitalfiles <- list.files(path="/Users/bomeara/Dropbox/KnoxCovid", pattern="*bed*", full.names =TRUE)
 # capacity.df <- data.frame()

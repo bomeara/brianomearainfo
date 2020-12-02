@@ -437,11 +437,13 @@ resources <- unique(hospital_knox$East.Region.Hospitals)
 for (resource_index in sequence(length(resources))) {
   hospital_resources_subset <- subset(hospital_knox, East.Region.Hospitals==resources[resource_index])
   cnt_used_previous = hospital_resources_subset$Current.Census[1]
-  for(row_index in 2:nrow(hospital_resources_subset)) {
-    if(hospital_resources_subset$Current.Census[row_index] != cnt_used_previous) {
-      cnt_used_previous <- hospital_resources_subset$Current.Census[row_index]
-      last_hospital_update <- max(last_hospital_update, hospital_resources_subset$Date[row_index])
-    }
+  for(row_index in sequence(nrow(hospital_resources_subset))) {
+	  if(row_index>1) {
+		if(hospital_resources_subset$Current.Census[row_index] != cnt_used_previous) {
+		cnt_used_previous <- hospital_resources_subset$Current.Census[row_index]
+		last_hospital_update <- max(last_hospital_update, hospital_resources_subset$Date[row_index])
+		}
+	  }
   }
 }
 

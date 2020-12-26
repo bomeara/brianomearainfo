@@ -420,6 +420,7 @@ for (i in seq_along(hospital_knox_files)) {
   }
 }
 hospital_knox <- subset(hospital_knox, East.Region.Hospitals != "Adult Floor Beds/Non-ICU")
+hospital_knox <- hospital_knox[which(nchar(hospital_knox$East.Region.Hospitals)>0),]
 hospital_knox$Current.Utilization[which(hospital_knox$Current.Utilization>100)] <- hospital_knox$Current.Utilization[which(hospital_knox$Current.Utilization>100)]/100 #to fix two days of data where Knox County was multiplying these by 100, getting 7935% utilization
 
 # covidServer <- get.rds("https://knxhx.richdataservices.com/rds")

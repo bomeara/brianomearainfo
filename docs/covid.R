@@ -79,7 +79,7 @@ temp = tempfile(fileext = ".xlsx")
 dataURL <- "https://www.tn.gov/content/dam/tn/health/documents/cedep/novel-coronavirus/datasets/Public-Dataset-County-New.XLSX"
 download.file(dataURL, destfile=temp, mode='wb')
 
-daily <- readxl::read_xlsx(temp, sheet =1, col_types=c("date", "text", rep("numeric",22)))
+daily <- readxl::read_xlsx(temp, sheet =1, col_types=c("date", "text", rep("numeric",23)))
 
 daily_knox <- subset(daily, COUNTY=="Knox") %>% select(-"COUNTY")
 daily_knox$Region <- "Knox County"
@@ -429,6 +429,13 @@ print(new_hospitalization)
 # diff_confirmed_3 <- diff_confirmed[diff_confirmed$date>=three_weeks_ago,]
 # diffplot3 <- ggplot(diff_confirmed_3, aes(x=date, y=daily_percent_confirmed, color=region)) + geom_smooth() + geom_point() + ylab("Percent of population new confirmed tests daily")
 # print(diffplot3)
+
+
+
+## ----hospitalcapacityplotvsCA, echo=FALSE, message=FALSE, warning=FALSE-------
+hospital_knox_ICU <- subset(hospital_knox, East.Region.Hospitals=="ICU Beds")
+try(hosp_plot_CA <- ggplot(hospital_knox_ICU, aes(x=Date, y=Current.Utilization)) + geom_line() +  ylab("Percent of ICU beds filled") + xlab("Date") + scale_colour_viridis_d(end=0.8) + geom_hline(yintercept=85, col="dodgerblue") + geom_hline(yintercept=100, col="red"))
+try(print(hosp_plot_CA))
 
 
 

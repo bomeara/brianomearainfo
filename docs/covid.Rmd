@@ -53,6 +53,7 @@ library(lubridate)
 library(tidyquant)
 library(binom)
 library(scales)
+library(jsonlite)
 
 #gmr <- "https://www.gstatic.com/covid19/mobility/Global_Mobility_Report.csv"
 
@@ -531,6 +532,35 @@ In December 2020, California instituted a new policy of going to shutdowns in re
 hospital_knox_ICU <- subset(hospital_knox, East.Region.Hospitals=="ICU Beds")
 try(hosp_plot_CA <- ggplot(hospital_knox_ICU, aes(x=Date, y=Current.Utilization)) + geom_line() +  ylab("Percent of ICU beds filled") + xlab("Date") + scale_colour_viridis_d(end=0.8) + geom_hline(yintercept=85, col="dodgerblue") + geom_hline(yintercept=100, col="red"))
 try(print(hosp_plot_CA))
+
+```
+
+```{r hhshospitalization, echo=FALSE, message=FALSE, warning=FALSE}
+hhs_sources <- jsonlite::fromJSON("https://healthdata.gov/data.json?page=0")
+capacity_by_facility_number <- grep("COVID-19 Reported Patient Impact and Hospital Capacity by Facility Data Dictionary", hhs_sources[[6]][[5]])
+capacity_by_facility_url <- hhs_sources[[6]][[6]][capacity_by_facility_number][[1]]$downloadURL
+hhs_capacity <- read.csv(capacity_by_facility_url)
+hhs_capacity_tn <- subset(hhs_capacity, state=="TN")
+# for(i in sequence(nrow(hhs_capacity_tn))) {
+# 	for (j in sequence(ncol(hhs_capacity_tn))) {
+# 		if(!is.na(hhs_capacity_tn[i,j])) {
+# 			if(hhs_capacity_tn[i,j]==-999999) {
+# 				hhs_capacity_tn[i,j] <- NA
+# 			}
+# 		}
+# 	}
+# }
+
+hhs_capacity_tn$fraction_adult_hospital_inpatient_bed_occupied_covid_confirmed_or_suspected_7_day_avg_of_all_occupied <- hhs_capacity_tn$total_adult_patients_hospitalized_confirmed_and_suspected_covid_7_day_avg / hhs_capacity_tn$all_adult_hospital_inpatient_bed_occupied_7_day_avg
+
+
+hhs_capacity_tn$fraction_adult_hospital_ICU_bed_occupied_covid_confirmed_or_suspected_7_day_avg_of_all_ICU_occupied <- hhs_capacity_tn$staffed_icu_adult_patients_confirmed_and_suspected_covid_7_day_avg / hhs_capacity_tn$staffed_adult_icu_bed_occupancy_7_day_avg
+
+focal_cities <- toupper(c("Oak Ridge", "Knoxville", "Lenoir City", "Maryville", "Sweetwater", "Harriman", "Powell", "Jefferson City", "Athens", "Morristown", "Sevierville", "Tazewell", "La Follette", "Jellico", "Sneedville", "Oneida"))
+hhs_capacity_tn_focal <- hhs_capacity_tn[hhs_capacity_tn$city%in%focal_cities,]
+
+#hhs_capacity_tn_or <- subset(hhs_capacity_tn, city=="OAK RIDGE")
+
 
 ```
 

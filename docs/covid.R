@@ -15,6 +15,7 @@ library(lubridate)
 library(tidyquant)
 library(binom)
 library(scales)
+library(jsonlite)
 
 #gmr <- "https://www.gstatic.com/covid19/mobility/Global_Mobility_Report.csv"
 
@@ -333,6 +334,7 @@ for (i in seq_along(hospital_knox_files)) {
   }
 }
 hospital_knox <- subset(hospital_knox, East.Region.Hospitals != "Adult Floor Beds/Non-ICU")
+hospital_knox <- hospital_knox[which(nchar(hospital_knox$East.Region.Hospitals)>0),]
 hospital_knox$Current.Utilization[which(hospital_knox$Current.Utilization>100)] <- hospital_knox$Current.Utilization[which(hospital_knox$Current.Utilization>100)]/100 #to fix two days of data where Knox County was multiplying these by 100, getting 7935% utilization
 
 # covidServer <- get.rds("https://knxhx.richdataservices.com/rds")
@@ -436,6 +438,107 @@ print(new_hospitalization)
 hospital_knox_ICU <- subset(hospital_knox, East.Region.Hospitals=="ICU Beds")
 try(hosp_plot_CA <- ggplot(hospital_knox_ICU, aes(x=Date, y=Current.Utilization)) + geom_line() +  ylab("Percent of ICU beds filled") + xlab("Date") + scale_colour_viridis_d(end=0.8) + geom_hline(yintercept=85, col="dodgerblue") + geom_hline(yintercept=100, col="red"))
 try(print(hosp_plot_CA))
+
+
+
+## ----hhshospitalization, echo=FALSE, message=FALSE, warning=FALSE-------------
+hhs_sources <- jsonlite::fromJSON("https://healthdata.gov/data.json?page=0")
+capacity_by_facility_number <- grep("COVID-19 Reported Patient Impact and Hospital Capacity by Facility Data Dictionary", hhs_sources[[6]][[5]])
+capacity_by_facility_url <- hhs_sources[[6]][[6]][capacity_by_facility_number][[1]]$downloadURL
+hhs_capacity <- read.csv(capacity_by_facility_url)
+hhs_capacity_tn <- subset(hhs_capacity, state=="TN")
+# for(i in sequence(nrow(hhs_capacity_tn))) {
+# 	for (j in sequence(ncol(hhs_capacity_tn))) {
+# 		if(!is.na(hhs_capacity_tn[i,j])) {
+# 			if(hhs_capacity_tn[i,j]==-999999) {
+# 				hhs_capacity_tn[i,j] <- NA
+# 			}
+# 		}
+# 	}
+# }
+
+# field info from https://healthdata.gov/covid-19-reported-patient-impact-and-hospital-capacity-facility-data-dictionary
+
+# fields: 
+# collection_week - This date indicates the start of the period of reporting (the starting Friday).
+# state - [FAQ - 1. d)] The two digit state/territory code for the hospital.
+# hospital_name - [FAQ - 1. a)] The name of the facility reporting.
+# city - The city of the facility reporting.
+# zip - The 5-digit zip code of the facility reporting.
+
+# all_adult_hospital_inpatient_bed_occupied_7_day_avg - [FAQ - 4. b)] Average of total number of staffed inpatient adult beds that are occupied reported during the 7-day period.
+# total_adult_patients_hospitalized_confirmed_and_suspected_covid_7_day_avg - [FAQ - 9. a)] Average number of patients currently hospitalized in an adult inpatient bed who have laboratory-confirmed or suspected COVID19, including those in observation beds reported during the 7-day period.
+# all_adult_hospital_inpatient_beds_7_day_avg - [FAQ - 3. b)] Average of total number of staffed inpatient adult beds in the hospital including all overflow and active surge/expansion beds used for inpatients (including all designated ICU beds) reported during the 7-day period.
+# 
+# total_staffed_adult_icu_beds_7_day_avg - [FAQ - 5. b)] Average of total number of staffed adult ICU beds reported in the 7-day period.
+# staffed_adult_icu_bed_occupancy_7_day_avg - [FAQ - 6. b)] Average of total number of staffed inpatient adult ICU beds that are occupied reported in the 7-day period.
+# staffed_icu_adult_patients_confirmed_and_suspected_covid_7_day_avg - [FAQ - 12. a)] Average number of patients currently hospitalized in a designated adult ICU bed who have suspected or laboratory-confirmed COVID-19 reported in the 7-day period.
+
+# note that -999999 is apparently used for missing data
+
+hhs_capacity_tn$fraction_adult_hospital_inpatient_bed_occupied_covid_confirmed_or_suspected_7_day_avg_of_all_occupied <- hhs_capacity_tn$total_adult_patients_hospitalized_confirmed_and_suspected_covid_7_day_avg / hhs_capacity_tn$all_adult_hospital_inpatient_bed_occupied_7_day_avg
+
+hhs_capacity_tn$fraction_adult_hospital_inpatient_bed_occupied_of_all_inpatient_beds <- hhs_capacity_tn$all_adult_hospital_inpatient_bed_occupied_7_day_avg / hhs_capacity_tn$all_adult_hospital_inpatient_beds_7_day_avg
+
+hhs_capacity_tn$number_unoccupied_adult_hospital_inpatient_beds <- hhs_capacity_tn$all_adult_hospital_inpatient_beds_7_day_avg - hhs_capacity_tn$all_adult_hospital_inpatient_bed_occupied_7_day_avg
+
+
+
+hhs_capacity_tn$fraction_adult_hospital_ICU_bed_occupied_covid_confirmed_or_suspected_7_day_avg_of_all_ICU_occupied <- hhs_capacity_tn$staffed_icu_adult_patients_confirmed_and_suspected_covid_7_day_avg / hhs_capacity_tn$staffed_adult_icu_bed_occupancy_7_day_avg
+
+hhs_capacity_tn$fraction_adult_hospital_inpatient_ICU_bed_occupied_of_all_inpatient_ICU_beds <- hhs_capacity_tn$staffed_adult_icu_bed_occupancy_7_day_avg / hhs_capacity_tn$total_staffed_adult_icu_beds_7_day_avg
+
+hhs_capacity_tn$number_unoccupied_adult_hospital_ICU_beds <- hhs_capacity_tn$total_staffed_adult_icu_beds_7_day_avg - hhs_capacity_tn$staffed_adult_icu_bed_occupancy_7_day_avg
+
+
+focal_cities <- toupper(c("Oak Ridge", "Knoxville", "Lenoir City", "Maryville", "Sweetwater", "Harriman", "Powell", "Jefferson City", "Athens", "Morristown", "Sevierville", "Tazewell", "La Follette", "Jellico", "Sneedville", "Oneida"))
+hhs_capacity_tn_focal <- hhs_capacity_tn[hhs_capacity_tn$city%in%focal_cities,]
+
+hhs_capacity_tn_focal <- subset(hhs_capacity_tn_focal, 
+	!is.na(all_adult_hospital_inpatient_bed_occupied_7_day_avg) & 
+	!is.na(total_adult_patients_hospitalized_confirmed_and_suspected_covid_7_day_avg) & 
+	!is.na(all_adult_hospital_inpatient_beds_7_day_avg) &
+	!is.na(total_staffed_adult_icu_beds_7_day_avg) &
+	!is.na(staffed_adult_icu_bed_occupancy_7_day_avg) &
+	!is.na(staffed_icu_adult_patients_confirmed_and_suspected_covid_7_day_avg) & 
+	!is.na(fraction_adult_hospital_inpatient_bed_occupied_covid_confirmed_or_suspected_7_day_avg_of_all_occupied) &
+	!is.na(fraction_adult_hospital_inpatient_bed_occupied_of_all_inpatient_beds) &
+	!is.na(fraction_adult_hospital_ICU_bed_occupied_covid_confirmed_or_suspected_7_day_avg_of_all_ICU_occupied) &
+	!is.na(fraction_adult_hospital_inpatient_ICU_bed_occupied_of_all_inpatient_ICU_beds)
+)
+
+
+hhs_capacity_tn_focal <- subset(hhs_capacity_tn_focal, 
+	(all_adult_hospital_inpatient_bed_occupied_7_day_avg >= 0) & 
+	(total_adult_patients_hospitalized_confirmed_and_suspected_covid_7_day_avg >= 0) & 
+	(all_adult_hospital_inpatient_beds_7_day_avg >= 0) &
+	(total_staffed_adult_icu_beds_7_day_avg >= 0) &
+	(staffed_adult_icu_bed_occupancy_7_day_avg >= 0) &
+	(staffed_icu_adult_patients_confirmed_and_suspected_covid_7_day_avg >= 0)
+)
+
+hhs_capacity_tn_focal <- subset(hhs_capacity_tn_focal, all_adult_hospital_inpatient_beds_7_day_avg>=100)
+
+hhs_capacity_tn_focal$DATE <- as.Date(hhs_capacity_tn_focal$collection_week)
+
+hhs_plot1 <- ggplot(hhs_capacity_tn_focal, aes(x=DATE, y=fraction_adult_hospital_inpatient_bed_occupied_of_all_inpatient_beds, group=hospital_name)) + geom_line(aes(colour=hospital_name)) + ylab("Fraction of all adult inpatient beds occupied") + xlab("Start of collection week")
+print(hhs_plot1)
+
+hhs_plot2 <- ggplot(hhs_capacity_tn_focal, aes(x=DATE, y=fraction_adult_hospital_inpatient_bed_occupied_covid_confirmed_or_suspected_7_day_avg_of_all_occupied, group=hospital_name)) + geom_line(aes(colour=hospital_name)) + ylab("Fraction of adult inpatient beds with confirmed and suspected covid") + xlab("Start of collection week")
+print(hhs_plot2)
+
+hhs_plot2b <- ggplot(hhs_capacity_tn_focal, aes(x=DATE, y=number_unoccupied_adult_hospital_inpatient_beds, group=hospital_name)) + geom_line(aes(colour=hospital_name)) + ylab("Number of unoccupied adult inpatient beds") + xlab("Start of collection week")
+print(hhs_plot2b)
+
+hhs_plot3 <- ggplot(hhs_capacity_tn_focal, aes(x=DATE, y=fraction_adult_hospital_inpatient_ICU_bed_occupied_of_all_inpatient_ICU_beds, group=hospital_name)) + geom_line(aes(colour=hospital_name)) + ylab("Fraction of all adult ICU beds occupied") + xlab("Start of collection week")
+print(hhs_plot3)
+
+hhs_plot4 <- ggplot(hhs_capacity_tn_focal, aes(x=DATE, y=fraction_adult_hospital_inpatient_ICU_bed_occupied_of_all_inpatient_ICU_beds, group=hospital_name)) + geom_line(aes(colour=hospital_name)) + ylab("Fraction of adult ICU beds with confirmed and suspected covid") + xlab("Start of collection week")
+print(hhs_plot4)
+
+hhs_plot4b <- ggplot(hhs_capacity_tn_focal, aes(x=DATE, y=number_unoccupied_adult_hospital_ICU_beds, group=hospital_name)) + geom_line(aes(colour=hospital_name)) + ylab("Number of unoccupied adult ICU beds") + xlab("Start of collection week")
+print(hhs_plot4b)
+
 
 
 

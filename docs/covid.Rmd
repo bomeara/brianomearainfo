@@ -623,22 +623,22 @@ hhs_capacity_tn_focal <- subset(hhs_capacity_tn_focal, all_adult_hospital_inpati
 
 hhs_capacity_tn_focal$DATE <- as.Date(hhs_capacity_tn_focal$collection_week)
 
-hhs_plot1 <- ggplot(hhs_capacity_tn_focal, aes(x=DATE, y=fraction_adult_hospital_inpatient_bed_occupied_of_all_inpatient_beds, group=hospital_name)) + geom_line(aes(colour=hospital_name)) + ylab("Fraction of all adult inpatient beds occupied") + xlab("Start of collection week") + theme(legend.position="bottom")
+hhs_plot1 <- ggplot(hhs_capacity_tn_focal, aes(x=DATE, y=fraction_adult_hospital_inpatient_bed_occupied_of_all_inpatient_beds, group=hospital_name)) + geom_line(aes(colour=hospital_name)) + ylab("Fraction of all adult inpatient beds occupied") + xlab("Start of collection week") + theme(legend.position="bottom") + theme(legend.text=element_text(size=8))
 print(hhs_plot1)
 
-hhs_plot2 <- ggplot(hhs_capacity_tn_focal, aes(x=DATE, y=fraction_adult_hospital_inpatient_bed_occupied_covid_confirmed_or_suspected_7_day_avg_of_all_occupied, group=hospital_name)) + geom_line(aes(colour=hospital_name)) + ylab("Fraction of adult inpatient beds with confirmed and suspected covid") + xlab("Start of collection week") + theme(legend.position="bottom")
+hhs_plot2 <- ggplot(hhs_capacity_tn_focal, aes(x=DATE, y=fraction_adult_hospital_inpatient_bed_occupied_covid_confirmed_or_suspected_7_day_avg_of_all_occupied, group=hospital_name)) + geom_line(aes(colour=hospital_name)) + ylab("Fraction of adult inpatient beds with confirmed and suspected covid") + xlab("Start of collection week") + theme(legend.position="bottom") + theme(legend.text=element_text(size=8))
 print(hhs_plot2)
 
-hhs_plot2b <- ggplot(hhs_capacity_tn_focal, aes(x=DATE, y=number_unoccupied_adult_hospital_inpatient_beds, group=hospital_name, fill=hospital_name)) + geom_area() + ylab("Number of unoccupied adult inpatient beds total") + xlab("Start of collection week") + theme(legend.position="bottom")
+hhs_plot2b <- ggplot(hhs_capacity_tn_focal, aes(x=DATE, y=number_unoccupied_adult_hospital_inpatient_beds, group=city, fill=city)) + geom_area() + ylab("Number of unoccupied adult inpatient beds total") + xlab("Start of collection week") + theme(legend.position="bottom") + theme(legend.text=element_text(size=8))
 print(hhs_plot2b)
 
-hhs_plot3 <- ggplot(hhs_capacity_tn_focal, aes(x=DATE, y=fraction_adult_hospital_inpatient_ICU_bed_occupied_of_all_inpatient_ICU_beds, group=hospital_name)) + geom_line(aes(colour=hospital_name)) + ylab("Fraction of all adult ICU beds occupied") + xlab("Start of collection week") + theme(legend.position="bottom")
+hhs_plot3 <- ggplot(hhs_capacity_tn_focal, aes(x=DATE, y=fraction_adult_hospital_inpatient_ICU_bed_occupied_of_all_inpatient_ICU_beds, group=hospital_name)) + geom_line(aes(colour=hospital_name)) + ylab("Fraction of all adult ICU beds occupied") + xlab("Start of collection week") + theme(legend.position="bottom") + theme(legend.text=element_text(size=8))
 print(hhs_plot3)
 
-hhs_plot4 <- ggplot(hhs_capacity_tn_focal, aes(x=DATE, y=fraction_adult_hospital_inpatient_ICU_bed_occupied_of_all_inpatient_ICU_beds, group=hospital_name)) + geom_line(aes(colour=hospital_name)) + ylab("Fraction of adult ICU beds with confirmed and suspected covid") + xlab("Start of collection week") + theme(legend.position="bottom")
+hhs_plot4 <- ggplot(hhs_capacity_tn_focal, aes(x=DATE, y=fraction_adult_hospital_inpatient_ICU_bed_occupied_of_all_inpatient_ICU_beds, group=hospital_name)) + geom_line(aes(colour=hospital_name)) + ylab("Fraction of adult ICU beds with confirmed and suspected covid") + xlab("Start of collection week") + theme(legend.position="bottom") + theme(legend.text=element_text(size=8))
 print(hhs_plot4)
 
-hhs_plot4b <- ggplot(hhs_capacity_tn_focal, aes(x=DATE, y=number_unoccupied_adult_hospital_ICU_beds, group=hospital_name, fill=hospital_name)) + geom_area() + ylab("Number of unoccupied adult ICU beds total") + xlab("Start of collection week") + theme(legend.position="bottom")
+hhs_plot4b <- ggplot(hhs_capacity_tn_focal, aes(x=DATE, y=number_unoccupied_adult_hospital_ICU_beds, group=city, fill=city)) + geom_area() + ylab("Number of unoccupied adult ICU beds total") + xlab("Start of collection week") + theme(legend.position="bottom") + theme(legend.text=element_text(size=8))
 print(hhs_plot4b)
 
 

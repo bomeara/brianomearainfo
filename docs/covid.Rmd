@@ -538,7 +538,7 @@ try(print(hosp_plot_CA))
 
 ```
 
-US Health and Human Services is now releasing data on hospital occupancy by hospital. For more, see <a href="https://healthdata.gov/dataset/covid-19-reported-patient-impact-and-hospital-capacity-facility">here</a>. I'm showing all the hospitals in east Tennessee that have at least a couple of updates in the HHS database (some tiny hospitals apparently rarely update this info).
+US Health and Human Services is now releasing data on hospital occupancy by hospital. For more, see <a href="https://healthdata.gov/dataset/covid-19-reported-patient-impact-and-hospital-capacity-facility">here</a>. I'm showing all the hospitals in east Tennessee that have at least a couple of updates in the HHS database (some tiny hospitals apparently rarely update this info). The first plots stack all the adult beds available in all regional hospitals, grouping by city.
 
 ```{r hhshospitalization, echo=FALSE, message=FALSE, warning=FALSE}
 hhs_sources <- jsonlite::fromJSON("https://healthdata.gov/data.json?page=0")
@@ -645,26 +645,40 @@ hhs_capacity_tn_focal_cities <- full_join(hhs_capacity_tn_focal_cities, combinat
 
 hhs_capacity_tn_focal_cities$city <- stringr::str_to_title(hhs_capacity_tn_focal_cities$city)
 
-hhs_plot1 <- ggplot(hhs_capacity_tn_focal, aes(x=DATE, y=percentage_adult_hospital_inpatient_bed_occupied_of_all_inpatient_beds, group=hospital_name)) + geom_line() + ylab("Percentage of all adult inpatient beds occupied") + xlab("Start of collection week") + facet_wrap(facets=vars(hospital_name), ncol=2) + theme(plot.title = element_text(size=2))
-print(hhs_plot1)
-
-hhs_plot2 <- ggplot(hhs_capacity_tn_focal, aes(x=DATE, y=percentage_adult_hospital_inpatient_bed_occupied_covid_confirmed_or_suspected_7_day_avg_of_all_occupied, group=hospital_name)) + geom_line() + ylab("Percentage of adult inpatient beds with confirmed and suspected covid") + xlab("Start of collection week") + facet_wrap(facets=vars(hospital_name), ncol=2)
-print(hhs_plot2)
 
 hhs_plot2b <- ggplot(hhs_capacity_tn_focal_cities, aes(x=DATE, y=number_unoccupied_adult_hospital_inpatient_beds_sum, group=city, fill=city)) + geom_area() + ylab("Average total number of unoccupied adult inpatient beds\n(Higher is better)") + xlab("Start of collection week") + theme(legend.position="bottom") + theme(legend.text=element_text(size=8))
 print(hhs_plot2b)
 
-hhs_plot3 <- ggplot(hhs_capacity_tn_focal, aes(x=DATE, y=percentage_adult_hospital_inpatient_ICU_bed_occupied_of_all_inpatient_ICU_beds, group=hospital_name)) + geom_line() + ylab("Percentage of all adult ICU beds occupied") + xlab("Start of collection week") + facet_wrap(facets=vars(hospital_name), ncol=2)
-
-hhs_plot4 <- ggplot(hhs_capacity_tn_focal, aes(x=DATE, y=percentage_adult_hospital_inpatient_ICU_bed_occupied_of_all_inpatient_ICU_beds, group=hospital_name)) + geom_line() + ylab("Percentage of adult ICU beds with confirmed and suspected covid") + xlab("Start of collection week") + facet_wrap(facets=vars(hospital_name), ncol=2)
-print(hhs_plot4)
-
 hhs_plot4b <- ggplot(hhs_capacity_tn_focal_cities, aes(x=DATE, y=number_unoccupied_adult_hospital_ICU_beds_sum, group=city, fill=city)) + geom_area() + ylab("Average total number of unoccupied adult ICU beds\n(Higher is better)") + xlab("Start of collection week") + theme(legend.position="bottom") + theme(legend.text=element_text(size=8))
 print(hhs_plot4b)
+```
+
+There is also data on the individual hospitals. I'm showing the percentage of beds filled per hospital (higher is worse): all adult outpatient beds, then just the adult ICU beds.
+
+```{r hhspart2, echo=FALSE, message=FALSE, warning=FALSE, error=FALSE}
+
+hhs_plot1 <- ggplot(hhs_capacity_tn_focal, aes(x=DATE, y=percentage_adult_hospital_inpatient_bed_occupied_of_all_inpatient_beds, group=hospital_name)) + geom_line() + ylab("Percentage of all adult inpatient beds occupied") + xlab("Start of collection week") + facet_wrap(facets=vars(hospital_name), ncol=2) + theme(plot.title = element_text(size=2))
+print(hhs_plot1)
+
+
+
+hhs_plot3 <- ggplot(hhs_capacity_tn_focal, aes(x=DATE, y=percentage_adult_hospital_inpatient_ICU_bed_occupied_of_all_inpatient_ICU_beds, group=hospital_name)) + geom_line() + ylab("Percentage of all adult ICU beds occupied") + xlab("Start of collection week") + facet_wrap(facets=vars(hospital_name), ncol=2)
+
 
 
 ```
 
+Finally, we can break out the percentage of patients in the beds (all adult outpatient and adult ICU) who have confirmed or suspected covid. That does not mean that covid is their primary reason (or reason at all) for being in the hospital, but can still suggest something about the pandemic, including something of the population of patients facing east Tennessee healthcare workers.
+
+```{r hhspart3, echo=FALSE, message=FALSE, warning=FALSE, error=FALSE}
+
+hhs_plot2 <- ggplot(hhs_capacity_tn_focal, aes(x=DATE, y=percentage_adult_hospital_inpatient_bed_occupied_covid_confirmed_or_suspected_7_day_avg_of_all_occupied, group=hospital_name)) + geom_line() + ylab("Percentage of adult inpatient beds with confirmed and suspected covid") + xlab("Start of collection week") + facet_wrap(facets=vars(hospital_name), ncol=2)
+print(hhs_plot2)
+
+
+hhs_plot4 <- ggplot(hhs_capacity_tn_focal, aes(x=DATE, y=percentage_adult_hospital_inpatient_ICU_bed_occupied_of_all_inpatient_ICU_beds, group=hospital_name)) + geom_line() + ylab("Percentage of adult ICU beds with confirmed and suspected covid") + xlab("Start of collection week") + facet_wrap(facets=vars(hospital_name), ncol=2)
+print(hhs_plot4)
+```
 
 
 <hr />

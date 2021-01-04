@@ -17,6 +17,9 @@ library(binom)
 library(scales)
 library(jsonlite)
 
+options(timeout=600) # let things download for at least ten minutes
+options(download.file.method = "libcurl")
+
 #gmr <- "https://www.gstatic.com/covid19/mobility/Global_Mobility_Report.csv"
 
 
@@ -445,7 +448,10 @@ try(print(hosp_plot_CA))
 hhs_sources <- jsonlite::fromJSON("https://healthdata.gov/data.json?page=0")
 capacity_by_facility_number <- grep("COVID-19 Reported Patient Impact and Hospital Capacity by Facility Data Dictionary", hhs_sources[[6]][[5]])
 capacity_by_facility_url <- hhs_sources[[6]][[6]][capacity_by_facility_number][[1]]$downloadURL
-hhs_capacity <- read.csv(capacity_by_facility_url)
+temp = tempfile(fileext = ".csv")
+
+	utils::download.file(capacity_by_facility_url, temp, method="libcurl")
+hhs_capacity <- read.csv(file=temp)
 hhs_capacity_tn <- subset(hhs_capacity, state=="TN")
 # for(i in sequence(nrow(hhs_capacity_tn))) {
 # 	for (j in sequence(ncol(hhs_capacity_tn))) {
@@ -521,23 +527,23 @@ hhs_capacity_tn_focal <- subset(hhs_capacity_tn_focal, all_adult_hospital_inpati
 
 hhs_capacity_tn_focal$DATE <- as.Date(hhs_capacity_tn_focal$collection_week)
 
-hhs_plot1 <- ggplot(hhs_capacity_tn_focal, aes(x=DATE, y=fraction_adult_hospital_inpatient_bed_occupied_of_all_inpatient_beds, group=hospital_name)) + geom_line(aes(colour=hospital_name)) + ylab("Fraction of all adult inpatient beds occupied") + xlab("Start of collection week")
+hhs_plot1 <- ggplot(hhs_capacity_tn_focal, aes(x=DATE, y=fraction_adult_hospital_inpatient_bed_occupied_of_all_inpatient_beds, group=hospital_name)) + geom_line(aes(colour=hospital_name)) + ylab("Fraction of all adult inpatient beds occupied") + xlab("Start of collection week") + theme(legend.position="bottom") + theme(legend.text=element_text(size=8))
 print(hhs_plot1)
 
-hhs_plot2 <- ggplot(hhs_capacity_tn_focal, aes(x=DATE, y=fraction_adult_hospital_inpatient_bed_occupied_covid_confirmed_or_suspected_7_day_avg_of_all_occupied, group=hospital_name)) + geom_line(aes(colour=hospital_name)) + ylab("Fraction of adult inpatient beds with confirmed and suspected covid") + xlab("Start of collection week")
+hhs_plot2 <- ggplot(hhs_capacity_tn_focal, aes(x=DATE, y=fraction_adult_hospital_inpatient_bed_occupied_covid_confirmed_or_suspected_7_day_avg_of_all_occupied, group=hospital_name)) + geom_line(aes(colour=hospital_name)) + ylab("Fraction of adult inpatient beds with confirmed and suspected covid") + xlab("Start of collection week") + theme(legend.position="bottom") + theme(legend.text=element_text(size=8))
 print(hhs_plot2)
 
-hhs_plot2b <- ggplot(hhs_capacity_tn_focal, aes(x=DATE, y=number_unoccupied_adult_hospital_inpatient_beds, group=hospital_name)) + geom_line(aes(colour=hospital_name)) + ylab("Number of unoccupied adult inpatient beds") + xlab("Start of collection week")
-print(hhs_plot2b)
+hhs_plot2b <- ggplot(hhs_capacity_tn_focal, aes(x=DATE, y=number_unoccupied_adult_hospital_inpatient_beds, group=city, fill=city)) + geom_area() + ylab("Number of unoccupied adult inpatient beds total") + xlab("Start of collection week") + theme(legend.position="bottom") + theme(legend.text=element_text(size=8))
+#print(hhs_plot2b)
 
-hhs_plot3 <- ggplot(hhs_capacity_tn_focal, aes(x=DATE, y=fraction_adult_hospital_inpatient_ICU_bed_occupied_of_all_inpatient_ICU_beds, group=hospital_name)) + geom_line(aes(colour=hospital_name)) + ylab("Fraction of all adult ICU beds occupied") + xlab("Start of collection week")
+hhs_plot3 <- ggplot(hhs_capacity_tn_focal, aes(x=DATE, y=fraction_adult_hospital_inpatient_ICU_bed_occupied_of_all_inpatient_ICU_beds, group=hospital_name)) + geom_line(aes(colour=hospital_name)) + ylab("Fraction of all adult ICU beds occupied") + xlab("Start of collection week") + theme(legend.position="bottom") + theme(legend.text=element_text(size=8))
 print(hhs_plot3)
 
-hhs_plot4 <- ggplot(hhs_capacity_tn_focal, aes(x=DATE, y=fraction_adult_hospital_inpatient_ICU_bed_occupied_of_all_inpatient_ICU_beds, group=hospital_name)) + geom_line(aes(colour=hospital_name)) + ylab("Fraction of adult ICU beds with confirmed and suspected covid") + xlab("Start of collection week")
+hhs_plot4 <- ggplot(hhs_capacity_tn_focal, aes(x=DATE, y=fraction_adult_hospital_inpatient_ICU_bed_occupied_of_all_inpatient_ICU_beds, group=hospital_name)) + geom_line(aes(colour=hospital_name)) + ylab("Fraction of adult ICU beds with confirmed and suspected covid") + xlab("Start of collection week") + theme(legend.position="bottom") + theme(legend.text=element_text(size=8))
 print(hhs_plot4)
 
-hhs_plot4b <- ggplot(hhs_capacity_tn_focal, aes(x=DATE, y=number_unoccupied_adult_hospital_ICU_beds, group=hospital_name)) + geom_line(aes(colour=hospital_name)) + ylab("Number of unoccupied adult ICU beds") + xlab("Start of collection week")
-print(hhs_plot4b)
+hhs_plot4b <- ggplot(hhs_capacity_tn_focal, aes(x=DATE, y=number_unoccupied_adult_hospital_ICU_beds, group=city, fill=city)) + geom_area() + ylab("Number of unoccupied adult ICU beds total") + xlab("Start of collection week") + theme(legend.position="bottom") + theme(legend.text=element_text(size=8))
+#print(hhs_plot4b)
 
 
 

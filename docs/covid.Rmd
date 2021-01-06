@@ -628,8 +628,9 @@ if(length(few_update_hospitals)>0) {
 }
 
 hhs_capacity_tn_focal$hospital_name <- gsub("TENNOVA HEALTHCARE", "TENNOVA", hhs_capacity_tn_focal$hospital_name )
-hhs_capacity_tn_focal$hospital_name <- gsub("UNIVERSITY OF TN MEDICAL CENTER (THE)", "UNIVERSITY OF TN MEDICAL CENTER", hhs_capacity_tn_focal$hospital_name )
 hhs_capacity_tn_focal$hospital_name <- stringr::str_to_title(hhs_capacity_tn_focal$hospital_name)
+hhs_capacity_tn_focal$hospital_name[grepl("University Of Tn", hhs_capacity_tn_focal$hospital_name, ignore.case=TRUE)] <- "University of TN Medical Center"
+
 
 
 

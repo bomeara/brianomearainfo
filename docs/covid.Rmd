@@ -538,7 +538,6 @@ try(print(hosp_plot_CA))
 
 ```
 
-US Health and Human Services is now releasing data on hospital occupancy by hospital. For more, see <a href="https://healthdata.gov/dataset/covid-19-reported-patient-impact-and-hospital-capacity-facility">here</a>. I'm showing all the hospitals in east Tennessee that have at least a couple of updates in the HHS database (some tiny hospitals apparently rarely update this info). The first plots stack all the adult beds available in all regional hospitals, grouping by city.
 
 ```{r hhshospitalization, echo=FALSE, message=FALSE, warning=FALSE}
 hhs_sources <- jsonlite::fromJSON("https://healthdata.gov/data.json?page=0")
@@ -582,6 +581,8 @@ hhs_capacity_tn$percentage_adult_hospital_inpatient_bed_occupied_covid_confirmed
 
 hhs_capacity_tn$percentage_adult_hospital_inpatient_bed_occupied_of_all_inpatient_beds <- 100 * hhs_capacity_tn$all_adult_hospital_inpatient_bed_occupied_7_day_avg / hhs_capacity_tn$all_adult_hospital_inpatient_beds_7_day_avg
 
+hhs_capacity_tn$percentage_adult_hospital_inpatient_bed_unoccupied_of_all_inpatient_beds <- 100 - hhs_capacity_tn$percentage_adult_hospital_inpatient_bed_occupied_of_all_inpatient_beds
+
 hhs_capacity_tn$number_unoccupied_adult_hospital_inpatient_beds <- hhs_capacity_tn$all_adult_hospital_inpatient_beds_7_day_avg - hhs_capacity_tn$all_adult_hospital_inpatient_bed_occupied_7_day_avg
 
 
@@ -590,7 +591,11 @@ hhs_capacity_tn$percentage_adult_hospital_ICU_bed_occupied_covid_confirmed_or_su
 
 hhs_capacity_tn$percentage_adult_hospital_inpatient_ICU_bed_occupied_of_all_inpatient_ICU_beds <- 100 * hhs_capacity_tn$staffed_adult_icu_bed_occupancy_7_day_avg / hhs_capacity_tn$total_staffed_adult_icu_beds_7_day_avg
 
+hhs_capacity_tn$percentage_adult_hospital_inpatient_ICU_bed_unoccupied_of_all_inpatient_ICU_beds <- 100 - hhs_capacity_tn$percentage_adult_hospital_inpatient_ICU_bed_occupied_of_all_inpatient_ICU_beds
+
 hhs_capacity_tn$number_unoccupied_adult_hospital_ICU_beds <- hhs_capacity_tn$total_staffed_adult_icu_beds_7_day_avg - hhs_capacity_tn$staffed_adult_icu_bed_occupancy_7_day_avg
+
+
 
 
 focal_cities <- toupper(c("Oak Ridge", "Knoxville", "Lenoir City", "Maryville", "Sweetwater", "Harriman", "Powell", "Jefferson City", "Athens", "Morristown", "Sevierville", "Tazewell", "La Follette", "Jellico", "Sneedville", "Oneida"))
@@ -646,7 +651,51 @@ hhs_capacity_tn_focal_cities <- full_join(hhs_capacity_tn_focal_cities, combinat
 
 hhs_capacity_tn_focal_cities$city <- stringr::str_to_title(hhs_capacity_tn_focal_cities$city)
 
+hhs_capacity_tn_focal_latest <- subset(hhs_capacity_tn_focal, DATE==max(DATE))
+hhs_capacity_tn_focal_latest <- hhs_capacity_tn_focal_latest[order(hhs_capacity_tn_focal_latest$all_adult_hospital_inpatient_beds_7_day_avg, decreasing=TRUE),]
+hhs_capacity_tn_focal_latest_pretty <- hhs_capacity_tn_focal_latest[,c(
+	"hospital_name", 
+	"city", 
+	"all_adult_hospital_inpatient_beds_7_day_avg", 
+	"number_unoccupied_adult_hospital_inpatient_beds", 
+	"percentage_adult_hospital_inpatient_bed_unoccupied_of_all_inpatient_beds", 
+	"percentage_adult_hospital_inpatient_bed_occupied_covid_confirmed_or_suspected_7_day_avg_of_all_occupied",
+	"total_staffed_adult_icu_beds_7_day_avg", 
+	"number_unoccupied_adult_hospital_ICU_beds", 
+	"percentage_adult_hospital_inpatient_ICU_bed_unoccupied_of_all_inpatient_ICU_beds",
+	"percentage_adult_hospital_ICU_bed_occupied_covid_confirmed_or_suspected_7_day_avg_of_all_ICU_occupied"
+)]
+colnames(hhs_capacity_tn_focal_latest_pretty) <- c(
+	"Hospital", 
+	"City", 
+	"Adult beds total", 
+	"Adult beds number avail", 
+	"Adult beds % avail", 
+	"Adult beds % covid",
+	"Adult ICU total", 
+	"Adult ICU number avail", 
+	"Adult ICU % avail",
+	"Adult ICU % covid"
+)
 
+for (i in 3:ncol(hhs_capacity_tn_focal_latest_pretty)) {
+	hhs_capacity_tn_focal_latest_pretty[,i]<- round(hhs_capacity_tn_focal_latest_pretty[,i])
+}
+
+hhs_capacity_tn_focal_latest_pretty$City <- stringr::str_to_title(hhs_capacity_tn_focal_latest_pretty$City)
+rownames(hhs_capacity_tn_focal_latest_pretty) <- NULL
+```
+
+
+US Health and Human Services is now releasing data on hospital occupancy by hospital. For more, see <a href="https://healthdata.gov/dataset/covid-19-reported-patient-impact-and-hospital-capacity-facility">here</a>. I'm showing all the hospitals in east Tennessee that have at least a couple of updates in the HHS database (some tiny hospitals apparently rarely update this info). These data are for the week starting `r max(hhs_capacity_tn_focal$DATE)`. The first table is the capacity at various local hospitals, looking at just outpatient beds.
+
+```{r hhstable, echo=FALSE, message=FALSE, warning=FALSE, error=FALSE}
+knitr::kable(hhs_capacity_tn_focal_latest_pretty)
+```
+
+These plots stack all the adult beds available in all regional hospitals, grouping by city.
+
+```{r hhsfirstplot, echo=FALSE, message=FALSE, warning=FALSE, error=FALSE}
 hhs_plot2b <- ggplot(hhs_capacity_tn_focal_cities, aes(x=DATE, y=number_unoccupied_adult_hospital_inpatient_beds_sum, group=city, fill=city)) + geom_area() + ylab("Average total number of unoccupied adult inpatient beds\n(Higher is better)") + xlab("Start of collection week") + theme(legend.position="bottom") + theme(legend.text=element_text(size=8))
 print(hhs_plot2b)
 

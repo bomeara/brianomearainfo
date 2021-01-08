@@ -349,9 +349,9 @@ plot_oakridge_seven <- ggplot(oakridge_seven[!is.na(oakridge_seven$positivity),]
 print(plot_oakridge_seven)
 ```
 
-Harvard’s Edmond J. Safra Center for Ethics and the Harvard Global Health Institute have created (July 19, 2020) <a href="https://globalhealth.harvard.edu/path-to-zero-schools-achieving-pandemic-resilient-teaching-and-learning-spaces/">guidelines for schools reopening</a> (see also their <a href="https://globalepidemics.org/wp-content/uploads/2020/07/pandemic_resilient_schools_briefing_7.19.20.pdf">full report PDF</a>). They distinguish students by age group: "With COVID-19, people 18 and younger have far lower risk of death, hospitalization, and severe outcomes and are also less likely to get infected. Within this group, students in the younger age band of 10 and under also transmit at lower rates. This last point about lower rates of transmission may also pertain to people 15 and younger, a point that research should clarify in coming weeks. Keeping levels of risk low for young children via pandemic resilient teaching and learning spaces is more readily  achievable than doing so for high school age students and the adult educators and staff in the school building." They provide suggestions on building ventilation, social distancing, and more, and mention the utility of looking at multiple metrics (such as positivity rate, hospitalization, and more), but focus on daily new cases per 100,000 people (with a caution about missing cases if testing is not adequate; for example, if positivity rate is above 10%). The plot below has summaries of their recommendations for priority for which grade levels can meet in person, **if there are conditions for pandemic resistant teaching and learning**. The black line is the rolling seven day average of new cases per day for the counties containing Oak Ridge (Roane and Anderson), the blue line is this smoothed.
+Harvard’s Edmond J. Safra Center for Ethics and the Harvard Global Health Institute have created (July 19, 2020) <a href="https://globalhealth.harvard.edu/path-to-zero-schools-achieving-pandemic-resilient-teaching-and-learning-spaces/">guidelines for schools reopening</a> (see also their <a href="https://globalepidemics.org/wp-content/uploads/2020/07/pandemic_resilient_schools_briefing_7.19.20.pdf">full report PDF</a>). They distinguish students by age group: "With COVID-19, people 18 and younger have far lower risk of death, hospitalization, and severe outcomes and are also less likely to get infected. Within this group, students in the younger age band of 10 and under also transmit at lower rates. This last point about lower rates of transmission may also pertain to people 15 and younger, a point that research should clarify in coming weeks. Keeping levels of risk low for young children via pandemic resilient teaching and learning spaces is more readily  achievable than doing so for high school age students and the adult educators and staff in the school building." They provide suggestions on building ventilation, social distancing, and more, and mention the utility of looking at multiple metrics (such as positivity rate, hospitalization, and more), but focus on daily new cases per 100,000 people (with a caution about missing cases if testing is not adequate; for example, if positivity rate is above 10%). The plot below has summaries of their recommendations for priority for which grade levels can meet in person, **if there are conditions for pandemic resistant teaching and learning**. The black line is the rolling seven day average of new cases per day for the counties containing Oak Ridge (Roane and Anderson). Note that they recently (Dec. 18, 2020), released <a href="https://globalepidemics.org/2020/12/18/schools-and-the-path-to-zero/">new guidance</a> that suggest using in-school spread metrics rather than community metrics. I do not believe such metrics are available to the public for local schools.
 
-```{r harvardstandards, echo=FALSE, message=FALSE, warning=FALSE, fig.height=10}
+```{r harvardstandards, echo=FALSE, message=FALSE, warning=FALSE, fig.height=13}
 maxval <- max(30, max(oakridge_seven$New_cases_per_100k, na.rm=TRUE))
 harvard_oakridge <- ggplot(oakridge_seven[!is.na(oakridge_seven$New_cases_per_100k),], aes(x=DATE, y=New_cases_per_100k)) + ylab("Average new cases per day per 100K population") + xlab("Date") + ylim(0,NA) +
   geom_rect(mapping=aes(xmin=min(oakridge_seven$DATE), xmax=max(oakridge_seven$DATE), ymin=0, ymax=1), fill="darkolivegreen1") +
@@ -659,11 +659,9 @@ hhs_capacity_tn_focal_latest_pretty <- hhs_capacity_tn_focal_latest[,c(
 	"all_adult_hospital_inpatient_beds_7_day_avg", 
 	"number_unoccupied_adult_hospital_inpatient_beds", 
 	"percentage_adult_hospital_inpatient_bed_unoccupied_of_all_inpatient_beds", 
-	"percentage_adult_hospital_inpatient_bed_occupied_covid_confirmed_or_suspected_7_day_avg_of_all_occupied",
 	"total_staffed_adult_icu_beds_7_day_avg", 
 	"number_unoccupied_adult_hospital_ICU_beds", 
-	"percentage_adult_hospital_inpatient_ICU_bed_unoccupied_of_all_inpatient_ICU_beds",
-	"percentage_adult_hospital_ICU_bed_occupied_covid_confirmed_or_suspected_7_day_avg_of_all_ICU_occupied"
+	"percentage_adult_hospital_inpatient_ICU_bed_unoccupied_of_all_inpatient_ICU_beds"
 )]
 colnames(hhs_capacity_tn_focal_latest_pretty) <- c(
 	"Hospital", 
@@ -671,11 +669,9 @@ colnames(hhs_capacity_tn_focal_latest_pretty) <- c(
 	"Adult beds total", 
 	"Adult beds number avail", 
 	"Adult beds % avail", 
-	"Adult beds % covid",
 	"Adult ICU total", 
 	"Adult ICU number avail", 
-	"Adult ICU % avail",
-	"Adult ICU % covid"
+	"Adult ICU % avail"
 )
 
 for (i in 3:ncol(hhs_capacity_tn_focal_latest_pretty)) {
@@ -687,7 +683,7 @@ rownames(hhs_capacity_tn_focal_latest_pretty) <- NULL
 ```
 
 
-US Health and Human Services is now releasing data on hospital occupancy by hospital. For more, see <a href="https://healthdata.gov/dataset/covid-19-reported-patient-impact-and-hospital-capacity-facility">here</a>. I'm showing all the hospitals in east Tennessee that have at least a couple of updates in the HHS database (some tiny hospitals apparently rarely update this info). These data are for the week starting `r max(hhs_capacity_tn_focal$DATE)`. The first table is the capacity at various local hospitals, looking at just outpatient beds. These are weekly averages: there could be fluctuations over the week in bed occupancy and even in number of beds available. The "% covid" columns show what percentage of patients in those beds, on average across a week, are suspected or confirmed of having covid (but that may not be the primary reason they're in the hospital). For some of the tiny hospitals (with 6-8 ICU beds total) the percentages can be higher than 100% -- I presume this is an issue with small sample size, changing capacity, or even issues with the source data, but I left the data as is. Perhaps the most striking could be the "Adult ICU number avail": how many beds in the ICU were available, on average, over the week starting `r max(hhs_capacity_tn_focal$DATE)` at various local hospitals, which ranged from `r min(hhs_capacity_tn_focal_latest_pretty[,"Adult ICU number avail"])` to at most `r min(hhs_capacity_tn_focal_latest_pretty[,"Adult ICU number avail"])` beds.
+US Health and Human Services is now releasing data on hospital occupancy by hospital. For more, see <a href="https://healthdata.gov/dataset/covid-19-reported-patient-impact-and-hospital-capacity-facility">here</a>. I'm showing all the hospitals in east Tennessee that have at least a couple of updates in the HHS database (some tiny hospitals apparently rarely update this info). These data are for the week starting `r max(hhs_capacity_tn_focal$DATE)`. The first table is the capacity at various local hospitals, looking at just outpatient beds. These are weekly averages: there could be fluctuations over the week in bed occupancy and even in number of beds available.  Perhaps the most striking is the "Adult ICU number avail": how many beds in the ICU were available, on average, over the week starting `r max(hhs_capacity_tn_focal$DATE)` at various local hospitals, which ranged from `r min(hhs_capacity_tn_focal_latest_pretty[,"Adult ICU number avail"])` to at most `r max(hhs_capacity_tn_focal_latest_pretty[,"Adult ICU number avail"])` beds.
 
 ```{r hhstable, echo=FALSE, message=FALSE, warning=FALSE, error=FALSE}
 knitr::kable(hhs_capacity_tn_focal_latest_pretty)

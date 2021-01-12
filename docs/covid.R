@@ -276,7 +276,7 @@ plot_oakridge_seven <- ggplot(oakridge_seven[!is.na(oakridge_seven$positivity),]
 print(plot_oakridge_seven)
 
 
-## ----harvardstandards, echo=FALSE, message=FALSE, warning=FALSE---------------
+## ----harvardstandards, echo=FALSE, message=FALSE, warning=FALSE, fig.height=13----
 maxval <- max(30, max(oakridge_seven$New_cases_per_100k, na.rm=TRUE))
 harvard_oakridge <- ggplot(oakridge_seven[!is.na(oakridge_seven$New_cases_per_100k),], aes(x=DATE, y=New_cases_per_100k)) + ylab("Average new cases per day per 100K population") + xlab("Date") + ylim(0,NA) +
   geom_rect(mapping=aes(xmin=min(oakridge_seven$DATE), xmax=max(oakridge_seven$DATE), ymin=0, ymax=1), fill="darkolivegreen1") +
@@ -486,6 +486,8 @@ hhs_capacity_tn$percentage_adult_hospital_inpatient_bed_occupied_covid_confirmed
 
 hhs_capacity_tn$percentage_adult_hospital_inpatient_bed_occupied_of_all_inpatient_beds <- 100 * hhs_capacity_tn$all_adult_hospital_inpatient_bed_occupied_7_day_avg / hhs_capacity_tn$all_adult_hospital_inpatient_beds_7_day_avg
 
+hhs_capacity_tn$percentage_adult_hospital_inpatient_bed_unoccupied_of_all_inpatient_beds <- 100 - hhs_capacity_tn$percentage_adult_hospital_inpatient_bed_occupied_of_all_inpatient_beds
+
 hhs_capacity_tn$number_unoccupied_adult_hospital_inpatient_beds <- hhs_capacity_tn$all_adult_hospital_inpatient_beds_7_day_avg - hhs_capacity_tn$all_adult_hospital_inpatient_bed_occupied_7_day_avg
 
 
@@ -494,7 +496,11 @@ hhs_capacity_tn$percentage_adult_hospital_ICU_bed_occupied_covid_confirmed_or_su
 
 hhs_capacity_tn$percentage_adult_hospital_inpatient_ICU_bed_occupied_of_all_inpatient_ICU_beds <- 100 * hhs_capacity_tn$staffed_adult_icu_bed_occupancy_7_day_avg / hhs_capacity_tn$total_staffed_adult_icu_beds_7_day_avg
 
+hhs_capacity_tn$percentage_adult_hospital_inpatient_ICU_bed_unoccupied_of_all_inpatient_ICU_beds <- 100 - hhs_capacity_tn$percentage_adult_hospital_inpatient_ICU_bed_occupied_of_all_inpatient_ICU_beds
+
 hhs_capacity_tn$number_unoccupied_adult_hospital_ICU_beds <- hhs_capacity_tn$total_staffed_adult_icu_beds_7_day_avg - hhs_capacity_tn$staffed_adult_icu_bed_occupancy_7_day_avg
+
+
 
 
 focal_cities <- toupper(c("Oak Ridge", "Knoxville", "Lenoir City", "Maryville", "Sweetwater", "Harriman", "Powell", "Jefferson City", "Athens", "Morristown", "Sevierville", "Tazewell", "La Follette", "Jellico", "Sneedville", "Oneida"))
@@ -550,7 +556,42 @@ hhs_capacity_tn_focal_cities <- full_join(hhs_capacity_tn_focal_cities, combinat
 
 hhs_capacity_tn_focal_cities$city <- stringr::str_to_title(hhs_capacity_tn_focal_cities$city)
 
+hhs_capacity_tn_focal_latest <- subset(hhs_capacity_tn_focal, DATE==max(DATE))
+hhs_capacity_tn_focal_latest <- hhs_capacity_tn_focal_latest[order(hhs_capacity_tn_focal_latest$all_adult_hospital_inpatient_beds_7_day_avg, decreasing=TRUE),]
+hhs_capacity_tn_focal_latest_pretty <- hhs_capacity_tn_focal_latest[,c(
+	"hospital_name", 
+	"city", 
+	"all_adult_hospital_inpatient_beds_7_day_avg", 
+	"number_unoccupied_adult_hospital_inpatient_beds", 
+	"percentage_adult_hospital_inpatient_bed_unoccupied_of_all_inpatient_beds", 
+	"total_staffed_adult_icu_beds_7_day_avg", 
+	"number_unoccupied_adult_hospital_ICU_beds", 
+	"percentage_adult_hospital_inpatient_ICU_bed_unoccupied_of_all_inpatient_ICU_beds"
+)]
+colnames(hhs_capacity_tn_focal_latest_pretty) <- c(
+	"Hospital", 
+	"City", 
+	"Adult beds total", 
+	"Adult beds number avail", 
+	"Adult beds % avail", 
+	"Adult ICU total", 
+	"Adult ICU number avail", 
+	"Adult ICU % avail"
+)
 
+for (i in 3:ncol(hhs_capacity_tn_focal_latest_pretty)) {
+	hhs_capacity_tn_focal_latest_pretty[,i]<- round(hhs_capacity_tn_focal_latest_pretty[,i])
+}
+
+hhs_capacity_tn_focal_latest_pretty$City <- stringr::str_to_title(hhs_capacity_tn_focal_latest_pretty$City)
+rownames(hhs_capacity_tn_focal_latest_pretty) <- NULL
+
+
+## ----hhstable, echo=FALSE, message=FALSE, warning=FALSE, error=FALSE----------
+knitr::kable(hhs_capacity_tn_focal_latest_pretty)
+
+
+## ----hhsfirstplot, echo=FALSE, message=FALSE, warning=FALSE, error=FALSE------
 hhs_plot2b <- ggplot(hhs_capacity_tn_focal_cities, aes(x=DATE, y=number_unoccupied_adult_hospital_inpatient_beds_sum, group=city, fill=city)) + geom_area() + ylab("Average total number of unoccupied adult inpatient beds\n(Higher is better)") + xlab("Start of collection week") + theme(legend.position="bottom") + theme(legend.text=element_text(size=8))
 print(hhs_plot2b)
 

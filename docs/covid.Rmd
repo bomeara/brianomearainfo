@@ -741,6 +741,153 @@ print(hhs_plot4)
 ```
 
 
+
+<hr />
+
+<h2 id="demographics">Demographics</h2>
+
+Tennessee releases information on demographics of individuals with covid. Agre is broken out below, but here are other categories. All terminology follows that used by the state, including terms like race and sex (assumed to be binary by them). Information on the population in each category come from the <a href="https://www.census.gov/quickfacts/TN">US Census</a>. It appears that the categorization of "one or more races" vs "other/multiracial" differs radically between the US Census and TN's health stats (the census seems to put far fewer people into their category, so the proportions computed seem radically out of line: all other groups have 2-7% infection rate, for example, while this demographic has 40% infection rate if the denominator from the census is right for the numerator from the state). Because the data seem so different, and the scale obscures info for other groups, I am omitting that group here.
+
+```{r demographics1, echo=FALSE, message=FALSE, warning=FALSE, error=FALSE}
+population_total <- 6829174
+
+population_female <- population_total*0.512
+population_male <- population_total*(1-0.512)
+
+population_white <- population_total*0.784
+population_black_africanamerican <- population_total*0.171
+population_asian <- population_total*0.02
+population_americanindian_alaskannative <- population_total*0.005
+population_nativehawaiian_other_pacificislander <- population_total*0.001
+population_twoormoreraces <- population_total*0.02
+
+population_hispanic <- population_total*0.057
+population_not_hispanic <- population_total*(1-0.057)
+
+
+population_age_under_5 <- population_total*0.06
+population_age_under_18 <- population_total*0.221
+population_age_65_and_over <- population_total*0.167
+
+
+
+temp = tempfile(fileext = ".xlsx")
+dataURL <- "https://www.tn.gov/content/dam/tn/health/documents/cedep/novel-coronavirus/datasets/Public-Dataset-RaceEthSex.XLSX"
+download.file(dataURL, destfile=temp, mode='wb')
+demographics <- readxl::read_xlsx(temp, sheet =1)
+demographics$percent_of_demographic_with_cases <- 0
+demographics$percent_of_demographic_dead <- 0
+demographics <- subset(demographics, as.character(demographics$Date)!="2020-07-28") #there was an error that day for Native Hawaiian or Other Pacific Islander: it went from 2 to 15 recorded deaths. Remove date from all data just to be safe.
+
+
+
+race <- subset(demographics, Category=="RACE")
+race <- subset(race, CAT_DETAIL != "Pending")
+
+
+race[which(race$CAT_DETAIL=="White"),]$percent_of_demographic_with_cases <- 100*race[which(race$CAT_DETAIL=="White"),]$Cat_CaseCount/population_white
+race[which(race$CAT_DETAIL=="White"),]$percent_of_demographic_dead <- 100*race[which(race$CAT_DETAIL=="White"),]$CAT_DEATHCOUNT/population_white
+race[which(race$CAT_DETAIL=="Black or African American"),]$percent_of_demographic_with_cases <- 100*race[which(race$CAT_DETAIL=="Black or African American"),]$Cat_CaseCount/population_black_africanamerican
+race[which(race$CAT_DETAIL=="Black or African American"),]$percent_of_demographic_dead <- 100*race[which(race$CAT_DETAIL=="Black or African American"),]$CAT_DEATHCOUNT/population_black_africanamerican
+race[which(race$CAT_DETAIL=="Asian"),]$percent_of_demographic_with_cases <- 100*race[which(race$CAT_DETAIL=="Asian"),]$Cat_CaseCount/population_asian
+race[which(race$CAT_DETAIL=="Asian"),]$percent_of_demographic_dead <- 100*race[which(race$CAT_DETAIL=="Asian"),]$CAT_DEATHCOUNT/population_asian
+race[which(race$CAT_DETAIL=="American Indian or Alaska Native"),]$percent_of_demographic_with_cases <- 100*race[which(race$CAT_DETAIL=="American Indian or Alaska Native"),]$Cat_CaseCount/population_americanindian_alaskannative
+race[which(race$CAT_DETAIL=="American Indian or Alaska Native"),]$percent_of_demographic_dead <- 100*race[which(race$CAT_DETAIL=="American Indian or Alaska Native"),]$CAT_DEATHCOUNT/population_americanindian_alaskannative
+race[which(race$CAT_DETAIL=="Native Hawaiian or Other Pacific Islander"),]$percent_of_demographic_with_cases <- 100*race[which(race$CAT_DETAIL=="Native Hawaiian or Other Pacific Islander"),]$Cat_CaseCount/population_nativehawaiian_other_pacificislander
+race[which(race$CAT_DETAIL=="Native Hawaiian or Other Pacific Islander"),]$percent_of_demographic_dead <- 100*race[which(race$CAT_DETAIL=="Native Hawaiian or Other Pacific Islander"),]$CAT_DEATHCOUNT/population_nativehawaiian_other_pacificislander
+race[which(race$CAT_DETAIL=="Other/Multiracial"),]$percent_of_demographic_with_cases <- 100*race[which(race$CAT_DETAIL=="Other/Multiracial"),]$Cat_CaseCount/population_twoormoreraces
+race[which(race$CAT_DETAIL=="Other/Multiracial"),]$percent_of_demographic_dead <- 100*race[which(race$CAT_DETAIL=="Other/Multiracial"),]$CAT_DEATHCOUNT/population_twoormoreraces
+race <- subset(race, CAT_DETAIL!="Other/Multiracial") # see note above
+race <- subset(race, CAT_DETAIL!="Other/ Multiracial") # see note above
+
+race$Race <- race$CAT_DETAIL
+
+plot_race_covid_incidence <- ggplot(race, aes(x=Date, y=percent_of_demographic_with_cases, group=Race)) + geom_line(aes(colour=Race))+ xlab("Date") + scale_y_continuous(
+    
+    # Features of the first axis
+    name = "Percentage who have had covid",
+    
+    # Add a second axis and specify its features
+    sec.axis = dup_axis( labels=c("1/10", "1/20", "1/50", "1/100"), breaks=c(10, 5, 2, 1), name="Fraction who have had covid")
+  ) 
+print(plot_race_covid_incidence)
+
+plot_race_covid_death <- ggplot(race, aes(x=Date, y=percent_of_demographic_dead, group=Race)) + geom_line(aes(colour=Race)) + xlab("Date")  + scale_y_continuous(
+    
+    # Features of the first axis
+    name = "Percentage who have died from covid",
+    
+    # Add a second axis and specify its features
+    sec.axis = dup_axis( labels=c("1/2000", "1/1500", "1/1000", "1/750"), breaks=c(100/2000, 100/1500, 100/1000, 100/750), name="Fraction who have died from covid")
+  ) 
+print(plot_race_covid_death)
+
+ethnicity <- subset(demographics, Category=="ETHNICITY")
+ethnicity <- subset(ethnicity, CAT_DETAIL != "Pending")
+
+ethnicity[which(ethnicity$CAT_DETAIL=="Hispanic"),]$percent_of_demographic_with_cases <- 100*ethnicity[which(ethnicity$CAT_DETAIL=="Hispanic"),]$Cat_CaseCount/population_hispanic
+ethnicity[which(ethnicity$CAT_DETAIL=="Hispanic"),]$percent_of_demographic_dead <- 100*ethnicity[which(ethnicity$CAT_DETAIL=="Hispanic"),]$CAT_DEATHCOUNT/population_hispanic
+
+
+ethnicity[which(ethnicity$CAT_DETAIL=="Not Hispanic or Latino"),]$percent_of_demographic_with_cases <- 100*ethnicity[which(ethnicity$CAT_DETAIL=="Not Hispanic or Latino"),]$Cat_CaseCount/population_not_hispanic
+ethnicity[which(ethnicity$CAT_DETAIL=="Not Hispanic or Latino"),]$percent_of_demographic_dead <- 100*ethnicity[which(ethnicity$CAT_DETAIL=="Not Hispanic or Latino"),]$CAT_DEATHCOUNT/population_not_hispanic
+ethnicity$Ethnicity <- ethnicity$CAT_DETAIL
+
+plot_ethnicity_covid_incidence <- ggplot(ethnicity, aes(x=Date, y=percent_of_demographic_with_cases, group=Ethnicity)) + geom_line(aes(colour=Ethnicity))+ xlab("Date") + scale_y_continuous(
+    
+    # Features of the first axis
+    name = "Percentage who have had covid",
+    
+    # Add a second axis and specify its features
+    sec.axis = dup_axis( labels=c("1/10", "1/20", "1/50", "1/100"), breaks=c(10, 5, 2, 1), name="Fraction who have had covid")
+  ) 
+print(plot_ethnicity_covid_incidence)
+
+plot_ethnicity_covid_death <- ggplot(ethnicity, aes(x=Date, y=percent_of_demographic_dead, group=Ethnicity)) + geom_line(aes(colour=Ethnicity)) + xlab("Date")  + scale_y_continuous(
+    
+    # Features of the first axis
+    name = "Percentage who have died from covid",
+    
+    # Add a second axis and specify its features
+    sec.axis = dup_axis( labels=c("1/2000", "1/1500", "1/1000", "1/750"), breaks=c(100/2000, 100/1500, 100/1000, 100/750), name="Fraction who have died from covid")
+  ) 
+print(plot_ethnicity_covid_death)
+
+
+sex <- subset(demographics, Category=="SEX")
+sex <- subset(sex, CAT_DETAIL != "Pending")
+
+
+sex[which(sex$CAT_DETAIL=="Female"),]$percent_of_demographic_with_cases <- 100*sex[which(sex$CAT_DETAIL=="Female"),]$Cat_CaseCount/population_female
+sex[which(sex$CAT_DETAIL=="Female"),]$percent_of_demographic_dead <- 100*sex[which(sex$CAT_DETAIL=="Female"),]$CAT_DEATHCOUNT/population_female
+
+sex[which(sex$CAT_DETAIL=="Male"),]$percent_of_demographic_with_cases <- 100*sex[which(sex$CAT_DETAIL=="Male"),]$Cat_CaseCount/population_male
+sex[which(sex$CAT_DETAIL=="Male"),]$percent_of_demographic_dead <- 100*sex[which(sex$CAT_DETAIL=="Male"),]$CAT_DEATHCOUNT/population_male
+sex$Sex <- sex$CAT_DETAIL
+
+plot_sex_covid_incidence <- ggplot(sex, aes(x=Date, y=percent_of_demographic_with_cases, group=Sex)) + geom_line(aes(colour=Sex))+ xlab("Date") + scale_y_continuous(
+    
+    # Features of the first axis
+    name = "Percentage who have had covid",
+    
+    # Add a second axis and specify its features
+    sec.axis = dup_axis( labels=c("1/10", "1/20", "1/50", "1/100"), breaks=c(10, 5, 2, 1), name="Fraction who have had covid")
+  ) 
+print(plot_sex_covid_incidence)
+
+plot_sex_covid_death <- ggplot(sex, aes(x=Date, y=percent_of_demographic_dead, group=Sex)) + geom_line(aes(colour=Sex)) + xlab("Date")  + scale_y_continuous(
+    
+    # Features of the first axis
+    name = "Percentage who have died from covid",
+    
+    # Add a second axis and specify its features
+    sec.axis = dup_axis( labels=c("1/2000", "1/1500", "1/1000", "1/750"), breaks=c(100/2000, 100/1500, 100/1000, 100/750), name="Fraction who have died from covid")
+  ) 
+print(plot_sex_covid_death)
+
+
+```
+
 <hr />
 
 <h2 id="ages">Ages</h2>

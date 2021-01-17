@@ -437,7 +437,7 @@ $(document).ready(function () {
 <li>Info about cases at <a href="#ut">U. of Tennessee, Knoxville</a> (using public information only)</li>
 <li><a href="#webcams">Webcams</a> showing activity at local sites, though not quite at the resolution to point to mask usage or not</li>
 </ul>
-<p>The following plots are created in R using data from <a href="https://covid19datahub.io" class="uri">https://covid19datahub.io</a> (Guidotti, E., Ardia, D., (2020), “COVID-19 Data Hub”, Working paper, doi: 10.13140/RG.2.2.11649.81763), as well as information from Google and the <a href="https://www.tn.gov/health/cedep/ncov/data/downloadable-datasets.html">state of Tennessee dataset page</a> and plotting and analysis using the <code>forecast</code>, <code>ggplot2</code>, <code>reshape2</code>, and <code>dplyr</code> packages. Plots created on 2021-01-17 13:02:19. I use a seven day rolling average for most plots using the <code>geom_ma</code> function of <code>tidyquant</code>.</p>
+<p>The following plots are created in R using data from <a href="https://covid19datahub.io" class="uri">https://covid19datahub.io</a> (Guidotti, E., Ardia, D., (2020), “COVID-19 Data Hub”, Working paper, doi: 10.13140/RG.2.2.11649.81763), as well as information from Google and the <a href="https://www.tn.gov/health/cedep/ncov/data/downloadable-datasets.html">state of Tennessee dataset page</a> and plotting and analysis using the <code>forecast</code>, <code>ggplot2</code>, <code>reshape2</code>, and <code>dplyr</code> packages. Plots created on 2021-01-17 17:56:36. I use a seven day rolling average for most plots using the <code>geom_ma</code> function of <code>tidyquant</code>.</p>
 <h2 id="cases">
 Cases
 </h2>
@@ -605,6 +605,12 @@ Hospitalization
 <p><img src="covid_files/figure-html/hhspart2-1.png" width="672" /><img src="covid_files/figure-html/hhspart2-2.png" width="672" /></p>
 <p>Finally, we can break out the percentage of patients in the beds (all adult outpatient and adult ICU) who have confirmed or suspected covid. That does not mean that covid is their primary reason (or reason at all) for being in the hospital, but can still suggest something about the pandemic, including something of the population of patients facing east Tennessee healthcare workers.</p>
 <p><img src="covid_files/figure-html/hhspart3-1.png" width="672" /><img src="covid_files/figure-html/hhspart3-2.png" width="672" /></p>
+<hr />
+<h2 id="demographics">
+Demographics
+</h2>
+<p>Tennessee releases information on demographics of individuals with covid. Agre is broken out below, but here are other categories. All terminology follows that used by the state, including terms like race and sex (assumed to be binary by them). Information on the population in each category come from the <a href="https://www.census.gov/quickfacts/TN">US Census</a>. It appears that the categorization of “one or more races” vs “other/multiracial” differs radically between the US Census and TN’s health stats (the census seems to put far fewer people into their category, so the proportions computed seem radically out of line: all other groups have 2-7% infection rate, for example, while this demographic has 40% infection rate if the denominator from the census is right for the numerator from the state). Because the data seem so different, and the scale obscures info for other groups, I am omitting that group here.</p>
+<p><img src="covid_files/figure-html/demographics1-1.png" width="672" /><img src="covid_files/figure-html/demographics1-2.png" width="672" /><img src="covid_files/figure-html/demographics1-3.png" width="672" /><img src="covid_files/figure-html/demographics1-4.png" width="672" /><img src="covid_files/figure-html/demographics1-5.png" width="672" /><img src="covid_files/figure-html/demographics1-6.png" width="672" /></p>
 <hr />
 <h2 id="ages">
 Ages

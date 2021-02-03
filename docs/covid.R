@@ -446,13 +446,26 @@ try(print(hosp_plot_CA))
 
 ## ----hhshospitalization, echo=FALSE, message=FALSE, warning=FALSE-------------
 hhs_sources <- jsonlite::fromJSON("https://healthdata.gov/data.json?page=0")
-capacity_by_facility_number <- grep("COVID-19 Reported Patient Impact and Hospital Capacity by Facility Data Dictionary", hhs_sources[[6]][[5]])
-capacity_by_facility_url <- hhs_sources[[6]][[6]][capacity_by_facility_number][[1]]$downloadURL
-temp = tempfile(fileext = ".csv")
+capacity_by_facility_number <- grep("COVID-19 Reported Patient Impact and Hospital Capacity by Facility", hhs_sources$dataset$title)
 
-	utils::download.file(capacity_by_facility_url, temp, method="libcurl")
+
+#capacity_by_facility_url <- hhs_sources$dataset$distribution[capacity_by_facility_number][[1]]$downloadURL #often a week behind though
+temp = tempfile(fileext = ".csv")
+#
+
+
+scraped_url <- readLines("https://healthdata.gov/dataset/covid-19-reported-patient-impact-and-hospital-capacity-facility")
+scraped_url <- scraped_url[grepl("https://healthdata.gov/sites/default/files/reported_hospital_capacity_admissions_facility_level_weekly_average_timeseries", scraped_url)]
+capacity_by_facility_url <- str_extract(scraped_url, "https.*csv")
+
+
+utils::download.file(capacity_by_facility_url, temp, method="libcurl")
+
 hhs_capacity <- read.csv(file=temp)
 hhs_capacity_tn <- subset(hhs_capacity, state=="TN")
+
+
+
 # for(i in sequence(nrow(hhs_capacity_tn))) {
 # 	for (j in sequence(ncol(hhs_capacity_tn))) {
 # 		if(!is.na(hhs_capacity_tn[i,j])) {
@@ -623,6 +636,215 @@ hhs_plot4 <- ggplot(hhs_capacity_tn_focal, aes(x=DATE, y=percentage_adult_hospit
 print(hhs_plot4)
 
 
+## ----vaccination1, echo=FALSE, message=FALSE, warning=FALSE, error=FALSE------
+population_total <- 6829174
+
+population_female <- population_total*0.512
+population_male <- population_total*(1-0.512)
+
+population_white <- population_total*0.784
+population_black_africanamerican <- population_total*0.171
+population_asian <- population_total*0.02
+population_americanindian_alaskannative <- population_total*0.005
+population_nativehawaiian_other_pacificislander <- population_total*0.001
+population_twoormoreraces <- population_total*0.02
+
+population_hispanic <- population_total*0.057
+population_not_hispanic <- population_total*(1-0.057)
+
+
+population_age_under_5 <- population_total*0.06
+population_age_under_18 <- population_total*0.221
+population_age_65_and_over <- population_total*0.167
+
+
+
+temp = tempfile(fileext = ".xlsx")
+dataURL <- "https://www.tn.gov/content/dam/tn/health/documents/cedep/novel-coronavirus/datasets/COVID_VACCINE_DEMOGRAPHICS.XLSX"
+download.file(dataURL, destfile=temp, mode='wb')
+demographics_vaccine <- readxl::read_xlsx(temp, sheet =1)
+demographics_vaccine$RECIPIENT_COUNT[is.na(demographics_vaccine$RECIPIENT_COUNT)] <- demographics_vaccine$VACCINE_COUNT[is.na(demographics_vaccine$RECIPIENT_COUNT)]
+demographics_vaccine$RECIP_FULLY_VACC[is.na(demographics_vaccine$RECIP_FULLY_VACC)] <- 0
+
+
+
+
+
+race_vaccine <- subset(demographics_vaccine, CATEGORY=="RACE")
+race_vaccine$Race <- stringr::str_to_title(race_vaccine$CAT_DETAIL)
+
+ethnicity_vaccine <- subset(demographics_vaccine, CATEGORY=="ETHN")
+ethnicity_vaccine$Ethnicity <- stringr::str_to_title(ethnicity_vaccine$CAT_DETAIL)
+
+sex_vaccine <- subset(demographics_vaccine, CATEGORY=="SEX")
+sex_vaccine$Sex <- stringr::str_to_title(sex_vaccine$CAT_DETAIL)
+sex_vaccine$Sex <- gsub("F", "Female", sex_vaccine$Sex)
+sex_vaccine$Sex <- gsub("M", "Male", sex_vaccine$Sex)
+sex_vaccine$Sex <- gsub("U", "Unknown", sex_vaccine$Sex)
+sex_vaccine$Sex <- gsub("O", "Other", sex_vaccine$Sex)
+
+
+
+
+plot_race_covid_vaccination <- ggplot(race_vaccine, aes(x=DATE, y=VACCINE_COUNT, group=Race)) + geom_line(aes(colour=Race))+ xlab("Date") + ylab("Number of people with at least one vaccination")
+print(plot_race_covid_vaccination)
+
+plot_race_covid_vaccination_full <- ggplot(race_vaccine, aes(x=DATE, y=RECIP_FULLY_VACC, group=Race)) + geom_line(aes(colour=Race))+ xlab("Date") + ylab("Number of people fully vaccinated")
+print(plot_race_covid_vaccination_full)
+
+plot_ethnicity_covid_vaccination <- ggplot(ethnicity_vaccine, aes(x=DATE, y=VACCINE_COUNT, group=Ethnicity)) + geom_line(aes(colour=Ethnicity))+ xlab("Date") + ylab("Number of people with at least one vaccination")
+print(plot_ethnicity_covid_vaccination)
+
+plot_ethnicity_covid_vaccination_full <- ggplot(ethnicity_vaccine, aes(x=DATE, y=RECIP_FULLY_VACC, group=Ethnicity)) + geom_line(aes(colour=Ethnicity))+ xlab("Date") + ylab("Number of people fully vaccinated")
+print(plot_ethnicity_covid_vaccination_full)
+
+plot_sex_covid_vaccination <- ggplot(sex_vaccine, aes(x=DATE, y=VACCINE_COUNT, group=Sex)) + geom_line(aes(colour=Sex))+ xlab("Date") + ylab("Number of people with at least one vaccination")
+print(plot_sex_covid_vaccination)
+
+plot_sex_covid_vaccination_full <- ggplot(sex_vaccine, aes(x=DATE, y=RECIP_FULLY_VACC, group=Sex)) + geom_line(aes(colour=Sex))+ xlab("Date") + ylab("Number of people fully vaccinated")
+print(plot_sex_covid_vaccination_full)
+
+
+## ----demographics1, echo=FALSE, message=FALSE, warning=FALSE, error=FALSE-----
+# population_total <- 6829174
+
+# population_female <- population_total*0.512
+# population_male <- population_total*(1-0.512)
+
+# population_white <- population_total*0.784
+# population_black_africanamerican <- population_total*0.171
+# population_asian <- population_total*0.02
+# population_americanindian_alaskannative <- population_total*0.005
+# population_nativehawaiian_other_pacificislander <- population_total*0.001
+# population_twoormoreraces <- population_total*0.02
+
+# population_hispanic <- population_total*0.057
+# population_not_hispanic <- population_total*(1-0.057)
+
+
+# population_age_under_5 <- population_total*0.06
+# population_age_under_18 <- population_total*0.221
+# population_age_65_and_over <- population_total*0.167
+
+
+
+temp = tempfile(fileext = ".xlsx")
+dataURL <- "https://www.tn.gov/content/dam/tn/health/documents/cedep/novel-coronavirus/datasets/Public-Dataset-RaceEthSex.XLSX"
+download.file(dataURL, destfile=temp, mode='wb')
+demographics <- readxl::read_xlsx(temp, sheet =1)
+demographics$percent_of_demographic_with_cases <- 0
+demographics$percent_of_demographic_dead <- 0
+demographics <- subset(demographics, as.character(demographics$Date)!="2020-07-28") #there was an error that day for Native Hawaiian or Other Pacific Islander: it went from 2 to 15 recorded deaths. Remove date from all data just to be safe.
+
+
+
+race <- subset(demographics, Category=="RACE")
+race <- subset(race, CAT_DETAIL != "Pending")
+
+
+race[which(race$CAT_DETAIL=="White"),]$percent_of_demographic_with_cases <- 100*race[which(race$CAT_DETAIL=="White"),]$Cat_CaseCount/population_white
+race[which(race$CAT_DETAIL=="White"),]$percent_of_demographic_dead <- 100*race[which(race$CAT_DETAIL=="White"),]$CAT_DEATHCOUNT/population_white
+race[which(race$CAT_DETAIL=="Black or African American"),]$percent_of_demographic_with_cases <- 100*race[which(race$CAT_DETAIL=="Black or African American"),]$Cat_CaseCount/population_black_africanamerican
+race[which(race$CAT_DETAIL=="Black or African American"),]$percent_of_demographic_dead <- 100*race[which(race$CAT_DETAIL=="Black or African American"),]$CAT_DEATHCOUNT/population_black_africanamerican
+race[which(race$CAT_DETAIL=="Asian"),]$percent_of_demographic_with_cases <- 100*race[which(race$CAT_DETAIL=="Asian"),]$Cat_CaseCount/population_asian
+race[which(race$CAT_DETAIL=="Asian"),]$percent_of_demographic_dead <- 100*race[which(race$CAT_DETAIL=="Asian"),]$CAT_DEATHCOUNT/population_asian
+race[which(race$CAT_DETAIL=="American Indian or Alaska Native"),]$percent_of_demographic_with_cases <- 100*race[which(race$CAT_DETAIL=="American Indian or Alaska Native"),]$Cat_CaseCount/population_americanindian_alaskannative
+race[which(race$CAT_DETAIL=="American Indian or Alaska Native"),]$percent_of_demographic_dead <- 100*race[which(race$CAT_DETAIL=="American Indian or Alaska Native"),]$CAT_DEATHCOUNT/population_americanindian_alaskannative
+race[which(race$CAT_DETAIL=="Native Hawaiian or Other Pacific Islander"),]$percent_of_demographic_with_cases <- 100*race[which(race$CAT_DETAIL=="Native Hawaiian or Other Pacific Islander"),]$Cat_CaseCount/population_nativehawaiian_other_pacificislander
+race[which(race$CAT_DETAIL=="Native Hawaiian or Other Pacific Islander"),]$percent_of_demographic_dead <- 100*race[which(race$CAT_DETAIL=="Native Hawaiian or Other Pacific Islander"),]$CAT_DEATHCOUNT/population_nativehawaiian_other_pacificislander
+race[which(race$CAT_DETAIL=="Other/Multiracial"),]$percent_of_demographic_with_cases <- 100*race[which(race$CAT_DETAIL=="Other/Multiracial"),]$Cat_CaseCount/population_twoormoreraces
+race[which(race$CAT_DETAIL=="Other/Multiracial"),]$percent_of_demographic_dead <- 100*race[which(race$CAT_DETAIL=="Other/Multiracial"),]$CAT_DEATHCOUNT/population_twoormoreraces
+race <- subset(race, CAT_DETAIL!="Other/Multiracial") # see note above
+race <- subset(race, CAT_DETAIL!="Other/ Multiracial") # see note above
+
+race$Race <- race$CAT_DETAIL
+
+plot_race_covid_incidence <- ggplot(race, aes(x=Date, y=percent_of_demographic_with_cases, group=Race)) + geom_line(aes(colour=Race))+ xlab("Date") + scale_y_continuous(
+    
+    # Features of the first axis
+    name = "Percentage who have had covid",
+    
+    # Add a second axis and specify its features
+    sec.axis = dup_axis( labels=c("1/10", "1/20", "1/50", "1/100"), breaks=c(10, 5, 2, 1), name="Fraction who have had covid")
+  ) 
+print(plot_race_covid_incidence)
+
+plot_race_covid_death <- ggplot(race, aes(x=Date, y=percent_of_demographic_dead, group=Race)) + geom_line(aes(colour=Race)) + xlab("Date")  + scale_y_continuous(
+    
+    # Features of the first axis
+    name = "Percentage who have died from covid",
+    
+    # Add a second axis and specify its features
+    sec.axis = dup_axis( labels=c("1/2000", "1/1500", "1/1000", "1/750"), breaks=c(100/2000, 100/1500, 100/1000, 100/750), name="Fraction who have died from covid")
+  ) 
+print(plot_race_covid_death)
+
+ethnicity <- subset(demographics, Category=="ETHNICITY")
+ethnicity <- subset(ethnicity, CAT_DETAIL != "Pending")
+
+ethnicity[which(ethnicity$CAT_DETAIL=="Hispanic"),]$percent_of_demographic_with_cases <- 100*ethnicity[which(ethnicity$CAT_DETAIL=="Hispanic"),]$Cat_CaseCount/population_hispanic
+ethnicity[which(ethnicity$CAT_DETAIL=="Hispanic"),]$percent_of_demographic_dead <- 100*ethnicity[which(ethnicity$CAT_DETAIL=="Hispanic"),]$CAT_DEATHCOUNT/population_hispanic
+
+
+ethnicity[which(ethnicity$CAT_DETAIL=="Not Hispanic or Latino"),]$percent_of_demographic_with_cases <- 100*ethnicity[which(ethnicity$CAT_DETAIL=="Not Hispanic or Latino"),]$Cat_CaseCount/population_not_hispanic
+ethnicity[which(ethnicity$CAT_DETAIL=="Not Hispanic or Latino"),]$percent_of_demographic_dead <- 100*ethnicity[which(ethnicity$CAT_DETAIL=="Not Hispanic or Latino"),]$CAT_DEATHCOUNT/population_not_hispanic
+ethnicity$Ethnicity <- ethnicity$CAT_DETAIL
+
+plot_ethnicity_covid_incidence <- ggplot(ethnicity, aes(x=Date, y=percent_of_demographic_with_cases, group=Ethnicity)) + geom_line(aes(colour=Ethnicity))+ xlab("Date") + scale_y_continuous(
+    
+    # Features of the first axis
+    name = "Percentage who have had covid",
+    
+    # Add a second axis and specify its features
+    sec.axis = dup_axis( labels=c("1/10", "1/20", "1/50", "1/100"), breaks=c(10, 5, 2, 1), name="Fraction who have had covid")
+  ) 
+print(plot_ethnicity_covid_incidence)
+
+plot_ethnicity_covid_death <- ggplot(ethnicity, aes(x=Date, y=percent_of_demographic_dead, group=Ethnicity)) + geom_line(aes(colour=Ethnicity)) + xlab("Date")  + scale_y_continuous(
+    
+    # Features of the first axis
+    name = "Percentage who have died from covid",
+    
+    # Add a second axis and specify its features
+    sec.axis = dup_axis( labels=c("1/2000", "1/1500", "1/1000", "1/750"), breaks=c(100/2000, 100/1500, 100/1000, 100/750), name="Fraction who have died from covid")
+  ) 
+print(plot_ethnicity_covid_death)
+
+
+sex <- subset(demographics, Category=="SEX")
+sex <- subset(sex, CAT_DETAIL != "Pending")
+
+
+sex[which(sex$CAT_DETAIL=="Female"),]$percent_of_demographic_with_cases <- 100*sex[which(sex$CAT_DETAIL=="Female"),]$Cat_CaseCount/population_female
+sex[which(sex$CAT_DETAIL=="Female"),]$percent_of_demographic_dead <- 100*sex[which(sex$CAT_DETAIL=="Female"),]$CAT_DEATHCOUNT/population_female
+
+sex[which(sex$CAT_DETAIL=="Male"),]$percent_of_demographic_with_cases <- 100*sex[which(sex$CAT_DETAIL=="Male"),]$Cat_CaseCount/population_male
+sex[which(sex$CAT_DETAIL=="Male"),]$percent_of_demographic_dead <- 100*sex[which(sex$CAT_DETAIL=="Male"),]$CAT_DEATHCOUNT/population_male
+sex$Sex <- sex$CAT_DETAIL
+
+plot_sex_covid_incidence <- ggplot(sex, aes(x=Date, y=percent_of_demographic_with_cases, group=Sex)) + geom_line(aes(colour=Sex))+ xlab("Date") + scale_y_continuous(
+    
+    # Features of the first axis
+    name = "Percentage who have had covid",
+    
+    # Add a second axis and specify its features
+    sec.axis = dup_axis( labels=c("1/10", "1/20", "1/50", "1/100"), breaks=c(10, 5, 2, 1), name="Fraction who have had covid")
+  ) 
+print(plot_sex_covid_incidence)
+
+plot_sex_covid_death <- ggplot(sex, aes(x=Date, y=percent_of_demographic_dead, group=Sex)) + geom_line(aes(colour=Sex)) + xlab("Date")  + scale_y_continuous(
+    
+    # Features of the first axis
+    name = "Percentage who have died from covid",
+    
+    # Add a second axis and specify its features
+    sec.axis = dup_axis( labels=c("1/2000", "1/1500", "1/1000", "1/750"), breaks=c(100/2000, 100/1500, 100/1000, 100/750), name="Fraction who have died from covid")
+  ) 
+print(plot_sex_covid_death)
+
+
+
+
 ## ----age, echo=FALSE, message=FALSE, warning=FALSE, error=FALSE---------------
 # covidServer <- get.rds("https://knxhx.richdataservices.com/rds")
 # catalog <- getCatalog(covidServer, "kcdh")
@@ -760,32 +982,36 @@ geom_point() + ylab("Est. daily new cases 100,000 people based on UTK saliva sam
 print(saliva_plot)
 
 
-## ----plotutactiveproportion, echo=FALSE, message=FALSE, warning=FALSE---------
-utk_active_proportion_df <- rbind(
-	data.frame(DATE=as.Date(utk_reported_zukowski$DATE), Active_percentage=100*utk_reported_zukowski$CASES_ACTIVE/30000, Assumption="Every active case knows and reports"),
-	data.frame(DATE=as.Date(saliva_data$DATE), Active_percentage=100*saliva_data$Positive.diagnostic.tests. / saliva_data$Samples, Assumption="Student saliva testing is representative")
-)
-utk_active_proportion_plot <- ggplot(utk_active_proportion_df, aes(x=DATE, y=Active_percentage, group=Assumption)) + geom_line(aes(colour=Assumption)) + scale_colour_viridis_d(end=0.8) 
-print(utk_active_proportion_plot)
+## ----plotutactiveproportion, echo=FALSE, message=FALSE, warning=FALSE, eval=FALSE----
+## #A different way to consider this is what percent of the community has active covid infections at any one time. There are two ways to get this. One is assuming that every person who has active covid 1) knows this through testing and 2) reports this to UT. This uses the active case numbers reported by UT (gotten through the intermediary of Alex Zukowski). The other way is to assume that the random saliva testing at the dorms is a better way to get this estimate. This avoids issues of asymptomatic or presymptomatic individuals not getting tested, but it could be biased in other ways: maybe the ~25% of students who skip mandatory testing are more likely to have covid (or maybe they're studying at home and not using the dorm at all), maybe the dorms selected are selected based on the results of sewage testing for covid, etc. My guess is that the saliva testing is the better estimate.
+## 
+## utk_active_proportion_df <- rbind(
+## 	data.frame(DATE=as.Date(utk_reported_zukowski$DATE), Active_percentage=100*utk_reported_zukowski$CASES_ACTIVE/30000, Assumption="Every active case knows and reports"),
+## 	data.frame(DATE=as.Date(saliva_data$DATE), Active_percentage=100*saliva_data$Positive.diagnostic.tests. / saliva_data$Samples, Assumption="Student saliva testing is representative")
+## )
+## utk_active_proportion_plot <- ggplot(utk_active_proportion_df, aes(x=DATE, y=Active_percentage, group=Assumption)) + geom_line(aes(colour=Assumption)) + scale_colour_viridis_d(end=0.8)
+## print(utk_active_proportion_plot)
+## 
+## 
+## saliva_active <- round(saliva_data$Active_cases_per_30k[nrow(saliva_data)])
+## reported_active <- round(utk_reported_zukowski$CASES_ACTIVE[utk_reported_zukowski$DATE %in% as.character(max(saliva_data$DATE))])
+## reported_isolation_total <- round(utk_reported_zukowski$SELF_ISOLATED_TOTAL[utk_reported_zukowski$DATE %in% as.character(max(saliva_data$DATE))])
+## 
+## max_spreader_proportion <- (saliva_active-reported_active)/30000
+## min_spreader_proportion <- (max(0,saliva_active-reported_isolation_total))/30000
+## group_sizes <- seq(from=1, to=100, by=1)
+## avoidance_df <- rbind(
+## 	data.frame(Group_size = group_sizes, Percentage_infected_groups=100*(1-dbinom(0, size=group_sizes, prob=min_spreader_proportion)), Assumption="Everyone self-isolating has covid"),
+## 	data.frame(Group_size = group_sizes, Percentage_infected_groups=100*(1-dbinom(0, size=group_sizes, prob=max_spreader_proportion)), Assumption="Minimal self isolation of infected individuals")
+## )
 
 
-saliva_active <- round(saliva_data$Active_cases_per_30k[nrow(saliva_data)])
-reported_active <- round(utk_reported_zukowski$CASES_ACTIVE[utk_reported_zukowski$DATE %in% as.character(max(saliva_data$DATE))])
-reported_isolation_total <- round(utk_reported_zukowski$SELF_ISOLATED_TOTAL[utk_reported_zukowski$DATE %in% as.character(max(saliva_data$DATE))])
-
-max_spreader_proportion <- (saliva_active-reported_active)/30000
-min_spreader_proportion <- (max(0,saliva_active-reported_isolation_total))/30000
-group_sizes <- seq(from=1, to=100, by=1)
-avoidance_df <- rbind(
-	data.frame(Group_size = group_sizes, Percentage_infected_groups=100*(1-dbinom(0, size=group_sizes, prob=min_spreader_proportion)), Assumption="Everyone self-isolating has covid"),
-	data.frame(Group_size = group_sizes, Percentage_infected_groups=100*(1-dbinom(0, size=group_sizes, prob=max_spreader_proportion)), Assumption="Minimal self isolation of infected individuals")
-)
-
-
-## ----plotencounterprob, echo=FALSE, message=FALSE, warning=FALSE--------------
-
-utk_active_spreader_plot <- ggplot(avoidance_df, aes(x=Group_size, y=Percentage_infected_groups, group=Assumption)) + geom_line(aes(colour=Assumption)) + scale_colour_viridis_d(end=0.8)
-print(utk_active_spreader_plot)
-
-
+## ----plotencounterprob, echo=FALSE, message=FALSE, warning=FALSE, eval=FALSE----
+## 
+## #Given the estimated percentage of individuals with active cases, what is the chance that in a given group of people at UT, there is someone there with covid? This is hard to know, as people with active cases who know about them are hopefully isolating themselves, and others are isolating who have been exposed and who may have active cases but do not know that yet. If we assume that the saliva samples are the best estimates of proportion of active cases (since it does not rely on students deciding to go to student health due to symptoms), we can use that to estimate the true number of active cases. We can then compare that to the number of people isolating due to active cases to figure out how many active cases are not in the self-reported situation. They could still be isolating because they have close contacts who are isolating, or they might not, so we can use both those assumptions. For example, on the last date of saliva samples, `r as.character(max(saliva_data$DATE))`, there were `r reported_active` individuals at UT with active reported covid infections, `r reported_isolation_total` individuals isolating (including presumably all the reported active cases), but based on the saliva proportion of active cases there would be `r saliva_active` active cases across the 30,000 students. The point estimate of the number of people who may be active and not in isolation may be between `r max(0,saliva_active-reported_isolation_total)` and `r saliva_active-reported_active` individuals, depending on how many of the ones who are active but don't know it are self isolating anyway. Remember that all these numbers are very uncertain, especially those based on small sample sizes, but we can use this to get a gut sense of the probability of encountering someone who actively has covid in different group sizes -- perhaps important for showing the importance of avoiding large unmasked groups, especially before returning home to family over the winter break. For example, for a thirty person party some weekend, there is between a `r round(min(subset(avoidance_df, Group_size==50)$Percentage_infected_groups))` to `r round(max(subset(avoidance_df, Group_size==50)$Percentage_infected_groups))`% chance that at least one person at that party actively has covid during the party (the lower estimate assumes that *every* person in isolation, whether they know it or not, is one of the people with active covid, but that still leaves many to continue spreading it (and people outside UT's campus also have covid, too)). Even repeated small group interactions pose a risk. If someone does not have covid, and repeatedly meets with random groups of three other people who might have it, there is only a `r min(round(subset(avoidance_df, Group_size==3)$Percentage_infected_groups,1))`% chance of someone else in each group having covid, but by the time the person has met with five such groups there is a `r round(100 * ( 1 - dbinom(0, 5, 0.01*min(round(subset(avoidance_df, Group_size==3)$Percentage_infected_groups,1)))))`% chance that the person will have been exposed to someone with covid in at least one of these groups.
+## 
+## utk_active_spreader_plot <- ggplot(avoidance_df, aes(x=Group_size, y=Percentage_infected_groups, group=Assumption)) + geom_line(aes(colour=Assumption)) + scale_colour_viridis_d(end=0.8)
+## print(utk_active_spreader_plot)
+## 
+## 
 

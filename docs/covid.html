@@ -439,7 +439,7 @@ $(document).ready(function () {
 <li>Info about cases at <a href="#ut">U. of Tennessee, Knoxville</a> (using public information only)</li>
 <li><a href="#webcams">Webcams</a> showing activity at local sites, though not quite at the resolution to point to mask usage or not</li>
 </ul>
-<p>The following plots are created in R using data from <a href="https://covid19datahub.io" class="uri">https://covid19datahub.io</a> (Guidotti, E., Ardia, D., (2020), “COVID-19 Data Hub”, Working paper, doi: 10.13140/RG.2.2.11649.81763), as well as information from Google and the <a href="https://www.tn.gov/health/cedep/ncov/data/downloadable-datasets.html">state of Tennessee dataset page</a> and plotting and analysis using the <code>forecast</code>, <code>ggplot2</code>, <code>reshape2</code>, and <code>dplyr</code> packages. Plots created on 2021-02-04 16:40:08. I use a seven day rolling average for most plots using the <code>geom_ma</code> function of <code>tidyquant</code>.</p>
+<p>The following plots are created in R using data from <a href="https://covid19datahub.io" class="uri">https://covid19datahub.io</a> (Guidotti, E., Ardia, D., (2020), “COVID-19 Data Hub”, Working paper, doi: 10.13140/RG.2.2.11649.81763), as well as information from Google and the <a href="https://www.tn.gov/health/cedep/ncov/data/downloadable-datasets.html">state of Tennessee dataset page</a> and plotting and analysis using the <code>forecast</code>, <code>ggplot2</code>, <code>reshape2</code>, and <code>dplyr</code> packages. Plots created on 2021-02-05 11:28:51. I use a seven day rolling average for most plots using the <code>geom_ma</code> function of <code>tidyquant</code>.</p>
 <h2 id="cases">
 Cases
 </h2>
@@ -478,7 +478,7 @@ Schooling
 <h2 id="hospitalization">
 Hospitalization
 </h2>
-<p>As of the last time the data were updated (likely 1 days ago), regional hospitals had 46 ICU beds available of 284 total (so was at 84 percent capacity), and 146 available ventilators out of 256 total, (so was at 43 percent capacity). The hospitals overall had 689 beds available of 3063 total (so was at 78 percent capacity). This is based on 19 acute care hospitals in the East TN region; based on the 14 counties these hospitals are in, these serve at least 1,235,720 people. When a line hits 100% (indicated in red), the local hospitals are theoretically full for that resource (for <em>all</em> patients, not just covid patients), though there is surge capacity on top of this. Note that these data are updated only weekly, so current conditions maybe be much better or worse than these plots show. Data on capacity from Knox County’s dashboard, data on hospitalizations and testing over time from the state data.</p>
+<p>As of the last time the data were updated (likely 2 days ago), regional hospitals had 46 ICU beds available of 284 total (so was at 84 percent capacity), and 146 available ventilators out of 256 total, (so was at 43 percent capacity). The hospitals overall had 689 beds available of 3063 total (so was at 78 percent capacity). This is based on 19 acute care hospitals in the East TN region; based on the 14 counties these hospitals are in, these serve at least 1,235,720 people. When a line hits 100% (indicated in red), the local hospitals are theoretically full for that resource (for <em>all</em> patients, not just covid patients), though there is surge capacity on top of this. Note that these data are updated only weekly, so current conditions maybe be much better or worse than these plots show. Data on capacity from Knox County’s dashboard, data on hospitalizations and testing over time from the state data.</p>
 <p><img src="covid_files/figure-html/hospitalcapacityplot-1.png" width="672" /></p>
 <p>Trends in hospitalization of covid patients over time. The vertical dotted line shows the last day with updated capacity information from Knox County, when there were 46 ICU beds available (ignoring surge capacity) for people in the East Tennessee region. The seven day average is shown.</p>
 <p><img src="covid_files/figure-html/plotsD-1.png" width="672" /></p>
@@ -614,6 +614,105 @@ Ages
 </h2>
 <p>Which age groups are being infected is an important question as local schools open up. These are data from Knox county alone. Note that one important bias here could be testing rate: if two year olds aren’t being tested as often as forty year olds, the age 0-10 results will be lower than the actual rate of infection, for example.</p>
 <p><img src="covid_files/figure-html/age2-1.png" width="672" /><img src="covid_files/figure-html/age2-2.png" width="672" /></p>
+<hr />
+<h2 id="summarytable">
+Summary table
+</h2>
+<p>We can summarize all this information into a table showing the percentage of different populations who have gotten covid, died from covid, and been vaccinated against it to check for disparities. In many categories there is a substantial unknown, so the numbers in those areas might be low: for example, if 20% of the people being vaccinated have no race recorded, then adding up all the proportion of people in the race categories who are vaccinated will be lower than the total vaccinated. This is why, for example, the proportion of people with positive covid tests by race is lower than any grouping by sex: there are a lot more unknowns in the race category, and I don’t want to assume that the distribution of the unknowns matches the distribution of knowns. I am also treating as unknown categories that seem to have issues, such as mulitracial (very different count by the census than by the TN data) and other for sex in some data (gender is a spectrum, but the available data treat it as binary usually and call it sex; I follow this convention in the source data).</p>
+<table style="width:100%;">
+<colgroup>
+<col width="7%" />
+<col width="33%" />
+<col width="15%" />
+<col width="9%" />
+<col width="19%" />
+<col width="13%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Category</th>
+<th align="left">Group</th>
+<th align="right">Positive_Covid_Test</th>
+<th align="right">Covid_Death</th>
+<th align="right">At_Least_One_Vaccination</th>
+<th align="right">Fully_Vaccinated</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Race</td>
+<td align="left">American Indian or Alaska Native</td>
+<td align="right">2.75</td>
+<td align="right">0.03</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+<tr class="even">
+<td align="left">Race</td>
+<td align="left">Asian</td>
+<td align="right">4.63</td>
+<td align="right">0.04</td>
+<td align="right">3.86</td>
+<td align="right">2.09</td>
+</tr>
+<tr class="odd">
+<td align="left">Race</td>
+<td align="left">Black or African American</td>
+<td align="right">7.98</td>
+<td align="right">0.15</td>
+<td align="right">2.85</td>
+<td align="right">1.08</td>
+</tr>
+<tr class="even">
+<td align="left">Race</td>
+<td align="left">Native Hawaiian or Other Pacific Islander</td>
+<td align="right">7.45</td>
+<td align="right">0.07</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+<tr class="odd">
+<td align="left">Race</td>
+<td align="left">White</td>
+<td align="right">8.30</td>
+<td align="right">0.14</td>
+<td align="right">6.57</td>
+<td align="right">3.06</td>
+</tr>
+<tr class="even">
+<td align="left">Ethnicity</td>
+<td align="left">Hispanic</td>
+<td align="right">11.81</td>
+<td align="right">0.07</td>
+<td align="right">2.34</td>
+<td align="right">1.18</td>
+</tr>
+<tr class="odd">
+<td align="left">Ethnicity</td>
+<td align="left">Not Hispanic or Latino</td>
+<td align="right">7.11</td>
+<td align="right">0.14</td>
+<td align="right">6.42</td>
+<td align="right">2.76</td>
+</tr>
+<tr class="even">
+<td align="left">Sex</td>
+<td align="left">Female</td>
+<td align="right">11.18</td>
+<td align="right">0.14</td>
+<td align="right">9.39</td>
+<td align="right">4.17</td>
+</tr>
+<tr class="odd">
+<td align="left">Sex</td>
+<td align="left">Male</td>
+<td align="right">10.20</td>
+<td align="right">0.16</td>
+<td align="right">5.92</td>
+<td align="right">2.50</td>
+</tr>
+</tbody>
+</table>
 <hr />
 <h2 id="ut">
 University of Tennessee, Knoxville

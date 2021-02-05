@@ -894,6 +894,12 @@ print(ageplot_knox_cumulative)
 
 
 
+## ----summarytabletn, echo=FALSE, message=FALSE, warning=FALSE, error=FALSE----
+sumtab <- data.frame()
+
+
+
+
 ## ----utactive, echo=FALSE, message=FALSE, warning=FALSE, eval=FALSE-----------
 ## # cached downloads of https://veoci.com/veoci/p/form/4jmds5x4jj4j#tab=entryForm
 ## webfiles <- list.files(path="/Users/bomeara/Dropbox/UTKCovid", pattern="*html", full.names =TRUE)

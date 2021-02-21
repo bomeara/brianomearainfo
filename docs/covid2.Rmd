@@ -56,7 +56,7 @@ library(tidyquant)
 library(binom)
 library(scales)
 library(jsonlite)
-
+library(gganimate)
 options(timeout=600) # let things download for at least ten minutes
 options(download.file.method = "libcurl")
 

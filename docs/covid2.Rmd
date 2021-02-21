@@ -165,11 +165,12 @@ daily_utk_reported_zukowski <- data.frame(DATE=lubridate::ymd(utk_reported_zukow
 
 #daily_focal <- dplyr::bind_rows(daily_knox, daily_oakridge, daily_region, daily_utk_testing_zukowski, daily_utk_reported_zukowski)
 
-daily_focal <- dplyr::bind_rows(daily_knox, daily_oakridge, daily_utk_testing_zukowski, daily_utk_reported_zukowski)
+daily_focal <- dplyr::bind_rows(daily_knox, daily_oakridge, daily_region, daily_utk_testing_zukowski, daily_utk_reported_zukowski)
 
 daily_focal$Tests_per_100k <- 100000*(daily_focal$NEW_TESTS/daily_focal$Population)
 daily_focal$New_cases_per_100k <- 100000*(daily_focal$NEW_CASES/daily_focal$Population)
 daily_focal$Active_cases_per_100k <- 100000*(daily_focal$TOTAL_ACTIVE/daily_focal$Population)
+daily_focal$PositivityPercentage_per_week <- 100*daily_focal$PositivityRate_per_week
 
 
 
@@ -558,6 +559,7 @@ daily_utk <- daily_utk[order(daily_utk$DATE), ]
 
 daily_utk$NEW_PROPORTION_CONFIRMED <- 100*daily_utk$NEW_CONFIRMED/daily_utk$NEW_TESTS
 
+daily_focal_no_ut <- daily_focal[!grepl("UTK", daily_focal$Region), ]
 
 ```
 
@@ -577,9 +579,27 @@ Information from the last two datasets comes from the hard work of Alex Zukowski
 
 For many of these plots, I am now showing the seven day averages.
 
+```{r plots_cdc, echo=FALSE, message=FALSE, warning=FALSE}
+daily_focal_no_ut_cleaned <- daily_focal_no_ut[!is.na(daily_focal_no_ut$New_cases_per_100k_per_week),]
+daily_focal_no_ut_cleaned <- daily_focal_no_ut_cleaned[!is.na(daily_focal_no_ut_cleaned$PositivityPercentage_per_week),]
+local_cdc <- 
+
+
+local_cdc <- ggplot(daily_focal_no_ut_cleaned, aes(x=PositivityPercentage_per_week, y=New_cases_per_100k_per_week, group=Region)) + geom_line(aes(colour=Region)) + ylab("Number of new cases in area each week per 100,000 people") + xlab("Percentage of positive tests per week") + 
+annotate(geom="rect", xmin=0, xmax=5, ymin=-50, ymax=max(daily_focal_no_ut_cleaned$New_cases_per_100k_per_week), alpha=0.1, fill="blue") +
+annotate(geom="rect", xmin=5, xmax=7.95, ymin=-50, ymax=max(daily_focal_no_ut_cleaned$New_cases_per_100k_per_week), alpha=0.1, fill="yellow") +
+annotate(geom="rect", xmin=7.95, xmax=9.95, ymin=-50, ymax=max(daily_focal_no_ut_cleaned$New_cases_per_100k_per_week), alpha=0.1, fill="orange") +
+annotate(geom="rect", xmin=9.95, xmax=max(daily_focal_no_ut_cleaned$PositivityPercentage_per_week), ymin=-50, ymax=max(daily_focal_no_ut_cleaned$New_cases_per_100k_per_week), alpha=0.1, fill="red")  +
+annotate(geom="rect", xmin=-1, xmax=max(daily_focal_no_ut_cleaned$PositivityPercentage_per_week), ymin=0, ymax=9.5, alpha=0.1, fill="blue") +
+annotate(geom="rect", xmin=-1, xmax=max(daily_focal_no_ut_cleaned$PositivityPercentage_per_week), ymin=9.5, ymax=49.5, alpha=0.1, fill="yellow") +
+annotate(geom="rect", xmin=-1, xmax=max(daily_focal_no_ut_cleaned$PositivityPercentage_per_week), ymin=49.5, ymax=99.5, alpha=0.1, fill="orange") +
+annotate(geom="rect", xmin=-1, xmax=max(daily_focal_no_ut_cleaned$PositivityPercentage_per_week), ymin=99.5, ymax=max(daily_focal_no_ut_cleaned$New_cases_per_100k_per_week), alpha=0.1, fill="red") 
+print(local_cdc)
+
+```
+
 ```{r plotsA, echo=FALSE, message=FALSE, warning=FALSE}
 
-daily_focal_no_ut <- daily_focal[!grepl("UTK", daily_focal$Region), ]
 local_new <- ggplot(daily_focal_no_ut[!is.na(daily_focal_no_ut$NEW_CASES),], aes(x=DATE, y=NEW_CASES, group=Region)) + geom_ma(aes(colour=Region, linetype="a"), n=7) + guides(linetype = FALSE)  + ylab("Number of new cases in area each day") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)
 print(local_new)
 

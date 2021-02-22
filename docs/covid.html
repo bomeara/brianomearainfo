@@ -14,6 +14,7 @@
 
 <title>Local COVID data</title>
 
+<script src="site_libs/header-attrs-2.6/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
@@ -426,19 +427,7 @@ $(document).ready(function () {
 <li><a href="https://healthdata.gov/dataset/covid-19-reported-patient-impact-and-hospital-capacity-facility">US HHS hospitalization by facility</a></li>
 </ul>
 <hr />
-<p>And sections of my page:</p>
-<ul>
-<li>Info about <a href="#cases">cases</a> over time</li>
-<li>Info about <a href="#testing">testing</a> in the local area, including positivity rate</li>
-<li>Info potentially relevant about <a href="#schooling">schools</a></li>
-<li>Info on <a href="#hospitalization">hospitalization</a> in the region, including data on availability of ventilators and ICU beds</li>
-<li>Info about <a href="#vaccination">vaccination</a> in the state</li>
-<li>Info about <a href="#demographics">demographics</a> of who is being diagnosed and who is dying from covid</li>
-<li>Info about <a href="#ages">ages</a> of the people getting positive tests (though the frequency with which people of differing age groups are being tested is not available)</li>
-<li>Info about cases at <a href="#ut">U. of Tennessee, Knoxville</a> (using public information only)</li>
-<li><a href="#webcams">Webcams</a> showing activity at local sites, though not quite at the resolution to point to mask usage or not</li>
-</ul>
-<p>The following plots are created in R using data from <a href="https://covid19datahub.io" class="uri">https://covid19datahub.io</a> (Guidotti, E., Ardia, D., (2020), “COVID-19 Data Hub”, Working paper, doi: 10.13140/RG.2.2.11649.81763), as well as information from Google and the <a href="https://www.tn.gov/health/cedep/ncov/data/downloadable-datasets.html">state of Tennessee dataset page</a> and plotting and analysis using the <code>forecast</code>, <code>ggplot2</code>, <code>reshape2</code>, and <code>dplyr</code> packages. Plots created on 2021-02-21 21:07:43. I use a seven day rolling average for most plots using the <code>geom_ma</code> function of <code>tidyquant</code>.</p>
+<p>The following plots are created in R using data from <a href="https://covid19datahub.io" class="uri">https://covid19datahub.io</a> (Guidotti, E., Ardia, D., (2020), “COVID-19 Data Hub”, Working paper, doi: 10.13140/RG.2.2.11649.81763), as well as information from Google and the <a href="https://www.tn.gov/health/cedep/ncov/data/downloadable-datasets.html">state of Tennessee dataset page</a> and plotting and analysis using the <code>forecast</code>, <code>ggplot2</code>, <code>reshape2</code>, and <code>dplyr</code> packages. Plots created on 2021-02-21 22:41:44. I use a seven day rolling average for most plots using the <code>geom_ma</code> function of <code>tidyquant</code>.</p>
 <h2 id="cases">
 Cases
 </h2>
@@ -452,25 +441,159 @@ Cases
 <li>UTK Reported, from all cases UT includes on their dashboard (student cases from the health center, cases reported from tests off campus that are communicated)</li>
 </ul>
 <p>Information from the last two datasets comes from the hard work of Alex Zukowski, who requests the testing data and who aggregates the reported data. Zukowski, Taylor A. “University of Tennessee, Knoxville COVID-19 Dataset.” COVID-19 in The University of Tennessee, Knoxville, 2020, sites.<a href="google.com/view/utk-covid19/data">google.com/view/utk-covid19/data</a>. I recommend going to <a href="https://sites.google.com/view/utk-covid19">https://sites.google.com/view/utk-covid19</a> for more on this dataset and the work going into gathering it.</p>
-<p>For many of these plots, I am now showing the seven day averages.</p>
-<p><img src="covid_files/figure-html/plotsA-1.png" width="672" /></p>
-<p>Here are the same plots, but normalized so it’s per 100,000 people in each area per day (making it easier to see patterns in less populous areas). I here use the <a href="https://globalepidemics.org/key-metrics-for-covid-suppression/">Harvard Global Health Institute’s</a> standards for guidance of control. Yellow means “rigorous test and trace programs advised”, orange means “stay-at-home orders and/or rigorous test and trace programs advised”, and red means “stay-at-home orders necessary”.</p>
-<p><img src="covid_files/figure-html/newcasesharvard-1.png" width="672" /></p>
-<h2 id="testing">
-Testing
+<h2 id="summarytable">
+Summary table
 </h2>
-<p>Testing is a key part of getting a handle on the pandemic. Here are Knox County, Oak Ridge’s counties (Anderson and Roane), and all the East TN counties combined (the same ones used for regional hospital reporting for bed availability). This plots shows the daily number of tests per 100,000 residents. It also includes testing done by UT student health, using data compiled by Alex Zukowski (Zukowski, Taylor A. “University of Tennessee, Knoxville COVID-19 Dataset.” COVID-19 in The University of Tennessee, Knoxville, 2020, sites.google.com/view/utk-covid19/data). For the UT data, I am plotting against number of students (30,000).</p>
-<p><img src="covid_files/figure-html/plotsB2-1.png" width="672" /></p>
-<p>Another way to look at testing (or disease spread) is to look at the proportion of positive tests (“positivity rate”): they can go up if a greater proportion of symptomatic people are being tested and/or if the frequency of the disease is increasing. Updated WHO guidelines recommend testing should be 5% positive or lower (black line). The lines show the seven day averages. UT’s testing positivity rate (using student health data is so high it obscures the county data, so it is reported separately).</p>
-<p><img src="covid_files/figure-html/plotsB3-1.png" width="672" /></p>
-<hr />
-<h2 id="schooling">
-Schooling
+<p>We can summarize all this information into a table showing the percentage of different populations who have gotten covid, died from covid, and been vaccinated against it to check for disparities. In many categories there is a substantial unknown, so the numbers in those areas might be low: for example, if 20% of the people being vaccinated have no race recorded, then adding up all the proportion of people in the race categories who are vaccinated will be lower than the total vaccinated. This is why, for example, the proportion of people with positive covid tests by race is lower than any grouping by sex: there are a lot more unknowns in the race category, and I don’t want to assume that the distribution of the unknowns matches the distribution of knowns. I am also treating as unknown categories that seem to have issues, such as mulitracial (very different count by the census than by the TN data) and other for sex in some data (gender is a spectrum, but the available data treat it as binary usually and call it sex; I follow this convention in the source data).</p>
+<table style="width:100%;">
+<colgroup>
+<col width="7%" />
+<col width="33%" />
+<col width="15%" />
+<col width="9%" />
+<col width="19%" />
+<col width="13%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Category</th>
+<th align="left">Group</th>
+<th align="left">Positive Covid Test</th>
+<th align="left">Covid Death</th>
+<th align="left">At Least One Vaccination</th>
+<th align="left">Fully Vaccinated</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Race</td>
+<td align="left">American Indian or Alaska Native</td>
+<td align="left">2.9%</td>
+<td align="left">0.03%</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">Race</td>
+<td align="left">Asian</td>
+<td align="left">4.9%</td>
+<td align="left">0.04%</td>
+<td align="left">6.1%</td>
+<td align="left">2.9%</td>
+</tr>
+<tr class="odd">
+<td align="left">Race</td>
+<td align="left">Black or African American</td>
+<td align="left">8.4%</td>
+<td align="left">0.16%</td>
+<td align="left">4.5%</td>
+<td align="left">1.8%</td>
+</tr>
+<tr class="even">
+<td align="left">Race</td>
+<td align="left">Native Hawaiian or Other Pacific Islander</td>
+<td align="left">7.9%</td>
+<td align="left">0.09%</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">Race</td>
+<td align="left">White</td>
+<td align="left">8.8%</td>
+<td align="left">0.16%</td>
+<td align="left">9.9%</td>
+<td align="left">4.8%</td>
+</tr>
+<tr class="even">
+<td align="left">Ethnicity</td>
+<td align="left">Hispanic</td>
+<td align="left">12.2%</td>
+<td align="left">0.08%</td>
+<td align="left">3.6%</td>
+<td align="left">1.8%</td>
+</tr>
+<tr class="odd">
+<td align="left">Ethnicity</td>
+<td align="left">Not Hispanic or Latino</td>
+<td align="left">7.6%</td>
+<td align="left">0.15%</td>
+<td align="left">9.4%</td>
+<td align="left">4.5%</td>
+</tr>
+<tr class="even">
+<td align="left">Sex</td>
+<td align="left">Female</td>
+<td align="left">11.6%</td>
+<td align="left">0.15%</td>
+<td align="left">13%</td>
+<td align="left">6.6%</td>
+</tr>
+<tr class="odd">
+<td align="left">Sex</td>
+<td align="left">Male</td>
+<td align="left">10.6%</td>
+<td align="left">0.18%</td>
+<td align="left">8.6%</td>
+<td align="left">4.1%</td>
+</tr>
+</tbody>
+</table>
+<h2 id="vaccination">
+Vaccination
 </h2>
-<p>Many of the local schools are adopting a hybrid approach, where families can choose whether to send their kids to school or do online learning (sometimes with reduced options). The <i>New York Times</i> <a href="https://www.nytimes.com/2020/07/14/us/coronavirus-schools-fall.html">reports</a> on July 14, 2020, that, “As education leaders decide whether to reopen classrooms in the fall amid a raging pandemic, many are looking to a standard generally agreed upon among epidemiologists: To control community spread of the coronavirus, the average daily infection rate among those who are tested should not exceed 5 percent.” Many districts nationally are not hitting that goal, but a question is whether local ones will. The first district to open in our area was Oak Ridge public schools, who had a start date for students in person on July 29, 2020. Following the procedure of the <i>NYT</i>‘s article, I am plotting the seven day average of positivity rate for tests for the counties including Oak Ridge’s counties (Roane and Anderson). The black line is the seven day rolling mean (total new confirmed / total new tests, not a mean of this ratio per day), the blue line is this smoothed, the dotted line is the 5% threshold, and the green rectangle is the goal and starts at the start of school – the positivity should be in that rectangle to meet epidemiologists’ goals. Oak Ridge is giving families options of whether to enroll their children in online or in person school: their plan, and the way to choose either mode, is <a href="https://www.ortn.edu/reopening-plan-2020-2021/">here</a>. They have updated their in person plan to require masks when possible but not social distancing; when individuals test positive, the possibly affected parts of the building will be closed for 2-5 days. We’ve opted for the online option for our family.</p>
-<p><img src="covid_files/figure-html/oakridgesevendays-1.png" width="672" /></p>
-<p>Harvard’s Edmond J. Safra Center for Ethics and the Harvard Global Health Institute have created (July 19, 2020) <a href="https://globalhealth.harvard.edu/path-to-zero-schools-achieving-pandemic-resilient-teaching-and-learning-spaces/">guidelines for schools reopening</a> (see also their <a href="https://globalepidemics.org/wp-content/uploads/2020/07/pandemic_resilient_schools_briefing_7.19.20.pdf">full report PDF</a>). They distinguish students by age group: “With COVID-19, people 18 and younger have far lower risk of death, hospitalization, and severe outcomes and are also less likely to get infected. Within this group, students in the younger age band of 10 and under also transmit at lower rates. This last point about lower rates of transmission may also pertain to people 15 and younger, a point that research should clarify in coming weeks. Keeping levels of risk low for young children via pandemic resilient teaching and learning spaces is more readily achievable than doing so for high school age students and the adult educators and staff in the school building.” They provide suggestions on building ventilation, social distancing, and more, and mention the utility of looking at multiple metrics (such as positivity rate, hospitalization, and more), but focus on daily new cases per 100,000 people (with a caution about missing cases if testing is not adequate; for example, if positivity rate is above 10%). The plot below has summaries of their recommendations for priority for which grade levels can meet in person, <strong>if there are conditions for pandemic resistant teaching and learning</strong>. The black line is the rolling seven day average of new cases per day for the counties containing Oak Ridge (Roane and Anderson). Note that they recently (Dec. 18, 2020), released <a href="https://globalepidemics.org/2020/12/18/schools-and-the-path-to-zero/">new guidance</a> that suggest using in-school spread metrics rather than community metrics. I do not believe such metrics are available to the public for local schools.</p>
-<p><img src="covid_files/figure-html/harvardstandards-1.png" width="672" /></p>
+<p>Tennessee releases information on demographics of individuals getting vaccinated. All terminology follows that used by the state, including terms like race and sex.</p>
+<p><img src="covid_files/figure-html/vaccination1-1.png" width="672" /><img src="covid_files/figure-html/vaccination1-2.png" width="672" /><img src="covid_files/figure-html/vaccination1-3.png" width="672" /><img src="covid_files/figure-html/vaccination1-4.png" width="672" /><img src="covid_files/figure-html/vaccination1-5.png" width="672" /><img src="covid_files/figure-html/vaccination1-6.png" width="672" /></p>
+<h2 id="cdc">
+CDC guidance
+</h2>
+<p>The Centers for Disease Control (CDC) updated their <a href="https://www.cdc.gov/coronavirus/2019-ncov/community/schools-childcare/operation-strategy.html#indicators">guidance</a> on school openings and community spread in Feb. 2021.</p>
+<table>
+<colgroup>
+<col width="12%" />
+<col width="14%" />
+<col width="14%" />
+<col width="24%" />
+<col width="34%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Category</th>
+<th>Blue</th>
+<th>Yellow</th>
+<th>Orange</th>
+<th>Red</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Elementary</td>
+<td>In person; try 6 feet distance</td>
+<td>In person; try 6 feet distance</td>
+<td>Hybrid or reduced attendance; require 6 feet distance</td>
+<td>Hybrid or reduced attendance; require 6 feet distance</td>
+</tr>
+<tr class="even">
+<td>Middle &amp; High School</td>
+<td>In person; try 6 feet distance</td>
+<td>In person; try 6 feet distance</td>
+<td>Hybrid or reduced attendance; require 6 feet distance</td>
+<td>Virtual only unless can strictly implement all mitigation and have few cases</td>
+</tr>
+<tr class="odd">
+<td>Sports &amp; Extracurriculars</td>
+<td>Try 6 feet distance</td>
+<td>Require 6 feet distance</td>
+<td>Outdoors only; require 6 feet distance</td>
+<td>Virtual only</td>
+</tr>
+</tbody>
+</table>
+<p><img src="cdcrange.gif" /></p>
+<p>This shows the plot of new cases per week, using CDC guidelines for problematic areas.</p>
+<p><img src="covid_files/figure-html/plots_new_cdc-1.png" width="672" /></p>
+<p>This shows the plot of percent of positive tests per week, also using CDC guidelines</p>
+<p><img src="covid_files/figure-html/plots_positivity_cdc-1.png" width="672" /></p>
 <p>Tennessee now breaks out covid test results for school age children (age 5-18). The number of tests in this age group and the underlying population size aren’t known to me, so things like positivity rate and proportion of students infected cannot be determined, but the raw number of students infected can be shown (doing a seven day average):</p>
 <p><img src="covid_files/figure-html/studentinfections-1.png" width="672" /><img src="covid_files/figure-html/studentinfections-2.png" width="672" /></p>
 <hr />
@@ -560,17 +683,12 @@ Hospitalization
 </tr>
 </tbody>
 </table>
-<p>These plots stack all the adult beds available in all regional hospitals, grouping by city.</p>
-<p><img src="covid_files/figure-html/hhsfirstplot-1.png" width="672" /><img src="covid_files/figure-html/hhsfirstplot-2.png" width="672" /></p>
-<p>There is also data on the individual hospitals. I’m showing the percentage of beds filled per hospital (higher is worse): all adult outpatient beds, then just the adult ICU beds.</p>
-<p><img src="covid_files/figure-html/hhspart2-1.png" width="672" /><img src="covid_files/figure-html/hhspart2-2.png" width="672" /></p>
+<p>These plots stack all the adult ICU beds available in all regional hospitals, grouping by city.</p>
+<p><img src="covid_files/figure-html/hhsfirstplot-1.png" width="672" /></p>
+<p>There is also data on the individual hospitals. I’m showing the percentage of adult ICU beds filled per hospital (higher is worse).</p>
+<p><img src="covid_files/figure-html/hhspart2-1.png" width="672" /></p>
 <p>Finally, we can break out the percentage of patients in the beds (all adult outpatient and adult ICU) who have confirmed or suspected covid. That does not mean that covid is their primary reason (or reason at all) for being in the hospital, but can still suggest something about the pandemic, including something of the population of patients facing east Tennessee healthcare workers.</p>
 <p><img src="covid_files/figure-html/hhspart3-1.png" width="672" /><img src="covid_files/figure-html/hhspart3-2.png" width="672" /></p>
-<h2 id="vaccination">
-Vaccination
-</h2>
-<p>Tennessee releases information on demographics of individuals getting vaccinated. All terminology follows that used by the state, including terms like race and sex.</p>
-<p><img src="covid_files/figure-html/vaccination1-1.png" width="672" /><img src="covid_files/figure-html/vaccination1-2.png" width="672" /><img src="covid_files/figure-html/vaccination1-3.png" width="672" /><img src="covid_files/figure-html/vaccination1-4.png" width="672" /><img src="covid_files/figure-html/vaccination1-5.png" width="672" /><img src="covid_files/figure-html/vaccination1-6.png" width="672" /></p>
 <hr />
 <h2 id="demographics">
 Demographics
@@ -582,106 +700,8 @@ Demographics
 Ages
 </h2>
 <p>Which age groups are being infected is an important question as local schools open up. These are data from Knox county alone. Note that one important bias here could be testing rate: if two year olds aren’t being tested as often as forty year olds, the age 0-10 results will be lower than the actual rate of infection, for example.</p>
-<p><img src="covid_files/figure-html/age2-1.png" width="672" /><img src="covid_files/figure-html/age2-2.png" width="672" /></p>
+<p><img src="covid_files/figure-html/age2-1.png" width="672" /></p>
 <hr />
-<h2 id="summarytable">
-Summary table
-</h2>
-<p>We can summarize all this information into a table showing the percentage of different populations who have gotten covid, died from covid, and been vaccinated against it to check for disparities. In many categories there is a substantial unknown, so the numbers in those areas might be low: for example, if 20% of the people being vaccinated have no race recorded, then adding up all the proportion of people in the race categories who are vaccinated will be lower than the total vaccinated. This is why, for example, the proportion of people with positive covid tests by race is lower than any grouping by sex: there are a lot more unknowns in the race category, and I don’t want to assume that the distribution of the unknowns matches the distribution of knowns. I am also treating as unknown categories that seem to have issues, such as mulitracial (very different count by the census than by the TN data) and other for sex in some data (gender is a spectrum, but the available data treat it as binary usually and call it sex; I follow this convention in the source data).</p>
-<table style="width:100%;">
-<colgroup>
-<col width="7%" />
-<col width="33%" />
-<col width="15%" />
-<col width="9%" />
-<col width="19%" />
-<col width="13%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th align="left">Category</th>
-<th align="left">Group</th>
-<th align="right">Positive_Covid_Test</th>
-<th align="right">Covid_Death</th>
-<th align="right">At_Least_One_Vaccination</th>
-<th align="right">Fully_Vaccinated</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">Race</td>
-<td align="left">American Indian or Alaska Native</td>
-<td align="right">2.88</td>
-<td align="right">0.03</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-</tr>
-<tr class="even">
-<td align="left">Race</td>
-<td align="left">Asian</td>
-<td align="right">4.88</td>
-<td align="right">0.04</td>
-<td align="right">6.08</td>
-<td align="right">2.93</td>
-</tr>
-<tr class="odd">
-<td align="left">Race</td>
-<td align="left">Black or African American</td>
-<td align="right">8.36</td>
-<td align="right">0.16</td>
-<td align="right">4.49</td>
-<td align="right">1.81</td>
-</tr>
-<tr class="even">
-<td align="left">Race</td>
-<td align="left">Native Hawaiian or Other Pacific Islander</td>
-<td align="right">7.89</td>
-<td align="right">0.09</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-</tr>
-<tr class="odd">
-<td align="left">Race</td>
-<td align="left">White</td>
-<td align="right">8.75</td>
-<td align="right">0.16</td>
-<td align="right">9.92</td>
-<td align="right">4.84</td>
-</tr>
-<tr class="even">
-<td align="left">Ethnicity</td>
-<td align="left">Hispanic</td>
-<td align="right">12.17</td>
-<td align="right">0.08</td>
-<td align="right">3.56</td>
-<td align="right">1.81</td>
-</tr>
-<tr class="odd">
-<td align="left">Ethnicity</td>
-<td align="left">Not Hispanic or Latino</td>
-<td align="right">7.59</td>
-<td align="right">0.15</td>
-<td align="right">9.42</td>
-<td align="right">4.51</td>
-</tr>
-<tr class="even">
-<td align="left">Sex</td>
-<td align="left">Female</td>
-<td align="right">11.60</td>
-<td align="right">0.15</td>
-<td align="right">13.03</td>
-<td align="right">6.58</td>
-</tr>
-<tr class="odd">
-<td align="left">Sex</td>
-<td align="left">Male</td>
-<td align="right">10.61</td>
-<td align="right">0.18</td>
-<td align="right">8.57</td>
-<td align="right">4.07</td>
-</tr>
-</tbody>
-</table>
 <hr />
 <h2 id="ut">
 University of Tennessee, Knoxville
@@ -694,14 +714,16 @@ University of Tennessee, Knoxville
 <iframe width="600" height="225" src="https://datastudio.google.com/embed/reporting/dd6254bd-e3f4-4636-9fc8-3116bc64e033/page/auKkB" frameborder="0" style="border:0" allowfullscreen>
 </iframe>
 <p>Testing at UT is also a question. The plot below shows reported number of tests at the student health center, based on data aggregated by Alex Zukowski (see above). Note that these are the raw number of reported tests: a value of 20 means out of all 30,0000 UTK students, only 20 individuals were tested that day at the student health center. Not included here are athletes, who have much more frequent testing.</p>
-<p>The dotted line on the plot shows the date of a <a href="https://www.wvlt.tv/2020/09/15/covid-19-pacts-happening-among-ut-students/">news story about covid pacts among students to avoid getting tested locally so they could avoid quarantine or isolation</a>. Spread by infected individuals matters, even if they personally are asymptomatic, so personal actions to avoid testing and quarantine / isolation can lead to disease spread to others who might not be so lucky, so it’s very disappointing to hear of this. The drop in testing after that line may be purely coincidental, but it is a remarkable change in trend. Other universities test more intensely; for example, <a href="https://splunk-public.machinedata.illinois.edu/en-US/app/uofi_shield_public_APP/home">U. of Illinois tests several thousand per day, not a few dozen</a>. Not being an epidemiologist I do not want to weigh in on what strategy is optimal, but it is a remarkable contrast in approaches. UT is also starting to report on mandatory saliva-based testing, where they ask everyone residing in a dorm for a saliva sample, pool 3-5 individuals in a tube, test each tube, and then bring back individuals from pools that tested positive for individual testing. From 19.1 to 36.1 percent of the students listed as being in these dorms do not contribute samples.</p>
+<p>The dotted line on the plot shows the date of a <a href="https://www.wvlt.tv/2020/09/15/covid-19-pacts-happening-among-ut-students/">news story about covid pacts among students to avoid getting tested locally so they could avoid quarantine or isolation</a>. Spread by infected individuals matters, even if they personally are asymptomatic, so personal actions to avoid testing and quarantine / isolation can lead to disease spread to others who might not be so lucky, so it’s very disappointing to hear of this. The drop in testing after that line may be purely coincidental, but it is a remarkable change in trend. Other universities test more intensely; for example, <a href="https://splunk-public.machinedata.illinois.edu/en-US/app/uofi_shield_public_APP/home">U. of Illinois tests several thousand per day, not a few dozen</a>. Not being an epidemiologist I do not want to weigh in on what strategy is optimal, but it is a remarkable contrast in approaches. UT is also starting to report on mandatory saliva-based testing, where they ask everyone residing in a dorm for a saliva sample, pool 3-5 individuals in a tube, test each tube, and then bring back individuals from pools that tested positive for individual testing. From 19.1 to 36.6 percent of the students listed as being in these dorms do not contribute samples.</p>
 <p><img src="covid_files/figure-html/plotstestingut-1.png" width="672" /></p>
 <p>As for the county data, the positivity rate can also be important: if all the tests show up positive, likey symptomatic, cases, then there are likely other people being missed. The <i>New York Times</i> <a href="https://www.nytimes.com/2020/07/14/us/coronavirus-schools-fall.html">reports</a> on July 14, 2020, that, “As education leaders decide whether to reopen classrooms in the fall amid a raging pandemic, many are looking to a standard generally agreed upon among epidemiologists: To control community spread of the coronavirus, the average daily infection rate among those who are tested should not exceed 5 percent.” The horizontal black line below shows that guidance. The CDC provides thoughts about possible testing strategies at colleges and universities <a href="https://www.cdc.gov/coronavirus/2019-ncov/community/colleges-universities/ihe-testing.html#when-to-test">here</a> but not a firm number for how much testing they believe is necessary.</p>
 <p><img src="covid_files/figure-html/plotsutkproportion-1.png" width="672" /></p>
 <p>We can also use the UTK saliva data to estimate the number of new cases: the proportion of students who ultimately test postive out of those tested by the saliva scans. Given poor compliance, the true proportions may be much higher than this (if students want to endanger others by not isolating, they may avoid testing if they think they have been exposed). Depending on the date of the test, between 1 of every 41 to 1 of every 531 of students who contributed samples had active covid infections.</p>
-<p>At the date of the most recent set of samples, from 2020-11-09, UTK reported <b>82 active cases overall</b> (this presumably includes the 14 positive diagnostic tests from the sampling). If the pool of students from this sample, which has a participation rate of 73.9 percent, is representative of the 30,000 person student body as a whole, that would mean there would be <b>732 actual active cases</b> among the students on that date.</p>
+<p>At the date of the most recent set of samples, from 2021-02-14, UTK reported <b>83 active cases overall</b> (this presumably includes the 11 positive diagnostic tests from the sampling). If the pool of students from this sample, which has a participation rate of 72.1 percent, is representative of the 30,000 person student body as a whole, that would mean there would be <b>117 actual active cases</b> among the students on that date.</p>
 <p>I am converting the saliva test info to new cases per 100K to correspond with the <a href="https://globalepidemics.org/key-metrics-for-covid-suppression/">Harvard Global Health Institute’s</a> standards for guidance of control (yellow is community spread; red is the highest risk possible in their guidance – for a county, that would mean “stay-at-home orders necessary” according to them, though how that translates into actions on a college campus is different). These guidelines are for daily new cases but the saliva data are active cases at a point in time. I am adopting the assumption that Knox County uses that new cases are only active for 14 days, so I’m computing the new case estimate as 1/14 the active case estimate. The green, yellow, and orange bands are the same as for Knox and Anderson+Roane counties above; the red band looks much thicker because it has the same lower bound as the others but no maximum, and some of the estimates for UTK are outside the range for the county-wide data. I include the 95% confidence interval for the estimate of new cases per 100,000 people, though this is an underestimate of the uncertainty (are dorms good random samples or are results clustered, are students who refuse testing similar to those who get tested, etc.).</p>
 <p><img src="covid_files/figure-html/plotsaliva100k-1.png" width="672" /></p>
+<p>We can also see the compliance rate of students with testing. Before starting, all students signed a pledge showing their willingness to abide by community standards. Those in residence at UT agreed to saliva testing.</p>
+<p><img src="covid_files/figure-html/plotsalivacompliance-1.png" width="672" /></p>
 <hr />
 <h2 id="webcams">
 Local webcams

@@ -16,7 +16,7 @@ library(tidyquant)
 library(binom)
 library(scales)
 library(jsonlite)
-
+library(gganimate)
 options(timeout=600) # let things download for at least ten minutes
 options(download.file.method = "libcurl")
 
@@ -96,10 +96,17 @@ daily <- readxl::read_xlsx(temp, sheet =1, col_types=c("date", "text", rep("nume
 daily_knox <- subset(daily, COUNTY=="Knox") %>% select(-"COUNTY")
 daily_knox$Region <- "Knox County"
 daily_knox$Population <- knox_pop
+daily_knox$New_cases_per_100k_per_week <- 100000*zoo::rollsum(daily_knox$NEW_CASES, k=7, align="right", fill=NA)/knox_pop
+daily_knox$PositivityRate_per_week <- zoo::rollsum(daily_knox$NEW_POS_TESTS, k=7, align="right", fill=NA) / zoo::rollsum(daily_knox$NEW_TESTS, k=7, align="right", fill=NA)
+
+
 
 daily_oakridge <- subset(daily, COUNTY %in% c("Roane", "Anderson")) %>% group_by(DATE) %>% select(-"COUNTY") %>% summarise_all(sum)
 daily_oakridge$Region <- "Anderson + Roane"
 daily_oakridge$Population <- oakridge_pop
+daily_oakridge$New_cases_per_100k_per_week <- 100000*zoo::rollsum(daily_oakridge$NEW_CASES, k=7, align="right", fill=NA)/oakridge_pop
+daily_oakridge$PositivityRate_per_week <- zoo::rollsum(daily_oakridge$NEW_POS_TESTS, k=7, align="right", fill=NA) / zoo::rollsum(daily_oakridge$NEW_TESTS, k=7, align="right", fill=NA)
+
 #daily_oakridge$New_cases_per_100k <- 100000*(daily_oakridge$NEW_CASES/daily_oakridge$Population)
 
 
@@ -108,6 +115,9 @@ daily_region<- subset(daily, COUNTY %in% counties_in_hospital_region) %>% group_
 
 daily_region$Region <- "East TN"
 daily_region$Population <- region_pop
+daily_region$New_cases_per_100k_per_week <- 100000*zoo::rollsum(daily_region$NEW_CASES, k=7, align="right", fill=NA)/region_pop
+daily_region$PositivityRate_per_week <- zoo::rollsum(daily_region$NEW_POS_TESTS, k=7, align="right", fill=NA) / zoo::rollsum(daily_region$NEW_TESTS, k=7, align="right", fill=NA)
+
 
 daily_utk_testing_zukowski <- data.frame(DATE=utk_testing_zukowski$Date, TOTAL_CASES=utk_testing_zukowski$TESTS_POS_TOTAL, NEW_CASES=utk_testing_zukowski$TESTS_POS_NEW, TOTAL_CONFIRMED=utk_testing_zukowski$TESTS_POS_TOTAL, NEW_CONFIRMED=utk_testing_zukowski$TESTS_POS_NEW, POS_TESTS=utk_testing_zukowski$TESTS_POS_TOTAL, NEW_POS_TESTS=utk_testing_zukowski$TESTS_POS_NEW, NEG_TESTS=utk_testing_zukowski$TESTS_NEG_TOTAL, NEW_NEG_TESTS=utk_testing_zukowski$TESTS_NEG_NEW, TOTAL_TESTS=utk_testing_zukowski$TESTS_TOTAL, NEW_TESTS=utk_testing_zukowski$TESTS_NEW, Population=30000, Region="UTK Student Testing")
 
@@ -115,11 +125,12 @@ daily_utk_reported_zukowski <- data.frame(DATE=lubridate::ymd(utk_reported_zukow
 
 #daily_focal <- dplyr::bind_rows(daily_knox, daily_oakridge, daily_region, daily_utk_testing_zukowski, daily_utk_reported_zukowski)
 
-daily_focal <- dplyr::bind_rows(daily_knox, daily_oakridge, daily_utk_testing_zukowski, daily_utk_reported_zukowski)
+daily_focal <- dplyr::bind_rows(daily_knox, daily_oakridge, daily_region, daily_utk_testing_zukowski, daily_utk_reported_zukowski)
 
 daily_focal$Tests_per_100k <- 100000*(daily_focal$NEW_TESTS/daily_focal$Population)
 daily_focal$New_cases_per_100k <- 100000*(daily_focal$NEW_CASES/daily_focal$Population)
 daily_focal$Active_cases_per_100k <- 100000*(daily_focal$TOTAL_ACTIVE/daily_focal$Population)
+daily_focal$PositivityPercentage_per_week <- 100*daily_focal$PositivityRate_per_week
 
 
 
@@ -318,6 +329,8 @@ for (i in 3:ncol(hhs_capacity_tn_focal_latest_pretty)) {
 hhs_capacity_tn_focal_latest_pretty$City <- stringr::str_to_title(hhs_capacity_tn_focal_latest_pretty$City)
 rownames(hhs_capacity_tn_focal_latest_pretty) <- NULL
 
+# data from US census
+
 population_total <- 6829174
 
 population_female <- population_total*0.512
@@ -464,11 +477,21 @@ for(i in seq_along(webfiles)) {
 utk.cases$group <- as.factor(utk.cases$group)
 
 saliva_data <- read.csv(file="7 LIVE_saliva_test_data_Page 1_Table.csv", stringsAsFactors=FALSE)
+saliva_data2 <- read.csv(file="LIVE spring 2021 saliva table_Page 1_Table.csv", stringsAsFactors=FALSE)
+saliva_data2 <- subset(saliva_data2, Category=="Residents")
+saliva_data2$Locations <- "Residents"
+saliva_data2$Week <- saliva_data2$Week.ending
+saliva_data2$Positive.diagnostic.tests. <- saliva_data2$Positive.diagnostic.tests
+saliva_data2$Positive.pools <- saliva_data2$Number.of.positive.pools
+
+saliva_data2$Participation.rate <- as.numeric(gsub('%', '', saliva_data2$Participation.rate))/100
+saliva_data <- plyr::rbind.fill(saliva_data, saliva_data2)
+
 saliva_data$Active_cases_per_100k = 100000*saliva_data$Positive.diagnostic.tests./saliva_data$Samples
 saliva_data$Active_cases_per_30k = 30000*saliva_data$Positive.diagnostic.tests./saliva_data$Samples
 saliva_data$New_cases_per_100k = saliva_data$Active_cases_per_100k / 14
 #saliva_data$DATE <- as.Date(saliva_data$Week,"%m/%d/%y")
-saliva_data$DATE <- as.Date(saliva_data$Week,"%b %d, %y")
+saliva_data$DATE <- as.Date(saliva_data$Week,"%b %d, %Y")
 #saliva_data$DATE <- as.Date(saliva_data$Week,"%d-%m-%y")
 
 saliva_data$New_cases_per_100k_lower <- 100000*binom::binom.confint(saliva_data$Positive.diagnostic.tests., saliva_data$Samples, method="exact")$lower/14
@@ -478,7 +501,7 @@ saliva_data$New_cases_per_100k_upper<- 100000*binom::binom.confint(saliva_data$P
 daily_utk <- subset(daily_focal, Region=="UTK Student Testing")
 daily_utk$DATE <- as.Date(daily_utk$DATE)
 utk_official_testing <- read.csv(file="8 LIVE_SHC_test_data_Page 1_Table.csv", stringsAsFactors=FALSE)
-utk_official_testing$DATE <- as.Date(utk_official_testing$Week,"%b %d, %y")
+utk_official_testing$DATE <- as.Date(utk_official_testing$Week,"%b %d, %Y")
 utk_official_testing$NEW_TESTS <- utk_official_testing$Total/7
 utk_official_testing$DailyNegative <- utk_official_testing$Negative.tests/7
 utk_official_testing$NEW_CONFIRMED <- utk_official_testing$Positive.tests/7
@@ -496,12 +519,31 @@ daily_utk <- daily_utk[order(daily_utk$DATE), ]
 
 daily_utk$NEW_PROPORTION_CONFIRMED <- 100*daily_utk$NEW_CONFIRMED/daily_utk$NEW_TESTS
 
+daily_focal_no_ut <- daily_focal[!grepl("UTK", daily_focal$Region), ]
+
+
+
+## ----plots_cdc, echo=FALSE, message=FALSE, warning=FALSE----------------------
+daily_focal_no_ut_cleaned <- daily_focal_no_ut[!is.na(daily_focal_no_ut$New_cases_per_100k_per_week),]
+daily_focal_no_ut_cleaned <- daily_focal_no_ut_cleaned[!is.na(daily_focal_no_ut_cleaned$PositivityPercentage_per_week),]
+local_cdc <- 
+
+
+local_cdc <- ggplot(daily_focal_no_ut_cleaned, aes(x=PositivityPercentage_per_week, y=New_cases_per_100k_per_week, group=Region)) + geom_line(aes(colour=Region)) + ylab("Number of new cases in area each week per 100,000 people") + xlab("Percentage of positive tests per week") + 
+annotate(geom="rect", xmin=0, xmax=5, ymin=-50, ymax=max(daily_focal_no_ut_cleaned$New_cases_per_100k_per_week), alpha=0.1, fill="blue") +
+annotate(geom="rect", xmin=5, xmax=7.95, ymin=-50, ymax=max(daily_focal_no_ut_cleaned$New_cases_per_100k_per_week), alpha=0.1, fill="yellow") +
+annotate(geom="rect", xmin=7.95, xmax=9.95, ymin=-50, ymax=max(daily_focal_no_ut_cleaned$New_cases_per_100k_per_week), alpha=0.1, fill="orange") +
+annotate(geom="rect", xmin=9.95, xmax=max(daily_focal_no_ut_cleaned$PositivityPercentage_per_week), ymin=-50, ymax=max(daily_focal_no_ut_cleaned$New_cases_per_100k_per_week), alpha=0.1, fill="red")  +
+annotate(geom="rect", xmin=-1, xmax=max(daily_focal_no_ut_cleaned$PositivityPercentage_per_week), ymin=0, ymax=9.5, alpha=0.1, fill="blue") +
+annotate(geom="rect", xmin=-1, xmax=max(daily_focal_no_ut_cleaned$PositivityPercentage_per_week), ymin=9.5, ymax=49.5, alpha=0.1, fill="yellow") +
+annotate(geom="rect", xmin=-1, xmax=max(daily_focal_no_ut_cleaned$PositivityPercentage_per_week), ymin=49.5, ymax=99.5, alpha=0.1, fill="orange") +
+annotate(geom="rect", xmin=-1, xmax=max(daily_focal_no_ut_cleaned$PositivityPercentage_per_week), ymin=99.5, ymax=max(daily_focal_no_ut_cleaned$New_cases_per_100k_per_week), alpha=0.1, fill="red") 
+print(local_cdc)
 
 
 
 ## ----plotsA, echo=FALSE, message=FALSE, warning=FALSE-------------------------
 
-daily_focal_no_ut <- daily_focal[!grepl("UTK", daily_focal$Region), ]
 local_new <- ggplot(daily_focal_no_ut[!is.na(daily_focal_no_ut$NEW_CASES),], aes(x=DATE, y=NEW_CASES, group=Region)) + geom_ma(aes(colour=Region, linetype="a"), n=7) + guides(linetype = FALSE)  + ylab("Number of new cases in area each day") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)
 print(local_new)
 

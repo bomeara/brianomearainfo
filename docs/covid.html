@@ -14,7 +14,6 @@
 
 <title>Local COVID data</title>
 
-<script src="site_libs/header-attrs-2.6/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
@@ -439,7 +438,7 @@ $(document).ready(function () {
 <li>Info about cases at <a href="#ut">U. of Tennessee, Knoxville</a> (using public information only)</li>
 <li><a href="#webcams">Webcams</a> showing activity at local sites, though not quite at the resolution to point to mask usage or not</li>
 </ul>
-<p>The following plots are created in R using data from <a href="https://covid19datahub.io" class="uri">https://covid19datahub.io</a> (Guidotti, E., Ardia, D., (2020), “COVID-19 Data Hub”, Working paper, doi: 10.13140/RG.2.2.11649.81763), as well as information from Google and the <a href="https://www.tn.gov/health/cedep/ncov/data/downloadable-datasets.html">state of Tennessee dataset page</a> and plotting and analysis using the <code>forecast</code>, <code>ggplot2</code>, <code>reshape2</code>, and <code>dplyr</code> packages. Plots created on 2021-02-21 00:10:49. I use a seven day rolling average for most plots using the <code>geom_ma</code> function of <code>tidyquant</code>.</p>
+<p>The following plots are created in R using data from <a href="https://covid19datahub.io" class="uri">https://covid19datahub.io</a> (Guidotti, E., Ardia, D., (2020), “COVID-19 Data Hub”, Working paper, doi: 10.13140/RG.2.2.11649.81763), as well as information from Google and the <a href="https://www.tn.gov/health/cedep/ncov/data/downloadable-datasets.html">state of Tennessee dataset page</a> and plotting and analysis using the <code>forecast</code>, <code>ggplot2</code>, <code>reshape2</code>, and <code>dplyr</code> packages. Plots created on 2021-02-21 21:07:43. I use a seven day rolling average for most plots using the <code>geom_ma</code> function of <code>tidyquant</code>.</p>
 <h2 id="cases">
 Cases
 </h2>
@@ -484,7 +483,7 @@ Hospitalization
 <p><img src="covid_files/figure-html/plotsD-1.png" width="672" /></p>
 <p>In December 2020, California instituted a new policy of going to shutdowns in regions when ICUs get filled above 85% capacity. When this happens, “Affected communities will be required to close personal service businesses, including hair and nail salons, playgrounds, zoos, museums, aquariums and wineries. Overnight, short-term stays at campgrounds would be prohibited. Restaurants will be required to return to take-out service only. Retail businesses will be limited to 20% of their customer capacity inside at any one time, with requirements for store officials to ensure there’s no indoor drinking or eating.” according to an <a href="https://www.latimes.com/california/story/2020-12-03/newsom-weighs-shutdown-california-covid-19-cases-soar-december">article in the LA times</a>. Tennessee is not bound by California’s rules, but we can plot our region’s hospital capacity and see how the current outbreak compares. Blue shows California’s threshold for shutting down many things like dining in restaurants; red shows full capacity for our region, when every bed is full (ignoring any surge capacity):</p>
 <p><img src="covid_files/figure-html/hospitalcapacityplotvsCA-1.png" width="672" /></p>
-<p>US Health and Human Services is now releasing data on hospital occupancy by hospital. For more, see <a href="https://healthdata.gov/dataset/covid-19-reported-patient-impact-and-hospital-capacity-facility">here</a>. I’m showing all the hospitals in east Tennessee that have at least a couple of updates in the HHS database (some tiny hospitals apparently rarely update this info). These data are for the week starting 2021-02-05. The first table is the capacity at various local hospitals, looking at just outpatient beds. These are weekly averages: there could be fluctuations over the week in bed occupancy and even in number of beds available, and they don’t necessarily mean this is what one can expect at hospitals today. Perhaps the most striking is the “Adult ICU number avail”: how many beds in the ICU were available, on average, over the week starting 2021-02-05 at various local hospitals, which ranged from 0 to at most 13 beds.</p>
+<p>US Health and Human Services is now releasing data on hospital occupancy by hospital. For more, see <a href="https://healthdata.gov/dataset/covid-19-reported-patient-impact-and-hospital-capacity-facility">here</a>. I’m showing all the hospitals in east Tennessee that have at least a couple of updates in the HHS database (some tiny hospitals apparently rarely update this info). These data are for the week starting 2021-02-12. The first table is the capacity at various local hospitals, looking at just outpatient beds. These are weekly averages: there could be fluctuations over the week in bed occupancy and even in number of beds available, and they don’t necessarily mean this is what one can expect at hospitals today. Perhaps the most striking is the “Adult ICU number avail”: how many beds in the ICU were available, on average, over the week starting 2021-02-12 at various local hospitals, which ranged from 1 to at most 6 beds.</p>
 <table style="width:100%;">
 <colgroup>
 <col width="23%" />
@@ -513,61 +512,51 @@ Hospitalization
 <td align="left">University of TN Medical Center</td>
 <td align="left">Knoxville</td>
 <td align="right">631</td>
-<td align="right">74</td>
-<td align="right">12</td>
+<td align="right">67</td>
+<td align="right">11</td>
 <td align="right">91</td>
-<td align="right">13</td>
-<td align="right">15</td>
+<td align="right">6</td>
+<td align="right">7</td>
 </tr>
 <tr class="even">
 <td align="left">Fort Sanders Regional Medical Center</td>
 <td align="left">Knoxville</td>
 <td align="right">284</td>
-<td align="right">25</td>
-<td align="right">9</td>
+<td align="right">21</td>
+<td align="right">8</td>
 <td align="right">27</td>
 <td align="right">2</td>
-<td align="right">8</td>
+<td align="right">7</td>
 </tr>
 <tr class="odd">
-<td align="left">Blount Memorial Hospital</td>
-<td align="left">Maryville</td>
-<td align="right">268</td>
-<td align="right">108</td>
-<td align="right">40</td>
-<td align="right">24</td>
-<td align="right">12</td>
-<td align="right">52</td>
-</tr>
-<tr class="even">
 <td align="left">Tennova North Knoxville Medical Center</td>
 <td align="left">Powell</td>
 <td align="right">212</td>
-<td align="right">32</td>
-<td align="right">15</td>
+<td align="right">27</td>
+<td align="right">13</td>
 <td align="right">36</td>
-<td align="right">2</td>
-<td align="right">6</td>
+<td align="right">1</td>
+<td align="right">3</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Methodist Medical Center Of Oak Ridge</td>
 <td align="left">Oak Ridge</td>
 <td align="right">175</td>
-<td align="right">41</td>
-<td align="right">24</td>
+<td align="right">49</td>
+<td align="right">28</td>
 <td align="right">25</td>
-<td align="right">6</td>
-<td align="right">23</td>
+<td align="right">5</td>
+<td align="right">20</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Morristown Hamblen Hospital Association</td>
 <td align="left">Morristown</td>
 <td align="right">106</td>
-<td align="right">19</td>
-<td align="right">18</td>
+<td align="right">15</td>
+<td align="right">14</td>
 <td align="right">12</td>
-<td align="right">0</td>
-<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">6</td>
 </tr>
 </tbody>
 </table>
@@ -622,7 +611,7 @@ Summary table
 <tr class="odd">
 <td align="left">Race</td>
 <td align="left">American Indian or Alaska Native</td>
-<td align="right">2.89</td>
+<td align="right">2.88</td>
 <td align="right">0.03</td>
 <td align="right">NA</td>
 <td align="right">NA</td>
@@ -630,18 +619,18 @@ Summary table
 <tr class="even">
 <td align="left">Race</td>
 <td align="left">Asian</td>
-<td align="right">4.87</td>
+<td align="right">4.88</td>
 <td align="right">0.04</td>
-<td align="right">6.04</td>
-<td align="right">2.84</td>
+<td align="right">6.08</td>
+<td align="right">2.93</td>
 </tr>
 <tr class="odd">
 <td align="left">Race</td>
 <td align="left">Black or African American</td>
-<td align="right">8.35</td>
+<td align="right">8.36</td>
 <td align="right">0.16</td>
-<td align="right">4.44</td>
-<td align="right">1.78</td>
+<td align="right">4.49</td>
+<td align="right">1.81</td>
 </tr>
 <tr class="even">
 <td align="left">Race</td>
@@ -654,42 +643,42 @@ Summary table
 <tr class="odd">
 <td align="left">Race</td>
 <td align="left">White</td>
-<td align="right">8.74</td>
+<td align="right">8.75</td>
 <td align="right">0.16</td>
-<td align="right">9.85</td>
-<td align="right">4.75</td>
+<td align="right">9.92</td>
+<td align="right">4.84</td>
 </tr>
 <tr class="even">
 <td align="left">Ethnicity</td>
 <td align="left">Hispanic</td>
-<td align="right">12.16</td>
+<td align="right">12.17</td>
 <td align="right">0.08</td>
-<td align="right">3.53</td>
-<td align="right">1.78</td>
+<td align="right">3.56</td>
+<td align="right">1.81</td>
 </tr>
 <tr class="odd">
 <td align="left">Ethnicity</td>
 <td align="left">Not Hispanic or Latino</td>
-<td align="right">7.58</td>
+<td align="right">7.59</td>
 <td align="right">0.15</td>
-<td align="right">9.35</td>
-<td align="right">4.43</td>
+<td align="right">9.42</td>
+<td align="right">4.51</td>
 </tr>
 <tr class="even">
 <td align="left">Sex</td>
 <td align="left">Female</td>
-<td align="right">11.59</td>
+<td align="right">11.60</td>
 <td align="right">0.15</td>
-<td align="right">12.94</td>
-<td align="right">6.47</td>
+<td align="right">13.03</td>
+<td align="right">6.58</td>
 </tr>
 <tr class="odd">
 <td align="left">Sex</td>
 <td align="left">Male</td>
-<td align="right">10.60</td>
+<td align="right">10.61</td>
 <td align="right">0.18</td>
-<td align="right">8.51</td>
-<td align="right">3.99</td>
+<td align="right">8.57</td>
+<td align="right">4.07</td>
 </tr>
 </tbody>
 </table>

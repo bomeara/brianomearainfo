@@ -14,7 +14,6 @@
 
 <title>Local COVID data</title>
 
-<script src="site_libs/header-attrs-2.6/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
@@ -439,7 +438,7 @@ $(document).ready(function () {
 <li>Info about cases at <a href="#ut">U. of Tennessee, Knoxville</a> (using public information only)</li>
 <li><a href="#webcams">Webcams</a> showing activity at local sites, though not quite at the resolution to point to mask usage or not</li>
 </ul>
-<p>The following plots are created in R using data from <a href="https://covid19datahub.io" class="uri">https://covid19datahub.io</a> (Guidotti, E., Ardia, D., (2020), “COVID-19 Data Hub”, Working paper, doi: 10.13140/RG.2.2.11649.81763), as well as information from Google and the <a href="https://www.tn.gov/health/cedep/ncov/data/downloadable-datasets.html">state of Tennessee dataset page</a> and plotting and analysis using the <code>forecast</code>, <code>ggplot2</code>, <code>reshape2</code>, and <code>dplyr</code> packages. Plots created on 2021-02-21 00:12:26. I use a seven day rolling average for most plots using the <code>geom_ma</code> function of <code>tidyquant</code>.</p>
+<p>The following plots are created in R using data from <a href="https://covid19datahub.io" class="uri">https://covid19datahub.io</a> (Guidotti, E., Ardia, D., (2020), “COVID-19 Data Hub”, Working paper, doi: 10.13140/RG.2.2.11649.81763), as well as information from Google and the <a href="https://www.tn.gov/health/cedep/ncov/data/downloadable-datasets.html">state of Tennessee dataset page</a> and plotting and analysis using the <code>forecast</code>, <code>ggplot2</code>, <code>reshape2</code>, and <code>dplyr</code> packages. Plots created on 2021-02-21 21:09:57. I use a seven day rolling average for most plots using the <code>geom_ma</code> function of <code>tidyquant</code>.</p>
 <h2 id="cases">
 Cases
 </h2>
@@ -453,25 +452,70 @@ Cases
 <li>UTK Reported, from all cases UT includes on their dashboard (student cases from the health center, cases reported from tests off campus that are communicated)</li>
 </ul>
 <p>Information from the last two datasets comes from the hard work of Alex Zukowski, who requests the testing data and who aggregates the reported data. Zukowski, Taylor A. “University of Tennessee, Knoxville COVID-19 Dataset.” COVID-19 in The University of Tennessee, Knoxville, 2020, sites.<a href="google.com/view/utk-covid19/data">google.com/view/utk-covid19/data</a>. I recommend going to <a href="https://sites.google.com/view/utk-covid19">https://sites.google.com/view/utk-covid19</a> for more on this dataset and the work going into gathering it.</p>
-<p>For many of these plots, I am now showing the seven day averages.</p>
-<p><img src="covid2_files/figure-html/plotsA-1.png" width="672" /></p>
-<p>Here are the same plots, but normalized so it’s per 100,000 people in each area per day (making it easier to see patterns in less populous areas). I here use the <a href="https://globalepidemics.org/key-metrics-for-covid-suppression/">Harvard Global Health Institute’s</a> standards for guidance of control. Yellow means “rigorous test and trace programs advised”, orange means “stay-at-home orders and/or rigorous test and trace programs advised”, and red means “stay-at-home orders necessary”.</p>
-<p><img src="covid2_files/figure-html/newcasesharvard-1.png" width="672" /></p>
-<h2 id="testing">
-Testing
+<h2 id="cdc">
+CDC guidance
 </h2>
-<p>Testing is a key part of getting a handle on the pandemic. Here are Knox County, Oak Ridge’s counties (Anderson and Roane), and all the East TN counties combined (the same ones used for regional hospital reporting for bed availability). This plots shows the daily number of tests per 100,000 residents. It also includes testing done by UT student health, using data compiled by Alex Zukowski (Zukowski, Taylor A. “University of Tennessee, Knoxville COVID-19 Dataset.” COVID-19 in The University of Tennessee, Knoxville, 2020, sites.google.com/view/utk-covid19/data). For the UT data, I am plotting against number of students (30,000).</p>
-<p><img src="covid2_files/figure-html/plotsB2-1.png" width="672" /></p>
-<p>Another way to look at testing (or disease spread) is to look at the proportion of positive tests (“positivity rate”): they can go up if a greater proportion of symptomatic people are being tested and/or if the frequency of the disease is increasing. Updated WHO guidelines recommend testing should be 5% positive or lower (black line). The lines show the seven day averages. UT’s testing positivity rate (using student health data is so high it obscures the county data, so it is reported separately).</p>
-<p><img src="covid2_files/figure-html/plotsB3-1.png" width="672" /></p>
-<hr />
-<h2 id="schooling">
-Schooling
-</h2>
-<p>Many of the local schools are adopting a hybrid approach, where families can choose whether to send their kids to school or do online learning (sometimes with reduced options). The <i>New York Times</i> <a href="https://www.nytimes.com/2020/07/14/us/coronavirus-schools-fall.html">reports</a> on July 14, 2020, that, “As education leaders decide whether to reopen classrooms in the fall amid a raging pandemic, many are looking to a standard generally agreed upon among epidemiologists: To control community spread of the coronavirus, the average daily infection rate among those who are tested should not exceed 5 percent.” Many districts nationally are not hitting that goal, but a question is whether local ones will. The first district to open in our area was Oak Ridge public schools, who had a start date for students in person on July 29, 2020. Following the procedure of the <i>NYT</i>‘s article, I am plotting the seven day average of positivity rate for tests for the counties including Oak Ridge’s counties (Roane and Anderson). The black line is the seven day rolling mean (total new confirmed / total new tests, not a mean of this ratio per day), the blue line is this smoothed, the dotted line is the 5% threshold, and the green rectangle is the goal and starts at the start of school – the positivity should be in that rectangle to meet epidemiologists’ goals. Oak Ridge is giving families options of whether to enroll their children in online or in person school: their plan, and the way to choose either mode, is <a href="https://www.ortn.edu/reopening-plan-2020-2021/">here</a>. They have updated their in person plan to require masks when possible but not social distancing; when individuals test positive, the possibly affected parts of the building will be closed for 2-5 days. We’ve opted for the online option for our family.</p>
-<p><img src="covid2_files/figure-html/oakridgesevendays-1.png" width="672" /></p>
-<p>Harvard’s Edmond J. Safra Center for Ethics and the Harvard Global Health Institute have created (July 19, 2020) <a href="https://globalhealth.harvard.edu/path-to-zero-schools-achieving-pandemic-resilient-teaching-and-learning-spaces/">guidelines for schools reopening</a> (see also their <a href="https://globalepidemics.org/wp-content/uploads/2020/07/pandemic_resilient_schools_briefing_7.19.20.pdf">full report PDF</a>). They distinguish students by age group: “With COVID-19, people 18 and younger have far lower risk of death, hospitalization, and severe outcomes and are also less likely to get infected. Within this group, students in the younger age band of 10 and under also transmit at lower rates. This last point about lower rates of transmission may also pertain to people 15 and younger, a point that research should clarify in coming weeks. Keeping levels of risk low for young children via pandemic resilient teaching and learning spaces is more readily achievable than doing so for high school age students and the adult educators and staff in the school building.” They provide suggestions on building ventilation, social distancing, and more, and mention the utility of looking at multiple metrics (such as positivity rate, hospitalization, and more), but focus on daily new cases per 100,000 people (with a caution about missing cases if testing is not adequate; for example, if positivity rate is above 10%). The plot below has summaries of their recommendations for priority for which grade levels can meet in person, <strong>if there are conditions for pandemic resistant teaching and learning</strong>. The black line is the rolling seven day average of new cases per day for the counties containing Oak Ridge (Roane and Anderson). Note that they recently (Dec. 18, 2020), released <a href="https://globalepidemics.org/2020/12/18/schools-and-the-path-to-zero/">new guidance</a> that suggest using in-school spread metrics rather than community metrics. I do not believe such metrics are available to the public for local schools.</p>
-<p><img src="covid2_files/figure-html/harvardstandards-1.png" width="672" /></p>
+<p>The Centers for Disease Control (CDC) updated their <a href="https://www.cdc.gov/coronavirus/2019-ncov/community/schools-childcare/operation-strategy.html#indicators">guidance</a> on school openings and community spread in Feb. 2021.</p>
+<table>
+<colgroup>
+<col width="12%" />
+<col width="14%" />
+<col width="14%" />
+<col width="24%" />
+<col width="34%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Category</th>
+<th>Blue</th>
+<th>Yellow</th>
+<th>Orange</th>
+<th>Red</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Elementary</td>
+<td>In person; try 6 feet distance</td>
+<td>In person; try 6 feet distance</td>
+<td>Hybrid or reduced attendance; require 6 feet distance</td>
+<td>Hybrid or reduced attendance; require 6 feet distance</td>
+</tr>
+<tr class="even">
+<td>Middle &amp; High School</td>
+<td>In person; try 6 feet distance</td>
+<td>In person; try 6 feet distance</td>
+<td>Hybrid or reduced attendance; require 6 feet distance</td>
+<td>Virtual only unless can strictly implement all mitigation and have few cases</td>
+</tr>
+<tr class="odd">
+<td>Sports &amp; Extracurriculars</td>
+<td>Try 6 feet distance</td>
+<td>Require 6 feet distance</td>
+<td>Outdoors only; require 6 feet distance</td>
+<td>Virtual only</td>
+</tr>
+</tbody>
+</table>
+<pre><code>## # A tibble: 612 x 7
+##    format width height colorspace matte filesize density
+##    &lt;chr&gt;  &lt;int&gt;  &lt;int&gt; &lt;chr&gt;      &lt;lgl&gt;    &lt;int&gt; &lt;chr&gt;  
+##  1 gif      672    480 sRGB       TRUE         0 72x72  
+##  2 gif      672    480 sRGB       TRUE         0 72x72  
+##  3 gif      672    480 sRGB       TRUE         0 72x72  
+##  4 gif      672    480 sRGB       TRUE         0 72x72  
+##  5 gif      672    480 sRGB       TRUE         0 72x72  
+##  6 gif      672    480 sRGB       TRUE         0 72x72  
+##  7 gif      672    480 sRGB       TRUE         0 72x72  
+##  8 gif      672    480 sRGB       TRUE         0 72x72  
+##  9 gif      672    480 sRGB       TRUE         0 72x72  
+## 10 gif      672    480 sRGB       TRUE         0 72x72  
+## # … with 602 more rows</code></pre>
+<p><img src="covid2_files/figure-html/plots_cdc-1.gif" /><!-- --> <img src="cdcrange.gif" /></p>
+<p>This shows the plot of new cases per week, using CDC guidelines for problematic areas.</p>
+<p><img src="covid2_files/figure-html/plots_new_cdc-1.png" width="672" /></p>
+<p>This shows the plot of percent of positive tests per week, also using CDC guidelines</p>
+<p><img src="covid2_files/figure-html/plots_positivity_cdc-1.png" width="672" /></p>
 <p>Tennessee now breaks out covid test results for school age children (age 5-18). The number of tests in this age group and the underlying population size aren’t known to me, so things like positivity rate and proportion of students infected cannot be determined, but the raw number of students infected can be shown (doing a seven day average):</p>
 <p><img src="covid2_files/figure-html/studentinfections-1.png" width="672" /><img src="covid2_files/figure-html/studentinfections-2.png" width="672" /></p>
 <hr />
@@ -484,7 +528,7 @@ Hospitalization
 <p><img src="covid2_files/figure-html/plotsD-1.png" width="672" /></p>
 <p>In December 2020, California instituted a new policy of going to shutdowns in regions when ICUs get filled above 85% capacity. When this happens, “Affected communities will be required to close personal service businesses, including hair and nail salons, playgrounds, zoos, museums, aquariums and wineries. Overnight, short-term stays at campgrounds would be prohibited. Restaurants will be required to return to take-out service only. Retail businesses will be limited to 20% of their customer capacity inside at any one time, with requirements for store officials to ensure there’s no indoor drinking or eating.” according to an <a href="https://www.latimes.com/california/story/2020-12-03/newsom-weighs-shutdown-california-covid-19-cases-soar-december">article in the LA times</a>. Tennessee is not bound by California’s rules, but we can plot our region’s hospital capacity and see how the current outbreak compares. Blue shows California’s threshold for shutting down many things like dining in restaurants; red shows full capacity for our region, when every bed is full (ignoring any surge capacity):</p>
 <p><img src="covid2_files/figure-html/hospitalcapacityplotvsCA-1.png" width="672" /></p>
-<p>US Health and Human Services is now releasing data on hospital occupancy by hospital. For more, see <a href="https://healthdata.gov/dataset/covid-19-reported-patient-impact-and-hospital-capacity-facility">here</a>. I’m showing all the hospitals in east Tennessee that have at least a couple of updates in the HHS database (some tiny hospitals apparently rarely update this info). These data are for the week starting 2021-02-05. The first table is the capacity at various local hospitals, looking at just outpatient beds. These are weekly averages: there could be fluctuations over the week in bed occupancy and even in number of beds available, and they don’t necessarily mean this is what one can expect at hospitals today. Perhaps the most striking is the “Adult ICU number avail”: how many beds in the ICU were available, on average, over the week starting 2021-02-05 at various local hospitals, which ranged from 0 to at most 13 beds.</p>
+<p>US Health and Human Services is now releasing data on hospital occupancy by hospital. For more, see <a href="https://healthdata.gov/dataset/covid-19-reported-patient-impact-and-hospital-capacity-facility">here</a>. I’m showing all the hospitals in east Tennessee that have at least a couple of updates in the HHS database (some tiny hospitals apparently rarely update this info). These data are for the week starting 2021-02-12. The first table is the capacity at various local hospitals, looking at just outpatient beds. These are weekly averages: there could be fluctuations over the week in bed occupancy and even in number of beds available, and they don’t necessarily mean this is what one can expect at hospitals today. Perhaps the most striking is the “Adult ICU number avail”: how many beds in the ICU were available, on average, over the week starting 2021-02-12 at various local hospitals, which ranged from 1 to at most 6 beds.</p>
 <table style="width:100%;">
 <colgroup>
 <col width="23%" />
@@ -513,61 +557,51 @@ Hospitalization
 <td align="left">University of TN Medical Center</td>
 <td align="left">Knoxville</td>
 <td align="right">631</td>
-<td align="right">74</td>
-<td align="right">12</td>
+<td align="right">67</td>
+<td align="right">11</td>
 <td align="right">91</td>
-<td align="right">13</td>
-<td align="right">15</td>
+<td align="right">6</td>
+<td align="right">7</td>
 </tr>
 <tr class="even">
 <td align="left">Fort Sanders Regional Medical Center</td>
 <td align="left">Knoxville</td>
 <td align="right">284</td>
-<td align="right">25</td>
-<td align="right">9</td>
+<td align="right">21</td>
+<td align="right">8</td>
 <td align="right">27</td>
 <td align="right">2</td>
-<td align="right">8</td>
+<td align="right">7</td>
 </tr>
 <tr class="odd">
-<td align="left">Blount Memorial Hospital</td>
-<td align="left">Maryville</td>
-<td align="right">268</td>
-<td align="right">108</td>
-<td align="right">40</td>
-<td align="right">24</td>
-<td align="right">12</td>
-<td align="right">52</td>
-</tr>
-<tr class="even">
 <td align="left">Tennova North Knoxville Medical Center</td>
 <td align="left">Powell</td>
 <td align="right">212</td>
-<td align="right">32</td>
-<td align="right">15</td>
+<td align="right">27</td>
+<td align="right">13</td>
 <td align="right">36</td>
-<td align="right">2</td>
-<td align="right">6</td>
+<td align="right">1</td>
+<td align="right">3</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Methodist Medical Center Of Oak Ridge</td>
 <td align="left">Oak Ridge</td>
 <td align="right">175</td>
-<td align="right">41</td>
-<td align="right">24</td>
+<td align="right">49</td>
+<td align="right">28</td>
 <td align="right">25</td>
-<td align="right">6</td>
-<td align="right">23</td>
+<td align="right">5</td>
+<td align="right">20</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Morristown Hamblen Hospital Association</td>
 <td align="left">Morristown</td>
 <td align="right">106</td>
-<td align="right">19</td>
-<td align="right">18</td>
+<td align="right">15</td>
+<td align="right">14</td>
 <td align="right">12</td>
-<td align="right">0</td>
-<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">6</td>
 </tr>
 </tbody>
 </table>
@@ -622,7 +656,7 @@ Summary table
 <tr class="odd">
 <td align="left">Race</td>
 <td align="left">American Indian or Alaska Native</td>
-<td align="right">2.89</td>
+<td align="right">2.88</td>
 <td align="right">0.03</td>
 <td align="right">NA</td>
 <td align="right">NA</td>
@@ -630,18 +664,18 @@ Summary table
 <tr class="even">
 <td align="left">Race</td>
 <td align="left">Asian</td>
-<td align="right">4.87</td>
+<td align="right">4.88</td>
 <td align="right">0.04</td>
-<td align="right">6.04</td>
-<td align="right">2.84</td>
+<td align="right">6.08</td>
+<td align="right">2.93</td>
 </tr>
 <tr class="odd">
 <td align="left">Race</td>
 <td align="left">Black or African American</td>
-<td align="right">8.35</td>
+<td align="right">8.36</td>
 <td align="right">0.16</td>
-<td align="right">4.44</td>
-<td align="right">1.78</td>
+<td align="right">4.49</td>
+<td align="right">1.81</td>
 </tr>
 <tr class="even">
 <td align="left">Race</td>
@@ -654,42 +688,42 @@ Summary table
 <tr class="odd">
 <td align="left">Race</td>
 <td align="left">White</td>
-<td align="right">8.74</td>
+<td align="right">8.75</td>
 <td align="right">0.16</td>
-<td align="right">9.85</td>
-<td align="right">4.75</td>
+<td align="right">9.92</td>
+<td align="right">4.84</td>
 </tr>
 <tr class="even">
 <td align="left">Ethnicity</td>
 <td align="left">Hispanic</td>
-<td align="right">12.16</td>
+<td align="right">12.17</td>
 <td align="right">0.08</td>
-<td align="right">3.53</td>
-<td align="right">1.78</td>
+<td align="right">3.56</td>
+<td align="right">1.81</td>
 </tr>
 <tr class="odd">
 <td align="left">Ethnicity</td>
 <td align="left">Not Hispanic or Latino</td>
-<td align="right">7.58</td>
+<td align="right">7.59</td>
 <td align="right">0.15</td>
-<td align="right">9.35</td>
-<td align="right">4.43</td>
+<td align="right">9.42</td>
+<td align="right">4.51</td>
 </tr>
 <tr class="even">
 <td align="left">Sex</td>
 <td align="left">Female</td>
-<td align="right">11.59</td>
+<td align="right">11.60</td>
 <td align="right">0.15</td>
-<td align="right">12.94</td>
-<td align="right">6.47</td>
+<td align="right">13.03</td>
+<td align="right">6.58</td>
 </tr>
 <tr class="odd">
 <td align="left">Sex</td>
 <td align="left">Male</td>
-<td align="right">10.60</td>
+<td align="right">10.61</td>
 <td align="right">0.18</td>
-<td align="right">8.51</td>
-<td align="right">3.99</td>
+<td align="right">8.57</td>
+<td align="right">4.07</td>
 </tr>
 </tbody>
 </table>

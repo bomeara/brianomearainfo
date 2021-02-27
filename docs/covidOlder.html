@@ -439,7 +439,7 @@ $(document).ready(function () {
 <li>Info about cases at <a href="#ut">U. of Tennessee, Knoxville</a> (using public information only)</li>
 <li><a href="#webcams">Webcams</a> showing activity at local sites, though not quite at the resolution to point to mask usage or not</li>
 </ul>
-<p>The following plots are created in R using data from <a href="https://covid19datahub.io" class="uri">https://covid19datahub.io</a> (Guidotti, E., Ardia, D., (2020), “COVID-19 Data Hub”, Working paper, doi: 10.13140/RG.2.2.11649.81763), as well as information from Google and the <a href="https://www.tn.gov/health/cedep/ncov/data/downloadable-datasets.html">state of Tennessee dataset page</a> and plotting and analysis using the <code>forecast</code>, <code>ggplot2</code>, <code>reshape2</code>, and <code>dplyr</code> packages. Plots created on 2021-02-25 09:18:16. I use a seven day rolling average for most plots using the <code>geom_ma</code> function of <code>tidyquant</code>.</p>
+<p>The following plots are created in R using data from <a href="https://covid19datahub.io" class="uri">https://covid19datahub.io</a> (Guidotti, E., Ardia, D., (2020), “COVID-19 Data Hub”, Working paper, doi: 10.13140/RG.2.2.11649.81763), as well as information from Google and the <a href="https://www.tn.gov/health/cedep/ncov/data/downloadable-datasets.html">state of Tennessee dataset page</a> and plotting and analysis using the <code>forecast</code>, <code>ggplot2</code>, <code>reshape2</code>, and <code>dplyr</code> packages. Plots created on 2021-02-26 21:27:05. I use a seven day rolling average for most plots using the <code>geom_ma</code> function of <code>tidyquant</code>.</p>
 <h2 id="cases">
 Cases
 </h2>
@@ -478,7 +478,7 @@ Schooling
 <h2 id="hospitalization">
 Hospitalization
 </h2>
-<p>As of the last time the data were updated (likely 1 days ago), regional hospitals had 37 ICU beds available of 317 total (so was at 88 percent capacity), and 170 available ventilators out of 259 total, (so was at 34 percent capacity). The hospitals overall had 704 beds available of 3095 total (so was at 77 percent capacity). This is based on 19 acute care hospitals in the East TN region; based on the 14 counties these hospitals are in, these serve at least 1,235,720 people. When a line hits 100% (indicated in red), the local hospitals are theoretically full for that resource (for <em>all</em> patients, not just covid patients), though there is surge capacity on top of this. Note that these data are updated only weekly, so current conditions maybe be much better or worse than these plots show. Data on capacity from Knox County’s dashboard, data on hospitalizations and testing over time from the state data.</p>
+<p>As of the last time the data were updated (likely 2 days ago), regional hospitals had 37 ICU beds available of 317 total (so was at 88 percent capacity), and 170 available ventilators out of 259 total, (so was at 34 percent capacity). The hospitals overall had 704 beds available of 3095 total (so was at 77 percent capacity). This is based on 19 acute care hospitals in the East TN region; based on the 14 counties these hospitals are in, these serve at least 1,235,720 people. When a line hits 100% (indicated in red), the local hospitals are theoretically full for that resource (for <em>all</em> patients, not just covid patients), though there is surge capacity on top of this. Note that these data are updated only weekly, so current conditions maybe be much better or worse than these plots show. Data on capacity from Knox County’s dashboard, data on hospitalizations and testing over time from the state data.</p>
 <p><img src="covidOlder_files/figure-html/hospitalcapacityplot-1.png" width="672" /></p>
 <p>Trends in hospitalization of covid patients over time. The vertical dotted line shows the last day with updated capacity information from Knox County, when there were 37 ICU beds available (ignoring surge capacity) for people in the East Tennessee region. The seven day average is shown.</p>
 <p><img src="covidOlder_files/figure-html/plotsD-1.png" width="672" /></p>
@@ -620,23 +620,23 @@ Summary table
 <tr class="even">
 <td align="left">Race</td>
 <td align="left">Asian</td>
-<td align="right">4.91</td>
-<td align="right">0.04</td>
-<td align="right">6.48</td>
-<td align="right">3.35</td>
+<td align="right">4.96</td>
+<td align="right">0.05</td>
+<td align="right">6.90</td>
+<td align="right">3.67</td>
 </tr>
 <tr class="odd">
 <td align="left">Race</td>
 <td align="left">Black or African American</td>
-<td align="right">8.47</td>
+<td align="right">8.60</td>
 <td align="right">0.17</td>
-<td align="right">4.86</td>
-<td align="right">2.15</td>
+<td align="right">5.50</td>
+<td align="right">2.41</td>
 </tr>
 <tr class="even">
 <td align="left">Race</td>
 <td align="left">Native Hawaiian or Other Pacific Islander</td>
-<td align="right">7.94</td>
+<td align="right">8.02</td>
 <td align="right">0.09</td>
 <td align="right">NA</td>
 <td align="right">NA</td>
@@ -644,42 +644,42 @@ Summary table
 <tr class="odd">
 <td align="left">Race</td>
 <td align="left">White</td>
-<td align="right">8.85</td>
+<td align="right">8.97</td>
 <td align="right">0.16</td>
-<td align="right">10.55</td>
-<td align="right">5.46</td>
+<td align="right">11.31</td>
+<td align="right">6.10</td>
 </tr>
 <tr class="even">
 <td align="left">Ethnicity</td>
 <td align="left">Hispanic</td>
-<td align="right">12.28</td>
+<td align="right">12.39</td>
 <td align="right">0.08</td>
-<td align="right">3.80</td>
-<td align="right">1.98</td>
+<td align="right">4.12</td>
+<td align="right">2.12</td>
 </tr>
 <tr class="odd">
 <td align="left">Ethnicity</td>
 <td align="left">Not Hispanic or Latino</td>
-<td align="right">7.72</td>
-<td align="right">0.15</td>
-<td align="right">10.03</td>
-<td align="right">5.11</td>
+<td align="right">7.91</td>
+<td align="right">0.16</td>
+<td align="right">10.83</td>
+<td align="right">5.71</td>
 </tr>
 <tr class="even">
 <td align="left">Sex</td>
 <td align="left">Female</td>
-<td align="right">11.66</td>
+<td align="right">11.71</td>
 <td align="right">0.15</td>
-<td align="right">13.78</td>
-<td align="right">7.34</td>
+<td align="right">14.81</td>
+<td align="right">8.11</td>
 </tr>
 <tr class="odd">
 <td align="left">Sex</td>
 <td align="left">Male</td>
-<td align="right">10.66</td>
+<td align="right">10.72</td>
 <td align="right">0.18</td>
-<td align="right">9.12</td>
-<td align="right">4.60</td>
+<td align="right">9.81</td>
+<td align="right">5.12</td>
 </tr>
 </tbody>
 </table>

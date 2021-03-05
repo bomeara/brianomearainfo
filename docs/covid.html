@@ -427,7 +427,7 @@ $(document).ready(function () {
 <li><a href="https://healthdata.gov/dataset/covid-19-reported-patient-impact-and-hospital-capacity-facility">US HHS hospitalization by facility</a></li>
 </ul>
 <hr />
-<p>The following plots are created in R using data from <a href="https://covid19datahub.io" class="uri">https://covid19datahub.io</a> (Guidotti, E., Ardia, D., (2020), “COVID-19 Data Hub”, Working paper, doi: 10.13140/RG.2.2.11649.81763), as well as information from Google and the <a href="https://www.tn.gov/health/cedep/ncov/data/downloadable-datasets.html">state of Tennessee dataset page</a> and plotting and analysis using the <code>forecast</code>, <code>ggplot2</code>, <code>reshape2</code>, and <code>dplyr</code> packages. Plots created on 2021-03-03 17:27:34. I use a seven day rolling average for most plots using the <code>geom_ma</code> function of <code>tidyquant</code>.</p>
+<p>The following plots are created in R using data from <a href="https://covid19datahub.io" class="uri">https://covid19datahub.io</a> (Guidotti, E., Ardia, D., (2020), “COVID-19 Data Hub”, Working paper, doi: 10.13140/RG.2.2.11649.81763), as well as information from Google and the <a href="https://www.tn.gov/health/cedep/ncov/data/downloadable-datasets.html">state of Tennessee dataset page</a> and plotting and analysis using the <code>forecast</code>, <code>ggplot2</code>, <code>reshape2</code>, and <code>dplyr</code> packages. Plots created on 2021-03-05 15:48:32. I use a seven day rolling average for most plots using the <code>geom_ma</code> function of <code>tidyquant</code>.</p>
 <h2 id="cases">
 Cases
 </h2>
@@ -478,21 +478,21 @@ Summary table
 <td align="left">Asian</td>
 <td align="left">5%</td>
 <td align="left">0.05%</td>
-<td align="left">8.2%</td>
-<td align="left">4.3%</td>
+<td align="left">8.4%</td>
+<td align="left">4.5%</td>
 </tr>
 <tr class="odd">
 <td align="left">Race</td>
 <td align="left">Black or African American</td>
 <td align="left">8.7%</td>
 <td align="left">0.17%</td>
-<td align="left">6.9%</td>
-<td align="left">3%</td>
+<td align="left">7.2%</td>
+<td align="left">3.1%</td>
 </tr>
 <tr class="even">
 <td align="left">Race</td>
 <td align="left">Native Hawaiian or Other Pacific Islander</td>
-<td align="left">8.1%</td>
+<td align="left">8.2%</td>
 <td align="left">0.09%</td>
 <td align="left"></td>
 <td align="left"></td>
@@ -502,40 +502,40 @@ Summary table
 <td align="left">White</td>
 <td align="left">9.1%</td>
 <td align="left">0.16%</td>
-<td align="left">12.7%</td>
-<td align="left">7%</td>
+<td align="left">13%</td>
+<td align="left">7.2%</td>
 </tr>
 <tr class="even">
 <td align="left">Ethnicity</td>
 <td align="left">Hispanic</td>
 <td align="left">12.5%</td>
 <td align="left">0.08%</td>
-<td align="left">4.8%</td>
-<td align="left">2.4%</td>
+<td align="left">5%</td>
+<td align="left">2.5%</td>
 </tr>
 <tr class="odd">
 <td align="left">Ethnicity</td>
 <td align="left">Not Hispanic or Latino</td>
-<td align="left">8%</td>
+<td align="left">8.1%</td>
 <td align="left">0.16%</td>
-<td align="left">12.3%</td>
-<td align="left">6.5%</td>
+<td align="left">12.6%</td>
+<td align="left">6.8%</td>
 </tr>
 <tr class="even">
 <td align="left">Sex</td>
 <td align="left">Female</td>
 <td align="left">11.8%</td>
 <td align="left">0.15%</td>
-<td align="left">16.8%</td>
-<td align="left">9.2%</td>
+<td align="left">17.1%</td>
+<td align="left">9.5%</td>
 </tr>
 <tr class="odd">
 <td align="left">Sex</td>
 <td align="left">Male</td>
 <td align="left">10.8%</td>
 <td align="left">0.19%</td>
-<td align="left">11.1%</td>
-<td align="left">5.8%</td>
+<td align="left">11.4%</td>
+<td align="left">6.1%</td>
 </tr>
 </tbody>
 </table>
@@ -600,7 +600,7 @@ CDC guidance
 <h2 id="hospitalization">
 Hospitalization
 </h2>
-<p>As of the last time the data were updated (likely 0 days ago), regional hospitals had 30 ICU beds available of 317 total (so was at 91 percent capacity), and 164 available ventilators out of 259 total, (so was at 37 percent capacity). The hospitals overall had 675 beds available of 3092 total (so was at 78 percent capacity). This is based on 19 acute care hospitals in the East TN region; based on the 14 counties these hospitals are in, these serve at least 1,235,720 people. When a line hits 100% (indicated in red), the local hospitals are theoretically full for that resource (for <em>all</em> patients, not just covid patients), though there is surge capacity on top of this. Note that these data are updated only weekly, so current conditions maybe be much better or worse than these plots show. Data on capacity from Knox County’s dashboard, data on hospitalizations and testing over time from the state data.</p>
+<p>As of the last time the data were updated (likely 2 days ago), regional hospitals had 30 ICU beds available of 317 total (so was at 91 percent capacity), and 164 available ventilators out of 259 total, (so was at 37 percent capacity). The hospitals overall had 675 beds available of 3092 total (so was at 78 percent capacity). This is based on 19 acute care hospitals in the East TN region; based on the 14 counties these hospitals are in, these serve at least 1,235,720 people. When a line hits 100% (indicated in red), the local hospitals are theoretically full for that resource (for <em>all</em> patients, not just covid patients), though there is surge capacity on top of this. Note that these data are updated only weekly, so current conditions maybe be much better or worse than these plots show. Data on capacity from Knox County’s dashboard, data on hospitalizations and testing over time from the state data.</p>
 <p><img src="covid_files/figure-html/hospitalcapacityplot-1.png" width="672" /></p>
 <p>Trends in hospitalization of covid patients over time. The vertical dotted line shows the last day with updated capacity information from Knox County, when there were 30 ICU beds available (ignoring surge capacity) for people in the East Tennessee region. The seven day average is shown.</p>
 <p><img src="covid_files/figure-html/plotsD-1.png" width="672" /></p>
@@ -694,12 +694,12 @@ University of Tennessee, Knoxville
 <iframe width="600" height="225" src="https://datastudio.google.com/embed/reporting/dd6254bd-e3f4-4636-9fc8-3116bc64e033/page/auKkB" frameborder="0" style="border:0" allowfullscreen>
 </iframe>
 <p>Testing at UT is also a question. The plot below shows reported number of tests at the student health center, based on data aggregated by Alex Zukowski (see above). Note that these are the raw number of reported tests: a value of 20 means out of all 30,0000 UTK students, only 20 individuals were tested that day at the student health center. Not included here are athletes, who have much more frequent testing.</p>
-<p>The dotted line on the plot shows the date of a <a href="https://www.wvlt.tv/2020/09/15/covid-19-pacts-happening-among-ut-students/">news story about covid pacts among students to avoid getting tested locally so they could avoid quarantine or isolation</a>. Spread by infected individuals matters, even if they personally are asymptomatic, so personal actions to avoid testing and quarantine / isolation can lead to disease spread to others who might not be so lucky, so it’s very disappointing to hear of this. The drop in testing after that line may be purely coincidental, but it is a remarkable change in trend. Other universities test more intensely; for example, <a href="https://splunk-public.machinedata.illinois.edu/en-US/app/uofi_shield_public_APP/home">U. of Illinois tests several thousand per day, not a few dozen</a>. Not being an epidemiologist I do not want to weigh in on what strategy is optimal, but it is a remarkable contrast in approaches. UT is also starting to report on mandatory saliva-based testing, where they ask everyone residing in a dorm for a saliva sample, pool 3-5 individuals in a tube, test each tube, and then bring back individuals from pools that tested positive for individual testing. From 19.1 to 40.4 percent of the students listed as being in these dorms do not contribute samples.</p>
+<p>The dotted line on the plot shows the date of a <a href="https://www.wvlt.tv/2020/09/15/covid-19-pacts-happening-among-ut-students/">news story about covid pacts among students to avoid getting tested locally so they could avoid quarantine or isolation</a>. Spread by infected individuals matters, even if they personally are asymptomatic, so personal actions to avoid testing and quarantine / isolation can lead to disease spread to others who might not be so lucky, so it’s very disappointing to hear of this. The drop in testing after that line may be purely coincidental, but it is a remarkable change in trend. Other universities test more intensely; for example, <a href="https://splunk-public.machinedata.illinois.edu/en-US/app/uofi_shield_public_APP/home">U. of Illinois tests several thousand per day, not a few dozen</a>. Not being an epidemiologist I do not want to weigh in on what strategy is optimal, but it is a remarkable contrast in approaches. UT is also starting to report on mandatory saliva-based testing, where they ask everyone residing in a dorm for a saliva sample, pool 3-5 individuals in a tube, test each tube, and then bring back individuals from pools that tested positive for individual testing. From 19.1 to 43.9 percent of the students listed as being in these dorms do not contribute samples.</p>
 <p><img src="covid_files/figure-html/plotstestingut-1.png" width="672" /></p>
 <p>As for the county data, the positivity rate can also be important: if all the tests show up positive, likey symptomatic, cases, then there are likely other people being missed. The <i>New York Times</i> <a href="https://www.nytimes.com/2020/07/14/us/coronavirus-schools-fall.html">reports</a> on July 14, 2020, that, “As education leaders decide whether to reopen classrooms in the fall amid a raging pandemic, many are looking to a standard generally agreed upon among epidemiologists: To control community spread of the coronavirus, the average daily infection rate among those who are tested should not exceed 5 percent.” The horizontal black line below shows that guidance. The CDC provides thoughts about possible testing strategies at colleges and universities <a href="https://www.cdc.gov/coronavirus/2019-ncov/community/colleges-universities/ihe-testing.html#when-to-test">here</a> but not a firm number for how much testing they believe is necessary.</p>
 <p><img src="covid_files/figure-html/plotsutkproportion-1.png" width="672" /></p>
 <p>We can also use the UTK saliva data to estimate the number of new cases: the proportion of students who ultimately test postive out of those tested by the saliva scans. Given poor compliance, the true proportions may be much higher than this (if students want to endanger others by not isolating, they may avoid testing if they think they have been exposed). Depending on the date of the test, between 1 of every 41 to 1 of every 531 of students who contributed samples had active covid infections.</p>
-<p>At the date of the most recent set of samples, from 2021-02-21, UTK reported <b>81 active cases overall</b> (this presumably includes the 11 positive diagnostic tests from the sampling). If the pool of students from this sample, which has a participation rate of 72.1 percent, is representative of the 30,000 person student body as a whole, that would mean there would be <b>117 actual active cases</b> among the students on that date.</p>
+<p>At the date of the most recent set of samples, from 2021-02-28, UTK reported <b>59 active cases overall</b> (this presumably includes the 11 positive diagnostic tests from the sampling). If the pool of students from this sample, which has a participation rate of 72.1 percent, is representative of the 30,000 person student body as a whole, that would mean there would be <b>117 actual active cases</b> among the students on that date.</p>
 <p>I am converting the saliva test info to new cases per 100K to correspond with the <a href="https://globalepidemics.org/key-metrics-for-covid-suppression/">Harvard Global Health Institute’s</a> standards for guidance of control (yellow is community spread; red is the highest risk possible in their guidance – for a county, that would mean “stay-at-home orders necessary” according to them, though how that translates into actions on a college campus is different). These guidelines are for daily new cases but the saliva data are active cases at a point in time. I am adopting the assumption that Knox County uses that new cases are only active for 14 days, so I’m computing the new case estimate as 1/14 the active case estimate. The green, yellow, and orange bands are the same as for Knox and Anderson+Roane counties above; the red band looks much thicker because it has the same lower bound as the others but no maximum, and some of the estimates for UTK are outside the range for the county-wide data. I include the 95% confidence interval for the estimate of new cases per 100,000 people, though this is an underestimate of the uncertainty (are dorms good random samples or are results clustered, are students who refuse testing similar to those who get tested, etc.).</p>
 <p><img src="covid_files/figure-html/plotsaliva100k-1.png" width="672" /></p>
 <p>We can also see the compliance rate of students with testing. Before starting, all students signed a pledge showing their willingness to abide by community standards. Those in residence at UT agreed to saliva testing.</p>

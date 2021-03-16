@@ -209,14 +209,14 @@ hhs_sources <- jsonlite::fromJSON("https://healthdata.gov/data.json?page=0")
 capacity_by_facility_number <- grep("COVID-19 Reported Patient Impact and Hospital Capacity by Facility", hhs_sources$dataset$title)
 
 
-#capacity_by_facility_url <- hhs_sources$dataset$distribution[capacity_by_facility_number][[1]]$downloadURL #often a week behind though
+capacity_by_facility_url <- hhs_sources$dataset$distribution[capacity_by_facility_number][[1]]$downloadURL[1] #often a week behind though
 temp = tempfile(fileext = ".csv")
 #
 
 
-scraped_url <- readLines("https://healthdata.gov/dataset/covid-19-reported-patient-impact-and-hospital-capacity-facility")
-scraped_url <- scraped_url[grepl("https://healthdata.gov/sites/default/files/reported_hospital_capacity_admissions_facility_level_weekly_average_timeseries", scraped_url)]
-capacity_by_facility_url <- str_extract(scraped_url, "https.*csv")
+# scraped_url <- readLines("https://healthdata.gov/dataset/covid-19-reported-patient-impact-and-hospital-capacity-facility")
+# scraped_url <- scraped_url[grepl("https://healthdata.gov/sites/default/files/reported_hospital_capacity_admissions_facility_level_weekly_average_timeseries", scraped_url)]
+# capacity_by_facility_url <- str_extract(scraped_url, "https.*csv")
 
 
 utils::download.file(capacity_by_facility_url, temp, method="libcurl")

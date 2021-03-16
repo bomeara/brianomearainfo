@@ -5,4 +5,6 @@ slug: calendar
 title: Calendar
 ---
 
-<iframe src="https://calendar.google.com/calendar/embed?src=omeara.brian%40gmail.com&ctz=America%2FNew_York" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+For ease of working with others at UT, I've transitioned to a Microsoft Outlook calendar that is hard to share online. If you want to book an appointment with me, email me; I also have appointment slots at https://tiny.utk.edu/omearachat.
+
+<iframe src="https://tiny.utk.edu/omearachat" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>

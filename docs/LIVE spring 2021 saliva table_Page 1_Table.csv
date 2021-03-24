@@ -1,7 +1,13 @@
 Week ending,Category,Participation rate,Samples,Typical pool size,Number of pools,Number of positive pools,Individual samples referred for diagnostic testing,Positive diagnostic tests
+"Mar 21, 2021",Residents,45.9%,2706,NA,NA,NA,112,18
+"Mar 21, 2021",Commuters,NA,40,NA,NA,NA,0,0
+"Mar 21, 2021",Total,NA,2746,"3, 4",731,27,112,18
+"Mar 14, 2021",Residents,55.2%,3285,NA,NA,NA,64,7
+"Mar 14, 2021",Commuters,NA,68,NA,NA,NA,1,0
+"Mar 14, 2021",Total,NA,3353,"3, 4, 5",815,13,65,7
 "Mar 7, 2021",Residents,50.8%,3050,NA,NA,NA,25,3
-"Mar 7, 2021",Commuters,NA,87,NA,NA,NA,4,1
-"Mar 7, 2021",Total,NA,3137,"3, 4, 5",758,6,29,4
+"Mar 7, 2021",Commuters,NA,87,NA,NA,NA,4,2
+"Mar 7, 2021",Total,NA,3137,"3, 4, 5",758,6,29,5
 "Feb 28, 2021",Residents,56.1%,3357,NA,NA,NA,78,12
 "Feb 28, 2021",Commuters,NA,87,NA,NA,NA,1,0
 "Feb 28, 2021",Total,NA,3444,"3, 4, 5",840,17,79,12

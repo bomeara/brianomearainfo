@@ -980,7 +980,7 @@ Tennessee releases information on demographics of individuals with covid. Age is
 plot_race_covid_incidence <- ggplot(race, aes(x=Date, y=percent_of_demographic_with_cases, group=Race)) + geom_line(aes(colour=Race))+ xlab("Date") + scale_y_continuous(
     
     # Features of the first axis
-    name = "Percentage who have had covid",
+    name = "Percentage who have tested positive for covid",
     
     # Add a second axis and specify its features
     sec.axis = dup_axis( labels=c("1/10", "1/20", "1/50", "1/100"), breaks=c(10, 5, 2, 1), name="Fraction who have had covid")
@@ -1001,7 +1001,7 @@ print(plot_race_covid_death)
 plot_ethnicity_covid_incidence <- ggplot(ethnicity, aes(x=Date, y=percent_of_demographic_with_cases, group=Ethnicity)) + geom_line(aes(colour=Ethnicity))+ xlab("Date") + scale_y_continuous(
     
     # Features of the first axis
-    name = "Percentage who have had covid",
+    name = "Percentage who have tested positive for covid",
     
     # Add a second axis and specify its features
     sec.axis = dup_axis( labels=c("1/10", "1/20", "1/50", "1/100"), breaks=c(10, 5, 2, 1), name="Fraction who have had covid")
@@ -1022,7 +1022,7 @@ print(plot_ethnicity_covid_death)
 plot_sex_covid_incidence <- ggplot(sex, aes(x=Date, y=percent_of_demographic_with_cases, group=Sex)) + geom_line(aes(colour=Sex))+ xlab("Date") + scale_y_continuous(
     
     # Features of the first axis
-    name = "Percentage who have had covid",
+    name = "Percentage who have tested positive for covid",
     
     # Add a second axis and specify its features
     sec.axis = dup_axis( labels=c("1/10", "1/20", "1/50", "1/100"), breaks=c(10, 5, 2, 1), name="Fraction who have had covid")

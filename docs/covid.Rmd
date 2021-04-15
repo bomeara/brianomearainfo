@@ -1159,7 +1159,7 @@ We can also see the compliance rate of students with testing. Before starting, a
 ```{r plotsalivacompliance, echo=FALSE, message=FALSE, warning=FALSE}
 saliva_data$Participation.percentage <- 100*saliva_data$Participation.rate
 saliva_compliance <- ggplot(saliva_data, aes(x=DATE, y=Participation.percentage)) + 
-geom_line() + ylab("Percentage of resident students participating in mandatory teseting") + xlab("Date") + ylim(0,100) + theme_classic() 
+geom_line() + ylab("Percentage of resident students participating in mandatory teseting") + xlab("Date") + ylim(0,100)  
 print(saliva_compliance)
 ```
 

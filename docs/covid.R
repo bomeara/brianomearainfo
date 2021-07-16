@@ -153,6 +153,7 @@ schoolkids_oakridge$Region <- "Anderson + Roane"
 schoolkids_daily <- rbind(schoolkids_knox, schoolkids_oakridge, schoolkids_region)
 
 
+
 hospital_knox_files <- list.files(path="/Users/bomeara/Dropbox/KnoxCovid", pattern="*covid_bed_capacity.csv", full.names=TRUE)
 hospital_knox <- data.frame()
 for (i in seq_along(hospital_knox_files)) {
@@ -387,73 +388,75 @@ download.file(dataURL, destfile=temp, mode='wb')
 demographics <- readxl::read_xlsx(temp, sheet =1)
 demographics$percent_of_demographic_with_cases <- 0
 demographics$percent_of_demographic_dead <- 0
-demographics <- subset(demographics, as.character(demographics$Date)!="2020-07-28") #there was an error that day for Native Hawaiian or Other Pacific Islander: it went from 2 to 15 recorded deaths. Remove date from all data just to be safe.
+demographics$Date <- demographics$DATE
+demographics <- subset(demographics, as.character(demographics$DATE)!="2020-07-28") #there was an error that day for Native Hawaiian or Other Pacific Islander: it went from 2 to 15 recorded deaths. Remove date from all data just to be safe.
 
 
 
-race <- subset(demographics, Category=="RACE")
+race <- subset(demographics, CATEGORY=="RACE")
 race <- subset(race, CAT_DETAIL != "Pending")
 
 
 race[which(race$CAT_DETAIL=="White"),]$percent_of_demographic_with_cases <- 100*race[which(race$CAT_DETAIL=="White"),]$CAT_TOTALCASES/population_white
-race[which(race$CAT_DETAIL=="White"),]$percent_of_demographic_dead <- 100*race[which(race$CAT_DETAIL=="White"),]$CAT_DEATHCOUNT/population_white
+race[which(race$CAT_DETAIL=="White"),]$percent_of_demographic_dead <- 100*race[which(race$CAT_DETAIL=="White"),]$CAT_TOTALDEATHS/population_white
 race[which(race$CAT_DETAIL=="Black or African American"),]$percent_of_demographic_with_cases <- 100*race[which(race$CAT_DETAIL=="Black or African American"),]$CAT_TOTALCASES/population_black_africanamerican
-race[which(race$CAT_DETAIL=="Black or African American"),]$percent_of_demographic_dead <- 100*race[which(race$CAT_DETAIL=="Black or African American"),]$CAT_DEATHCOUNT/population_black_africanamerican
+race[which(race$CAT_DETAIL=="Black or African American"),]$percent_of_demographic_dead <- 100*race[which(race$CAT_DETAIL=="Black or African American"),]$CAT_TOTALDEATHS/population_black_africanamerican
 race[which(race$CAT_DETAIL=="Asian"),]$percent_of_demographic_with_cases <- 100*race[which(race$CAT_DETAIL=="Asian"),]$CAT_TOTALCASES/population_asian
-race[which(race$CAT_DETAIL=="Asian"),]$percent_of_demographic_dead <- 100*race[which(race$CAT_DETAIL=="Asian"),]$CAT_DEATHCOUNT/population_asian
+race[which(race$CAT_DETAIL=="Asian"),]$percent_of_demographic_dead <- 100*race[which(race$CAT_DETAIL=="Asian"),]$CAT_TOTALDEATHS/population_asian
 race[which(race$CAT_DETAIL=="American Indian or Alaska Native"),]$percent_of_demographic_with_cases <- 100*race[which(race$CAT_DETAIL=="American Indian or Alaska Native"),]$CAT_TOTALCASES/population_americanindian_alaskannative
-race[which(race$CAT_DETAIL=="American Indian or Alaska Native"),]$percent_of_demographic_dead <- 100*race[which(race$CAT_DETAIL=="American Indian or Alaska Native"),]$CAT_DEATHCOUNT/population_americanindian_alaskannative
+race[which(race$CAT_DETAIL=="American Indian or Alaska Native"),]$percent_of_demographic_dead <- 100*race[which(race$CAT_DETAIL=="American Indian or Alaska Native"),]$CAT_TOTALDEATHS/population_americanindian_alaskannative
 race[which(race$CAT_DETAIL=="Native Hawaiian or Other Pacific Islander"),]$percent_of_demographic_with_cases <- 100*race[which(race$CAT_DETAIL=="Native Hawaiian or Other Pacific Islander"),]$CAT_TOTALCASES/population_nativehawaiian_other_pacificislander
-race[which(race$CAT_DETAIL=="Native Hawaiian or Other Pacific Islander"),]$percent_of_demographic_dead <- 100*race[which(race$CAT_DETAIL=="Native Hawaiian or Other Pacific Islander"),]$CAT_DEATHCOUNT/population_nativehawaiian_other_pacificislander
+race[which(race$CAT_DETAIL=="Native Hawaiian or Other Pacific Islander"),]$percent_of_demographic_dead <- 100*race[which(race$CAT_DETAIL=="Native Hawaiian or Other Pacific Islander"),]$CAT_TOTALDEATHS/population_nativehawaiian_other_pacificislander
 race[which(race$CAT_DETAIL=="Other/Multiracial"),]$percent_of_demographic_with_cases <- 100*race[which(race$CAT_DETAIL=="Other/Multiracial"),]$CAT_TOTALCASES/population_twoormoreraces
-race[which(race$CAT_DETAIL=="Other/Multiracial"),]$percent_of_demographic_dead <- 100*race[which(race$CAT_DETAIL=="Other/Multiracial"),]$CAT_DEATHCOUNT/population_twoormoreraces
+race[which(race$CAT_DETAIL=="Other/Multiracial"),]$percent_of_demographic_dead <- 100*race[which(race$CAT_DETAIL=="Other/Multiracial"),]$CAT_TOTALDEATHS/population_twoormoreraces
 race <- subset(race, CAT_DETAIL!="Other/Multiracial") # see note above
 race <- subset(race, CAT_DETAIL!="Other/ Multiracial") # see note above
 
 race$Race <- race$CAT_DETAIL
 
 
-ethnicity <- subset(demographics, Category=="ETHNICITY")
+ethnicity <- subset(demographics, CATEGORY=="ETHNICITY")
 ethnicity <- subset(ethnicity, CAT_DETAIL != "Pending")
 
 ethnicity[which(ethnicity$CAT_DETAIL=="Hispanic"),]$percent_of_demographic_with_cases <- 100*ethnicity[which(ethnicity$CAT_DETAIL=="Hispanic"),]$CAT_TOTALCASES/population_hispanic
-ethnicity[which(ethnicity$CAT_DETAIL=="Hispanic"),]$percent_of_demographic_dead <- 100*ethnicity[which(ethnicity$CAT_DETAIL=="Hispanic"),]$CAT_DEATHCOUNT/population_hispanic
+ethnicity[which(ethnicity$CAT_DETAIL=="Hispanic"),]$percent_of_demographic_dead <- 100*ethnicity[which(ethnicity$CAT_DETAIL=="Hispanic"),]$CAT_TOTALDEATHS/population_hispanic
 
 
 ethnicity[which(ethnicity$CAT_DETAIL=="Not Hispanic or Latino"),]$percent_of_demographic_with_cases <- 100*ethnicity[which(ethnicity$CAT_DETAIL=="Not Hispanic or Latino"),]$CAT_TOTALCASES/population_not_hispanic
-ethnicity[which(ethnicity$CAT_DETAIL=="Not Hispanic or Latino"),]$percent_of_demographic_dead <- 100*ethnicity[which(ethnicity$CAT_DETAIL=="Not Hispanic or Latino"),]$CAT_DEATHCOUNT/population_not_hispanic
+ethnicity[which(ethnicity$CAT_DETAIL=="Not Hispanic or Latino"),]$percent_of_demographic_dead <- 100*ethnicity[which(ethnicity$CAT_DETAIL=="Not Hispanic or Latino"),]$CAT_TOTALDEATHS/population_not_hispanic
 ethnicity$Ethnicity <- ethnicity$CAT_DETAIL
 
 
 
-sex <- subset(demographics, Category=="SEX")
+sex <- subset(demographics, CATEGORY=="SEX")
 sex <- subset(sex, CAT_DETAIL != "Pending")
 
 
 sex[which(sex$CAT_DETAIL=="Female"),]$percent_of_demographic_with_cases <- 100*sex[which(sex$CAT_DETAIL=="Female"),]$CAT_TOTALCASES/population_female
-sex[which(sex$CAT_DETAIL=="Female"),]$percent_of_demographic_dead <- 100*sex[which(sex$CAT_DETAIL=="Female"),]$CAT_DEATHCOUNT/population_female
+sex[which(sex$CAT_DETAIL=="Female"),]$percent_of_demographic_dead <- 100*sex[which(sex$CAT_DETAIL=="Female"),]$CAT_TOTALDEATHS/population_female
 
 sex[which(sex$CAT_DETAIL=="Male"),]$percent_of_demographic_with_cases <- 100*sex[which(sex$CAT_DETAIL=="Male"),]$CAT_TOTALCASES/population_male
-sex[which(sex$CAT_DETAIL=="Male"),]$percent_of_demographic_dead <- 100*sex[which(sex$CAT_DETAIL=="Male"),]$CAT_DEATHCOUNT/population_male
+sex[which(sex$CAT_DETAIL=="Male"),]$percent_of_demographic_dead <- 100*sex[which(sex$CAT_DETAIL=="Male"),]$CAT_TOTALDEATHS/population_male
 sex$Sex <- sex$CAT_DETAIL
 
 
-temp = tempfile(fileext = ".xlsx")
-dataURL <- "https://www.tn.gov/content/dam/tn/health/documents/cedep/novel-coronavirus/datasets/Public-Dataset-Daily-County-Age-Group.XLSX"
-download.file(dataURL, destfile=temp, mode='wb')
+# temp = tempfile(fileext = ".xlsx")
+# dataURL <- "https://www.tn.gov/content/dam/tn/health/documents/cedep/novel-coronavirus/datasets/Public-Dataset-Daily-County-Age-Group.XLSX"
+# download.file(dataURL, destfile=temp, mode='wb')
 
-age_county <- readxl::read_xlsx(temp, sheet =1)
-age_county <- subset(age_county, AGE_GROUP != "Pending")
+# age_county <- readxl::read_xlsx(temp, sheet =1)
+# age_county <- subset(age_county, AGE_GROUP != "Pending")
+# age_county$DATE <- age_county$date
 
-age_county$AGE_GROUP_SIMPLE <- age_county$AGE_GROUP
-age_county$AGE_GROUP_SIMPLE <- gsub("71-80 years", "71+ years", age_county$AGE_GROUP_SIMPLE)
-age_county$AGE_GROUP_SIMPLE <- gsub("81\\+ years", "71+ years", age_county$AGE_GROUP_SIMPLE)
-age_county %<>% group_by(COUNTY, AGE_GROUP_SIMPLE, DATE) %>% mutate(SUM_CASE_COUNT = sum(CASE_COUNT))
-age_county <- subset(age_county, AGE_GROUP != "81+ years") #get rid of pruned
-age_county <- data.frame(DATE=age_county$DATE, COUNTY=age_county$COUNTY, AGE_GROUP = age_county$AGE_GROUP_SIMPLE, CASE_COUNT=age_county$SUM_CASE_COUNT)
+# age_county$AGE_GROUP_SIMPLE <- age_county$AGE_GROUP
+# age_county$AGE_GROUP_SIMPLE <- gsub("71-80 years", "71+ years", age_county$AGE_GROUP_SIMPLE)
+# age_county$AGE_GROUP_SIMPLE <- gsub("81\\+ years", "71+ years", age_county$AGE_GROUP_SIMPLE)
+# age_county %<>% group_by(COUNTY, AGE_GROUP_SIMPLE, DATE) %>% mutate(SUM_CASE_COUNT = sum(CASE_COUNT))
+# age_county <- subset(age_county, AGE_GROUP != "81+ years") #get rid of pruned
+# age_county <- data.frame(DATE=age_county$DATE, COUNTY=age_county$COUNTY, AGE_GROUP = age_county$AGE_GROUP_SIMPLE, CASE_COUNT=age_county$SUM_CASE_COUNT)
 
-age_county %<>% group_by(COUNTY, AGE_GROUP) %>% mutate(Difference=CASE_COUNT - lag(CASE_COUNT))
-age_county %<>% group_by(COUNTY, DATE) %>% mutate(PercentDaily=100*Difference/sum(Difference), PercentCumulative=100*CASE_COUNT/sum(CASE_COUNT))
+# age_county %<>% group_by(COUNTY, AGE_GROUP) %>% mutate(Difference=CASE_COUNT - lag(CASE_COUNT))
+# age_county %<>% group_by(COUNTY, DATE) %>% mutate(PercentDaily=100*Difference/sum(Difference), PercentCumulative=100*CASE_COUNT/sum(CASE_COUNT))
 
 webfiles <- list.files(path="/Users/bomeara/Dropbox/UTKCovid", pattern="*html", full.names =TRUE)
 utk.cases <- data.frame()
@@ -491,9 +494,7 @@ saliva_data <- plyr::rbind.fill(saliva_data, saliva_data2)
 saliva_data$Active_cases_per_100k = 100000*saliva_data$Positive.diagnostic.tests./saliva_data$Samples
 saliva_data$Active_cases_per_30k = 30000*saliva_data$Positive.diagnostic.tests./saliva_data$Samples
 saliva_data$New_cases_per_100k = saliva_data$Active_cases_per_100k / 14
-#saliva_data$DATE <- as.Date(saliva_data$Week,"%m/%d/%y")
 saliva_data$DATE <- as.Date(saliva_data$Week,"%b %d, %Y")
-#saliva_data$DATE <- as.Date(saliva_data$Week,"%d-%m-%y")
 
 saliva_data$New_cases_per_100k_lower <- 100000*binom::binom.confint(saliva_data$Positive.diagnostic.tests., saliva_data$Samples, method="exact")$lower/14
 saliva_data$New_cases_per_100k_upper<- 100000*binom::binom.confint(saliva_data$Positive.diagnostic.tests., saliva_data$Samples, method="exact")$upper/14
@@ -521,7 +522,7 @@ daily_utk <- daily_utk[order(daily_utk$DATE), ]
 daily_utk$NEW_PROPORTION_CONFIRMED <- 100*daily_utk$NEW_CONFIRMED/daily_utk$NEW_TESTS
 
 daily_focal_no_ut <- daily_focal[!grepl("UTK", daily_focal$Region), ]
-
+daily_focal_no_ut_cleaned <- daily_focal_no_ut
 
 
 ## ----summarytabletn, echo=FALSE, message=FALSE, warning=FALSE, error=FALSE----
@@ -636,26 +637,6 @@ plot_sex_covid_vaccination_full <- ggplot(sex_vaccine, aes(x=DATE, y=RECIP_FULLY
 print(plot_sex_covid_vaccination_full)
 
 
-## ----plots_cdc, echo=FALSE, message=FALSE, warning=FALSE, results=FALSE-------
-daily_focal_no_ut_cleaned <- daily_focal_no_ut[!is.na(daily_focal_no_ut$New_cases_per_100k_per_week),]
-daily_focal_no_ut_cleaned <- daily_focal_no_ut_cleaned[!is.na(daily_focal_no_ut_cleaned$PositivityPercentage_per_week),]
-daily_focal_no_ut_cleaned <- subset(daily_focal_no_ut_cleaned, Region!="East TN")
-daily_focal_no_ut_cleaned_recent <- subset(daily_focal_no_ut_cleaned, DATE>="2020-08-01 UTC")
-
-
-local_cdc <- ggplot(daily_focal_no_ut_cleaned_recent, aes(x=PositivityPercentage_per_week, y=New_cases_per_100k_per_week, group=Region, label=Region)) + ylab("Number of new cases in area each week per 100,000 people") + xlab("Percentage of positive tests per week") + theme_classic() +
-annotate(geom="rect", xmin=0, xmax=max(daily_focal_no_ut_cleaned_recent$PositivityPercentage_per_week), ymin=0, ymax=max(daily_focal_no_ut_cleaned_recent$New_cases_per_100k_per_week), alpha=1, fill="lightblue1") +
-annotate(geom="rect", xmin=5, xmax=max(daily_focal_no_ut_cleaned_recent$PositivityPercentage_per_week), ymin=9.5, ymax=max(daily_focal_no_ut_cleaned_recent$New_cases_per_100k_per_week), alpha=1, fill="khaki1") +
-annotate(geom="rect", xmin=7.95, xmax=max(daily_focal_no_ut_cleaned_recent$PositivityPercentage_per_week), ymin=49.5, ymax=max(daily_focal_no_ut_cleaned_recent$New_cases_per_100k_per_week), alpha=1, fill="tan1") +
-annotate(geom="rect", xmin=9.95, xmax=max(daily_focal_no_ut_cleaned_recent$PositivityPercentage_per_week), ymin=99.5, ymax=max(daily_focal_no_ut_cleaned_recent$New_cases_per_100k_per_week), alpha=1, fill="indianred1") +
-geom_point() + geom_text_repel() +
-    transition_states(DATE, transition_length = 2, state_length = 1) +
-                    ggtitle('{closest_state}')
-print(animate(local_cdc, end_pause=30, nframes=3*length(unique(daily_focal_no_ut_cleaned_recent$DATE))))
-anim_save(filename="cdcrange.gif")
-
-
-
 ## ----plots_new_cdc, echo=FALSE, message=FALSE, warning=FALSE------------------
 
 local_new <- ggplot(daily_focal_no_ut_cleaned, aes(x=DATE, y=New_cases_per_100k_per_week, group=Region, colour=Region)) + 
@@ -691,7 +672,7 @@ print(local_positivity)
 
 
 ## ----studentinfections, echo=FALSE, message=FALSE, warning=FALSE--------------
-try(student_covid_total <- ggplot(schoolkids_daily, aes(x=DATE, y=CASE_COUNT, group=Region)) + geom_line(aes(colour=Region)) +  ylab("Total number of students who have tested positive") + xlab("Date") + scale_colour_viridis_d(end=0.8))
+try(student_covid_total <- ggplot(schoolkids_daily, aes(x=DATE, y=TOTAL_CASES, group=Region)) + geom_line(aes(colour=Region)) +  ylab("Total number of students who have tested positive") + xlab("Date") + scale_colour_viridis_d(end=0.8))
 try(print(student_covid_total))
 
 try(student_covid_daily <- ggplot(schoolkids_daily, aes(x=DATE, y=NEW_CASES, group=Region)) +  geom_ma(aes(colour=Region, linetype="a")) +  guides(linetype = FALSE) + ylab("Number of students with new positive covid results daily, 7 day avg") + xlab("Date") + scale_colour_viridis_d(end=0.8))
@@ -955,15 +936,13 @@ print(plot_sex_covid_death)
 # print(ageplot)
 
 
-## ----age2, echo=FALSE, message=FALSE, warning=FALSE, error=FALSE--------------
-
-
-ageplot_knox_daily <- ggplot(subset(age_county, COUNTY=="Knox"), aes(x=DATE, y=PercentDaily, group=AGE_GROUP)) + geom_ma(aes(colour=AGE_GROUP, linetype="a"), n=7) + guides(linetype = FALSE) + ylab("Daily percentage of cases by age group in Knox County (7 day avg)") + xlab("Date") + scale_colour_brewer(type="qual", palette="Dark2")
-ageplot_knox_cumulative <- ggplot(subset(age_county, COUNTY=="Knox"), aes(x=DATE, y=PercentCumulative, group=AGE_GROUP)) + geom_line(aes(colour=AGE_GROUP)) + ylab("Cumulative percentage of cases by age group in Knox County") + xlab("Date") + scale_colour_brewer(type="qual", palette="Dark2")
-#ageplot_knox_both <- ggarrange(ageplot_knox_daily, #ageplot_knox_cumulative, labels=c("Daily", "Cumulative"), ncol=2, nrow=1)
-#print(ageplot_knox_daily)
-print(ageplot_knox_cumulative)
-
+## ----age2, echo=FALSE, message=FALSE, warning=FALSE, error=FALSE, eval=FALSE----
+## 
+## 
+## ageplot_knox_daily <- ggplot(subset(age_county, COUNTY=="Knox"), aes(x=DATE, y=PercentDaily, group=AGE_GROUP)) + geom_ma(aes(colour=AGE_GROUP, linetype="a"), n=7) + guides(linetype = FALSE) + ylab("Daily percentage of cases by age group in Knox County (7 day avg)") + xlab("Date") + scale_colour_brewer(type="qual", palette="Dark2")
+## ageplot_knox_cumulative <- ggplot(subset(age_county, COUNTY=="Knox"), aes(x=DATE, y=PercentCumulative, group=AGE_GROUP)) + geom_line(aes(colour=AGE_GROUP)) + ylab("Cumulative percentage of cases by age group in Knox County") + xlab("Date") + scale_colour_brewer(type="qual", palette="Dark2")
+## print(ageplot_knox_cumulative)
+## 
 
 
 ## ----utactive, echo=FALSE, message=FALSE, warning=FALSE, eval=FALSE-----------

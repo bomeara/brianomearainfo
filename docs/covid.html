@@ -386,7 +386,7 @@ $(document).ready(function () {
 <li><a href="https://healthdata.gov/dataset/covid-19-reported-patient-impact-and-hospital-capacity-facility">US HHS hospitalization by facility</a></li>
 </ul>
 <hr />
-<p>The following plots are created in R using data from <a href="https://covid19datahub.io" class="uri">https://covid19datahub.io</a> (Guidotti, E., Ardia, D., (2020), “COVID-19 Data Hub”, Working paper, doi: 10.13140/RG.2.2.11649.81763), as well as information from Google and the <a href="https://www.tn.gov/health/cedep/ncov/data/downloadable-datasets.html">state of Tennessee dataset page</a> and plotting and analysis using the <code>forecast</code>, <code>ggplot2</code>, <code>reshape2</code>, and <code>dplyr</code> packages. Plots created on 2021-06-30 16:32:47. I use a seven day rolling average for most plots using the <code>geom_ma</code> function of <code>tidyquant</code>.</p>
+<p>The following plots are created in R using data from <a href="https://covid19datahub.io" class="uri">https://covid19datahub.io</a> (Guidotti, E., Ardia, D., (2020), “COVID-19 Data Hub”, Working paper, doi: 10.13140/RG.2.2.11649.81763), as well as information from Google and the <a href="https://www.tn.gov/health/cedep/ncov/data/downloadable-datasets.html">state of Tennessee dataset page</a> and plotting and analysis using the <code>forecast</code>, <code>ggplot2</code>, <code>reshape2</code>, and <code>dplyr</code> packages. Plots created on 2021-07-16 12:41:45. I use a seven day rolling average for most plots using the <code>geom_ma</code> function of <code>tidyquant</code>.</p>
 <h2 id="cases">
 Cases
 </h2>
@@ -437,16 +437,16 @@ Summary table
 <td align="left">Asian</td>
 <td align="left">5.8%</td>
 <td align="left">0.06%</td>
-<td align="left">44.3%</td>
-<td align="left">37.8%</td>
+<td align="left">45.1%</td>
+<td align="left">38.9%</td>
 </tr>
 <tr class="odd">
 <td align="left">Race</td>
 <td align="left">Black or African American</td>
-<td align="left">10.1%</td>
+<td align="left">10.2%</td>
 <td align="left">0.19%</td>
-<td align="left">28%</td>
-<td align="left">23.4%</td>
+<td align="left">28.8%</td>
+<td align="left">24.3%</td>
 </tr>
 <tr class="even">
 <td align="left">Race</td>
@@ -461,40 +461,40 @@ Summary table
 <td align="left">White</td>
 <td align="left">10.3%</td>
 <td align="left">0.18%</td>
-<td align="left">33.9%</td>
-<td align="left">30.7%</td>
+<td align="left">34.5%</td>
+<td align="left">31.4%</td>
 </tr>
 <tr class="even">
 <td align="left">Ethnicity</td>
 <td align="left">Hispanic</td>
-<td align="left">13.5%</td>
+<td align="left">13.6%</td>
 <td align="left">0.08%</td>
-<td align="left">35.9%</td>
-<td align="left">29.5%</td>
+<td align="left">37.6%</td>
+<td align="left">31.2%</td>
 </tr>
 <tr class="odd">
 <td align="left">Ethnicity</td>
 <td align="left">Not Hispanic or Latino</td>
 <td align="left">9.3%</td>
 <td align="left">0.18%</td>
-<td align="left">37.2%</td>
-<td align="left">33.5%</td>
+<td align="left">38%</td>
+<td align="left">34.5%</td>
 </tr>
 <tr class="even">
 <td align="left">Sex</td>
 <td align="left">Female</td>
 <td align="left">13.2%</td>
 <td align="left">0.17%</td>
-<td align="left">45%</td>
-<td align="left">40.3%</td>
+<td align="left">45.9%</td>
+<td align="left">41.3%</td>
 </tr>
 <tr class="odd">
 <td align="left">Sex</td>
 <td align="left">Male</td>
-<td align="left">12%</td>
+<td align="left">12.1%</td>
 <td align="left">0.2%</td>
-<td align="left">38.2%</td>
-<td align="left">33.9%</td>
+<td align="left">39.1%</td>
+<td align="left">34.9%</td>
 </tr>
 </tbody>
 </table>
@@ -506,67 +506,23 @@ Vaccination
 <h2 id="cdc">
 CDC guidance
 </h2>
-<p>The Centers for Disease Control (CDC) updated their <a href="https://www.cdc.gov/coronavirus/2019-ncov/community/schools-childcare/operation-strategy.html#indicators">guidance</a> on school openings and community spread in Feb. 2021.</p>
-<table>
-<colgroup>
-<col width="12%" />
-<col width="14%" />
-<col width="14%" />
-<col width="24%" />
-<col width="34%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Category</th>
-<th>Blue</th>
-<th>Yellow</th>
-<th>Orange</th>
-<th>Red</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Elementary</td>
-<td>In person; try 6 feet distance</td>
-<td>In person; try 6 feet distance</td>
-<td>Hybrid or reduced attendance; require 6 feet distance</td>
-<td>Hybrid or reduced attendance; require 6 feet distance</td>
-</tr>
-<tr class="even">
-<td>Middle &amp; High School</td>
-<td>In person; try 6 feet distance</td>
-<td>In person; try 6 feet distance</td>
-<td>Hybrid or reduced attendance; require 6 feet distance</td>
-<td>Virtual only unless can strictly implement all mitigation and have few cases</td>
-</tr>
-<tr class="odd">
-<td>Sports &amp; Extracurriculars</td>
-<td>Try 6 feet distance</td>
-<td>Require 6 feet distance</td>
-<td>Outdoors only; require 6 feet distance</td>
-<td>Virtual only</td>
-</tr>
-</tbody>
-</table>
-<p><img src="cdcrange.gif" /></p>
 <p>This shows the plot of new cases per week, using CDC guidelines for problematic areas.</p>
 <p><img src="covid_files/figure-html/plots_new_cdc-1.png" width="672" /></p>
 <p>This shows the plot of percent of positive tests per week, also using CDC guidelines</p>
 <p><img src="covid_files/figure-html/plots_positivity_cdc-1.png" width="672" /></p>
 <p>Tennessee now breaks out covid test results for school age children (age 5-18). The number of tests in this age group and the underlying population size aren’t known to me, so things like positivity rate and proportion of students infected cannot be determined, but the raw number of students infected can be shown (doing a seven day average):</p>
-<pre><code>## Error in FUN(X[[i]], ...) : object &#39;CASE_COUNT&#39; not found</code></pre>
-<p><img src="covid_files/figure-html/studentinfections-1.png" width="672" /></p>
+<p><img src="covid_files/figure-html/studentinfections-1.png" width="672" /><img src="covid_files/figure-html/studentinfections-2.png" width="672" /></p>
 <hr />
 <h2 id="hospitalization">
 Hospitalization
 </h2>
-<p>As of the last time the data were updated (likely 0 days ago), regional hospitals had 26 ICU beds available of 317 total (so was at 92 percent capacity), and 282 available ventilators out of 398 total, (so was at 29 percent capacity). The hospitals overall had 461 beds available of 3086 total (so was at 85 percent capacity). This is based on 19 acute care hospitals in the East TN region; based on the 14 counties these hospitals are in, these serve at least 1,235,720 people. When a line hits 100% (indicated in red), the local hospitals are theoretically full for that resource (for <em>all</em> patients, not just covid patients), though there is surge capacity on top of this. Note that these data are updated only weekly, so current conditions maybe be much better or worse than these plots show. Data on capacity from Knox County’s dashboard, data on hospitalizations and testing over time from the state data.</p>
+<p>As of the last time the data were updated (likely 2 days ago), regional hospitals had 18 ICU beds available of 317 total (so was at 94 percent capacity), and 294 available ventilators out of 419 total, (so was at 30 percent capacity). The hospitals overall had 447 beds available of 3081 total (so was at 85 percent capacity). This is based on 19 acute care hospitals in the East TN region; based on the 14 counties these hospitals are in, these serve at least 1,235,720 people. When a line hits 100% (indicated in red), the local hospitals are theoretically full for that resource (for <em>all</em> patients, not just covid patients), though there is surge capacity on top of this. Note that these data are updated only weekly, so current conditions maybe be much better or worse than these plots show. Data on capacity from Knox County’s dashboard, data on hospitalizations and testing over time from the state data.</p>
 <p><img src="covid_files/figure-html/hospitalcapacityplot-1.png" width="672" /></p>
-<p>Trends in hospitalization of covid patients over time. The vertical dotted line shows the last day with updated capacity information from Knox County, when there were 26 ICU beds available (ignoring surge capacity) for people in the East Tennessee region. The seven day average is shown.</p>
+<p>Trends in hospitalization of covid patients over time. The vertical dotted line shows the last day with updated capacity information from Knox County, when there were 18 ICU beds available (ignoring surge capacity) for people in the East Tennessee region. The seven day average is shown.</p>
 <p><img src="covid_files/figure-html/plotsD-1.png" width="672" /></p>
 <p>In December 2020, California instituted a new policy of going to shutdowns in regions when ICUs get filled above 85% capacity. When this happens, “Affected communities will be required to close personal service businesses, including hair and nail salons, playgrounds, zoos, museums, aquariums and wineries. Overnight, short-term stays at campgrounds would be prohibited. Restaurants will be required to return to take-out service only. Retail businesses will be limited to 20% of their customer capacity inside at any one time, with requirements for store officials to ensure there’s no indoor drinking or eating.” according to an <a href="https://www.latimes.com/california/story/2020-12-03/newsom-weighs-shutdown-california-covid-19-cases-soar-december">article in the LA times</a>. Tennessee is not bound by California’s rules, but we can plot our region’s hospital capacity and see how the current outbreak compares. Blue shows California’s threshold for shutting down many things like dining in restaurants; red shows full capacity for our region, when every bed is full (ignoring any surge capacity):</p>
 <p><img src="covid_files/figure-html/hospitalcapacityplotvsCA-1.png" width="672" /></p>
-<p>US Health and Human Services is now releasing data on hospital occupancy by hospital. For more, see <a href="https://healthdata.gov/dataset/covid-19-reported-patient-impact-and-hospital-capacity-facility">here</a>. I’m showing all the hospitals in east Tennessee that have at least a couple of updates in the HHS database (some tiny hospitals apparently rarely update this info). These data are for the week starting 2021-06-18. The first table is the capacity at various local hospitals, looking at just outpatient beds. These are weekly averages: there could be fluctuations over the week in bed occupancy and even in number of beds available, and they don’t necessarily mean this is what one can expect at hospitals today. Perhaps the most striking is the “Adult ICU number avail”: how many beds in the ICU were available, on average, over the week starting 2021-06-18 at various local hospitals, which ranged from 2 to at most 7 beds.</p>
+<p>US Health and Human Services is now releasing data on hospital occupancy by hospital. For more, see <a href="https://healthdata.gov/dataset/covid-19-reported-patient-impact-and-hospital-capacity-facility">here</a>. I’m showing all the hospitals in east Tennessee that have at least a couple of updates in the HHS database (some tiny hospitals apparently rarely update this info). These data are for the week starting 2021-07-02. The first table is the capacity at various local hospitals, looking at just outpatient beds. These are weekly averages: there could be fluctuations over the week in bed occupancy and even in number of beds available, and they don’t necessarily mean this is what one can expect at hospitals today. Perhaps the most striking is the “Adult ICU number avail”: how many beds in the ICU were available, on average, over the week starting 2021-07-02 at various local hospitals, which ranged from 3 to at most 3 beds.</p>
 <table>
 <colgroup>
 <col width="20%" />
@@ -592,24 +548,14 @@ Hospitalization
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">University of TN Medical Center</td>
-<td align="left">Knoxville</td>
-<td align="right">631</td>
-<td align="right">72</td>
-<td align="right">11</td>
-<td align="right">91</td>
-<td align="right">7</td>
-<td align="right">8</td>
-</tr>
-<tr class="even">
 <td align="left">Sweetwater Hospital Association</td>
 <td align="left">Sweetwater</td>
 <td align="right">60</td>
-<td align="right">21</td>
-<td align="right">35</td>
+<td align="right">28</td>
+<td align="right">46</td>
 <td align="right">7</td>
-<td align="right">2</td>
-<td align="right">24</td>
+<td align="right">3</td>
+<td align="right">39</td>
 </tr>
 </tbody>
 </table>

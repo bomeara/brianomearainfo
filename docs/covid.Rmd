@@ -182,6 +182,7 @@ schoolkids_oakridge$Region <- "Anderson + Roane"
 schoolkids_daily <- rbind(schoolkids_knox, schoolkids_oakridge, schoolkids_region)
 
 
+
 hospital_knox_files <- list.files(path="/Users/bomeara/Dropbox/KnoxCovid", pattern="*covid_bed_capacity.csv", full.names=TRUE)
 hospital_knox <- data.frame()
 for (i in seq_along(hospital_knox_files)) {
@@ -416,11 +417,12 @@ download.file(dataURL, destfile=temp, mode='wb')
 demographics <- readxl::read_xlsx(temp, sheet =1)
 demographics$percent_of_demographic_with_cases <- 0
 demographics$percent_of_demographic_dead <- 0
-demographics <- subset(demographics, as.character(demographics$Date)!="2020-07-28") #there was an error that day for Native Hawaiian or Other Pacific Islander: it went from 2 to 15 recorded deaths. Remove date from all data just to be safe.
+demographics$Date <- demographics$DATE
+demographics <- subset(demographics, as.character(demographics$DATE)!="2020-07-28") #there was an error that day for Native Hawaiian or Other Pacific Islander: it went from 2 to 15 recorded deaths. Remove date from all data just to be safe.
 
 
 
-race <- subset(demographics, Category=="RACE")
+race <- subset(demographics, CATEGORY=="RACE")
 race <- subset(race, CAT_DETAIL != "Pending")
 
 
@@ -442,7 +444,7 @@ race <- subset(race, CAT_DETAIL!="Other/ Multiracial") # see note above
 race$Race <- race$CAT_DETAIL
 
 
-ethnicity <- subset(demographics, Category=="ETHNICITY")
+ethnicity <- subset(demographics, CATEGORY=="ETHNICITY")
 ethnicity <- subset(ethnicity, CAT_DETAIL != "Pending")
 
 ethnicity[which(ethnicity$CAT_DETAIL=="Hispanic"),]$percent_of_demographic_with_cases <- 100*ethnicity[which(ethnicity$CAT_DETAIL=="Hispanic"),]$CAT_TOTALCASES/population_hispanic
@@ -455,7 +457,7 @@ ethnicity$Ethnicity <- ethnicity$CAT_DETAIL
 
 
 
-sex <- subset(demographics, Category=="SEX")
+sex <- subset(demographics, CATEGORY=="SEX")
 sex <- subset(sex, CAT_DETAIL != "Pending")
 
 
@@ -549,7 +551,7 @@ daily_utk <- daily_utk[order(daily_utk$DATE), ]
 daily_utk$NEW_PROPORTION_CONFIRMED <- 100*daily_utk$NEW_CONFIRMED/daily_utk$NEW_TESTS
 
 daily_focal_no_ut <- daily_focal[!grepl("UTK", daily_focal$Region), ]
-
+daily_focal_no_ut_cleaned <- daily_focal_no_ut
 ```
 
 <h2 id="cases">Cases</h2>
@@ -692,35 +694,6 @@ print(plot_sex_covid_vaccination_full)
 
 <h2 id="cdc">CDC guidance</h2>
 
-The Centers for Disease Control (CDC) updated their [guidance](https://www.cdc.gov/coronavirus/2019-ncov/community/schools-childcare/operation-strategy.html#indicators) on school openings and community spread in Feb. 2021. 
-
-| Category                  | Blue                           | Yellow                         | Orange                                                | Red                                                                          |
-|---------------------------|--------------------------------|--------------------------------|-------------------------------------------------------|------------------------------------------------------------------------------|
-| Elementary                | In person; try 6 feet distance | In person; try 6 feet distance | Hybrid or reduced attendance; require 6 feet distance | Hybrid or reduced attendance; require 6 feet distance                        |
-| Middle & High School      | In person; try 6 feet distance | In person; try 6 feet distance | Hybrid or reduced attendance; require 6 feet distance | Virtual only unless can strictly implement all mitigation and have few cases |
-| Sports & Extracurriculars | Try 6 feet distance            | Require 6 feet distance        | Outdoors only; require 6 feet distance                | Virtual only                                                                 |
-
-
-```{r plots_cdc, echo=FALSE, message=FALSE, warning=FALSE, results=FALSE}
-daily_focal_no_ut_cleaned <- daily_focal_no_ut[!is.na(daily_focal_no_ut$New_cases_per_100k_per_week),]
-daily_focal_no_ut_cleaned <- daily_focal_no_ut_cleaned[!is.na(daily_focal_no_ut_cleaned$PositivityPercentage_per_week),]
-daily_focal_no_ut_cleaned <- subset(daily_focal_no_ut_cleaned, Region!="East TN")
-daily_focal_no_ut_cleaned_recent <- subset(daily_focal_no_ut_cleaned, DATE>="2020-08-01 UTC")
-
-
-local_cdc <- ggplot(daily_focal_no_ut_cleaned_recent, aes(x=PositivityPercentage_per_week, y=New_cases_per_100k_per_week, group=Region, label=Region)) + ylab("Number of new cases in area each week per 100,000 people") + xlab("Percentage of positive tests per week") + theme_classic() +
-annotate(geom="rect", xmin=0, xmax=max(daily_focal_no_ut_cleaned_recent$PositivityPercentage_per_week), ymin=0, ymax=max(daily_focal_no_ut_cleaned_recent$New_cases_per_100k_per_week), alpha=1, fill="lightblue1") +
-annotate(geom="rect", xmin=5, xmax=max(daily_focal_no_ut_cleaned_recent$PositivityPercentage_per_week), ymin=9.5, ymax=max(daily_focal_no_ut_cleaned_recent$New_cases_per_100k_per_week), alpha=1, fill="khaki1") +
-annotate(geom="rect", xmin=7.95, xmax=max(daily_focal_no_ut_cleaned_recent$PositivityPercentage_per_week), ymin=49.5, ymax=max(daily_focal_no_ut_cleaned_recent$New_cases_per_100k_per_week), alpha=1, fill="tan1") +
-annotate(geom="rect", xmin=9.95, xmax=max(daily_focal_no_ut_cleaned_recent$PositivityPercentage_per_week), ymin=99.5, ymax=max(daily_focal_no_ut_cleaned_recent$New_cases_per_100k_per_week), alpha=1, fill="indianred1") +
-geom_point() + geom_text_repel() +
-    transition_states(DATE, transition_length = 2, state_length = 1) +
-                    ggtitle('{closest_state}')
-print(animate(local_cdc, end_pause=30, nframes=3*length(unique(daily_focal_no_ut_cleaned_recent$DATE))))
-anim_save(filename="cdcrange.gif")
-
-```
-![](cdcrange.gif)
 
 
 This shows the plot of new cases per week, using CDC guidelines for problematic areas.
@@ -766,7 +739,7 @@ print(local_positivity)
 Tennessee now breaks out covid test results for school age children (age 5-18). The number of tests in this age group and the underlying population size aren't known to me, so things like positivity rate and proportion of students infected cannot be determined, but the raw number of students infected can be shown (doing a seven day average):
 
 ```{r studentinfections, echo=FALSE, message=FALSE, warning=FALSE}
-try(student_covid_total <- ggplot(schoolkids_daily, aes(x=DATE, y=CASE_COUNT, group=Region)) + geom_line(aes(colour=Region)) +  ylab("Total number of students who have tested positive") + xlab("Date") + scale_colour_viridis_d(end=0.8))
+try(student_covid_total <- ggplot(schoolkids_daily, aes(x=DATE, y=TOTAL_CASES, group=Region)) + geom_line(aes(colour=Region)) +  ylab("Total number of students who have tested positive") + xlab("Date") + scale_colour_viridis_d(end=0.8))
 try(print(student_covid_total))
 
 try(student_covid_daily <- ggplot(schoolkids_daily, aes(x=DATE, y=NEW_CASES, group=Region)) +  geom_ma(aes(colour=Region, linetype="a")) +  guides(linetype = FALSE) + ylab("Number of students with new positive covid results daily, 7 day avg") + xlab("Date") + scale_colour_viridis_d(end=0.8))

@@ -386,7 +386,7 @@ $(document).ready(function () {
 <li><a href="https://healthdata.gov/dataset/covid-19-reported-patient-impact-and-hospital-capacity-facility">US HHS hospitalization by facility</a></li>
 </ul>
 <hr />
-<p>The following plots are created in R using data from <a href="https://covid19datahub.io" class="uri">https://covid19datahub.io</a> (Guidotti, E., Ardia, D., (2020), “COVID-19 Data Hub”, Working paper, doi: 10.13140/RG.2.2.11649.81763), as well as information from Google and the <a href="https://www.tn.gov/health/cedep/ncov/data/downloadable-datasets.html">state of Tennessee dataset page</a> and plotting and analysis using the <code>forecast</code>, <code>ggplot2</code>, <code>reshape2</code>, and <code>dplyr</code> packages. Plots created on 2021-07-16 12:41:45. I use a seven day rolling average for most plots using the <code>geom_ma</code> function of <code>tidyquant</code>.</p>
+<p>The following plots are created in R using data from <a href="https://covid19datahub.io" class="uri">https://covid19datahub.io</a> (Guidotti, E., Ardia, D., (2020), “COVID-19 Data Hub”, Working paper, doi: 10.13140/RG.2.2.11649.81763), as well as information from Google and the <a href="https://www.tn.gov/health/cedep/ncov/data/downloadable-datasets.html">state of Tennessee dataset page</a> and plotting and analysis using the <code>forecast</code>, <code>ggplot2</code>, <code>reshape2</code>, and <code>dplyr</code> packages. Plots created on 2021-07-17 05:59:26. I use a seven day rolling average for most plots using the <code>geom_ma</code> function of <code>tidyquant</code>.</p>
 <h2 id="cases">
 Cases
 </h2>
@@ -437,16 +437,16 @@ Summary table
 <td align="left">Asian</td>
 <td align="left">5.8%</td>
 <td align="left">0.06%</td>
-<td align="left">45.1%</td>
-<td align="left">38.9%</td>
+<td align="left">45.2%</td>
+<td align="left">39%</td>
 </tr>
 <tr class="odd">
 <td align="left">Race</td>
 <td align="left">Black or African American</td>
 <td align="left">10.2%</td>
 <td align="left">0.19%</td>
-<td align="left">28.8%</td>
-<td align="left">24.3%</td>
+<td align="left">28.9%</td>
+<td align="left">24.4%</td>
 </tr>
 <tr class="even">
 <td align="left">Race</td>
@@ -469,7 +469,7 @@ Summary table
 <td align="left">Hispanic</td>
 <td align="left">13.6%</td>
 <td align="left">0.08%</td>
-<td align="left">37.6%</td>
+<td align="left">37.7%</td>
 <td align="left">31.2%</td>
 </tr>
 <tr class="odd">
@@ -477,16 +477,16 @@ Summary table
 <td align="left">Not Hispanic or Latino</td>
 <td align="left">9.3%</td>
 <td align="left">0.18%</td>
-<td align="left">38%</td>
+<td align="left">38.1%</td>
 <td align="left">34.5%</td>
 </tr>
 <tr class="even">
 <td align="left">Sex</td>
 <td align="left">Female</td>
-<td align="left">13.2%</td>
+<td align="left">13.3%</td>
 <td align="left">0.17%</td>
-<td align="left">45.9%</td>
-<td align="left">41.3%</td>
+<td align="left">46%</td>
+<td align="left">41.4%</td>
 </tr>
 <tr class="odd">
 <td align="left">Sex</td>
@@ -504,11 +504,11 @@ Vaccination
 <p>Tennessee releases information on demographics of individuals getting vaccinated. All terminology follows that used by the state, including terms like race and sex.</p>
 <p><img src="covid_files/figure-html/vaccination1-1.png" width="672" /><img src="covid_files/figure-html/vaccination1-2.png" width="672" /><img src="covid_files/figure-html/vaccination1-3.png" width="672" /><img src="covid_files/figure-html/vaccination1-4.png" width="672" /><img src="covid_files/figure-html/vaccination1-5.png" width="672" /><img src="covid_files/figure-html/vaccination1-6.png" width="672" /></p>
 <h2 id="cdc">
-CDC guidance
+Cases locally
 </h2>
-<p>This shows the plot of new cases per week, using CDC guidelines for problematic areas.</p>
+<p>This shows cases locally. I’m zooming in on the most recent months: the huge peak around January 2021 obscures the current dynamics otherwise.</p>
 <p><img src="covid_files/figure-html/plots_new_cdc-1.png" width="672" /></p>
-<p>This shows the plot of percent of positive tests per week, also using CDC guidelines</p>
+<p>This shows the plot of percent of positive tests per week.</p>
 <p><img src="covid_files/figure-html/plots_positivity_cdc-1.png" width="672" /></p>
 <p>Tennessee now breaks out covid test results for school age children (age 5-18). The number of tests in this age group and the underlying population size aren’t known to me, so things like positivity rate and proportion of students infected cannot be determined, but the raw number of students infected can be shown (doing a seven day average):</p>
 <p><img src="covid_files/figure-html/studentinfections-1.png" width="672" /><img src="covid_files/figure-html/studentinfections-2.png" width="672" /></p>
@@ -516,7 +516,7 @@ CDC guidance
 <h2 id="hospitalization">
 Hospitalization
 </h2>
-<p>As of the last time the data were updated (likely 2 days ago), regional hospitals had 18 ICU beds available of 317 total (so was at 94 percent capacity), and 294 available ventilators out of 419 total, (so was at 30 percent capacity). The hospitals overall had 447 beds available of 3081 total (so was at 85 percent capacity). This is based on 19 acute care hospitals in the East TN region; based on the 14 counties these hospitals are in, these serve at least 1,235,720 people. When a line hits 100% (indicated in red), the local hospitals are theoretically full for that resource (for <em>all</em> patients, not just covid patients), though there is surge capacity on top of this. Note that these data are updated only weekly, so current conditions maybe be much better or worse than these plots show. Data on capacity from Knox County’s dashboard, data on hospitalizations and testing over time from the state data.</p>
+<p>As of the last time the data were updated (likely 3 days ago), regional hospitals had 18 ICU beds available of 317 total (so was at 94 percent capacity), and 294 available ventilators out of 419 total, (so was at 30 percent capacity). The hospitals overall had 447 beds available of 3081 total (so was at 85 percent capacity). This is based on 19 acute care hospitals in the East TN region; based on the 14 counties these hospitals are in, these serve at least 1,235,720 people. When a line hits 100% (indicated in red), the local hospitals are theoretically full for that resource (for <em>all</em> patients, not just covid patients), though there is surge capacity on top of this. Note that these data are updated only weekly, so current conditions maybe be much better or worse than these plots show. Data on capacity from Knox County’s dashboard, data on hospitalizations and testing over time from the state data.</p>
 <p><img src="covid_files/figure-html/hospitalcapacityplot-1.png" width="672" /></p>
 <p>Trends in hospitalization of covid patients over time. The vertical dotted line shows the last day with updated capacity information from Knox County, when there were 18 ICU beds available (ignoring surge capacity) for people in the East Tennessee region. The seven day average is shown.</p>
 <p><img src="covid_files/figure-html/plotsD-1.png" width="672" /></p>

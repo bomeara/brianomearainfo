@@ -692,20 +692,22 @@ print(plot_sex_covid_vaccination_full)
 
 
 
-<h2 id="cdc">CDC guidance</h2>
+<h2 id="cdc">Cases locally</h2>
 
 
-
-This shows the plot of new cases per week, using CDC guidelines for problematic areas.
+This shows cases locally. I'm zooming in on the most recent months: the huge peak around January 2021 obscures the current dynamics otherwise.
 
 
 ```{r plots_new_cdc, echo=FALSE, message=FALSE, warning=FALSE}
 
-local_new <- ggplot(daily_focal_no_ut_cleaned, aes(x=DATE, y=New_cases_per_100k_per_week, group=Region, colour=Region)) + 
-annotate(geom="rect", xmin=min(daily_focal_no_ut_cleaned$DATE), xmax=max(daily_focal_no_ut_cleaned$DATE), ymin=0, ymax=max(daily_focal_no_ut_cleaned$New_cases_per_100k_per_week), alpha=.8, fill="lightblue1") +
-annotate(geom="rect", xmin=min(daily_focal_no_ut_cleaned$DATE), xmax=max(daily_focal_no_ut_cleaned$DATE), ymin=9.5, ymax=max(daily_focal_no_ut_cleaned$New_cases_per_100k_per_week), alpha=.8, fill="khaki1") +
-annotate(geom="rect", xmin=min(daily_focal_no_ut_cleaned$DATE), xmax=max(daily_focal_no_ut_cleaned$DATE), ymin=49.5, ymax=max(daily_focal_no_ut_cleaned$New_cases_per_100k_per_week), alpha=.8, fill="tan1") +
-annotate(geom="rect", xmin=min(daily_focal_no_ut_cleaned$DATE), xmax=max(daily_focal_no_ut_cleaned$DATE), ymin=99.5, ymax=max(daily_focal_no_ut_cleaned$New_cases_per_100k_per_week), alpha=.8, fill="indianred1") +
+#local_new <- ggplot(daily_focal_no_ut_cleaned, aes(x=DATE, y=New_cases_per_100k_per_week, group=Region, colour=Region)) + 
+#annotate(geom="rect", xmin=min(daily_focal_no_ut_cleaned$DATE), xmax=max(daily_focal_no_ut_cleaned$DATE), ymin=0, ymax=max(daily_focal_no_ut_cleaned$New_cases_per_100k_per_week), alpha=.8, fill="lightblue1") +
+#annotate(geom="rect", xmin=min(daily_focal_no_ut_cleaned$DATE), xmax=max(daily_focal_no_ut_cleaned$DATE), ymin=9.5, ymax=max(daily_focal_no_ut_cleaned$New_cases_per_100k_per_week), alpha=.8, fill="khaki1") +
+#annotate(geom="rect", xmin=min(daily_focal_no_ut_cleaned$DATE), xmax=max(daily_focal_no_ut_cleaned$DATE), ymin=49.5, ymax=max(daily_focal_no_ut_cleaned$New_cases_per_100k_per_week), alpha=.8, fill="tan1") +
+#annotate(geom="rect", xmin=min(daily_focal_no_ut_cleaned$DATE), xmax=max(daily_focal_no_ut_cleaned$DATE), ymin=99.5, ymax=max(daily_focal_no_ut_cleaned$New_cases_per_100k_per_week), alpha=.8, fill="indianred1") +
+#theme_classic() + geom_line()  + ylab("Number of new cases in area each week per 100,000 people") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.3) 
+
+local_new <- ggplot(subset(daily_focal_no_ut_cleaned, DATE>="2021-06-01"), aes(x=DATE, y=New_cases_per_100k_per_week, group=Region, colour=Region)) + 
 theme_classic() + geom_line()  + ylab("Number of new cases in area each week per 100,000 people") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.3) 
 print(local_new)
 
@@ -716,15 +718,15 @@ print(local_new)
 
 ```
 
-This shows the plot of percent of positive tests per week, also using CDC guidelines
+This shows the plot of percent of positive tests per week.
 
 ```{r plots_positivity_cdc, echo=FALSE, message=FALSE, warning=FALSE}
 
-local_positivity <- ggplot(daily_focal_no_ut_cleaned, aes(x=DATE, y=PositivityPercentage_per_week, group=Region, colour=Region)) + 
-annotate(geom="rect", xmin=min(daily_focal_no_ut_cleaned$DATE), xmax=max(daily_focal_no_ut_cleaned$DATE), ymin=0, ymax=max(daily_focal_no_ut_cleaned$PositivityPercentage_per_week), alpha=.8, fill="lightblue1") +
-annotate(geom="rect", xmin=min(daily_focal_no_ut_cleaned$DATE), xmax=max(daily_focal_no_ut_cleaned$DATE), ymin=5, ymax=max(daily_focal_no_ut_cleaned$PositivityPercentage_per_week), alpha=.8, fill="khaki1") +
-annotate(geom="rect", xmin=min(daily_focal_no_ut_cleaned$DATE), xmax=max(daily_focal_no_ut_cleaned$DATE), ymin=7.95, ymax=max(daily_focal_no_ut_cleaned$PositivityPercentage_per_week), alpha=.8, fill="tan1") +
-annotate(geom="rect", xmin=min(daily_focal_no_ut_cleaned$DATE), xmax=max(daily_focal_no_ut_cleaned$DATE), ymin=9.95, ymax=max(daily_focal_no_ut_cleaned$PositivityPercentage_per_week), alpha=.8, fill="indianred1") +
+local_positivity <- ggplot(subset(daily_focal_no_ut_cleaned, DATE>="2021-06-01"), aes(x=DATE, y=PositivityPercentage_per_week, group=Region, colour=Region)) + 
+#annotate(geom="rect", xmin=min(daily_focal_no_ut_cleaned$DATE), xmax=max(daily_focal_no_ut_cleaned$DATE), ymin=0, ymax=max(daily_focal_no_ut_cleaned$PositivityPercentage_per_week), alpha=.8, fill="lightblue1") +
+#annotate(geom="rect", xmin=min(daily_focal_no_ut_cleaned$DATE), xmax=max(daily_focal_no_ut_cleaned$DATE), ymin=5, ymax=max(daily_focal_no_ut_cleaned$PositivityPercentage_per_week), alpha=.8, fill="khaki1") +
+#annotate(geom="rect", xmin=min(daily_focal_no_ut_cleaned$DATE), xmax=max(daily_focal_no_ut_cleaned$DATE), ymin=7.95, ymax=max(daily_focal_no_ut_cleaned$PositivityPercentage_per_week), alpha=.8, fill="tan1") +
+#annotate(geom="rect", xmin=min(daily_focal_no_ut_cleaned$DATE), xmax=max(daily_focal_no_ut_cleaned$DATE), ymin=9.95, ymax=max(daily_focal_no_ut_cleaned$PositivityPercentage_per_week), alpha=.8, fill="indianred1") +
 theme_classic() + geom_line()  + ylab("Percentage of positive tests per week") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.3) 
 print(local_positivity)
 
@@ -742,7 +744,7 @@ Tennessee now breaks out covid test results for school age children (age 5-18). 
 try(student_covid_total <- ggplot(schoolkids_daily, aes(x=DATE, y=TOTAL_CASES, group=Region)) + geom_line(aes(colour=Region)) +  ylab("Total number of students who have tested positive") + xlab("Date") + scale_colour_viridis_d(end=0.8))
 try(print(student_covid_total))
 
-try(student_covid_daily <- ggplot(schoolkids_daily, aes(x=DATE, y=NEW_CASES, group=Region)) +  geom_ma(aes(colour=Region, linetype="a")) +  guides(linetype = FALSE) + ylab("Number of students with new positive covid results daily, 7 day avg") + xlab("Date") + scale_colour_viridis_d(end=0.8))
+try(student_covid_daily <- ggplot(subset(schoolkids_daily, DATE>="2021-06-01"), aes(x=DATE, y=NEW_CASES, group=Region)) +  geom_ma(aes(colour=Region, linetype="a")) +  guides(linetype = FALSE) + ylab("Number of students with new positive covid results daily, 7 day avg") + xlab("Date") + scale_colour_viridis_d(end=0.8))
 try(print(student_covid_daily))
 ```
 
@@ -1082,7 +1084,7 @@ Testing at UT is also a question. The plot below shows reported number of tests 
 
 
 
-ut_testing_plot <- ggplot(daily_utk[!is.na(daily_utk$NEW_TESTS),], aes(x=DATE, y=NEW_TESTS, group=Data_source)) + geom_line(aes(colour=Data_source)) + guides(linetype = FALSE) + ylab("Actual number of new tests in student health center each day") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8) + geom_vline(xintercept=as.Date("2020-09-15"), color="black", lty="dotted") + scale_x_date(limits=as.Date(range(c(daily_utk$DATE[!is.na(daily_utk$TOTAL_TESTS)], as.POSIXct(Sys.Date()))))) 
+ut_testing_plot <- ggplot(subset(daily_utk[!is.na(daily_utk$NEW_TESTS),], DATE>="2021-06-01"), aes(x=DATE, y=NEW_TESTS, group=Data_source)) + geom_line(aes(colour=Data_source)) + guides(linetype = FALSE) + ylab("Actual number of new tests in student health center each day") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8) + geom_vline(xintercept=as.Date("2020-09-15"), color="black", lty="dotted") 
 print(ut_testing_plot)
 
 ```

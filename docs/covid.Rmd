@@ -9,17 +9,12 @@ Here are notes and links I personally find useful, all gathered in one place. Mo
 
 Other sources for data and other information:
 
-* <a href="https://www.utk.edu/coronavirus/">UTK coronavirus information</a>. See especially the <a href="https://chancellor.utk.edu/re-imagining-fall-task-force/report/">current task force report</a>.
+* <a href="https://www.utk.edu/coronavirus/">UTK coronavirus information</a>.
 * <a href="https://covid.knoxcountytn.gov/case-count.html#covid_data">Knox County data</a>. This also includes info about Knox's reopening plan and the benchmarks they're using
-* <a href="https://insideofknoxville.com/">Inside of Knoxville</a> has reporting out of every health board meeting and other local news.
-* <i><a href="https://www.knoxnews.com/news/">Knoxville News Sentinel</a></i> is our remaining local paper (though some of its staff have been furloughed) and it covers covid in Knoxville and Knox County.
-* <a href="https://covid19-projections.com/us-tn">Projections for Tennessee</a>
+* <i><a href="https://www.knoxnews.com/news/">Knoxville News Sentinel</a></i> is our main local paper and it covers covid in Knoxville and Knox County.
 * <a href="https://covidactnow.org/us/tn?s=49762">Covid ActNow aggregate</a> of information, including contact tracing, infection rate, and more
 * <a href="https://nextstrain.org/ncov">COVID-19 phylogeny</a>. Family tree of the COVID-19 viruses around the world. This can be used by experts to understand how the disease has spread and is continuing to spread, as well as possible evolution during its spread.
-* <a href="https://projects.propublica.org/reopening-america/">ProPublica's tracker of state status</a>. Click on the play button below their map to see how rates are changing over time, and dig into info on your state.
 * <a href="https://www.tn.gov/health/cedep/ncov/data/downloadable-datasets.html">Tennessee Downloadable Datasets</a>
-* <a href="https://sites.google.com/view/utk-covid19">Alex Zukowski's UTK dashboard</a>, including testing numbers that are available due to his work requesting them
-* <a href="https://datastudio.google.com/u/0/reporting/9d4c8edd-0634-4dc4-a647-5de19183a437/page/IxOeB">Matthew Martin's UTK dashboard</a>
 * <a href="https://healthdata.gov/dataset/covid-19-reported-patient-impact-and-hospital-capacity-facility">US HHS hospitalization by facility</a>
 
 <hr />
@@ -62,18 +57,7 @@ oakridge <- subset(us, administrative_area_level_3 %in% c("Roane", "Anderson") &
 region <-  subset(us, administrative_area_level_3 %in% counties_in_hospital_region & administrative_area_level_2=="Tennessee")
 knox$percentconfirmed <- 100*knox$confirmed/knox$population
 
-utk_testing_zukowski <- read.csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vRRoX-icFl5a6T5OVpSllMJ3QGVplgdDEKPHtuvEjcDKNEvw5X6dcgGYSMGmynFcdxUwH2u4kZjBTiT/pub?gid=1083850404&single=true&output=csv")
-utk_testing_zukowski$Year <- 2020
-year <- 2020
-for (i in sequence(nrow(utk_testing_zukowski))) {
-	if(grepl("Jan", utk_testing_zukowski$Date[i])) {
-		year <- 2021 #so Jan and later going down get 2021
-	}
-	utk_testing_zukowski$Year[i] <- year
-}
-utk_testing_zukowski$Date <- lubridate::mdy(paste(utk_testing_zukowski$Date, utk_testing_zukowski$Year, sep=", "))
 
-utk_reported_zukowski <- read.csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vRRoX-icFl5a6T5OVpSllMJ3QGVplgdDEKPHtuvEjcDKNEvw5X6dcgGYSMGmynFcdxUwH2u4kZjBTiT/pub?gid=1053792052&single=true&output=csv")
 
 tn_aggregate <- tn %>% group_by(date) %>% summarise(confirmed = sum(confirmed), population=sum(population))
 tn_aggregate$percentconfirmed <- 100*tn_aggregate$confirmed/tn_aggregate$population
@@ -149,14 +133,7 @@ daily_region$New_cases_per_100k_per_week <- 100000*zoo::rollsum(daily_region$NEW
 daily_region$PositivityRate_per_week <- zoo::rollsum(daily_region$NEW_POS_TESTS, k=7, align="right", fill=NA) / zoo::rollsum(daily_region$NEW_TESTS, k=7, align="right", fill=NA)
 
 
-daily_utk_testing_zukowski <- data.frame(DATE=utk_testing_zukowski$Date, TOTAL_CASES=utk_testing_zukowski$TESTS_POS_TOTAL, NEW_CASES=utk_testing_zukowski$TESTS_POS_NEW, TOTAL_CONFIRMED=utk_testing_zukowski$TESTS_POS_TOTAL, NEW_CONFIRMED=utk_testing_zukowski$TESTS_POS_NEW, POS_TESTS=utk_testing_zukowski$TESTS_POS_TOTAL, NEW_POS_TESTS=utk_testing_zukowski$TESTS_POS_NEW, NEG_TESTS=utk_testing_zukowski$TESTS_NEG_TOTAL, NEW_NEG_TESTS=utk_testing_zukowski$TESTS_NEG_NEW, TOTAL_TESTS=utk_testing_zukowski$TESTS_TOTAL, NEW_TESTS=utk_testing_zukowski$TESTS_NEW, Population=30000, Region="UTK Student Testing")
-
-daily_utk_reported_zukowski <- data.frame(DATE=lubridate::ymd(utk_reported_zukowski$DATE), TOTAL_CASES=utk_reported_zukowski$CASES_TOTAL, NEW_CASES=utk_reported_zukowski$CASES_NEW, TOTAL_CONFIRMED=utk_reported_zukowski$CASES_TOTAL, NEW_CONFIRMED=utk_reported_zukowski$CASES_NEW,  TOTAL_ACTIVE=utk_reported_zukowski$CASES_ACTIVE, Population=30000, Region="UTK Reported")
-
-#daily_focal <- dplyr::bind_rows(daily_knox, daily_oakridge, daily_region, daily_utk_testing_zukowski, daily_utk_reported_zukowski)
-
-daily_focal <- dplyr::bind_rows(daily_knox, daily_oakridge, daily_region, daily_utk_testing_zukowski, daily_utk_reported_zukowski)
-
+daily_focal <- dplyr::bind_rows(daily_knox, daily_oakridge, daily_region)
 daily_focal$Tests_per_100k <- 100000*(daily_focal$NEW_TESTS/daily_focal$Population)
 daily_focal$New_cases_per_100k <- 100000*(daily_focal$NEW_CASES/daily_focal$Population)
 daily_focal$Active_cases_per_100k <- 100000*(daily_focal$TOTAL_ACTIVE/daily_focal$Population)
@@ -397,9 +374,25 @@ demographics_vaccine$RECIP_FULLY_VACC[is.na(demographics_vaccine$RECIP_FULLY_VAC
 
 race_vaccine <- subset(demographics_vaccine, CATEGORY=="RACE")
 race_vaccine$Race <- stringr::str_to_title(race_vaccine$CAT_DETAIL)
+race_vaccine$PercentFullyVaccinated <- NA
+race_vaccine$PercentFullyVaccinated <- as.numeric(race_vaccine$PercentFullyVaccinated)
+
+race_vaccine[which(race_vaccine$Race=="White"),]$PercentFullyVaccinated <- 100*race_vaccine[which(race_vaccine$Race=="White"),]$RECIP_FULLY_VACC/population_white
+race_vaccine[which(race_vaccine$Race=="Black Or African American"),]$PercentFullyVaccinated <- 100*race_vaccine[which(race_vaccine$Race=="Black Or African American"),]$RECIP_FULLY_VACC/population_black_africanamerican
+race_vaccine[which(race_vaccine$Race=="Asian"),]$PercentFullyVaccinated <- 100*race_vaccine[which(race_vaccine$Race=="Asian"),]$RECIP_FULLY_VACC/population_asian
+
+race_vaccine <- subset(race_vaccine, !is.na(PercentFullyVaccinated))
 
 ethnicity_vaccine <- subset(demographics_vaccine, CATEGORY=="ETHN")
 ethnicity_vaccine$Ethnicity <- stringr::str_to_title(ethnicity_vaccine$CAT_DETAIL)
+
+ethnicity_vaccine$PercentFullyVaccinated <- NA
+ethnicity_vaccine$PercentFullyVaccinated <- as.numeric(ethnicity_vaccine$PercentFullyVaccinated)
+
+ethnicity_vaccine[which(ethnicity_vaccine$Ethnicity=="Hispanic Or Latino"),]$PercentFullyVaccinated <- 100*ethnicity_vaccine[which(ethnicity_vaccine$Ethnicity=="Hispanic Or Latino"),]$RECIP_FULLY_VACC/population_hispanic
+ethnicity_vaccine[which(ethnicity_vaccine$Ethnicity=="Not Hispanic Or Latino"),]$PercentFullyVaccinated <- 100*ethnicity_vaccine[which(ethnicity_vaccine$Ethnicity=="Not Hispanic Or Latino"),]$RECIP_FULLY_VACC/population_not_hispanic
+ethnicity_vaccine <- subset(ethnicity_vaccine, !is.na(PercentFullyVaccinated))
+
 
 sex_vaccine <- subset(demographics_vaccine, CATEGORY=="SEX")
 sex_vaccine$Sex <- stringr::str_to_title(sex_vaccine$CAT_DETAIL)
@@ -407,6 +400,14 @@ sex_vaccine$Sex <- gsub("F", "Female", sex_vaccine$Sex)
 sex_vaccine$Sex <- gsub("M", "Male", sex_vaccine$Sex)
 sex_vaccine$Sex <- gsub("U", "Unknown", sex_vaccine$Sex)
 sex_vaccine$Sex <- gsub("O", "Other", sex_vaccine$Sex)
+sex_vaccine$PercentFullyVaccinated <- NA
+sex_vaccine$PercentFullyVaccinated <- as.numeric(sex_vaccine$PercentFullyVaccinated)
+sex_vaccine[which(sex_vaccine$Sex=="Female"),]$PercentFullyVaccinated <- 100*sex_vaccine[which(sex_vaccine$Sex=="Female"),]$RECIP_FULLY_VACC/population_female
+sex_vaccine[which(sex_vaccine$Sex=="Male"),]$PercentFullyVaccinated <- 100*sex_vaccine[which(sex_vaccine$Sex=="Male"),]$RECIP_FULLY_VACC/population_male
+sex_vaccine <- subset(sex_vaccine, !is.na(PercentFullyVaccinated))
+
+
+
 
 
 
@@ -446,6 +447,8 @@ race$Race <- race$CAT_DETAIL
 
 ethnicity <- subset(demographics, CATEGORY=="ETHNICITY")
 ethnicity <- subset(ethnicity, CAT_DETAIL != "Pending")
+ethnicity$Ethnicity <- ethnicity$CAT_DETAIL
+
 
 ethnicity[which(ethnicity$CAT_DETAIL=="Hispanic"),]$percent_of_demographic_with_cases <- 100*ethnicity[which(ethnicity$CAT_DETAIL=="Hispanic"),]$CAT_TOTALCASES/population_hispanic
 ethnicity[which(ethnicity$CAT_DETAIL=="Hispanic"),]$percent_of_demographic_dead <- 100*ethnicity[which(ethnicity$CAT_DETAIL=="Hispanic"),]$CAT_TOTALDEATHS/population_hispanic
@@ -453,7 +456,6 @@ ethnicity[which(ethnicity$CAT_DETAIL=="Hispanic"),]$percent_of_demographic_dead 
 
 ethnicity[which(ethnicity$CAT_DETAIL=="Not Hispanic or Latino"),]$percent_of_demographic_with_cases <- 100*ethnicity[which(ethnicity$CAT_DETAIL=="Not Hispanic or Latino"),]$CAT_TOTALCASES/population_not_hispanic
 ethnicity[which(ethnicity$CAT_DETAIL=="Not Hispanic or Latino"),]$percent_of_demographic_dead <- 100*ethnicity[which(ethnicity$CAT_DETAIL=="Not Hispanic or Latino"),]$CAT_TOTALDEATHS/population_not_hispanic
-ethnicity$Ethnicity <- ethnicity$CAT_DETAIL
 
 
 
@@ -543,9 +545,8 @@ for (i in 1:6) {
 	utk_official_testing <- rbind(utk_official_testing, next_day)
 }
 
-daily_utk$Data_source <- "UTK Zukowski release"
 utk_official_testing$Data_source <- "UTK weekly release"
-daily_utk <- plyr::rbind.fill(daily_utk, utk_official_testing)
+daily_utk <- utk_official_testing
 daily_utk <- daily_utk[order(daily_utk$DATE), ]
 
 daily_utk$NEW_PROPORTION_CONFIRMED <- 100*daily_utk$NEW_CONFIRMED/daily_utk$NEW_TESTS
@@ -565,8 +566,6 @@ I plot five regions (though for simplicity, for some of the plots I omit East TN
 * East TN (the `r length(counties_in_hospital_region)` counties that have acute care hospitals in Knox County/East Region according to Knox County)
 * UTK Student Testing, from tests done at the UTK student health center
 * UTK Reported, from all cases UT includes on their dashboard (student cases from the health center, cases reported from tests off campus that are communicated)
-
-Information from the last two datasets comes from the hard work of Alex Zukowski, who requests the testing data and who aggregates the reported data. Zukowski, Taylor A. “University of Tennessee, Knoxville COVID-19 Dataset.” COVID-19 in The University of Tennessee, Knoxville, 2020, sites.[google.com/view/utk-covid19/data](google.com/view/utk-covid19/data). I recommend going to [https://sites.google.com/view/utk-covid19](https://sites.google.com/view/utk-covid19) for more on this dataset and the work going into gathering it.
 
 
 <h2 id="summarytable">Summary table</h2>
@@ -663,7 +662,7 @@ knitr::kable(sumtab)
 
 <h2 id="vaccination">Vaccination</h2>
 
-Tennessee releases information on demographics of individuals getting vaccinated. All terminology follows that used by the state, including terms like race and sex.
+Tennessee releases information on demographics of individuals getting vaccinated. All terminology follows that used by the state, including terms like race and sex. The way the census and Tennessee count individuals who identify as not being in Asian, White, or Black or African American groups (people who are multiracial, Native American, Pacific Islander, other) seems to differ in ways that make calculating the percentage of members of the these groups difficult; the same happens for people who do not identify as male or female.
 
 ```{r vaccination1, echo=FALSE, message=FALSE, warning=FALSE, error=FALSE}
 
@@ -671,22 +670,14 @@ Tennessee releases information on demographics of individuals getting vaccinated
 
 
 
-plot_race_covid_vaccination <- ggplot(race_vaccine, aes(x=DATE, y=VACCINE_COUNT, group=Race)) + geom_line(aes(colour=Race))+ xlab("Date") + ylab("Number of people with at least one vaccination")
-print(plot_race_covid_vaccination)
 
-plot_race_covid_vaccination_full <- ggplot(race_vaccine, aes(x=DATE, y=RECIP_FULLY_VACC, group=Race)) + geom_line(aes(colour=Race))+ xlab("Date") + ylab("Number of people fully vaccinated")
+plot_race_covid_vaccination_full <- ggplot(race_vaccine, aes(x=DATE, y=PercentFullyVaccinated, group=Race)) + geom_line(aes(colour=Race))+ xlab("Date") + ylim(0,100) + ylab("Percentage of people fully vaccinated")
 print(plot_race_covid_vaccination_full)
 
-plot_ethnicity_covid_vaccination <- ggplot(ethnicity_vaccine, aes(x=DATE, y=VACCINE_COUNT, group=Ethnicity)) + geom_line(aes(colour=Ethnicity))+ xlab("Date") + ylab("Number of people with at least one vaccination")
-print(plot_ethnicity_covid_vaccination)
-
-plot_ethnicity_covid_vaccination_full <- ggplot(ethnicity_vaccine, aes(x=DATE, y=RECIP_FULLY_VACC, group=Ethnicity)) + geom_line(aes(colour=Ethnicity))+ xlab("Date") + ylab("Number of people fully vaccinated")
+plot_ethnicity_covid_vaccination_full <- ggplot(ethnicity_vaccine, aes(x=DATE, y=PercentFullyVaccinated, group=Ethnicity)) + geom_line(aes(colour=Ethnicity))+ xlab("Date") + ylim(0,100) + ylab("Percentage of people fully vaccinated")
 print(plot_ethnicity_covid_vaccination_full)
 
-plot_sex_covid_vaccination <- ggplot(sex_vaccine, aes(x=DATE, y=VACCINE_COUNT, group=Sex)) + geom_line(aes(colour=Sex))+ xlab("Date") + ylab("Number of people with at least one vaccination")
-print(plot_sex_covid_vaccination)
-
-plot_sex_covid_vaccination_full <- ggplot(sex_vaccine, aes(x=DATE, y=RECIP_FULLY_VACC, group=Sex)) + geom_line(aes(colour=Sex))+ xlab("Date") + ylab("Number of people fully vaccinated")
+plot_sex_covid_vaccination_full <- ggplot(sex_vaccine, aes(x=DATE, y=PercentFullyVaccinated, group=Sex)) + geom_line(aes(colour=Sex))+ xlab("Date") + ylim(0,100) + ylab("Percentage of people fully vaccinated")
 print(plot_sex_covid_vaccination_full)
 ```
 
@@ -741,9 +732,6 @@ print(local_positivity)
 Tennessee now breaks out covid test results for school age children (age 5-18). The number of tests in this age group and the underlying population size aren't known to me, so things like positivity rate and proportion of students infected cannot be determined, but the raw number of students infected can be shown (doing a seven day average):
 
 ```{r studentinfections, echo=FALSE, message=FALSE, warning=FALSE}
-try(student_covid_total <- ggplot(schoolkids_daily, aes(x=DATE, y=TOTAL_CASES, group=Region)) + geom_line(aes(colour=Region)) +  ylab("Total number of students who have tested positive") + xlab("Date") + scale_colour_viridis_d(end=0.8))
-try(print(student_covid_total))
-
 try(student_covid_daily <- ggplot(subset(schoolkids_daily, DATE>="2021-06-01"), aes(x=DATE, y=NEW_CASES, group=Region)) +  geom_ma(aes(colour=Region, linetype="a")) +  guides(linetype = FALSE) + ylab("Number of students with new positive covid results daily, 7 day avg") + xlab("Date") + scale_colour_viridis_d(end=0.8))
 try(print(student_covid_daily))
 ```
@@ -821,7 +809,7 @@ As of the last time the data were updated (likely `r as.numeric(difftime(Sys.Dat
 
 
 ```{r hospitalcapacityplot, echo=FALSE, message=FALSE, warning=FALSE}
-try(hosp_plot <- ggplot(hospital_knox, aes(x=Date, y=Current.Utilization, group=East.Region.Hospitals)) + geom_line(aes(colour=East.Region.Hospitals)) +  ylab("Percent Utilization in East Tennessee Region") + xlab("Date") + ylim(0,100) + scale_colour_viridis_d(end=0.8) + geom_hline(yintercept=100, col="red"))
+try(hosp_plot <- ggplot(subset(hospital_knox, Date>="2021-06-01"), aes(x=Date, y=Current.Utilization, group=East.Region.Hospitals)) + geom_line(aes(colour=East.Region.Hospitals)) +  ylab("Percent Utilization in East Tennessee Region") + xlab("Date") + ylim(0,100) + scale_colour_viridis_d(end=0.8) + geom_hline(yintercept=100, col="red"))
 try(print(hosp_plot))
 
 ```
@@ -831,7 +819,7 @@ Trends in hospitalization of covid patients over time. The vertical dotted line 
 ```{r plotsD, echo=FALSE, message=FALSE, warning=FALSE}
 
 
-new_hospitalization <- ggplot(daily_focal[!is.na(daily_focal$NEW_HOSPITALIZED),], aes(x=DATE, y=NEW_HOSPITALIZED, group=Region)) + geom_ma(aes(colour=Region, linetype="a"), n=7) + guides(linetype = FALSE) + ylab("Number of new covid hospitalizations each day (7 day avg)") + xlab("Date") + ylim(0,NA)  + scale_colour_viridis_d(end=0.8) + geom_vline(xintercept=as.POSIXct(last_hospital_update), col="black", linetype="dotted") 
+new_hospitalization <- ggplot(subset(daily_focal[!is.na(daily_focal$NEW_HOSPITALIZED),], DATE>="2021-06-01"), aes(x=DATE, y=NEW_HOSPITALIZED, group=Region)) + geom_ma(aes(colour=Region, linetype="a"), n=7) + guides(linetype = FALSE) + ylab("Number of new covid hospitalizations each day (7 day avg)") + xlab("Date") + ylim(0,NA)  + scale_colour_viridis_d(end=0.8) + geom_vline(xintercept=as.POSIXct(last_hospital_update), col="black", linetype="dotted") 
 print(new_hospitalization)
 
 # tn_daily_aggregate <- daily %>% group_by(DATE) %>% summarise(new_hosp = sum(NEW_HOSPITALIZED))
@@ -861,202 +849,22 @@ print(new_hospitalization)
 
 ```
 
-In December 2020, California instituted a new policy of going to shutdowns in regions when ICUs get filled above 85% capacity. When this happens, "Affected communities will be required to close personal service businesses, including hair and nail salons, playgrounds, zoos, museums, aquariums and wineries. Overnight, short-term stays at campgrounds would be prohibited. Restaurants will be required to return to take-out service only. Retail businesses will be limited to 20% of their customer capacity inside at any one time, with requirements for store officials to ensure there’s no indoor drinking or eating." according to an [article in the LA times](https://www.latimes.com/california/story/2020-12-03/newsom-weighs-shutdown-california-covid-19-cases-soar-december). Tennessee is not bound by California's rules, but we can plot our region's hospital capacity and see how the current outbreak compares. Blue shows California's threshold for shutting down many things like dining in restaurants; red shows full capacity for our region, when every bed is full (ignoring any surge capacity):
+Red shows full capacity for our region, when every ICU bed is full (ignoring any surge capacity):
 
 ```{r hospitalcapacityplotvsCA, echo=FALSE, message=FALSE, warning=FALSE}
 hospital_knox_ICU <- subset(hospital_knox, East.Region.Hospitals=="ICU Beds")
-try(hosp_plot_CA <- ggplot(hospital_knox_ICU, aes(x=Date, y=Current.Utilization)) + geom_line() +  ylab("Percent of ICU beds filled") + xlab("Date") + scale_colour_viridis_d(end=0.8) + geom_hline(yintercept=85, col="dodgerblue") + geom_hline(yintercept=100, col="red"))
+try(hosp_plot_CA <- ggplot(hospital_knox_ICU, aes(x=Date, y=Current.Utilization)) + geom_line() +  ylab("Percent of ICU beds filled") + xlab("Date") + scale_colour_viridis_d(end=0.8) + geom_hline(yintercept=100, col="red"))
 try(print(hosp_plot_CA))
 
 ```
 
 
-```{r hhshospitalization, echo=FALSE, message=FALSE, warning=FALSE}
-
-```
-
-
-US Health and Human Services is now releasing data on hospital occupancy by hospital. For more, see <a href="https://healthdata.gov/dataset/covid-19-reported-patient-impact-and-hospital-capacity-facility">here</a>. I'm showing all the hospitals in east Tennessee that have at least a couple of updates in the HHS database (some tiny hospitals apparently rarely update this info). These data are for the week starting `r max(hhs_capacity_tn_focal$DATE)`. The first table is the capacity at various local hospitals, looking at just outpatient beds. These are weekly averages: there could be fluctuations over the week in bed occupancy and even in number of beds available, and they don't necessarily mean this is what one can expect at hospitals today. Perhaps the most striking is the "Adult ICU number avail": how many beds in the ICU were available, on average, over the week starting `r max(hhs_capacity_tn_focal$DATE)` at various local hospitals, which ranged from `r min(hhs_capacity_tn_focal_latest_pretty[,"Adult ICU number avail"])` to at most `r max(hhs_capacity_tn_focal_latest_pretty[,"Adult ICU number avail"])` beds. 
-
-```{r hhstable, echo=FALSE, message=FALSE, warning=FALSE, error=FALSE}
-knitr::kable(hhs_capacity_tn_focal_latest_pretty)
-```
-
-These plots stack all the adult ICU beds available in all regional hospitals, grouping by city.
-
-```{r hhsfirstplot, echo=FALSE, message=FALSE, warning=FALSE, error=FALSE}
-hhs_plot2b <- ggplot(hhs_capacity_tn_focal_cities, aes(x=DATE, y=number_unoccupied_adult_hospital_inpatient_beds_sum, group=city, fill=city)) + geom_area() + ylab("Average total number of unoccupied adult inpatient beds\n(Higher is better)") + xlab("Start of collection week") + theme(legend.position="bottom") + theme(legend.text=element_text(size=8))
-#print(hhs_plot2b)
-
-hhs_plot4b <- ggplot(hhs_capacity_tn_focal_cities, aes(x=DATE, y=number_unoccupied_adult_hospital_ICU_beds_sum, group=city, fill=city)) + geom_area() + ylab("Average total number of unoccupied adult ICU beds\n(Higher is better)") + xlab("Start of collection week") + theme(legend.position="bottom") + theme(legend.text=element_text(size=8))
-print(hhs_plot4b)
-```
-
-There is also data on the individual hospitals. I'm showing the percentage of adult ICU beds filled per hospital (higher is worse).
-
-```{r hhspart2, echo=FALSE, message=FALSE, warning=FALSE, error=FALSE, fig.height=7}
-
-hhs_plot1 <- ggplot(hhs_capacity_tn_focal, aes(x=DATE, y=percentage_adult_hospital_inpatient_bed_occupied_of_all_inpatient_beds, group=hospital_name)) + geom_line() + ylab("Percentage of all adult inpatient beds occupied") + xlab("Start of collection week") + facet_wrap(facets=vars(hospital_name), ncol=2) + theme(plot.title = element_text(size=2)) + ylim(0,100)
-#print(hhs_plot1)
-
-
-
-hhs_plot3 <- ggplot(hhs_capacity_tn_focal, aes(x=DATE, y=percentage_adult_hospital_inpatient_ICU_bed_occupied_of_all_inpatient_ICU_beds, group=hospital_name)) + geom_line() + ylab("Percentage of all adult ICU beds occupied") + xlab("Start of collection week") + facet_wrap(facets=vars(hospital_name), ncol=2)  + ylim(0,100)
-print(hhs_plot3)
-
-
-
-```
-
-Finally, we can break out the percentage of patients in the beds (all adult outpatient and adult ICU) who have confirmed or suspected covid. That does not mean that covid is their primary reason (or reason at all) for being in the hospital, but can still suggest something about the pandemic, including something of the population of patients facing east Tennessee healthcare workers.
-
-```{r hhspart3, echo=FALSE, message=FALSE, warning=FALSE, error=FALSE, fig.height=7}
-
-hhs_plot2 <- ggplot(hhs_capacity_tn_focal, aes(x=DATE, y=percentage_adult_hospital_inpatient_bed_occupied_covid_confirmed_or_suspected_7_day_avg_of_all_occupied, group=hospital_name)) + geom_line() + ylab("Percentage of adult inpatient beds with confirmed and suspected covid") + xlab("Start of collection week") + facet_wrap(facets=vars(hospital_name), ncol=2)  + ylim(0,100)
-print(hhs_plot2)
-
-
-hhs_plot4 <- ggplot(hhs_capacity_tn_focal, aes(x=DATE, y=percentage_adult_hospital_inpatient_ICU_bed_occupied_of_all_inpatient_ICU_beds, group=hospital_name)) + geom_line() + ylab("Percentage of adult ICU beds with confirmed and suspected covid") + xlab("Start of collection week") + facet_wrap(facets=vars(hospital_name), ncol=2)  + ylim(0,100)
-print(hhs_plot4)
-```
-
-
-
-<hr />
-
-<h2 id="demographics">Demographics</h2>
-
-Tennessee releases information on demographics of individuals with covid. Age is broken out below, but here are other categories. All terminology follows that used by the state, including terms like race and sex (assumed to be binary by them). Information on the population in each category come from the <a href="https://www.census.gov/quickfacts/TN">US Census</a>. It appears that the categorization of "one or more races" vs "other/multiracial" differs radically between the US Census and TN's health stats (the census seems to put far fewer people into their category, so the proportions computed seem radically out of line: all other groups have 2-7% infection rate, for example, while this demographic has 40% infection rate if the denominator from the census is right for the numerator from the state). Because the data seem so different, and the scale obscures info for other groups, I am omitting that group here. Another major caveat in these data is potential unequal access to testing, which will lead to worse underestimates of covid incidence in for groups of people who can get tested less readily.
-
-```{r demographics1, echo=FALSE, message=FALSE, warning=FALSE, error=FALSE}
-# population_total <- 6829174
-
-# population_female <- population_total*0.512
-# population_male <- population_total*(1-0.512)
-
-# population_white <- population_total*0.784
-# population_black_africanamerican <- population_total*0.171
-# population_asian <- population_total*0.02
-# population_americanindian_alaskannative <- population_total*0.005
-# population_nativehawaiian_other_pacificislander <- population_total*0.001
-# population_twoormoreraces <- population_total*0.02
-
-# population_hispanic <- population_total*0.057
-# population_not_hispanic <- population_total*(1-0.057)
-
-
-# population_age_under_5 <- population_total*0.06
-# population_age_under_18 <- population_total*0.221
-# population_age_65_and_over <- population_total*0.167
-
-
-
-plot_race_covid_incidence <- ggplot(race, aes(x=Date, y=percent_of_demographic_with_cases, group=Race)) + geom_line(aes(colour=Race))+ xlab("Date") + scale_y_continuous(
-    
-    # Features of the first axis
-    name = "Percentage who have tested positive for covid",
-    
-    # Add a second axis and specify its features
-    sec.axis = dup_axis( labels=c("1/10", "1/20", "1/50", "1/100"), breaks=c(10, 5, 2, 1), name="Fraction who have had covid")
-  ) 
-print(plot_race_covid_incidence)
-
-plot_race_covid_death <- ggplot(race, aes(x=Date, y=percent_of_demographic_dead, group=Race)) + geom_line(aes(colour=Race)) + xlab("Date")  + scale_y_continuous(
-    
-    # Features of the first axis
-    name = "Percentage who have died from covid",
-    
-    # Add a second axis and specify its features
-    sec.axis = dup_axis( labels=c("1/2000", "1/1500", "1/1000", "1/750"), breaks=c(100/2000, 100/1500, 100/1000, 100/750), name="Fraction who have died from covid")
-  ) 
-print(plot_race_covid_death)
-
-
-plot_ethnicity_covid_incidence <- ggplot(ethnicity, aes(x=Date, y=percent_of_demographic_with_cases, group=Ethnicity)) + geom_line(aes(colour=Ethnicity))+ xlab("Date") + scale_y_continuous(
-    
-    # Features of the first axis
-    name = "Percentage who have tested positive for covid",
-    
-    # Add a second axis and specify its features
-    sec.axis = dup_axis( labels=c("1/10", "1/20", "1/50", "1/100"), breaks=c(10, 5, 2, 1), name="Fraction who have had covid")
-  ) 
-print(plot_ethnicity_covid_incidence)
-
-plot_ethnicity_covid_death <- ggplot(ethnicity, aes(x=Date, y=percent_of_demographic_dead, group=Ethnicity)) + geom_line(aes(colour=Ethnicity)) + xlab("Date")  + scale_y_continuous(
-    
-    # Features of the first axis
-    name = "Percentage who have died from covid",
-    
-    # Add a second axis and specify its features
-    sec.axis = dup_axis( labels=c("1/2000", "1/1500", "1/1000", "1/750"), breaks=c(100/2000, 100/1500, 100/1000, 100/750), name="Fraction who have died from covid")
-  ) 
-print(plot_ethnicity_covid_death)
-
-
-plot_sex_covid_incidence <- ggplot(sex, aes(x=Date, y=percent_of_demographic_with_cases, group=Sex)) + geom_line(aes(colour=Sex))+ xlab("Date") + scale_y_continuous(
-    
-    # Features of the first axis
-    name = "Percentage who have tested positive for covid",
-    
-    # Add a second axis and specify its features
-    sec.axis = dup_axis( labels=c("1/10", "1/20", "1/50", "1/100"), breaks=c(10, 5, 2, 1), name="Fraction who have had covid")
-  ) 
-print(plot_sex_covid_incidence)
-
-plot_sex_covid_death <- ggplot(sex, aes(x=Date, y=percent_of_demographic_dead, group=Sex)) + geom_line(aes(colour=Sex)) + xlab("Date")  + scale_y_continuous(
-    
-    # Features of the first axis
-    name = "Percentage who have died from covid",
-    
-    # Add a second axis and specify its features
-    sec.axis = dup_axis( labels=c("1/2000", "1/1500", "1/1000", "1/750"), breaks=c(100/2000, 100/1500, 100/1000, 100/750), name="Fraction who have died from covid")
-  ) 
-print(plot_sex_covid_death)
-
-
-```
-
-<hr />
-```{r age, echo=FALSE, message=FALSE, warning=FALSE, error=FALSE}
-# covidServer <- get.rds("https://knxhx.richdataservices.com/rds")
-# catalog <- getCatalog(covidServer, "kcdh")
-# products <- getDataProducts(catalog)
-# dataProduct <- getDataProduct(catalog, "us_tn_kchd_age")
-# { sink("/dev/null"); ages <- rds.select(dataProduct, autoPage =  TRUE)@records; sink(); }
-# ages$Age <- as.character(ages$age_group)
-# ages$age_group <- as.numeric(as.character(ages$age_group))
-# ages$Age[(ages$age_group%%10==1)] <- paste(ages$age_group[(ages$age_group%%10==1)],"-",ages$age_group[(ages$age_group%%10==1)]+9, sep="")
-# ages$Age[ages$age_group==0] <- "0-10"
-# ages$Age[ages$age_group==99] <- "100+"
-# ages$pct_confirmed <- as.numeric(as.character(ages$pct_confirmed))
-#
-# label_indices <- which(ages$date_stamp == min(ages$date_stamp) | ages$date_stamp == max(ages$date_stamp))
-# labels <- rep("", nrow(ages))
-# labels[label_indices] <- ages$Age[label_indices]
-# ages$Label <- labels
-#
-# ageplot <- ggplot(ages, aes(x=date_stamp, y=pct_confirmed, group=Age)) + geom_line(aes(colour=Age)) + ylab("Cumulative percent of cases in each age group") + xlab("Date") + scale_colour_viridis_d(end=0.8) + geom_label_repel(aes(label = Label),na.rm = TRUE) + guides(colour = "none")
-# print(ageplot)
-```
-
-```{r age2, echo=FALSE, message=FALSE, warning=FALSE, error=FALSE, eval=FALSE}
-
-
-ageplot_knox_daily <- ggplot(subset(age_county, COUNTY=="Knox"), aes(x=DATE, y=PercentDaily, group=AGE_GROUP)) + geom_ma(aes(colour=AGE_GROUP, linetype="a"), n=7) + guides(linetype = FALSE) + ylab("Daily percentage of cases by age group in Knox County (7 day avg)") + xlab("Date") + scale_colour_brewer(type="qual", palette="Dark2")
-ageplot_knox_cumulative <- ggplot(subset(age_county, COUNTY=="Knox"), aes(x=DATE, y=PercentCumulative, group=AGE_GROUP)) + geom_line(aes(colour=AGE_GROUP)) + ylab("Cumulative percentage of cases by age group in Knox County") + xlab("Date") + scale_colour_brewer(type="qual", palette="Dark2")
-print(ageplot_knox_cumulative)
-
-```
-
-<hr />
 
 <hr />
 
 <h2 id="ut">University of Tennessee, Knoxville</h2>
 
 Another question is what is happening at UTK. There is official information available at https://www.utk.edu/coronavirus/guides/data-monitoring-and-contingency-options, of which I show one figure below. There are also reports in the news media, such as <a href="https://www.knoxnews.com/story/sports/college/university-of-tennessee/football/2020/08/17/tennessee-football-covid-19-cases-jeremy-pruitt-vols/5586379002/">this article from Aug. 18</a> showing that 23 of 91 football players (over 25%) have had positive covid tests since returning but before the start of classes. New York has <a href="https://www.nbcnewyork.com/news/local/alarming-indefensible-cuomo-ny-health-chief-blast-cdc-over-guidelines-change/2588146/">set a threshold of 100 cases or 5% positive tests</a> for colleges to move online; UT has had over that many active cases; its positivity rate is not officially public (as of now), though [this site](https://sites.google.com/view/utk-covid19) provides such information. The numbers of cases and tests have dramatically dropped recently at UT; one troubling suggestion for why is [reports of "pacts"](https://www.wvlt.tv/2020/09/15/covid-19-pacts-happening-among-ut-students/) by students not to get tested locally so as to avoid notifying the university. This violates the agreement students made before classes started and puts the local community, both on and off campus, at greater risk. UT is trying tests of sewage and saliva tests: upcoming saliva tests are scheduled at https://calendar.utk.edu/covid-19_testing. 
-
-For a detailed look at UT, check out [https://sites.google.com/view/utk-covid19](https://sites.google.com/view/utk-covid19), for work done on an individual basis by a UTK student, Alex Zukowski. UT's official dashboard is at https://www.utk.edu/coronavirus/guides/data-monitoring-and-contingency-options/ but has less detail. I use the daily testing counts UT used to provide to Alex Zukowski as well as UT's weekly reports of the totals for that week. To convert to daily data, I divide the weekly reports by seven.
 
 <iframe src="https://datastudio.google.com/embed/reporting/bb71d0fd-2817-4e14-9f84-7f74a1e503b5/page/Qr2ZB" width=600 height=300></iframe>
 
@@ -1072,56 +880,26 @@ utk_plot <- ggplot(utk.cases[!is.na(utk.cases$count),], aes(x=date, y=count, gro
 print(utk_plot)
 ```
 
-```{r salivadata, echo=FALSE, message=FALSE, warning=FALSE}
-
-```
-
-Testing at UT is also a question. The plot below shows reported number of tests at the student health center, based on data aggregated by Alex Zukowski (see above). Note that these are the raw number of reported tests: a value of 20 means out of all 30,0000 UTK students, only 20 individuals were tested that day at the student health center. Not included here are athletes, who have much more frequent testing. 
-
- The dotted line on the plot shows the date of a [news story about covid pacts among students to avoid getting tested locally so they could avoid quarantine or isolation](https://www.wvlt.tv/2020/09/15/covid-19-pacts-happening-among-ut-students/). Spread by infected individuals matters, even if they personally are asymptomatic, so personal actions to avoid testing and quarantine / isolation can lead to disease spread to others who might not be so lucky, so it's very disappointing to hear of this. The drop in testing after that line may be purely coincidental, but it is a remarkable change in trend. Other universities test more intensely; for example, [U. of Illinois tests several thousand per day, not a few dozen](https://splunk-public.machinedata.illinois.edu/en-US/app/uofi_shield_public_APP/home). Not being an epidemiologist I do not want to weigh in on what strategy is optimal, but it is a remarkable contrast in approaches. UT is also starting to report on mandatory saliva-based testing, where they ask everyone residing in a dorm for a saliva sample, pool 3-5 individuals in a tube, test each tube, and then bring back individuals from pools that tested positive for individual testing. From `r paste(range(round(100*(1-saliva_data$Participation.rate),1)), collapse=" to ")` percent of the students listed as being in these dorms do not contribute samples.
-
-```{r plotstestingut, echo=FALSE, message=FALSE, warning=FALSE}
-
-
-
-ut_testing_plot <- ggplot(subset(daily_utk[!is.na(daily_utk$NEW_TESTS),], DATE>="2021-06-01"), aes(x=DATE, y=NEW_TESTS, group=Data_source)) + geom_line(aes(colour=Data_source)) + guides(linetype = FALSE) + ylab("Actual number of new tests in student health center each day") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8) + geom_vline(xintercept=as.Date("2020-09-15"), color="black", lty="dotted") 
-print(ut_testing_plot)
-
-```
-
-As for the county data, the positivity rate can also be important: if all the tests show up positive, likey symptomatic, cases, then there are likely other people being missed. The <i>New York Times</i> <a href="https://www.nytimes.com/2020/07/14/us/coronavirus-schools-fall.html">reports</a> on July 14, 2020, that, "As education leaders decide whether to reopen classrooms in the fall amid a raging pandemic, many are looking to a standard generally agreed upon among epidemiologists: To control community spread of the coronavirus, the average daily infection rate among those who are tested should not exceed 5 percent." The horizontal black line below shows that guidance. The CDC provides thoughts about possible testing strategies at colleges and universities [here](https://www.cdc.gov/coronavirus/2019-ncov/community/colleges-universities/ihe-testing.html#when-to-test) but not a firm number for how much testing they believe is necessary.
-
-
-```{r plotsutkproportion, echo=FALSE, message=FALSE, warning=FALSE}
-
-
-
-#focal_proportion_pos_utk <- ggplot(daily_utk[!is.na(daily_utk$NEW_PROPORTION_CONFIRMED),], aes(x=DATE, y=NEW_PROPORTION_CONFIRMED, group=Region)) + geom_ma(aes(colour=Region, linetype="a"), n=7) + guides(linetype = FALSE) + ylab("Percentage of positive tests in student center (7 day avg)") + xlab("Date") + geom_hline(yintercept=5, col="black") + scale_colour_viridis_d(end=0.8) + ylim(0,NA) + scale_x_date(limits=as.Date(range(c(daily_utk$DATE[!is.na(daily_utk$TOTAL_TESTS)], as.POSIXct(Sys.Date())))))
-focal_proportion_pos_utk <- ggplot(daily_utk[!is.na(daily_utk$NEW_PROPORTION_CONFIRMED),], aes(x=DATE, y=NEW_PROPORTION_CONFIRMED, group=Region)) + geom_line(aes(colour=Data_source)) + guides(linetype = FALSE) + ylab("Percentage of positive tests in student center") + xlab("Date") + geom_hline(yintercept=5, col="black") + scale_colour_viridis_d(end=0.8) + ylim(0,NA) + scale_x_date(limits=as.Date(range(c(daily_utk$DATE[!is.na(daily_utk$TOTAL_TESTS)], as.POSIXct(Sys.Date())))))
-print(focal_proportion_pos_utk)
-```
 
 
 We can also use the UTK saliva data to estimate the number of new cases: the proportion of students who ultimately test postive out of those tested by the saliva scans. Given poor compliance, the true proportions may be much higher than this (if students want to endanger others by not isolating, they may avoid testing if they think they have been exposed). Depending on the date of the test, between `r paste(paste("1 of every ", range(round(1/(saliva_data$Positive.diagnostic.tests./saliva_data$Samples))), sep=""), collapse=" to ")` of students who contributed samples had active covid infections. 
 
 
-At the date of the most recent set of samples, from `r as.character(max(saliva_data$DATE))`, UTK reported <b>`r utk_reported_zukowski$CASES_ACTIVE[utk_reported_zukowski$DATE %in% as.character(max(saliva_data$DATE))]` active cases overall</b> (this presumably includes the `r saliva_data$Positive.diagnostic.tests.[nrow(saliva_data)]` positive diagnostic tests from the sampling). If the pool of students from this sample is representative of the 30,000 person student body as a whole, that would mean there would be <b>`r round(saliva_data$Active_cases_per_30k[nrow(saliva_data)])` actual active cases</b> among the students on that date. 
 
-
-I am converting the saliva test info to new cases per 100K to correspond with the [Harvard Global Health Institute's](https://globalepidemics.org/key-metrics-for-covid-suppression/) standards for guidance of control (yellow is community spread; red is the highest risk possible in their guidance -- for a county, that would mean "stay-at-home orders necessary" according to them, though how that translates into actions on a college campus is different). These guidelines are for daily new cases but the saliva data are active cases at a point in time. I am adopting the assumption that Knox County uses that new cases are only active for 14 days, so I'm computing the new case estimate as 1/14 the active case estimate. The green, yellow, and orange bands are the same as for Knox and Anderson+Roane counties above; the red band looks much thicker because it has the same lower bound as the others but no maximum, and some of the estimates for UTK are outside the range for the county-wide data. I include the 95% confidence interval for the estimate of new cases per 100,000 people, though this is an underestimate of the uncertainty (are dorms good random samples or are results clustered, are students who refuse testing similar to those who get tested, etc.).
+I am converting the saliva test info to new cases per 100K. I am adopting the assumption that Knox County uses that new cases are only active for 14 days, so I'm computing the new case estimate as 1/14 the active case estimate.  I include the 95% confidence interval for the estimate of new cases per 100,000 people, though this is an underestimate of the uncertainty (are dorms good random samples or are results clustered, are students who refuse testing similar to those who get tested, etc.).
 
 
 ```{r plotsaliva100k, echo=FALSE, message=FALSE, warning=FALSE}
 saliva_plot <- ggplot(saliva_data, aes(x=DATE, y=New_cases_per_100k)) + 
-geom_rect(mapping=aes(xmin=min(DATE), xmax=Sys.Date(), ymin=0, ymax=1), fill="darkolivegreen1") +
-  geom_rect(mapping=aes(xmin=min(DATE), xmax=Sys.Date(), ymin=1, ymax=10), fill="khaki1") +
-  geom_rect(mapping=aes(xmin=min(DATE), xmax=Sys.Date(), ymin=10, ymax=25), fill="tan1") +
-  geom_rect(mapping=aes(xmin=min(DATE), xmax=Sys.Date(), ymin=25, ymax=max(New_cases_per_100k_upper)), fill="indianred1") + 
+#geom_rect(mapping=aes(xmin=min(DATE), xmax=Sys.Date(), ymin=0, ymax=1), fill="darkolivegreen1") +
+#  geom_rect(mapping=aes(xmin=min(DATE), xmax=Sys.Date(), ymin=1, ymax=10), fill="khaki1") +
+#  geom_rect(mapping=aes(xmin=min(DATE), xmax=Sys.Date(), ymin=10, ymax=25), fill="tan1") +
+#  geom_rect(mapping=aes(xmin=min(DATE), xmax=Sys.Date(), ymin=25, ymax=max(New_cases_per_100k_upper)), fill="indianred1") + 
 geom_point() + ylab("Est. daily new cases 100,000 people based on UTK saliva samples") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8) + geom_errorbar(aes(ymin=New_cases_per_100k_lower, ymax=New_cases_per_100k_upper), width=0.1) 
 print(saliva_plot)
 ```
 
-We can also see the compliance rate of students with testing. Before starting, all students signed a pledge showing their willingness to abide by community standards. Those in residence at UT agreed to saliva testing. 
+We can also see the compliance rate of students with testing. For 2020-2021, all students signed a pledge showing their willingness to abide by community standards. Those in residence at UT agreed to saliva testing. 
 
 ```{r plotsalivacompliance, echo=FALSE, message=FALSE, warning=FALSE}
 saliva_data$Participation.percentage <- 100*saliva_data$Participation.rate
@@ -1131,46 +909,3 @@ print(saliva_compliance)
 ```
 
 
-```{r plotutactiveproportion, echo=FALSE, message=FALSE, warning=FALSE, eval=FALSE}
-#A different way to consider this is what percent of the community has active covid infections at any one time. There are two ways to get this. One is assuming that every person who has active covid 1) knows this through testing and 2) reports this to UT. This uses the active case numbers reported by UT (gotten through the intermediary of Alex Zukowski). The other way is to assume that the random saliva testing at the dorms is a better way to get this estimate. This avoids issues of asymptomatic or presymptomatic individuals not getting tested, but it could be biased in other ways: maybe the ~25% of students who skip mandatory testing are more likely to have covid (or maybe they're studying at home and not using the dorm at all), maybe the dorms selected are selected based on the results of sewage testing for covid, etc. My guess is that the saliva testing is the better estimate.
-
-utk_active_proportion_df <- rbind(
-	data.frame(DATE=as.Date(utk_reported_zukowski$DATE), Active_percentage=100*utk_reported_zukowski$CASES_ACTIVE/30000, Assumption="Every active case knows and reports"),
-	data.frame(DATE=as.Date(saliva_data$DATE), Active_percentage=100*saliva_data$Positive.diagnostic.tests. / saliva_data$Samples, Assumption="Student saliva testing is representative")
-)
-utk_active_proportion_plot <- ggplot(utk_active_proportion_df, aes(x=DATE, y=Active_percentage, group=Assumption)) + geom_line(aes(colour=Assumption)) + scale_colour_viridis_d(end=0.8) 
-print(utk_active_proportion_plot)
-
-
-saliva_active <- round(saliva_data$Active_cases_per_30k[nrow(saliva_data)])
-reported_active <- round(utk_reported_zukowski$CASES_ACTIVE[utk_reported_zukowski$DATE %in% as.character(max(saliva_data$DATE))])
-reported_isolation_total <- round(utk_reported_zukowski$SELF_ISOLATED_TOTAL[utk_reported_zukowski$DATE %in% as.character(max(saliva_data$DATE))])
-
-max_spreader_proportion <- (saliva_active-reported_active)/30000
-min_spreader_proportion <- (max(0,saliva_active-reported_isolation_total))/30000
-group_sizes <- seq(from=1, to=100, by=1)
-avoidance_df <- rbind(
-	data.frame(Group_size = group_sizes, Percentage_infected_groups=100*(1-dbinom(0, size=group_sizes, prob=min_spreader_proportion)), Assumption="Everyone self-isolating has covid"),
-	data.frame(Group_size = group_sizes, Percentage_infected_groups=100*(1-dbinom(0, size=group_sizes, prob=max_spreader_proportion)), Assumption="Minimal self isolation of infected individuals")
-)
-```
-
-
-
-```{r plotencounterprob, echo=FALSE, message=FALSE, warning=FALSE, eval=FALSE}
-
-#Given the estimated percentage of individuals with active cases, what is the chance that in a given group of people at UT, there is someone there with covid? This is hard to know, as people with active cases who know about them are hopefully isolating themselves, and others are isolating who have been exposed and who may have active cases but do not know that yet. If we assume that the saliva samples are the best estimates of proportion of active cases (since it does not rely on students deciding to go to student health due to symptoms), we can use that to estimate the true number of active cases. We can then compare that to the number of people isolating due to active cases to figure out how many active cases are not in the self-reported situation. They could still be isolating because they have close contacts who are isolating, or they might not, so we can use both those assumptions. For example, on the last date of saliva samples, `r as.character(max(saliva_data$DATE))`, there were `r reported_active` individuals at UT with active reported covid infections, `r reported_isolation_total` individuals isolating (including presumably all the reported active cases), but based on the saliva proportion of active cases there would be `r saliva_active` active cases across the 30,000 students. The point estimate of the number of people who may be active and not in isolation may be between `r max(0,saliva_active-reported_isolation_total)` and `r saliva_active-reported_active` individuals, depending on how many of the ones who are active but don't know it are self isolating anyway. Remember that all these numbers are very uncertain, especially those based on small sample sizes, but we can use this to get a gut sense of the probability of encountering someone who actively has covid in different group sizes -- perhaps important for showing the importance of avoiding large unmasked groups, especially before returning home to family over the winter break. For example, for a thirty person party some weekend, there is between a `r round(min(subset(avoidance_df, Group_size==50)$Percentage_infected_groups))` to `r round(max(subset(avoidance_df, Group_size==50)$Percentage_infected_groups))`% chance that at least one person at that party actively has covid during the party (the lower estimate assumes that *every* person in isolation, whether they know it or not, is one of the people with active covid, but that still leaves many to continue spreading it (and people outside UT's campus also have covid, too)). Even repeated small group interactions pose a risk. If someone does not have covid, and repeatedly meets with random groups of three other people who might have it, there is only a `r min(round(subset(avoidance_df, Group_size==3)$Percentage_infected_groups,1))`% chance of someone else in each group having covid, but by the time the person has met with five such groups there is a `r round(100 * ( 1 - dbinom(0, 5, 0.01*min(round(subset(avoidance_df, Group_size==3)$Percentage_infected_groups,1)))))`% chance that the person will have been exposed to someone with covid in at least one of these groups.
-
-utk_active_spreader_plot <- ggplot(avoidance_df, aes(x=Group_size, y=Percentage_infected_groups, group=Assumption)) + geom_line(aes(colour=Assumption)) + scale_colour_viridis_d(end=0.8)
-print(utk_active_spreader_plot)
-
-
-```
-
-<hr />
-
-<h2 id="webcams">Local webcams</h2>
-
-<a href="https://therock.utk.edu/livestream/">UT's webcam of the Rock</a>, a campus landmark, to see how UT's community is choosing to protect others. You will have to click to start the stream. Some members of the community engage in hate speech on the Rock -- it is often quickly replaced by more positive messages, but it may be present on the Rock temporarily. 
-
-<iframe src="https://therock.utk.edu/livestream/"  width=600 height=600 scrolling="no"></iframe>

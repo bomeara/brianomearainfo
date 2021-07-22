@@ -381,6 +381,12 @@ race_vaccine[which(race_vaccine$Race=="White"),]$PercentFullyVaccinated <- 100*r
 race_vaccine[which(race_vaccine$Race=="Black Or African American"),]$PercentFullyVaccinated <- 100*race_vaccine[which(race_vaccine$Race=="Black Or African American"),]$RECIP_FULLY_VACC/population_black_africanamerican
 race_vaccine[which(race_vaccine$Race=="Asian"),]$PercentFullyVaccinated <- 100*race_vaccine[which(race_vaccine$Race=="Asian"),]$RECIP_FULLY_VACC/population_asian
 
+race_vaccine <- race_vaccine %>% group_by(Race) %>% mutate(PreviousPercentFullyVaccinated=dplyr::lag(PercentFullyVaccinated, n=1, default=0))
+race_vaccine$IncreasePercentFullyVaccinated <- race_vaccine$PercentFullyVaccinated - race_vaccine$PreviousPercentFullyVaccinated
+race_vaccine$IncreasePercentFullyVaccinated[race_vaccine$IncreasePercentFullyVaccinated<0] <- 0 # for cases with sudden drops, probably due to issues in the original data
+
+race_vaccine <- race_vaccine %>% group_by(Race) %>% mutate(IncreasePercentFullyVaccinated7Day=zoo::rollmean(IncreasePercentFullyVaccinated, k=7, align="right", fill=0))
+
 race_vaccine <- subset(race_vaccine, !is.na(PercentFullyVaccinated))
 
 ethnicity_vaccine <- subset(demographics_vaccine, CATEGORY=="ETHN")
@@ -391,6 +397,14 @@ ethnicity_vaccine$PercentFullyVaccinated <- as.numeric(ethnicity_vaccine$Percent
 
 ethnicity_vaccine[which(ethnicity_vaccine$Ethnicity=="Hispanic Or Latino"),]$PercentFullyVaccinated <- 100*ethnicity_vaccine[which(ethnicity_vaccine$Ethnicity=="Hispanic Or Latino"),]$RECIP_FULLY_VACC/population_hispanic
 ethnicity_vaccine[which(ethnicity_vaccine$Ethnicity=="Not Hispanic Or Latino"),]$PercentFullyVaccinated <- 100*ethnicity_vaccine[which(ethnicity_vaccine$Ethnicity=="Not Hispanic Or Latino"),]$RECIP_FULLY_VACC/population_not_hispanic
+
+
+ethnicity_vaccine <- ethnicity_vaccine %>% group_by(Ethnicity) %>% mutate(PreviousPercentFullyVaccinated=dplyr::lag(PercentFullyVaccinated, n=1, default=0))
+ethnicity_vaccine$IncreasePercentFullyVaccinated <- ethnicity_vaccine$PercentFullyVaccinated - ethnicity_vaccine$PreviousPercentFullyVaccinated
+ethnicity_vaccine$IncreasePercentFullyVaccinated[ethnicity_vaccine$IncreasePercentFullyVaccinated<0] <- 0 # for cases with sudden drops, probably due to issues in the original data
+
+ethnicity_vaccine <- ethnicity_vaccine %>% group_by(Ethnicity) %>% mutate(IncreasePercentFullyVaccinated7Day=zoo::rollmean(IncreasePercentFullyVaccinated, k=7, align="right", fill=0))
+
 ethnicity_vaccine <- subset(ethnicity_vaccine, !is.na(PercentFullyVaccinated))
 
 
@@ -404,6 +418,16 @@ sex_vaccine$PercentFullyVaccinated <- NA
 sex_vaccine$PercentFullyVaccinated <- as.numeric(sex_vaccine$PercentFullyVaccinated)
 sex_vaccine[which(sex_vaccine$Sex=="Female"),]$PercentFullyVaccinated <- 100*sex_vaccine[which(sex_vaccine$Sex=="Female"),]$RECIP_FULLY_VACC/population_female
 sex_vaccine[which(sex_vaccine$Sex=="Male"),]$PercentFullyVaccinated <- 100*sex_vaccine[which(sex_vaccine$Sex=="Male"),]$RECIP_FULLY_VACC/population_male
+
+
+
+sex_vaccine <- sex_vaccine %>% group_by(Sex) %>% mutate(PreviousPercentFullyVaccinated=dplyr::lag(PercentFullyVaccinated, n=1, default=0))
+sex_vaccine$IncreasePercentFullyVaccinated <- sex_vaccine$PercentFullyVaccinated - sex_vaccine$PreviousPercentFullyVaccinated
+sex_vaccine$IncreasePercentFullyVaccinated[sex_vaccine$IncreasePercentFullyVaccinated<0] <- 0 # for cases with sudden drops, probably due to issues in the original data
+
+sex_vaccine <- sex_vaccine %>% group_by(Sex) %>% mutate(IncreasePercentFullyVaccinated7Day=zoo::rollmean(IncreasePercentFullyVaccinated, k=7, align="right", fill=0))
+
+
 sex_vaccine <- subset(sex_vaccine, !is.na(PercentFullyVaccinated))
 
 
@@ -681,7 +705,19 @@ plot_sex_covid_vaccination_full <- ggplot(sex_vaccine, aes(x=DATE, y=PercentFull
 print(plot_sex_covid_vaccination_full)
 ```
 
+One concern has been changes in the number of people getting vaccinated over time. These plots show for each demographic group the percentage of individuals in that group getting fully vaccinated (7 day rolling mean). There has been an expansion of who can get vaccinated: adults in high risk categories, all adults, children age 12 and up. These plots show the dramatic decrease in demand for getting vaccinated, despite the proportion of fully vaccinated people being well below what is recommended.
 
+```{r vaccination_increase, echo=FALSE, message=FALSE, warning=FALSE, error=FALSE}
+
+plot_race_covid_vaccination_delta_full <- ggplot(subset(race_vaccine, !is.na(race_vaccine$IncreasePercentFullyVaccinated7Day)), aes(x=DATE, y=IncreasePercentFullyVaccinated7Day, group=Race)) + geom_line(aes(colour=Race))+ xlab("Date") + ylab("Percentage of people in this group getting fully vaccinated per day (seven day mean)")
+print(plot_race_covid_vaccination_delta_full)
+
+plot_ethnicity_covid_vaccination_delta_full <- ggplot(subset(ethnicity_vaccine, !is.na(ethnicity_vaccine$IncreasePercentFullyVaccinated7Day)), aes(x=DATE, y=IncreasePercentFullyVaccinated7Day, group=Ethnicity)) + geom_line(aes(colour=Ethnicity))+ xlab("Date") + ylab("Percentage of people in this group getting fully vaccinated per day (seven day mean)")
+print(plot_ethnicity_covid_vaccination_delta_full)
+
+plot_sex_covid_vaccination_delta_full <- ggplot(subset(sex_vaccine, !is.na(sex_vaccine$IncreasePercentFullyVaccinated7Day)), aes(x=DATE, y=IncreasePercentFullyVaccinated7Day, group=Sex)) + geom_line(aes(colour=Sex))+ xlab("Date") + ylab("Percentage of people in this group getting fully vaccinated per day (seven day mean)")
+print(plot_sex_covid_vaccination_delta_full)
+```
 
 <h2 id="cdc">Cases locally</h2>
 
@@ -699,7 +735,7 @@ This shows cases locally. I'm zooming in on the most recent months: the huge pea
 #theme_classic() + geom_line()  + ylab("Number of new cases in area each week per 100,000 people") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.3) 
 
 local_new <- ggplot(subset(daily_focal_no_ut_cleaned, DATE>="2021-06-01"), aes(x=DATE, y=New_cases_per_100k_per_week, group=Region, colour=Region)) + 
-theme_classic() + geom_line()  + ylab("Number of new cases in area each week per 100,000 people") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.3) 
+theme_classic() + geom_line()  + ylab("Number of new cases in area each week per 100,000 people") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8) 
 print(local_new)
 
 #local_active <- ggplot(daily_focal[!is.na(daily_focal$TOTAL_ACTIVE),], aes(x=DATE, y=TOTAL_ACTIVE, group=Region)) +  geom_smooth(aes(colour=Region), se=FALSE) + geom_point(aes(colour=Region), size=0.5) + ylab("Number of active cases in area each day") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)
@@ -718,7 +754,7 @@ local_positivity <- ggplot(subset(daily_focal_no_ut_cleaned, DATE>="2021-06-01")
 #annotate(geom="rect", xmin=min(daily_focal_no_ut_cleaned$DATE), xmax=max(daily_focal_no_ut_cleaned$DATE), ymin=5, ymax=max(daily_focal_no_ut_cleaned$PositivityPercentage_per_week), alpha=.8, fill="khaki1") +
 #annotate(geom="rect", xmin=min(daily_focal_no_ut_cleaned$DATE), xmax=max(daily_focal_no_ut_cleaned$DATE), ymin=7.95, ymax=max(daily_focal_no_ut_cleaned$PositivityPercentage_per_week), alpha=.8, fill="tan1") +
 #annotate(geom="rect", xmin=min(daily_focal_no_ut_cleaned$DATE), xmax=max(daily_focal_no_ut_cleaned$DATE), ymin=9.95, ymax=max(daily_focal_no_ut_cleaned$PositivityPercentage_per_week), alpha=.8, fill="indianred1") +
-theme_classic() + geom_line()  + ylab("Percentage of positive tests per week") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.3) 
+theme_classic() + geom_line()  + ylab("Percentage of positive tests per week") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8) 
 print(local_positivity)
 
 #local_active <- ggplot(daily_focal[!is.na(daily_focal$TOTAL_ACTIVE),], aes(x=DATE, y=TOTAL_ACTIVE, group=Region)) +  geom_smooth(aes(colour=Region), se=FALSE) + geom_point(aes(colour=Region), size=0.5) + ylab("Number of active cases in area each day") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)
@@ -732,7 +768,7 @@ print(local_positivity)
 Tennessee now breaks out covid test results for school age children (age 5-18). The number of tests in this age group and the underlying population size aren't known to me, so things like positivity rate and proportion of students infected cannot be determined, but the raw number of students infected can be shown (doing a seven day average):
 
 ```{r studentinfections, echo=FALSE, message=FALSE, warning=FALSE}
-try(student_covid_daily <- ggplot(subset(schoolkids_daily, DATE>="2021-06-01"), aes(x=DATE, y=NEW_CASES, group=Region)) +  geom_ma(aes(colour=Region, linetype="a")) +  guides(linetype = FALSE) + ylab("Number of students with new positive covid results daily, 7 day avg") + xlab("Date") + scale_colour_viridis_d(end=0.8))
+try(student_covid_daily <- ggplot(subset(schoolkids_daily, DATE>="2021-06-01"), aes(x=DATE, y=NEW_CASES, group=Region)) + theme_classic() + geom_ma(aes(colour=Region, linetype="a")) +  guides(linetype = FALSE) + ylab("Number of students with new positive covid results daily, 7 day avg") + xlab("Date") + scale_colour_viridis_d(end=0.8))
 try(print(student_covid_daily))
 ```
 

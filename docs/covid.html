@@ -381,7 +381,7 @@ $(document).ready(function () {
 <li><a href="https://healthdata.gov/dataset/covid-19-reported-patient-impact-and-hospital-capacity-facility">US HHS hospitalization by facility</a></li>
 </ul>
 <hr />
-<p>The following plots are created in R using data from <a href="https://covid19datahub.io" class="uri">https://covid19datahub.io</a> (Guidotti, E., Ardia, D., (2020), “COVID-19 Data Hub”, Working paper, doi: 10.13140/RG.2.2.11649.81763), as well as information from Google and the <a href="https://www.tn.gov/health/cedep/ncov/data/downloadable-datasets.html">state of Tennessee dataset page</a> and plotting and analysis using the <code>forecast</code>, <code>ggplot2</code>, <code>reshape2</code>, and <code>dplyr</code> packages. Plots created on 2021-07-22 12:01:26. I use a seven day rolling average for most plots using the <code>geom_ma</code> function of <code>tidyquant</code>.</p>
+<p>The following plots are created in R using data from <a href="https://covid19datahub.io" class="uri">https://covid19datahub.io</a> (Guidotti, E., Ardia, D., (2020), “COVID-19 Data Hub”, Working paper, doi: 10.13140/RG.2.2.11649.81763), as well as information from Google and the <a href="https://www.tn.gov/health/cedep/ncov/data/downloadable-datasets.html">state of Tennessee dataset page</a> and plotting and analysis using the <code>forecast</code>, <code>ggplot2</code>, <code>reshape2</code>, and <code>dplyr</code> packages. Plots created on 2021-07-24 01:03:23. I use a seven day rolling average for most plots using the <code>geom_ma</code> function of <code>tidyquant</code>.</p>
 <h2 id="cases">
 Cases
 </h2>
@@ -389,7 +389,7 @@ Cases
 <p>I plot five regions (though for simplicity, for some of the plots I omit East TN, and regions with no data automatically do not get plotted for certain measures)</p>
 <ul>
 <li>Knox County (which includes Knoxville)</li>
-<li>Anderson &amp; Roane Counties, which include the town of Oak Ridge</li>
+<li>Anderson County, which includes the town of Oak Ridge</li>
 <li>East TN (the 14 counties that have acute care hospitals in Knox County/East Region according to Knox County)</li>
 <li>UTK Student Testing, from tests done at the UTK student health center</li>
 <li>UTK Reported, from all cases UT includes on their dashboard (student cases from the health center, cases reported from tests off campus that are communicated)</li>
@@ -431,21 +431,21 @@ Summary table
 <td align="left">Asian</td>
 <td align="left">5.9%</td>
 <td align="left">0.06%</td>
-<td align="left">45.5%</td>
-<td align="left">39.3%</td>
+<td align="left">45.6%</td>
+<td align="left">39.5%</td>
 </tr>
 <tr class="odd">
 <td align="left">Race</td>
 <td align="left">Black or African American</td>
 <td align="left">10.3%</td>
 <td align="left">0.19%</td>
-<td align="left">29.3%</td>
-<td align="left">24.7%</td>
+<td align="left">29.6%</td>
+<td align="left">24.8%</td>
 </tr>
 <tr class="even">
 <td align="left">Race</td>
 <td align="left">Native Hawaiian or Other Pacific Islander</td>
-<td align="left">9.7%</td>
+<td align="left">9.8%</td>
 <td align="left">0.1%</td>
 <td align="left"></td>
 <td align="left"></td>
@@ -455,40 +455,40 @@ Summary table
 <td align="left">White</td>
 <td align="left">10.4%</td>
 <td align="left">0.18%</td>
-<td align="left">34.7%</td>
-<td align="left">31.6%</td>
+<td align="left">34.9%</td>
+<td align="left">31.7%</td>
 </tr>
 <tr class="even">
 <td align="left">Ethnicity</td>
 <td align="left">Hispanic</td>
 <td align="left">13.7%</td>
 <td align="left">0.09%</td>
-<td align="left">38.3%</td>
-<td align="left">31.8%</td>
+<td align="left">38.7%</td>
+<td align="left">32%</td>
 </tr>
 <tr class="odd">
 <td align="left">Ethnicity</td>
 <td align="left">Not Hispanic or Latino</td>
 <td align="left">9.4%</td>
 <td align="left">0.18%</td>
-<td align="left">38.5%</td>
-<td align="left">34.8%</td>
+<td align="left">38.7%</td>
+<td align="left">35%</td>
 </tr>
 <tr class="even">
 <td align="left">Sex</td>
 <td align="left">Female</td>
-<td align="left">13.3%</td>
+<td align="left">13.4%</td>
 <td align="left">0.17%</td>
-<td align="left">46.4%</td>
-<td align="left">41.7%</td>
+<td align="left">46.7%</td>
+<td align="left">41.8%</td>
 </tr>
 <tr class="odd">
 <td align="left">Sex</td>
 <td align="left">Male</td>
 <td align="left">12.2%</td>
 <td align="left">0.2%</td>
-<td align="left">39.5%</td>
-<td align="left">35.2%</td>
+<td align="left">39.8%</td>
+<td align="left">35.3%</td>
 </tr>
 </tbody>
 </table>
@@ -512,7 +512,7 @@ Cases locally
 <h2 id="hospitalization">
 Hospitalization
 </h2>
-<p>As of the last time the data were updated (likely 1 days ago), regional hospitals had 13 ICU beds available of 317 total (so was at 96 percent capacity), and 304 available ventilators out of 420 total, (so was at 28 percent capacity). The hospitals overall had 473 beds available of 3084 total (so was at 85 percent capacity). This is based on 19 acute care hospitals in the East TN region; based on the 14 counties these hospitals are in, these serve at least 1,235,720 people. When a line hits 100% (indicated in red), the local hospitals are theoretically full for that resource (for <em>all</em> patients, not just covid patients), though there is surge capacity on top of this. Note that these data are updated only weekly, so current conditions maybe be much better or worse than these plots show. Data on capacity from Knox County’s dashboard, data on hospitalizations and testing over time from the state data.</p>
+<p>As of the last time the data were updated (likely 3 days ago), regional hospitals had 13 ICU beds available of 317 total (so was at 96 percent capacity), and 304 available ventilators out of 420 total, (so was at 28 percent capacity). The hospitals overall had 473 beds available of 3084 total (so was at 85 percent capacity). This is based on 19 acute care hospitals in the East TN region; based on the 14 counties these hospitals are in, these serve at least 1,235,720 people. When a line hits 100% (indicated in red), the local hospitals are theoretically full for that resource (for <em>all</em> patients, not just covid patients), though there is surge capacity on top of this. Note that these data are updated only weekly, so current conditions maybe be much better or worse than these plots show. Data on capacity from Knox County’s dashboard, data on hospitalizations and testing over time from the state data.</p>
 <p><img src="covid_files/figure-html/hospitalcapacityplot-1.png" width="672" /></p>
 <p>Trends in hospitalization of covid patients over time. The vertical dotted line shows the last day with updated capacity information from Knox County, when there were 13 ICU beds available (ignoring surge capacity) for people in the East Tennessee region. The seven day average is shown.</p>
 <p><img src="covid_files/figure-html/plotsD-1.png" width="672" /></p>
@@ -522,7 +522,7 @@ Hospitalization
 <h2 id="ut">
 University of Tennessee, Knoxville
 </h2>
-<p>Another question is what is happening at UTK. There is official information available at <a href="https://www.utk.edu/coronavirus/guides/data-monitoring-and-contingency-options" class="uri">https://www.utk.edu/coronavirus/guides/data-monitoring-and-contingency-options</a>, of which I show one figure below. CDC guidance for institutions of higher education is <a href="https://www.cdc.gov/coronavirus/2019-ncov/community/colleges-universities/considerations.html#section3">here</a>.</p>
+<p>Another question is what is happening at UTK. There is official information available at <a href="https://www.utk.edu/coronavirus/guides/data-monitoring-and-contingency-options" class="uri">https://www.utk.edu/coronavirus/guides/data-monitoring-and-contingency-options</a>, of which I show one figure below. CDC guidance for institutions of higher education who don’t require vaccination, which includes UTK, is <a href="https://www.cdc.gov/coronavirus/2019-ncov/community/colleges-universities/considerations.html#section3">here</a>.</p>
 <iframe src="https://datastudio.google.com/embed/reporting/bb71d0fd-2817-4e14-9f84-7f74a1e503b5/page/Qr2ZB" width="600" height="300">
 </iframe>
 <p>In the 2020-2021 school year, UT published results of saliva tests. ALL students residing in dorms, fraternities, or sororities agreed to testing. This table shows testing results of saliva tests:</p>

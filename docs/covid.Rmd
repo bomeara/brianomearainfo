@@ -53,7 +53,7 @@ counties_in_hospital_region <- c("Knox", "Anderson", "Roane", "Scott", "Blount",
 us <- COVID19::covid19(country="US", level=3, verbose=FALSE)
 tn <- subset(us, administrative_area_level_2=="Tennessee")
 knox <- subset(us, administrative_area_level_3=="Knox" & administrative_area_level_2=="Tennessee")
-oakridge <- subset(us, administrative_area_level_3 %in% c("Roane", "Anderson") & administrative_area_level_2=="Tennessee")
+oakridge <- subset(us, administrative_area_level_3 %in% c("Anderson") & administrative_area_level_2=="Tennessee")
 region <-  subset(us, administrative_area_level_3 %in% counties_in_hospital_region & administrative_area_level_2=="Tennessee")
 knox$percentconfirmed <- 100*knox$confirmed/knox$population
 
@@ -115,8 +115,8 @@ daily_knox$PositivityRate_per_week <- zoo::rollsum(daily_knox$NEW_POS_TESTS, k=7
 
 
 
-daily_oakridge <- subset(daily, COUNTY %in% c("Roane", "Anderson")) %>% group_by(DATE) %>% select(-"COUNTY") %>% summarise_all(sum)
-daily_oakridge$Region <- "Anderson + Roane"
+daily_oakridge <- subset(daily, COUNTY %in% c("Anderson")) %>% group_by(DATE) %>% select(-"COUNTY") %>% summarise_all(sum)
+daily_oakridge$Region <- "Anderson"
 daily_oakridge$Population <- oakridge_pop
 daily_oakridge$New_cases_per_100k_per_week <- 100000*zoo::rollsum(daily_oakridge$NEW_CASES, k=7, align="right", fill=NA)/oakridge_pop
 daily_oakridge$PositivityRate_per_week <- zoo::rollsum(daily_oakridge$NEW_POS_TESTS, k=7, align="right", fill=NA) / zoo::rollsum(daily_oakridge$NEW_TESTS, k=7, align="right", fill=NA)
@@ -149,13 +149,13 @@ schoolkids <- readxl::read_xlsx(temp, sheet =1, col_types=c("date", "text", rep(
 
 schoolkids_region<- subset(schoolkids, COUNTY %in% counties_in_hospital_region) %>% group_by(DATE) %>% select(-"COUNTY") %>% summarise_all(sum)
 
-schoolkids_oakridge<- subset(schoolkids, COUNTY %in% c("Anderson", "Roane")) %>% group_by(DATE) %>% select(-"COUNTY") %>% summarise_all(sum)
+schoolkids_oakridge<- subset(schoolkids, COUNTY %in% c("Anderson")) %>% group_by(DATE) %>% select(-"COUNTY") %>% summarise_all(sum)
 
 schoolkids_knox<- subset(schoolkids, COUNTY %in% c("Knox")) %>% group_by(DATE) %>% select(-"COUNTY") %>% summarise_all(sum)
 
 schoolkids_region$Region <- "East TN"
 schoolkids_knox$Region <- "Knox County"
-schoolkids_oakridge$Region <- "Anderson + Roane"
+schoolkids_oakridge$Region <- "Anderson"
 schoolkids_daily <- rbind(schoolkids_knox, schoolkids_oakridge, schoolkids_region)
 
 
@@ -586,7 +586,7 @@ The number of new should be not be going up if things are well-controlled, and i
 I plot five regions (though for simplicity, for some of the plots I omit East TN, and regions with no data automatically do not get plotted for certain measures)
 
 * Knox County (which includes Knoxville)
-* Anderson & Roane Counties, which include the town of Oak Ridge
+* Anderson County, which includes the town of Oak Ridge
 * East TN (the `r length(counties_in_hospital_region)` counties that have acute care hospitals in Knox County/East Region according to Knox County)
 * UTK Student Testing, from tests done at the UTK student health center
 * UTK Reported, from all cases UT includes on their dashboard (student cases from the health center, cases reported from tests off campus that are communicated)

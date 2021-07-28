@@ -1,0 +1,646 @@
+
+R version 4.1.0 (2021-05-18) -- "Camp Pontanezen"
+Copyright (C) 2021 The R Foundation for Statistical Computing
+Platform: x86_64-apple-darwin17.0 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> originalwd <- getwd()
+> Sys.setenv(RSTUDIO_PANDOC="/Applications/RStudio.app/Contents/MacOS/pandoc")
+> setwd("/Users/bomeara/Documents/MyDocuments/GitClones/brianomearainfo/docs")
+> try(system('mv ~/Downloads/7\\ LIVE_saliva_test_data_Page\\ 1_Table.csv .'))
+mv: /Users/bomeara/Downloads/7 LIVE_saliva_test_data_Page 1_Table.csv: No such file or directory
+> try(system('mv ~/Downloads/8\\ LIVE_SHC_test_data_Page\\ 1_Table.csv .'))
+mv: /Users/bomeara/Downloads/8 LIVE_SHC_test_data_Page 1_Table.csv: No such file or directory
+> try(system('mv ~/Downloads/2\\ new\\ cases_Page\\ 1_Time\\ series.csv .'))
+mv: /Users/bomeara/Downloads/2 new cases_Page 1_Time series.csv: No such file or directory
+> try(system('mv ~/Downloads/LIVE\\ saliva\\ positivity\\ rate_Page\\ 1_Bar\\ chart.csv .'))
+mv: /Users/bomeara/Downloads/LIVE saliva positivity rate_Page 1_Bar chart.csv: No such file or directory
+> try(system('mv ~/Downloads/LIVE\\ spring\\ 2021\\ saliva\\ table_Page\\ 1_Table.csv .'))
+mv: /Users/bomeara/Downloads/LIVE spring 2021 saliva table_Page 1_Table.csv: No such file or directory
+> 
+> rmarkdown::render_site()
+
+Rendering: ./404.Rmd
+  |                                                                              |                                                                      |   0%  |                                                                              |......................................................................| 100%
+  ordinary text without R code
+
+
+/usr/local/bin/pandoc +RTS -K512m -RTS 404.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output 404.html --lua-filter /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmarkdown/lua/pagebreak.lua --lua-filter /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmarkdown/lua/latex-div.lua --variable bs3=TRUE --standalone --section-divs --template /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmd/h/default.html --no-highlight --variable highlightjs=1 --include-before-body /var/folders/00/tqw7f1qx49v92dxbd12zx38r0000gn/T//RtmpZJjnSI/rmarkdown-str5b7453b3aa0a.html --variable navbar=1 --variable theme=bootstrap --include-in-header /var/folders/00/tqw7f1qx49v92dxbd12zx38r0000gn/T//RtmpZJjnSI/rmarkdown-str5b743860a174.html --mathjax --variable 'mathjax-url:https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML' 
+[WARNING] This document format requires a nonempty <title> element.
+  Defaulting to '404.knit' as the title.
+  To specify a title, use 'title' in metadata or --metadata title="...".
+
+Rendering: ./about.Rmd
+  |                                                                              |                                                                      |   0%  |                                                                              |......................................................................| 100%
+  ordinary text without R code
+
+
+/usr/local/bin/pandoc +RTS -K512m -RTS about.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output about.html --lua-filter /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmarkdown/lua/pagebreak.lua --lua-filter /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmarkdown/lua/latex-div.lua --variable bs3=TRUE --standalone --section-divs --template /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmd/h/default.html --no-highlight --variable highlightjs=1 --include-before-body /var/folders/00/tqw7f1qx49v92dxbd12zx38r0000gn/T//RtmpZJjnSI/rmarkdown-str5b745007e396.html --variable navbar=1 --variable theme=bootstrap --include-in-header /var/folders/00/tqw7f1qx49v92dxbd12zx38r0000gn/T//RtmpZJjnSI/rmarkdown-str5b7435eeb5e6.html --mathjax --variable 'mathjax-url:https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML' 
+
+Rendering: ./aic.Rmd
+  |                                                                              |                                                                      |   0%  |                                                                              |......................................................................| 100%
+  ordinary text without R code
+
+
+/usr/local/bin/pandoc +RTS -K512m -RTS aic.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output aic.html --lua-filter /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmarkdown/lua/pagebreak.lua --lua-filter /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmarkdown/lua/latex-div.lua --variable bs3=TRUE --standalone --section-divs --template /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmd/h/default.html --no-highlight --variable highlightjs=1 --include-before-body /var/folders/00/tqw7f1qx49v92dxbd12zx38r0000gn/T//RtmpZJjnSI/rmarkdown-str5b744ae82ab3.html --variable navbar=1 --variable theme=bootstrap --include-in-header /var/folders/00/tqw7f1qx49v92dxbd12zx38r0000gn/T//RtmpZJjnSI/rmarkdown-str5b74504b7430.html --mathjax --variable 'mathjax-url:https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML' --include-in-header GA_Script.html 
+
+Rendering: ./better-letter.Rmd
+  |                                                                              |                                                                      |   0%  |                                                                              |......................................................................| 100%
+  ordinary text without R code
+
+
+/usr/local/bin/pandoc +RTS -K512m -RTS better-letter.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output better-letter.html --lua-filter /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmarkdown/lua/pagebreak.lua --lua-filter /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmarkdown/lua/latex-div.lua --variable bs3=TRUE --standalone --section-divs --template /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmd/h/default.html --no-highlight --variable highlightjs=1 --include-before-body /var/folders/00/tqw7f1qx49v92dxbd12zx38r0000gn/T//RtmpZJjnSI/rmarkdown-str5b749b9247f.html --variable navbar=1 --variable theme=bootstrap --include-in-header /var/folders/00/tqw7f1qx49v92dxbd12zx38r0000gn/T//RtmpZJjnSI/rmarkdown-str5b745a0b12d5.html --mathjax --variable 'mathjax-url:https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML' 
+
+Rendering: ./calendar.Rmd
+  |                                                                              |                                                                      |   0%  |                                                                              |......................................................................| 100%
+  ordinary text without R code
+
+
+/usr/local/bin/pandoc +RTS -K512m -RTS calendar.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output calendar.html --lua-filter /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmarkdown/lua/pagebreak.lua --lua-filter /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmarkdown/lua/latex-div.lua --variable bs3=TRUE --standalone --section-divs --template /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmd/h/default.html --no-highlight --variable highlightjs=1 --include-before-body /var/folders/00/tqw7f1qx49v92dxbd12zx38r0000gn/T//RtmpZJjnSI/rmarkdown-str5b74d018c22.html --variable navbar=1 --variable theme=bootstrap --include-in-header /var/folders/00/tqw7f1qx49v92dxbd12zx38r0000gn/T//RtmpZJjnSI/rmarkdown-str5b74609712d9.html --mathjax --variable 'mathjax-url:https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML' 
+
+Rendering: ./covid.Rmd
+  |                                                                              |                                                                      |   0%  |                                                                              |..                                                                    |   3%
+   inline R code fragments
+
+  |                                                                              |.....                                                                 |   7%
+label: data (with options) 
+List of 3
+ $ echo   : logi FALSE
+ $ message: logi FALSE
+ $ warning: logi FALSE
+
+trying URL 'https://www.tn.gov/content/dam/tn/health/documents/cedep/novel-coronavirus/datasets/Public-Dataset-County-New.XLSX'
+Content type 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' length 6398385 bytes (6.1 MB)
+==================================================
+downloaded 6.1 MB
+
+trying URL 'https://www.tn.gov/content/dam/tn/health/documents/cedep/novel-coronavirus/datasets/Public-Dataset-Daily-County-Cases-5-18-Years.XLSX'
+Content type 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' length 1153624 bytes (1.1 MB)
+==================================================
+downloaded 1.1 MB
+
+trying URL 'https://healthdata.gov/api/views/anag-cw7u/rows.csv?accessType=DOWNLOAD'
+downloaded 102.0 MB
+
+trying URL 'https://www.tn.gov/content/dam/tn/health/documents/cedep/novel-coronavirus/datasets/COVID_VACCINE_DEMOGRAPHICS.XLSX'
+Content type 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' length 188227 bytes (183 KB)
+==================================================
+downloaded 183 KB
+
+trying URL 'https://www.tn.gov/content/dam/tn/health/documents/cedep/novel-coronavirus/datasets/Public-Dataset-RaceEthSex.XLSX'
+Content type 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' length 443864 bytes (433 KB)
+==================================================
+downloaded 433 KB
+
+  |                                                                              |.......                                                               |  10%
+   inline R code fragments
+
+  |                                                                              |..........                                                            |  14%
+label: summarytabletn (with options) 
+List of 4
+ $ echo   : logi FALSE
+ $ message: logi FALSE
+ $ warning: logi FALSE
+ $ error  : logi FALSE
+
+  |                                                                              |............                                                          |  17%
+  ordinary text without R code
+
+  |                                                                              |..............                                                        |  21%
+label: vaccination1 (with options) 
+List of 4
+ $ echo   : logi FALSE
+ $ message: logi FALSE
+ $ warning: logi FALSE
+ $ error  : logi FALSE
+
+  |                                                                              |.................                                                     |  24%
+  ordinary text without R code
+
+  |                                                                              |...................                                                   |  28%
+label: vaccination_increase (with options) 
+List of 4
+ $ echo   : logi FALSE
+ $ message: logi FALSE
+ $ warning: logi FALSE
+ $ error  : logi FALSE
+
+  |                                                                              |......................                                                |  31%
+  ordinary text without R code
+
+  |                                                                              |........................                                              |  34%
+label: plots_new_cdc (with options) 
+List of 3
+ $ echo   : logi FALSE
+ $ message: logi FALSE
+ $ warning: logi FALSE
+
+  |                                                                              |...........................                                           |  38%
+  ordinary text without R code
+
+  |                                                                              |.............................                                         |  41%
+label: plots_positivity_cdc (with options) 
+List of 3
+ $ echo   : logi FALSE
+ $ message: logi FALSE
+ $ warning: logi FALSE
+
+  |                                                                              |...............................                                       |  45%
+  ordinary text without R code
+
+  |                                                                              |..................................                                    |  48%
+label: studentinfections (with options) 
+List of 3
+ $ echo   : logi FALSE
+ $ message: logi FALSE
+ $ warning: logi FALSE
+
+  |                                                                              |....................................                                  |  52%
+  ordinary text without R code
+
+  |                                                                              |.......................................                               |  55%
+label: hospitalcapacitydata (with options) 
+List of 3
+ $ echo   : logi FALSE
+ $ message: logi FALSE
+ $ warning: logi FALSE
+
+  |                                                                              |.........................................                             |  59%
+   inline R code fragments
+
+  |                                                                              |...........................................                           |  62%
+label: hospitalcapacityplot (with options) 
+List of 3
+ $ echo   : logi FALSE
+ $ message: logi FALSE
+ $ warning: logi FALSE
+
+  |                                                                              |..............................................                        |  66%
+   inline R code fragments
+
+  |                                                                              |................................................                      |  69%
+label: plotsD (with options) 
+List of 3
+ $ echo   : logi FALSE
+ $ message: logi FALSE
+ $ warning: logi FALSE
+
+  |                                                                              |...................................................                   |  72%
+  ordinary text without R code
+
+  |                                                                              |.....................................................                 |  76%
+label: hospitalcapacityplotvsCA (with options) 
+List of 3
+ $ echo   : logi FALSE
+ $ message: logi FALSE
+ $ warning: logi FALSE
+
+  |                                                                              |........................................................              |  79%
+  ordinary text without R code
+
+  |                                                                              |..........................................................            |  83%
+label: utactive (with options) 
+List of 4
+ $ echo   : logi FALSE
+ $ message: logi FALSE
+ $ warning: logi FALSE
+ $ eval   : logi FALSE
+
+  |                                                                              |............................................................          |  86%
+  ordinary text without R code
+
+  |                                                                              |...............................................................       |  90%
+label: plotsaliva100k (with options) 
+List of 3
+ $ echo   : logi FALSE
+ $ message: logi FALSE
+ $ warning: logi FALSE
+
+  |                                                                              |.................................................................     |  93%
+  ordinary text without R code
+
+  |                                                                              |....................................................................  |  97%
+label: plotsalivacompliance (with options) 
+List of 3
+ $ echo   : logi FALSE
+ $ message: logi FALSE
+ $ warning: logi FALSE
+
+  |                                                                              |......................................................................| 100%
+  ordinary text without R code
+
+
+/usr/local/bin/pandoc +RTS -K512m -RTS covid.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output covid.html --lua-filter /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmarkdown/lua/pagebreak.lua --lua-filter /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmarkdown/lua/latex-div.lua --variable bs3=TRUE --standalone --section-divs --template /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmd/h/default.html --no-highlight --variable highlightjs=1 --include-before-body /var/folders/00/tqw7f1qx49v92dxbd12zx38r0000gn/T//RtmpZJjnSI/rmarkdown-str5b748c4e050.html --variable navbar=1 --variable theme=bootstrap --include-in-header /var/folders/00/tqw7f1qx49v92dxbd12zx38r0000gn/T//RtmpZJjnSI/rmarkdown-str5b743562a8af.html --mathjax --variable 'mathjax-url:https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML' 
+
+Rendering: ./cv.Rmd
+  |                                                                              |                                                                      |   0%  |                                                                              |....                                                                  |   5%
+  ordinary text without R code
+
+  |                                                                              |.......                                                               |  10%
+label: unnamed-chunk-1 (with options) 
+List of 1
+ $ child: chr "head.Rmd"
+
+  |                                                                              |                                                                      |   0%  |                                                                              |......................................................................| 100%
+  ordinary text without R code
+
+
+  |                                                                              |..........                                                            |  15%
+  ordinary text without R code
+
+  |                                                                              |..............                                                        |  20%
+label: unnamed-chunk-2 (with options) 
+List of 1
+ $ child: chr "summary.Rmd"
+
+  |                                                                              |                                                                      |   0%  |                                                                              |......................................................................| 100%
+  ordinary text without R code
+
+
+  |                                                                              |..................                                                    |  25%
+  ordinary text without R code
+
+  |                                                                              |.....................                                                 |  30%
+label: unnamed-chunk-3 (with options) 
+List of 1
+ $ child: chr "education.Rmd"
+
+  |                                                                              |                                                                      |   0%  |                                                                              |......................................................................| 100%
+  ordinary text without R code
+
+
+  |                                                                              |........................                                              |  35%
+  ordinary text without R code
+
+  |                                                                              |............................                                          |  40%
+label: unnamed-chunk-4 (with options) 
+List of 1
+ $ child: chr "employment.Rmd"
+
+  |                                                                              |                                                                      |   0%  |                                                                              |......................................................................| 100%
+  ordinary text without R code
+
+
+  |                                                                              |................................                                      |  45%
+  ordinary text without R code
+
+  |                                                                              |...................................                                   |  50%
+label: unnamed-chunk-5 (with options) 
+List of 1
+ $ child: chr "publications.Rmd"
+
+  |                                                                              |                                                                      |   0%  |                                                                              |......................................................................| 100%
+  ordinary text without R code
+
+
+  |                                                                              |......................................                                |  55%
+  ordinary text without R code
+
+  |                                                                              |..........................................                            |  60%
+label: unnamed-chunk-6 (with options) 
+List of 1
+ $ child: chr "teaching.Rmd"
+
+  |                                                                              |                                                                      |   0%  |                                                                              |......................................................................| 100%
+  ordinary text without R code
+
+
+  |                                                                              |..............................................                        |  65%
+  ordinary text without R code
+
+  |                                                                              |.................................................                     |  70%
+label: unnamed-chunk-7 (with options) 
+List of 1
+ $ child: chr "funding.Rmd"
+
+  |                                                                              |                                                                      |   0%  |                                                                              |......................................................................| 100%
+  ordinary text without R code
+
+
+  |                                                                              |....................................................                  |  75%
+  ordinary text without R code
+
+  |                                                                              |........................................................              |  80%
+label: unnamed-chunk-8 (with options) 
+List of 1
+ $ child: chr "presentations.Rmd"
+
+  |                                                                              |                                                                      |   0%  |                                                                              |......................................................................| 100%
+  ordinary text without R code
+
+
+  |                                                                              |............................................................          |  85%
+  ordinary text without R code
+
+  |                                                                              |...............................................................       |  90%
+label: unnamed-chunk-9 (with options) 
+List of 1
+ $ child: chr "people.Rmd"
+
+  |                                                                              |                                                                      |   0%  |                                                                              |......................................................................| 100%
+  ordinary text without R code
+
+
+  |                                                                              |..................................................................    |  95%
+  ordinary text without R code
+
+  |                                                                              |......................................................................| 100%
+label: unnamed-chunk-10 (with options) 
+List of 1
+ $ child: chr "service.Rmd"
+
+  |                                                                              |                                                                      |   0%  |                                                                              |......................................................................| 100%
+  ordinary text without R code
+
+
+
+/usr/local/bin/pandoc +RTS -K512m -RTS cv.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output cv.html --lua-filter /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmarkdown/lua/pagebreak.lua --lua-filter /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmarkdown/lua/latex-div.lua --variable bs3=TRUE --standalone --section-divs --template /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmd/h/default.html --no-highlight --variable highlightjs=1 --include-before-body /var/folders/00/tqw7f1qx49v92dxbd12zx38r0000gn/T//RtmpZJjnSI/rmarkdown-str5b746030948a.html --variable navbar=1 --variable theme=bootstrap --include-in-header /var/folders/00/tqw7f1qx49v92dxbd12zx38r0000gn/T//RtmpZJjnSI/rmarkdown-str5b741568215c.html --mathjax --variable 'mathjax-url:https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML' 
+
+Rendering: ./ddig.Rmd
+  |                                                                              |                                                                      |   0%  |                                                                              |......................................................................| 100%
+  ordinary text without R code
+
+
+/usr/local/bin/pandoc +RTS -K512m -RTS ddig.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output ddig.html --lua-filter /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmarkdown/lua/pagebreak.lua --lua-filter /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmarkdown/lua/latex-div.lua --variable bs3=TRUE --standalone --section-divs --template /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmd/h/default.html --no-highlight --variable highlightjs=1 --include-before-body /var/folders/00/tqw7f1qx49v92dxbd12zx38r0000gn/T//RtmpZJjnSI/rmarkdown-str5b74676629fe.html --variable navbar=1 --variable theme=bootstrap --include-in-header /var/folders/00/tqw7f1qx49v92dxbd12zx38r0000gn/T//RtmpZJjnSI/rmarkdown-str5b74644f17ba.html --mathjax --variable 'mathjax-url:https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML' --include-in-header GA_Script.html 
+
+Rendering: ./education.Rmd
+  |                                                                              |                                                                      |   0%  |                                                                              |......................................................................| 100%
+  ordinary text without R code
+
+
+/usr/local/bin/pandoc +RTS -K512m -RTS education.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output education.html --lua-filter /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmarkdown/lua/pagebreak.lua --lua-filter /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmarkdown/lua/latex-div.lua --variable bs3=TRUE --standalone --section-divs --template /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmd/h/default.html --no-highlight --variable highlightjs=1 --include-before-body /var/folders/00/tqw7f1qx49v92dxbd12zx38r0000gn/T//RtmpZJjnSI/rmarkdown-str5b7449ee7c9.html --variable navbar=1 --variable theme=bootstrap --include-in-header /var/folders/00/tqw7f1qx49v92dxbd12zx38r0000gn/T//RtmpZJjnSI/rmarkdown-str5b745c833f7d.html --mathjax --variable 'mathjax-url:https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML' 
+[WARNING] This document format requires a nonempty <title> element.
+  Defaulting to 'education.knit' as the title.
+  To specify a title, use 'title' in metadata or --metadata title="...".
+
+Rendering: ./eeb464.Rmd
+  |                                                                              |                                                                      |   0%  |                                                                              |......................................................................| 100%
+  ordinary text without R code
+
+
+/usr/local/bin/pandoc +RTS -K512m -RTS eeb464.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output eeb464.html --lua-filter /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmarkdown/lua/pagebreak.lua --lua-filter /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmarkdown/lua/latex-div.lua --variable bs3=TRUE --standalone --section-divs --template /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmd/h/default.html --no-highlight --variable highlightjs=1 --include-before-body /var/folders/00/tqw7f1qx49v92dxbd12zx38r0000gn/T//RtmpZJjnSI/rmarkdown-str5b742cbd56fe.html --variable navbar=1 --variable theme=bootstrap --include-in-header /var/folders/00/tqw7f1qx49v92dxbd12zx38r0000gn/T//RtmpZJjnSI/rmarkdown-str5b74429a54a4.html --mathjax --variable 'mathjax-url:https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML' 
+
+Rendering: ./employment.Rmd
+  |                                                                              |                                                                      |   0%  |                                                                              |......................................................................| 100%
+  ordinary text without R code
+
+
+/usr/local/bin/pandoc +RTS -K512m -RTS employment.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output employment.html --lua-filter /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmarkdown/lua/pagebreak.lua --lua-filter /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmarkdown/lua/latex-div.lua --variable bs3=TRUE --standalone --section-divs --template /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmd/h/default.html --no-highlight --variable highlightjs=1 --include-before-body /var/folders/00/tqw7f1qx49v92dxbd12zx38r0000gn/T//RtmpZJjnSI/rmarkdown-str5b74222afd25.html --variable navbar=1 --variable theme=bootstrap --include-in-header /var/folders/00/tqw7f1qx49v92dxbd12zx38r0000gn/T//RtmpZJjnSI/rmarkdown-str5b74345199a9.html --mathjax --variable 'mathjax-url:https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML' 
+[WARNING] This document format requires a nonempty <title> element.
+  Defaulting to 'employment.knit' as the title.
+  To specify a title, use 'title' in metadata or --metadata title="...".
+
+Rendering: ./feedback.Rmd
+  |                                                                              |                                                                      |   0%  |                                                                              |......................................................................| 100%
+  ordinary text without R code
+
+
+/usr/local/bin/pandoc +RTS -K512m -RTS feedback.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output feedback.html --lua-filter /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmarkdown/lua/pagebreak.lua --lua-filter /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmarkdown/lua/latex-div.lua --variable bs3=TRUE --standalone --section-divs --template /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmd/h/default.html --no-highlight --variable highlightjs=1 --include-before-body /var/folders/00/tqw7f1qx49v92dxbd12zx38r0000gn/T//RtmpZJjnSI/rmarkdown-str5b74593f4114.html --variable navbar=1 --variable theme=bootstrap --include-in-header /var/folders/00/tqw7f1qx49v92dxbd12zx38r0000gn/T//RtmpZJjnSI/rmarkdown-str5b7447c9b5d2.html --mathjax --variable 'mathjax-url:https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML' 
+
+Rendering: ./funding.Rmd
+  |                                                                              |                                                                      |   0%  |                                                                              |......................................................................| 100%
+  ordinary text without R code
+
+
+/usr/local/bin/pandoc +RTS -K512m -RTS funding.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output funding.html --lua-filter /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmarkdown/lua/pagebreak.lua --lua-filter /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmarkdown/lua/latex-div.lua --variable bs3=TRUE --standalone --section-divs --template /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmd/h/default.html --no-highlight --variable highlightjs=1 --include-before-body /var/folders/00/tqw7f1qx49v92dxbd12zx38r0000gn/T//RtmpZJjnSI/rmarkdown-str5b74bc012d0.html --variable navbar=1 --variable theme=bootstrap --include-in-header /var/folders/00/tqw7f1qx49v92dxbd12zx38r0000gn/T//RtmpZJjnSI/rmarkdown-str5b746f131bb6.html --mathjax --variable 'mathjax-url:https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML' 
+[WARNING] This document format requires a nonempty <title> element.
+  Defaulting to 'funding.knit' as the title.
+  To specify a title, use 'title' in metadata or --metadata title="...".
+
+Rendering: ./general.Rmd
+  |                                                                              |                                                                      |   0%  |                                                                              |......................................................................| 100%
+  ordinary text without R code
+
+
+/usr/local/bin/pandoc +RTS -K512m -RTS general.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output general.html --lua-filter /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmarkdown/lua/pagebreak.lua --lua-filter /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmarkdown/lua/latex-div.lua --variable bs3=TRUE --standalone --section-divs --template /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmd/h/default.html --no-highlight --variable highlightjs=1 --include-before-body /var/folders/00/tqw7f1qx49v92dxbd12zx38r0000gn/T//RtmpZJjnSI/rmarkdown-str5b744f8082b2.html --variable navbar=1 --variable theme=bootstrap --include-in-header /var/folders/00/tqw7f1qx49v92dxbd12zx38r0000gn/T//RtmpZJjnSI/rmarkdown-str5b747e049ce4.html --mathjax --variable 'mathjax-url:https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML' 
+
+Rendering: ./guidelines.Rmd
+  |                                                                              |                                                                      |   0%  |                                                                              |......................................................................| 100%
+  ordinary text without R code
+
+
+/usr/local/bin/pandoc +RTS -K512m -RTS guidelines.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output guidelines.html --lua-filter /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmarkdown/lua/pagebreak.lua --lua-filter /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmarkdown/lua/latex-div.lua --variable bs3=TRUE --standalone --section-divs --template /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmd/h/default.html --no-highlight --variable highlightjs=1 --include-before-body /var/folders/00/tqw7f1qx49v92dxbd12zx38r0000gn/T//RtmpZJjnSI/rmarkdown-str5b7460d87d5e.html --variable navbar=1 --variable theme=bootstrap --include-in-header /var/folders/00/tqw7f1qx49v92dxbd12zx38r0000gn/T//RtmpZJjnSI/rmarkdown-str5b74250ed7fe.html --mathjax --variable 'mathjax-url:https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML' 
+
+Rendering: ./head.Rmd
+  |                                                                              |                                                                      |   0%  |                                                                              |......................................................................| 100%
+  ordinary text without R code
+
+
+/usr/local/bin/pandoc +RTS -K512m -RTS head.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output head.html --lua-filter /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmarkdown/lua/pagebreak.lua --lua-filter /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmarkdown/lua/latex-div.lua --variable bs3=TRUE --standalone --section-divs --template /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmd/h/default.html --no-highlight --variable highlightjs=1 --include-before-body /var/folders/00/tqw7f1qx49v92dxbd12zx38r0000gn/T//RtmpZJjnSI/rmarkdown-str5b74718677b3.html --variable navbar=1 --variable theme=bootstrap --include-in-header /var/folders/00/tqw7f1qx49v92dxbd12zx38r0000gn/T//RtmpZJjnSI/rmarkdown-str5b74331cc2ff.html --mathjax --variable 'mathjax-url:https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML' 
+[WARNING] This document format requires a nonempty <title> element.
+  Defaulting to 'head.knit' as the title.
+  To specify a title, use 'title' in metadata or --metadata title="...".
+
+Rendering: ./index.Rmd
+  |                                                                              |                                                                      |   0%  |                                                                              |.......................                                               |  33%
+  ordinary text without R code
+
+  |                                                                              |...............................................                       |  67%
+label: render_md (with options) 
+List of 3
+ $ include: logi FALSE
+ $ echo   : logi FALSE
+ $ warning: logi FALSE
+
+  |                                                                              |......................................................................| 100%
+  ordinary text without R code
+
+
+/usr/local/bin/pandoc +RTS -K512m -RTS index.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output index.html --lua-filter /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmarkdown/lua/pagebreak.lua --lua-filter /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmarkdown/lua/latex-div.lua --variable bs3=TRUE --standalone --section-divs --template /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmd/h/default.html --no-highlight --variable highlightjs=1 --include-before-body /var/folders/00/tqw7f1qx49v92dxbd12zx38r0000gn/T//RtmpZJjnSI/rmarkdown-str5b741a247c0e.html --variable navbar=1 --variable theme=bootstrap --include-in-header /var/folders/00/tqw7f1qx49v92dxbd12zx38r0000gn/T//RtmpZJjnSI/rmarkdown-str5b74514c888a.html --mathjax --variable 'mathjax-url:https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML' --include-in-header GA_Script.html 
+
+Rendering: ./learningobjectives.Rmd
+  |                                                                              |                                                                      |   0%  |                                                                              |......................................................................| 100%
+  ordinary text without R code
+
+
+/usr/local/bin/pandoc +RTS -K512m -RTS learningobjectives.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output learningobjectives.html --lua-filter /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmarkdown/lua/pagebreak.lua --lua-filter /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmarkdown/lua/latex-div.lua --variable bs3=TRUE --standalone --section-divs --template /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmd/h/default.html --no-highlight --variable highlightjs=1 --include-before-body /var/folders/00/tqw7f1qx49v92dxbd12zx38r0000gn/T//RtmpZJjnSI/rmarkdown-str5b74779845b8.html --variable navbar=1 --variable theme=bootstrap --include-in-header /var/folders/00/tqw7f1qx49v92dxbd12zx38r0000gn/T//RtmpZJjnSI/rmarkdown-str5b742e09705f.html --mathjax --variable 'mathjax-url:https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML' 
+
+Rendering: ./location.Rmd
+  |                                                                              |                                                                      |   0%  |                                                                              |......................................................................| 100%
+  ordinary text without R code
+
+
+/usr/local/bin/pandoc +RTS -K512m -RTS location.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output location.html --lua-filter /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmarkdown/lua/pagebreak.lua --lua-filter /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmarkdown/lua/latex-div.lua --variable bs3=TRUE --standalone --section-divs --template /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmd/h/default.html --no-highlight --variable highlightjs=1 --include-before-body /var/folders/00/tqw7f1qx49v92dxbd12zx38r0000gn/T//RtmpZJjnSI/rmarkdown-str5b746db08495.html --variable navbar=1 --variable theme=bootstrap --include-in-header /var/folders/00/tqw7f1qx49v92dxbd12zx38r0000gn/T//RtmpZJjnSI/rmarkdown-str5b745fd08a75.html --mathjax --variable 'mathjax-url:https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML' 
+
+Rendering: ./macsetup.Rmd
+  |                                                                              |                                                                      |   0%  |                                                                              |......................................................................| 100%
+  ordinary text without R code
+
+
+/usr/local/bin/pandoc +RTS -K512m -RTS macsetup.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output macsetup.html --lua-filter /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmarkdown/lua/pagebreak.lua --lua-filter /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmarkdown/lua/latex-div.lua --variable bs3=TRUE --standalone --section-divs --template /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmd/h/default.html --no-highlight --variable highlightjs=1 --include-before-body /var/folders/00/tqw7f1qx49v92dxbd12zx38r0000gn/T//RtmpZJjnSI/rmarkdown-str5b7474323877.html --variable navbar=1 --variable theme=bootstrap --include-in-header /var/folders/00/tqw7f1qx49v92dxbd12zx38r0000gn/T//RtmpZJjnSI/rmarkdown-str5b74d19483a.html --mathjax --variable 'mathjax-url:https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML' --include-in-header GA_Script.html 
+
+Rendering: ./opportunities.Rmd
+  |                                                                              |                                                                      |   0%  |                                                                              |......................................................................| 100%
+  ordinary text without R code
+
+
+/usr/local/bin/pandoc +RTS -K512m -RTS opportunities.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output opportunities.html --lua-filter /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmarkdown/lua/pagebreak.lua --lua-filter /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmarkdown/lua/latex-div.lua --variable bs3=TRUE --standalone --section-divs --template /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmd/h/default.html --no-highlight --variable highlightjs=1 --include-before-body /var/folders/00/tqw7f1qx49v92dxbd12zx38r0000gn/T//RtmpZJjnSI/rmarkdown-str5b7476d4de8d.html --variable navbar=1 --variable theme=bootstrap --include-in-header /var/folders/00/tqw7f1qx49v92dxbd12zx38r0000gn/T//RtmpZJjnSI/rmarkdown-str5b74115f37ee.html --mathjax --variable 'mathjax-url:https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML' 
+
+Rendering: ./people.Rmd
+  |                                                                              |                                                                      |   0%  |                                                                              |......................................................................| 100%
+  ordinary text without R code
+
+
+/usr/local/bin/pandoc +RTS -K512m -RTS people.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output people.html --lua-filter /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmarkdown/lua/pagebreak.lua --lua-filter /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmarkdown/lua/latex-div.lua --variable bs3=TRUE --standalone --section-divs --template /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmd/h/default.html --no-highlight --variable highlightjs=1 --include-before-body /var/folders/00/tqw7f1qx49v92dxbd12zx38r0000gn/T//RtmpZJjnSI/rmarkdown-str5b74250f32b.html --variable navbar=1 --variable theme=bootstrap --include-in-header /var/folders/00/tqw7f1qx49v92dxbd12zx38r0000gn/T//RtmpZJjnSI/rmarkdown-str5b74108c8d3d.html --mathjax --variable 'mathjax-url:https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML' 
+[WARNING] This document format requires a nonempty <title> element.
+  Defaulting to 'people.knit' as the title.
+  To specify a title, use 'title' in metadata or --metadata title="...".
+
+Rendering: ./personnel.Rmd
+  |                                                                              |                                                                      |   0%  |                                                                              |...................................                                   |  50%
+  ordinary text without R code
+
+  |                                                                              |......................................................................| 100%
+label: unnamed-chunk-1 (with options) 
+List of 1
+ $ child: chr "people.Rmd"
+
+  |                                                                              |                                                                      |   0%  |                                                                              |......................................................................| 100%
+  ordinary text without R code
+
+
+
+/usr/local/bin/pandoc +RTS -K512m -RTS personnel.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output personnel.html --lua-filter /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmarkdown/lua/pagebreak.lua --lua-filter /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmarkdown/lua/latex-div.lua --variable bs3=TRUE --standalone --section-divs --template /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmd/h/default.html --no-highlight --variable highlightjs=1 --include-before-body /var/folders/00/tqw7f1qx49v92dxbd12zx38r0000gn/T//RtmpZJjnSI/rmarkdown-str5b747b8ca847.html --variable navbar=1 --variable theme=bootstrap --include-in-header /var/folders/00/tqw7f1qx49v92dxbd12zx38r0000gn/T//RtmpZJjnSI/rmarkdown-str5b744f7c0caf.html --mathjax --variable 'mathjax-url:https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML' 
+
+Rendering: ./phylogenetics.Rmd
+  |                                                                              |                                                                      |   0%  |                                                                              |......................................................................| 100%
+  ordinary text without R code
+
+
+/usr/local/bin/pandoc +RTS -K512m -RTS phylogenetics.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output phylogenetics.html --lua-filter /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmarkdown/lua/pagebreak.lua --lua-filter /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmarkdown/lua/latex-div.lua --variable bs3=TRUE --standalone --section-divs --template /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmd/h/default.html --no-highlight --variable highlightjs=1 --include-before-body /var/folders/00/tqw7f1qx49v92dxbd12zx38r0000gn/T//RtmpZJjnSI/rmarkdown-str5b745924dded.html --variable navbar=1 --variable theme=bootstrap --include-in-header /var/folders/00/tqw7f1qx49v92dxbd12zx38r0000gn/T//RtmpZJjnSI/rmarkdown-str5b743662054.html --mathjax --variable 'mathjax-url:https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML' 
+
+Rendering: ./presentations.Rmd
+  |                                                                              |                                                                      |   0%  |                                                                              |......................................................................| 100%
+  ordinary text without R code
+
+
+/usr/local/bin/pandoc +RTS -K512m -RTS presentations.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output presentations.html --lua-filter /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmarkdown/lua/pagebreak.lua --lua-filter /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmarkdown/lua/latex-div.lua --variable bs3=TRUE --standalone --section-divs --template /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmd/h/default.html --no-highlight --variable highlightjs=1 --include-before-body /var/folders/00/tqw7f1qx49v92dxbd12zx38r0000gn/T//RtmpZJjnSI/rmarkdown-str5b7425d46c8a.html --variable navbar=1 --variable theme=bootstrap --include-in-header /var/folders/00/tqw7f1qx49v92dxbd12zx38r0000gn/T//RtmpZJjnSI/rmarkdown-str5b741d21eb6d.html --mathjax --variable 'mathjax-url:https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML' 
+[WARNING] This document format requires a nonempty <title> element.
+  Defaulting to 'presentations.knit' as the title.
+  To specify a title, use 'title' in metadata or --metadata title="...".
+
+Rendering: ./promotion.Rmd
+  |                                                                              |                                                                      |   0%  |                                                                              |......................................................................| 100%
+  ordinary text without R code
+
+
+/usr/local/bin/pandoc +RTS -K512m -RTS promotion.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output promotion.html --lua-filter /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmarkdown/lua/pagebreak.lua --lua-filter /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmarkdown/lua/latex-div.lua --variable bs3=TRUE --standalone --section-divs --template /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmd/h/default.html --no-highlight --variable highlightjs=1 --include-before-body /var/folders/00/tqw7f1qx49v92dxbd12zx38r0000gn/T//RtmpZJjnSI/rmarkdown-str5b741de7500c.html --variable navbar=1 --variable theme=bootstrap --include-in-header /var/folders/00/tqw7f1qx49v92dxbd12zx38r0000gn/T//RtmpZJjnSI/rmarkdown-str5b743d38532a.html --mathjax --variable 'mathjax-url:https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML' 
+
+Rendering: ./publications.Rmd
+  |                                                                              |                                                                      |   0%  |                                                                              |......................................................................| 100%
+  ordinary text without R code
+
+
+/usr/local/bin/pandoc +RTS -K512m -RTS publications.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output publications.html --lua-filter /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmarkdown/lua/pagebreak.lua --lua-filter /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmarkdown/lua/latex-div.lua --variable bs3=TRUE --standalone --section-divs --template /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmd/h/default.html --no-highlight --variable highlightjs=1 --include-before-body /var/folders/00/tqw7f1qx49v92dxbd12zx38r0000gn/T//RtmpZJjnSI/rmarkdown-str5b743cdc09cc.html --variable navbar=1 --variable theme=bootstrap --include-in-header /var/folders/00/tqw7f1qx49v92dxbd12zx38r0000gn/T//RtmpZJjnSI/rmarkdown-str5b7412074f4b.html --mathjax --variable 'mathjax-url:https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML' 
+[WARNING] This document format requires a nonempty <title> element.
+  Defaulting to 'publications.knit' as the title.
+  To specify a title, use 'title' in metadata or --metadata title="...".
+
+Rendering: ./research.Rmd
+  |                                                                              |                                                                      |   0%  |                                                                              |......................................................................| 100%
+  ordinary text without R code
+
+
+/usr/local/bin/pandoc +RTS -K512m -RTS research.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output research.html --lua-filter /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmarkdown/lua/pagebreak.lua --lua-filter /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmarkdown/lua/latex-div.lua --variable bs3=TRUE --standalone --section-divs --template /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmd/h/default.html --no-highlight --variable highlightjs=1 --include-before-body /var/folders/00/tqw7f1qx49v92dxbd12zx38r0000gn/T//RtmpZJjnSI/rmarkdown-str5b741de6ce2c.html --variable navbar=1 --variable theme=bootstrap --include-in-header /var/folders/00/tqw7f1qx49v92dxbd12zx38r0000gn/T//RtmpZJjnSI/rmarkdown-str5b741be9ba0a.html --mathjax --variable 'mathjax-url:https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML' 
+
+Rendering: ./service.Rmd
+  |                                                                              |                                                                      |   0%  |                                                                              |......................................................................| 100%
+  ordinary text without R code
+
+
+/usr/local/bin/pandoc +RTS -K512m -RTS service.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output service.html --lua-filter /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmarkdown/lua/pagebreak.lua --lua-filter /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmarkdown/lua/latex-div.lua --variable bs3=TRUE --standalone --section-divs --template /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmd/h/default.html --no-highlight --variable highlightjs=1 --include-before-body /var/folders/00/tqw7f1qx49v92dxbd12zx38r0000gn/T//RtmpZJjnSI/rmarkdown-str5b74db4f4d7.html --variable navbar=1 --variable theme=bootstrap --include-in-header /var/folders/00/tqw7f1qx49v92dxbd12zx38r0000gn/T//RtmpZJjnSI/rmarkdown-str5b7463365648.html --mathjax --variable 'mathjax-url:https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML' 
+[WARNING] This document format requires a nonempty <title> element.
+  Defaulting to 'service.knit' as the title.
+  To specify a title, use 'title' in metadata or --metadata title="...".
+
+Rendering: ./shouldyougotogradschool.Rmd
+  |                                                                              |                                                                      |   0%  |                                                                              |......................................................................| 100%
+  ordinary text without R code
+
+
+/usr/local/bin/pandoc +RTS -K512m -RTS shouldyougotogradschool.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output shouldyougotogradschool.html --lua-filter /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmarkdown/lua/pagebreak.lua --lua-filter /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmarkdown/lua/latex-div.lua --variable bs3=TRUE --standalone --section-divs --template /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmd/h/default.html --no-highlight --variable highlightjs=1 --include-before-body /var/folders/00/tqw7f1qx49v92dxbd12zx38r0000gn/T//RtmpZJjnSI/rmarkdown-str5b7445ac3db.html --variable navbar=1 --variable theme=bootstrap --include-in-header /var/folders/00/tqw7f1qx49v92dxbd12zx38r0000gn/T//RtmpZJjnSI/rmarkdown-str5b7462f06118.html --mathjax --variable 'mathjax-url:https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML' 
+
+Rendering: ./software.Rmd
+  |                                                                              |                                                                      |   0%  |                                                                              |......................................................................| 100%
+  ordinary text without R code
+
+
+/usr/local/bin/pandoc +RTS -K512m -RTS software.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output software.html --lua-filter /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmarkdown/lua/pagebreak.lua --lua-filter /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmarkdown/lua/latex-div.lua --variable bs3=TRUE --standalone --section-divs --template /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmd/h/default.html --no-highlight --variable highlightjs=1 --include-before-body /var/folders/00/tqw7f1qx49v92dxbd12zx38r0000gn/T//RtmpZJjnSI/rmarkdown-str5b741376a167.html --variable navbar=1 --variable theme=bootstrap --include-in-header /var/folders/00/tqw7f1qx49v92dxbd12zx38r0000gn/T//RtmpZJjnSI/rmarkdown-str5b74515e7b2c.html --mathjax --variable 'mathjax-url:https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML' 
+
+Rendering: ./SSB.Rmd
+  |                                                                              |                                                                      |   0%  |                                                                              |......................................................................| 100%
+  ordinary text without R code
+
+
+/usr/local/bin/pandoc +RTS -K512m -RTS SSB.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output SSB.html --lua-filter /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmarkdown/lua/pagebreak.lua --lua-filter /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmarkdown/lua/latex-div.lua --variable bs3=TRUE --standalone --section-divs --template /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmd/h/default.html --no-highlight --variable highlightjs=1 --include-before-body /var/folders/00/tqw7f1qx49v92dxbd12zx38r0000gn/T//RtmpZJjnSI/rmarkdown-str5b7411e8af70.html --variable navbar=1 --variable theme=bootstrap --include-in-header /var/folders/00/tqw7f1qx49v92dxbd12zx38r0000gn/T//RtmpZJjnSI/rmarkdown-str5b744355eb3f.html --mathjax --variable 'mathjax-url:https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML' --include-in-header GA_Script.html 
+
+Rendering: ./summary.Rmd
+  |                                                                              |                                                                      |   0%  |                                                                              |......................................................................| 100%
+  ordinary text without R code
+
+
+/usr/local/bin/pandoc +RTS -K512m -RTS summary.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output summary.html --lua-filter /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmarkdown/lua/pagebreak.lua --lua-filter /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmarkdown/lua/latex-div.lua --variable bs3=TRUE --standalone --section-divs --template /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmd/h/default.html --no-highlight --variable highlightjs=1 --include-before-body /var/folders/00/tqw7f1qx49v92dxbd12zx38r0000gn/T//RtmpZJjnSI/rmarkdown-str5b743dc797a2.html --variable navbar=1 --variable theme=bootstrap --include-in-header /var/folders/00/tqw7f1qx49v92dxbd12zx38r0000gn/T//RtmpZJjnSI/rmarkdown-str5b747ab42c5d.html --mathjax --variable 'mathjax-url:https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML' 
+[WARNING] This document format requires a nonempty <title> element.
+  Defaulting to 'summary.knit' as the title.
+  To specify a title, use 'title' in metadata or --metadata title="...".
+
+Rendering: ./teaching.Rmd
+  |                                                                              |                                                                      |   0%  |                                                                              |......................................................................| 100%
+  ordinary text without R code
+
+
+/usr/local/bin/pandoc +RTS -K512m -RTS teaching.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output teaching.html --lua-filter /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmarkdown/lua/pagebreak.lua --lua-filter /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmarkdown/lua/latex-div.lua --variable bs3=TRUE --standalone --section-divs --template /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmd/h/default.html --no-highlight --variable highlightjs=1 --include-before-body /var/folders/00/tqw7f1qx49v92dxbd12zx38r0000gn/T//RtmpZJjnSI/rmarkdown-str5b744acccc9a.html --variable navbar=1 --variable theme=bootstrap --include-in-header /var/folders/00/tqw7f1qx49v92dxbd12zx38r0000gn/T//RtmpZJjnSI/rmarkdown-str5b744b8cb8d3.html --mathjax --variable 'mathjax-url:https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML' 
+[WARNING] This document format requires a nonempty <title> element.
+  Defaulting to 'teaching.knit' as the title.
+  To specify a title, use 'title' in metadata or --metadata title="...".
+
+Rendering: ./tenure.Rmd
+  |                                                                              |                                                                      |   0%  |                                                                              |......................................................................| 100%
+  ordinary text without R code
+
+
+/usr/local/bin/pandoc +RTS -K512m -RTS tenure.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output tenure.html --lua-filter /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmarkdown/lua/pagebreak.lua --lua-filter /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmarkdown/lua/latex-div.lua --variable bs3=TRUE --standalone --section-divs --template /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmd/h/default.html --no-highlight --variable highlightjs=1 --include-before-body /var/folders/00/tqw7f1qx49v92dxbd12zx38r0000gn/T//RtmpZJjnSI/rmarkdown-str5b743ba4b65.html --variable navbar=1 --variable theme=bootstrap --include-in-header /var/folders/00/tqw7f1qx49v92dxbd12zx38r0000gn/T//RtmpZJjnSI/rmarkdown-str5b743babd5cc.html --mathjax --variable 'mathjax-url:https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML' 
+
+Rendering: ./UMN.Rmd
+  |                                                                              |                                                                      |   0%  |                                                                              |......................................................................| 100%
+  ordinary text without R code
+
+
+/usr/local/bin/pandoc +RTS -K512m -RTS UMN.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output UMN.html --lua-filter /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmarkdown/lua/pagebreak.lua --lua-filter /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmarkdown/lua/latex-div.lua --variable bs3=TRUE --standalone --section-divs --template /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmd/h/default.html --no-highlight --variable highlightjs=1 --include-before-body /var/folders/00/tqw7f1qx49v92dxbd12zx38r0000gn/T//RtmpZJjnSI/rmarkdown-str5b74e6162af.html --variable navbar=1 --variable theme=bootstrap --include-in-header /var/folders/00/tqw7f1qx49v92dxbd12zx38r0000gn/T//RtmpZJjnSI/rmarkdown-str5b741b95d689.html --mathjax --variable 'mathjax-url:https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML' 
+
+Rendering: ./useful.Rmd
+  |                                                                              |                                                                      |   0%  |                                                                              |......................................................................| 100%
+  ordinary text without R code
+
+
+/usr/local/bin/pandoc +RTS -K512m -RTS useful.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output useful.html --lua-filter /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmarkdown/lua/pagebreak.lua --lua-filter /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmarkdown/lua/latex-div.lua --variable bs3=TRUE --standalone --section-divs --template /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmd/h/default.html --no-highlight --variable highlightjs=1 --include-before-body /var/folders/00/tqw7f1qx49v92dxbd12zx38r0000gn/T//RtmpZJjnSI/rmarkdown-str5b74a37ca85.html --variable navbar=1 --variable theme=bootstrap --include-in-header /var/folders/00/tqw7f1qx49v92dxbd12zx38r0000gn/T//RtmpZJjnSI/rmarkdown-str5b7454d0e700.html --mathjax --variable 'mathjax-url:https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML' --include-in-header GA_Script.html 
+
+Output created: index.html
+There were 50 or more warnings (use warnings() to see the first 50)
+> source("functions.R")
+Using libcurl 7.64.1 with LibreSSL/2.8.3
+
+Attaching package: ‘xml2’
+
+The following object is masked from ‘package:urltools’:
+
+    url_parse
+
+> print("Not creating sitemap")
+[1] "Not creating sitemap"
+> #sitemap <- GenerateSitemap()
+> #cat(sitemap, file="sitemap.xml")
+> system("git add .; git commit -m'updating site'; git push")

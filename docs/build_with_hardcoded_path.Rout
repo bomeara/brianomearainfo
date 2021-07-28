@@ -644,3 +644,29 @@ The following object is masked from ‘package:urltools’:
 > #sitemap <- GenerateSitemap()
 > #cat(sitemap, file="sitemap.xml")
 > system("git add .; git commit -m'updating site'; git push")
+[master 12a9e66] updating site
+ 14 files changed, 660 insertions(+), 14 deletions(-)
+ create mode 100644 docs/build_with_hardcoded_path.Rout
+ rewrite docs/covid_files/figure-html/hospitalcapacityplot-1.png (97%)
+ rewrite docs/covid_files/figure-html/hospitalcapacityplotvsCA-1.png (97%)
+ rewrite docs/covid_files/figure-html/plotsD-1.png (96%)
+ rewrite docs/covid_files/figure-html/plots_new_cdc-1.png (96%)
+ rewrite docs/covid_files/figure-html/plots_positivity_cdc-1.png (96%)
+ rewrite docs/covid_files/figure-html/studentinfections-1.png (97%)
+ rewrite docs/covid_files/figure-html/vaccination1-1.png (72%)
+ rewrite docs/covid_files/figure-html/vaccination1-2.png (69%)
+ rewrite docs/covid_files/figure-html/vaccination1-3.png (69%)
+ rewrite docs/covid_files/figure-html/vaccination_increase-1.png (96%)
+ rewrite docs/covid_files/figure-html/vaccination_increase-2.png (96%)
+ rewrite docs/covid_files/figure-html/vaccination_increase-3.png (97%)
+fatal: could not read Username for 'https://github.com': Interrupted system call
+error: waitpid for git-remote-https failed: No child processes
+> setwd(originalwd)
+> print(Sys.time())
+[1] "2021-07-28 01:12:01 EDT"
+> print("/Users/bomeara/Documents/MyDocuments/GitClones/brianomearainfo/docs/covid.html")
+[1] "/Users/bomeara/Documents/MyDocuments/GitClones/brianomearainfo/docs/covid.html"
+> quit(save="no")
+> proc.time()
+    user   system  elapsed 
+ 188.845   22.923 8159.647 

@@ -900,7 +900,7 @@ try(print(hosp_plot_CA))
 
 <h2 id="ut">University of Tennessee, Knoxville</h2>
 
-Another question is what is happening at UTK. There is official information available at https://www.utk.edu/coronavirus/guides/data-monitoring-and-contingency-options, of which I show one figure below. CDC guidance for institutions of higher education who don't require vaccination, which includes UTK, is [here](https://www.cdc.gov/coronavirus/2019-ncov/community/colleges-universities/considerations.html#section3).
+Another question is what is happening at UTK. There is official information available at https://www.utk.edu/coronavirus/guides/data-monitoring-and-contingency-options, of which I show one figure below. CDC guidance for institutions of higher education who don't require vaccination, which includes UTK, is [here](https://www.cdc.gov/coronavirus/2019-ncov/community/colleges-universities/considerations.html#section3). Knox County is currently an area with substantial to high covid spread, so the CDC recommendation is that everyone wear masks indoors, even those fully vaccinated.
 
 <iframe src="https://datastudio.google.com/embed/reporting/bb71d0fd-2817-4e14-9f84-7f74a1e503b5/page/Qr2ZB" width=600 height=300></iframe>
 

@@ -29,7 +29,7 @@ counties_in_hospital_region <- c("Knox", "Anderson", "Roane", "Scott", "Blount",
 us <- COVID19::covid19(country="US", level=3, verbose=FALSE)
 tn <- subset(us, administrative_area_level_2=="Tennessee")
 knox <- subset(us, administrative_area_level_3=="Knox" & administrative_area_level_2=="Tennessee")
-oakridge <- subset(us, administrative_area_level_3 %in% c("Roane", "Anderson") & administrative_area_level_2=="Tennessee")
+oakridge <- subset(us, administrative_area_level_3 %in% c("Anderson") & administrative_area_level_2=="Tennessee")
 region <-  subset(us, administrative_area_level_3 %in% counties_in_hospital_region & administrative_area_level_2=="Tennessee")
 knox$percentconfirmed <- 100*knox$confirmed/knox$population
 
@@ -91,8 +91,8 @@ daily_knox$PositivityRate_per_week <- zoo::rollsum(daily_knox$NEW_POS_TESTS, k=7
 
 
 
-daily_oakridge <- subset(daily, COUNTY %in% c("Roane", "Anderson")) %>% group_by(DATE) %>% select(-"COUNTY") %>% summarise_all(sum)
-daily_oakridge$Region <- "Anderson + Roane"
+daily_oakridge <- subset(daily, COUNTY %in% c("Anderson")) %>% group_by(DATE) %>% select(-"COUNTY") %>% summarise_all(sum)
+daily_oakridge$Region <- "Anderson"
 daily_oakridge$Population <- oakridge_pop
 daily_oakridge$New_cases_per_100k_per_week <- 100000*zoo::rollsum(daily_oakridge$NEW_CASES, k=7, align="right", fill=NA)/oakridge_pop
 daily_oakridge$PositivityRate_per_week <- zoo::rollsum(daily_oakridge$NEW_POS_TESTS, k=7, align="right", fill=NA) / zoo::rollsum(daily_oakridge$NEW_TESTS, k=7, align="right", fill=NA)
@@ -125,13 +125,13 @@ schoolkids <- readxl::read_xlsx(temp, sheet =1, col_types=c("date", "text", rep(
 
 schoolkids_region<- subset(schoolkids, COUNTY %in% counties_in_hospital_region) %>% group_by(DATE) %>% select(-"COUNTY") %>% summarise_all(sum)
 
-schoolkids_oakridge<- subset(schoolkids, COUNTY %in% c("Anderson", "Roane")) %>% group_by(DATE) %>% select(-"COUNTY") %>% summarise_all(sum)
+schoolkids_oakridge<- subset(schoolkids, COUNTY %in% c("Anderson")) %>% group_by(DATE) %>% select(-"COUNTY") %>% summarise_all(sum)
 
 schoolkids_knox<- subset(schoolkids, COUNTY %in% c("Knox")) %>% group_by(DATE) %>% select(-"COUNTY") %>% summarise_all(sum)
 
 schoolkids_region$Region <- "East TN"
 schoolkids_knox$Region <- "Knox County"
-schoolkids_oakridge$Region <- "Anderson + Roane"
+schoolkids_oakridge$Region <- "Anderson"
 schoolkids_daily <- rbind(schoolkids_knox, schoolkids_oakridge, schoolkids_region)
 
 
@@ -649,25 +649,25 @@ knitr::kable(sumtab)
 
 
 
-plot_race_covid_vaccination_full <- ggplot(race_vaccine, aes(x=DATE, y=PercentFullyVaccinated, group=Race)) + geom_line(aes(colour=Race))+ xlab("Date") + ylim(0,100) + ylab("Percentage of people fully vaccinated")
+plot_race_covid_vaccination_full <- ggplot(race_vaccine, aes(x=DATE, y=PercentFullyVaccinated, group=Race)) + geom_line(aes(colour=Race))+ xlab("Date") + ylim(0,100) + theme_classic() + ylab("Percentage of people fully vaccinated")
 print(plot_race_covid_vaccination_full)
 
-plot_ethnicity_covid_vaccination_full <- ggplot(ethnicity_vaccine, aes(x=DATE, y=PercentFullyVaccinated, group=Ethnicity)) + geom_line(aes(colour=Ethnicity))+ xlab("Date") + ylim(0,100) + ylab("Percentage of people fully vaccinated")
+plot_ethnicity_covid_vaccination_full <- ggplot(ethnicity_vaccine, aes(x=DATE, y=PercentFullyVaccinated, group=Ethnicity)) + geom_line(aes(colour=Ethnicity))+ xlab("Date") + theme_classic() + ylim(0,100) + ylab("Percentage of people fully vaccinated")
 print(plot_ethnicity_covid_vaccination_full)
 
-plot_sex_covid_vaccination_full <- ggplot(sex_vaccine, aes(x=DATE, y=PercentFullyVaccinated, group=Sex)) + geom_line(aes(colour=Sex))+ xlab("Date") + ylim(0,100) + ylab("Percentage of people fully vaccinated")
+plot_sex_covid_vaccination_full <- ggplot(sex_vaccine, aes(x=DATE, y=PercentFullyVaccinated, group=Sex)) + geom_line(aes(colour=Sex))+ xlab("Date") + theme_classic() + ylim(0,100) + ylab("Percentage of people fully vaccinated")
 print(plot_sex_covid_vaccination_full)
 
 
 ## ----vaccination_increase, echo=FALSE, message=FALSE, warning=FALSE, error=FALSE----
 
-plot_race_covid_vaccination_delta_full <- ggplot(subset(race_vaccine, !is.na(race_vaccine$IncreasePercentFullyVaccinated7Day)), aes(x=DATE, y=IncreasePercentFullyVaccinated7Day, group=Race)) + geom_line(aes(colour=Race))+ xlab("Date") + ylab("Percentage of people in this group getting fully vaccinated per day (seven day mean)")
+plot_race_covid_vaccination_delta_full <- ggplot(subset(race_vaccine, !is.na(race_vaccine$IncreasePercentFullyVaccinated7Day)), aes(x=DATE, y=IncreasePercentFullyVaccinated7Day, group=Race)) + geom_line(aes(colour=Race))+ theme_classic() + xlab("Date") + ylab("Daily % of people becoming fully vaccinated per day \n(seven day mean)")
 print(plot_race_covid_vaccination_delta_full)
 
-plot_ethnicity_covid_vaccination_delta_full <- ggplot(subset(ethnicity_vaccine, !is.na(ethnicity_vaccine$IncreasePercentFullyVaccinated7Day)), aes(x=DATE, y=IncreasePercentFullyVaccinated7Day, group=Race)) + geom_line(aes(colour=Race))+ xlab("Date") + ylab("Percentage of people in this group getting fully vaccinated per day (seven day mean)")
+plot_ethnicity_covid_vaccination_delta_full <- ggplot(subset(ethnicity_vaccine, !is.na(ethnicity_vaccine$IncreasePercentFullyVaccinated7Day)), aes(x=DATE, y=IncreasePercentFullyVaccinated7Day, group=Ethnicity)) + geom_line(aes(colour=Ethnicity))+ theme_classic() + xlab("Date") + ylab("Daily % of people becoming fully vaccinated per day \n(seven day mean)")
 print(plot_ethnicity_covid_vaccination_delta_full)
 
-plot_sex_covid_vaccination_delta_full <- ggplot(subset(sex_vaccine, !is.na(sex_vaccine$IncreasePercentFullyVaccinated7Day)), aes(x=DATE, y=IncreasePercentFullyVaccinated7Day, group=Race)) + geom_line(aes(colour=Race))+ xlab("Date") + ylab("Percentage of people in this group getting fully vaccinated per day (seven day mean)")
+plot_sex_covid_vaccination_delta_full <- ggplot(subset(sex_vaccine, !is.na(sex_vaccine$IncreasePercentFullyVaccinated7Day)), aes(x=DATE, y=IncreasePercentFullyVaccinated7Day, group=Sex)) + geom_line(aes(colour=Sex))+ theme_classic() + xlab("Date") + ylab("Daily % of people becoming fully vaccinated per day \n(seven day mean)")
 print(plot_sex_covid_vaccination_delta_full)
 
 
@@ -681,7 +681,7 @@ print(plot_sex_covid_vaccination_delta_full)
 #theme_classic() + geom_line()  + ylab("Number of new cases in area each week per 100,000 people") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.3) 
 
 local_new <- ggplot(subset(daily_focal_no_ut_cleaned, DATE>="2021-06-01"), aes(x=DATE, y=New_cases_per_100k_per_week, group=Region, colour=Region)) + 
-theme_classic() + geom_line()  + ylab("Number of new cases in area each week per 100,000 people") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.3) 
+theme_classic() + geom_line()  + ylab("Number of new cases in area each week per 100,000 people") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8) 
 print(local_new)
 
 #local_active <- ggplot(daily_focal[!is.na(daily_focal$TOTAL_ACTIVE),], aes(x=DATE, y=TOTAL_ACTIVE, group=Region)) +  geom_smooth(aes(colour=Region), se=FALSE) + geom_point(aes(colour=Region), size=0.5) + ylab("Number of active cases in area each day") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)
@@ -698,7 +698,7 @@ local_positivity <- ggplot(subset(daily_focal_no_ut_cleaned, DATE>="2021-06-01")
 #annotate(geom="rect", xmin=min(daily_focal_no_ut_cleaned$DATE), xmax=max(daily_focal_no_ut_cleaned$DATE), ymin=5, ymax=max(daily_focal_no_ut_cleaned$PositivityPercentage_per_week), alpha=.8, fill="khaki1") +
 #annotate(geom="rect", xmin=min(daily_focal_no_ut_cleaned$DATE), xmax=max(daily_focal_no_ut_cleaned$DATE), ymin=7.95, ymax=max(daily_focal_no_ut_cleaned$PositivityPercentage_per_week), alpha=.8, fill="tan1") +
 #annotate(geom="rect", xmin=min(daily_focal_no_ut_cleaned$DATE), xmax=max(daily_focal_no_ut_cleaned$DATE), ymin=9.95, ymax=max(daily_focal_no_ut_cleaned$PositivityPercentage_per_week), alpha=.8, fill="indianred1") +
-theme_classic() + geom_line()  + ylab("Percentage of positive tests per week") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.3) 
+theme_classic() + geom_line()  + ylab("Percentage of positive tests per week") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8) 
 print(local_positivity)
 
 #local_active <- ggplot(daily_focal[!is.na(daily_focal$TOTAL_ACTIVE),], aes(x=DATE, y=TOTAL_ACTIVE, group=Region)) +  geom_smooth(aes(colour=Region), se=FALSE) + geom_point(aes(colour=Region), size=0.5) + ylab("Number of active cases in area each day") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)
@@ -709,7 +709,7 @@ print(local_positivity)
 
 
 ## ----studentinfections, echo=FALSE, message=FALSE, warning=FALSE--------------
-try(student_covid_daily <- ggplot(subset(schoolkids_daily, DATE>="2021-06-01"), aes(x=DATE, y=NEW_CASES, group=Region)) +  geom_ma(aes(colour=Region, linetype="a")) +  guides(linetype = FALSE) + ylab("Number of students with new positive covid results daily, 7 day avg") + xlab("Date") + scale_colour_viridis_d(end=0.8))
+try(student_covid_daily <- ggplot(subset(schoolkids_daily, DATE>="2021-06-01"), aes(x=DATE, y=NEW_CASES, group=Region)) + theme_classic() + geom_ma(aes(colour=Region, linetype="a")) +  guides(linetype = FALSE) + ylab("Number of students with new positive covid results daily, 7 day avg") + xlab("Date") + scale_colour_viridis_d(end=0.8))
 try(print(student_covid_daily))
 
 

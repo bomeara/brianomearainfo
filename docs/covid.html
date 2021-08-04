@@ -381,7 +381,7 @@ $(document).ready(function () {
 <li><a href="https://healthdata.gov/dataset/covid-19-reported-patient-impact-and-hospital-capacity-facility">US HHS hospitalization by facility</a></li>
 </ul>
 <hr />
-<p>The following plots are created in R using data from <a href="https://covid19datahub.io" class="uri">https://covid19datahub.io</a> (Guidotti, E., Ardia, D., (2020), “COVID-19 Data Hub”, Working paper, doi: 10.13140/RG.2.2.11649.81763), as well as information from Google and the <a href="https://www.tn.gov/health/cedep/ncov/data/downloadable-datasets.html">state of Tennessee dataset page</a> and plotting and analysis using the <code>forecast</code>, <code>ggplot2</code>, <code>reshape2</code>, and <code>dplyr</code> packages. Plots created on 2021-08-03 09:20:18. I use a seven day rolling average for most plots using the <code>geom_ma</code> function of <code>tidyquant</code>.</p>
+<p>The following plots are created in R using data from <a href="https://covid19datahub.io" class="uri">https://covid19datahub.io</a> (Guidotti, E., Ardia, D., (2020), “COVID-19 Data Hub”, Working paper, doi: 10.13140/RG.2.2.11649.81763), as well as information from Google and the <a href="https://www.tn.gov/health/cedep/ncov/data/downloadable-datasets.html">state of Tennessee dataset page</a> and plotting and analysis using the <code>forecast</code>, <code>ggplot2</code>, <code>reshape2</code>, and <code>dplyr</code> packages. Plots created on 2021-08-04 06:29:17. I use a seven day rolling average for most plots using the <code>geom_ma</code> function of <code>tidyquant</code>.</p>
 <h2 id="cases">
 Cases
 </h2>
@@ -431,21 +431,21 @@ Summary table
 <td align="left">Asian</td>
 <td align="left">6%</td>
 <td align="left">0.06%</td>
-<td align="left">46.3%</td>
+<td align="left">46.4%</td>
 <td align="left">40%</td>
 </tr>
 <tr class="odd">
 <td align="left">Race</td>
 <td align="left">Black or African American</td>
-<td align="left">10.6%</td>
+<td align="left">10.7%</td>
 <td align="left">0.19%</td>
-<td align="left">30.8%</td>
+<td align="left">31%</td>
 <td align="left">25.4%</td>
 </tr>
 <tr class="even">
 <td align="left">Race</td>
 <td align="left">Native Hawaiian or Other Pacific Islander</td>
-<td align="left">10.2%</td>
+<td align="left">10.3%</td>
 <td align="left">0.1%</td>
 <td align="left"></td>
 <td align="left"></td>
@@ -455,23 +455,23 @@ Summary table
 <td align="left">White</td>
 <td align="left">10.6%</td>
 <td align="left">0.18%</td>
-<td align="left">35.8%</td>
+<td align="left">35.9%</td>
 <td align="left">32.1%</td>
 </tr>
 <tr class="even">
 <td align="left">Ethnicity</td>
 <td align="left">Hispanic</td>
-<td align="left">13.8%</td>
+<td align="left">13.9%</td>
 <td align="left">0.09%</td>
-<td align="left">40.6%</td>
-<td align="left">32.9%</td>
+<td align="left">40.8%</td>
+<td align="left">33%</td>
 </tr>
 <tr class="odd">
 <td align="left">Ethnicity</td>
 <td align="left">Not Hispanic or Latino</td>
 <td align="left">9.6%</td>
 <td align="left">0.18%</td>
-<td align="left">39.8%</td>
+<td align="left">39.9%</td>
 <td align="left">35.5%</td>
 </tr>
 <tr class="even">
@@ -479,7 +479,7 @@ Summary table
 <td align="left">Female</td>
 <td align="left">13.7%</td>
 <td align="left">0.17%</td>
-<td align="left">47.9%</td>
+<td align="left">48%</td>
 <td align="left">42.4%</td>
 </tr>
 <tr class="odd">
@@ -487,7 +487,7 @@ Summary table
 <td align="left">Male</td>
 <td align="left">12.5%</td>
 <td align="left">0.21%</td>
-<td align="left">41%</td>
+<td align="left">41.2%</td>
 <td align="left">35.9%</td>
 </tr>
 </tbody>
@@ -512,7 +512,7 @@ Cases locally
 <h2 id="hospitalization">
 Hospitalization
 </h2>
-<p>As of the last time the data were updated (likely 6 days ago), regional hospitals had 10 ICU beds available of 317 total (so was at 97 percent capacity), and 283 available ventilators out of 416 total, (so was at 32 percent capacity). The hospitals overall had 452 beds available of 3084 total (so was at 85 percent capacity). This is based on 19 acute care hospitals in the East TN region; based on the 14 counties these hospitals are in, these serve at least 1,235,720 people. When a line hits 100% (indicated in red), the local hospitals are theoretically full for that resource (for <em>all</em> patients, not just covid patients), though there is surge capacity on top of this. Note that these data are updated only weekly, so current conditions maybe be much better or worse than these plots show. Data on capacity from Knox County’s dashboard, data on hospitalizations and testing over time from the state data.</p>
+<p>As of the last time the data were updated (likely 7 days ago), regional hospitals had 10 ICU beds available of 317 total (so was at 97 percent capacity), and 283 available ventilators out of 416 total, (so was at 32 percent capacity). The hospitals overall had 452 beds available of 3084 total (so was at 85 percent capacity). This is based on 19 acute care hospitals in the East TN region; based on the 14 counties these hospitals are in, these serve at least 1,235,720 people. When a line hits 100% (indicated in red), the local hospitals are theoretically full for that resource (for <em>all</em> patients, not just covid patients), though there is surge capacity on top of this. Note that these data are updated only weekly, so current conditions maybe be much better or worse than these plots show. Data on capacity from Knox County’s dashboard, data on hospitalizations and testing over time from the state data.</p>
 <p><img src="covid_files/figure-html/hospitalcapacityplot-1.png" width="672" /></p>
 <p>Trends in hospitalization of covid patients over time. The vertical dotted line shows the last day with updated capacity information from Knox County, when there were 10 ICU beds available (ignoring surge capacity) for people in the East Tennessee region. The seven day average is shown.</p>
 <p><img src="covid_files/figure-html/plotsD-1.png" width="672" /></p>

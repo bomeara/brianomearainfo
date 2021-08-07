@@ -820,6 +820,15 @@ try(print(hosp_plot_CA))
 
 
 
+## ----dejavuschoolkids, echo=FALSE, message=FALSE, warning=FALSE---------------
+schoolkids_daily_by_year <- schoolkids_daily
+schoolkids_daily_by_year$Year <- format(schoolkids_daily_by_year$DATE, format="%Y")
+schoolkids_daily_by_year$MONTH_DAY_IFFY_YEAR <- as.Date(as.POSIXct(paste0("2021-",format(schoolkids_daily_by_year$DATE, format="%m-%d"), "%Y-%m-%d"))) #the year isn't right for some, but this helps plotting
+schoolkids_daily_by_year <- subset(schoolkids_daily_by_year, Region=="East TN")
+try(student_covid_daily_by_year_plot <- ggplot(schoolkids_daily_by_year, aes(x=MONTH_DAY_IFFY_YEAR, y=NEW_CASES, group=Year)) + theme_classic() + geom_ma(aes(colour=Year, linetype="a")) +  guides(linetype = FALSE) + ylab("Number of K-12 students with new positive covid results daily, 7 day avg") + xlab("Date") + ggtitle("New K-12 student cases on same date in different years") + scale_x_date(date_labels = "%b", breaks = "1 month", limits=c(as.Date("2021-01-01", format="%Y-%m-%d"), as.Date("2021-12-31", format="%Y-%m-%d"))) + scale_color_manual(values=c("darkgray",'red')))
+try(print(student_covid_daily_by_year_plot))
+
+
 ## ----utactive, echo=FALSE, message=FALSE, warning=FALSE, eval=FALSE-----------
 ## # cached downloads of https://veoci.com/veoci/p/form/4jmds5x4jj4j#tab=entryForm
 ## 
@@ -833,13 +842,13 @@ saliva_plot <- ggplot(saliva_data, aes(x=DATE, y=New_cases_per_100k)) +
 #  geom_rect(mapping=aes(xmin=min(DATE), xmax=Sys.Date(), ymin=1, ymax=10), fill="khaki1") +
 #  geom_rect(mapping=aes(xmin=min(DATE), xmax=Sys.Date(), ymin=10, ymax=25), fill="tan1") +
 #  geom_rect(mapping=aes(xmin=min(DATE), xmax=Sys.Date(), ymin=25, ymax=max(New_cases_per_100k_upper)), fill="indianred1") + 
-geom_point() + ylab("Est. daily new cases 100,000 people based on UTK saliva samples") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8) + geom_errorbar(aes(ymin=New_cases_per_100k_lower, ymax=New_cases_per_100k_upper), width=0.1) 
+geom_point() + ylab("Est. daily new cases 100,000 people based on UTK saliva samples") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8) + geom_errorbar(aes(ymin=New_cases_per_100k_lower, ymax=New_cases_per_100k_upper), width=0.1) + ggtitle("Saliva results 2020-2021 school year")
 print(saliva_plot)
 
 
 ## ----plotsalivacompliance, echo=FALSE, message=FALSE, warning=FALSE-----------
 saliva_data$Participation.percentage <- 100*saliva_data$Participation.rate
 saliva_compliance <- ggplot(saliva_data, aes(x=DATE, y=Participation.percentage)) + 
-geom_line() + ylab("Percentage of resident students participating in mandatory teseting") + xlab("Date") + ylim(0,100)  
+geom_line() + ylab("Percentage of resident students participating in mandatory teseting") + xlab("Date") + ylim(0,100) + ggtitle("Saliva compliance 2020-2021 school year")
 print(saliva_compliance)
 

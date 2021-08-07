@@ -14,22 +14,13 @@
 
 <title>Local COVID data</title>
 
-<script src="site_libs/header-attrs-2.9/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.6/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
-<style>h1 {font-size: 34px;}
-       h1.title {font-size: 38px;}
-       h2 {font-size: 30px;}
-       h3 {font-size: 24px;}
-       h4 {font-size: 18px;}
-       h5 {font-size: 16px;}
-       h6 {font-size: 12px;}
-       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
-       pre:not([class]) { background-color: white }</style>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
@@ -44,6 +35,11 @@
     </style>
 
 <style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
 <script type="text/javascript">
 if (window.hljs) {
   hljs.configure({languages: []});
@@ -56,6 +52,32 @@ if (window.hljs) {
 
 
 
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
 
 
 
@@ -66,6 +88,10 @@ if (window.hljs) {
   max-width: 940px;
   margin-left: auto;
   margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
 }
 img {
   max-width:100%;
@@ -82,13 +108,40 @@ button.code-folding-btn:focus {
 summary {
   display: list-item;
 }
-pre code {
-  padding: 0;
-}
 </style>
 
 
 <style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
 .dropdown-submenu {
   position: relative;
 }
@@ -116,7 +169,7 @@ pre code {
   margin-right: -10px;
 }
 .dropdown-submenu:hover>a:after {
-  border-left-color: #adb5bd;
+  border-left-color: #ffffff;
 }
 .dropdown-submenu.pull-left {
   float: none;
@@ -128,7 +181,7 @@ pre code {
 }
 </style>
 
-<script type="text/javascript">
+<script>
 // manage active state of menu based on current page
 $(document).ready(function () {
   // active menu anchor
@@ -139,23 +192,10 @@ $(document).ready(function () {
   var menuAnchor = $('a[href="' + href + '"]');
 
   // mark it active
-  menuAnchor.tab('show');
+  menuAnchor.parent().addClass('active');
 
   // if it's got a parent navbar menu mark it active as well
   menuAnchor.closest('li.dropdown').addClass('active');
-
-  // Navbar adjustments
-  var navHeight = $(".navbar").first().height() + 15;
-  var style = document.createElement('style');
-  var pt = "padding-top: " + navHeight + "px; ";
-  var mt = "margin-top: -" + navHeight + "px; ";
-  var css = "";
-  // offset scroll position for anchor links (for fixed navbar)
-  for (var i = 1; i <= 6; i++) {
-    css += ".section h" + i + "{ " + pt + mt + "}\n";
-  }
-  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
-  document.head.appendChild(style);
 });
 </script>
 
@@ -167,6 +207,7 @@ $(document).ready(function () {
   max-height: 500px;
   min-height: 44px;
   overflow-y: auto;
+  background: white;
   border: 1px solid #ddd;
   border-radius: 4px;
 }
@@ -358,7 +399,7 @@ $(document).ready(function () {
   </div><!--/.container -->
 </div><!--/.navbar -->
 
-<div id="header">
+<div class="fluid-row" id="header">
 
 
 
@@ -381,7 +422,7 @@ $(document).ready(function () {
 <li><a href="https://healthdata.gov/dataset/covid-19-reported-patient-impact-and-hospital-capacity-facility">US HHS hospitalization by facility</a></li>
 </ul>
 <hr />
-<p>The following plots are created in R using data from <a href="https://covid19datahub.io" class="uri">https://covid19datahub.io</a> (Guidotti, E., Ardia, D., (2020), “COVID-19 Data Hub”, Working paper, doi: 10.13140/RG.2.2.11649.81763), as well as information from Google and the <a href="https://www.tn.gov/health/cedep/ncov/data/downloadable-datasets.html">state of Tennessee dataset page</a> and plotting and analysis using the <code>forecast</code>, <code>ggplot2</code>, <code>reshape2</code>, and <code>dplyr</code> packages. Plots created on 2021-08-06 14:56:46. I use a seven day rolling average for most plots using the <code>geom_ma</code> function of <code>tidyquant</code>.</p>
+<p>The following plots are created in R using data from <a href="https://covid19datahub.io" class="uri">https://covid19datahub.io</a> (Guidotti, E., Ardia, D., (2020), “COVID-19 Data Hub”, Working paper, doi: 10.13140/RG.2.2.11649.81763), as well as information from Google and the <a href="https://www.tn.gov/health/cedep/ncov/data/downloadable-datasets.html">state of Tennessee dataset page</a> and plotting and analysis using the <code>forecast</code>, <code>ggplot2</code>, <code>reshape2</code>, and <code>dplyr</code> packages. Plots created on 2021-08-06 20:18:05. I use a seven day rolling average for most plots using the <code>geom_ma</code> function of <code>tidyquant</code>.</p>
 <h2 id="cases">
 Cases
 </h2>
@@ -492,6 +533,19 @@ Summary table
 </tr>
 </tbody>
 </table>
+<hr />
+<h2 id="dejavu">
+Comparing last academic year with this academic year
+</h2>
+<p>In the over 20 months since covid started spreading we have learned a lot: vaccines are now available (in the US), we know masks help, and so forth. However, the virus continues to evolve, too.</p>
+<p>We can look at hospitalizations over time: <img src="covid_files/figure-html/dejavuhospitalization-1.png" width="672" /></p>
+<p>Or deaths over time:</p>
+<p><img src="covid_files/figure-html/dejavudeath-1.png" width="672" /></p>
+<p>Or positive covid cases:</p>
+<p><img src="covid_files/figure-html/dejavucases-1.png" width="672" /></p>
+<p>We can see how students age 5-18 (so equivalent to K-12, generally) have had positive cases in East Tennessee.</p>
+<p><img src="covid_files/figure-html/dejavuschoolkids-1.png" width="672" /></p>
+<hr />
 <h2 id="vaccination">
 Vaccination
 </h2>
@@ -519,16 +573,11 @@ Hospitalization
 <p>Red shows full capacity for our region, when every ICU bed is full (ignoring any surge capacity):</p>
 <p><img src="covid_files/figure-html/hospitalcapacityplotvsCA-1.png" width="672" /></p>
 <hr />
-<h2 id="dejavu">
-Comparing last academic year with this academic year
-</h2>
-<p><img src="covid_files/figure-html/dejavuschoolkids-1.png" width="672" /></p>
-<hr />
 <h2 id="ut">
 University of Tennessee, Knoxville
 </h2>
-<p>Another question is what is happening at UTK. There is official information available at <a href="https://www.utk.edu/coronavirus/guides/data-monitoring-and-contingency-options" class="uri">https://www.utk.edu/coronavirus/guides/data-monitoring-and-contingency-options</a>, of which I show one figure below. CDC guidance for institutions of higher education who don’t require vaccination, which includes UTK, is <a href="https://www.cdc.gov/coronavirus/2019-ncov/community/colleges-universities/considerations.html#section3">here</a>. Knox County is currently an area with substantial to high covid spread, so the CDC recommendation is that everyone wear masks indoors, even those fully vaccinated.</p>
-<p>At the time this section of the page was last edited (Aug. 5, 2021), UTK’s guidance was for masks to be required in classrooms, labs, and indoor areas where compulsory activities were being held. However, <strong>anyone may wear a mask anywhere on campus</strong>; those who seek to follow the CDC’s recommendations in order to protect others and themselves will wear them in all indoor spaces that may be occupied by individuals not in their households. Unlike over 600 other colleges and universities, UTK has no vaccination mandate in general (there may be exceptions in particular areas, like nursing with high patient contact). According to an <a href="https://chancellor.utk.edu/2021/08/02/updated-covid-guidelines/">Aug. 2 notice by the Chancellor</a>, the university will no longer be requesting saliva testing to track spread (though testing kits are available in the student health center).</p>
+<p>Another question is what is happening at UTK. There is official information available at <a href="https://www.utk.edu/coronavirus/guides/data-monitoring-and-contingency-options" class="uri">https://www.utk.edu/coronavirus/guides/data-monitoring-and-contingency-options</a>, of which I show one figure below. CDC guidance for institutions of higher education who don’t require vaccination, which includes UTK, is <a href="https://www.cdc.gov/coronavirus/2019-ncov/community/colleges-universities/considerations.html#section3">here</a>. Knox County is currently an area with substantial to high covid spread, so <strong>the CDC recommendation is that everyone wear masks indoors, even those fully vaccinated</strong>.</p>
+<p>At the time this section of the page was last edited (Aug. 5, 2021), UTK’s guidance was for masks to be required in classrooms, labs, and indoor areas where compulsory activities were being held. However, <strong>anyone may wear a mask anywhere on campus; those who seek to follow the CDC’s recommendations in order to protect others and themselves will wear them in all indoor spaces</strong>. Unlike <a href="https://www.chronicle.com/blogs/live-coronavirus-updates/heres-a-list-of-colleges-that-will-require-students-to-be-vaccinated-against-covid-19">over 600 other colleges and universities</a>, UTK has no vaccination mandate in general (there may be exceptions in particular areas, like nursing with high patient contact). According to an <a href="https://chancellor.utk.edu/2021/08/02/updated-covid-guidelines/">Aug. 2 notice by the Chancellor</a>, the university will no longer be requesting saliva testing to track spread (though testing kits are available in the student health center).</p>
 <iframe src="https://datastudio.google.com/embed/reporting/bb71d0fd-2817-4e14-9f84-7f74a1e503b5/page/Qr2ZB" width="600" height="300">
 </iframe>
 <p>In the 2020-2021 school year, UT published results of saliva tests. ALL students residing in dorms, fraternities, or sororities agreed to testing. This table shows testing results of saliva tests:</p>
@@ -569,7 +618,7 @@ $(document).ready(function () {
 
 $(document).ready(function () {
   $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open');
+    $(this).parent().toggleClass('nav-tabs-open')
   });
 });
 </script>

@@ -683,10 +683,53 @@ knitr::kable(sumtab)
 
 ```
 
+<hr />
+<h2 id="dejavu">Comparing last academic year with this academic year</h2>
+
+In the over 20 months since covid started spreading we have learned a lot: vaccines are now available (in the US), we know masks help, and so forth. However, the virus continues to evolve, too. 
+
+We can look at hospitalizations over time:
+```{r dejavuhospitalization, echo=FALSE, message=FALSE, warning=FALSE}
+daily_focal_by_year <- daily_focal[!is.na(daily_focal$NEW_HOSPITALIZED),]
+daily_focal_by_year$Year <- format(daily_focal_by_year$DATE, format="%Y")
+daily_focal_by_year$MONTH_DAY_IFFY_YEAR <- as.Date(as.POSIXct(paste0("2021-",format(daily_focal_by_year$DATE, format="%m-%d"), "%Y-%m-%d"))) #the year isn't right for some, but this helps plotting
+daily_focal_by_year <- subset(daily_focal_by_year, Region=="East TN")
+try(daily_focal_by_year_plot <- ggplot(daily_focal_by_year, aes(x=MONTH_DAY_IFFY_YEAR, y=NEW_HOSPITALIZED, group=Year)) + theme_classic() + geom_ma(aes(colour=Year, linetype="a")) +  guides(linetype = FALSE) + ylab("Number of people hospitalized per day") + xlab("Date") + ggtitle("Hospitalizations in different years in East TN") + scale_x_date(date_labels = "%b", breaks = "2 months", limits=c(as.Date("2021-01-01", format="%Y-%m-%d"), as.Date("2021-12-31", format="%Y-%m-%d"))) + scale_color_manual(values=c("darkgray",'red')))
+try(print(daily_focal_by_year_plot))
+```
+
+Or deaths over time:
+
+```{r dejavudeath, echo=FALSE, message=FALSE, warning=FALSE}
+try(daily_death_by_year_plot <- ggplot(daily_focal_by_year, aes(x=MONTH_DAY_IFFY_YEAR, y=NEW_DEATHS, group=Year)) + theme_classic() + geom_ma(aes(colour=Year, linetype="a")) +  guides(linetype = FALSE) + ylab("Deaths per day") + xlab("Date") + ggtitle("Deaths in different years in East TN") + scale_x_date(date_labels = "%b", breaks = "2 months", limits=c(as.Date("2021-01-01", format="%Y-%m-%d"), as.Date("2021-12-31", format="%Y-%m-%d"))) + scale_color_manual(values=c("darkgray",'red')))
+try(print(daily_death_by_year_plot))
+```
+
+Or positive covid cases:
+
+```{r dejavucases, echo=FALSE, message=FALSE, warning=FALSE}
+try(daily_case_by_year_plot <- ggplot(daily_focal_by_year, aes(x=MONTH_DAY_IFFY_YEAR, y=NEW_CASES, group=Year)) + theme_classic() + geom_ma(aes(colour=Year, linetype="a")) +  guides(linetype = FALSE) + ylab("New cases per day") + xlab("Date") + ggtitle("Cases in different years in East TN") + scale_x_date(date_labels = "%b", breaks = "2 months", limits=c(as.Date("2021-01-01", format="%Y-%m-%d"), as.Date("2021-12-31", format="%Y-%m-%d"))) + scale_color_manual(values=c("darkgray",'red')))
+try(print(daily_case_by_year_plot))
+```
+
+We can see how students age 5-18 (so equivalent to K-12, generally) have had positive cases in East Tennessee.
+
+```{r dejavuschoolkids, echo=FALSE, message=FALSE, warning=FALSE}
+schoolkids_daily_by_year <- schoolkids_daily
+schoolkids_daily_by_year$Year <- format(schoolkids_daily_by_year$DATE, format="%Y")
+schoolkids_daily_by_year$MONTH_DAY_IFFY_YEAR <- as.Date(as.POSIXct(paste0("2021-",format(schoolkids_daily_by_year$DATE, format="%m-%d"), "%Y-%m-%d"))) #the year isn't right for some, but this helps plotting
+schoolkids_daily_by_year <- subset(schoolkids_daily_by_year, Region=="East TN")
+try(student_covid_daily_by_year_plot <- ggplot(schoolkids_daily_by_year, aes(x=MONTH_DAY_IFFY_YEAR, y=NEW_CASES, group=Year)) + theme_classic() + geom_ma(aes(colour=Year, linetype="a")) +  guides(linetype = FALSE) + ylab("Number of K-12 students with new positive covid results daily, 7 day avg") + xlab("Date") + ggtitle("New K-12 student cases in East Tennessee by year") + scale_x_date(date_labels = "%b", breaks = "2 months", limits=c(as.Date("2021-01-01", format="%Y-%m-%d"), as.Date("2021-12-31", format="%Y-%m-%d"))) + scale_color_manual(values=c("darkgray",'red')))
+try(print(student_covid_daily_by_year_plot))
+```
+
+<hr />
 
 <h2 id="vaccination">Vaccination</h2>
 
 Tennessee releases information on demographics of individuals getting vaccinated. All terminology follows that used by the state, including terms like race and sex. The way the census and Tennessee count individuals who identify as not being in Asian, White, or Black or African American groups (people who are multiracial, Native American, Pacific Islander, other) seems to differ in ways that make calculating the percentage of members of the these groups difficult; the same happens for people who do not identify as male or female.
+
+You can also look at rates for counties like [Knox](https://vaccication.org/counties/Knox_TN.html) or [Anderson](https://vaccication.org/counties/Anderson_TN.html) on my [vaccication.org](https://vaccication.org) site (made for people considering travel during summer 2021, before delta started spreading, to see how safe different counties would be, with look up by place names, too (so you can see what it is like at [Disney World](https://vaccication.org/counties/Orange_FL.html) without knowing its county)).
 
 ```{r vaccination1, echo=FALSE, message=FALSE, warning=FALSE, error=FALSE}
 
@@ -895,24 +938,13 @@ try(print(hosp_plot_CA))
 ```
 
 <hr />
-<h2 id="dejavu">Comparing last academic year with this academic year</h2>
 
-```{r dejavuschoolkids, echo=FALSE, message=FALSE, warning=FALSE}
-schoolkids_daily_by_year <- schoolkids_daily
-schoolkids_daily_by_year$Year <- format(schoolkids_daily_by_year$DATE, format="%Y")
-schoolkids_daily_by_year$MONTH_DAY_IFFY_YEAR <- as.Date(as.POSIXct(paste0("2021-",format(schoolkids_daily_by_year$DATE, format="%m-%d"), "%Y-%m-%d"))) #the year isn't right for some, but this helps plotting
-schoolkids_daily_by_year <- subset(schoolkids_daily_by_year, Region=="East TN")
-try(student_covid_daily_by_year_plot <- ggplot(schoolkids_daily_by_year, aes(x=MONTH_DAY_IFFY_YEAR, y=NEW_CASES, group=Year)) + theme_classic() + geom_ma(aes(colour=Year, linetype="a")) +  guides(linetype = FALSE) + ylab("Number of K-12 students with new positive covid results daily, 7 day avg") + xlab("Date") + ggtitle("New K-12 student cases on same date in different years") + scale_x_date(date_labels = "%b", breaks = "1 month", limits=c(as.Date("2021-01-01", format="%Y-%m-%d"), as.Date("2021-12-31", format="%Y-%m-%d"))) + scale_color_manual(values=c("darkgray",'red')))
-try(print(student_covid_daily_by_year_plot))
-```
-
-<hr />
 
 <h2 id="ut">University of Tennessee, Knoxville</h2>
 
-Another question is what is happening at UTK. There is official information available at https://www.utk.edu/coronavirus/guides/data-monitoring-and-contingency-options, of which I show one figure below. CDC guidance for institutions of higher education who don't require vaccination, which includes UTK, is [here](https://www.cdc.gov/coronavirus/2019-ncov/community/colleges-universities/considerations.html#section3). Knox County is currently an area with substantial to high covid spread, so the CDC recommendation is that everyone wear masks indoors, even those fully vaccinated.
+Another question is what is happening at UTK. There is official information available at https://www.utk.edu/coronavirus/guides/data-monitoring-and-contingency-options, of which I show one figure below. CDC guidance for institutions of higher education who don't require vaccination, which includes UTK, is [here](https://www.cdc.gov/coronavirus/2019-ncov/community/colleges-universities/considerations.html#section3). Knox County is currently an area with substantial to high covid spread, so **the CDC recommendation is that everyone wear masks indoors, even those fully vaccinated**.
 
-At the time this section of the page was last edited (Aug. 5, 2021), UTK's guidance was for masks to be required in classrooms, labs, and indoor areas where compulsory activities were being held. However, **anyone may wear a mask anywhere on campus**; those who seek to follow the CDC's recommendations in order to protect others and themselves will wear them in all indoor spaces that may be occupied by individuals not in their households. Unlike over 600 other colleges and universities, UTK has no vaccination mandate in general (there may be exceptions in particular areas, like nursing with high patient contact). According to an [Aug. 2 notice by the Chancellor](https://chancellor.utk.edu/2021/08/02/updated-covid-guidelines/), the university will no longer be requesting saliva testing to track spread (though testing kits are available in the student health center).
+At the time this section of the page was last edited (Aug. 5, 2021), UTK's guidance was for masks to be required in classrooms, labs, and indoor areas where compulsory activities were being held. However, **anyone may wear a mask anywhere on campus; those who seek to follow the CDC's recommendations in order to protect others and themselves will wear them in all indoor spaces**. Unlike [over 600 other colleges and universities](https://www.chronicle.com/blogs/live-coronavirus-updates/heres-a-list-of-colleges-that-will-require-students-to-be-vaccinated-against-covid-19), UTK has no vaccination mandate in general (there may be exceptions in particular areas, like nursing with high patient contact). According to an [Aug. 2 notice by the Chancellor](https://chancellor.utk.edu/2021/08/02/updated-covid-guidelines/), the university will no longer be requesting saliva testing to track spread (though testing kits are available in the student health center).
 
 <iframe src="https://datastudio.google.com/embed/reporting/bb71d0fd-2817-4e14-9f84-7f74a1e503b5/page/Qr2ZB" width=600 height=300></iframe>
 

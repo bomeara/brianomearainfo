@@ -719,7 +719,7 @@ schoolkids_daily_by_year <- schoolkids_daily
 schoolkids_daily_by_year$Year <- format(schoolkids_daily_by_year$DATE, format="%Y")
 schoolkids_daily_by_year$MONTH_DAY_IFFY_YEAR <- as.Date(as.POSIXct(paste0("2021-",format(schoolkids_daily_by_year$DATE, format="%m-%d"), "%Y-%m-%d"))) #the year isn't right for some, but this helps plotting
 schoolkids_daily_by_year <- subset(schoolkids_daily_by_year, Region=="East TN")
-try(student_covid_daily_by_year_plot <- ggplot(schoolkids_daily_by_year, aes(x=MONTH_DAY_IFFY_YEAR, y=NEW_CASES, group=Year)) + theme_classic() + geom_ma(aes(colour=Year, linetype="a")) +  guides(linetype = FALSE) + ylab("Number of K-12 students with new positive covid results daily, 7 day avg") + xlab("Date") + ggtitle("New K-12 student cases in East Tennessee by year") + scale_x_date(date_labels = "%b", breaks = "2 months", limits=c(as.Date("2021-01-01", format="%Y-%m-%d"), as.Date("2021-12-31", format="%Y-%m-%d"))) + scale_color_manual(values=c("darkgray",'red')) + theme(legend.position='top', legend.justification='left',legend.direction='horizontal'))
+try(student_covid_daily_by_year_plot <- ggplot(schoolkids_daily_by_year, aes(x=MONTH_DAY_IFFY_YEAR, y=NEW_CASES, group=Year)) + theme_classic() + geom_ma(aes(colour=Year, linetype="a")) +  guides(linetype = FALSE) + ylab("New cases for age 5-18 students, 7 day avg") + xlab("Date") + ggtitle("New Age 5-18 student cases in East Tennessee by year") + scale_x_date(date_labels = "%b", breaks = "2 months", limits=c(as.Date("2021-01-01", format="%Y-%m-%d"), as.Date("2021-12-31", format="%Y-%m-%d"))) + scale_color_manual(values=c("darkgray",'red')) + theme(legend.position='top', legend.justification='left',legend.direction='horizontal'))
 try(print(student_covid_daily_by_year_plot))
 ```
 

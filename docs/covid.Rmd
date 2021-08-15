@@ -953,9 +953,9 @@ knitr::include_graphics("Aug12_2021.png")
 knitr::include_graphics("Aug13_2021.png")
 ```
 
-[August 14, 2021](https://twitter.com/ambers_williams/status/1426713825831702531, echo=FALSE, message=FALSE, warning=FALSE)
+[August 14, 2021](https://twitter.com/ambers_williams/status/1426713825831702531)
 
-```{r, fig.alt = "UT Silent Disco", out.width="400px"}
+```{r, fig.alt = "UT Silent Disco", out.width="400px", echo=FALSE, message=FALSE, warning=FALSE}
 knitr::include_graphics("Aug14_2021.png")
 ```
 

@@ -943,17 +943,17 @@ UT is holding various events at the start of the school year. These are images f
 
 [August 12, 2021](https://twitter.com/DondePlowman/status/1425841621929693191)
 
-```{r, fig.alt = "UT Success Academy group photos", out.width="400px"}
+```{r, fig.alt = "UT Success Academy group photos", out.width="400px", echo=FALSE, message=FALSE, warning=FALSE}
 knitr::include_graphics("Aug12_2021.png")
 ```
 
 [August 13, 2021](https://twitter.com/DondePlowman/status/1426326333819277313)
 
-```{r, fig.alt = "UT Band at Neyland Stadium (I'm not sure if this space is indoors or outdoors)", out.width="400px"}
+```{r, fig.alt = "UT Band at Neyland Stadium (I'm not sure if this space is indoors or outdoors)", out.width="400px", echo=FALSE, message=FALSE, warning=FALSE}
 knitr::include_graphics("Aug13_2021.png")
 ```
 
-[August 14, 2021](https://twitter.com/ambers_williams/status/1426713825831702531)
+[August 14, 2021](https://twitter.com/ambers_williams/status/1426713825831702531, echo=FALSE, message=FALSE, warning=FALSE)
 
 ```{r, fig.alt = "UT Silent Disco", out.width="400px"}
 knitr::include_graphics("Aug14_2021.png")

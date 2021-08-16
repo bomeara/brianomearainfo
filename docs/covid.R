@@ -642,6 +642,34 @@ knitr::kable(sumtab)
 
 
 
+## ----dejavuhospitalization, echo=FALSE, message=FALSE, warning=FALSE----------
+daily_focal_by_year <- daily_focal[!is.na(daily_focal$NEW_HOSPITALIZED),]
+daily_focal_by_year$Year <- format(daily_focal_by_year$DATE, format="%Y")
+daily_focal_by_year$MONTH_DAY_IFFY_YEAR <- as.Date(as.POSIXct(paste0("2021-",format(daily_focal_by_year$DATE, format="%m-%d"), "%Y-%m-%d"))) #the year isn't right for some, but this helps plotting
+daily_focal_by_year <- subset(daily_focal_by_year, Region=="East TN")
+try(daily_focal_by_year_plot <- ggplot(daily_focal_by_year, aes(x=MONTH_DAY_IFFY_YEAR, y=NEW_HOSPITALIZED, group=Year)) + theme_classic() + geom_ma(aes(colour=Year, linetype="a")) +  guides(linetype = FALSE) + ylab("Number of people hospitalized per day") + xlab("Date") + ggtitle("Hospitalizations in different years in East TN") + scale_x_date(date_labels = "%b", breaks = "2 months", limits=c(as.Date("2021-01-01", format="%Y-%m-%d"), as.Date("2021-12-31", format="%Y-%m-%d"))) + scale_color_manual(values=c("darkgray",'red')) + theme(legend.position='top', legend.justification='left',legend.direction='horizontal'))
+try(print(daily_focal_by_year_plot))
+
+
+## ----dejavudeath, echo=FALSE, message=FALSE, warning=FALSE--------------------
+try(daily_death_by_year_plot <- ggplot(daily_focal_by_year, aes(x=MONTH_DAY_IFFY_YEAR, y=NEW_DEATHS, group=Year)) + theme_classic() + geom_ma(aes(colour=Year, linetype="a")) +  guides(linetype = FALSE) + ylab("Deaths per day") + xlab("Date") + ggtitle("Deaths in different years in East TN") + scale_x_date(date_labels = "%b", breaks = "2 months", limits=c(as.Date("2021-01-01", format="%Y-%m-%d"), as.Date("2021-12-31", format="%Y-%m-%d"))) + scale_color_manual(values=c("darkgray",'red')) + theme(legend.position='top', legend.justification='left',legend.direction='horizontal')) 
+try(print(daily_death_by_year_plot))
+
+
+## ----dejavucases, echo=FALSE, message=FALSE, warning=FALSE--------------------
+try(daily_case_by_year_plot <- ggplot(daily_focal_by_year, aes(x=MONTH_DAY_IFFY_YEAR, y=NEW_CASES, group=Year)) + theme_classic() + geom_ma(aes(colour=Year, linetype="a")) +  guides(linetype = FALSE) + ylab("New cases per day") + xlab("Date") + ggtitle("Cases in different years in East TN") + scale_x_date(date_labels = "%b", breaks = "2 months", limits=c(as.Date("2021-01-01", format="%Y-%m-%d"), as.Date("2021-12-31", format="%Y-%m-%d"))) + scale_color_manual(values=c("darkgray",'red')) + theme(legend.position='top', legend.justification='left',legend.direction='horizontal'))
+try(print(daily_case_by_year_plot))
+
+
+## ----dejavuschoolkids, echo=FALSE, message=FALSE, warning=FALSE---------------
+schoolkids_daily_by_year <- schoolkids_daily
+schoolkids_daily_by_year$Year <- format(schoolkids_daily_by_year$DATE, format="%Y")
+schoolkids_daily_by_year$MONTH_DAY_IFFY_YEAR <- as.Date(as.POSIXct(paste0("2021-",format(schoolkids_daily_by_year$DATE, format="%m-%d"), "%Y-%m-%d"))) #the year isn't right for some, but this helps plotting
+schoolkids_daily_by_year <- subset(schoolkids_daily_by_year, Region=="East TN")
+try(student_covid_daily_by_year_plot <- ggplot(schoolkids_daily_by_year, aes(x=MONTH_DAY_IFFY_YEAR, y=NEW_CASES, group=Year)) + theme_classic() + geom_ma(aes(colour=Year, linetype="a")) +  guides(linetype = FALSE) + ylab("New cases for age 5-18 students, 7 day avg") + xlab("Date") + ggtitle("New Age 5-18 student cases in East Tennessee by year") + scale_x_date(date_labels = "%b", breaks = "2 months", limits=c(as.Date("2021-01-01", format="%Y-%m-%d"), as.Date("2021-12-31", format="%Y-%m-%d"))) + scale_color_manual(values=c("darkgray",'red')) + theme(legend.position='top', legend.justification='left',legend.direction='horizontal'))
+try(print(student_covid_daily_by_year_plot))
+
+
 ## ----vaccination1, echo=FALSE, message=FALSE, warning=FALSE, error=FALSE------
 
 
@@ -775,7 +803,8 @@ for (resource_index in sequence(length(resources))) {
 
 
 ## ----hospitalcapacityplot, echo=FALSE, message=FALSE, warning=FALSE-----------
-try(hosp_plot <- ggplot(subset(hospital_knox, Date>="2021-06-01"), aes(x=Date, y=Current.Utilization, group=East.Region.Hospitals)) + geom_line(aes(colour=East.Region.Hospitals)) +  ylab("Percent Utilization in East Tennessee Region") + xlab("Date") + ylim(0,100) + scale_colour_viridis_d(end=0.8) + geom_hline(yintercept=100, col="red"))
+#try(hosp_plot <- ggplot(subset(hospital_knox, Date>="2021-06-01"), aes(x=Date, y=Current.Utilization, group=East.Region.Hospitals)) + geom_line(aes(colour=East.Region.Hospitals)) +  ylab("Percent Utilization in East Tennessee Region") + xlab("Date") + ylim(0,100) + theme_classic() + scale_colour_viridis_d(end=0.8) + geom_hline(yintercept=100, col="red"))
+try(hosp_plot <- ggplot(hospital_knox, aes(x=Date, y=Current.Utilization, group=East.Region.Hospitals)) + geom_line(aes(colour=East.Region.Hospitals)) +  ylab("Percent Utilization in East Tennessee Region") + xlab("Date") + ylim(0,100) + theme_classic() + scale_colour_viridis_d(end=0.8) + geom_hline(yintercept=100, col="red"))
 try(print(hosp_plot))
 
 
@@ -783,7 +812,8 @@ try(print(hosp_plot))
 ## ----plotsD, echo=FALSE, message=FALSE, warning=FALSE-------------------------
 
 
-new_hospitalization <- ggplot(subset(daily_focal[!is.na(daily_focal$NEW_HOSPITALIZED),], DATE>="2021-06-01"), aes(x=DATE, y=NEW_HOSPITALIZED, group=Region)) + geom_ma(aes(colour=Region, linetype="a"), n=7) + guides(linetype = FALSE) + ylab("Number of new covid hospitalizations each day (7 day avg)") + xlab("Date") + ylim(0,NA)  + scale_colour_viridis_d(end=0.8) + geom_vline(xintercept=as.POSIXct(last_hospital_update), col="black", linetype="dotted") 
+new_hospitalization <- ggplot(subset(daily_focal[!is.na(daily_focal$NEW_HOSPITALIZED),], DATE>="2021-06-01"), aes(x=DATE, y=NEW_HOSPITALIZED, group=Region)) + geom_ma(aes(colour=Region, linetype="a"), n=7) + guides(linetype = FALSE) + ylab("Number of new covid hospitalizations each day (7 day avg)") + xlab("Date") + ylim(0,NA)  + scale_colour_viridis_d(end=0.8) + theme_classic() + geom_vline(xintercept=as.POSIXct(last_hospital_update), col="black", linetype="dotted") 
+
 print(new_hospitalization)
 
 # tn_daily_aggregate <- daily %>% group_by(DATE) %>% summarise(new_hosp = sum(NEW_HOSPITALIZED))
@@ -813,20 +843,16 @@ print(new_hospitalization)
 
 
 
-## ----hospitalcapacityplotvsCA, echo=FALSE, message=FALSE, warning=FALSE-------
-hospital_knox_ICU <- subset(hospital_knox, East.Region.Hospitals=="ICU Beds")
-try(hosp_plot_CA <- ggplot(hospital_knox_ICU, aes(x=Date, y=Current.Utilization)) + geom_line() +  ylab("Percent of ICU beds filled") + xlab("Date") + scale_colour_viridis_d(end=0.8) + geom_hline(yintercept=100, col="red"))
-try(print(hosp_plot_CA))
+## ---- fig.alt = "UT Success Academy group photos", out.width="400px", echo=FALSE, message=FALSE, warning=FALSE----
+knitr::include_graphics("Aug12_2021.png")
 
 
+## ---- fig.alt = "UT Band at Neyland Stadium (I'm not sure if this space is indoors or outdoors)", out.width="400px", echo=FALSE, message=FALSE, warning=FALSE----
+knitr::include_graphics("Aug13_2021.png")
 
-## ----dejavuschoolkids, echo=FALSE, message=FALSE, warning=FALSE---------------
-schoolkids_daily_by_year <- schoolkids_daily
-schoolkids_daily_by_year$Year <- format(schoolkids_daily_by_year$DATE, format="%Y")
-schoolkids_daily_by_year$MONTH_DAY_IFFY_YEAR <- as.Date(as.POSIXct(paste0("2021-",format(schoolkids_daily_by_year$DATE, format="%m-%d"), "%Y-%m-%d"))) #the year isn't right for some, but this helps plotting
-schoolkids_daily_by_year <- subset(schoolkids_daily_by_year, Region=="East TN")
-try(student_covid_daily_by_year_plot <- ggplot(schoolkids_daily_by_year, aes(x=MONTH_DAY_IFFY_YEAR, y=NEW_CASES, group=Year)) + theme_classic() + geom_ma(aes(colour=Year, linetype="a")) +  guides(linetype = FALSE) + ylab("Number of K-12 students with new positive covid results daily, 7 day avg") + xlab("Date") + ggtitle("New K-12 student cases on same date in different years") + scale_x_date(date_labels = "%b", breaks = "1 month", limits=c(as.Date("2021-01-01", format="%Y-%m-%d"), as.Date("2021-12-31", format="%Y-%m-%d"))) + scale_color_manual(values=c("darkgray",'red')))
-try(print(student_covid_daily_by_year_plot))
+
+## ---- fig.alt = "UT Silent Disco", out.width="400px", echo=FALSE, message=FALSE, warning=FALSE----
+knitr::include_graphics("Aug14_2021.png")
 
 
 ## ----utactive, echo=FALSE, message=FALSE, warning=FALSE, eval=FALSE-----------

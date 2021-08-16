@@ -42,6 +42,7 @@ library(scales)
 library(jsonlite)
 library(gganimate)
 library(ggrepel)
+library(ggpubr)
 options(timeout=600) # let things download for at least ten minutes
 options(download.file.method = "libcurl")
 
@@ -739,13 +740,16 @@ You can also look at rates for counties like [Knox](https://vaccication.org/coun
 
 
 plot_race_covid_vaccination_full <- ggplot(race_vaccine, aes(x=DATE, y=PercentFullyVaccinated, group=Race)) + geom_line(aes(colour=Race))+ xlab("Date") + ylim(0,100) + theme_classic() + ylab("Percentage of people fully vaccinated")
-print(plot_race_covid_vaccination_full)
+#print(plot_race_covid_vaccination_full)
 
 plot_ethnicity_covid_vaccination_full <- ggplot(ethnicity_vaccine, aes(x=DATE, y=PercentFullyVaccinated, group=Ethnicity)) + geom_line(aes(colour=Ethnicity))+ xlab("Date") + theme_classic() + ylim(0,100) + ylab("Percentage of people fully vaccinated")
-print(plot_ethnicity_covid_vaccination_full)
+#print(plot_ethnicity_covid_vaccination_full)
 
 plot_sex_covid_vaccination_full <- ggplot(sex_vaccine, aes(x=DATE, y=PercentFullyVaccinated, group=Sex)) + geom_line(aes(colour=Sex))+ xlab("Date") + theme_classic() + ylim(0,100) + ylab("Percentage of people fully vaccinated")
-print(plot_sex_covid_vaccination_full)
+#print(plot_sex_covid_vaccination_full)
+
+vax_plot <- ggarrange(plot_race_covid_vaccination_full, plot_ethnicity_covid_vaccination_full, plot_sex_covid_vaccination_full, labels=c("Race", "Ethnicity", "Sex"), ncol=3, nrow=1)
+print(vax_plot)
 ```
 
 One concern has been changes in the number of people getting vaccinated over time. These plots show for each demographic group the percentage of individuals in that group getting fully vaccinated (7 day rolling mean). There has been an expansion of who can get vaccinated: adults in high risk categories, all adults, children age 12 and up. These plots show the dramatic decrease in demand for getting vaccinated, despite the proportion of fully vaccinated people being well below what is recommended. The vaccination capacity is clearly higher than demand at the moment.
@@ -939,13 +943,15 @@ Another question is what is happening at UTK. There is official information avai
 
 At the time this section of the page was last edited (Aug. 15, 2021), UTK's guidance was for masks to be required in classrooms, labs, and indoor areas where compulsory activities were being held, a policy put in place Aug. 2, 2021. Spaces like hallways, dining halls, elevators, and libraries are apparently not included in this requirement. However, anyone ***may*** wear a mask anywhere on campus; those who seek to follow the CDC's recommendations in order to **protect others and themselves** will wear them in all indoor spaces. Unlike [over 650 other colleges and universities](https://www.chronicle.com/blogs/live-coronavirus-updates/heres-a-list-of-colleges-that-will-require-students-to-be-vaccinated-against-covid-19), UTK has no vaccination mandate in general (there may be exceptions in particular areas, like nursing with high patient contact). According to an [Aug. 2 notice by the Chancellor](https://chancellor.utk.edu/2021/08/02/updated-covid-guidelines/), the university will no longer be requesting saliva testing to track spread (though testing kits are available in the student health center). I do not know of data on vaccination rate at UTK; a rough estimate may come from LSU, which as of [Aug. 2 had a 34% vaccination rate among students](https://www.washingtonpost.com/education/2021/08/06/college-covid-vaccines-student-rates/).
 
-UT is holding various events at the start of the school year. These are images from some of those events. 
+UT is holding various events and messeaging at the start of the school year. These are images from leaders' or university accounts. 
 
-[August 12, 2021](https://twitter.com/DondePlowman/status/1425841621929693191)
 
-```{r, fig.alt = "UT Success Academy group photos", out.width="400px", echo=FALSE, message=FALSE, warning=FALSE}
-knitr::include_graphics("Aug12_2021.png")
+[August 14, 2021](https://twitter.com/ambers_williams/status/1426713825831702531)
+
+```{r, fig.alt = "UT Silent Disco", out.width="400px", echo=FALSE, message=FALSE, warning=FALSE}
+knitr::include_graphics("Aug14_2021.png")
 ```
+
 
 [August 13, 2021](https://twitter.com/DondePlowman/status/1426326333819277313)
 
@@ -953,11 +959,32 @@ knitr::include_graphics("Aug12_2021.png")
 knitr::include_graphics("Aug13_2021.png")
 ```
 
-[August 14, 2021](https://twitter.com/ambers_williams/status/1426713825831702531)
+[August 12, 2021](https://twitter.com/DondePlowman/status/1425841621929693191)
 
-```{r, fig.alt = "UT Silent Disco", out.width="400px", echo=FALSE, message=FALSE, warning=FALSE}
-knitr::include_graphics("Aug14_2021.png")
+```{r, fig.alt = "UT Success Academy group photos", out.width="400px", echo=FALSE, message=FALSE, warning=FALSE}
+knitr::include_graphics("Aug12_2021.png")
 ```
+
+[August 12, 2021](https://twitter.com/ambers_williams/status/1425738153718173696)
+
+```{r, fig.alt = "UT Student Life welcome", out.width="400px", echo=FALSE, message=FALSE, warning=FALSE}
+knitr::include_graphics("Aug12_2021b.png")
+```
+
+
+[August 9, 2021](https://twitter.com/UTKnoxville/status/1424836616871370754)
+
+```{r, fig.alt = "Guidance for masks", out.width="400px", echo=FALSE, message=FALSE, warning=FALSE}
+knitr::include_graphics("Aug9_2021.png")
+```
+
+[August 9, 2021](https://twitter.com/DondePlowman/status/1424690558644142081)
+
+```{r, fig.alt = "Chancellor Plowman with staff member Sheila Burchfield-Bishop", out.width="400px", echo=FALSE, message=FALSE, warning=FALSE}
+knitr::include_graphics("Aug9_2021b.png")
+```
+
+
 
 
 <hr />

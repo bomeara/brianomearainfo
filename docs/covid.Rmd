@@ -748,7 +748,7 @@ plot_ethnicity_covid_vaccination_full <- ggplot(ethnicity_vaccine, aes(x=DATE, y
 plot_sex_covid_vaccination_full <- ggplot(sex_vaccine, aes(x=DATE, y=PercentFullyVaccinated, group=Sex)) + geom_line(aes(colour=Sex))+ xlab("Date") + theme_classic() + ylim(0,100) + ylab("Percentage of people fully vaccinated") + theme(legend.position="top")
 #print(plot_sex_covid_vaccination_full)
 
-vax_plot <- ggarrange(plot_race_covid_vaccination_full, plot_ethnicity_covid_vaccination_full, plot_sex_covid_vaccination_full, labels=c("Race", "Ethnicity", "Sex"), ncol=3, nrow=1)
+vax_plot <- ggarrange(plot_race_covid_vaccination_full, plot_ethnicity_covid_vaccination_full, plot_sex_covid_vaccination_full, labels=c("", "", ""), ncol=3, nrow=1)
 print(vax_plot)
 ```
 
@@ -756,14 +756,17 @@ One concern has been changes in the number of people getting vaccinated over tim
 
 ```{r vaccination_increase, echo=FALSE, message=FALSE, warning=FALSE, error=FALSE}
 
-plot_race_covid_vaccination_delta_full <- ggplot(subset(race_vaccine, !is.na(race_vaccine$IncreasePercentFullyVaccinated7Day)), aes(x=DATE, y=IncreasePercentFullyVaccinated7Day, group=Race)) + geom_line(aes(colour=Race))+ theme_classic() + xlab("Date") + ylab("Daily % of people becoming fully vaccinated per day \n(seven day mean)")
-print(plot_race_covid_vaccination_delta_full)
+plot_race_covid_vaccination_delta_full <- ggplot(subset(race_vaccine, !is.na(race_vaccine$IncreasePercentFullyVaccinated7Day)), aes(x=DATE, y=IncreasePercentFullyVaccinated7Day, group=Race)) + geom_line(aes(colour=Race))+ theme_classic() + xlab("Date") + ylab("Daily % of people becoming fully vaccinated per day \n(seven day mean)") + theme(legend.position="top")
+#print(plot_race_covid_vaccination_delta_full)
 
-plot_ethnicity_covid_vaccination_delta_full <- ggplot(subset(ethnicity_vaccine, !is.na(ethnicity_vaccine$IncreasePercentFullyVaccinated7Day)), aes(x=DATE, y=IncreasePercentFullyVaccinated7Day, group=Ethnicity)) + geom_line(aes(colour=Ethnicity))+ theme_classic() + xlab("Date") + ylab("Daily % of people becoming fully vaccinated per day \n(seven day mean)")
-print(plot_ethnicity_covid_vaccination_delta_full)
+plot_ethnicity_covid_vaccination_delta_full <- ggplot(subset(ethnicity_vaccine, !is.na(ethnicity_vaccine$IncreasePercentFullyVaccinated7Day)), aes(x=DATE, y=IncreasePercentFullyVaccinated7Day, group=Ethnicity)) + geom_line(aes(colour=Ethnicity))+ theme_classic() + xlab("Date") + ylab("Daily % of people becoming fully vaccinated per day \n(seven day mean)") + theme(legend.position="top")
+#print(plot_ethnicity_covid_vaccination_delta_full)
 
-plot_sex_covid_vaccination_delta_full <- ggplot(subset(sex_vaccine, !is.na(sex_vaccine$IncreasePercentFullyVaccinated7Day)), aes(x=DATE, y=IncreasePercentFullyVaccinated7Day, group=Sex)) + geom_line(aes(colour=Sex))+ theme_classic() + xlab("Date") + ylab("Daily % of people becoming fully vaccinated per day \n(seven day mean)")
-print(plot_sex_covid_vaccination_delta_full)
+plot_sex_covid_vaccination_delta_full <- ggplot(subset(sex_vaccine, !is.na(sex_vaccine$IncreasePercentFullyVaccinated7Day)), aes(x=DATE, y=IncreasePercentFullyVaccinated7Day, group=Sex)) + geom_line(aes(colour=Sex))+ theme_classic() + xlab("Date") + ylab("Daily % of people becoming fully vaccinated per day \n(seven day mean)") + theme(legend.position="top")
+#print(plot_sex_covid_vaccination_delta_full)
+
+vax_speed_plot <- ggarrange(plot_race_covid_vaccination_delta_full, plot_ethnicity_covid_vaccination_delta_full, plot_sex_covid_vaccination_delta_full, labels=c("", "", ""), ncol=3, nrow=1)
+print(vax_speed_plot)
 ```
 
 <h2 id="cdc">Cases locally</h2>
@@ -783,18 +786,12 @@ This shows cases locally. I'm zooming in on the most recent months: the huge pea
 
 local_new <- ggplot(subset(daily_focal_no_ut_cleaned, DATE>="2021-06-01"), aes(x=DATE, y=New_cases_per_100k_per_week, group=Region, colour=Region)) + 
 theme_classic() + geom_line()  + ylab("Number of new cases in area each week per 100,000 people") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8) 
-print(local_new)
+#print(local_new)
 
 #local_active <- ggplot(daily_focal[!is.na(daily_focal$TOTAL_ACTIVE),], aes(x=DATE, y=TOTAL_ACTIVE, group=Region)) +  geom_smooth(aes(colour=Region), se=FALSE) + geom_point(aes(colour=Region), size=0.5) + ylab("Number of active cases in area each day") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)
 #local_active <- ggplot(daily_focal[!is.na(daily_focal$TOTAL_ACTIVE),], aes(x=DATE, y=TOTAL_ACTIVE, group=Region)) +  geom_line(aes(colour=Region)) + geom_point(aes(colour=Region), size=0.5) + ylab("Number of active cases in area each day") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)
 #print(local_active)
 
-
-```
-
-This shows the plot of percent of positive tests per week.
-
-```{r plots_positivity_cdc, echo=FALSE, message=FALSE, warning=FALSE}
 
 local_positivity <- ggplot(subset(daily_focal_no_ut_cleaned, DATE>="2021-06-01"), aes(x=DATE, y=PositivityPercentage_per_week, group=Region, colour=Region)) + 
 #annotate(geom="rect", xmin=min(daily_focal_no_ut_cleaned$DATE), xmax=max(daily_focal_no_ut_cleaned$DATE), ymin=0, ymax=max(daily_focal_no_ut_cleaned$PositivityPercentage_per_week), alpha=.8, fill="lightblue1") +
@@ -802,7 +799,10 @@ local_positivity <- ggplot(subset(daily_focal_no_ut_cleaned, DATE>="2021-06-01")
 #annotate(geom="rect", xmin=min(daily_focal_no_ut_cleaned$DATE), xmax=max(daily_focal_no_ut_cleaned$DATE), ymin=7.95, ymax=max(daily_focal_no_ut_cleaned$PositivityPercentage_per_week), alpha=.8, fill="tan1") +
 #annotate(geom="rect", xmin=min(daily_focal_no_ut_cleaned$DATE), xmax=max(daily_focal_no_ut_cleaned$DATE), ymin=9.95, ymax=max(daily_focal_no_ut_cleaned$PositivityPercentage_per_week), alpha=.8, fill="indianred1") +
 theme_classic() + geom_line()  + ylab("Percentage of positive tests per week") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8) 
-print(local_positivity)
+#print(local_positivity)
+
+cases_plot <- ggarrange(local_new, local_positivity, labels=c("Cases", "Positivity"), ncol=2, nrow=1)
+print(cases_plot)
 
 #local_active <- ggplot(daily_focal[!is.na(daily_focal$TOTAL_ACTIVE),], aes(x=DATE, y=TOTAL_ACTIVE, group=Region)) +  geom_smooth(aes(colour=Region), se=FALSE) + geom_point(aes(colour=Region), size=0.5) + ylab("Number of active cases in area each day") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)
 #local_active <- ggplot(daily_focal[!is.na(daily_focal$TOTAL_ACTIVE),], aes(x=DATE, y=TOTAL_ACTIVE, group=Region)) +  geom_line(aes(colour=Region)) + geom_point(aes(colour=Region), size=0.5) + ylab("Number of active cases in area each day") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)

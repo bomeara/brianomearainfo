@@ -946,6 +946,13 @@ At the time this section of the page was last edited (Aug. 15, 2021), UTK's guid
 UT is holding various events and messeaging at the start of the school year. These are images from leaders' or university accounts. 
 
 
+[August 16, 2021](https://twitter.com/VOLNursingDEAN/status/1427326318002249734)
+
+```{r, fig.alt = "UT Nursing Training", out.width="400px", echo=FALSE, message=FALSE, warning=FALSE}
+knitr::include_graphics("Aug16_2021.png")
+```
+
+
 [August 14, 2021](https://twitter.com/ambers_williams/status/1426713825831702531)
 
 ```{r, fig.alt = "UT Silent Disco", out.width="400px", echo=FALSE, message=FALSE, warning=FALSE}

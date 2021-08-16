@@ -739,13 +739,13 @@ You can also look at rates for counties like [Knox](https://vaccication.org/coun
 
 
 
-plot_race_covid_vaccination_full <- ggplot(race_vaccine, aes(x=DATE, y=PercentFullyVaccinated, group=Race)) + geom_line(aes(colour=Race))+ xlab("Date") + ylim(0,100) + theme_classic() + ylab("Percentage of people fully vaccinated")
+plot_race_covid_vaccination_full <- ggplot(race_vaccine, aes(x=DATE, y=PercentFullyVaccinated, group=Race)) + geom_line(aes(colour=Race))+ xlab("Date") + ylim(0,100) + theme_classic() + ylab("Percentage of people fully vaccinated") + theme(legend.position="top")
 #print(plot_race_covid_vaccination_full)
 
-plot_ethnicity_covid_vaccination_full <- ggplot(ethnicity_vaccine, aes(x=DATE, y=PercentFullyVaccinated, group=Ethnicity)) + geom_line(aes(colour=Ethnicity))+ xlab("Date") + theme_classic() + ylim(0,100) + ylab("Percentage of people fully vaccinated")
+plot_ethnicity_covid_vaccination_full <- ggplot(ethnicity_vaccine, aes(x=DATE, y=PercentFullyVaccinated, group=Ethnicity)) + geom_line(aes(colour=Ethnicity))+ xlab("Date") + theme_classic() + ylim(0,100) + ylab("Percentage of people fully vaccinated") + theme(legend.position="top")
 #print(plot_ethnicity_covid_vaccination_full)
 
-plot_sex_covid_vaccination_full <- ggplot(sex_vaccine, aes(x=DATE, y=PercentFullyVaccinated, group=Sex)) + geom_line(aes(colour=Sex))+ xlab("Date") + theme_classic() + ylim(0,100) + ylab("Percentage of people fully vaccinated")
+plot_sex_covid_vaccination_full <- ggplot(sex_vaccine, aes(x=DATE, y=PercentFullyVaccinated, group=Sex)) + geom_line(aes(colour=Sex))+ xlab("Date") + theme_classic() + ylim(0,100) + ylab("Percentage of people fully vaccinated") + theme(legend.position="top")
 #print(plot_sex_covid_vaccination_full)
 
 vax_plot <- ggarrange(plot_race_covid_vaccination_full, plot_ethnicity_covid_vaccination_full, plot_sex_covid_vaccination_full, labels=c("Race", "Ethnicity", "Sex"), ncol=3, nrow=1)

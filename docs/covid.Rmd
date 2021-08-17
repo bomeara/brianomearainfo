@@ -943,7 +943,13 @@ Another question is what is happening at UTK. There is official information avai
 
 At the time this section of the page was last edited (Aug. 15, 2021), UTK's guidance was for masks to be required in classrooms, labs, and indoor areas where compulsory activities were being held, a policy put in place Aug. 2, 2021. Spaces like hallways, dining halls, elevators, and libraries are apparently not included in this requirement. However, anyone ***may*** wear a mask anywhere on campus; those who seek to follow the CDC's recommendations in order to **protect others and themselves** will wear them in all indoor spaces. Unlike [over 650 other colleges and universities](https://www.chronicle.com/blogs/live-coronavirus-updates/heres-a-list-of-colleges-that-will-require-students-to-be-vaccinated-against-covid-19), UTK has no vaccination mandate in general (there may be exceptions in particular areas, like nursing with high patient contact). According to an [Aug. 2 notice by the Chancellor](https://chancellor.utk.edu/2021/08/02/updated-covid-guidelines/), the university will no longer be requesting saliva testing to track spread (though testing kits are available in the student health center). I do not know of data on vaccination rate at UTK; a rough estimate may come from LSU, which as of [Aug. 2 had a 34% vaccination rate among students](https://www.washingtonpost.com/education/2021/08/06/college-covid-vaccines-student-rates/).
 
-UT is holding various events and messeaging at the start of the school year. These are images from leaders' or university accounts. 
+UT is holding various events and messaging at the start of the school year. These are images from leaders' or university accounts. 
+
+[August 17, 2021](https://twitter.com/UTKLibraries/status/1427648231224315920)
+
+```{r, fig.alt = "Dean Smith, Chancellor Plowman, and various masked students", out.width="400px", echo=FALSE, message=FALSE, warning=FALSE}
+knitr::include_graphics("Aug17_2021.png")
+```
 
 
 [August 16, 2021](https://twitter.com/VOLNursingDEAN/status/1427326318002249734)

@@ -948,7 +948,21 @@ UT is holding various events and messaging at the start of the school year. Thes
 [August 17, 2021](https://twitter.com/UTKLibraries/status/1427648231224315920)
 
 ```{r, fig.alt = "Dean Smith, Chancellor Plowman, and various masked students", out.width="400px", echo=FALSE, message=FALSE, warning=FALSE}
-knitr::include_graphics("Aug17_2021.png")
+knitr::include_graphics("Aug17_2021b.png")
+```
+
+
+[August 17, 2021](https://twitter.com/VOLNursingDEAN/status/1427693307690369024)
+
+```{r, fig.alt = "Freshmen in College of Nursing welcome", out.width="400px", echo=FALSE, message=FALSE, warning=FALSE}
+knitr::include_graphics("Aug17_2021c.png")
+```
+
+
+[August 17, 2021](https://twitter.com/DondePlowman/status/1427582136891191296)
+
+```{r, fig.alt = "Students at Torchnight ceremony in Neyland stadium", out.width="400px", echo=FALSE, message=FALSE, warning=FALSE}
+knitr::include_graphics("Aug17_2021a.png")
 ```
 
 

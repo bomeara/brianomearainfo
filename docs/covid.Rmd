@@ -983,6 +983,13 @@ At the time this section of the page was last edited (Aug. 18, 2021), UTK's guid
 
 UT is holding various events and messaging at the start of the school year. These are images from leaders' or university accounts. 
 
+[August 20, 2021](https://twitter.com/DondePlowman/status/1428671118446112770)
+
+```{r, fig.alt = "Chancellor Plowman with two students in Chancellor's office", out.width="400px", echo=FALSE, message=FALSE, warning=FALSE}
+knitr::include_graphics("Aug20_2021.png")
+```
+
+
 [August 17, 2021](https://twitter.com/UTKLibraries/status/1427648231224315920)
 
 ```{r, fig.alt = "Dean Smith, Chancellor Plowman, and various masked students", out.width="400px", echo=FALSE, message=FALSE, warning=FALSE}

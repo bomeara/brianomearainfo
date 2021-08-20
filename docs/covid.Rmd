@@ -583,7 +583,16 @@ utk_active_cases_reported <- read.csv("1 active cases_Page 1_Line chart.csv")
 utk_active_cases_reported$DATE <- as.Date(utk_active_cases_reported[,1], "%B %d, %Y")
 utk_active_cases_reported$ProportionFacultyStaff <- utk_active_cases_reported$Employees/6600 # Using size of pool from Chancellor update of Aug 19, 2021
 utk_active_cases_reported$ProportionStudents <- utk_active_cases_reported$Students/30000 # Using size of pool from Chancellor update of Aug 19, 2021
+utk_active_cases_reported$StudentProportionOverEmployeeProportion <- utk_active_cases_reported$ProportionStudents/utk_active_cases_reported$ProportionFacultyStaff
 
+
+utk_isolations_reported_raw <- read.csv("3 active self_isolations_group_Page 1_Bar chart.csv")
+utk_isolations_reported_raw$DATE <- as.Date(utk_isolations_reported_raw[,1], "%B %d, %Y")
+utk_isolations_reported <- rbind(
+	data.frame(DATE=utk_isolations_reported_raw$DATE, Percentage=100*utk_isolations_reported_raw$Employees/6600, Population="Employees"),
+	data.frame(DATE=utk_isolations_reported_raw$DATE, Percentage=100*utk_isolations_reported_raw$Students..residential./8000, Population="Students (residential)"),
+	data.frame(DATE=utk_isolations_reported_raw$DATE, Percentage=100*utk_isolations_reported_raw$Students..non.residential./22000, Population="Students (nonresidential)")
+)
 
 ```
 
@@ -947,6 +956,28 @@ print(new_hospitalization)
 <h2 id="ut2021">University of Tennessee, Knoxville, 2021-2022</h2>
 
 Another question is what is happening at UTK. There is official information available at https://www.utk.edu/coronavirus/guides/data-monitoring-and-contingency-options. CDC guidance for institutions of higher education who don't require vaccination, which includes UTK, is [here](https://www.cdc.gov/coronavirus/2019-ncov/community/colleges-universities/considerations.html#section3). There are also CDC recommendations for everywhere, not just higher education: Knox County is currently an area with substantial to high covid spread, so **the CDC recommendation is that everyone wear masks indoors, even those fully vaccinated**.
+
+UTK is releasing [some data](https://www.utk.edu/coronavirus/guides/data-monitoring-and-contingency-options/), though less than some peers or UTK itself last academic year. I cannot find information on number of tests at the student health center, test positivity rate, saliva testing, or wastewater testing. There is no data on vaccination rate in the student body in general or in faculty or staff, nor on hospitalization or death rates. Students in university housing, and their close contacts who are unvaccinated, may have to seek alternate places to live at their own cost if they test positive for covid, which will discourage students from getting covid, at the risk of also discouraging testing. 
+
+The first plot shows the percentage of students and employees with active covid cases *known to UTK* at any one time. I am curious about the overall trend in each, as well as about which group has more reported cases at the moment. One guess could be that covid proportion might be higher among students (high density housing, generally lower vaccination rate for younger populations), but they might get tested at lower rates. Approximate total population size in each group comes from the Chancellor's update of Aug. 19, 2021.
+
+```{r utk2021, echo=FALSE, message=FALSE, warning=FALSE}
+utk_active_cases_pivoted <- data.frame(DATE=rep(utk_active_cases_reported$DATE,2), PercentageActive=100*c(utk_active_cases_reported$ProportionFacultyStaff, utk_active_cases_reported$ProportionStudents), Population=c(rep("Employees", nrow(utk_active_cases_reported)),rep("Students", nrow(utk_active_cases_reported) )))
+
+utk_active_cases_pivoted_plot <- ggplot(subset(utk_active_cases_pivoted, DATE>="2021-08-01"), aes(x=DATE, y=PercentageActive, group=Population, colour=Population)) +  geom_line() + ylab("Percent with active covid infections") + xlab("Date") + ylim(0,NA)  + scale_colour_viridis_d(end=0.8) + theme_classic() 
+
+print(utk_active_cases_pivoted_plot)
+```
+
+There is also data on those who have reported that they are self-isolating due to having covid (isolation) or being exposed (quarantine).
+
+```{r utk2021isolations, echo=FALSE, message=FALSE, warning=FALSE}
+
+
+utk_isolations_plot <- ggplot(subset(utk_isolations_reported, DATE>="2021-08-01"), aes(x=DATE, y=Percentage, group=Population, colour=Population)) +  geom_line() + ylab("Percent self-isolating\n(quarantine or isolation)") + xlab("Date") + ylim(0,NA)  + scale_colour_viridis_d(end=0.8) + theme_classic() 
+
+print(utk_isolations_plot)
+```
 
 At the time this section of the page was last edited (Aug. 18, 2021), UTK's guidance was for masks to be required in classrooms, labs, and indoor areas where compulsory activities were being held, a policy put in place Aug. 2, 2021. Spaces like hallways, dining halls, elevators, and libraries are apparently not included in this requirement. However, anyone ***may*** wear a mask anywhere on campus; those who seek to follow the CDC's recommendations in order to **protect others and themselves** will wear them in all indoor spaces. Unlike [over 650 other colleges and universities](https://www.chronicle.com/blogs/live-coronavirus-updates/heres-a-list-of-colleges-that-will-require-students-to-be-vaccinated-against-covid-19), UTK has no vaccination mandate in general (there may be exceptions in particular areas, like nursing with high patient contact). According to an [Aug. 2 notice by the Chancellor](https://chancellor.utk.edu/2021/08/02/updated-covid-guidelines/), the university will no longer be requesting saliva testing to track spread (though testing kits are available in the student health center). I do not know of data on vaccination rate at UTK; a rough estimate may come from LSU, which as of [Aug. 2 had a 34% vaccination rate among students](https://www.washingtonpost.com/education/2021/08/06/college-covid-vaccines-student-rates/).
 

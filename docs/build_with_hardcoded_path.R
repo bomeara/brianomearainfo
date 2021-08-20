@@ -6,6 +6,8 @@ try(system('mv ~/Downloads/8\\ LIVE_SHC_test_data_Page\\ 1_Table.csv .'))
 try(system('mv ~/Downloads/2\\ new\\ cases_Page\\ 1_Time\\ series.csv .'))
 try(system('mv ~/Downloads/LIVE\\ saliva\\ positivity\\ rate_Page\\ 1_Bar\\ chart.csv .'))
 try(system('mv ~/Downloads/LIVE\\ spring\\ 2021\\ saliva\\ table_Page\\ 1_Table.csv .'))
+try(system('mv ~/Downloads/1\\ active\\ cases_Page\\ 1_Line\\ chart.csv .'))
+try(system('mv ~/Downloads/3\\ active\\ self_isolations_group_Page\\ 1_Bar\\ chart.csv .'))
 
 rmarkdown::render_site()
 source("functions.R")

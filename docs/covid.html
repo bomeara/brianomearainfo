@@ -422,7 +422,7 @@ $(document).ready(function () {
 <li><a href="https://healthdata.gov/dataset/covid-19-reported-patient-impact-and-hospital-capacity-facility">US HHS hospitalization by facility</a></li>
 </ul>
 <hr />
-<p>The following plots are created in R using data from <a href="https://covid19datahub.io" class="uri">https://covid19datahub.io</a> (Guidotti, E., Ardia, D., (2020), “COVID-19 Data Hub”, Working paper, doi: 10.13140/RG.2.2.11649.81763), as well as information from Google and the <a href="https://www.tn.gov/health/cedep/ncov/data/downloadable-datasets.html">state of Tennessee dataset page</a> and plotting and analysis using the <code>forecast</code>, <code>ggplot2</code>, <code>reshape2</code>, and <code>dplyr</code> packages. Plots created on 2021-08-22 18:59:10. I use a seven day rolling average for most plots using the <code>geom_ma</code> function of <code>tidyquant</code>.</p>
+<p>The following plots are created in R using data from <a href="https://covid19datahub.io" class="uri">https://covid19datahub.io</a> (Guidotti, E., Ardia, D., (2020), “COVID-19 Data Hub”, Working paper, doi: 10.13140/RG.2.2.11649.81763), as well as information from Google and the <a href="https://www.tn.gov/health/cedep/ncov/data/downloadable-datasets.html">state of Tennessee dataset page</a> and plotting and analysis using the <code>forecast</code>, <code>ggplot2</code>, <code>reshape2</code>, and <code>dplyr</code> packages. Plots created on 2021-08-22 23:25:02. I use a seven day rolling average for most plots using the <code>geom_ma</code> function of <code>tidyquant</code>.</p>
 <h2 id="cases">
 Cases
 </h2>
@@ -545,6 +545,15 @@ Comparing last academic year with this academic year
 <p><img src="covid_files/figure-html/dejavucases-1.png" width="672" /></p>
 <p>We can see how students age 5-18 (so equivalent to K-12, generally) have had positive cases in East Tennessee.</p>
 <p><img src="covid_files/figure-html/dejavuschoolkids-1.png" width="672" /></p>
+<hr />
+<h2 id="schools2021">
+K-12 Schools
+</h2>
+<p>Cases are growing in local schools. Oak Ridge schools, in Anderson &amp; Roane Counties, started on July 28. The plots below show those Oak Ridge schools that have had at least one student covid case in the 2021-2 school year.</p>
+<p><img src="covid_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<p>The plot below shows the proportion of students with active covid cases at any one time. The gray box shows the region where Oak Ridge Schools considered mandatory masking. Willow Brook Elementary had mandatory masking put in place starting Monday, Aug. 9, 2021. Jefferson and Robertsville Middle Schools had mask mandates put in place starting Monday, Aug. 16, 2021. In response to Gov. Lee’s executive order 84 allowing parents to opt out of mask mandates, on Wed., Aug. 19, 2021, Oak Ridge Schools <a href="https://oakridgetoday.com/2021/08/20/oak-ridge-schools-will-not-require-masks-after-governors-order/">chose to eliminate all mask mandates</a>.</p>
+<p>The <a href="https://www.cdc.gov/coronavirus/2019-ncov/community/schools-childcare/k-12-guidance.html">CDC</a> and the <a href="https://www.aappublications.org/news/2021/07/18/schools-071821">American Academy of Pediatrics</a> recommend that everyone in schools over the age of 2 wear a mask.</p>
+<p><img src="covid_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 <hr />
 <h2 id="vaccination">
 Vaccination

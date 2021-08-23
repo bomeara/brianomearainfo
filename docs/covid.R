@@ -18,8 +18,10 @@ library(scales)
 library(jsonlite)
 library(gganimate)
 library(ggrepel)
+library(ggpubr)
 options(timeout=600) # let things download for at least ten minutes
 options(download.file.method = "libcurl")
+
 
 #gmr <- "https://www.gstatic.com/covid19/mobility/Global_Mobility_Report.csv"
 
@@ -158,6 +160,26 @@ for (i in seq_along(hospital_knox_files)) {
 hospital_knox <- subset(hospital_knox, East.Region.Hospitals != "Adult Floor Beds/Non-ICU")
 hospital_knox <- hospital_knox[which(nchar(hospital_knox$East.Region.Hospitals)>0),]
 hospital_knox$Current.Utilization[which(hospital_knox$Current.Utilization>100)] <- hospital_knox$Current.Utilization[which(hospital_knox$Current.Utilization>100)]/100 #to fix two days of data where Knox County was multiplying these by 100, getting 7935% utilization
+
+
+oakridge_school_files <- list.files(path="/Users/bomeara/Dropbox/OakRidgeCovid", pattern="*oak_ridge_schools.csv", full.names=TRUE)
+schools_oakridge <- data.frame()
+for (i in seq_along(oakridge_school_files)) {
+  school_oakridge_info <- NULL
+  try(school_oakridge_info <- read.csv(oakridge_school_files[i]), silent=TRUE)
+  if(!is.null(school_oakridge_info)) {
+	school_oakridge_info[is.na(school_oakridge_info)] <- 0
+	colnames(school_oakridge_info)[9] <- "student.population"
+	local_info <- data.frame(Date=rep(anytime::anytime(stringr::str_extract(oakridge_school_files[i], "\\d+_\\d+_\\d+_\\d+_\\d+_\\d+")), nrow(school_oakridge_info)), School=school_oakridge_info$School, PercentPositiveStudentsYearToDate=100*school_oakridge_info$YTD.Student.Cases/school_oakridge_info$student.population, PercentActiveCovidStudents=100*school_oakridge_info$Current.Student.Cases/school_oakridge_info$student.population)
+	if (i==1) {
+		schools_oakridge <- local_info
+	} else {
+		schools_oakridge <- rbind(schools_oakridge, local_info)
+	}
+  }
+}
+schools_oakridge <- schools_oakridge[is.finite(schools_oakridge$PercentPositiveStudentsYearToDate),]
+
 
 hhs_sources <- jsonlite::fromJSON("https://healthdata.gov/data.json?page=0")
 capacity_by_facility_number <- grep("COVID-19 Reported Patient Impact and Hospital Capacity by Facility", hhs_sources$dataset$title)
@@ -554,6 +576,22 @@ daily_utk$NEW_PROPORTION_CONFIRMED <- 100*daily_utk$NEW_CONFIRMED/daily_utk$NEW_
 daily_focal_no_ut <- daily_focal[!grepl("UTK", daily_focal$Region), ]
 daily_focal_no_ut_cleaned <- daily_focal_no_ut
 
+utk_active_cases_reported <- read.csv("1 active cases_Page 1_Line chart.csv")
+utk_active_cases_reported$DATE <- as.Date(utk_active_cases_reported[,1], "%B %d, %Y")
+utk_active_cases_reported$ProportionFacultyStaff <- utk_active_cases_reported$Employees/6600 # Using size of pool from Chancellor update of Aug 19, 2021
+utk_active_cases_reported$ProportionStudents <- utk_active_cases_reported$Students/30000 # Using size of pool from Chancellor update of Aug 19, 2021
+utk_active_cases_reported$StudentProportionOverEmployeeProportion <- utk_active_cases_reported$ProportionStudents/utk_active_cases_reported$ProportionFacultyStaff
+
+
+utk_isolations_reported_raw <- read.csv("3 active self_isolations_group_Page 1_Bar chart.csv")
+utk_isolations_reported_raw$DATE <- as.Date(utk_isolations_reported_raw[,1], "%B %d, %Y")
+utk_isolations_reported <- rbind(
+	data.frame(DATE=utk_isolations_reported_raw$DATE, Percentage=100*utk_isolations_reported_raw$Employees/6600, Population="Employees"),
+	data.frame(DATE=utk_isolations_reported_raw$DATE, Percentage=100*utk_isolations_reported_raw$Students..residential./8000, Population="Students (residential)"),
+	data.frame(DATE=utk_isolations_reported_raw$DATE, Percentage=100*utk_isolations_reported_raw$Students..non.residential./22000, Population="Students (nonresidential)")
+)
+
+
 
 ## ----summarytabletn, echo=FALSE, message=FALSE, warning=FALSE, error=FALSE----
 # I'm doing this poorly using hard coding, but I don't know of a better way
@@ -670,6 +708,23 @@ try(student_covid_daily_by_year_plot <- ggplot(schoolkids_daily_by_year, aes(x=M
 try(print(student_covid_daily_by_year_plot))
 
 
+## ---- echo=FALSE, message=FALSE, warning=FALSE--------------------------------
+
+nonzero_schools <- unique(subset(schools_oakridge, PercentPositiveStudentsYearToDate>0)$School)
+nonzero_schools <- nonzero_schools[!grepl("Totals for",nonzero_schools)]
+schools_oakridge_nonzero <- schools_oakridge[which(schools_oakridge$School %in% nonzero_schools),]
+data_ends <- subset(schools_oakridge_nonzero, Date==max(schools_oakridge$Date))
+try(oakridge_schools_ytd <- ggplot(schools_oakridge_nonzero, aes(x=Date, y=PercentPositiveStudentsYearToDate, group=School)) + geom_line(aes(colour=School)) + theme_classic() + ylab("Percentage of students testing positive for covid\n(since start of 2021-2 school year)") + xlab("Date") + ggtitle("Student covid infections in Oak Ridge, TN") + scale_color_discrete(guide = FALSE) + scale_y_continuous(sec.axis = sec_axis(~ ., labels=data_ends$School, breaks = data_ends$PercentPositiveStudentsYearToDate)))
+print(oakridge_schools_ytd)
+
+
+## ---- echo=FALSE, message=FALSE, warning=FALSE--------------------------------
+data_ends <- subset(schools_oakridge_nonzero, Date==max(schools_oakridge$Date))
+try(oakridge_schools_active <- ggplot(schools_oakridge_nonzero, aes(x=Date, y=PercentActiveCovidStudents, group=School)) +
+geom_rect(mapping=aes(xmin=as.POSIXct("2021-08-08"), xmax=as.POSIXct("2021-08-19"), ymin=2, ymax=5), fill="lightgray") + geom_line(aes(colour=School)) + theme_classic() + ylab("Percentage of students with active covid infections") + xlab("Date") + ggtitle("Student active covid infections in Oak Ridge, TN") + scale_color_discrete(guide = FALSE) + scale_y_continuous(sec.axis = sec_axis(~ ., labels=data_ends$School, breaks = data_ends$PercentActiveCovidStudents)))
+print(oakridge_schools_active)
+
+
 ## ----vaccination1, echo=FALSE, message=FALSE, warning=FALSE, error=FALSE------
 
 
@@ -677,26 +732,32 @@ try(print(student_covid_daily_by_year_plot))
 
 
 
-plot_race_covid_vaccination_full <- ggplot(race_vaccine, aes(x=DATE, y=PercentFullyVaccinated, group=Race)) + geom_line(aes(colour=Race))+ xlab("Date") + ylim(0,100) + theme_classic() + ylab("Percentage of people fully vaccinated")
+plot_race_covid_vaccination_full <- ggplot(race_vaccine, aes(x=DATE, y=PercentFullyVaccinated, group=Race)) + geom_line(aes(colour=Race))+ xlab("Date") + ylim(0,100) + theme_classic() + ylab("Percentage of people fully vaccinated") 
 print(plot_race_covid_vaccination_full)
 
-plot_ethnicity_covid_vaccination_full <- ggplot(ethnicity_vaccine, aes(x=DATE, y=PercentFullyVaccinated, group=Ethnicity)) + geom_line(aes(colour=Ethnicity))+ xlab("Date") + theme_classic() + ylim(0,100) + ylab("Percentage of people fully vaccinated")
+plot_ethnicity_covid_vaccination_full <- ggplot(ethnicity_vaccine, aes(x=DATE, y=PercentFullyVaccinated, group=Ethnicity)) + geom_line(aes(colour=Ethnicity))+ xlab("Date") + theme_classic() + ylim(0,100) + ylab("Percentage of people fully vaccinated") 
 print(plot_ethnicity_covid_vaccination_full)
 
-plot_sex_covid_vaccination_full <- ggplot(sex_vaccine, aes(x=DATE, y=PercentFullyVaccinated, group=Sex)) + geom_line(aes(colour=Sex))+ xlab("Date") + theme_classic() + ylim(0,100) + ylab("Percentage of people fully vaccinated")
+plot_sex_covid_vaccination_full <- ggplot(sex_vaccine, aes(x=DATE, y=PercentFullyVaccinated, group=Sex)) + geom_line(aes(colour=Sex))+ xlab("Date") + theme_classic() + ylim(0,100) + ylab("Percentage of people fully vaccinated") 
 print(plot_sex_covid_vaccination_full)
+
+#vax_plot <- ggarrange(plot_race_covid_vaccination_full, plot_ethnicity_covid_vaccination_full, plot_sex_covid_vaccination_full, labels=c("", "", ""), ncol=3, nrow=1)
+#print(vax_plot)
 
 
 ## ----vaccination_increase, echo=FALSE, message=FALSE, warning=FALSE, error=FALSE----
 
-plot_race_covid_vaccination_delta_full <- ggplot(subset(race_vaccine, !is.na(race_vaccine$IncreasePercentFullyVaccinated7Day)), aes(x=DATE, y=IncreasePercentFullyVaccinated7Day, group=Race)) + geom_line(aes(colour=Race))+ theme_classic() + xlab("Date") + ylab("Daily % of people becoming fully vaccinated per day \n(seven day mean)")
+plot_race_covid_vaccination_delta_full <- ggplot(subset(race_vaccine, !is.na(race_vaccine$IncreasePercentFullyVaccinated7Day)), aes(x=DATE, y=IncreasePercentFullyVaccinated7Day, group=Race)) + geom_line(aes(colour=Race))+ theme_classic() + xlab("Date") + ylab("Daily % of people becoming fully vaccinated per day \n(seven day mean)") 
 print(plot_race_covid_vaccination_delta_full)
 
-plot_ethnicity_covid_vaccination_delta_full <- ggplot(subset(ethnicity_vaccine, !is.na(ethnicity_vaccine$IncreasePercentFullyVaccinated7Day)), aes(x=DATE, y=IncreasePercentFullyVaccinated7Day, group=Ethnicity)) + geom_line(aes(colour=Ethnicity))+ theme_classic() + xlab("Date") + ylab("Daily % of people becoming fully vaccinated per day \n(seven day mean)")
+plot_ethnicity_covid_vaccination_delta_full <- ggplot(subset(ethnicity_vaccine, !is.na(ethnicity_vaccine$IncreasePercentFullyVaccinated7Day)), aes(x=DATE, y=IncreasePercentFullyVaccinated7Day, group=Ethnicity)) + geom_line(aes(colour=Ethnicity))+ theme_classic() + xlab("Date") + ylab("Daily % of people becoming fully vaccinated per day \n(seven day mean)") 
 print(plot_ethnicity_covid_vaccination_delta_full)
 
-plot_sex_covid_vaccination_delta_full <- ggplot(subset(sex_vaccine, !is.na(sex_vaccine$IncreasePercentFullyVaccinated7Day)), aes(x=DATE, y=IncreasePercentFullyVaccinated7Day, group=Sex)) + geom_line(aes(colour=Sex))+ theme_classic() + xlab("Date") + ylab("Daily % of people becoming fully vaccinated per day \n(seven day mean)")
+plot_sex_covid_vaccination_delta_full <- ggplot(subset(sex_vaccine, !is.na(sex_vaccine$IncreasePercentFullyVaccinated7Day)), aes(x=DATE, y=IncreasePercentFullyVaccinated7Day, group=Sex)) + geom_line(aes(colour=Sex))+ theme_classic() + xlab("Date") + ylab("Daily % of people becoming fully vaccinated per day \n(seven day mean)") 
 print(plot_sex_covid_vaccination_delta_full)
+
+#vax_speed_plot <- ggarrange(plot_race_covid_vaccination_delta_full, plot_ethnicity_covid_vaccination_delta_full, plot_sex_covid_vaccination_delta_full, labels=c("", "", ""), ncol=3, nrow=1)
+#print(vax_speed_plot)
 
 
 ## ----plots_new_cdc, echo=FALSE, message=FALSE, warning=FALSE------------------
@@ -717,10 +778,6 @@ print(local_new)
 #print(local_active)
 
 
-
-
-## ----plots_positivity_cdc, echo=FALSE, message=FALSE, warning=FALSE-----------
-
 local_positivity <- ggplot(subset(daily_focal_no_ut_cleaned, DATE>="2021-06-01"), aes(x=DATE, y=PositivityPercentage_per_week, group=Region, colour=Region)) + 
 #annotate(geom="rect", xmin=min(daily_focal_no_ut_cleaned$DATE), xmax=max(daily_focal_no_ut_cleaned$DATE), ymin=0, ymax=max(daily_focal_no_ut_cleaned$PositivityPercentage_per_week), alpha=.8, fill="lightblue1") +
 #annotate(geom="rect", xmin=min(daily_focal_no_ut_cleaned$DATE), xmax=max(daily_focal_no_ut_cleaned$DATE), ymin=5, ymax=max(daily_focal_no_ut_cleaned$PositivityPercentage_per_week), alpha=.8, fill="khaki1") +
@@ -728,6 +785,9 @@ local_positivity <- ggplot(subset(daily_focal_no_ut_cleaned, DATE>="2021-06-01")
 #annotate(geom="rect", xmin=min(daily_focal_no_ut_cleaned$DATE), xmax=max(daily_focal_no_ut_cleaned$DATE), ymin=9.95, ymax=max(daily_focal_no_ut_cleaned$PositivityPercentage_per_week), alpha=.8, fill="indianred1") +
 theme_classic() + geom_line()  + ylab("Percentage of positive tests per week") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8) 
 print(local_positivity)
+
+#cases_plot <- ggarrange(local_new, local_positivity, labels=c("Cases", "Positivity"), ncol=2, nrow=1)
+#print(cases_plot)
 
 #local_active <- ggplot(daily_focal[!is.na(daily_focal$TOTAL_ACTIVE),], aes(x=DATE, y=TOTAL_ACTIVE, group=Region)) +  geom_smooth(aes(colour=Region), se=FALSE) + geom_point(aes(colour=Region), size=0.5) + ylab("Number of active cases in area each day") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)
 #local_active <- ggplot(daily_focal[!is.na(daily_focal$TOTAL_ACTIVE),], aes(x=DATE, y=TOTAL_ACTIVE, group=Region)) +  geom_line(aes(colour=Region)) + geom_point(aes(colour=Region), size=0.5) + ylab("Number of active cases in area each day") + xlab("Date") + ylim(0,NA) + scale_colour_viridis_d(end=0.8)
@@ -843,16 +903,64 @@ print(new_hospitalization)
 
 
 
-## ---- fig.alt = "UT Success Academy group photos", out.width="400px", echo=FALSE, message=FALSE, warning=FALSE----
-knitr::include_graphics("Aug12_2021.png")
+## ----utk2021, echo=FALSE, message=FALSE, warning=FALSE------------------------
+utk_active_cases_pivoted <- data.frame(DATE=rep(utk_active_cases_reported$DATE,2), PercentageActive=100*c(utk_active_cases_reported$ProportionFacultyStaff, utk_active_cases_reported$ProportionStudents), Population=c(rep("Employees", nrow(utk_active_cases_reported)),rep("Students", nrow(utk_active_cases_reported) )))
+
+utk_active_cases_pivoted_plot <- ggplot(subset(utk_active_cases_pivoted, DATE>="2021-08-01"), aes(x=DATE, y=PercentageActive, group=Population, colour=Population)) +  geom_line() + ylab("Percent with active covid infections reported to UTK") + xlab("Date") + ylim(0,NA)  + scale_colour_viridis_d(end=0.8) + theme_classic() 
+
+print(utk_active_cases_pivoted_plot)
+
+
+## ----utk2021isolations, echo=FALSE, message=FALSE, warning=FALSE--------------
+
+
+utk_isolations_plot <- ggplot(subset(utk_isolations_reported, DATE>="2021-08-01"), aes(x=DATE, y=Percentage, group=Population, colour=Population)) +  geom_line() + ylab("Percent reporting self-isolation to UTK\n(quarantine or isolation)") + xlab("Date") + ylim(0,NA)  + scale_colour_viridis_d(end=0.8) + theme_classic() 
+
+print(utk_isolations_plot)
+
+
+## ---- fig.alt = "Chancellor Plowman with two students in Chancellor's office", out.width="400px", echo=FALSE, message=FALSE, warning=FALSE----
+knitr::include_graphics("Aug20_2021.png")
+
+
+## ---- fig.alt = "Dean Smith, Chancellor Plowman, and various masked students", out.width="400px", echo=FALSE, message=FALSE, warning=FALSE----
+knitr::include_graphics("Aug17_2021b.png")
+
+
+## ---- fig.alt = "Freshmen in College of Nursing welcome", out.width="400px", echo=FALSE, message=FALSE, warning=FALSE----
+knitr::include_graphics("Aug17_2021c.png")
+
+
+## ---- fig.alt = "Students at Torchnight ceremony in Neyland stadium", out.width="400px", echo=FALSE, message=FALSE, warning=FALSE----
+knitr::include_graphics("Aug17_2021a.png")
+
+
+## ---- fig.alt = "UT Nursing Training", out.width="400px", echo=FALSE, message=FALSE, warning=FALSE----
+knitr::include_graphics("Aug16_2021.png")
+
+
+## ---- fig.alt = "UT Silent Disco", out.width="400px", echo=FALSE, message=FALSE, warning=FALSE----
+knitr::include_graphics("Aug14_2021.png")
 
 
 ## ---- fig.alt = "UT Band at Neyland Stadium (I'm not sure if this space is indoors or outdoors)", out.width="400px", echo=FALSE, message=FALSE, warning=FALSE----
 knitr::include_graphics("Aug13_2021.png")
 
 
-## ---- fig.alt = "UT Silent Disco", out.width="400px", echo=FALSE, message=FALSE, warning=FALSE----
-knitr::include_graphics("Aug14_2021.png")
+## ---- fig.alt = "UT Success Academy group photos", out.width="400px", echo=FALSE, message=FALSE, warning=FALSE----
+knitr::include_graphics("Aug12_2021.png")
+
+
+## ---- fig.alt = "UT Student Life welcome", out.width="400px", echo=FALSE, message=FALSE, warning=FALSE----
+knitr::include_graphics("Aug12_2021b.png")
+
+
+## ---- fig.alt = "Guidance for masks", out.width="400px", echo=FALSE, message=FALSE, warning=FALSE----
+knitr::include_graphics("Aug9_2021.png")
+
+
+## ---- fig.alt = "Chancellor Plowman with staff member Sheila Burchfield-Bishop", out.width="400px", echo=FALSE, message=FALSE, warning=FALSE----
+knitr::include_graphics("Aug9_2021b.png")
 
 
 ## ----utactive, echo=FALSE, message=FALSE, warning=FALSE, eval=FALSE-----------

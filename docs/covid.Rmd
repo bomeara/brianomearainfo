@@ -46,6 +46,7 @@ library(ggpubr)
 options(timeout=600) # let things download for at least ten minutes
 options(download.file.method = "libcurl")
 
+
 #gmr <- "https://www.gstatic.com/covid19/mobility/Global_Mobility_Report.csv"
 
 
@@ -183,6 +184,29 @@ for (i in seq_along(hospital_knox_files)) {
 hospital_knox <- subset(hospital_knox, East.Region.Hospitals != "Adult Floor Beds/Non-ICU")
 hospital_knox <- hospital_knox[which(nchar(hospital_knox$East.Region.Hospitals)>0),]
 hospital_knox$Current.Utilization[which(hospital_knox$Current.Utilization>100)] <- hospital_knox$Current.Utilization[which(hospital_knox$Current.Utilization>100)]/100 #to fix two days of data where Knox County was multiplying these by 100, getting 7935% utilization
+
+
+oakridge_school_files <- list.files(path="/Users/bomeara/Dropbox/OakRidgeCovid", pattern="*oak_ridge_schools.csv", full.names=TRUE)
+schools_oakridge <- data.frame()
+for (i in seq_along(oakridge_school_files)) {
+  school_oakridge_info <- NULL
+  try(school_oakridge_info <- read.csv(oakridge_school_files[i]), silent=TRUE)
+  if(!is.null(school_oakridge_info)) {
+	for (col_index in 3:9) {
+		school_oakridge_info[,col_index] <- as.numeric(school_oakridge_info[,col_index])
+	}
+	school_oakridge_info[is.na(school_oakridge_info)] <- 0
+	colnames(school_oakridge_info)[9] <- "student.population"
+	local_info <- data.frame(Date=rep(anytime::anytime(stringr::str_extract(oakridge_school_files[i], "\\d+_\\d+_\\d+_\\d+_\\d+_\\d+")), nrow(school_oakridge_info)), School=school_oakridge_info$School, PercentPositiveStudentsYearToDate=100*school_oakridge_info$YTD.Student.Cases/school_oakridge_info$student.population, PercentActiveCovidStudents=100*school_oakridge_info$Current.Student.Cases/school_oakridge_info$student.population)
+	if (i==1) {
+		schools_oakridge <- local_info
+	} else {
+		schools_oakridge <- rbind(schools_oakridge, local_info)
+	}
+  }
+}
+schools_oakridge <- schools_oakridge[is.finite(schools_oakridge$PercentPositiveStudentsYearToDate),]
+
 
 hhs_sources <- jsonlite::fromJSON("https://healthdata.gov/data.json?page=0")
 capacity_by_facility_number <- grep("COVID-19 Reported Patient Impact and Hospital Capacity by Facility", hhs_sources$dataset$title)
@@ -738,6 +762,33 @@ schoolkids_daily_by_year$MONTH_DAY_IFFY_YEAR <- as.Date(as.POSIXct(paste0("2021-
 schoolkids_daily_by_year <- subset(schoolkids_daily_by_year, Region=="East TN")
 try(student_covid_daily_by_year_plot <- ggplot(schoolkids_daily_by_year, aes(x=MONTH_DAY_IFFY_YEAR, y=NEW_CASES, group=Year)) + theme_classic() + geom_ma(aes(colour=Year, linetype="a")) +  guides(linetype = FALSE) + ylab("New cases for age 5-18 students, 7 day avg") + xlab("Date") + ggtitle("New Age 5-18 student cases in East Tennessee by year") + scale_x_date(date_labels = "%b", breaks = "2 months", limits=c(as.Date("2021-01-01", format="%Y-%m-%d"), as.Date("2021-12-31", format="%Y-%m-%d"))) + scale_color_manual(values=c("darkgray",'red')) + theme(legend.position='top', legend.justification='left',legend.direction='horizontal'))
 try(print(student_covid_daily_by_year_plot))
+```
+
+<hr />
+
+<h2 id="schools2021">K-12 Schools</h2>
+
+Cases are growing in local schools. Oak Ridge schools, in Anderson & Roane Counties, started on July 28. The plots below show those Oak Ridge schools that have had at least one student covid case in the 2021-2 school year.
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+
+nonzero_schools <- unique(subset(schools_oakridge, PercentPositiveStudentsYearToDate>0)$School)
+nonzero_schools <- nonzero_schools[!grepl("Totals for",nonzero_schools)]
+schools_oakridge_nonzero <- schools_oakridge[which(schools_oakridge$School %in% nonzero_schools),]
+data_ends <- subset(schools_oakridge_nonzero, Date==max(schools_oakridge$Date))
+try(oakridge_schools_ytd <- ggplot(schools_oakridge_nonzero, aes(x=Date, y=PercentPositiveStudentsYearToDate, group=School)) + geom_line(aes(colour=School)) + theme_classic() + ylab("Percentage of students testing positive for covid\n(since start of 2021-2 school year)") + xlab("Date") + ggtitle("Student covid infections in Oak Ridge, TN") + scale_color_discrete(guide = FALSE) + scale_y_continuous(sec.axis = sec_axis(~ ., labels=data_ends$School, breaks = data_ends$PercentPositiveStudentsYearToDate)))
+print(oakridge_schools_ytd)
+```
+
+The plot below shows the proportion of students with active covid cases at any one time. The gray box shows the region where Oak Ridge Schools considered mandatory masking. Willow Brook Elementary had mandatory masking put in place starting Monday, Aug. 9, 2021. Jefferson and Robertsville Middle Schools had mask mandates put in place starting Monday, Aug. 16, 2021. In response to Gov. Lee's executive order 84 allowing parents to opt out of mask mandates, on Wed., Aug. 19, 2021, Oak Ridge Schools [chose to eliminate all mask mandates](https://oakridgetoday.com/2021/08/20/oak-ridge-schools-will-not-require-masks-after-governors-order/). 
+
+The [CDC](https://www.cdc.gov/coronavirus/2019-ncov/community/schools-childcare/k-12-guidance.html) and the [American Academy of Pediatrics](https://www.aappublications.org/news/2021/07/18/schools-071821) recommend that everyone in schools over the age of 2 wear a mask. 
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+data_ends <- subset(schools_oakridge_nonzero, Date==max(schools_oakridge$Date))
+try(oakridge_schools_active <- ggplot(schools_oakridge_nonzero, aes(x=Date, y=PercentActiveCovidStudents, group=School)) +
+geom_rect(mapping=aes(xmin=as.POSIXct("2021-08-08"), xmax=as.POSIXct("2021-08-19"), ymin=2, ymax=5), fill="lightgray") + geom_line(aes(colour=School)) + theme_classic() + ylab("Percentage of students with active covid infections") + xlab("Date") + ggtitle("Student active covid infections in Oak Ridge, TN") + scale_color_discrete(guide = FALSE) + scale_y_continuous(sec.axis = sec_axis(~ ., labels=data_ends$School, breaks = data_ends$PercentActiveCovidStudents)))
+print(oakridge_schools_active)
 ```
 
 <hr />

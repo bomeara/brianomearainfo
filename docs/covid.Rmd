@@ -781,7 +781,7 @@ try(oakridge_schools_ytd <- ggplot(schools_oakridge_nonzero, aes(x=Date, y=Perce
 print(oakridge_schools_ytd)
 ```
 
-The plot below shows the proportion of students with active covid cases at any one time. The gray box shows the region where Oak Ridge Schools considered mandatory masking. Willow Brook Elementary had mandatory masking put in place starting Monday, Aug. 9, 2021. Jefferson and Robertsville Middle Schools had mask mandates put in place starting Monday, Aug. 16, 2021. In response to Gov. Lee's executive order 84 allowing parents to opt out of mask mandates, on Wed., Aug. 19, 2021, Oak Ridge Schools [chose to eliminate all mask mandates](https://oakridgetoday.com/2021/08/20/oak-ridge-schools-will-not-require-masks-after-governors-order/). 
+The plot below shows the proportion of students with active covid cases at any one time. The gray boxes show the region where Oak Ridge Schools considered mandatory masking. Willow Brook Elementary had mandatory masking put in place starting Monday, Aug. 9, 2021. Jefferson and Robertsville Middle Schools had mask mandates put in place starting Monday, Aug. 16, 2021. In response to Gov. Lee's executive order 84 allowing parents to opt out of mask mandates, on Wed., Aug. 19, 2021, Oak Ridge Schools [chose to eliminate all mask mandates](https://oakridgetoday.com/2021/08/20/oak-ridge-schools-will-not-require-masks-after-governors-order/). However, mask mandates (though with parental opt outs) were reinstated at a [school board meeting on Aug. 23, 2021](https://oakridgetoday.com/2021/08/23/oak-ridge-schools-approves-mask-mandate/).
 
 The [CDC](https://www.cdc.gov/coronavirus/2019-ncov/community/schools-childcare/k-12-guidance.html) and the [American Academy of Pediatrics](https://www.aappublications.org/news/2021/07/18/schools-071821) recommend that everyone in schools over the age of 2 wear a mask. 
 
@@ -790,7 +790,7 @@ data_ends <- subset(schools_oakridge_nonzero, Date==max(schools_oakridge$Date))
 data_ends$Label <- paste0(data_ends$School, " (", round(data_ends$PercentActiveCovidStudents,1), '%)')
 
 try(oakridge_schools_active <- ggplot(schools_oakridge_nonzero, aes(x=Date, y=PercentActiveCovidStudents, group=School)) +
-geom_rect(mapping=aes(xmin=as.POSIXct("2021-08-08"), xmax=as.POSIXct("2021-08-19"), ymin=2, ymax=5), fill="lightgray") + geom_line(aes(colour=School)) + theme_classic() + ylab("Percentage of students with active covid infections") + xlab("Date") + ggtitle("Student active covid infections in Oak Ridge, TN") + scale_color_discrete(guide = FALSE) + scale_y_continuous(sec.axis = sec_axis(~ ., labels=data_ends$Label, breaks = data_ends$PercentActiveCovidStudents)))
+geom_rect(mapping=aes(xmin=as.POSIXct("2021-08-08"), xmax=as.POSIXct("2021-08-19"), ymin=2, ymax=5), fill="lightgray") + geom_rect(mapping=aes(xmin=as.POSIXct("2021-08-24"), xmax=as.POSIXct(Sys.Date()), ymin=0, ymax=max(schools_oakridge_nonzero$PercentActiveCovidStudents, na.rm=TRUE)), fill="lightgray") + geom_line(aes(colour=School)) + theme_classic() + ylab("Percentage of students with active covid infections") + xlab("Date") + ggtitle("Student active covid infections in Oak Ridge, TN") + scale_color_discrete(guide = FALSE) + scale_y_continuous(sec.axis = sec_axis(~ ., labels=data_ends$Label, breaks = data_ends$PercentActiveCovidStudents)))
 print(oakridge_schools_active)
 ```
 

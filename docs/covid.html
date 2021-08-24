@@ -14,22 +14,13 @@
 
 <title>Local COVID data</title>
 
-<script src="site_libs/header-attrs-2.9/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.6/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
-<style>h1 {font-size: 34px;}
-       h1.title {font-size: 38px;}
-       h2 {font-size: 30px;}
-       h3 {font-size: 24px;}
-       h4 {font-size: 18px;}
-       h5 {font-size: 16px;}
-       h6 {font-size: 12px;}
-       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
-       pre:not([class]) { background-color: white }</style>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
@@ -44,6 +35,11 @@
     </style>
 
 <style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
 <script type="text/javascript">
 if (window.hljs) {
   hljs.configure({languages: []});
@@ -56,6 +52,32 @@ if (window.hljs) {
 
 
 
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
 
 
 
@@ -66,6 +88,10 @@ if (window.hljs) {
   max-width: 940px;
   margin-left: auto;
   margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
 }
 img {
   max-width:100%;
@@ -82,13 +108,40 @@ button.code-folding-btn:focus {
 summary {
   display: list-item;
 }
-pre code {
-  padding: 0;
-}
 </style>
 
 
 <style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
 .dropdown-submenu {
   position: relative;
 }
@@ -116,7 +169,7 @@ pre code {
   margin-right: -10px;
 }
 .dropdown-submenu:hover>a:after {
-  border-left-color: #adb5bd;
+  border-left-color: #ffffff;
 }
 .dropdown-submenu.pull-left {
   float: none;
@@ -128,7 +181,7 @@ pre code {
 }
 </style>
 
-<script type="text/javascript">
+<script>
 // manage active state of menu based on current page
 $(document).ready(function () {
   // active menu anchor
@@ -139,23 +192,10 @@ $(document).ready(function () {
   var menuAnchor = $('a[href="' + href + '"]');
 
   // mark it active
-  menuAnchor.tab('show');
+  menuAnchor.parent().addClass('active');
 
   // if it's got a parent navbar menu mark it active as well
   menuAnchor.closest('li.dropdown').addClass('active');
-
-  // Navbar adjustments
-  var navHeight = $(".navbar").first().height() + 15;
-  var style = document.createElement('style');
-  var pt = "padding-top: " + navHeight + "px; ";
-  var mt = "margin-top: -" + navHeight + "px; ";
-  var css = "";
-  // offset scroll position for anchor links (for fixed navbar)
-  for (var i = 1; i <= 6; i++) {
-    css += ".section h" + i + "{ " + pt + mt + "}\n";
-  }
-  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
-  document.head.appendChild(style);
 });
 </script>
 
@@ -167,6 +207,7 @@ $(document).ready(function () {
   max-height: 500px;
   min-height: 44px;
   overflow-y: auto;
+  background: white;
   border: 1px solid #ddd;
   border-radius: 4px;
 }
@@ -358,7 +399,7 @@ $(document).ready(function () {
   </div><!--/.container -->
 </div><!--/.navbar -->
 
-<div id="header">
+<div class="fluid-row" id="header">
 
 
 
@@ -381,7 +422,7 @@ $(document).ready(function () {
 <li><a href="https://healthdata.gov/dataset/covid-19-reported-patient-impact-and-hospital-capacity-facility">US HHS hospitalization by facility</a></li>
 </ul>
 <hr />
-<p>The following plots are created in R using data from <a href="https://covid19datahub.io" class="uri">https://covid19datahub.io</a> (Guidotti, E., Ardia, D., (2020), “COVID-19 Data Hub”, Working paper, doi: 10.13140/RG.2.2.11649.81763), as well as information from Google and the <a href="https://www.tn.gov/health/cedep/ncov/data/downloadable-datasets.html">state of Tennessee dataset page</a> and plotting and analysis using the <code>forecast</code>, <code>ggplot2</code>, <code>reshape2</code>, and <code>dplyr</code> packages. Plots created on 2021-08-23 11:42:51. I use a seven day rolling average for most plots using the <code>geom_ma</code> function of <code>tidyquant</code>.</p>
+<p>The following plots are created in R using data from <a href="https://covid19datahub.io" class="uri">https://covid19datahub.io</a> (Guidotti, E., Ardia, D., (2020), “COVID-19 Data Hub”, Working paper, doi: 10.13140/RG.2.2.11649.81763), as well as information from Google and the <a href="https://www.tn.gov/health/cedep/ncov/data/downloadable-datasets.html">state of Tennessee dataset page</a> and plotting and analysis using the <code>forecast</code>, <code>ggplot2</code>, <code>reshape2</code>, and <code>dplyr</code> packages. Plots created on 2021-08-23 21:29:12. I use a seven day rolling average for most plots using the <code>geom_ma</code> function of <code>tidyquant</code>.</p>
 <h2 id="cases">
 Cases
 </h2>
@@ -421,7 +462,7 @@ Summary table
 <tr class="odd">
 <td align="left">Race</td>
 <td align="left">American Indian or Alaska Native</td>
-<td align="left">3.9%</td>
+<td align="left">4%</td>
 <td align="left">0.04%</td>
 <td align="left"></td>
 <td align="left"></td>
@@ -429,23 +470,23 @@ Summary table
 <tr class="even">
 <td align="left">Race</td>
 <td align="left">Asian</td>
-<td align="left">6.3%</td>
+<td align="left">6.4%</td>
 <td align="left">0.06%</td>
-<td align="left">47.4%</td>
-<td align="left">40.8%</td>
+<td align="left">47.6%</td>
+<td align="left">41%</td>
 </tr>
 <tr class="odd">
 <td align="left">Race</td>
 <td align="left">Black or African American</td>
-<td align="left">11.7%</td>
+<td align="left">11.9%</td>
 <td align="left">0.2%</td>
-<td align="left">33.4%</td>
-<td align="left">26.8%</td>
+<td align="left">33.7%</td>
+<td align="left">27.1%</td>
 </tr>
 <tr class="even">
 <td align="left">Race</td>
 <td align="left">Native Hawaiian or Other Pacific Islander</td>
-<td align="left">11.4%</td>
+<td align="left">11.7%</td>
 <td align="left">0.1%</td>
 <td align="left"></td>
 <td align="left"></td>
@@ -453,42 +494,42 @@ Summary table
 <tr class="odd">
 <td align="left">Race</td>
 <td align="left">White</td>
-<td align="left">11.5%</td>
-<td align="left">0.18%</td>
-<td align="left">38.1%</td>
-<td align="left">33.1%</td>
+<td align="left">11.7%</td>
+<td align="left">0.19%</td>
+<td align="left">38.4%</td>
+<td align="left">33.3%</td>
 </tr>
 <tr class="even">
 <td align="left">Ethnicity</td>
 <td align="left">Hispanic</td>
-<td align="left">14.5%</td>
+<td align="left">14.6%</td>
 <td align="left">0.09%</td>
-<td align="left">45%</td>
-<td align="left">35.3%</td>
+<td align="left">45.7%</td>
+<td align="left">35.9%</td>
 </tr>
 <tr class="odd">
 <td align="left">Ethnicity</td>
 <td align="left">Not Hispanic or Latino</td>
-<td align="left">10.4%</td>
+<td align="left">10.5%</td>
 <td align="left">0.18%</td>
-<td align="left">42.6%</td>
-<td align="left">36.9%</td>
+<td align="left">43%</td>
+<td align="left">37.2%</td>
 </tr>
 <tr class="even">
 <td align="left">Sex</td>
 <td align="left">Female</td>
-<td align="left">14.8%</td>
+<td align="left">15.1%</td>
 <td align="left">0.17%</td>
-<td align="left">51%</td>
-<td align="left">44%</td>
+<td align="left">51.5%</td>
+<td align="left">44.3%</td>
 </tr>
 <tr class="odd">
 <td align="left">Sex</td>
 <td align="left">Male</td>
-<td align="left">13.6%</td>
+<td align="left">13.9%</td>
 <td align="left">0.21%</td>
-<td align="left">44.2%</td>
-<td align="left">37.4%</td>
+<td align="left">44.6%</td>
+<td align="left">37.8%</td>
 </tr>
 </tbody>
 </table>
@@ -510,7 +551,7 @@ K-12 Schools
 </h2>
 <p>Cases are growing in local schools. Oak Ridge schools, in Anderson &amp; Roane Counties, started on July 28. The plots below show those Oak Ridge schools that have had at least one student covid case in the 2021-2 school year.</p>
 <p><img src="covid_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
-<p>The plot below shows the proportion of students with active covid cases at any one time. The gray box shows the region where Oak Ridge Schools considered mandatory masking. Willow Brook Elementary had mandatory masking put in place starting Monday, Aug. 9, 2021. Jefferson and Robertsville Middle Schools had mask mandates put in place starting Monday, Aug. 16, 2021. In response to Gov. Lee’s executive order 84 allowing parents to opt out of mask mandates, on Wed., Aug. 19, 2021, Oak Ridge Schools <a href="https://oakridgetoday.com/2021/08/20/oak-ridge-schools-will-not-require-masks-after-governors-order/">chose to eliminate all mask mandates</a>.</p>
+<p>The plot below shows the proportion of students with active covid cases at any one time. The gray boxes show the region where Oak Ridge Schools considered mandatory masking. Willow Brook Elementary had mandatory masking put in place starting Monday, Aug. 9, 2021. Jefferson and Robertsville Middle Schools had mask mandates put in place starting Monday, Aug. 16, 2021. In response to Gov. Lee’s executive order 84 allowing parents to opt out of mask mandates, on Wed., Aug. 19, 2021, Oak Ridge Schools <a href="https://oakridgetoday.com/2021/08/20/oak-ridge-schools-will-not-require-masks-after-governors-order/">chose to eliminate all mask mandates</a>. However, mask mandates (though with parental opt outs) were reinstated at a <a href="https://oakridgetoday.com/2021/08/23/oak-ridge-schools-approves-mask-mandate/">school board meeting on Aug. 23, 2021</a>.</p>
 <p>The <a href="https://www.cdc.gov/coronavirus/2019-ncov/community/schools-childcare/k-12-guidance.html">CDC</a> and the <a href="https://www.aappublications.org/news/2021/07/18/schools-071821">American Academy of Pediatrics</a> recommend that everyone in schools over the age of 2 wear a mask.</p>
 <p><img src="covid_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 <hr />
@@ -615,7 +656,7 @@ $(document).ready(function () {
 
 $(document).ready(function () {
   $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open');
+    $(this).parent().toggleClass('nav-tabs-open')
   });
 });
 </script>

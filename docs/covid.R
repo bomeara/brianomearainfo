@@ -168,6 +168,9 @@ for (i in seq_along(oakridge_school_files)) {
   school_oakridge_info <- NULL
   try(school_oakridge_info <- read.csv(oakridge_school_files[i]), silent=TRUE)
   if(!is.null(school_oakridge_info)) {
+	for (col_index in 3:9) {
+		school_oakridge_info[,col_index] <- as.numeric(school_oakridge_info[,col_index])
+	}
 	school_oakridge_info[is.na(school_oakridge_info)] <- 0
 	colnames(school_oakridge_info)[9] <- "student.population"
 	local_info <- data.frame(Date=rep(anytime::anytime(stringr::str_extract(oakridge_school_files[i], "\\d+_\\d+_\\d+_\\d+_\\d+_\\d+")), nrow(school_oakridge_info)), School=school_oakridge_info$School, PercentPositiveStudentsYearToDate=100*school_oakridge_info$YTD.Student.Cases/school_oakridge_info$student.population, PercentActiveCovidStudents=100*school_oakridge_info$Current.Student.Cases/school_oakridge_info$student.population)
@@ -714,14 +717,16 @@ nonzero_schools <- unique(subset(schools_oakridge, PercentPositiveStudentsYearTo
 nonzero_schools <- nonzero_schools[!grepl("Totals for",nonzero_schools)]
 schools_oakridge_nonzero <- schools_oakridge[which(schools_oakridge$School %in% nonzero_schools),]
 data_ends <- subset(schools_oakridge_nonzero, Date==max(schools_oakridge$Date))
-try(oakridge_schools_ytd <- ggplot(schools_oakridge_nonzero, aes(x=Date, y=PercentPositiveStudentsYearToDate, group=School)) + geom_line(aes(colour=School)) + theme_classic() + ylab("Percentage of students testing positive for covid\n(since start of 2021-2 school year)") + xlab("Date") + ggtitle("Student covid infections in Oak Ridge, TN") + scale_color_discrete(guide = FALSE) + scale_y_continuous(sec.axis = sec_axis(~ ., labels=data_ends$School, breaks = data_ends$PercentPositiveStudentsYearToDate)))
+data_ends$Label <- paste0(data_ends$School, " (", round(data_ends$PercentPositiveStudentsYearToDate,1), '%)')
+try(oakridge_schools_ytd <- ggplot(schools_oakridge_nonzero, aes(x=Date, y=PercentPositiveStudentsYearToDate, group=School)) + geom_line(aes(colour=School)) + theme_classic() + ylab("Percentage of students testing positive for covid\n(since start of 2021-2 school year)") + xlab("Date") + ggtitle("Student covid infections in Oak Ridge, TN") + scale_color_discrete(guide = FALSE) + scale_y_continuous(sec.axis = sec_axis(~ ., labels=data_ends$Label, breaks = data_ends$PercentPositiveStudentsYearToDate)))
 print(oakridge_schools_ytd)
 
 
 ## ---- echo=FALSE, message=FALSE, warning=FALSE--------------------------------
 data_ends <- subset(schools_oakridge_nonzero, Date==max(schools_oakridge$Date))
-try(oakridge_schools_active <- ggplot(schools_oakridge_nonzero, aes(x=Date, y=PercentActiveCovidStudents, group=School)) +
-geom_rect(mapping=aes(xmin=as.POSIXct("2021-08-08"), xmax=as.POSIXct("2021-08-19"), ymin=2, ymax=5), fill="lightgray") + geom_line(aes(colour=School)) + theme_classic() + ylab("Percentage of students with active covid infections") + xlab("Date") + ggtitle("Student active covid infections in Oak Ridge, TN") + scale_color_discrete(guide = FALSE) + scale_y_continuous(sec.axis = sec_axis(~ ., labels=data_ends$School, breaks = data_ends$PercentActiveCovidStudents)))
+data_ends$Label <- paste0(data_ends$School, " (", round(data_ends$PercentActiveCovidStudents,1), '%)')
+
+try(oakridge_schools_active <- ggplot(schools_oakridge_nonzero, aes(x=Date, y=PercentActiveCovidStudents, group=School)) + geom_line(aes(colour=School)) + theme_classic() + ylab("Percentage of students with active covid infections") + xlab("Date") + ggtitle("Student active covid infections in Oak Ridge, TN") + scale_color_discrete(guide = FALSE) + scale_y_continuous(sec.axis = sec_axis(~ ., labels=data_ends$Label, breaks = data_ends$PercentActiveCovidStudents)))
 print(oakridge_schools_active)
 
 

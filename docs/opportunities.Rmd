@@ -5,7 +5,7 @@ slug: opportunities
 title: Opportunities
 ---
 
-There are several kinds of opportunities for joining the lab. I am now accepting grad students (see below), and undergrads can choose to work with me on projects of mutual interest. With students in general, I don't see your job as helping me with my research program -- it's my role to help you develop yours. I'm clearly better at certain areas than others, but generally if it involves evolution or informatics, I can help (and if I think someone else would be better, I'll tell you). For postdocs, since they're funded by grants with targets, there are more limits in what can be done. However, note it's postdoctoral *training*, not technician hiring -- I want you for your expertise and interest, but if you're lacking some skills, those can generally be taught. **Please don't let lack of some skill make you feel you're ineligible for any position here.**
+There are several kinds of opportunities for joining the lab. 
 
 Standard lab policy is that you should reach out to [current and past lab members](http://brianomeara.info/personnel.html) for feedback on what it's like here, and **never** tell me what they say, positive or negative. That way they know they can be frank with you.
 
@@ -27,7 +27,7 @@ Please reach out to me for details (apply via the links above, but do contact me
 
 ## Grad students
 
-I am not currently looking for grad students to join my lab for August 2021. But for people curious about opportunities in the future: 
+I am not currently looking for grad students to join my lab. But for people curious about opportunities in the future: 
 
 * Students are admitted to the program, not to the lab. That means that it's not just up to me, and if you don't end up liking the first lab you join, moving is possible. You still have to have a faculty member saying, "I want them in my lab" to get in.
 * Reach out to me ([email](mailto:bomeara@utk.edu) or [twitter](https://twitter.com/omearabrian) work well). We can talk about your interests, expectations, etc. There's also the possibility of fee waivers for applying (not really a waiver -- just that the lab will pay your fee to the graduate school). Like an [increasing number of other programs](https://www.sciencemag.org/careers/2019/05/wave-graduate-programs-drop-gre-application-requirement) that care about pulling students from a talented, diverse pool, rather than the pool who can pay to prove they know about odd numbers, parallel lines, and bar graphs ([really!](https://www.ets.org/gre/revised_general/prepare/quantitative_reasoning/)), we no longer require the GRE. However, some programs still do -- you should be applying to several programs, so see if any on your list still use the GRE before you decide not to take it at all.

@@ -1,5 +1,4 @@
 ---
-author: Brian O'Meara
 title: Local COVID data
 ---
 

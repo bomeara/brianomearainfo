@@ -1,9 +1,8 @@
 ---
-author: Brian O'Meara
 title: Scheduling app
 ---
 
-Scheduling classes can be difficult with given limited room availability and various schedule conflicts and constraints. I made a tool for our department to schedule classes for the upcoming semester; others may use it, too.
+Scheduling classes can be difficult with given limited room availability and various schedule conflicts and constraints. I made a [tool](https://brianomeara.shinyapps.io/EEB_Teaching_Schedule/) for our department to schedule classes for the upcoming semester; others may use it, too.
 
 Its input is an Excel file (.xlsx format) with columns for instructor names, various times, and more. This is most easily created with a Google form, then exported. This is then parsed by a program (written in R) to compute multiple possible schedules. These schedules are ranked and the best ones saved to an Excel file again, with one sheet per potential schedule.
 
@@ -21,7 +20,7 @@ and it will ask you to copy it to your Google account. In the form edit window, 
 
 ### Getting started: Excel file approach
 
-Alternatively, you can download [this Excel file](Instructor_preferred_class_times.xlsx and fill it in yourself. There are example data you can delete. Do not change any of the time headings. The only valid entries in the cells are exactly `Not possible`, `Unwelcome but feasible`, `Feasible`, `Preferred`, and `Ideal`. 
+Alternatively, you can download [this Excel file](Instructor_preferred_class_times.xlsx) and fill it in yourself. There are example data you can delete. Do not change any of the time headings. The only valid entries in the cells are exactly `Not possible`, `Unwelcome but feasible`, `Feasible`, `Preferred`, and `Ideal`. 
 
 ### Running: online
 

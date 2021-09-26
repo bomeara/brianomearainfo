@@ -9,7 +9,6 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
-<meta name="author" content="Brian O’Meara" />
 
 
 <title>Scheduling app</title>
@@ -366,12 +365,11 @@ $(document).ready(function () {
 
 
 <h1 class="title toc-ignore">Scheduling app</h1>
-<h4 class="author">Brian O’Meara</h4>
 
 </div>
 
 
-<p>Scheduling classes can be difficult with given limited room availability and various schedule conflicts and constraints. I made a tool for our department to schedule classes for the upcoming semester; others may use it, too.</p>
+<p>Scheduling classes can be difficult with given limited room availability and various schedule conflicts and constraints. I made a <a href="https://brianomeara.shinyapps.io/EEB_Teaching_Schedule/">tool</a> for our department to schedule classes for the upcoming semester; others may use it, too.</p>
 <p>Its input is an Excel file (.xlsx format) with columns for instructor names, various times, and more. This is most easily created with a Google form, then exported. This is then parsed by a program (written in R) to compute multiple possible schedules. These schedules are ranked and the best ones saved to an Excel file again, with one sheet per potential schedule.</p>
 <p>“Best” is complex. EEB did a survey of students to assess their preferences for times outside the “prime” class times of 9 am - 2 pm. Students were asked: “I would want to enroll in a class offered at this time” for each time; possible answers were Strongly disagree, Disagree, Neutral, Agree, or Strongly agree. Average scores for each time could range from -2 to 2. The form for instructors has time options of Not possible, Unwelcome but feasible, Feasible, Preferred, and Ideal. Possible schedules are scored by the percentage of classes that had positive student responses in that schedule as well as by the percentage of classes that had instructors with a “Preferred” or “Ideal” time option. The sum of these is used as a rough ranking guide. There are other criteria, too: is there a schedule that has fewer class time conflicts, can instructors avoid unwelcome assignments, are classes well distributed between MWF and TR, etc. The output spreadsheet has the raw scores for many measures, and schedulers should use these and human judgements: the “best” schedule from this program might be terrible albeit feasible.</p>
 <div id="getting-started-google-forms-approach" class="section level3">
@@ -383,7 +381,7 @@ $(document).ready(function () {
 </div>
 <div id="getting-started-excel-file-approach" class="section level3">
 <h3>Getting started: Excel file approach</h3>
-<p>Alternatively, you can download [this Excel file](Instructor_preferred_class_times.xlsx and fill it in yourself. There are example data you can delete. Do not change any of the time headings. The only valid entries in the cells are exactly <code>Not possible</code>, <code>Unwelcome but feasible</code>, <code>Feasible</code>, <code>Preferred</code>, and <code>Ideal</code>.</p>
+<p>Alternatively, you can download <a href="Instructor_preferred_class_times.xlsx">this Excel file</a> and fill it in yourself. There are example data you can delete. Do not change any of the time headings. The only valid entries in the cells are exactly <code>Not possible</code>, <code>Unwelcome but feasible</code>, <code>Feasible</code>, <code>Preferred</code>, and <code>Ideal</code>.</p>
 </div>
 <div id="running-online" class="section level3">
 <h3>Running: online</h3>

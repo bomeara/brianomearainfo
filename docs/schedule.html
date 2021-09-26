@@ -9,9 +9,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
+<meta name="author" content="Brian O’Meara" />
 
 
-<title>service.knit</title>
+<title>Scheduling app</title>
 
 <script src="site_libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
@@ -364,33 +365,39 @@ $(document).ready(function () {
 
 
 
+<h1 class="title toc-ignore">Scheduling app</h1>
+<h4 class="author">Brian O’Meara</h4>
 
 </div>
 
 
-<div id="service" class="section level2">
-<h2>Service</h2>
-<ul>
-<li>Joint Code of Conduct committee for Society for the Study of Evolution, Society of Systematic Biologists, and American Society of Naturalists, 2018-present</li>
-<li>Communications Director for the Society of Systematic Biologists (SSB), 2016-2017</li>
-<li>Co-organizer of iEvoBio meeting, 2016</li>
-<li>Co-organizer of SSB symposium on Breaking Barriers: Empirical, Theoretical, and Gender Issues in Phylogenetics for Evolution meetings in Brazil, 2015</li>
-<li>Co-organizer of SSB satellite meeting in May, 2015</li>
-<li>Co-organizer of iEvoBio meeting (met with SSB) May 2015</li>
-<li>Co-organizer of Evolution meetings, 2014, including sole organizer for lightning talks</li>
-<li>Co-organizer of iEvoBio meeting, 2014</li>
-<li>Member of Phylotastic leadership team (group arranging hackathons for making trees more reusable), 2012-present</li>
-<li>Organizer of lighting talks for Evolution meetings, 2013</li>
-<li>UTK Faculty advisor for Darwin Day Tennessee, 2012-present</li>
-<li>UTK Department representative on Dean’s advisory council, 2012-2014</li>
-<li>UTK EEB Undergraduate affairs committee, 2012-2013</li>
-<li>UTK EEB Graduate admissions committee, 2013-present</li>
-<li>Chair, UTK EEB Web committee, 2011-present</li>
-<li>Co-organizer of Comparative Methods in R hackathon, 2007</li>
-<li>Bay Area Biosystematists Steering Committee: 2004-2007</li>
-<li>Secretary Cambridge Entomological Club, 2001-2002</li>
-<li>Reviewer for <em>Science, Heredity, Molecular Phylogenetics and Evolution, Systematic Biology, Evolution, Systematic Entomology, Proceedings of the Royal Society: Biological Sciences</em>, US National Science Foundation, and others.</li>
-</ul>
+<p>Scheduling classes can be difficult with given limited room availability and various schedule conflicts and constraints. I made a tool for our department to schedule classes for the upcoming semester; others may use it, too.</p>
+<p>Its input is an Excel file (.xlsx format) with columns for instructor names, various times, and more. This is most easily created with a Google form, then exported. This is then parsed by a program (written in R) to compute multiple possible schedules. These schedules are ranked and the best ones saved to an Excel file again, with one sheet per potential schedule.</p>
+<p>“Best” is complex. EEB did a survey of students to assess their preferences for times outside the “prime” class times of 9 am - 2 pm. Students were asked: “I would want to enroll in a class offered at this time” for each time; possible answers were Strongly disagree, Disagree, Neutral, Agree, or Strongly agree. Average scores for each time could range from -2 to 2. The form for instructors has time options of Not possible, Unwelcome but feasible, Feasible, Preferred, and Ideal. Possible schedules are scored by the percentage of classes that had positive student responses in that schedule as well as by the percentage of classes that had instructors with a “Preferred” or “Ideal” time option. The sum of these is used as a rough ranking guide. There are other criteria, too: is there a schedule that has fewer class time conflicts, can instructors avoid unwelcome assignments, are classes well distributed between MWF and TR, etc. The output spreadsheet has the raw scores for many measures, and schedulers should use these and human judgements: the “best” schedule from this program might be terrible albeit feasible.</p>
+<div id="getting-started-google-forms-approach" class="section level3">
+<h3>Getting started: Google Forms approach</h3>
+<p>The interactive scheduler is <a href="https://brianomeara.shinyapps.io/EEB_Teaching_Schedule/">here</a>. The source code for it is <a href="https://github.com/bomeara/EEB_Teaching_Schedule">here</a>.</p>
+<p>The easiest way to use this program is to copy our Google form. Go to this link:</p>
+<p><a href="https://docs.google.com/forms/d/1UU4TIdmgG4GtcIsk2JUITbsDhutyUkZS_MXbXsQy4PA/copy" class="uri">https://docs.google.com/forms/d/1UU4TIdmgG4GtcIsk2JUITbsDhutyUkZS_MXbXsQy4PA/copy</a></p>
+<p>and it will ask you to copy it to your Google account. In the form edit window, click the Responses tab and click the green spreadsheet icon to create a spreadsheet. You can download the spreadsheet as a .xlsx file as people fill it in and run it in the interactive scheduler tool. <strong>Do not change any of the time fields – the exact wording must be correct for the scheduling software to work.</strong> It’d be possible to make this more flexible, but this was all written on Sept. 24-25 to get it working quickly, and so it doesn’t have all the features one might want.</p>
+</div>
+<div id="getting-started-excel-file-approach" class="section level3">
+<h3>Getting started: Excel file approach</h3>
+<p>Alternatively, you can download [this Excel file](Instructor_preferred_class_times.xlsx and fill it in yourself. There are example data you can delete. Do not change any of the time headings. The only valid entries in the cells are exactly <code>Not possible</code>, <code>Unwelcome but feasible</code>, <code>Feasible</code>, <code>Preferred</code>, and <code>Ideal</code>.</p>
+</div>
+<div id="running-online" class="section level3">
+<h3>Running: online</h3>
+<p>There is an R shiny app <a href="https://brianomeara.shinyapps.io/EEB_Teaching_Schedule/">here</a> that runs the scheduling program. It’s a bit slow, but it’s easy to use. It will ask you to upload the XLSX file downloaded from Google Forms or created in Excel. When you first load the schedule, it will pause for perhaps a minute while it starts creating schedules – this is normal. There are then parameters you can adjust. When done, click the ‘Download sample schedules’ button to download a spreadsheet with the best schedules. Each time you change a parameter, it will re-run the program and update the spreadsheets.</p>
+</div>
+<div id="running-r" class="section level3">
+<h3>Running: R</h3>
+<p>Download or fork the <a href="https://github.com/bomeara/EEB_Teaching_Schedule">repo</a>. You will need to change the <code>sheet_code</code> in line 9 of <code>_targets.R</code> to point to your data (a Google Sheets URL from Google Forms). Or, you can use an Excel file (downloaded or written) and pull that into the workflow: uncomment line 10 of <code>_targets.R</code>, comment out line 9, and make sure line 10 points to your input file location.</p>
+<p>You will need the packages in <code>_packages.R</code> installed to run the program.</p>
+<p>Once configured, from within the top level directory, open R, and then <code>source("run.R")</code>. It will create a spreadsheet with the best schedules. You can change where this goes by editing line 15 of <code>_targets.R</code>.</p>
+</div>
+<div id="getting-help" class="section level3">
+<h3>Getting help</h3>
+<p>This was made part time over two days to handle an unexpected need to reschedule classes in EEB. It’s being shared with others in the hope it helps, but it could have many bugs or other problems. We’re not really offering a lot of tech support with this, but if you have any questions, please contact <a href="mailto:bomeara@utk.edu">Brian O’Meara</a>.</p>
 </div>
 
 

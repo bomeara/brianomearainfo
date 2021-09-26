@@ -45,6 +45,8 @@ navbar:
           href: general.html
         - text: "COVID"
           href: covid.html
+        - text: "EEB scheduling"
+          href: schedule.html
     - text: "Teaching"
       menu:
         - text: "Teaching overall"

@@ -1,6 +1,6 @@
 ---
 layout: page
-link: http://www.brianomeara.info/cv/
+link: https://www.brianomeara.info/cv/
 slug: cv
 title: CV
 ---

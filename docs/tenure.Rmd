@@ -1,6 +1,6 @@
 ---
 layout: page
-link: http://www.brianomeara.info/tenure/
+link: https://www.brianomeara.info/tenure/
 slug: tenure
 title: Tenure
 ---
@@ -73,5 +73,5 @@ Support from various sources as an assistant professor: PI on two NSF grants, Co
 ![](files/OMearaTenureSSBCouncil.jpg)
 
 A tongue-in-cheek artist's depiction of the Council of the Society for Systematic Biologists.
-I am an elected member of this council as just one of my service activities, which include co-organizing Evolution 2014, iEvoBio, and Phylotastic hackathons, being the faculty advisor for Darwin Day Tennessee, organizing various initiatives to improve diversity in science, maintaining the [CRAN Task View for Phylogenetics](http://cran.r-project.org/web/views/Phylogenetics.html), plus various other department, college, and professional service activities.
-Original image from user [ThatGuyWithHeadPhones](http://www.comicvine.com/forums/battles-7/akatsuki-vs-jedi-council-1451424/), modified by me.
+I am an elected member of this council as just one of my service activities, which include co-organizing Evolution 2014, iEvoBio, and Phylotastic hackathons, being the faculty advisor for Darwin Day Tennessee, organizing various initiatives to improve diversity in science, maintaining the [CRAN Task View for Phylogenetics](https://cran.r-project.org/web/views/Phylogenetics.html), plus various other department, college, and professional service activities.
+Original image from user [ThatGuyWithHeadPhones](https://www.comicvine.com/forums/battles-7/akatsuki-vs-jedi-council-1451424/), modified by me.

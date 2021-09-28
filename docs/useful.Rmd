@@ -1,6 +1,6 @@
 ---
 layout: page
-link: http://www.brianomeara.info/useful/
+link: https://www.brianomeara.info/useful/
 slug: useful
 title: Useful links
 output:

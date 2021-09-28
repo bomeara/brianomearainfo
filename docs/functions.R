@@ -83,7 +83,7 @@ crawl <- function(root, timeout = 300){
 
 
 
-GenerateSitemap <- function(base_url="http://brianomeara.info") {
+GenerateSitemap <- function(base_url="https://brianomeara.info") {
   links <- unique(c(base_url, unname(unlist(crawl(base_url)))))
   links <- links[!is.na(links)]
   require(whisker)
@@ -91,7 +91,7 @@ GenerateSitemap <- function(base_url="http://brianomeara.info") {
 
   tpl <- '
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
  {{#links}}
    <url>
       <loc>{{{loc}}}</loc>

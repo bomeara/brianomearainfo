@@ -1,6 +1,6 @@
 ---
 layout: personnel
-link: http://www.brianomeara.info/personnel/
+link: https://www.brianomeara.info/personnel/
 slug: people
 title: People
 ---

@@ -70,11 +70,11 @@ Word count sets a minimum length (and references are not counted) but you may go
 
 Papers/midterms will be turned in via the course website (Canvas). This eliminates issues with printers, odd file formats, and the like. The site will automatically check your work for possible plagiarism. I do this in all my classes with written work. Except where noted, assignments are to be done individually. You must cite and reference work properly. When in doubt about citation, plagiarism, or collaboration, ASK.
 
-For help with submitting documents online, see http://online.utk.edu/students/assignment.shtml. There is a practice uploading assignment that will allow you to test to make sure you can upload files correctly before the pressure of a deadline. If there is a problem at the moment of a deadline, email me your work instead to verify it is done on time (but normally you should be using Canvas).
+For help with submitting documents online, see https://online.utk.edu/students/assignment.shtml. There is a practice uploading assignment that will allow you to test to make sure you can upload files correctly before the pressure of a deadline. If there is a problem at the moment of a deadline, email me your work instead to verify it is done on time (but normally you should be using Canvas).
 
 Communication is very important. I have set up a forum on the Canvas site for our course. If you post a question there, I will immediately be emailed about it and will respond on the forum (though perhaps not immediately). Emailing me directly will not be any faster (though do email me if the issue is better addressed one-on-one). The benefit of using the forum is that everyone can see the answers and there’s a chance that one of the other students will answer the question first. Feel free to use the forum for other class-related discussions.
 
-Though we have the main Canvas site, and notices will come through there, I will also be posting things (like slides) to http://brianomeara.info/eeb464. Why a second site? The Canvas site is only active during the course and only to students enrolled in the course. You might want to look at the materials in other semesters, show your friends/family what you were learning, etc., so I have the public site that will persist.
+Though we have the main Canvas site, and notices will come through there, I will also be posting things (like slides) to https://brianomeara.info/eeb464. Why a second site? The Canvas site is only active during the course and only to students enrolled in the course. You might want to look at the materials in other semesters, show your friends/family what you were learning, etc., so I have the public site that will persist.
 
 Attendance is expected at all classes, though missing a class or two due to illness, family problem, etc. might happen. You can communicate with the Office of the Dean of Students (https://dos.utk.edu/absence-notifications/) if you want to document absences (and this can be easier for you than doing it separately in each of your classes). Rarely, school is also canceled due to snow.
 
@@ -86,7 +86,7 @@ Take notes. Any slides are an object to help you learn, but not the sole content
 
 Late work is penalized at 10%/day (so something turned in 49 hours late is given a score 70% of what it would have received on the due date). Extensions are not normally granted. Remember that even if you turn something in seven days late, it is still worth more points than not turning it in at all (and the grading for the class is just #points received / #points available, so something getting 20/100 points is still worth twice something getting 10/100 points, even though they are both an “F” individually).
 
-My goal is to have you learn. If you are having trouble with something in the course, or if there is a topic you just have to learn more about, let me know (email, office hours, online forum, etc.). Faculty often use evaluations at the end of the semester to get info from students so we can improve before the next class, but this does not help you directly. To allow the class to improve while you are taking it, I have created a site for anonymous feedback at http://brianomeara.info/feedback.html (and yes, it is really anonymous). Let me know things that are going well or poorly — both are important. I might not implement all your suggestions, but they will all be read and considered, generally the same day you submit them.
+My goal is to have you learn. If you are having trouble with something in the course, or if there is a topic you just have to learn more about, let me know (email, office hours, online forum, etc.). Faculty often use evaluations at the end of the semester to get info from students so we can improve before the next class, but this does not help you directly. To allow the class to improve while you are taking it, I have created a site for anonymous feedback at https://brianomeara.info/feedback.html (and yes, it is really anonymous). Let me know things that are going well or poorly — both are important. I might not implement all your suggestions, but they will all be read and considered, generally the same day you submit them.
 
 Please contact Student Disability Services (https://sds.utk.edu/) if you may need an appropriate accommodation plan.
 
@@ -488,7 +488,7 @@ makes it easier for me to put them in one document so I can give you
 back grades with comments.
 
 For help with submitting documents online, see
-http://online.utk.edu/students/assignment.shtml. There is a practice
+https://online.utk.edu/students/assignment.shtml. There is a practice
 uploading assignment that will allow you to test to make sure you can
 upload files correctly before the pressure of a deadline. If there is a
 problem at the moment of a deadline, email me your work instead to
@@ -505,7 +505,7 @@ Feel free to use the forum for other class-related discussions.
 
 Though we have the main Canvas site, and notices will come through
 there, I will also be posting things (like slides) to
-<http://brianomeara.info/category/macroevolution/> . Why a second site?
+<https://brianomeara.info/category/macroevolution/> . Why a second site?
 The Canvas site is only active during the course and only to students
 enrolled in the course. You might want to look at the materials in other
 semesters, show your friends/family what you were learning, etc., so I
@@ -513,7 +513,7 @@ have the public site that will persist.
 
 Attendance is expected at all classes, though missing a class or two due
 to illness, family problem, etc. might happen (and is strongly suggested
-in the case of flu: <http://studenthealth.utk.edu/common_avoidflu.php> )
+in the case of flu: <https://studenthealth.utk.edu/common_avoidflu.php> )
 
 We will have discussions in nearly all classes. You should participate
 in them. Sometimes, discussions in a class such as this consist of
@@ -541,7 +541,7 @@ evaluations at the end of the semester to get info from students so we
 can improve before the next class, but this does not help you directly.
 **To allow the class to improve while you are taking it, I have created
 a site for anonymous feedback at
-http://brianomeara.info/teaching/feedback/** (and yes, it is really
+https://brianomeara.info/teaching/feedback/** (and yes, it is really
 anonymous). Let me know things that are going well or poorly --- both
 are important. I might not implement all your suggestions, but they will
 all be read and considered, generally the same day you submit them.

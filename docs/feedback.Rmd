@@ -1,6 +1,6 @@
 ---
 layout: page
-link: http://www.brianomeara.info/feedback/
+link: https://www.brianomeara.info/feedback/
 slug: feedback
 title: Feedback
 ---

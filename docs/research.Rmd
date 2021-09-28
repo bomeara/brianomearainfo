@@ -1,12 +1,12 @@
 ---
 comments: false
 layout: page
-link: http://www.brianomeara.info/research/
+link: https://www.brianomeara.info/research/
 slug: research
 title: Research
 ---
 
-Note you can see a feed of recent articles at [Google Scholar](http://scholar.google.com/citations?sortby=pubdate&hl=en&user=vpjEkQwAAAAJ&view_op=list_works); this updates more quickly than this page does. In the lag time between submission and publication, you can see my manuscripts on [bioRxiv](http://biorxiv.org/search/author1%3ABrian%2BO%2527Meara%2B).
+Note you can see a feed of recent articles at [Google Scholar](https://scholar.google.com/citations?sortby=pubdate&hl=en&user=vpjEkQwAAAAJ&view_op=list_works); this updates more quickly than this page does. In the lag time between submission and publication, you can see my manuscripts on [bioRxiv](https://biorxiv.org/search/author1%3ABrian%2BO%2527Meara%2B).
 
 
 
@@ -51,7 +51,7 @@ To do something useful with a phylogeny first requires getting the phylogeny, pe
 
 
 
-The point of what we do is to foster new discoveries about biology, especially about macroevolutionary processes. Availability of methods seems to be rate-limiting in many cases: once a new method appears, a flurry of empirical activity uses it to test long-standing hypotheses or infer new patterns. For this to happen, methods have to be available in software. Our work with iPlant (Goff et al. 2011) has aimed to make comparative methods more scalable and accessible, through the iPlant discovery environment and through our recent work on the rPlant interface to iPlant tools. Work in R in general has become a recent trend, ranging from porting existing code to R (Stack et al. 2011) to maintaining a task view of all R packages that deal with phylogenetics (O'Meara 2012a). See the [software page](http://www.brianomeara.info/software) for more.
+The point of what we do is to foster new discoveries about biology, especially about macroevolutionary processes. Availability of methods seems to be rate-limiting in many cases: once a new method appears, a flurry of empirical activity uses it to test long-standing hypotheses or infer new patterns. For this to happen, methods have to be available in software. Our work with iPlant (Goff et al. 2011) has aimed to make comparative methods more scalable and accessible, through the iPlant discovery environment and through our recent work on the rPlant interface to iPlant tools. Work in R in general has become a recent trend, ranging from porting existing code to R (Stack et al. 2011) to maintaining a task view of all R packages that deal with phylogenetics (O'Meara 2012a). See the [software page](https://www.brianomeara.info/software) for more.
 
 
 
@@ -75,7 +75,7 @@ Driskell, A. C., C. Ane, J. G. Burleigh, M. M. McMahon, B. C. O'Meara, and M. J.
 Goff, S., A., M. Vaughn, S. McKay, E. Lyons, E. Stapleton Ann, D. Gessler, N. Matasci, L. Wang, M. Hanlon, A. Lenards, A. Muir, N. Merchant, S. Lowry, S. Mock, M. Helmke, A. Kubach, M. Narro, N. Hopkins, D. Micklos, U. Hilgert, M. Gonzales, C. Jordan, E. Skidmore, R. Dooley, J. Cazes, R. McLay, Z. Lu, S. Pasternak, L. Koesterke, H. Piel William, R. Grene, C. Noutsos, K. Gendler, X. Feng, C. Tang, M. Lent, S.-j. Kim, K. Kvilekval, B. S. Manjunath, V. Tannen, A. Stamatakis, M. Sanderson, M. Welch Stephen, K. Cranston, P. Soltis, D. Soltis, B. C. O'Meara, C. Ane, T. Brutnell, J. Kleibenstein Daniel, W. White Jeffrey, J. Leebens-Mack, J. Donoghue Michael, P. Spalding Edgar, J. Vision Todd, R. Myers Christopher, D. Lowenthal, J. Enquist Brian, B. Boyle, A. Akoglu, G. Andrews, S. Ram, D. Ware, L. Stein, and D. Stanzione. 2011. The iPlant Collaborative: Cyberinfrastructure for Plant Biology. Frontiers in Plant Science 2.
 O'Meara, B. C. 2007. Estimating Different Rates of Gene Loss on a Tree. Genetics 177:1415-1416.
 O'Meara, B. C. 2010. New Heuristic Methods for Joint Species Delimitation and Species Tree Inference. Systematic Biology 59:59-73.
-O'Meara, B. C. 2012a. CRAN Task View: Phylogenetics. Version 2012-02-02, URL http://cran.r-project.org/web/views/Phylogenetics.html.
+O'Meara, B. C. 2012a. CRAN Task View: Phylogenetics. Version 2012-02-02, URL https://cran.r-project.org/web/views/Phylogenetics.html.
 O'Meara, B. C. 2012b. Evolutionary Inferences from Phylogenies: A Review of Methods. Annual Review of Ecology, Evolution, and Systematics 43.
 O'Meara, B. C., C. Ane, M. J. Sanderson, and P. C. Wainwright. 2006. Testing for different rates of continuous trait evolution using likelihood. Evolution 60:922-933.
 Smith, S. A., and B. C. O'Meara. 2009. Morphogenera, monophyly, and macroevolution. Proceedings of the National Academy of Sciences of the United States of America 106:E97-E98.

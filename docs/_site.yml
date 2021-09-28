@@ -54,7 +54,7 @@ navbar:
         - text: "Macroevolution (EEB464)"
           href: eeb464.html
         - text: "Phylogenetic Methods"
-          href: http://phylometh.info/
+          href: https://phylometh.info/
     - text: "Tutorials"
       menu:
         - text: "AIC"

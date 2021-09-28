@@ -1,6 +1,6 @@
 ---
 layout: page
-link: http://www.brianomeara.info/calendar/
+link: https://www.brianomeara.info/calendar/
 slug: calendar
 title: Calendar
 ---

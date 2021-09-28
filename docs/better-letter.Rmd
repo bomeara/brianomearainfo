@@ -1,7 +1,7 @@
 ---
 comments: false
 layout: page
-link: http://www.brianomeara.info/lab/better-letter/
+link: https://www.brianomeara.info/lab/better-letter/
 slug: better-letter
 title: Better letter
 ---

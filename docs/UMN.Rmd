@@ -4,7 +4,7 @@ title: U. Minnesota EEB Head
 
 <b>Update October 2020: I have withdrawn from the head search and am staying at UT Knoxville.</b> Thank you to the search committee and everyone I met with in Minnesota -- it is clearly a great department. I am keeping this page up for now as some of the resources were unknown to some of the people I met with and could be helpful, but I am no longer a candidate for the position.
 
-In Feb. 2020 I applied for a [position as department head](https://cbs.umn.edu/blogs/cbs-connect/ecology-evolution-and-behavior-seeking-department-head-candidates) for the University of Minnesota Ecology, Evolution, and Behavior Department. See my February [cover letter](files/OMeara_CoverLetter_UMN.pdf), which like most faculty position cover letters is a succinct argument for my place in the pool and probably a good place to start reading if you are pressed for time. I have made it to the interview stage in Sept. 2020 (update: withdrew from consideration in Oct. 2020). Here are materials that were relevant to my application, including both a talk on my science and, lower on the page, a talk on potential leadership of the department. You may be interested in my [CV](http://brianomeara.info/cv.html) and [people who have been through my lab](http://brianomeara.info/personnel.html). If you have any questions, please reach out at omeara.brian@gmail.com.
+In Feb. 2020 I applied for a [position as department head](https://cbs.umn.edu/blogs/cbs-connect/ecology-evolution-and-behavior-seeking-department-head-candidates) for the University of Minnesota Ecology, Evolution, and Behavior Department. See my February [cover letter](files/OMeara_CoverLetter_UMN.pdf), which like most faculty position cover letters is a succinct argument for my place in the pool and probably a good place to start reading if you are pressed for time. I have made it to the interview stage in Sept. 2020 (update: withdrew from consideration in Oct. 2020). Here are materials that were relevant to my application, including both a talk on my science and, lower on the page, a talk on potential leadership of the department. You may be interested in my [CV](https://brianomeara.info/cv.html) and [people who have been through my lab](https://brianomeara.info/personnel.html). If you have any questions, please reach out at omeara.brian@gmail.com.
 
 <hr />
 
@@ -68,11 +68,11 @@ In Feb. 2020 I applied for a [position as department head](https://cbs.umn.edu/b
 #### Relevant software
 
 * [hisse](https://cran.r-project.org/web/packages/hisse/index.html): diversification models with hidden states
-* [PHRAPL](http://www.phrapl.org/): phylogeography model
+* [PHRAPL](https://www.phrapl.org/): phylogeography model
 * [corhmm](https://cran.r-project.org/web/packages/corHMM/index.html): hidden state trait model
 * [selac/selon](https://cran.r-project.org/web/packages/selac/index.html): amino acid / UCE model
 
-See my [CV](http://brianomeara.info/cv.html) for more on publications and software.
+See my [CV](https://brianomeara.info/cv.html) for more on publications and software.
 
 
 <hr />
@@ -93,8 +93,8 @@ See my [CV](http://brianomeara.info/cv.html) for more on publications and softwa
 
 * [Safe Evolution](https://www.evolutionmeetings.org/safe-evolution.html), especially the [poster](https://figshare.com/articles/Unwelcome_behaviors_at_the_Evolution_meetings_Survey_results/8311595), and transparency reports for [2017-2018](https://www.evolutionmeetings.org/uploads/4/8/8/0/48804503/transparency_report.pdf) and [2019](https://www.evolutionmeetings.org/uploads/4/8/8/0/48804503/transparency_report__2019.pdf)
 * [Academic Misconduct Database](https://academic-sexual-misconduct-database.org/): Created initially by Julie Libarkin, tracks publicly resolved and ongoing cases of sexual misconduct perpetrated by U.S. faculty, administrators and other staff. See [here](https://academic-sexual-misconduct-database.org/incidents?query=Minnesota) for Minnesota cases.
-* [Better Letter](http://brianomeara.info/better-letter.html): Resource I made to make it easier to look for biases in letters of rec 
-* Teaching: My senior level [macroevolution class](http://brianomeara.info/eeb464.html) and [graduate course in phylogenetics](http://phylometh.info/)
+* [Better Letter](https://brianomeara.info/better-letter.html): Resource I made to make it easier to look for biases in letters of rec 
+* Teaching: My senior level [macroevolution class](https://brianomeara.info/eeb464.html) and [graduate course in phylogenetics](https://phylometh.info/)
 * [Course Schedule Maker](https://brianomeara.shinyapps.io/CourseScheduleMaker): Prototype app to make course choosing easier for undergraduates
 * [UTK EEB Community of Practice](https://eeb.utk.edu/eeb-community-of-practice/): how we are ensuring labs can open safely while respecting the needs of everyone inside them
 * [NSF Survey of Earned Doctorates](https://www.nsf.gov/statistics/srvydoctorates/): PhDs by various categories per year
@@ -106,7 +106,7 @@ See my [CV](http://brianomeara.info/cv.html) for more on publications and softwa
 
 * ["Racism with a smile"](https://www.nytimes.com/2020/06/01/us/minneapolis-racism-minnesota.html): *New York Times* article on racism in Minneapolis following the attention garnered by George Floyd's murder
 * [Bias Reponse Referral Network](https://bias-response.umn.edu/): reporting incidents of bias, includes transparency reports of how past incidents were handled
-* [UMN Aurora Center for Advocacy & Education](http://aurora.umn.edu/get-help): help all victims/survivors/concerned people of sexual assault, relationship violence, stalking, and sexual harassment, including information on [reporting options](http://aurora.umn.edu/get-help/reporting-options)
+* [UMN Aurora Center for Advocacy & Education](https://aurora.umn.edu/get-help): help all victims/survivors/concerned people of sexual assault, relationship violence, stalking, and sexual harassment, including information on [reporting options](https://aurora.umn.edu/get-help/reporting-options)
 * [Ureport](https://compliance.umn.edu/report): to report misconduct in general. Includes an anonymous reporting option. Also see [https://onestop.umn.edu/terms-and-conditions/student-complaints-and-grievances](https://onestop.umn.edu/terms-and-conditions/student-complaints-and-grievances) for additional options open to students (and others, in some cases).
 * [*StarTribune* article on grad students confronting racism](https://www.startribune.com/at-university-of-minnesota-students-pressure-faculty-to-confront-racism-in-academia/571908082/), including the actions of UMN EEB students and faculty response
 * [Student Ombuds](https://sos.dl.umn.edu/ombuds): confidential resource for students to help resolve any university-related conflict or concern

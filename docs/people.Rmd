@@ -10,15 +10,15 @@ I have mentored numerous postdocs off of my own grants and/or as one of their ch
 |[Hugo Alamillo](https://people.northseattle.edu/users/halamillo)                 |2011-2012    |N       |Assistant Professor at North Seattle College                    |
 |[Barb Banbury](https://www.linkedin.com/in/bbanbury)                             |2010-2012    |N       |Statistical Analyst at Fred Hutch                               |
 |[David Bapst](https://geogeo.tamu.edu/people/profiles/faculty/bapstdavidwilliam.html)  |2017-2029    |N       |Instructional Assistant Professor at Texas A&M             |
-|[Jeremy Beaulieu](http://www.jeremybeaulieu.org/)                                |2012-2016    |Both    |Associate Professor at U. of Arkansas                           |
+|[Jeremy Beaulieu](https://www.jeremybeaulieu.org/)                                |2012-2016    |Both    |Associate Professor at U. of Arkansas                           |
 |[Juanjuan (JJ) Crosskey (formerly Chai)](https://www.linkedin.com/in/jjcrosskey) |2011-2013    |Y       |Quantitative Analyst at Quantamental Technologies LLC           |
 |[Dominic Evangelista](https://www.roachbrain.com)                                |2018-2018    |Y       |Assistant Professor at Adelphi U                                 |
-|[Nathan Jackson](http://nathandjackson.com/)                                     |2013-2016    |N       |Researcher at National Jewish Health                            |
-|[Tony Jhwueng](http://www.tonyjhwueng.info/)                                     |2009-2011    |Y       |Associate Professor Feng-Chia U., Taiwan                        |
-|[Sandy Kawano](http://sandykawano.weebly.com/)                                   |2014-2016    |Y       |Assistant Professor at George Washington U |
-|[Michelle Lawing](http://people.tamu.edu/~alawing/)                              |2012-2014    |Y       |Assistant Professor at Texas A&M                                   |
-|[Ryan Martin](http://www.martinevolutionaryecologylab.com)                       |2012-2013    |Y       |Assistant Professor at Case Western U                              |
-|[Nick Matzke](http://nickmatzke.weebly.com)                                      |2013-2015    |Y       |DECRA Fellow at The Australian National University in Canberra  |
+|[Nathan Jackson](https://nathandjackson.com/)                                     |2013-2016    |N       |Researcher at National Jewish Health                            |
+|[Tony Jhwueng](https://www.tonyjhwueng.info/)                                     |2009-2011    |Y       |Associate Professor Feng-Chia U., Taiwan                        |
+|[Sandy Kawano](https://sandykawano.weebly.com/)                                   |2014-2016    |Y       |Assistant Professor at George Washington U |
+|[Michelle Lawing](https://people.tamu.edu/~alawing/)                              |2012-2014    |Y       |Assistant Professor at Texas A&M                                   |
+|[Ryan Martin](https://www.martinevolutionaryecologylab.com)                       |2012-2013    |Y       |Assistant Professor at Case Western U                              |
+|[Nick Matzke](https://nickmatzke.weebly.com)                                      |2013-2015    |Y       |DECRA Fellow at The Australian National University in Canberra  |
 |[Megan Rua](https://meganrua.wordpress.com)                                      |2015-2016    |Y       |Assistant Professor Wright State U                              |
 |[Luna Sanchez Reyes](https://www.lunasare.com/)                                  |2017-2019    |N       |Postdoc in Emily McTavish's lab           |
 |[Sergei Tarasov](https://www.tarasovlab.com/)                |2016-2018    |Y       |Coleoptera Curator at Finish Museum of Natural History    |
@@ -100,4 +100,4 @@ Our department now has faculty mentored by a committee of later career faculty. 
 |:-------------------------------------------------------------|:----------|
 |[Liz Derryberry](https://derryberrylab.wordpress.com/people/) |EEB        |
 |[Stephanie Kivlin](https://skivlin.wordpress.com/)            |EEB        |
-|[Kimberly Sheldon](http://www.biogeographyresearch.org/)      |EEB        |
+|[Kimberly Sheldon](https://www.biogeographyresearch.org/)      |EEB        |

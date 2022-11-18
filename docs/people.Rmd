@@ -9,8 +9,9 @@ I have mentored numerous postdocs off of my own grants and/or as one of their ch
 |:--------------------------------------------------------------------------------|:------------|:-------|:---------------------------------------------------------------|
 |[Hugo Alamillo](https://people.northseattle.edu/users/halamillo)                 |2011-2012    |N       |Assistant Professor at North Seattle College                    |
 |[Barb Banbury](https://www.linkedin.com/in/bbanbury)                             |2010-2012    |N       |Statistical Analyst at Fred Hutch                               |
-|[David Bapst](https://geogeo.tamu.edu/people/profiles/faculty/bapstdavidwilliam.html)  |2017-2029    |N       |Instructional Assistant Professor at Texas A&M             |
+|[David Bapst](https://geogeo.tamu.edu/people/profiles/faculty/bapstdavidwilliam.html)  |2017-2019    |N       |Instructional Assistant Professor at Texas A&M             |
 |[Jeremy Beaulieu](https://www.jeremybeaulieu.org/)                                |2012-2016    |Both    |Associate Professor at U. of Arkansas                           |
+|[James Boyko](https://jamesboyko.com/)                                |2022-present   |N    |Current lab postdoc                           |
 |[Juanjuan (JJ) Crosskey (formerly Chai)](https://www.linkedin.com/in/jjcrosskey) |2011-2013    |Y       |Quantitative Analyst at Quantamental Technologies LLC           |
 |[Dominic Evangelista](https://www.roachbrain.com)                                |2018-2018    |Y       |Assistant Professor at Adelphi U                                 |
 |[Nathan Jackson](https://nathandjackson.com/)                                     |2013-2016    |N       |Researcher at National Jewish Health                            |
@@ -51,7 +52,7 @@ I have mentored numerous postdocs off of my own grants and/or as one of their ch
 |Stephen Ray                                                               |Undergrad |2019-2020   |     |
 |Zach Tharpe                                                               |Undergrad |2019-2020   |     |
 |[Christian Yarber](https://www.researchgate.net/profile/Christian_Yarber) |Undergrad |2015-2016   |     |
-|John Anderson															   |Undergrad |2021-present   |     |
+|[John Anderson](https://sites.google.com/view/john-anderson-research)	   |Undergrad |2021-present   |     |
 
 
 ## Mentoring, Grad student committees

@@ -13,8 +13,8 @@
 
 <title>U. Minnesota EEB Head</title>
 
-<script src="site_libs/header-attrs-2.10/header-attrs.js"></script>
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<script src="site_libs/header-attrs-2.18/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
@@ -60,6 +60,7 @@ if (window.hljs) {
 
 
 
+
 <style type = "text/css">
 .main-container {
   max-width: 940px;
@@ -80,6 +81,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -137,11 +141,15 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark it active
-  menuAnchor.tab('show');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -170,8 +178,8 @@ $(document).ready(function () {
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -179,16 +187,9 @@ $(document).ready(function () {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "&#xe258;";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
+  content: "\e258";
   font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
+  border: none;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -232,7 +233,7 @@ $(document).ready(function () {
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -245,7 +246,7 @@ $(document).ready(function () {
   <a href="index.html">Home</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     CV, etc.
      
     <span class="caret"></span>
@@ -275,7 +276,7 @@ $(document).ready(function () {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Lab
      
     <span class="caret"></span>
@@ -320,7 +321,7 @@ $(document).ready(function () {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Teaching
      
     <span class="caret"></span>
@@ -338,7 +339,7 @@ $(document).ready(function () {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Tutorials
      
     <span class="caret"></span>
@@ -369,12 +370,36 @@ $(document).ready(function () {
 </div>
 
 
-<p><b>Update October 2020: I have withdrawn from the head search and am staying at UT Knoxville.</b> Thank you to the search committee and everyone I met with in Minnesota – it is clearly a great department. I am keeping this page up for now as some of the resources were unknown to some of the people I met with and could be helpful, but I am no longer a candidate for the position.</p>
-<p>In Feb. 2020 I applied for a <a href="https://cbs.umn.edu/blogs/cbs-connect/ecology-evolution-and-behavior-seeking-department-head-candidates">position as department head</a> for the University of Minnesota Ecology, Evolution, and Behavior Department. See my February <a href="files/OMeara_CoverLetter_UMN.pdf">cover letter</a>, which like most faculty position cover letters is a succinct argument for my place in the pool and probably a good place to start reading if you are pressed for time. I have made it to the interview stage in Sept. 2020 (update: withdrew from consideration in Oct. 2020). Here are materials that were relevant to my application, including both a talk on my science and, lower on the page, a talk on potential leadership of the department. You may be interested in my <a href="https://brianomeara.info/cv.html">CV</a> and <a href="https://brianomeara.info/personnel.html">people who have been through my lab</a>. If you have any questions, please reach out at <a href="mailto:omeara.brian@gmail.com" class="email">omeara.brian@gmail.com</a>.</p>
+<p><b>Update October 2020: I have withdrawn from the head search and am
+staying at UT Knoxville.</b> Thank you to the search committee and
+everyone I met with in Minnesota – it is clearly a great department. I
+am keeping this page up for now as some of the resources were unknown to
+some of the people I met with and could be helpful, but I am no longer a
+candidate for the position.</p>
+<p>In Feb. 2020 I applied for a <a
+href="https://cbs.umn.edu/blogs/cbs-connect/ecology-evolution-and-behavior-seeking-department-head-candidates">position
+as department head</a> for the University of Minnesota Ecology,
+Evolution, and Behavior Department. See my February <a
+href="files/OMeara_CoverLetter_UMN.pdf">cover letter</a>, which like
+most faculty position cover letters is a succinct argument for my place
+in the pool and probably a good place to start reading if you are
+pressed for time. I have made it to the interview stage in Sept. 2020
+(update: withdrew from consideration in Oct. 2020). Here are materials
+that were relevant to my application, including both a talk on my
+science and, lower on the page, a talk on potential leadership of the
+department. You may be interested in my <a
+href="https://brianomeara.info/cv.html">CV</a> and <a
+href="https://brianomeara.info/personnel.html">people who have been
+through my lab</a>. If you have any questions, please reach out at <a
+href="mailto:omeara.brian@gmail.com"
+class="email">omeara.brian@gmail.com</a>.</p>
 <hr />
 <div id="science-talk" class="section level2">
 <h2>Science talk</h2>
-<p><a href="https://drive.google.com/file/d/1GOQ7Xw11LwN3MMWoUMoMJMNEQcIEmUnn/view">Slides (large PDF, linked to from Google Drive)</a> or watch the video below</p>
+<p><a
+href="https://drive.google.com/file/d/1GOQ7Xw11LwN3MMWoUMoMJMNEQcIEmUnn/view">Slides
+(large PDF, linked to from Google Drive)</a> or watch the video
+below</p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/BvUwQZo_FGM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
 </iframe>
 <hr />
@@ -383,121 +408,257 @@ $(document).ready(function () {
 <div id="recent-papers-mentioned" class="section level4">
 <h4>Recent papers mentioned</h4>
 <ul>
-<li><a href="https://doi.org/10.1177/1176934319899384">Nguyen et al. 2020</a>: description of the Phylotastic project to make the tree of life more available. See <a href="https://phylotastic.org/">https://phylotastic.org/</a>, including the <a href="https://jwiggi18.github.io/phyloEd/">results of our teacher workshop</a></li>
-<li><a href="https://doi.org/10.1186/s12862-020-01649-w">Landerer et al. 2020</a>: understanding transfer of part of a chromosome in yeast</li>
-<li><a href="https://doi.org/10.1186/s12864-020-6761-3">Cope et al. 2020</a>: using phylogenies to infer gene coevolution</li>
-<li><a href="https://doi.org/10.1111/nph.16771">Meireles et al. 2020</a>: leaf reflectance to capture plant evolutionary history. Also see <a href="https://www.spectralbiology.org/">https://www.spectralbiology.org/</a>, the new $12.5M center to study spectral biology, headed up by UMN Professor Jeannine Cavender-Bares (note that I have no connection to the center – it’s just a great thing that recently started up)</li>
-<li><a href="https://doi.org/10.1038/s41586-020-2652-7">McGee, Borstein, et al. 2020</a>: cichlid evolution, including the possible evidence for and impact of hybridization</li>
-<li><a href="https://doi.org/10.1177/1176934320901721">Jhwueng &amp; O’Meara 2020</a>: paper on numerical properties of phylogenetic tree matrices (which affects precision of parameter estimates)</li>
+<li><a href="https://doi.org/10.1177/1176934319899384">Nguyen et
+al. 2020</a>: description of the Phylotastic project to make the tree of
+life more available. See <a
+href="https://phylotastic.org/">https://phylotastic.org/</a>, including
+the <a href="https://jwiggi18.github.io/phyloEd/">results of our teacher
+workshop</a></li>
+<li><a href="https://doi.org/10.1186/s12862-020-01649-w">Landerer et
+al. 2020</a>: understanding transfer of part of a chromosome in
+yeast</li>
+<li><a href="https://doi.org/10.1186/s12864-020-6761-3">Cope et
+al. 2020</a>: using phylogenies to infer gene coevolution</li>
+<li><a href="https://doi.org/10.1111/nph.16771">Meireles et
+al. 2020</a>: leaf reflectance to capture plant evolutionary history.
+Also see <a
+href="https://www.spectralbiology.org/">https://www.spectralbiology.org/</a>,
+the new $12.5M center to study spectral biology, headed up by UMN
+Professor Jeannine Cavender-Bares (note that I have no connection to the
+center – it’s just a great thing that recently started up)</li>
+<li><a href="https://doi.org/10.1038/s41586-020-2652-7">McGee, Borstein,
+et al. 2020</a>: cichlid evolution, including the possible evidence for
+and impact of hybridization</li>
+<li><a href="https://doi.org/10.1177/1176934320901721">Jhwueng &amp;
+O’Meara 2020</a>: paper on numerical properties of phylogenetic tree
+matrices (which affects precision of parameter estimates)</li>
 </ul>
 </div>
 <div id="floral-evolution-project" class="section level4">
 <h4>Floral evolution project</h4>
 <ul>
-<li><a href="https://doi.org/10.1098/rspb.2015.2304">O’Meara, Smith, et al. 2016</a>: paper on floral evolution. Note that it has two co-lead authors and two co-senior authors (Fenster and Diggle)</li>
-<li><a href="https://nescent.org/science/awards_summary.php-id=90.html">NESCent project page</a></li>
+<li><a href="https://doi.org/10.1098/rspb.2015.2304">O’Meara, Smith, et
+al. 2016</a>: paper on floral evolution. Note that it has two co-lead
+authors and two co-senior authors (Fenster and Diggle)</li>
+<li><a
+href="https://nescent.org/science/awards_summary.php-id=90.html">NESCent
+project page</a></li>
 </ul>
 </div>
 <div id="phrapl" class="section level4">
 <h4>PHRAPL</h4>
 <ul>
-<li><a href="https://doi.org/10.1093/sysbio/syx001">Jackson et al. 2017</a>: basic PHRAPL phylogeographic model</li>
-<li><a href="https://doi.org/10.1016/j.ympev.2017.08.018">Carstens et al. 2017</a>: analyzing the choices biologists make in models</li>
-<li><a href="https://doi.org/10.1093/sysbio/syw100">Morales et al. 2017</a>: empirical case of speciation with gene flow in <em>Myotis</em></li>
-<li><a href="https://doi.org/10.1093/sysbio/syw117">Jackson et al. 2017</a>: species delimitation using PHRAPL</li>
-<li><a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1257669&amp;HistoricalAwards=false">NSF DEB 1257669</a>: NSF award to O’Meara to fund this work (also see <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1257784&amp;HistoricalAwards=false">Bryan Carsten’s award</a>)</li>
+<li><a href="https://doi.org/10.1093/sysbio/syx001">Jackson et
+al. 2017</a>: basic PHRAPL phylogeographic model</li>
+<li><a href="https://doi.org/10.1016/j.ympev.2017.08.018">Carstens et
+al. 2017</a>: analyzing the choices biologists make in models</li>
+<li><a href="https://doi.org/10.1093/sysbio/syw100">Morales et
+al. 2017</a>: empirical case of speciation with gene flow in
+<em>Myotis</em></li>
+<li><a href="https://doi.org/10.1093/sysbio/syw117">Jackson et
+al. 2017</a>: species delimitation using PHRAPL</li>
+<li><a
+href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1257669&amp;HistoricalAwards=false">NSF
+DEB 1257669</a>: NSF award to O’Meara to fund this work (also see <a
+href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1257784&amp;HistoricalAwards=false">Bryan
+Carsten’s award</a>)</li>
 </ul>
 </div>
 <div id="protein-and-uce-model" class="section level4">
 <h4>Protein and UCE model</h4>
 <ul>
-<li><a href="https://www.biorxiv.org/content/10.1101/2020.05.12.091744v2">Beaulieu et al. 2020</a>: preprint on ultraconserved elements model</li>
-<li><a href="https://doi.org/10.1093/molbev/msy222">Beaulieu et al. 2019</a>: core model for protein evolution</li>
-<li><a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1355033&amp;HistoricalAwards=false">NSF DEB 1355033</a>: NSF award to O’Meara, Michael Gilchrist, and Russ Zaretzki to fund this work</li>
+<li><a
+href="https://www.biorxiv.org/content/10.1101/2020.05.12.091744v2">Beaulieu
+et al. 2020</a>: preprint on ultraconserved elements model</li>
+<li><a href="https://doi.org/10.1093/molbev/msy222">Beaulieu et
+al. 2019</a>: core model for protein evolution</li>
+<li><a
+href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1355033&amp;HistoricalAwards=false">NSF
+DEB 1355033</a>: NSF award to O’Meara, Michael Gilchrist, and Russ
+Zaretzki to fund this work</li>
 </ul>
 </div>
 <div id="hidden-side" class="section level4">
 <h4>Hidden Side</h4>
 <ul>
-<li><a href="10.1111/evo.13602">Caetano et al. 2018</a>: biogeographic model</li>
-<li><a href="https://doi.org/10.3732/ajb.1600012">O’Meara &amp; Beaulieu 2016</a>: overview of state-dependent diversification models</li>
-<li><a href="https://doi.org/10.1093/sysbio/syw022">Beaulieu &amp; O’Meara 2016</a>: hidden state diversification model</li>
-<li><a href="https://doi.org/10.1093/sysbio/syt034">Beaulieu et al. 2013</a>: hidden model for binary trait transitions</li>
-<li><a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1916539&amp;HistoricalAwards=false">NSF DEB 1916539</a>: NSF award to O’Meara to fund this work (also see <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1916558&amp;HistoricalAwards=false">Jeremy Beaulieu’s award</a>)</li>
+<li><a href="10.1111/evo.13602">Caetano et al. 2018</a>: biogeographic
+model</li>
+<li><a href="https://doi.org/10.3732/ajb.1600012">O’Meara &amp; Beaulieu
+2016</a>: overview of state-dependent diversification models</li>
+<li><a href="https://doi.org/10.1093/sysbio/syw022">Beaulieu &amp;
+O’Meara 2016</a>: hidden state diversification model</li>
+<li><a href="https://doi.org/10.1093/sysbio/syt034">Beaulieu et
+al. 2013</a>: hidden model for binary trait transitions</li>
+<li><a
+href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1916539&amp;HistoricalAwards=false">NSF
+DEB 1916539</a>: NSF award to O’Meara to fund this work (also see <a
+href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1916558&amp;HistoricalAwards=false">Jeremy
+Beaulieu’s award</a>)</li>
 </ul>
 </div>
 <div id="relevant-software" class="section level4">
 <h4>Relevant software</h4>
 <ul>
-<li><a href="https://cran.r-project.org/web/packages/hisse/index.html">hisse</a>: diversification models with hidden states</li>
-<li><a href="https://www.phrapl.org/">PHRAPL</a>: phylogeography model</li>
-<li><a href="https://cran.r-project.org/web/packages/corHMM/index.html">corhmm</a>: hidden state trait model</li>
-<li><a href="https://cran.r-project.org/web/packages/selac/index.html">selac/selon</a>: amino acid / UCE model</li>
+<li><a
+href="https://cran.r-project.org/web/packages/hisse/index.html">hisse</a>:
+diversification models with hidden states</li>
+<li><a href="https://www.phrapl.org/">PHRAPL</a>: phylogeography
+model</li>
+<li><a
+href="https://cran.r-project.org/web/packages/corHMM/index.html">corhmm</a>:
+hidden state trait model</li>
+<li><a
+href="https://cran.r-project.org/web/packages/selac/index.html">selac/selon</a>:
+amino acid / UCE model</li>
 </ul>
-<p>See my <a href="https://brianomeara.info/cv.html">CV</a> for more on publications and software.</p>
+<p>See my <a href="https://brianomeara.info/cv.html">CV</a> for more on
+publications and software.</p>
 <hr />
 </div>
 </div>
 </div>
 <div id="leadership-talk" class="section level2">
 <h2>Leadership talk</h2>
-<p><a href="https://drive.google.com/file/d/1Bvurhw4qnzfQppVGFYi7s4KXzNkPVzCk/view">Slides (large PDF, linked to from Google Drive)</a> or watch the video below</p>
+<p><a
+href="https://drive.google.com/file/d/1Bvurhw4qnzfQppVGFYi7s4KXzNkPVzCk/view">Slides
+(large PDF, linked to from Google Drive)</a> or watch the video
+below</p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/LfXevYdz_s0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
 </iframe>
 <hr />
 <div id="general-links-from-talk" class="section level3">
 <h3>General links from talk</h3>
 <ul>
-<li><a href="https://www.evolutionmeetings.org/safe-evolution.html">Safe Evolution</a>, especially the <a href="https://figshare.com/articles/Unwelcome_behaviors_at_the_Evolution_meetings_Survey_results/8311595">poster</a>, and transparency reports for <a href="https://www.evolutionmeetings.org/uploads/4/8/8/0/48804503/transparency_report.pdf">2017-2018</a> and <a href="https://www.evolutionmeetings.org/uploads/4/8/8/0/48804503/transparency_report__2019.pdf">2019</a></li>
-<li><a href="https://academic-sexual-misconduct-database.org/">Academic Misconduct Database</a>: Created initially by Julie Libarkin, tracks publicly resolved and ongoing cases of sexual misconduct perpetrated by U.S. faculty, administrators and other staff. See <a href="https://academic-sexual-misconduct-database.org/incidents?query=Minnesota">here</a> for Minnesota cases.</li>
-<li><a href="https://brianomeara.info/better-letter.html">Better Letter</a>: Resource I made to make it easier to look for biases in letters of rec</li>
-<li>Teaching: My senior level <a href="https://brianomeara.info/eeb464.html">macroevolution class</a> and <a href="https://phylometh.info/">graduate course in phylogenetics</a></li>
-<li><a href="https://brianomeara.shinyapps.io/CourseScheduleMaker">Course Schedule Maker</a>: Prototype app to make course choosing easier for undergraduates</li>
-<li><a href="https://eeb.utk.edu/eeb-community-of-practice/">UTK EEB Community of Practice</a>: how we are ensuring labs can open safely while respecting the needs of everyone inside them</li>
-<li><a href="https://www.nsf.gov/statistics/srvydoctorates/">NSF Survey of Earned Doctorates</a>: PhDs by various categories per year</li>
-<li><a href="https://www.nsf.gov/awardsearch/advancedSearch.jsp">NSF Awards Advanced Search</a>: to look up awarded funding</li>
-<li><a href="https://github.com/jkeirstead/scholar">scholar R package</a>: for pulling publication information from Google Scholar</li>
+<li><a href="https://www.evolutionmeetings.org/safe-evolution.html">Safe
+Evolution</a>, especially the <a
+href="https://figshare.com/articles/Unwelcome_behaviors_at_the_Evolution_meetings_Survey_results/8311595">poster</a>,
+and transparency reports for <a
+href="https://www.evolutionmeetings.org/uploads/4/8/8/0/48804503/transparency_report.pdf">2017-2018</a>
+and <a
+href="https://www.evolutionmeetings.org/uploads/4/8/8/0/48804503/transparency_report__2019.pdf">2019</a></li>
+<li><a href="https://academic-sexual-misconduct-database.org/">Academic
+Misconduct Database</a>: Created initially by Julie Libarkin, tracks
+publicly resolved and ongoing cases of sexual misconduct perpetrated by
+U.S. faculty, administrators and other staff. See <a
+href="https://academic-sexual-misconduct-database.org/incidents?query=Minnesota">here</a>
+for Minnesota cases.</li>
+<li><a href="https://brianomeara.info/better-letter.html">Better
+Letter</a>: Resource I made to make it easier to look for biases in
+letters of rec</li>
+<li>Teaching: My senior level <a
+href="https://brianomeara.info/eeb464.html">macroevolution class</a> and
+<a href="https://phylometh.info/">graduate course in
+phylogenetics</a></li>
+<li><a
+href="https://brianomeara.shinyapps.io/CourseScheduleMaker">Course
+Schedule Maker</a>: Prototype app to make course choosing easier for
+undergraduates</li>
+<li><a href="https://eeb.utk.edu/eeb-community-of-practice/">UTK EEB
+Community of Practice</a>: how we are ensuring labs can open safely
+while respecting the needs of everyone inside them</li>
+<li><a href="https://www.nsf.gov/statistics/srvydoctorates/">NSF Survey
+of Earned Doctorates</a>: PhDs by various categories per year</li>
+<li><a href="https://www.nsf.gov/awardsearch/advancedSearch.jsp">NSF
+Awards Advanced Search</a>: to look up awarded funding</li>
+<li><a href="https://github.com/jkeirstead/scholar">scholar R
+package</a>: for pulling publication information from Google
+Scholar</li>
 </ul>
 </div>
 <div id="umn-specific-links" class="section level3">
 <h3>UMN-specific links</h3>
 <ul>
-<li><a href="https://www.nytimes.com/2020/06/01/us/minneapolis-racism-minnesota.html">“Racism with a smile”</a>: <em>New York Times</em> article on racism in Minneapolis following the attention garnered by George Floyd’s murder</li>
-<li><a href="https://bias-response.umn.edu/">Bias Reponse Referral Network</a>: reporting incidents of bias, includes transparency reports of how past incidents were handled</li>
-<li><a href="https://aurora.umn.edu/get-help">UMN Aurora Center for Advocacy &amp; Education</a>: help all victims/survivors/concerned people of sexual assault, relationship violence, stalking, and sexual harassment, including information on <a href="https://aurora.umn.edu/get-help/reporting-options">reporting options</a></li>
-<li><a href="https://compliance.umn.edu/report">Ureport</a>: to report misconduct in general. Includes an anonymous reporting option. Also see <a href="https://onestop.umn.edu/terms-and-conditions/student-complaints-and-grievances">https://onestop.umn.edu/terms-and-conditions/student-complaints-and-grievances</a> for additional options open to students (and others, in some cases).</li>
-<li><a href="https://www.startribune.com/at-university-of-minnesota-students-pressure-faculty-to-confront-racism-in-academia/571908082/"><em>StarTribune</em> article on grad students confronting racism</a>, including the actions of UMN EEB students and faculty response</li>
-<li><a href="https://sos.dl.umn.edu/ombuds">Student Ombuds</a>: confidential resource for students to help resolve any university-related conflict or concern</li>
-<li><a href="https://counseling.umn.edu/crisis-services">Crisis services</a>: includes crisis line, 612-301-4673</li>
-<li><a href="https://counseling.umn.edu/self-help">Self-Help</a>: anonymous mental health screenings, alcohol assessment, and more</li>
-<li><a href="https://counseling.umn.edu/">Student Counseling</a>: Individual and group therapy and more</li>
-<li><a href="https://counseling.umn.edu/bipoc-mental-health-collective">BIPOC Mental Health Collective</a>: meets second Thursday of each month</li>
-<li><a href="https://humanresources.umn.edu/benefits/employee-assistance">Employee Assistance Program</a>: confidential consulting on mental health, relationships, stress, and more</li>
+<li><a
+href="https://www.nytimes.com/2020/06/01/us/minneapolis-racism-minnesota.html">“Racism
+with a smile”</a>: <em>New York Times</em> article on racism in
+Minneapolis following the attention garnered by George Floyd’s
+murder</li>
+<li><a href="https://bias-response.umn.edu/">Bias Reponse Referral
+Network</a>: reporting incidents of bias, includes transparency reports
+of how past incidents were handled</li>
+<li><a href="https://aurora.umn.edu/get-help">UMN Aurora Center for
+Advocacy &amp; Education</a>: help all victims/survivors/concerned
+people of sexual assault, relationship violence, stalking, and sexual
+harassment, including information on <a
+href="https://aurora.umn.edu/get-help/reporting-options">reporting
+options</a></li>
+<li><a href="https://compliance.umn.edu/report">Ureport</a>: to report
+misconduct in general. Includes an anonymous reporting option. Also see
+<a
+href="https://onestop.umn.edu/terms-and-conditions/student-complaints-and-grievances">https://onestop.umn.edu/terms-and-conditions/student-complaints-and-grievances</a>
+for additional options open to students (and others, in some
+cases).</li>
+<li><a
+href="https://www.startribune.com/at-university-of-minnesota-students-pressure-faculty-to-confront-racism-in-academia/571908082/"><em>StarTribune</em>
+article on grad students confronting racism</a>, including the actions
+of UMN EEB students and faculty response</li>
+<li><a href="https://sos.dl.umn.edu/ombuds">Student Ombuds</a>:
+confidential resource for students to help resolve any
+university-related conflict or concern</li>
+<li><a href="https://counseling.umn.edu/crisis-services">Crisis
+services</a>: includes crisis line, 612-301-4673</li>
+<li><a href="https://counseling.umn.edu/self-help">Self-Help</a>:
+anonymous mental health screenings, alcohol assessment, and more</li>
+<li><a href="https://counseling.umn.edu/">Student Counseling</a>:
+Individual and group therapy and more</li>
+<li><a
+href="https://counseling.umn.edu/bipoc-mental-health-collective">BIPOC
+Mental Health Collective</a>: meets second Thursday of each month</li>
+<li><a
+href="https://humanresources.umn.edu/benefits/employee-assistance">Employee
+Assistance Program</a>: confidential consulting on mental health,
+relationships, stress, and more</li>
 </ul>
 </div>
 <div id="references-from-talk" class="section level3">
 <h3>References from talk</h3>
 <ul>
-<li><a href="https://doi.org/10.1016/j.jpubeco.2016.11.006">Boring 2017</a>: Gender biases in student evaluations of teaching</li>
-<li><a href="https://doi.org/10.1080/00220480109595166">Bosshardt &amp; Watts 2001</a>: Comparing Student and Instructor Evaluations of Teaching</li>
-<li><a href="https://doi.org/10.1073/pnas.1915378117">Hofstra et al. 2020</a>: The diversity-innovation paradox in science</li>
-<li><a href="https://doi.org/10.1007/s10755-014-9313-4">MacNell et al. 2015</a>: What’s in a Name: Exposing Gender Bias in Student Ratings of Teaching</li>
-<li><a href="https://journals.aom.org/doi/pdf/10.5465/ambpp.1992.17515639">McLeod &amp; Lobel 1992</a>: The effects of ethnic diversity on idea generation in small groups</li>
-<li><a href="https://journals.sagepub.com/doi/10.1177/1046496496272003">McLeod et al. 1996</a>: Ethnic diversity and creativity in small groups</li>
-<li><a href="https://doi.org/10.1073/pnas.1700616114">Nielsen et al. 2017</a>: Opinion: Gender diversity leads to better science</li>
-<li><a href="https://faseb.onlinelibrary.wiley.com/doi/epdf/10.1096/fj.201800639">Nikaj et al. 2018</a>: Examining trends in the diversity of the US National Institutes of Health participating and funded workforce</li>
-<li><a href="https://figshare.com/articles/Unwelcome_behaviors_at_the_Evolution_meetings_Survey_results/8311595">O’Meara et al. 2019</a>: Unwelcome behaviors at the Evolution meetings: Survey results</li>
-<li><a href="https://doi.org/10.1080/03634520216516">Russ et al. 2002</a>: Coming out in the classroom… An occupational hazard? The influence of sexual orientation on teacher credibility and perceived student learning.</li>
+<li><a href="https://doi.org/10.1016/j.jpubeco.2016.11.006">Boring
+2017</a>: Gender biases in student evaluations of teaching</li>
+<li><a href="https://doi.org/10.1080/00220480109595166">Bosshardt &amp;
+Watts 2001</a>: Comparing Student and Instructor Evaluations of
+Teaching</li>
+<li><a href="https://doi.org/10.1073/pnas.1915378117">Hofstra et
+al. 2020</a>: The diversity-innovation paradox in science</li>
+<li><a href="https://doi.org/10.1007/s10755-014-9313-4">MacNell et
+al. 2015</a>: What’s in a Name: Exposing Gender Bias in Student Ratings
+of Teaching</li>
+<li><a
+href="https://journals.aom.org/doi/pdf/10.5465/ambpp.1992.17515639">McLeod
+&amp; Lobel 1992</a>: The effects of ethnic diversity on idea generation
+in small groups</li>
+<li><a
+href="https://journals.sagepub.com/doi/10.1177/1046496496272003">McLeod
+et al. 1996</a>: Ethnic diversity and creativity in small groups</li>
+<li><a href="https://doi.org/10.1073/pnas.1700616114">Nielsen et
+al. 2017</a>: Opinion: Gender diversity leads to better science</li>
+<li><a
+href="https://faseb.onlinelibrary.wiley.com/doi/epdf/10.1096/fj.201800639">Nikaj
+et al. 2018</a>: Examining trends in the diversity of the US National
+Institutes of Health participating and funded workforce</li>
+<li><a
+href="https://figshare.com/articles/Unwelcome_behaviors_at_the_Evolution_meetings_Survey_results/8311595">O’Meara
+et al. 2019</a>: Unwelcome behaviors at the Evolution meetings: Survey
+results</li>
+<li><a href="https://doi.org/10.1080/03634520216516">Russ et
+al. 2002</a>: Coming out in the classroom… An occupational hazard? The
+influence of sexual orientation on teacher credibility and perceived
+student learning.</li>
 </ul>
 </div>
 <div id="some-key-figures-from-talk" class="section level3">
 <h3>Some key figures from talk</h3>
-<p>Figure showing coauthorship and NSF grants (2010-present, only grants through UMN, other than O’Meara grants). Only tenured faculty shown.</p>
+<p>Figure showing coauthorship and NSF grants (2010-present, only grants
+through UMN, other than O’Meara grants). Only tenured faculty shown.</p>
 <div class="figure">
 <img src="files/UMNNetworkGraph.png" alt="" />
 <p class="caption">Coauthorship / Grant Diagram</p>
 </div>
-<p>Heatmap showing per year probability of publishing in each of the top 50 most frequently-used journals by UMN EEB faculty (total articles published in that journal by that author divided by the total years since that author’s first publication in any journal). Only associate (A) and full (F) faculty are shown.</p>
+<p>Heatmap showing per year probability of publishing in each of the top
+50 most frequently-used journals by UMN EEB faculty (total articles
+published in that journal by that author divided by the total years
+since that author’s first publication in any journal). Only associate
+(A) and full (F) faculty are shown.</p>
 <div class="figure">
 <img src="files/UMNJournalHeatmap.png" alt="" />
 <p class="caption">Heatmap of publications</p>

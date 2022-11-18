@@ -13,8 +13,8 @@
 
 <title>Scheduling app</title>
 
-<script src="site_libs/header-attrs-2.10/header-attrs.js"></script>
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<script src="site_libs/header-attrs-2.18/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
@@ -60,6 +60,7 @@ if (window.hljs) {
 
 
 
+
 <style type = "text/css">
 .main-container {
   max-width: 940px;
@@ -80,6 +81,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -137,11 +141,15 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark it active
-  menuAnchor.tab('show');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -170,8 +178,8 @@ $(document).ready(function () {
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -179,16 +187,9 @@ $(document).ready(function () {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "&#xe258;";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
+  content: "\e258";
   font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
+  border: none;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -232,7 +233,7 @@ $(document).ready(function () {
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -245,7 +246,7 @@ $(document).ready(function () {
   <a href="index.html">Home</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     CV, etc.
      
     <span class="caret"></span>
@@ -275,7 +276,7 @@ $(document).ready(function () {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Lab
      
     <span class="caret"></span>
@@ -320,7 +321,7 @@ $(document).ready(function () {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Teaching
      
     <span class="caret"></span>
@@ -338,7 +339,7 @@ $(document).ready(function () {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Tutorials
      
     <span class="caret"></span>
@@ -369,33 +370,106 @@ $(document).ready(function () {
 </div>
 
 
-<p>Scheduling classes can be difficult given limited room availability and various schedule conflicts and constraints. I made a <a href="https://brianomeara.shinyapps.io/EEB_Teaching_Schedule/">tool</a> for our department to schedule classes for the upcoming semester; others may use it, too. Our hope is that this helps achieve the overall names of balancing room use and student preferences while making sure that instructors have schedules that work for them.</p>
-<p>Its input is an Excel file (.xlsx format) with columns for instructor names, various times, and more (preferences for each instructor are in a row). This is most easily created with a Google form, then exported. This is then parsed by a program (written in R) to compute multiple possible schedules. These schedules are ranked and the best ones saved to an Excel file again, with one sheet per potential schedule.</p>
-<p>“Best” is complex. This first pass tries to minimize the number of schedule changes from last spring while still hitting the university’s criteria for prime time courses. However, there are other measures built in that can be used. EEB did a survey of students to assess their preferences for times outside the “prime” class times of 9 am - 2 pm. Students were asked: “I would want to enroll in a class offered at this time” for each time; possible answers were Strongly disagree, Disagree, Neutral, Agree, or Strongly agree. Average scores for each time could range from -2 to 2. The form for instructors has time options of Not possible, Unwelcome but feasible, Feasible, Preferred, and Ideal. Possible schedules are scored by the percentage of classes that had positive student responses in that schedule as well as by the percentage of classes that had instructors with a “Preferred” or “Ideal” time option. There are other criteria, too: is there a schedule that has fewer class time conflicts, can instructors avoid unwelcome assignments, are classes well distributed between MWF and TR, etc. The output spreadsheet has the raw scores for many measures, and schedulers should use these and human judgements: the “best” schedule from this program might be terrible albeit feasible.</p>
+<p>Scheduling classes can be difficult given limited room availability
+and various schedule conflicts and constraints. I made a <a
+href="https://brianomeara.shinyapps.io/EEB_Teaching_Schedule/">tool</a>
+for our department to schedule classes for the upcoming semester; others
+may use it, too. Our hope is that this helps achieve the overall names
+of balancing room use and student preferences while making sure that
+instructors have schedules that work for them.</p>
+<p>Its input is an Excel file (.xlsx format) with columns for instructor
+names, various times, and more (preferences for each instructor are in a
+row). This is most easily created with a Google form, then exported.
+This is then parsed by a program (written in R) to compute multiple
+possible schedules. These schedules are ranked and the best ones saved
+to an Excel file again, with one sheet per potential schedule.</p>
+<p>“Best” is complex. This first pass tries to minimize the number of
+schedule changes from last spring while still hitting the university’s
+criteria for prime time courses. However, there are other measures built
+in that can be used. EEB did a survey of students to assess their
+preferences for times outside the “prime” class times of 9 am - 2 pm.
+Students were asked: “I would want to enroll in a class offered at this
+time” for each time; possible answers were Strongly disagree, Disagree,
+Neutral, Agree, or Strongly agree. Average scores for each time could
+range from -2 to 2. The form for instructors has time options of Not
+possible, Unwelcome but feasible, Feasible, Preferred, and Ideal.
+Possible schedules are scored by the percentage of classes that had
+positive student responses in that schedule as well as by the percentage
+of classes that had instructors with a “Preferred” or “Ideal” time
+option. There are other criteria, too: is there a schedule that has
+fewer class time conflicts, can instructors avoid unwelcome assignments,
+are classes well distributed between MWF and TR, etc. The output
+spreadsheet has the raw scores for many measures, and schedulers should
+use these and human judgements: the “best” schedule from this program
+might be terrible albeit feasible.</p>
 <div id="getting-started-google-forms-approach" class="section level3">
 <h3>Getting started: Google Forms approach</h3>
-<p>The interactive scheduler is <a href="https://brianomeara.shinyapps.io/EEB_Teaching_Schedule/">here</a>. The source code for it is <a href="https://github.com/bomeara/EEB_Teaching_Schedule">here</a>.</p>
-<p>The easiest way to use this program is to copy our Google form. Go to this link:</p>
-<p><a href="https://docs.google.com/forms/d/1UU4TIdmgG4GtcIsk2JUITbsDhutyUkZS_MXbXsQy4PA/copy" class="uri">https://docs.google.com/forms/d/1UU4TIdmgG4GtcIsk2JUITbsDhutyUkZS_MXbXsQy4PA/copy</a></p>
-<p>and it will ask you to copy it to your Google account. In the form edit window, click the Responses tab and click the green spreadsheet icon to create a spreadsheet. You can download the spreadsheet as a .xlsx file as people fill it in and run it in the interactive scheduler tool. <strong>Do not change any of the time fields – the exact wording must be correct for the scheduling software to work.</strong> It’d be possible to make this more flexible, but this was all written on Sept. 24-25 to get it working quickly, and so it doesn’t have all the features one might want.</p>
+<p>The interactive scheduler is <a
+href="https://brianomeara.shinyapps.io/EEB_Teaching_Schedule/">here</a>.
+The source code for it is <a
+href="https://github.com/bomeara/EEB_Teaching_Schedule">here</a>.</p>
+<p>The easiest way to use this program is to copy our Google form. Go to
+this link:</p>
+<p><a
+href="https://docs.google.com/forms/d/1UU4TIdmgG4GtcIsk2JUITbsDhutyUkZS_MXbXsQy4PA/copy"
+class="uri">https://docs.google.com/forms/d/1UU4TIdmgG4GtcIsk2JUITbsDhutyUkZS_MXbXsQy4PA/copy</a></p>
+<p>and it will ask you to copy it to your Google account. In the form
+edit window, click the Responses tab and click the green spreadsheet
+icon to create a spreadsheet. You can download the spreadsheet as a
+.xlsx file as people fill it in and run it in the interactive scheduler
+tool. <strong>Do not change any of the time fields – the exact wording
+must be correct for the scheduling software to work.</strong> It’d be
+possible to make this more flexible, but this was all written on
+Sept. 24-25 to get it working quickly, and so it doesn’t have all the
+features one might want.</p>
 </div>
 <div id="getting-started-excel-file-approach" class="section level3">
 <h3>Getting started: Excel file approach</h3>
-<p>Alternatively, you can download <a href="Instructor_preferred_class_times.xlsx">this Excel file</a> and fill it in yourself. There are example data you can delete. Do not change any of the time headings. The only valid entries in the cells are exactly <code>Not possible</code>, <code>Unwelcome but feasible</code>, <code>Feasible</code>, <code>Preferred</code>, and <code>Ideal</code>.</p>
+<p>Alternatively, you can download <a
+href="Instructor_preferred_class_times.xlsx">this Excel file</a> and
+fill it in yourself. There are example data you can delete. Do not
+change any of the time headings. The only valid entries in the cells are
+exactly <code>Not possible</code>, <code>Unwelcome but feasible</code>,
+<code>Feasible</code>, <code>Preferred</code>, and
+<code>Ideal</code>.</p>
 </div>
 <div id="running-online" class="section level3">
 <h3>Running: online</h3>
-<p>There is an R shiny app <a href="https://brianomeara.shinyapps.io/EEB_Teaching_Schedule/">here</a> that runs the scheduling program. It’s a bit slow, but it’s easy to use. It will ask you to upload the XLSX file downloaded from Google Forms or created in Excel. When you first load the schedule, it will pause for perhaps a minute while it starts creating schedules – this is normal. There are then parameters you can adjust. When done, click the ‘Download sample schedules’ button to download a spreadsheet with the best schedules. Each time you change a parameter, it will re-run the program and update the spreadsheets.</p>
+<p>There is an R shiny app <a
+href="https://brianomeara.shinyapps.io/EEB_Teaching_Schedule/">here</a>
+that runs the scheduling program. It’s a bit slow, but it’s easy to use.
+It will ask you to upload the XLSX file downloaded from Google Forms or
+created in Excel. When you first load the schedule, it will pause for
+perhaps a minute while it starts creating schedules – this is normal.
+There are then parameters you can adjust. When done, click the ‘Download
+sample schedules’ button to download a spreadsheet with the best
+schedules. Each time you change a parameter, it will re-run the program
+and update the spreadsheets.</p>
 </div>
 <div id="running-r" class="section level3">
 <h3>Running: R</h3>
-<p>Download or fork the <a href="https://github.com/bomeara/EEB_Teaching_Schedule">repo</a>. You will need to change the <code>sheet_code</code> in line 9 of <code>_targets.R</code> to point to your data (a Google Sheets URL from Google Forms). Or, you can use an Excel file (downloaded or written) and pull that into the workflow: uncomment line 10 of <code>_targets.R</code>, comment out line 9, and make sure line 10 points to your input file location.</p>
-<p>You will need the packages in <code>_packages.R</code> installed to run the program.</p>
-<p>Once configured, from within the top level directory, open R, and then <code>source("run.R")</code>. It will create a spreadsheet with the best schedules. You can change where this goes by editing line 15 of <code>_targets.R</code>.</p>
+<p>Download or fork the <a
+href="https://github.com/bomeara/EEB_Teaching_Schedule">repo</a>. You
+will need to change the <code>sheet_code</code> in line 9 of
+<code>_targets.R</code> to point to your data (a Google Sheets URL from
+Google Forms). Or, you can use an Excel file (downloaded or written) and
+pull that into the workflow: uncomment line 10 of
+<code>_targets.R</code>, comment out line 9, and make sure line 10
+points to your input file location.</p>
+<p>You will need the packages in <code>_packages.R</code> installed to
+run the program.</p>
+<p>Once configured, from within the top level directory, open R, and
+then <code>source("run.R")</code>. It will create a spreadsheet with the
+best schedules. You can change where this goes by editing line 15 of
+<code>_targets.R</code>.</p>
 </div>
 <div id="getting-help" class="section level3">
 <h3>Getting help</h3>
-<p>This was made part time over two days to handle an unexpected need to reschedule classes in EEB. It’s being shared with others in the hope it helps, but it could have many bugs or other problems. We’re not really offering a lot of tech support with this, but if you have any questions, please contact <a href="mailto:bomeara@utk.edu">Brian O’Meara</a>.</p>
+<p>This was made part time over two days to handle an unexpected need to
+reschedule classes in EEB. It’s being shared with others in the hope it
+helps, but it could have many bugs or other problems. We’re not really
+offering a lot of tech support with this, but if you have any questions,
+please contact <a href="mailto:bomeara@utk.edu">Brian O’Meara</a>.</p>
 </div>
 
 

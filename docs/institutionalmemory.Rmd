@@ -1,0 +1,38 @@
+---
+layout: page
+title: Institutional Memory
+---
+
+I have been in this area for over a dozen years, so I have seen some changes through time. For new folks coming in it can be hard to understand the history, but history is important in knowing what has been tried, what people are responding to, and just in understanding this community. I typically use wayback machine links so people can see the documents as they were. 
+
+### Diversity, equity, and inclusion
+
+* 2022: "Divisive concepts" law banning required training specified "divisive concepts" or requiring people to believe or affirm these concepts. Description of the law's effects [here](https://web.archive.org/web/20220519035635/https://www.knoxnews.com/story/news/education/2022/03/30/tennessee-divisive-concept-bill-bans-diversity-training-how-colleges-affected/9423990002/). The UTK Provost's Office has distributed [information on the law's effects](https://web.archive.org/web/20220422211107/https://provost.utk.edu/divisive-concepts-legislation/).
+
+### Speech on campus
+
+* 2013-present: Speech and activities during Sex Week have generated great controversy (reviewed [here](https://web.archive.org/web/20201107232037/https://www.insidehighered.com/news/2019/02/22/moves-kill-ut-knoxvilles-sex-week-met-questions)). The Tennessee House voted 69-17 [to condemn the organizers of Sex Week in 2014](https://web.archive.org/web/20221021213603/https://www.utdailybeacon.com/news/sex-week-organizers-now-legally-condemned/article_b9f05d49-f511-536b-933f-dc73fd2eda79.html). 
+* 2016: A UTK law professor [called for running down](https://web.archive.org/web/20220904182607/https://www.insidehighered.com/news/2016/09/23/u-tennessee-investigating-professor-and-popular-conservative-blogger-tweeting) people protesting a police shooting who were blocking a highway. After an investigation, this was [assessed as protected speech with no disciplinary action required](https://web.archive.org/web/20210418204516/https://law.utk.edu/2016/09/27/dean-statement/). In 2022 the professor was [appointed](https://web.archive.org/web/20220927203318/https://law.utk.edu/2022/09/01/ut-system-president-randy-boyd-appoints-law-professor-to-institute-of-american-civics-board/) to the Board of Fellows of the new Institute of American Civics at UTK. Bills have been proposed at least twice ([2017](https://web.archive.org/web/20220818021837/http://www.newschannel5.com/news/drivers-given-civil-immunity-for-hitting-protesters-under-proposed-bill) and [2021](https://web.archive.org/web/20220519222342/https://edition.cnn.com/2021/03/04/us/tennessee-anti-protest-bill-felony-trnd/index.html)) giving drivers immunity for hitting protestors blocking roads. 
+
+### Policing
+
+There are many levels of police here: UTK has its own police force, the city of Knoxville has its own force, Knox County has its own force, and there are also state police (and various federal agencies). One thing that seemed unusual to me coming from Boston was that the county basically operates like a city: both the county and city have their own mayors, they set rules for zoning in their respective areas, etc.
+
+* 2022: Nearly all Black Knoxville (city) police say they face discrimination (article includes links to other recent stories on potential instances): https://web.archive.org/web/20221021025248/https://www.knoxnews.com/story/news/local/2022/10/21/nearly-all-black-knoxville-police-officers-say-they-face-discrimination/69577490007/
+* 2014: "Courtesy notifications" letting UT athletics know in advance if there are any criminal allegations against players. This practice is reported as no longer continuing, partly due to publicity from this case. https://web.archive.org/web/20220125094112/https://www.knoxnews.com/story/news/crime/2018/07/26/aj-johnson-rape-trial-police-ut-vols/839564002/ 
+
+### Chancellors
+
+See all the past chancellors listed at https://chancellor.utk.edu/about-the-office/past-chancellors/. 
+
+### Sports
+
+Major sports here are men's football, women's basketball, and men's basketball (men's baseball is recently very popular, too). The teams compete in the SouthEastern Conference (SEC). They are generally called the Vols or Volunteers. There is tremendous fan support for the teams.
+
+#### Men's Football
+
+The football team's record is available [here](https://en.wikipedia.org/wiki/List_of_Tennessee_Volunteers_football_seasons) -- note especially the orange and yellow rows when they won the national and conference championships, respectively. If they win half their games, they generally get to go to a bowl game. The quality of opponents can vary (some opponents are paid to play and the UTK team is expected to win many of those games) -- the record against conference opponents is considered a better assessment of how the team is doing that year (and the SEC is one of the most difficult conferences). The Vols were one of the powerhouse teams for many years, then declined, but there is hope again this year (Fall 2022). The football coach is traditionally the highest paid employee of all state employees. Football coaches generally sign on for multiyear contracts: if fired they generally keep being paid (unless fired for cause, [as happened in 2021](https://web.archive.org/web/20221021222111/https://www.knoxnews.com/story/sports/college/university-of-tennessee/football/2021/01/18/jeremy-pruitt-fired-tennessee-football-coaching-search-vols/6413502002/)), and if someone else tries to hire them away there generally is money paid to UTK in compensation (making hiring them away more expensive for competitors). UTK has a history of [paying fired coaches or other personnel](https://web.archive.org/web/20211207094036/https://www.knoxnews.com/story/sports/columnists/university-of-tennessee/john-adams/2018/06/07/ut-vols-tennessee-football-phillip-fulmer-bruce-pearl-butch-jones-derek-dooley/665507002/), though I am unaware of a comparison of UTK's payouts with those of other schools. 
+
+#### Women's Basketball
+
+See their record [here](https://en.wikipedia.org/wiki/Tennessee_Lady_Volunteers_basketball#Season%E2%80%93by%E2%80%93season_results): yellow or orange rows indicate winning one or more championships. Respected, beloved head coach Pat Summitt coached them from 1974 to 2012.

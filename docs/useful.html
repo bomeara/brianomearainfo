@@ -13,8 +13,8 @@
 
 <title>Useful links</title>
 
-<script src="site_libs/header-attrs-2.10/header-attrs.js"></script>
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<script src="site_libs/header-attrs-2.18/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
@@ -70,6 +70,7 @@ if (window.hljs) {
 
 
 
+
 <style type = "text/css">
 .main-container {
   max-width: 940px;
@@ -90,6 +91,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -147,11 +151,15 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark it active
-  menuAnchor.tab('show');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -180,8 +188,8 @@ $(document).ready(function () {
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -189,16 +197,9 @@ $(document).ready(function () {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "&#xe258;";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
+  content: "\e258";
   font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
+  border: none;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -242,7 +243,7 @@ $(document).ready(function () {
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -255,7 +256,7 @@ $(document).ready(function () {
   <a href="index.html">Home</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     CV, etc.
      
     <span class="caret"></span>
@@ -285,7 +286,7 @@ $(document).ready(function () {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Lab
      
     <span class="caret"></span>
@@ -330,7 +331,7 @@ $(document).ready(function () {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Teaching
      
     <span class="caret"></span>
@@ -348,7 +349,7 @@ $(document).ready(function () {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Tutorials
      
     <span class="caret"></span>
@@ -379,51 +380,112 @@ $(document).ready(function () {
 </div>
 
 
-<p>Keeping sets of useful links has gone out of vogue, but I keep searching for the same things again and again. So, aggregate:</p>
+<p>Keeping sets of useful links has gone out of vogue, but I keep
+searching for the same things again and again. So, aggregate:</p>
 <div id="r" class="section level2">
 <h2>R</h2>
 <ul>
-<li>Fast Rmarkdown websites (<code>rmarkdown::render_site()</code>): <a href="https://bookdown.org/yihui/rmarkdown/rmarkdown-site.html" class="uri">https://bookdown.org/yihui/rmarkdown/rmarkdown-site.html</a></li>
-<li>Figure out what dependencies are needed when making an R package: <a href="https://github.com/Thinkr-open/attachment" class="uri">https://github.com/Thinkr-open/attachment</a></li>
-<li>drake: awesome way to handle batch analyses: <a href="https://github.com/ropensci/drake" class="uri">https://github.com/ropensci/drake</a>. Also see its manual: <a href="https://ropenscilabs.github.io/drake-manual/" class="uri">https://ropenscilabs.github.io/drake-manual/</a></li>
-<li>ropensci have a ton of useful packages: <a href="https://ropensci.org/" class="uri">https://ropensci.org/</a></li>
-<li>rorcid is a way to pull info from the Orcid repository of information: <a href="https://github.com/ropensci/rorcid" class="uri">https://github.com/ropensci/rorcid</a> for the package, my Orcid page is at <a href="https://orcid.org/0000-0002-0337-5997" class="uri">https://orcid.org/0000-0002-0337-5997</a> (free, get your own)</li>
+<li>Fast Rmarkdown websites (<code>rmarkdown::render_site()</code>): <a
+href="https://bookdown.org/yihui/rmarkdown/rmarkdown-site.html"
+class="uri">https://bookdown.org/yihui/rmarkdown/rmarkdown-site.html</a></li>
+<li>Figure out what dependencies are needed when making an R package: <a
+href="https://github.com/Thinkr-open/attachment"
+class="uri">https://github.com/Thinkr-open/attachment</a></li>
+<li>drake: awesome way to handle batch analyses: <a
+href="https://github.com/ropensci/drake"
+class="uri">https://github.com/ropensci/drake</a>. Also see its manual:
+<a href="https://ropenscilabs.github.io/drake-manual/"
+class="uri">https://ropenscilabs.github.io/drake-manual/</a></li>
+<li>ropensci have a ton of useful packages: <a
+href="https://ropensci.org/" class="uri">https://ropensci.org/</a></li>
+<li>rorcid is a way to pull info from the Orcid repository of
+information: <a href="https://github.com/ropensci/rorcid"
+class="uri">https://github.com/ropensci/rorcid</a> for the package, my
+Orcid page is at <a href="https://orcid.org/0000-0002-0337-5997"
+class="uri">https://orcid.org/0000-0002-0337-5997</a> (free, get your
+own)</li>
 </ul>
 </div>
 <div id="other-software" class="section level2">
 <h2>Other software</h2>
 <ul>
-<li>I usually use <a href="https://www.httrack.com/">httrack</a> to download entire websites, but <a href="https://github.com/Y2Z/monolith" class="uri">https://github.com/Y2Z/monolith</a> looks interesting (pulls down javascript, too)</li>
-<li><a href="https://jetstream-cloud.org/">NSF Jetstream</a>, <a href="https://www.cyverse.org/">cyverse</a> for running analyses.</li>
+<li>I usually use <a href="https://www.httrack.com/">httrack</a> to
+download entire websites, but <a href="https://github.com/Y2Z/monolith"
+class="uri">https://github.com/Y2Z/monolith</a> looks interesting (pulls
+down javascript, too)</li>
+<li><a href="https://jetstream-cloud.org/">NSF Jetstream</a>, <a
+href="https://www.cyverse.org/">cyverse</a> for running analyses.</li>
 </ul>
 </div>
 <div id="diversity-in-science" class="section level2">
 <h2>Diversity in science</h2>
 <ul>
-<li>National Academy report (you don’t have to buy it – go to the download free pdf or read online links): <a href="https://www.nap.edu/catalog/24994/sexual-harassment-of-women-climate-culture-and-consequences-in-academic" class="uri">https://www.nap.edu/catalog/24994/sexual-harassment-of-women-climate-culture-and-consequences-in-academic</a></li>
-<li>Overview of sexism facing women (links to many studies, good way to find evidence): <a href="https://nplusonemag.com/issue-34/essays/sexism-in-the-academy/" class="uri">https://nplusonemag.com/issue-34/essays/sexism-in-the-academy/</a></li>
-<li><a href="https://geocognitionresearchlaboratory.com/">Julie Libarkin</a>’s database of academics with evidence of misconduct: <a href="https://academic-sexual-misconduct-database.org/" class="uri">https://academic-sexual-misconduct-database.org/</a></li>
-<li>Spreadsheet of codes of conduct and ethics for scientific societies: <a href="https://docs.google.com/spreadsheets/d/19sj3Q6pHeQB54HceirN06t3aXCfWIqdJmFzrvs2_zDY/edit#gid=0" class="uri">https://docs.google.com/spreadsheets/d/19sj3Q6pHeQB54HceirN06t3aXCfWIqdJmFzrvs2_zDY/edit#gid=0</a></li>
-<li>SafeEvolution website: <a href="https://www.evolutionmeetings.org/safe-evolution.html" class="uri">https://www.evolutionmeetings.org/safe-evolution.html</a></li>
-<li>Poster on behavior at Evolution: <a href="https://figshare.com/articles/Unwelcome_behaviors_at_the_Evolution_meetings_Survey_results/8311595" class="uri">https://figshare.com/articles/Unwelcome_behaviors_at_the_Evolution_meetings_Survey_results/8311595</a></li>
-<li><a href="https://antiracisminstem.wordpress.com/">Responses to 10 common criticisms of anti-racism action in STEM</a></li>
+<li>National Academy report (you don’t have to buy it – go to the
+download free pdf or read online links): <a
+href="https://www.nap.edu/catalog/24994/sexual-harassment-of-women-climate-culture-and-consequences-in-academic"
+class="uri">https://www.nap.edu/catalog/24994/sexual-harassment-of-women-climate-culture-and-consequences-in-academic</a></li>
+<li>Overview of sexism facing women (links to many studies, good way to
+find evidence): <a
+href="https://nplusonemag.com/issue-34/essays/sexism-in-the-academy/"
+class="uri">https://nplusonemag.com/issue-34/essays/sexism-in-the-academy/</a></li>
+<li><a href="https://geocognitionresearchlaboratory.com/">Julie
+Libarkin</a>’s database of academics with evidence of misconduct: <a
+href="https://academic-sexual-misconduct-database.org/"
+class="uri">https://academic-sexual-misconduct-database.org/</a></li>
+<li>Spreadsheet of codes of conduct and ethics for scientific societies:
+<a
+href="https://docs.google.com/spreadsheets/d/19sj3Q6pHeQB54HceirN06t3aXCfWIqdJmFzrvs2_zDY/edit#gid=0"
+class="uri">https://docs.google.com/spreadsheets/d/19sj3Q6pHeQB54HceirN06t3aXCfWIqdJmFzrvs2_zDY/edit#gid=0</a></li>
+<li>SafeEvolution website: <a
+href="https://www.evolutionmeetings.org/safe-evolution.html"
+class="uri">https://www.evolutionmeetings.org/safe-evolution.html</a></li>
+<li>Poster on behavior at Evolution: <a
+href="https://figshare.com/articles/Unwelcome_behaviors_at_the_Evolution_meetings_Survey_results/8311595"
+class="uri">https://figshare.com/articles/Unwelcome_behaviors_at_the_Evolution_meetings_Survey_results/8311595</a></li>
+<li><a href="https://antiracisminstem.wordpress.com/">Responses to 10
+common criticisms of anti-racism action in STEM</a></li>
 </ul>
 </div>
 <div id="knoxville" class="section level2">
 <h2>Knoxville</h2>
 <ul>
-<li>Distressed faculty and staff: <a href="https://hr.utk.edu/care/" class="uri">https://hr.utk.edu/care/</a> 865-946-2273</li>
-<li>Distressed students: <a href="https://dos.utk.edu/974-help/our-approach/" class="uri">https://dos.utk.edu/974-help/our-approach/</a> 865-974-4357</li>
-<li>Resources (discounts, child care options, policies, etc.): <a href="https://ascend.utk.edu/work-and-life/work-and-life-resources/" class="uri">https://ascend.utk.edu/work-and-life/work-and-life-resources/</a></li>
-<li>Title IX reporting: <a href="https://titleix.utk.edu/" class="uri">https://titleix.utk.edu/</a></li>
-<li>Bias reporting: <a href="https://bias.utk.edu/" class="uri">https://bias.utk.edu/</a></li>
-<li>Campus map (note it includes info like lactation rooms, accessible building entrances): <a href="https://maps.utk.edu/?id=314" class="uri">https://maps.utk.edu/?id=314</a></li>
-<li>Campus dining hours: <a href="https://dining.utk.edu/hours/" class="uri">https://dining.utk.edu/hours/</a></li>
-<li>Academic calendar: <a href="https://registrar.utk.edu/calendar/academic-calendars/" class="uri">https://registrar.utk.edu/calendar/academic-calendars/</a></li>
-<li>EEB department: <a href="https://eeb.utk.edu/" class="uri">https://eeb.utk.edu/</a></li>
-<li>Local newspaper: <a href="https://www.knoxnews.com/" class="uri">https://www.knoxnews.com/</a> (they often have deals – support local journalism if you’re able)</li>
-<li>Inside of Knoxville: <a href="https://insideofknoxville.com/" class="uri">https://insideofknoxville.com/</a>. blog about goings on downtown. See the ten day planner: <a href="https://insideofknoxville.com/ten-day-planner/https://insideofknoxville.com/" class="uri">https://insideofknoxville.com/ten-day-planner/https://insideofknoxville.com/</a></li>
-<li>Lawyers in Knoxville: <a href="https://www.laet.org">Legal aid of East TN</a>, <a href="https://www.knoxbar.org/index.cfm?pg=onlinereferralform">Knoxville Bar Association find a lawyer service</a>. Groups like the <a href="https://www.aclu-tn.org/">ACLU</a> may also be helpful for some legal questions.</li>
+<li>Distressed faculty and staff: <a href="https://hr.utk.edu/care/"
+class="uri">https://hr.utk.edu/care/</a> 865-946-2273</li>
+<li>Distressed students: <a
+href="https://dos.utk.edu/974-help/our-approach/"
+class="uri">https://dos.utk.edu/974-help/our-approach/</a>
+865-974-4357</li>
+<li>Resources (discounts, child care options, policies, etc.): <a
+href="https://ascend.utk.edu/work-and-life/work-and-life-resources/"
+class="uri">https://ascend.utk.edu/work-and-life/work-and-life-resources/</a></li>
+<li>Title IX reporting: <a href="https://titleix.utk.edu/"
+class="uri">https://titleix.utk.edu/</a></li>
+<li>Bias reporting: <a href="https://bias.utk.edu/"
+class="uri">https://bias.utk.edu/</a></li>
+<li>Campus map (note it includes info like lactation rooms, accessible
+building entrances): <a href="https://maps.utk.edu/?id=314"
+class="uri">https://maps.utk.edu/?id=314</a></li>
+<li>Campus dining hours: <a href="https://dining.utk.edu/hours/"
+class="uri">https://dining.utk.edu/hours/</a></li>
+<li>Academic calendar: <a
+href="https://registrar.utk.edu/calendar/academic-calendars/"
+class="uri">https://registrar.utk.edu/calendar/academic-calendars/</a></li>
+<li>EEB department: <a href="https://eeb.utk.edu/"
+class="uri">https://eeb.utk.edu/</a></li>
+<li>Local newspaper: <a href="https://www.knoxnews.com/"
+class="uri">https://www.knoxnews.com/</a> (they often have deals –
+support local journalism if you’re able)</li>
+<li>Inside of Knoxville: <a href="https://insideofknoxville.com/"
+class="uri">https://insideofknoxville.com/</a>. blog about goings on
+downtown. See the ten day planner: <a
+href="https://insideofknoxville.com/ten-day-planner/https://insideofknoxville.com/"
+class="uri">https://insideofknoxville.com/ten-day-planner/https://insideofknoxville.com/</a></li>
+<li>Lawyers in Knoxville: <a href="https://www.laet.org">Legal aid of
+East TN</a>, <a
+href="https://www.knoxbar.org/index.cfm?pg=onlinereferralform">Knoxville
+Bar Association find a lawyer service</a>. Groups like the <a
+href="https://www.aclu-tn.org/">ACLU</a> may also be helpful for some
+legal questions.</li>
 </ul>
 </div>
 <div id="fun" class="section level2">
@@ -433,8 +495,12 @@ $(document).ready(function () {
 <p class="caption">Image from Newfound Gap in the Smokies</p>
 </div>
 <ul>
-<li>My academic ancestors and descendants (the latter is more diverse): <a href="https://academictree.org/evolution/tree.php?pid=129230" class="uri">https://academictree.org/evolution/tree.php?pid=129230</a></li>
-<li>Webcams of the Smokies: <a href="https://www.nps.gov/grsm/learn/photosmultimedia/webcams.htm" class="uri">https://www.nps.gov/grsm/learn/photosmultimedia/webcams.htm</a></li>
+<li>My academic ancestors and descendants (the latter is more diverse):
+<a href="https://academictree.org/evolution/tree.php?pid=129230"
+class="uri">https://academictree.org/evolution/tree.php?pid=129230</a></li>
+<li>Webcams of the Smokies: <a
+href="https://www.nps.gov/grsm/learn/photosmultimedia/webcams.htm"
+class="uri">https://www.nps.gov/grsm/learn/photosmultimedia/webcams.htm</a></li>
 <li>Also see R section.</li>
 </ul>
 </div>

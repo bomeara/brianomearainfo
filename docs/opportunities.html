@@ -13,8 +13,8 @@
 
 <title>Opportunities</title>
 
-<script src="site_libs/header-attrs-2.10/header-attrs.js"></script>
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<script src="site_libs/header-attrs-2.18/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
@@ -60,6 +60,7 @@ if (window.hljs) {
 
 
 
+
 <style type = "text/css">
 .main-container {
   max-width: 940px;
@@ -80,6 +81,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -137,11 +141,15 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark it active
-  menuAnchor.tab('show');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -170,8 +178,8 @@ $(document).ready(function () {
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -179,16 +187,9 @@ $(document).ready(function () {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "&#xe258;";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
+  content: "\e258";
   font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
+  border: none;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -232,7 +233,7 @@ $(document).ready(function () {
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -245,7 +246,7 @@ $(document).ready(function () {
   <a href="index.html">Home</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     CV, etc.
      
     <span class="caret"></span>
@@ -275,7 +276,7 @@ $(document).ready(function () {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Lab
      
     <span class="caret"></span>
@@ -320,7 +321,7 @@ $(document).ready(function () {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Teaching
      
     <span class="caret"></span>
@@ -338,7 +339,7 @@ $(document).ready(function () {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Tutorials
      
     <span class="caret"></span>
@@ -370,37 +371,160 @@ $(document).ready(function () {
 
 
 <p>There are several kinds of opportunities for joining the lab.</p>
-<p>Standard lab policy is that you should reach out to <a href="https://brianomeara.info/personnel.html">current and past lab members</a> for feedback on what it’s like here, and <strong>never</strong> tell me what they say, positive or negative. That way they know they can be frank with you.</p>
-<p>I also suggest you tell me about other things you may need – spousal accommodations, info about child care, etc. – only once you receive an official offer. I can try to work with you on ways to help, but this way, neither I nor anyone else involved can discriminate against you based on these factors, even unconsciously, before you get an offer.</p>
-<p>You might look at <a href="https://brianomeara.info/guidelines.html">lab guidelines</a> to get a sense of how the lab works. Materials I created for <a href="https://brianomeara.info/promotion.html">promotion</a>, especially the promotion packet itself (<a href="https://brianomeara.info/files/OMearaPromotionPacket.pdf">PDF</a>) may give you a good summary of where my teaching, research, and service have been and are going. For what you might learn here, <a href="https://brianomeara.info/learningobjectives.html">learning objectives</a> can be helpful.</p>
+<p>Standard lab policy is that you should reach out to <a
+href="https://brianomeara.info/personnel.html">current and past lab
+members</a> for feedback on what it’s like here, and
+<strong>never</strong> tell me what they say, positive or negative. That
+way they know they can be frank with you.</p>
+<p>I also suggest you tell me about other things you may need – spousal
+accommodations, info about child care, etc. – only once you receive an
+official offer. I can try to work with you on ways to help, but this
+way, neither I nor anyone else involved can discriminate against you
+based on these factors, even unconsciously, before you get an offer.</p>
+<p>You might look at <a
+href="https://brianomeara.info/guidelines.html">lab guidelines</a> to
+get a sense of how the lab works. Materials I created for <a
+href="https://brianomeara.info/promotion.html">promotion</a>, especially
+the promotion packet itself (<a
+href="https://brianomeara.info/files/OMearaPromotionPacket.pdf">PDF</a>)
+may give you a good summary of where my teaching, research, and service
+have been and are going. For what you might learn here, <a
+href="https://brianomeara.info/learningobjectives.html">learning
+objectives</a> can be helpful.</p>
 <div id="postdocs" class="section level2">
 <h2>Postdocs</h2>
 <div id="sept.-2019" class="section level3">
 <h3>Sept. 2019</h3>
-<p>There are three postdoc positions. They can be remote or local to Knoxville. In general, the lab is run in such a way that working remotely is fine – lab meetings are virtual for everyone, we have a group chat in slack, we do work through GitHub, etc. It can be good to be here (seminars, social connections with others) but not everyone has the flexibility to move.</p>
-<p>Two are for continuing development of Approximate Bayesian Computation approaches for phylogenetics. We have a method for single continuous traits almost ready (doing final simulations on it now) but we want to extend it to discrete traits, multivariate traits, and more. To apply for this, go to <a href="https://ut.taleo.net/careersection/ut_system/jobdetail.ftl?job=19000001LL&amp;tz=GMT-04%3A00&amp;tzname=America%2FNew_York">here</a>.</p>
-<p>The other is for a postdoc working on ascertainment bias in diversification models. This is for a grant in collaboration with <a href="https://www.jeremybeaulieu.org/">Jeremy Beaulieu</a>. To apply for this, go to <a href="https://ut.taleo.net/careersection/ut_system/jobdetail.ftl?job=19000001LM&amp;tz=GMT-04%3A00&amp;tzname=America%2FNew_York">here</a>.</p>
-<p>Please reach out to me for details (apply via the links above, but do contact me directly, too). Positions are open until filled, but I want to fill them soon.</p>
+<p>There are three postdoc positions. They can be remote or local to
+Knoxville. In general, the lab is run in such a way that working
+remotely is fine – lab meetings are virtual for everyone, we have a
+group chat in slack, we do work through GitHub, etc. It can be good to
+be here (seminars, social connections with others) but not everyone has
+the flexibility to move.</p>
+<p>Two are for continuing development of Approximate Bayesian
+Computation approaches for phylogenetics. We have a method for single
+continuous traits almost ready (doing final simulations on it now) but
+we want to extend it to discrete traits, multivariate traits, and more.
+To apply for this, go to <a
+href="https://ut.taleo.net/careersection/ut_system/jobdetail.ftl?job=19000001LL&amp;tz=GMT-04%3A00&amp;tzname=America%2FNew_York">here</a>.</p>
+<p>The other is for a postdoc working on ascertainment bias in
+diversification models. This is for a grant in collaboration with <a
+href="https://www.jeremybeaulieu.org/">Jeremy Beaulieu</a>. To apply for
+this, go to <a
+href="https://ut.taleo.net/careersection/ut_system/jobdetail.ftl?job=19000001LM&amp;tz=GMT-04%3A00&amp;tzname=America%2FNew_York">here</a>.</p>
+<p>Please reach out to me for details (apply via the links above, but do
+contact me directly, too). Positions are open until filled, but I want
+to fill them soon.</p>
 </div>
 </div>
 <div id="grad-students" class="section level2">
 <h2>Grad students</h2>
-<p>I am not currently looking for grad students to join my lab. But for people curious about opportunities in the future:</p>
+<p>I am not currently looking for grad students to join my lab. But for
+people curious about opportunities in the future:</p>
 <ul>
-<li>Students are admitted to the program, not to the lab. That means that it’s not just up to me, and if you don’t end up liking the first lab you join, moving is possible. You still have to have a faculty member saying, “I want them in my lab” to get in.</li>
-<li>Reach out to me (<a href="mailto:bomeara@utk.edu">email</a> or <a href="https://twitter.com/omearabrian">twitter</a> work well). We can talk about your interests, expectations, etc. There’s also the possibility of fee waivers for applying (not really a waiver – just that the lab will pay your fee to the graduate school). Like an <a href="https://www.sciencemag.org/careers/2019/05/wave-graduate-programs-drop-gre-application-requirement">increasing number of other programs</a> that care about pulling students from a talented, diverse pool, rather than the pool who can pay to prove they know about odd numbers, parallel lines, and bar graphs (<a href="https://www.ets.org/gre/revised_general/prepare/quantitative_reasoning/">really!</a>), we no longer require the GRE. However, some programs still do – you should be applying to several programs, so see if any on your list still use the GRE before you decide not to take it at all.</li>
-<li>I can teach you about active questions in evolution, methods use and development, programming, and more. I cannot make you curious and driven. Given how our graduate program and especially how my lab runs, you shouldn’t expect to be handed a research topic from above – you will develop your research topic(s) with my help and the help of your committee. I will thus ask you to propose some concrete research ideas as a filter – it’s not a commitment that you’re going to work on them, but a way to see if you care about particular ideas.</li>
-<li>We try to treat graduate students humanely: for those making adequate progress, tuition is covered (but not <a href="https://onestop.utk.edu/tuition-detail/">fees</a>), you’re in a health care plan, you get a $20K/year stipend. In exchange, you’re expected to TA every semester (but not summer) – the TA time load is ~20 hours per week. 90% of our students report that this is functionally a living wage for the area (but some students feel this is too low). Students also can apply for research funds (most students receive them, but in varying amounts) and of course there are other grants as well. There is also an active graduate student group, <a href="https://grebeemail.wixsite.com/grebe">GREBE</a>, which has representatives at faculty meetings and most committees (they’re excluded them from the grad admissions committee over privacy concerns).</li>
-<li>Grad school is a path to many careers: governmental agencies, private companies, NGOs, academia, and more. I will try to support you in whatever career you feel is best for you (and this can change during your time in grad school), and your intended career plays no role in whether I want you in the lab or not. Do note that, like most academics, my training and professional contacts are generally in academia, but that does not mean I won’t be able to help with other careers.</li>
-<li>Grad school, especially for people with the intention of ending up in a tenure track job, has benefits and costs that not all people applying may know about. I have a <a href="https://brianomeara.info/shouldyougotogradschool.html">page</a> on this – please read it before choosing this path.</li>
-<li>Matt Might has a good <a href="https://matt.might.net/articles/phd-school-in-pictures/">visual guide</a> of what it means to get a PhD (though Masters is similar; in our field, it’s ~1/3 of the research effort, but still represents a contribution to knowledge).</li>
-<li>Risk factors: If you move somewhere to work with someone, it’s nice to know they’ll remain there. Folks do move around in science, but I have no imminent plans to do so. I try to run my lab very transparently, so if I do start considering a move, I will let lab members know (unless they don’t want to be told until it’s a sure thing to reduce stress). Another kind of risky move (from a student perspective) is the advisor moving into administration and thus having little time for mentorship and research. I do have an administrative role now (one of two associate heads) but its workload is manageable (and I’ve handled additional admin roles at the same time, such as associate director of NIMBioS, in the past). I am in science to solve evolutionary questions, not to be a manager of people, so I’m not actively looking for roles here. It’s not impossible I’ll be pulled in to some sort of role eventually, but as with other moves, I will discuss this with lab members.</li>
+<li>Students are admitted to the program, not to the lab. That means
+that it’s not just up to me, and if you don’t end up liking the first
+lab you join, moving is possible. You still have to have a faculty
+member saying, “I want them in my lab” to get in.</li>
+<li>Reach out to me (<a href="mailto:bomeara@utk.edu">email</a> or <a
+href="https://twitter.com/omearabrian">twitter</a> work well). We can
+talk about your interests, expectations, etc. There’s also the
+possibility of fee waivers for applying (not really a waiver – just that
+the lab will pay your fee to the graduate school). Like an <a
+href="https://www.sciencemag.org/careers/2019/05/wave-graduate-programs-drop-gre-application-requirement">increasing
+number of other programs</a> that care about pulling students from a
+talented, diverse pool, rather than the pool who can pay to prove they
+know about odd numbers, parallel lines, and bar graphs (<a
+href="https://www.ets.org/gre/revised_general/prepare/quantitative_reasoning/">really!</a>),
+we no longer require the GRE. However, some programs still do – you
+should be applying to several programs, so see if any on your list still
+use the GRE before you decide not to take it at all.</li>
+<li>I can teach you about active questions in evolution, methods use and
+development, programming, and more. I cannot make you curious and
+driven. Given how our graduate program and especially how my lab runs,
+you shouldn’t expect to be handed a research topic from above – you will
+develop your research topic(s) with my help and the help of your
+committee. I will thus ask you to propose some concrete research ideas
+as a filter – it’s not a commitment that you’re going to work on them,
+but a way to see if you care about particular ideas.</li>
+<li>We try to treat graduate students humanely: for those making
+adequate progress, tuition is covered (but not <a
+href="https://onestop.utk.edu/tuition-detail/">fees</a>), you’re in a
+health care plan, you get a $20K/year stipend. In exchange, you’re
+expected to TA every semester (but not summer) – the TA time load is ~20
+hours per week. 90% of our students report that this is functionally a
+living wage for the area (but some students feel this is too low).
+Students also can apply for research funds (most students receive them,
+but in varying amounts) and of course there are other grants as well.
+There is also an active graduate student group, <a
+href="https://grebeemail.wixsite.com/grebe">GREBE</a>, which has
+representatives at faculty meetings and most committees (they’re
+excluded them from the grad admissions committee over privacy
+concerns).</li>
+<li>Grad school is a path to many careers: governmental agencies,
+private companies, NGOs, academia, and more. I will try to support you
+in whatever career you feel is best for you (and this can change during
+your time in grad school), and your intended career plays no role in
+whether I want you in the lab or not. Do note that, like most academics,
+my training and professional contacts are generally in academia, but
+that does not mean I won’t be able to help with other careers.</li>
+<li>Grad school, especially for people with the intention of ending up
+in a tenure track job, has benefits and costs that not all people
+applying may know about. I have a <a
+href="https://brianomeara.info/shouldyougotogradschool.html">page</a> on
+this – please read it before choosing this path.</li>
+<li>Matt Might has a good <a
+href="https://matt.might.net/articles/phd-school-in-pictures/">visual
+guide</a> of what it means to get a PhD (though Masters is similar; in
+our field, it’s ~1/3 of the research effort, but still represents a
+contribution to knowledge).</li>
+<li>Risk factors: If you move somewhere to work with someone, it’s nice
+to know they’ll remain there. Folks do move around in science, but I
+have no imminent plans to do so. I try to run my lab very transparently,
+so if I do start considering a move, I will let lab members know (unless
+they don’t want to be told until it’s a sure thing to reduce stress).
+Another kind of risky move (from a student perspective) is the advisor
+moving into administration and thus having little time for mentorship
+and research. I do have an administrative role now (one of two associate
+heads) but its workload is manageable (and I’ve handled additional admin
+roles at the same time, such as associate director of NIMBioS, in the
+past). I am in science to solve evolutionary questions, not to be a
+manager of people, so I’m not actively looking for roles here. It’s not
+impossible I’ll be pulled in to some sort of role eventually, but as
+with other moves, I will discuss this with lab members.</li>
 </ul>
-<p>For application information, go to <a href="https://eeb.utk.edu/graduate-studies/application-information/" class="uri">https://eeb.utk.edu/graduate-studies/application-information/</a> (though note we are changing our deadline to Dec. 1). There is information at a university level for applying at <a href="https://gradschool.utk.edu/admissions/applying-to-graduate-school/" class="uri">https://gradschool.utk.edu/admissions/applying-to-graduate-school/</a>. Students from countries outside the US are more than welcome. See <a href="https://gradschool.utk.edu/admissions/applying-to-graduate-school/admissions-for-international-students/" class="uri">https://gradschool.utk.edu/admissions/applying-to-graduate-school/admissions-for-international-students/</a> for more information (remember our department deadline of Dec. 1, which is earlier than the university deadline). Our <a href="https://international.utk.edu/">international office</a> can help with visas and other information (and students who have worked with this office generally find it helpful). Also note that United States national policy affects visas and related paperwork, and so what is required and permissible may change.</p>
+<p>For application information, go to <a
+href="https://eeb.utk.edu/graduate-studies/application-information/"
+class="uri">https://eeb.utk.edu/graduate-studies/application-information/</a>
+(though note we are changing our deadline to Dec. 1). There is
+information at a university level for applying at <a
+href="https://gradschool.utk.edu/admissions/applying-to-graduate-school/"
+class="uri">https://gradschool.utk.edu/admissions/applying-to-graduate-school/</a>.
+Students from countries outside the US are more than welcome. See <a
+href="https://gradschool.utk.edu/admissions/applying-to-graduate-school/admissions-for-international-students/"
+class="uri">https://gradschool.utk.edu/admissions/applying-to-graduate-school/admissions-for-international-students/</a>
+for more information (remember our department deadline of Dec. 1, which
+is earlier than the university deadline). Our <a
+href="https://international.utk.edu/">international office</a> can help
+with visas and other information (and students who have worked with this
+office generally find it helpful). Also note that United States national
+policy affects visas and related paperwork, and so what is required and
+permissible may change.</p>
 </div>
 <div id="undergrads" class="section level2">
 <h2>Undergrads</h2>
-<p>There are no entry level jobs in the lab: there are no turtles to feed, beakers to clean, seeds to count. Instead, I typically work with students to develop research questions they care about (past ones have included Slavic language evolution and evolution of salamander development). It is like a graduate student dissertation, just shorter and perhaps more accessible. So if you have some question you’re curious about, even if it’s vague (“I really like speciation”, “Phylogenetic trees are awesome”), email me to set up a time we can talk. We can typically arrange for you to receive research credit for the research you are doing. The earlier you do this, the better – it gives you time to learn more skills to better answer your questions and really consider the biology.</p>
+<p>There are no entry level jobs in the lab: there are no turtles to
+feed, beakers to clean, seeds to count. Instead, I typically work with
+students to develop research questions they care about (past ones have
+included Slavic language evolution and evolution of salamander
+development). It is like a graduate student dissertation, just shorter
+and perhaps more accessible. So if you have some question you’re curious
+about, even if it’s vague (“I really like speciation”, “Phylogenetic
+trees are awesome”), email me to set up a time we can talk. We can
+typically arrange for you to receive research credit for the research
+you are doing. The earlier you do this, the better – it gives you time
+to learn more skills to better answer your questions and really consider
+the biology.</p>
 </div>
 
 

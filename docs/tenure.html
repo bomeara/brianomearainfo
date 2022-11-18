@@ -13,8 +13,8 @@
 
 <title>Tenure</title>
 
-<script src="site_libs/header-attrs-2.10/header-attrs.js"></script>
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<script src="site_libs/header-attrs-2.18/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
@@ -60,6 +60,7 @@ if (window.hljs) {
 
 
 
+
 <style type = "text/css">
 .main-container {
   max-width: 940px;
@@ -80,6 +81,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -137,11 +141,15 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark it active
-  menuAnchor.tab('show');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -170,8 +178,8 @@ $(document).ready(function () {
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -179,16 +187,9 @@ $(document).ready(function () {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "&#xe258;";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
+  content: "\e258";
   font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
+  border: none;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -232,7 +233,7 @@ $(document).ready(function () {
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -245,7 +246,7 @@ $(document).ready(function () {
   <a href="index.html">Home</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     CV, etc.
      
     <span class="caret"></span>
@@ -275,7 +276,7 @@ $(document).ready(function () {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Lab
      
     <span class="caret"></span>
@@ -320,7 +321,7 @@ $(document).ready(function () {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Teaching
      
     <span class="caret"></span>
@@ -338,7 +339,7 @@ $(document).ready(function () {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Tutorials
      
     <span class="caret"></span>
@@ -369,38 +370,101 @@ $(document).ready(function () {
 </div>
 
 
-<p>I was up for tenure in the Department of Ecology and Evolutionary Biology at the U. of Tennessee, Knoxville, over the 2014-2015 school year. This involves being evaluated at the department, college, and university level for a history of research, teaching, and service. If ultimately approved (it was in my case), it results in great job security (though not absolute, which is probably good); if rejected, it results in a year to find another position before being fired. There is a tenure dossier prepared by the candidate and then added to by the department head. The head writes their own letter as well as solicits letters from external senior faculty regarding the candidate’s research. I do not have ready access to the final dossier (though, given Tennessee’s sunshine laws, everything, including letters, is available by request), but I do have access to the parts I wrote. I include it here as a <a href="files/OMearaTenurePacketPreliminary.pdf">PDF</a>; note I have redacted a section about students on whose committees I have served (there are many in various departments).</p>
+<p>I was up for tenure in the Department of Ecology and Evolutionary
+Biology at the U. of Tennessee, Knoxville, over the 2014-2015 school
+year. This involves being evaluated at the department, college, and
+university level for a history of research, teaching, and service. If
+ultimately approved (it was in my case), it results in great job
+security (though not absolute, which is probably good); if rejected, it
+results in a year to find another position before being fired. There is
+a tenure dossier prepared by the candidate and then added to by the
+department head. The head writes their own letter as well as solicits
+letters from external senior faculty regarding the candidate’s research.
+I do not have ready access to the final dossier (though, given
+Tennessee’s sunshine laws, everything, including letters, is available
+by request), but I do have access to the parts I wrote. I include it
+here as a <a href="files/OMearaTenurePacketPreliminary.pdf">PDF</a>;
+note I have redacted a section about students on whose committees I have
+served (there are many in various departments).</p>
 <p>I also gave a tenure talk to the department on Nov. 7, 2014.</p>
-<p><em>Note in 2019: This is kept online in case it helps others going up for tenure to have a template. Remember the bias we often have when looking at things like this: many of us tend to focus on the things where we’re “not as good” as the template, but ignore the many cases where we are actually “better.” I’m not sure that this particular document will create such feelings, but know that it’s likely I’d feel the same reading your packet.</em></p>
+<p><em>Note in 2019: This is kept online in case it helps others going
+up for tenure to have a template. Remember the bias we often have when
+looking at things like this: many of us tend to focus on the things
+where we’re “not as good” as the template, but ignore the many cases
+where we are actually “better.” I’m not sure that this particular
+document will create such feelings, but know that it’s likely I’d feel
+the same reading your packet.</em></p>
 <ul>
-<li>Tenure packet <a href="files/OMearaTenurePacketPreliminary.pdf">PDF</a></li>
-<li>Slides as PDF (<a href="files/OMeara_Tenure_2014_part1.pdf">part 1</a>, <a href="files/OMeara_Tenure_2014_part2.pdf">part 2</a>, <a href="files/OMeara_Tenure_2014_part3.pdf">part 3</a>)</li>
-<li>Slides as <a href="files/OMeara_Tenure_2014.pptx">PowerPoint</a> (76 MB)</li>
-<li>Video recording of talk is <a href="https://www.youtube.com/watch?v=cMky-utTWLk">here</a> on YouTube. Note that I was fairly ill during and in the lead up to the talk, so there is a lot of coughing (the wrong kind of “hackathon”). This is the only recording of the teaching, service, and overview parts of the talk, but you can hear better versions of the <a href="https://www.youtube.com/watch?v=g6iL4kHbM54&amp;list=UUzzg8khzVttwFpti4htKw7Q">ABC</a>, <a href="https://www.youtube.com/watch?v=gRQjS6M7BXE">floral evolution</a>, and <a href="https://www.youtube.com/watch?v=UC4Mj1K6c0k">phylogeography</a> sections here based on recordings of my other talks on these subjects, using similar slide decks.</li>
+<li>Tenure packet <a
+href="files/OMearaTenurePacketPreliminary.pdf">PDF</a></li>
+<li>Slides as PDF (<a href="files/OMeara_Tenure_2014_part1.pdf">part
+1</a>, <a href="files/OMeara_Tenure_2014_part2.pdf">part 2</a>, <a
+href="files/OMeara_Tenure_2014_part3.pdf">part 3</a>)</li>
+<li>Slides as <a href="files/OMeara_Tenure_2014.pptx">PowerPoint</a> (76
+MB)</li>
+<li>Video recording of talk is <a
+href="https://www.youtube.com/watch?v=cMky-utTWLk">here</a> on YouTube.
+Note that I was fairly ill during and in the lead up to the talk, so
+there is a lot of coughing (the wrong kind of “hackathon”). This is the
+only recording of the teaching, service, and overview parts of the talk,
+but you can hear better versions of the <a
+href="https://www.youtube.com/watch?v=g6iL4kHbM54&amp;list=UUzzg8khzVttwFpti4htKw7Q">ABC</a>,
+<a href="https://www.youtube.com/watch?v=gRQjS6M7BXE">floral
+evolution</a>, and <a
+href="https://www.youtube.com/watch?v=UC4Mj1K6c0k">phylogeography</a>
+sections here based on recordings of my other talks on these subjects,
+using similar slide decks.</li>
 </ul>
 <p>Over the course of my time as an assistant professor, I have:</p>
 <ul>
-<li><p>Addressed questions about how species move through landscapes, what limits rates of evolution, predictability of evolution, competition between organisms, and more</p></li>
-<li><p>Creation of methods and open software to deal with rate heterogeneity for discrete characters, more flexible ways of dealing with continuous characters, simulating millions of species, examining correlations, and much more</p></li>
-<li><p>Taught hundreds of students to think critically and to understand science as a process</p></li>
+<li><p>Addressed questions about how species move through landscapes,
+what limits rates of evolution, predictability of evolution, competition
+between organisms, and more</p></li>
+<li><p>Creation of methods and open software to deal with rate
+heterogeneity for discrete characters, more flexible ways of dealing
+with continuous characters, simulating millions of species, examining
+correlations, and much more</p></li>
+<li><p>Taught hundreds of students to think critically and to understand
+science as a process</p></li>
 <li><p>Mentored 4 students and 10 postdocs</p></li>
-<li><p>28 grant proposals (including 16 full and 5 preproposals to NSF), $1.4M in external funds</p></li>
-<li><p>Service in improving representation of women in science, Darwin Day outreach, numerous workshops, hackathons, and conferences</p></li>
+<li><p>28 grant proposals (including 16 full and 5 preproposals to NSF),
+$1.4M in external funds</p></li>
+<li><p>Service in improving representation of women in science, Darwin
+Day outreach, numerous workshops, hackathons, and conferences</p></li>
 </ul>
 <p><strong>Talk animated GIF</strong></p>
 <p><img src="files/OMearaTenureSlides.gif" /></p>
 <p><strong>Some unusual or key slides from the talk:</strong></p>
 <p><img src="files/OMearaTenureEEBNetwork2014.jpg" /></p>
-<p>Figure showing my integration into this department. The connections within the department were one of the things that made this position attractive, and I have formed many connections since arriving.</p>
+<p>Figure showing my integration into this department. The connections
+within the department were one of the things that made this position
+attractive, and I have formed many connections since arriving.</p>
 <hr />
 <p><img src="files/OMearaTenureTeaching.jpg" /></p>
-<p>Teaching load by year (numbers refer to number of semesters I taught that course that year) as well as some external courses (research talks are not included in this list). This semester (Fall 2014) I am teaching an undergrad/grad macroevolution class (~28 students), a speciation seminar (~15 students), co-teaching our graduate core evolution class, and co-teaching a multi-lab discussion group.</p>
+<p>Teaching load by year (numbers refer to number of semesters I taught
+that course that year) as well as some external courses (research talks
+are not included in this list). This semester (Fall 2014) I am teaching
+an undergrad/grad macroevolution class (~28 students), a speciation
+seminar (~15 students), co-teaching our graduate core evolution class,
+and co-teaching a multi-lab discussion group.</p>
 <hr />
 <p><img src="files/OMearaTenureFunding.jpg" /></p>
-<p>Support from various sources as an assistant professor: PI on two NSF grants, Co-PI on a third, plus funding from various other grants (iPlant, EOL, and others) which have all been very helpful.</p>
+<p>Support from various sources as an assistant professor: PI on two NSF
+grants, Co-PI on a third, plus funding from various other grants
+(iPlant, EOL, and others) which have all been very helpful.</p>
 <hr />
 <p><img src="files/OMearaTenureSSBCouncil.jpg" /></p>
-<p>A tongue-in-cheek artist’s depiction of the Council of the Society for Systematic Biologists. I am an elected member of this council as just one of my service activities, which include co-organizing Evolution 2014, iEvoBio, and Phylotastic hackathons, being the faculty advisor for Darwin Day Tennessee, organizing various initiatives to improve diversity in science, maintaining the <a href="https://cran.r-project.org/web/views/Phylogenetics.html">CRAN Task View for Phylogenetics</a>, plus various other department, college, and professional service activities. Original image from user <a href="https://www.comicvine.com/forums/battles-7/akatsuki-vs-jedi-council-1451424/">ThatGuyWithHeadPhones</a>, modified by me.</p>
+<p>A tongue-in-cheek artist’s depiction of the Council of the Society
+for Systematic Biologists. I am an elected member of this council as
+just one of my service activities, which include co-organizing Evolution
+2014, iEvoBio, and Phylotastic hackathons, being the faculty advisor for
+Darwin Day Tennessee, organizing various initiatives to improve
+diversity in science, maintaining the <a
+href="https://cran.r-project.org/web/views/Phylogenetics.html">CRAN Task
+View for Phylogenetics</a>, plus various other department, college, and
+professional service activities. Original image from user <a
+href="https://www.comicvine.com/forums/battles-7/akatsuki-vs-jedi-council-1451424/">ThatGuyWithHeadPhones</a>,
+modified by me.</p>
 
 
 

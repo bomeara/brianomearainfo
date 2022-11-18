@@ -13,8 +13,8 @@
 
 <title>Macroevolution (EEB464)</title>
 
-<script src="site_libs/header-attrs-2.10/header-attrs.js"></script>
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<script src="site_libs/header-attrs-2.18/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
@@ -60,6 +60,7 @@ if (window.hljs) {
 
 
 
+
 <style type = "text/css">
 .main-container {
   max-width: 940px;
@@ -80,6 +81,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -137,11 +141,15 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark it active
-  menuAnchor.tab('show');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -170,8 +178,8 @@ $(document).ready(function () {
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -179,16 +187,9 @@ $(document).ready(function () {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "&#xe258;";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
+  content: "\e258";
   font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
+  border: none;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -232,7 +233,7 @@ $(document).ready(function () {
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -245,7 +246,7 @@ $(document).ready(function () {
   <a href="index.html">Home</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     CV, etc.
      
     <span class="caret"></span>
@@ -275,7 +276,7 @@ $(document).ready(function () {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Lab
      
     <span class="caret"></span>
@@ -320,7 +321,7 @@ $(document).ready(function () {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Teaching
      
     <span class="caret"></span>
@@ -338,7 +339,7 @@ $(document).ready(function () {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Tutorials
      
     <span class="caret"></span>
@@ -369,11 +370,13 @@ $(document).ready(function () {
 </div>
 
 
-<div id="course-taught-every-fall-on-macroevolution" class="section level2">
+<div id="course-taught-every-fall-on-macroevolution"
+class="section level2">
 <h2>Course taught every fall on macroevolution</h2>
 <div id="section" class="section level3">
 <h3></h3>
-<p>Office Hours: <a href="https://tiny.utk.edu/EEB464OfficeHours" class="uri">https://tiny.utk.edu/EEB464OfficeHours</a></p>
+<p>Office Hours: <a href="https://tiny.utk.edu/EEB464OfficeHours"
+class="uri">https://tiny.utk.edu/EEB464OfficeHours</a></p>
 </div>
 <div id="section-1" class="section level3">
 <h3>2019</h3>
@@ -384,71 +387,274 @@ $(document).ready(function () {
 <p>Office hours: 11-12 M and by appointment: 446 Hesler</p>
 <p>Meeting time: 10:10-11:00, MWF, Buehler 476</p>
 <p>Description:</p>
-<p>The course is a lecture format course with classroom discussion and participation. Students are introduced to fundamental concepts in macroevolution including current areas of debate (drivers of evolutionary rates, modes of speciation, etc.) and taught to think critically. Computer-based exercises, especially simulations, will allow students to learn how processes acting on short to medium time scales affect long term patterns. 3 credits</p>
-<p>To understand macroevolution, it is important to learn about who, what, where, when, how, and why.</p>
+<p>The course is a lecture format course with classroom discussion and
+participation. Students are introduced to fundamental concepts in
+macroevolution including current areas of debate (drivers of
+evolutionary rates, modes of speciation, etc.) and taught to think
+critically. Computer-based exercises, especially simulations, will allow
+students to learn how processes acting on short to medium time scales
+affect long term patterns. 3 credits</p>
+<p>To understand macroevolution, it is important to learn about who,
+what, where, when, how, and why.</p>
 <ul>
 <li>Who: Organisms</li>
-<li>What: Non-living context (rocks from space, environmental conditions) Where: Biogeography (on Pangaea or Bermuda?)</li>
+<li>What: Non-living context (rocks from space, environmental
+conditions) Where: Biogeography (on Pangaea or Bermuda?)</li>
 <li>When: Geological time scale</li>
 <li>How: Pattern of evolution</li>
 <li>Why: Process of evolution</li>
 </ul>
-<p>The course will cover all these areas. The ones that are most interesting, of course, are the how and especially the why. These are also the best to cover in class, where there can be discussion and other interaction. Rote learning (word meanings and the like) is something that you should be able to do on your own at this point in your education, with occasional guidance. We’re not going to use much class time on this, but you will have to learn this info. I will clearly describe what you do have to learn (and if it’s not clear, ASK), and quizzes and tests will be ways to evaluate your progress and provide further incentive to learn.</p>
+<p>The course will cover all these areas. The ones that are most
+interesting, of course, are the how and especially the why. These are
+also the best to cover in class, where there can be discussion and other
+interaction. Rote learning (word meanings and the like) is something
+that you should be able to do on your own at this point in your
+education, with occasional guidance. We’re not going to use much class
+time on this, but you will have to learn this info. I will clearly
+describe what you do have to learn (and if it’s not clear, ASK), and
+quizzes and tests will be ways to evaluate your progress and provide
+further incentive to learn.</p>
 </div>
 <div id="biology-program-learning-objectives" class="section level3">
 <h3>Biology program learning objectives:</h3>
-<p>Explain and provide examples of each the five big ideas in Biology, using their knowledge of biological concepts gained from their course of study:</p>
+<p>Explain and provide examples of each the five big ideas in Biology,
+using their knowledge of biological concepts gained from their course of
+study:</p>
 <ul>
-<li>Evolution: Populations of organisms and their cellular components have changed over time through both selective and non-selective evolutionary processes. This is the main point of the course, and will be covered in every lecture and activity.</li>
-<li>Structure and Function: All living systems (organisms, ecosystems, etc.) are made of structural components whose arrangement determines the function of the systems. This will be highlighted especially in the discussions of morphological evolution (flight, insects, etc.)</li>
-<li>Information Flow and Storage: Information (DNA, for example) and signals are used and exchanged within and among organisms to direct their functioning. Origin of life will cover this extensively.</li>
-<li>Transformations of Energy and Matter: All living things acquire, use, and release and cycle matter and energy for cellular / organismal functioning. The discussion of escalation focuses on this, and it comes up in background on the focal organisms.</li>
-<li>Systems: Living systems are interconnected, and they interact and influence each other on multiple levels. Speciation, extinction, discussion, and history of life all cover this.</li>
+<li>Evolution: Populations of organisms and their cellular components
+have changed over time through both selective and non-selective
+evolutionary processes. This is the main point of the course, and will
+be covered in every lecture and activity.</li>
+<li>Structure and Function: All living systems (organisms, ecosystems,
+etc.) are made of structural components whose arrangement determines the
+function of the systems. This will be highlighted especially in the
+discussions of morphological evolution (flight, insects, etc.)</li>
+<li>Information Flow and Storage: Information (DNA, for example) and
+signals are used and exchanged within and among organisms to direct
+their functioning. Origin of life will cover this extensively.</li>
+<li>Transformations of Energy and Matter: All living things acquire,
+use, and release and cycle matter and energy for cellular / organismal
+functioning. The discussion of escalation focuses on this, and it comes
+up in background on the focal organisms.</li>
+<li>Systems: Living systems are interconnected, and they interact and
+influence each other on multiple levels. Speciation, extinction,
+discussion, and history of life all cover this.</li>
 </ul>
-<p>Demonstrate the ability to perform the following scientific practices:</p>
+<p>Demonstrate the ability to perform the following scientific
+practices:</p>
 <ul>
-<li>Formulate empirically-testable hypotheses. This is the point of the final presentation.</li>
-<li>Interpret visual representations (figures and diagrams). These will come up throughout the class, especially in the context of phylogenetic trees.</li>
-<li>Evaluate data and come to a conclusion (with evidence) (formulate an argument). Much of class discussion emphasizes this skill: I’ll present information and have you elaborate on this and provide potential explanations.</li>
+<li>Formulate empirically-testable hypotheses. This is the point of the
+final presentation.</li>
+<li>Interpret visual representations (figures and diagrams). These will
+come up throughout the class, especially in the context of phylogenetic
+trees.</li>
+<li>Evaluate data and come to a conclusion (with evidence) (formulate an
+argument). Much of class discussion emphasizes this skill: I’ll present
+information and have you elaborate on this and provide potential
+explanations.</li>
 </ul>
 </div>
 <div id="course-learning-objectives" class="section level3">
 <h3>Course learning objectives:</h3>
 <p>By the end of this course, students will be able to:</p>
 <ul>
-<li>Formulate, defend, and critically evaluate hypotheses about evolutionary mechanisms</li>
+<li>Formulate, defend, and critically evaluate hypotheses about
+evolutionary mechanisms</li>
 <li>Understand the context and reason for evolutionary patterns</li>
-<li>Interpret information from fossils, phylogenies, and other data sources</li>
+<li>Interpret information from fossils, phylogenies, and other data
+sources</li>
 <li>Generate ideas for feasible, compelling scientific projects</li>
 </ul>
-<p>To really understand evolution and converse with other scientists, you have to know the names of some groups (imagine trying to talk about the history of some musical genre without knowing the names of any musicians or songs in that genre). Thus, most days, you will be responsible for learning about a particular taxon (on the syllabus, below). This could be a single species or a clade of many species. You should learn very basic info: what is it, what is it related to (i.e., where it attaches to the tree of life we will grow over the class), why it is important to know. For example: “Angiosperms: all flowering plants, lots of species, became common in the Cretaceous but may have originated earlier, sister to Gnetales.” Working together on the website forum to get this info is encouraged (you can decide to rotate the job, let whoever gets the info first post it, etc.). What I really care about is that you learn it. Note that some of the taxa may be subsets of the other taxa (elephants are a kind of vertebrate).</p>
-<p>Writing and presentations will be graded on a variety of levels, such as grammar, structure, and substance. The purpose of grading and comments is to improve your writing. Remember that your writing is being graded, not you.</p>
-<p>Word count sets a minimum length (and references are not counted) but you may go a bit longer if needed (try to keep below 125% of required length). Since length is judged by words, not page length, please don’t do any odd formatting of your paper (huge or tiny margins, font sizes of 8 or 18, etc.) to try to meet some page limits.</p>
-<p>Papers/midterms will be turned in via the course website (Canvas). This eliminates issues with printers, odd file formats, and the like. The site will automatically check your work for possible plagiarism. I do this in all my classes with written work. Except where noted, assignments are to be done individually. You must cite and reference work properly. When in doubt about citation, plagiarism, or collaboration, ASK.</p>
-<p>For help with submitting documents online, see <a href="https://online.utk.edu/students/assignment.shtml" class="uri">https://online.utk.edu/students/assignment.shtml</a>. There is a practice uploading assignment that will allow you to test to make sure you can upload files correctly before the pressure of a deadline. If there is a problem at the moment of a deadline, email me your work instead to verify it is done on time (but normally you should be using Canvas).</p>
-<p>Communication is very important. I have set up a forum on the Canvas site for our course. If you post a question there, I will immediately be emailed about it and will respond on the forum (though perhaps not immediately). Emailing me directly will not be any faster (though do email me if the issue is better addressed one-on-one). The benefit of using the forum is that everyone can see the answers and there’s a chance that one of the other students will answer the question first. Feel free to use the forum for other class-related discussions.</p>
-<p>Though we have the main Canvas site, and notices will come through there, I will also be posting things (like slides) to <a href="https://brianomeara.info/eeb464" class="uri">https://brianomeara.info/eeb464</a>. Why a second site? The Canvas site is only active during the course and only to students enrolled in the course. You might want to look at the materials in other semesters, show your friends/family what you were learning, etc., so I have the public site that will persist.</p>
-<p>Attendance is expected at all classes, though missing a class or two due to illness, family problem, etc. might happen. You can communicate with the Office of the Dean of Students (<a href="https://dos.utk.edu/absence-notifications/" class="uri">https://dos.utk.edu/absence-notifications/</a>) if you want to document absences (and this can be easier for you than doing it separately in each of your classes). Rarely, school is also canceled due to snow.</p>
-<p>Importantly, the Dean of Students Office can also offer you help – the usual reasons students are absent are not happy ones, and they may be able to point you to useful resources. One great resource in general is the 974-HELP line (865-974-4357: <a href="https://dos.utk.edu/974-help/our-approach/" class="uri">https://dos.utk.edu/974-help/our-approach/</a>) if you are worried about yourself or any other student, <strong>please call that line</strong>. Other options available from <a href="https://dos.utk.edu/" class="uri">https://dos.utk.edu/</a>, <a href="https://titleix.utk.edu/" class="uri">https://titleix.utk.edu/</a>, and <a href="https://bias.utk.edu/" class="uri">https://bias.utk.edu/</a> include ways to set up a meeting with a dean, report sexual misconduct, report bias-based incidents, or deal with other issues. I am of course happy to try to help as well.</p>
-<p>We will have discussions in nearly all classes. You should participate in them. Sometimes, discussions in a class such as this consist of students trying to return the right answer to the instructor’s question. To avoid this, sometimes I pursue a policy of not talking during a discussion for several minutes or longer so you have to talk to each other. This can result in complete silence. If you find this annoying, talk! Even if there is not a formal discussion, please ask questions at any point during class. Please be respectful of others in class discussions. A good discussion often features students talking with each other rather than just directing comments at me. When referring to others, be careful not to use the wrong pronoun for them: I personally go by he/him, but clearly that does not work for everyone (and please let me know what pronouns work best for you). In discussions, it can also be worth separating ideas from the people thinking them: “I don’t think that’s how speciation works” can lead to a more fluid discussion than, “You’re wrong about speciation.”</p>
-<p>Take notes. Any slides are an object to help you learn, but not the sole content: this is not a class where each slide is dense with bullet points, and as long as you can write them down on a test later, you get a good grade. There may be a slide with just a dinosaur on it and we talk for ten minutes about it: how did we know what it ate, what questions are still unresolved, etc. There are no written words on the slide, but still things you should learn from this discussion. So take notes during each class and look over them when you get home. On the final, you will be able to have a single sheet of paper with information – you can think about what should be on that paper, and revise as you go. For taking notes, a study (Mueller and Oppenheimer, 2014, <a href="https://doi.org/10.1177/0956797614524581" class="uri">https://doi.org/10.1177/0956797614524581</a>) suggests that you learn more taking notes by hand, on paper. That can be especially handy in this class, where we may use diagrams to illustrate concepts. I do not mandate taking notes by hand, as it does not work for everyone – if you want to take notes using a computer or other device, that is fine – but do try taking notes by hand if it might work for you. You may also record the class; I only ask that you respect your classmates’ privacy (people are learning, they should be getting things wrong and taking the risk of giving incorrect answers: I do not want people to be afraid of what they say being misused later).</p>
-<p>Late work is penalized at 10%/day (so something turned in 49 hours late is given a score 70% of what it would have received on the due date). Extensions are not normally granted. Remember that even if you turn something in seven days late, it is still worth more points than not turning it in at all (and the grading for the class is just #points received / #points available, so something getting 20/100 points is still worth twice something getting 10/100 points, even though they are both an “F” individually).</p>
-<p>My goal is to have you learn. If you are having trouble with something in the course, or if there is a topic you just have to learn more about, let me know (email, office hours, online forum, etc.). Faculty often use evaluations at the end of the semester to get info from students so we can improve before the next class, but this does not help you directly. To allow the class to improve while you are taking it, I have created a site for anonymous feedback at <a href="https://brianomeara.info/feedback.html" class="uri">https://brianomeara.info/feedback.html</a> (and yes, it is really anonymous). Let me know things that are going well or poorly — both are important. I might not implement all your suggestions, but they will all be read and considered, generally the same day you submit them.</p>
-<p>Please contact Student Disability Services (<a href="https://sds.utk.edu/" class="uri">https://sds.utk.edu/</a>) if you may need an appropriate accommodation plan.</p>
-<p>I never went to office hours as a student. That was a bad idea. Office hours are ways for you to talk to instructors about topics in the course or related issues – if you want to talk to me about applying to grad school, or labs you can do research in here, or a cool paper you read, come to office hours!</p>
-<p>All relevant University policies (including, but not limited to, policies on academic integrity, attendance, etc.) apply to this course. In the case of any conflict between the policies in this syllabus and University policy, University policy applies. The instructor reserves the right to revise, alter, and/or amend this syllabus as necessary. Students will be notified by email of any such revisions, alterations, and/or amendments.</p>
+<p>To really understand evolution and converse with other scientists,
+you have to know the names of some groups (imagine trying to talk about
+the history of some musical genre without knowing the names of any
+musicians or songs in that genre). Thus, most days, you will be
+responsible for learning about a particular taxon (on the syllabus,
+below). This could be a single species or a clade of many species. You
+should learn very basic info: what is it, what is it related to (i.e.,
+where it attaches to the tree of life we will grow over the class), why
+it is important to know. For example: “Angiosperms: all flowering
+plants, lots of species, became common in the Cretaceous but may have
+originated earlier, sister to Gnetales.” Working together on the website
+forum to get this info is encouraged (you can decide to rotate the job,
+let whoever gets the info first post it, etc.). What I really care about
+is that you learn it. Note that some of the taxa may be subsets of the
+other taxa (elephants are a kind of vertebrate).</p>
+<p>Writing and presentations will be graded on a variety of levels, such
+as grammar, structure, and substance. The purpose of grading and
+comments is to improve your writing. Remember that your writing is being
+graded, not you.</p>
+<p>Word count sets a minimum length (and references are not counted) but
+you may go a bit longer if needed (try to keep below 125% of required
+length). Since length is judged by words, not page length, please don’t
+do any odd formatting of your paper (huge or tiny margins, font sizes of
+8 or 18, etc.) to try to meet some page limits.</p>
+<p>Papers/midterms will be turned in via the course website (Canvas).
+This eliminates issues with printers, odd file formats, and the like.
+The site will automatically check your work for possible plagiarism. I
+do this in all my classes with written work. Except where noted,
+assignments are to be done individually. You must cite and reference
+work properly. When in doubt about citation, plagiarism, or
+collaboration, ASK.</p>
+<p>For help with submitting documents online, see <a
+href="https://online.utk.edu/students/assignment.shtml"
+class="uri">https://online.utk.edu/students/assignment.shtml</a>. There
+is a practice uploading assignment that will allow you to test to make
+sure you can upload files correctly before the pressure of a deadline.
+If there is a problem at the moment of a deadline, email me your work
+instead to verify it is done on time (but normally you should be using
+Canvas).</p>
+<p>Communication is very important. I have set up a forum on the Canvas
+site for our course. If you post a question there, I will immediately be
+emailed about it and will respond on the forum (though perhaps not
+immediately). Emailing me directly will not be any faster (though do
+email me if the issue is better addressed one-on-one). The benefit of
+using the forum is that everyone can see the answers and there’s a
+chance that one of the other students will answer the question first.
+Feel free to use the forum for other class-related discussions.</p>
+<p>Though we have the main Canvas site, and notices will come through
+there, I will also be posting things (like slides) to <a
+href="https://brianomeara.info/eeb464"
+class="uri">https://brianomeara.info/eeb464</a>. Why a second site? The
+Canvas site is only active during the course and only to students
+enrolled in the course. You might want to look at the materials in other
+semesters, show your friends/family what you were learning, etc., so I
+have the public site that will persist.</p>
+<p>Attendance is expected at all classes, though missing a class or two
+due to illness, family problem, etc. might happen. You can communicate
+with the Office of the Dean of Students (<a
+href="https://dos.utk.edu/absence-notifications/"
+class="uri">https://dos.utk.edu/absence-notifications/</a>) if you want
+to document absences (and this can be easier for you than doing it
+separately in each of your classes). Rarely, school is also canceled due
+to snow.</p>
+<p>Importantly, the Dean of Students Office can also offer you help –
+the usual reasons students are absent are not happy ones, and they may
+be able to point you to useful resources. One great resource in general
+is the 974-HELP line (865-974-4357: <a
+href="https://dos.utk.edu/974-help/our-approach/"
+class="uri">https://dos.utk.edu/974-help/our-approach/</a>) if you are
+worried about yourself or any other student, <strong>please call that
+line</strong>. Other options available from <a
+href="https://dos.utk.edu/" class="uri">https://dos.utk.edu/</a>, <a
+href="https://titleix.utk.edu/"
+class="uri">https://titleix.utk.edu/</a>, and <a
+href="https://bias.utk.edu/" class="uri">https://bias.utk.edu/</a>
+include ways to set up a meeting with a dean, report sexual misconduct,
+report bias-based incidents, or deal with other issues. I am of course
+happy to try to help as well.</p>
+<p>We will have discussions in nearly all classes. You should
+participate in them. Sometimes, discussions in a class such as this
+consist of students trying to return the right answer to the
+instructor’s question. To avoid this, sometimes I pursue a policy of not
+talking during a discussion for several minutes or longer so you have to
+talk to each other. This can result in complete silence. If you find
+this annoying, talk! Even if there is not a formal discussion, please
+ask questions at any point during class. Please be respectful of others
+in class discussions. A good discussion often features students talking
+with each other rather than just directing comments at me. When
+referring to others, be careful not to use the wrong pronoun for them: I
+personally go by he/him, but clearly that does not work for everyone
+(and please let me know what pronouns work best for you). In
+discussions, it can also be worth separating ideas from the people
+thinking them: “I don’t think that’s how speciation works” can lead to a
+more fluid discussion than, “You’re wrong about speciation.”</p>
+<p>Take notes. Any slides are an object to help you learn, but not the
+sole content: this is not a class where each slide is dense with bullet
+points, and as long as you can write them down on a test later, you get
+a good grade. There may be a slide with just a dinosaur on it and we
+talk for ten minutes about it: how did we know what it ate, what
+questions are still unresolved, etc. There are no written words on the
+slide, but still things you should learn from this discussion. So take
+notes during each class and look over them when you get home. On the
+final, you will be able to have a single sheet of paper with information
+– you can think about what should be on that paper, and revise as you
+go. For taking notes, a study (Mueller and Oppenheimer, 2014, <a
+href="https://doi.org/10.1177/0956797614524581"
+class="uri">https://doi.org/10.1177/0956797614524581</a>) suggests that
+you learn more taking notes by hand, on paper. That can be especially
+handy in this class, where we may use diagrams to illustrate concepts. I
+do not mandate taking notes by hand, as it does not work for everyone –
+if you want to take notes using a computer or other device, that is fine
+– but do try taking notes by hand if it might work for you. You may also
+record the class; I only ask that you respect your classmates’ privacy
+(people are learning, they should be getting things wrong and taking the
+risk of giving incorrect answers: I do not want people to be afraid of
+what they say being misused later).</p>
+<p>Late work is penalized at 10%/day (so something turned in 49 hours
+late is given a score 70% of what it would have received on the due
+date). Extensions are not normally granted. Remember that even if you
+turn something in seven days late, it is still worth more points than
+not turning it in at all (and the grading for the class is just #points
+received / #points available, so something getting 20/100 points is
+still worth twice something getting 10/100 points, even though they are
+both an “F” individually).</p>
+<p>My goal is to have you learn. If you are having trouble with
+something in the course, or if there is a topic you just have to learn
+more about, let me know (email, office hours, online forum, etc.).
+Faculty often use evaluations at the end of the semester to get info
+from students so we can improve before the next class, but this does not
+help you directly. To allow the class to improve while you are taking
+it, I have created a site for anonymous feedback at <a
+href="https://brianomeara.info/feedback.html"
+class="uri">https://brianomeara.info/feedback.html</a> (and yes, it is
+really anonymous). Let me know things that are going well or poorly —
+both are important. I might not implement all your suggestions, but they
+will all be read and considered, generally the same day you submit
+them.</p>
+<p>Please contact Student Disability Services (<a
+href="https://sds.utk.edu/" class="uri">https://sds.utk.edu/</a>) if you
+may need an appropriate accommodation plan.</p>
+<p>I never went to office hours as a student. That was a bad idea.
+Office hours are ways for you to talk to instructors about topics in the
+course or related issues – if you want to talk to me about applying to
+grad school, or labs you can do research in here, or a cool paper you
+read, come to office hours!</p>
+<p>All relevant University policies (including, but not limited to,
+policies on academic integrity, attendance, etc.) apply to this course.
+In the case of any conflict between the policies in this syllabus and
+University policy, University policy applies. The instructor reserves
+the right to revise, alter, and/or amend this syllabus as necessary.
+Students will be notified by email of any such revisions, alterations,
+and/or amendments.</p>
 </div>
 <div id="grading" class="section level3">
 <h3>Grading</h3>
 <ul>
-<li>100 points: Topic review. 1000 words, including references. Cover a macroevolutionary question: what is known about it, what is the state of work on it, what work might be done in the future? Work should be individual.</li>
-<li>100 points: Pair presentation. Imagine you are trying to get money to study a macroevolutionary question. You have to make a compelling case to a potential funder (i.e., the NSF will give you $15K to study it, or a professor might offer you a place in her lab to work on this). You should include 1) why that question is interesting (this should include what is known about it), 2) how you plan to address it, 3) what potential outcomes of your work may be, and 4) the implications of these. 10 minute talk (PowerPoint, Keynote, PDF, etc.). Be sure to include references in your slides.</li>
-<li>50 points: Class work. This includes quizzes, activities, and other in class assignments. In general, these will not be announced in advance. Note that 80 points will actually be assigned but the maximum score possible will be 50 points. The goal of this is to allow you to miss some classes without needing to bring a note justifying your absence.</li>
-<li>100 points each: Take home midterms. You may NOT work with classmates or other humans, but you can use notes, books, papers, etc. (though do not plagiarize them, not that the questions will be ones you can typically plagiarize).</li>
-<li>200 points: Final exam. Similar to the midterm, but with a bit more evaluation of rote knowledge.</li>
+<li>100 points: Topic review. 1000 words, including references. Cover a
+macroevolutionary question: what is known about it, what is the state of
+work on it, what work might be done in the future? Work should be
+individual.</li>
+<li>100 points: Pair presentation. Imagine you are trying to get money
+to study a macroevolutionary question. You have to make a compelling
+case to a potential funder (i.e., the NSF will give you $15K to study
+it, or a professor might offer you a place in her lab to work on this).
+You should include 1) why that question is interesting (this should
+include what is known about it), 2) how you plan to address it, 3) what
+potential outcomes of your work may be, and 4) the implications of
+these. 10 minute talk (PowerPoint, Keynote, PDF, etc.). Be sure to
+include references in your slides.</li>
+<li>50 points: Class work. This includes quizzes, activities, and other
+in class assignments. In general, these will not be announced in
+advance. Note that 80 points will actually be assigned but the maximum
+score possible will be 50 points. The goal of this is to allow you to
+miss some classes without needing to bring a note justifying your
+absence.</li>
+<li>100 points each: Take home midterms. You may NOT work with
+classmates or other humans, but you can use notes, books, papers, etc.
+(though do not plagiarize them, not that the questions will be ones you
+can typically plagiarize).</li>
+<li>200 points: Final exam. Similar to the midterm, but with a bit more
+evaluation of rote knowledge.</li>
 </ul>
-<p>In addition to these assignments, students will periodically be given articles to read for later discussion. Quizzes or other assignments will assess whether the articles have been read (and will be part of the class work grade).</p>
-<p>Final letter grades will be assigned at the end of the semester using an instructor-specified scale. I aim for grading consistency across years and with other courses at UTK. A typical scale for this class is below.</p>
+<p>In addition to these assignments, students will periodically be given
+articles to read for later discussion. Quizzes or other assignments will
+assess whether the articles have been read (and will be part of the
+class work grade).</p>
+<p>Final letter grades will be assigned at the end of the semester using
+an instructor-specified scale. I aim for grading consistency across
+years and with other courses at UTK. A typical scale for this class is
+below.</p>
 <table>
 <thead>
 <tr class="header">
@@ -504,6 +710,13 @@ $(document).ready(function () {
 <div id="schedule" class="section level3">
 <h3>Schedule</h3>
 <table>
+<colgroup>
+<col width="3%" />
+<col width="7%" />
+<col width="33%" />
+<col width="29%" />
+<col width="25%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th>#</th>
@@ -524,28 +737,32 @@ $(document).ready(function () {
 <tr class="even">
 <td>2</td>
 <td>23-Aug</td>
-<td><a href="files/UTKEEB464_Lecture1_History1_2019.pdf">History of planet &amp; life I</a></td>
+<td><a href="files/UTKEEB464_Lecture1_History1_2019.pdf">History of
+planet &amp; life I</a></td>
 <td>Crinoid</td>
 <td></td>
 </tr>
 <tr class="odd">
 <td>3</td>
 <td>26-Aug</td>
-<td><a href="files/UTKEEB464_Lecture02_History2_2019.pdf">History of planet &amp; life II</a></td>
+<td><a href="files/UTKEEB464_Lecture02_History2_2019.pdf">History of
+planet &amp; life II</a></td>
 <td>Archaea</td>
 <td></td>
 </tr>
 <tr class="even">
 <td>4</td>
 <td>28-Aug</td>
-<td><a href="files/UTKEEB464_Lecture03_Evidence_2019.pdf">Evidence</a></td>
+<td><a
+href="files/UTKEEB464_Lecture03_Evidence_2019.pdf">Evidence</a></td>
 <td><em>Anomalocaris</em></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td>5</td>
 <td>30-Aug</td>
-<td><a href="files/UTKEEB464_Lecture04_Taphonomy_2019.pdf">Taphonomy</a></td>
+<td><a
+href="files/UTKEEB464_Lecture04_Taphonomy_2019.pdf">Taphonomy</a></td>
 <td>Trilobite</td>
 <td></td>
 </tr>
@@ -566,63 +783,76 @@ $(document).ready(function () {
 <tr class="even">
 <td>7</td>
 <td>6-Sep</td>
-<td><a href="files/UTKEEB464_Lecture06_Phylogenetics_2019.pdf">Phylogenetics</a></td>
+<td><a
+href="files/UTKEEB464_Lecture06_Phylogenetics_2019.pdf">Phylogenetics</a></td>
 <td>Spiny anteater</td>
 <td></td>
 </tr>
 <tr class="odd">
 <td>8</td>
 <td>9-Sep</td>
-<td><a href="files/UTKEEB464_Lecture07_EmpiricalDistributions_2019.pdf">Empirical Distributions</a></td>
+<td><a
+href="files/UTKEEB464_Lecture07_EmpiricalDistributions_2019.pdf">Empirical
+Distributions</a></td>
 <td>Geospizinae</td>
 <td></td>
 </tr>
 <tr class="even">
 <td>9</td>
 <td>11-Sep</td>
-<td><a href="files/UTKEEB464_Lecture08_Biogeography_2019.pdf">Biogeography</a></td>
+<td><a
+href="files/UTKEEB464_Lecture08_Biogeography_2019.pdf">Biogeography</a></td>
 <td><em>Wolbachia</em></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td>10</td>
 <td>13-Sep</td>
-<td><a href="files/UTKEEB464_Lecture09_Speciation1_2019.pdf">Speciation I</a></td>
+<td><a href="files/UTKEEB464_Lecture09_Speciation1_2019.pdf">Speciation
+I</a></td>
 <td><em>Anolis</em></td>
 <td></td>
 </tr>
 <tr class="even">
 <td>11</td>
 <td>16-Sep</td>
-<td><a href="files/UTKEEB464_Lecture10_Speciation2_2019.pdf">Speciation II</a></td>
+<td><a href="files/UTKEEB464_Lecture10_Speciation2_2019.pdf">Speciation
+II</a></td>
 <td><em>Gasterosteus aculeatus</em></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td>12</td>
 <td>18-Sep</td>
-<td><a href="files/UTKEEB464_Lecture11_Extinction1_2019.pdf">Extinction I</a></td>
+<td><a href="files/UTKEEB464_Lecture11_Extinction1_2019.pdf">Extinction
+I</a></td>
 <td>Brachiopod</td>
 <td></td>
 </tr>
 <tr class="even">
 <td>13</td>
 <td>20-Sep</td>
-<td><a href="files/UTKEEB464_Lecture12_Diversification1_2019.pdf">Diversification I</a></td>
+<td><a
+href="files/UTKEEB464_Lecture12_Diversification1_2019.pdf">Diversification
+I</a></td>
 <td>Isopod</td>
 <td>Midterm 1 distributed</td>
 </tr>
 <tr class="odd">
 <td>14</td>
 <td>23-Sep</td>
-<td><a href="files/UTKEEB464_Lecture13_Diversification2_2019.pdf">Diversification II</a></td>
+<td><a
+href="files/UTKEEB464_Lecture13_Diversification2_2019.pdf">Diversification
+II</a></td>
 <td><em>Amborella</em></td>
 <td></td>
 </tr>
 <tr class="even">
 <td>15</td>
 <td>25-Sep</td>
-<td><a href="files/UTKEEB464_Lecture14_NaturalSelection_2019.pdf">Natural selection &amp; drift</a></td>
+<td><a
+href="files/UTKEEB464_Lecture14_NaturalSelection_2019.pdf">Natural
+selection &amp; drift</a></td>
 <td><em>Tribolium</em></td>
 <td></td>
 </tr>
@@ -643,21 +873,25 @@ $(document).ready(function () {
 <tr class="odd">
 <td>18</td>
 <td>2-Oct</td>
-<td><a href="files/UTKEEB464_Lecture17_Symbiosis_2019.pdf">Symbiosis</a></td>
+<td><a
+href="files/UTKEEB464_Lecture17_Symbiosis_2019.pdf">Symbiosis</a></td>
 <td>Naked mole rat</td>
 <td></td>
 </tr>
 <tr class="even">
 <td>19</td>
 <td>4-Oct</td>
-<td><a href="files/UTKEEB464_Lecture18_InclusiveFitness_2019.pdf">Inclusive fitness</a></td>
+<td><a
+href="files/UTKEEB464_Lecture18_InclusiveFitness_2019.pdf">Inclusive
+fitness</a></td>
 <td>Fig wasp</td>
 <td></td>
 </tr>
 <tr class="odd">
 <td>20</td>
 <td>7-Oct</td>
-<td><a href="files/UTKEEB464_Lecture19_GameTheory_2019.pdf">Game Theory</a></td>
+<td><a href="files/UTKEEB464_Lecture19_GameTheory_2019.pdf">Game
+Theory</a></td>
 <td></td>
 <td>Talk</td>
 </tr>
@@ -671,7 +905,8 @@ $(document).ready(function () {
 <tr class="odd">
 <td>22</td>
 <td>11-Oct</td>
-<td><a href="files/UTKEEB464_Lecture21_Systematics_2019.pdf">Systematics</a></td>
+<td><a
+href="files/UTKEEB464_Lecture21_Systematics_2019.pdf">Systematics</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -699,14 +934,18 @@ $(document).ready(function () {
 <tr class="odd">
 <td>25</td>
 <td>21-Oct</td>
-<td><a href="files/UTKEEB464_Lecture22_DiseaseEvolution_2019.pdf">Disease evolution</a></td>
+<td><a
+href="files/UTKEEB464_Lecture22_DiseaseEvolution_2019.pdf">Disease
+evolution</a></td>
 <td>Ground sloth</td>
 <td></td>
 </tr>
 <tr class="even">
 <td>26</td>
 <td>23-Oct</td>
-<td><a href="files/UTKEEB464_Lecture23_2019_StephenJayGould.pdf">Adaptationism / SJ Gould</a></td>
+<td><a
+href="files/UTKEEB464_Lecture23_2019_StephenJayGould.pdf">Adaptationism
+/ SJ Gould</a></td>
 <td><em>Thermus aquaticus</em></td>
 <td></td>
 </tr>
@@ -720,91 +959,108 @@ $(document).ready(function () {
 <tr class="even">
 <td>28</td>
 <td>28-Oct</td>
-<td><a href="files/UTKEEB464_Lecture25_Insects_2019.pdf">Insects</a></td>
+<td><a
+href="files/UTKEEB464_Lecture25_Insects_2019.pdf">Insects</a></td>
 <td><em>Spinosaurus</em></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td>29</td>
 <td>30-Oct</td>
-<td><a href="files/UTKEEB464_Lecture26_LanguageEvolution_2019.pdf">Language evolution</a></td>
+<td><a
+href="files/UTKEEB464_Lecture26_LanguageEvolution_2019.pdf">Language
+evolution</a></td>
 <td>Bonobo</td>
 <td></td>
 </tr>
 <tr class="even">
 <td>30</td>
 <td>1-Nov</td>
-<td><a href="files/UTKEEB464_Lecture27_2019_Domestication.pptx">Domestication</a></td>
+<td><a
+href="files/UTKEEB464_Lecture27_2019_Domestication.pptx">Domestication</a></td>
 <td><em>Buchnera</em></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td>31</td>
 <td>4-Nov</td>
-<td><a href="files/UTKEEB464_Lecture28_OriginOfLife_2019.pdf">Origin of life</a></td>
+<td><a href="files/UTKEEB464_Lecture28_OriginOfLife_2019.pdf">Origin of
+life</a></td>
 <td>Cuttlefish</td>
 <td></td>
 </tr>
 <tr class="even">
 <td>32</td>
 <td>6-Nov</td>
-<td><a href="files/UTKEEB464_Lecture29_InvasiveHumans_2019.pdf">Invasive humans</a></td>
+<td><a href="files/UTKEEB464_Lecture29_InvasiveHumans_2019.pdf">Invasive
+humans</a></td>
 <td>Silverfish</td>
 <td></td>
 </tr>
 <tr class="odd">
 <td>33</td>
 <td>8-Nov</td>
-<td><a href="files/UTKEEB464_Lecture30_2019_EvolutionOfIntelligence.pdf">Evolution of intelligence</a></td>
+<td><a
+href="files/UTKEEB464_Lecture30_2019_EvolutionOfIntelligence.pdf">Evolution
+of intelligence</a></td>
 <td>Cave bear</td>
 <td></td>
 </tr>
 <tr class="even">
 <td>34</td>
 <td>11-Nov</td>
-<td><a href="files/UTKEEB464_Lecture31_ContemporaryEvolution_2019.pdf">Contemporary Human Evolution</a></td>
+<td><a
+href="files/UTKEEB464_Lecture31_ContemporaryEvolution_2019.pdf">Contemporary
+Human Evolution</a></td>
 <td>Malaria</td>
 <td></td>
 </tr>
 <tr class="odd">
 <td>35</td>
 <td>13-Nov</td>
-<td><a href="files/UTKEEB464_Lecture32_Paleoart_2019.pdf">Paleoart</a></td>
+<td><a
+href="files/UTKEEB464_Lecture32_Paleoart_2019.pdf">Paleoart</a></td>
 <td><em>Trillium</em></td>
 <td></td>
 </tr>
 <tr class="even">
 <td>36</td>
 <td>15-Nov</td>
-<td><a href="files/UTKEEB464_Lecture33_Parthenogenesis_2019.pdf">Parthenogenesis</a></td>
+<td><a
+href="files/UTKEEB464_Lecture33_Parthenogenesis_2019.pdf">Parthenogenesis</a></td>
 <td>HIV</td>
 <td></td>
 </tr>
 <tr class="odd">
 <td>37</td>
 <td>18-Nov</td>
-<td><a href="files/UTKEEB464_Lecture34_InsectMetamorphosis_2019.pdf">Insect metamorphosis</a></td>
+<td><a
+href="files/UTKEEB464_Lecture34_InsectMetamorphosis_2019.pdf">Insect
+metamorphosis</a></td>
 <td>Passiflora</td>
 <td></td>
 </tr>
 <tr class="even">
 <td>38</td>
 <td>20-Nov</td>
-<td><a href="files/UTKEEB464_Lecture35_Cephalopods_2019.pdf">Cephalopods</a></td>
+<td><a
+href="files/UTKEEB464_Lecture35_Cephalopods_2019.pdf">Cephalopods</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td>39</td>
 <td>22-Nov</td>
-<td><a href="files/UTKEEB464_Lecture36_LenskiExperiment_2019.pdf">Lensky experiment</a></td>
+<td><a href="files/UTKEEB464_Lecture36_LenskiExperiment_2019.pdf">Lensky
+experiment</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr class="even">
 <td>40</td>
 <td>25-Nov</td>
-<td><a href="files/UTKEEB464_Lecture37_EyeEvolution_2019.pptx">Eye evolution</a></td>
+<td><a href="files/UTKEEB464_Lecture37_EyeEvolution_2019.pptx">Eye
+evolution</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -825,7 +1081,8 @@ $(document).ready(function () {
 <tr class="odd">
 <td>41</td>
 <td>2-Dec</td>
-<td><a href="files/UTKEEB464_Lecture38_SpiderEvolution_2019.pdf">Spider Evolution</a></td>
+<td><a href="files/UTKEEB464_Lecture38_SpiderEvolution_2019.pdf">Spider
+Evolution</a></td>
 <td><em>Quetzalcoatlus</em></td>
 <td></td>
 </tr>
@@ -847,96 +1104,161 @@ $(document).ready(function () {
 </table>
 <div id="midterm-1" class="section level4">
 <h4>Midterm 1:</h4>
-<p>12.5 points per question. Do not talk to any human about the questions, but looking information up is ok.   1. “We think early metazoan life was marine due to taphonomic bias,” says your friend. Argue for or against this statement. 2. Describe Dobzhansky-Muller incompatibilities and their importance. 3. Describe a major event in earth history and how life would be different today had it not happened. It cannot be the KT extinction or the end Permian extinction.  4. What would happen if Australia merged again with South America due to continental drift?  5. Give three examples, not from class, of how we can use phylogenies to understand macroevolution.  6. There is a fairly new method that lets you predict a speciation rate from the age of a species. How will you know if you can trust this? 7. How is knowing about causes of modern extinctions useful for understanding past extinctions? How could it be misleading? 8. Neanderthals and Homo sapiens interbred successfully in the past. A. Does this mean we were the same species? B. Why or why not? C. Does this matter, and why / why not?</p>
+<p>12.5 points per question. Do not talk to any human about the
+questions, but looking information up is ok.   1. “We think early
+metazoan life was marine due to taphonomic bias,” says your friend.
+Argue for or against this statement. 2. Describe Dobzhansky-Muller
+incompatibilities and their importance. 3. Describe a major event in
+earth history and how life would be different today had it not happened.
+It cannot be the KT extinction or the end Permian extinction.  4. What
+would happen if Australia merged again with South America due to
+continental drift?  5. Give three examples, not from class, of how we
+can use phylogenies to understand macroevolution.  6. There is a fairly
+new method that lets you predict a speciation rate from the age of a
+species. How will you know if you can trust this? 7. How is knowing
+about causes of modern extinctions useful for understanding past
+extinctions? How could it be misleading? 8. Neanderthals and Homo
+sapiens interbred successfully in the past. A. Does this mean we were
+the same species? B. Why or why not? C. Does this matter, and why / why
+not?</p>
 </div>
 <div id="midterm-2" class="section level4">
 <h4>Midterm 2:</h4>
-<p>12.5 points per question. Do not talk to any human about the questions, but looking information up is ok.</p>
+<p>12.5 points per question. Do not talk to any human about the
+questions, but looking information up is ok.</p>
 <ol style="list-style-type: decimal">
-<li>Some species use temperature for sex determination: in alligators, if it is warmer they develop as males, for example. How do you expect their sex ratio to change as temperatures rise over the next 100 years? Why?</li>
-<li>One hypothesis is that there is a trend for animal social structures to get more complex through time. How could you test this?</li>
-<li>What is chirality and why does it pose a challenge to many hypotheses for origins of life?</li>
-<li>Which hypothesis for evolution of bird flight do you find most compelling? Why?</li>
-<li>How would antiviral drugs that slow reproduction of viruses affect evolution of their virulence, and why?</li>
+<li>Some species use temperature for sex determination: in alligators,
+if it is warmer they develop as males, for example. How do you expect
+their sex ratio to change as temperatures rise over the next 100 years?
+Why?</li>
+<li>One hypothesis is that there is a trend for animal social structures
+to get more complex through time. How could you test this?</li>
+<li>What is chirality and why does it pose a challenge to many
+hypotheses for origins of life?</li>
+<li>Which hypothesis for evolution of bird flight do you find most
+compelling? Why?</li>
+<li>How would antiviral drugs that slow reproduction of viruses affect
+evolution of their virulence, and why?</li>
 <li>What was a mistake you think Darwin made? Explain why.</li>
 <li>Describe two ways species are delimited.</li>
-<li>How could pre-industrial humans have caused extinctions of large megafauna?</li>
+<li>How could pre-industrial humans have caused extinctions of large
+megafauna?</li>
 </ol>
 </div>
 <div id="final-study-guide" class="section level4">
 <h4>Final Study Guide</h4>
-<p>Study guide/possible exam questions for EEB464 Macroevolution. This focuses on the essay type questions for the exam, but there will be shorter answer (and remember the organism of the day).</p>
+<p>Study guide/possible exam questions for EEB464 Macroevolution. This
+focuses on the essay type questions for the exam, but there will be
+shorter answer (and remember the organism of the day).</p>
 <ol style="list-style-type: decimal">
 <li><p>Why may life have been single celled for a long time?</p></li>
-<li><p>Describe a major event (such as a mass extinction, colonization of land, etc.) and its subsequent effects.</p></li>
-<li><p>How do we learn about organisms with no living descendants, such as trilobites? How would living descendants affect how we can learn about them?</p></li>
+<li><p>Describe a major event (such as a mass extinction, colonization
+of land, etc.) and its subsequent effects.</p></li>
+<li><p>How do we learn about organisms with no living descendants, such
+as trilobites? How would living descendants affect how we can learn
+about them?</p></li>
 <li><p>Can behavior be fossilized? If so, give two examples.</p></li>
 <li><p>How can something become a fossil?</p></li>
-<li><p>How has continental drift affected the location of organisms?</p></li>
+<li><p>How has continental drift affected the location of
+organisms?</p></li>
 <li><p>Why don’t barracuda eat cleaner wrasse?</p></li>
 <li><p>Why bother making phylogenies?</p></li>
 <li><p>What is a phylogeny?</p></li>
 <li><p>Are species statistically independent?</p></li>
 <li><p>How can movement of land lead to speciation?</p></li>
 <li><p>What was the Great Faunal Interchange?</p></li>
-<li><p>Describe island biogeography. Why is it relevant to this class?</p></li>
+<li><p>Describe island biogeography. Why is it relevant to this
+class?</p></li>
 <li><p>Contrast pre and postzygotic mating barriers</p></li>
 <li><p>What are Dobzhansky-Muller Incompatibilities?</p></li>
 <li><p>Compare allopatric and sympatric speciation.</p></li>
-<li><p>How might hybrids have greater fitness than their parents?</p></li>
+<li><p>How might hybrids have greater fitness than their
+parents?</p></li>
 <li><p>Explain the importance of Wolbachia.</p></li>
-<li><p>Describe the cause of a contemporary group of extinctions.</p></li>
-<li><p>Give an example of a biological trait that may increase extinction risk. Why might it?</p></li>
-<li><p>How could phylogenetic diversity be useful for conservation?</p></li>
+<li><p>Describe the cause of a contemporary group of
+extinctions.</p></li>
+<li><p>Give an example of a biological trait that may increase
+extinction risk. Why might it?</p></li>
+<li><p>How could phylogenetic diversity be useful for
+conservation?</p></li>
 <li><p>Describe a simple model for species diversification.</p></li>
-<li><p>Compare and contrast speciation rate and diversification rate.</p></li>
-<li><p>How may trait transitions and diversification rates together affect evolution of a group?</p></li>
-<li><p>Which requirement for natural selection is most important? Why?</p></li>
-<li><p>What, in the context of this class, is an advantage of sexual reproduction?</p></li>
+<li><p>Compare and contrast speciation rate and diversification
+rate.</p></li>
+<li><p>How may trait transitions and diversification rates together
+affect evolution of a group?</p></li>
+<li><p>Which requirement for natural selection is most important?
+Why?</p></li>
+<li><p>What, in the context of this class, is an advantage of sexual
+reproduction?</p></li>
 <li><p>Describe Muller’s ratchet</p></li>
 <li><p>Describe one mechanism of sexual selection.</p></li>
 <li><p>What is Cope’s rule? Why might it be true?</p></li>
 <li><p>Contrast a passive and an active trend.</p></li>
 <li><p>How would you detect evidence of a trend?</p></li>
-<li><p>Contrast mutualism with parasitism. How can one change into the other?</p></li>
+<li><p>Contrast mutualism with parasitism. How can one change into the
+other?</p></li>
 <li><p>Give an example of a commensalism.</p></li>
 <li><p>What is an evolutionarily stable strategy?</p></li>
 <li><p>Why is “the good of the species” a problematic concept?</p></li>
 <li><p>Why might a prey item call out to a predator?</p></li>
 <li><p>What is inclusive fitness?</p></li>
 <li><p>What is Hamilton’s rule?</p></li>
-<li><p>Give a behavior the idea of inclusive fitness could explain.</p></li>
+<li><p>Give a behavior the idea of inclusive fitness could
+explain.</p></li>
 <li><p>Why can delimiting two species be hard?</p></li>
 <li><p>Relate Darwin’s work on reefs to his work on evolution.</p></li>
-<li><p>What are some potential reasons that gliding evolves much more often than flight?</p></li>
+<li><p>What are some potential reasons that gliding evolves much more
+often than flight?</p></li>
 <li><p>Why does science utilize peer review?</p></li>
-<li><p>What evidence links humans to some megafaunal extinctions?</p></li>
+<li><p>What evidence links humans to some megafaunal
+extinctions?</p></li>
 <li><p>How did Gould contribute to macroevolution?</p></li>
-<li><p>What is the utility of simulation for understanding macroevolution?</p></li>
-<li><p>Pasteur showed life does not spontaneously appear. Biologists believe life originally spontaneously appeared. Reconcile these views.</p></li>
-<li><p>Use insects as an example of a macroevolutionary process.</p></li>
+<li><p>What is the utility of simulation for understanding
+macroevolution?</p></li>
+<li><p>Pasteur showed life does not spontaneously appear. Biologists
+believe life originally spontaneously appeared. Reconcile these
+views.</p></li>
+<li><p>Use insects as an example of a macroevolutionary
+process.</p></li>
 <li><p>What factors affect evolution of virulence? Why?</p></li>
 <li><p>What is domestication? How does it happen?</p></li>
-<li><p>Does flight lead to lower extinction risk? What is your hypothesis, and how would you evaluate this?</p></li>
+<li><p>Does flight lead to lower extinction risk? What is your
+hypothesis, and how would you evaluate this?</p></li>
 <li><p>What are some ways that parthenogenesis evolves?</p></li>
-<li><p>How can we assess whether (pre-writing) human arrival in an area led to an extinction of macrofauna?</p></li>
-<li><p>Give an example from class of evolution happening in modern humans.</p></li>
-<li><p>Compare and contrast a squid, human, and fly eye. Are they homologous?</p></li>
-<li><p>Draw a phylogeny of 10 species; label three synapomorphies.</p></li>
-<li><p>Based on information from this class, why is there only evidence for one origin of life on the planet?</p></li>
+<li><p>How can we assess whether (pre-writing) human arrival in an area
+led to an extinction of macrofauna?</p></li>
+<li><p>Give an example from class of evolution happening in modern
+humans.</p></li>
+<li><p>Compare and contrast a squid, human, and fly eye. Are they
+homologous?</p></li>
+<li><p>Draw a phylogeny of 10 species; label three
+synapomorphies.</p></li>
+<li><p>Based on information from this class, why is there only evidence
+for one origin of life on the planet?</p></li>
 <li><p>How can we reconstruct language evolution?</p></li>
 <li><p>Are mutations usually adaptive? How do we know?</p></li>
 <li><p>How has paleoart for dinosaurs changed over time?</p></li>
 <li><p>How does paleoart matter for macroevolution?</p></li>
 <li><p>Describe major events in spider evolution</p></li>
-<li><p>Which is more intelligent, dolphins or ravens? How would you test this?</p></li>
+<li><p>Which is more intelligent, dolphins or ravens? How would you test
+this?</p></li>
 <li><p>How can we assess parthenogenesis in wild specimens?</p></li>
-<li><p>Compare and contrast Hamilton’s rule and inclusive fitness.</p></li>
-<li><p>Scientists recently found a tree stump that was kept alive by connecting to a network of other roots: it respired but did not photosynthesize. How could this ability have evolved?</p></li>
-<li><p>Is insect metamorphosis adaptive? How could you test this?</p></li>
-<li><p>Ignoring invasive species, development of pesticides, or similar effects, how would the advent of the US interstate network, which allowed more connection between insect populations, have affected virulence of diseases in insects? Why?</p></li>
-<li><p>NASA is planning missions to explore Europa, which has an ice-covered water ocean. Assuming there is life there, what you predict it will be (nutrition, size, etc.)? Why?</p></li>
-<li><p>Can evolution ever lead to loss of defensive structures? Give an example</p></li>
+<li><p>Compare and contrast Hamilton’s rule and inclusive
+fitness.</p></li>
+<li><p>Scientists recently found a tree stump that was kept alive by
+connecting to a network of other roots: it respired but did not
+photosynthesize. How could this ability have evolved?</p></li>
+<li><p>Is insect metamorphosis adaptive? How could you test
+this?</p></li>
+<li><p>Ignoring invasive species, development of pesticides, or similar
+effects, how would the advent of the US interstate network, which
+allowed more connection between insect populations, have affected
+virulence of diseases in insects? Why?</p></li>
+<li><p>NASA is planning missions to explore Europa, which has an
+ice-covered water ocean. Assuming there is life there, what you predict
+it will be (nutrition, size, etc.)? Why?</p></li>
+<li><p>Can evolution ever lead to loss of defensive structures? Give an
+example</p></li>
 </ol>
 <hr />
 </div>
@@ -948,111 +1270,308 @@ $(document).ready(function () {
 <p>Office hrs: 11-12 M and by appointment; 446 Hesler</p>
 <p>Meeting time: 10:10-11:00 MWF, 412 Buehler</p>
 <p>Description:</p>
-<p>The course is a lecture format course with classroom discussion and participation. Students are introduced to fundamental concepts in macroevolution including current areas of debate (drivers of evolutionary rates, modes of speciation, etc.) and taught to think critically. Computer-based exercises, especially simulations, will allow students to learn how processes acting on short to medium time scales affect long term patterns. 3 credits</p>
-<p>To understand macroevolution, it is important to learn about who, what, where, when, how, and why.</p>
+<p>The course is a lecture format course with classroom discussion and
+participation. Students are introduced to fundamental concepts in
+macroevolution including current areas of debate (drivers of
+evolutionary rates, modes of speciation, etc.) and taught to think
+critically. Computer-based exercises, especially simulations, will allow
+students to learn how processes acting on short to medium time scales
+affect long term patterns. 3 credits</p>
+<p>To understand macroevolution, it is important to learn about who,
+what, where, when, how, and why.</p>
 <p>Who: Organisms</p>
-<p>What: Non-living context (rocks from space, environmental conditions)</p>
+<p>What: Non-living context (rocks from space, environmental
+conditions)</p>
 <p>Where: Biogeography (on Pangaea or Bermuda?)</p>
 <p>When: Geological time scale</p>
 <p>How: Pattern of evolution</p>
 <p>Why: Process of evolution</p>
-<p>The course will cover all these areas. The ones that are most interesting, of course, are the how and especially the why. These are also the best to cover in class, where there can be discussion and other interaction. Rote learning (word meanings and the like) is something that you should be able to do on your own at this point in your education, with occasional guidance. We’re not going to use much class time on this, but you will have to learn this info. I will clearly describe what you do have to learn (and if it’s not clear, ASK), and quizzes and tests will be ways to evaluate your progress and provide further incentive to learn.</p>
+<p>The course will cover all these areas. The ones that are most
+interesting, of course, are the how and especially the why. These are
+also the best to cover in class, where there can be discussion and other
+interaction. Rote learning (word meanings and the like) is something
+that you should be able to do on your own at this point in your
+education, with occasional guidance. We’re not going to use much class
+time on this, but you will have to learn this info. I will clearly
+describe what you do have to learn (and if it’s not clear, ASK), and
+quizzes and tests will be ways to evaluate your progress and provide
+further incentive to learn.</p>
 <p><strong>Biology program learning objectives:</strong></p>
 <p>I include how this course addresses these in <em>italics.</em></p>
-<p>Explain and provide examples of each the five big ideas in Biology, using their knowledge of biological concepts gained from their course of study:</p>
+<p>Explain and provide examples of each the five big ideas in Biology,
+using their knowledge of biological concepts gained from their course of
+study:</p>
 <ul>
-<li><p>Evolution: Populations of organisms and their cellular components have changed over time through both selective and non-selective evolutionary processes. <em>This is the main point of the course, and will be covered in every lecture and activity.</em></p></li>
-<li><p>Structure and Function: All living systems (organisms, ecosystems, etc.) are made of structural components whose arrangement determines the function of the systems. <em>This will be highlighted especially in the discussions of morphological evolution (flight, insects, etc.)</em></p></li>
-<li><p>Information Flow and Storage: Information (DNA, for example) and signals are used and exchanged within and among organisms to direct their functioning. <em>Origin of life will cover this extensively.</em></p></li>
-<li><p>Transformations of Energy and Matter: All living things acquire, use, and release and cycle matter and energy for cellular / organismal functioning. <em>The discussion of escalation focuses on this, and it comes up in background on the focal organisms.</em></p></li>
-<li><p>Systems: Living systems are interconnected, and they interact and influence each other on multiple levels. <em>Speciation, extinction, discussion, and history of life all cover this.</em></p></li>
+<li><p>Evolution: Populations of organisms and their cellular components
+have changed over time through both selective and non-selective
+evolutionary processes. <em>This is the main point of the course, and
+will be covered in every lecture and activity.</em></p></li>
+<li><p>Structure and Function: All living systems (organisms,
+ecosystems, etc.) are made of structural components whose arrangement
+determines the function of the systems. <em>This will be highlighted
+especially in the discussions of morphological evolution (flight,
+insects, etc.)</em></p></li>
+<li><p>Information Flow and Storage: Information (DNA, for example) and
+signals are used and exchanged within and among organisms to direct
+their functioning. <em>Origin of life will cover this
+extensively.</em></p></li>
+<li><p>Transformations of Energy and Matter: All living things acquire,
+use, and release and cycle matter and energy for cellular / organismal
+functioning. <em>The discussion of escalation focuses on this, and it
+comes up in background on the focal organisms.</em></p></li>
+<li><p>Systems: Living systems are interconnected, and they interact and
+influence each other on multiple levels. <em>Speciation, extinction,
+discussion, and history of life all cover this.</em></p></li>
 </ul>
-<p>Demonstrate the ability to perform the following scientific practices:</p>
+<p>Demonstrate the ability to perform the following scientific
+practices:</p>
 <ul>
-<li><p>Formulate empirically-testable hypotheses. <em>This is the point of the final presentation.</em></p></li>
-<li><p>Interpret visual representations (figures and diagrams). <em>These will come up throughout the class, especially in the context of phylogenetic trees.</em></p></li>
-<li><p>Evaluate data and come to a conclusion (with evidence) (formulate an argument). <em>Much of class discussion emphasizes this skill: I’ll present information and have you elaborate on this and provide potential explanations.</em></p></li>
+<li><p>Formulate empirically-testable hypotheses. <em>This is the point
+of the final presentation.</em></p></li>
+<li><p>Interpret visual representations (figures and diagrams).
+<em>These will come up throughout the class, especially in the context
+of phylogenetic trees.</em></p></li>
+<li><p>Evaluate data and come to a conclusion (with evidence) (formulate
+an argument). <em>Much of class discussion emphasizes this skill: I’ll
+present information and have you elaborate on this and provide potential
+explanations.</em></p></li>
 </ul>
 <p><strong>Course learning objectives:</strong></p>
 <p>By the end of this course, students will be able to:</p>
 <ul>
-<li><p>Formulate, defend, and critically evaluate hypotheses about evolutionary mechanisms</p></li>
-<li><p>Understand the context and reason for evolutionary patterns</p></li>
-<li><p>Interpret information from fossils, phylogenies, and other data sources</p></li>
-<li><p>Generate ideas for feasible, compelling scientific projects</p></li>
+<li><p>Formulate, defend, and critically evaluate hypotheses about
+evolutionary mechanisms</p></li>
+<li><p>Understand the context and reason for evolutionary
+patterns</p></li>
+<li><p>Interpret information from fossils, phylogenies, and other data
+sources</p></li>
+<li><p>Generate ideas for feasible, compelling scientific
+projects</p></li>
 </ul>
-<p>To really understand evolution and converse with other scientists, you have to know the names of some groups (imagine trying to talk about the history of some musical genre without knowing the names of any musicians or songs in that genre). Thus, most days, you will be responsible for learning about a particular taxon (on the syllabus, below). This could be a single species or a clade of many species. You should learn very basic info: what is it, what is it related to (i.e., where it attaches to the tree of life we will grow over the class), why it is important to know. For example: “Angiosperms: all flowering plants, lots of species, became common in the Cretaceous but may have originated earlier, sister to Gnetales.” Working together on the website forum to get this info is encouraged (you can decide to rotate the job, let whoever gets the info first post it, etc.). What I really care about is that you learn it. Note that some of the taxa may be subsets of the other taxa (elephants are a kind of vertebrate).</p>
-<p>Writing and presentations will be graded on a variety of levels, such as grammar, structure, and substance. The purpose of grading and comments is to improve your writing. Remember that your writing is being graded, not you.</p>
-<p>Word count sets a minimum length (and references are not counted) but you may go a bit longer if needed (try to keep below 125% of required length). Since length is judged by words, not page length, please don’t do any odd formatting of your paper (huge or tiny margins, font sizes of 8 or 18, etc.) to try to meet some page limits.</p>
-<p>Papers/midterms will be turned in via the course website (Canvas). This eliminates issues with printers, odd file formats, and the like. The site will automatically check your work for possible plagiarism. I do this in all my classes with written work. Except where noted, assignments are to be done individually. You must cite and reference work properly. <strong>When in doubt about citation, plagiarism, or collaboration, ASK.</strong> Please turn in work as plain text or RDF. This makes it easier for me to put them in one document so I can give you back grades with comments.</p>
-<p>For help with submitting documents online, see <a href="https://online.utk.edu/students/assignment.shtml" class="uri">https://online.utk.edu/students/assignment.shtml</a>. There is a practice uploading assignment that will allow you to test to make sure you can upload files correctly before the pressure of a deadline. If there is a problem at the moment of a deadline, email me your work instead to verify it is done on time (but normally you should be using Canvas).</p>
-<p>Communication is very important. I have set up a forum on the Canvas site for our course. If you post a question there, I will immediately be emailed about it and will respond on the forum (though perhaps not immediately). Emailing me directly will not be any faster (though do email me if the issue is better addressed one-on-one). The benefit of using the forum is that everyone can see the answers and there’s a chance that one of the other students will answer the question first. Feel free to use the forum for other class-related discussions.</p>
-<p>Though we have the main Canvas site, and notices will come through there, I will also be posting things (like slides) to <a href="https://brianomeara.info/category/macroevolution/" class="uri">https://brianomeara.info/category/macroevolution/</a> . Why a second site? The Canvas site is only active during the course and only to students enrolled in the course. You might want to look at the materials in other semesters, show your friends/family what you were learning, etc., so I have the public site that will persist.</p>
-<p>Attendance is expected at all classes, though missing a class or two due to illness, family problem, etc. might happen (and is strongly suggested in the case of flu: <a href="https://studenthealth.utk.edu/common_avoidflu.php" class="uri">https://studenthealth.utk.edu/common_avoidflu.php</a> )</p>
-<p>We will have discussions in nearly all classes. You should participate in them. Sometimes, discussions in a class such as this consist of students trying to return the right answer to the instructor’s question. To avoid this, sometimes I pursue a policy of not talking during a discussion for several minutes or longer so you have to talk to each other. This can result in complete silence. If you find this annoying, talk! Even if there is not a formal discussion, please ask questions at any point during class.</p>
-<p>Late work is penalized at 10%/day (so something turned in 49 hours late is given a score 70% of what it would have received on the due date). Extensions are not normally granted, except under extraordinary circumstances (having too much work to do does not qualify, for example). Remember that even if you turn something in seven days late, it is still worth more points than not turning it in at all (and the grading for the class is just #points received / #points available, so something getting 20/100 points is still worth twice something getting 10/100 points, even though they are both an “F” individually).</p>
-<p>My goal is to have you learn. If you are having trouble with something in the course, or if there is a topic you just have to learn more about, let me know (email, office hours, online forum, etc.). Faculty often use evaluations at the end of the semester to get info from students so we can improve before the next class, but this does not help you directly. <strong>To allow the class to improve while you are taking it, I have created a site for anonymous feedback at <a href="https://brianomeara.info/teaching/feedback/" class="uri">https://brianomeara.info/teaching/feedback/</a></strong> (and yes, it is really anonymous). Let me know things that are going well or poorly — both are important. I might not implement all your suggestions, but they will all be read and considered, generally the same day you submit them.</p>
-<p>Any student who feels s/he may need an accommodation based on the impact of a disability should contact me privately to discuss specific needs. Please contact the Office of Disability Services at 865-974-6087 in Dunford Hall to coordinate reasonable accommodations for students with documented disabilities.</p>
-<p>All relevant University policies (including, but not limited to, policies on academic integrity, attendance, etc.) apply to this course. In the case of any conflict between the policies in this syllabus and University policy, University policy applies. The instructor reserves the right to revise, alter, and/or amend this syllabus as necessary. Students will be notified by email of any such revisions, alterations, and/or amendments.</p>
+<p>To really understand evolution and converse with other scientists,
+you have to know the names of some groups (imagine trying to talk about
+the history of some musical genre without knowing the names of any
+musicians or songs in that genre). Thus, most days, you will be
+responsible for learning about a particular taxon (on the syllabus,
+below). This could be a single species or a clade of many species. You
+should learn very basic info: what is it, what is it related to (i.e.,
+where it attaches to the tree of life we will grow over the class), why
+it is important to know. For example: “Angiosperms: all flowering
+plants, lots of species, became common in the Cretaceous but may have
+originated earlier, sister to Gnetales.” Working together on the website
+forum to get this info is encouraged (you can decide to rotate the job,
+let whoever gets the info first post it, etc.). What I really care about
+is that you learn it. Note that some of the taxa may be subsets of the
+other taxa (elephants are a kind of vertebrate).</p>
+<p>Writing and presentations will be graded on a variety of levels, such
+as grammar, structure, and substance. The purpose of grading and
+comments is to improve your writing. Remember that your writing is being
+graded, not you.</p>
+<p>Word count sets a minimum length (and references are not counted) but
+you may go a bit longer if needed (try to keep below 125% of required
+length). Since length is judged by words, not page length, please don’t
+do any odd formatting of your paper (huge or tiny margins, font sizes of
+8 or 18, etc.) to try to meet some page limits.</p>
+<p>Papers/midterms will be turned in via the course website (Canvas).
+This eliminates issues with printers, odd file formats, and the like.
+The site will automatically check your work for possible plagiarism. I
+do this in all my classes with written work. Except where noted,
+assignments are to be done individually. You must cite and reference
+work properly. <strong>When in doubt about citation, plagiarism, or
+collaboration, ASK.</strong> Please turn in work as plain text or RDF.
+This makes it easier for me to put them in one document so I can give
+you back grades with comments.</p>
+<p>For help with submitting documents online, see <a
+href="https://online.utk.edu/students/assignment.shtml"
+class="uri">https://online.utk.edu/students/assignment.shtml</a>. There
+is a practice uploading assignment that will allow you to test to make
+sure you can upload files correctly before the pressure of a deadline.
+If there is a problem at the moment of a deadline, email me your work
+instead to verify it is done on time (but normally you should be using
+Canvas).</p>
+<p>Communication is very important. I have set up a forum on the Canvas
+site for our course. If you post a question there, I will immediately be
+emailed about it and will respond on the forum (though perhaps not
+immediately). Emailing me directly will not be any faster (though do
+email me if the issue is better addressed one-on-one). The benefit of
+using the forum is that everyone can see the answers and there’s a
+chance that one of the other students will answer the question first.
+Feel free to use the forum for other class-related discussions.</p>
+<p>Though we have the main Canvas site, and notices will come through
+there, I will also be posting things (like slides) to <a
+href="https://brianomeara.info/category/macroevolution/"
+class="uri">https://brianomeara.info/category/macroevolution/</a> . Why
+a second site? The Canvas site is only active during the course and only
+to students enrolled in the course. You might want to look at the
+materials in other semesters, show your friends/family what you were
+learning, etc., so I have the public site that will persist.</p>
+<p>Attendance is expected at all classes, though missing a class or two
+due to illness, family problem, etc. might happen (and is strongly
+suggested in the case of flu: <a
+href="https://studenthealth.utk.edu/common_avoidflu.php"
+class="uri">https://studenthealth.utk.edu/common_avoidflu.php</a> )</p>
+<p>We will have discussions in nearly all classes. You should
+participate in them. Sometimes, discussions in a class such as this
+consist of students trying to return the right answer to the
+instructor’s question. To avoid this, sometimes I pursue a policy of not
+talking during a discussion for several minutes or longer so you have to
+talk to each other. This can result in complete silence. If you find
+this annoying, talk! Even if there is not a formal discussion, please
+ask questions at any point during class.</p>
+<p>Late work is penalized at 10%/day (so something turned in 49 hours
+late is given a score 70% of what it would have received on the due
+date). Extensions are not normally granted, except under extraordinary
+circumstances (having too much work to do does not qualify, for
+example). Remember that even if you turn something in seven days late,
+it is still worth more points than not turning it in at all (and the
+grading for the class is just #points received / #points available, so
+something getting 20/100 points is still worth twice something getting
+10/100 points, even though they are both an “F” individually).</p>
+<p>My goal is to have you learn. If you are having trouble with
+something in the course, or if there is a topic you just have to learn
+more about, let me know (email, office hours, online forum, etc.).
+Faculty often use evaluations at the end of the semester to get info
+from students so we can improve before the next class, but this does not
+help you directly. <strong>To allow the class to improve while you are
+taking it, I have created a site for anonymous feedback at <a
+href="https://brianomeara.info/teaching/feedback/"
+class="uri">https://brianomeara.info/teaching/feedback/</a></strong>
+(and yes, it is really anonymous). Let me know things that are going
+well or poorly — both are important. I might not implement all your
+suggestions, but they will all be read and considered, generally the
+same day you submit them.</p>
+<p>Any student who feels s/he may need an accommodation based on the
+impact of a disability should contact me privately to discuss specific
+needs. Please contact the Office of Disability Services at 865-974-6087
+in Dunford Hall to coordinate reasonable accommodations for students
+with documented disabilities.</p>
+<p>All relevant University policies (including, but not limited to,
+policies on academic integrity, attendance, etc.) apply to this course.
+In the case of any conflict between the policies in this syllabus and
+University policy, University policy applies. The instructor reserves
+the right to revise, alter, and/or amend this syllabus as necessary.
+Students will be notified by email of any such revisions, alterations,
+and/or amendments.</p>
 <p><strong><br />
 Grading:</strong></p>
-<p>100 points: Topic review. 1000 words, including references. Cover a macroevolutionary question: what is known about it, what is the state of work on it, what work might be done in the future? Work should be individual.</p>
-<p>100 points: Pair presentation. Imagine you are trying to get money to study a macroevolutionary question. You have to make a compelling case to a potential funder (i.e., the NSF will give you $15K to study it, or a professor might offer you a place in her lab to work on this). You should include 1) why that question is interesting (this should include what is known about it), 2) how you plan to address it, 3) what potential outcomes of your work may be, and 4) the implications of these. 10 minute talk (PowerPoint, Keynote, PDF, etc.). Be sure to include references in your slides.</p>
-<p>50 points: Class work. This includes quizzes, activities, and other in class assignments. In general, these will not be announced in advance. Note that 80 points will actually be assigned but the maximum score possible will be 50 points. The goal of this is to allow you to miss some classes (due to illness, death in the family, or other such reasons) without needing to bring a note justifying your absence.</p>
-<p>100 points each: Take home midterms. You may NOT work with classmates or other humans, but you can use notes, books, papers, etc. (though do not plagiarize them, not that the questions will be ones you can typically plagiarize).</p>
-<p>200 points: Final exam. Similar to the midterm, but with a bit more evaluation of rote knowledge.</p>
-<p>In addition to these assignments, students will periodically be given articles to read for later discussion. Quizzes or other assignments will assess whether the articles have been read.</p>
-<p>Final letter grades will be assigned at the end of the semester using an instructor-specified scale. I aim for grading consistency across years and with other courses at UTK.</p>
+<p>100 points: Topic review. 1000 words, including references. Cover a
+macroevolutionary question: what is known about it, what is the state of
+work on it, what work might be done in the future? Work should be
+individual.</p>
+<p>100 points: Pair presentation. Imagine you are trying to get money to
+study a macroevolutionary question. You have to make a compelling case
+to a potential funder (i.e., the NSF will give you $15K to study it, or
+a professor might offer you a place in her lab to work on this). You
+should include 1) why that question is interesting (this should include
+what is known about it), 2) how you plan to address it, 3) what
+potential outcomes of your work may be, and 4) the implications of
+these. 10 minute talk (PowerPoint, Keynote, PDF, etc.). Be sure to
+include references in your slides.</p>
+<p>50 points: Class work. This includes quizzes, activities, and other
+in class assignments. In general, these will not be announced in
+advance. Note that 80 points will actually be assigned but the maximum
+score possible will be 50 points. The goal of this is to allow you to
+miss some classes (due to illness, death in the family, or other such
+reasons) without needing to bring a note justifying your absence.</p>
+<p>100 points each: Take home midterms. You may NOT work with classmates
+or other humans, but you can use notes, books, papers, etc. (though do
+not plagiarize them, not that the questions will be ones you can
+typically plagiarize).</p>
+<p>200 points: Final exam. Similar to the midterm, but with a bit more
+evaluation of rote knowledge.</p>
+<p>In addition to these assignments, students will periodically be given
+articles to read for later discussion. Quizzes or other assignments will
+assess whether the articles have been read.</p>
+<p>Final letter grades will be assigned at the end of the semester using
+an instructor-specified scale. I aim for grading consistency across
+years and with other courses at UTK.</p>
 <div class="figure">
 <img src="FluttershyPhylogeny.jpg" alt="" />
 <p class="caption">Fluttershy teaching about phylogenetics</p>
 </div>
 <div id="presentations" class="section level4">
 <h4>Presentations</h4>
-<p>Here are all the presentations. Each class starts with learning objectives for that class.</p>
+<p>Here are all the presentations. Each class starts with learning
+objectives for that class.</p>
 <ul>
-<li>History of earth 1 <a href="files/UTKEEB464_Lecture01_History1_2018.pdf">pdf</a></li>
-<li>History of earth 2 <a href="files/UTKEEB464_Lecture02_History2_2018.pdf">pdf</a></li>
-<li>Evidence <a href="files/UTKEEB464_Lecture03_Evidence_2018.pdf">pdf</a></li>
-<li>Taphonomy <a href="files/UTKEEB464_Lecture04_Taphonomy_2018.pdf">pdf</a></li>
-<li>Jargon <a href="files/UTKEEB464_Lecture05_Jargon_2018.pdf">pdf</a></li>
-<li>Phylogenetics <a href="files/UTKEEB464_Lecture06_Phylogenetics_2018.pdf">pdf</a></li>
-<li>Empirical distributions <a href="files/UTKEEB464_Lecture07_EmpiricalDistributions_2018.pdf">pdf</a></li>
-<li>Biogeography <a href="files/UTKEEB464_Lecture08_Biogeography_2018.pdf">pdf</a></li>
-<li>Speciation 1 <a href="files/UTKEEB464_Lecture09_Speciation1_2018.pdf">pdf</a></li>
-<li>Speciation 2 <a href="files/UTKEEB464_Lecture10_Speciation2_2018.pdf">pdf</a></li>
-<li>Extinction 1 <a href="files/UTKEEB464_Lecture11_Extinction1_2018.pdf">pdf</a></li>
-<li>Extinction 2 <a href="files/UTKEEB464_Lecture12_Extinction2_2018.pdf">pdf</a></li>
-<li>Diversification 1 <a href="files/UTKEEB464_Lecture13_Diversification_2018.pdf">pdf</a></li>
-<li>Diversification 2 <a href="files/UTKEEB464_Lecture14_Diversification2_2018.pdf">pdf</a></li>
-<li>Natural selection <a href="files/UTKEEB464_Lecture15_NaturalSelection_2018.pdf">pdf</a></li>
+<li>History of earth 1 <a
+href="files/UTKEEB464_Lecture01_History1_2018.pdf">pdf</a></li>
+<li>History of earth 2 <a
+href="files/UTKEEB464_Lecture02_History2_2018.pdf">pdf</a></li>
+<li>Evidence <a
+href="files/UTKEEB464_Lecture03_Evidence_2018.pdf">pdf</a></li>
+<li>Taphonomy <a
+href="files/UTKEEB464_Lecture04_Taphonomy_2018.pdf">pdf</a></li>
+<li>Jargon <a
+href="files/UTKEEB464_Lecture05_Jargon_2018.pdf">pdf</a></li>
+<li>Phylogenetics <a
+href="files/UTKEEB464_Lecture06_Phylogenetics_2018.pdf">pdf</a></li>
+<li>Empirical distributions <a
+href="files/UTKEEB464_Lecture07_EmpiricalDistributions_2018.pdf">pdf</a></li>
+<li>Biogeography <a
+href="files/UTKEEB464_Lecture08_Biogeography_2018.pdf">pdf</a></li>
+<li>Speciation 1 <a
+href="files/UTKEEB464_Lecture09_Speciation1_2018.pdf">pdf</a></li>
+<li>Speciation 2 <a
+href="files/UTKEEB464_Lecture10_Speciation2_2018.pdf">pdf</a></li>
+<li>Extinction 1 <a
+href="files/UTKEEB464_Lecture11_Extinction1_2018.pdf">pdf</a></li>
+<li>Extinction 2 <a
+href="files/UTKEEB464_Lecture12_Extinction2_2018.pdf">pdf</a></li>
+<li>Diversification 1 <a
+href="files/UTKEEB464_Lecture13_Diversification_2018.pdf">pdf</a></li>
+<li>Diversification 2 <a
+href="files/UTKEEB464_Lecture14_Diversification2_2018.pdf">pdf</a></li>
+<li>Natural selection <a
+href="files/UTKEEB464_Lecture15_NaturalSelection_2018.pdf">pdf</a></li>
 <li>Sex <a href="files/UTKEEB464_Lecture16_Sex_2018.pdf">pdf</a></li>
-<li>Trends <a href="files/UTKEEB464_Lecture17_Trends_2018.pdf">pdf</a></li>
-<li>Symbiosis <a href="files/UTKEEB464_Lecture18_Symbiosis_2018.pdf">pdf</a></li>
-<li>Game theory <a href="files/UTKEEB464_Lecture19_GameTheory_2018.pdf">pdf</a></li>
-<li>Inclusive fitness <a href="files/UTKEEB464_Lecture20_InclusiveFitness_2018.pdf">pdf</a></li>
-<li>Systematics <a href="files/UTKEEB464_Lecture21_Systematics_2018.pdf">pdf</a></li>
-<li>Darwin <a href="files/UTKEEB464_Lecture22_Darwin_2018.pdf">pdf</a></li>
-<li>Disease evolution <a href="files/UTKEEB464_Lecture22_Darwin_2018.pdf">pdf</a></li>
-<li>Flight <a href="files/UTKEEB464_Lecture24_Flight_2018.pdf">pdf</a></li>
-<li>Invasive humans <a href="files/UTKEEB464_Lecture25_InvasiveHumans_2018.pdf">pdf</a></li>
-<li>Origin of life <a href="files/UTKEEB464_Lecture26_OriginOfLife_2018.pdf">pdf</a></li>
-<li>Contemporary evolution <a href="files/UTKEEB464_Lecture27_ContemporaryEvolution_2018.pdf">pdf</a></li>
-<li>Language evolution <a href="files/UTKEEB464_Lecture28_2018_LanguageEvolution.pdf">pdf</a></li>
-<li>Domestication <a href="files/UTKEEB464_Lecture29_2018_Domestication.pdf">pdf</a></li>
-<li>Stephen Jay Gould <a href="files/UTKEEB464_Lecture30_2018_StephenJayGould.pdf">pdf</a></li>
-<li>Insects <a href="files/UTKEEB464_Lecture31_Insects_2018.pdf">pdf</a></li>
-<li>Evolution of intelligence <a href="files/UTKEEB464_Lecture32_2018_EvolutionOfIntelligence.pdf">pdf</a></li>
-<li>Spider evolution <a href="files/UTKEEB464_Lecture33_SpiderEvolution_2018.pdf">pdf</a></li>
-<li>Paleoart <a href="files/UTKEEB464_Lecture34_Paleoart_2018.pdf">pdf</a></li>
+<li>Trends <a
+href="files/UTKEEB464_Lecture17_Trends_2018.pdf">pdf</a></li>
+<li>Symbiosis <a
+href="files/UTKEEB464_Lecture18_Symbiosis_2018.pdf">pdf</a></li>
+<li>Game theory <a
+href="files/UTKEEB464_Lecture19_GameTheory_2018.pdf">pdf</a></li>
+<li>Inclusive fitness <a
+href="files/UTKEEB464_Lecture20_InclusiveFitness_2018.pdf">pdf</a></li>
+<li>Systematics <a
+href="files/UTKEEB464_Lecture21_Systematics_2018.pdf">pdf</a></li>
+<li>Darwin <a
+href="files/UTKEEB464_Lecture22_Darwin_2018.pdf">pdf</a></li>
+<li>Disease evolution <a
+href="files/UTKEEB464_Lecture22_Darwin_2018.pdf">pdf</a></li>
+<li>Flight <a
+href="files/UTKEEB464_Lecture24_Flight_2018.pdf">pdf</a></li>
+<li>Invasive humans <a
+href="files/UTKEEB464_Lecture25_InvasiveHumans_2018.pdf">pdf</a></li>
+<li>Origin of life <a
+href="files/UTKEEB464_Lecture26_OriginOfLife_2018.pdf">pdf</a></li>
+<li>Contemporary evolution <a
+href="files/UTKEEB464_Lecture27_ContemporaryEvolution_2018.pdf">pdf</a></li>
+<li>Language evolution <a
+href="files/UTKEEB464_Lecture28_2018_LanguageEvolution.pdf">pdf</a></li>
+<li>Domestication <a
+href="files/UTKEEB464_Lecture29_2018_Domestication.pdf">pdf</a></li>
+<li>Stephen Jay Gould <a
+href="files/UTKEEB464_Lecture30_2018_StephenJayGould.pdf">pdf</a></li>
+<li>Insects <a
+href="files/UTKEEB464_Lecture31_Insects_2018.pdf">pdf</a></li>
+<li>Evolution of intelligence <a
+href="files/UTKEEB464_Lecture32_2018_EvolutionOfIntelligence.pdf">pdf</a></li>
+<li>Spider evolution <a
+href="files/UTKEEB464_Lecture33_SpiderEvolution_2018.pdf">pdf</a></li>
+<li>Paleoart <a
+href="files/UTKEEB464_Lecture34_Paleoart_2018.pdf">pdf</a></li>
 </ul>
 </div>
 <div id="study-guide" class="section level4">
 <h4>Study guide</h4>
 <ol style="list-style-type: decimal">
 <li>Why may life have been single celled for a long time?</li>
-<li>Describe a major event (such as a mass extinction, colonization of land, etc.) and its subsequent effects.</li>
-<li>How do we learn about organisms with no living descendants, such as trilobites? How would living descendants affect how we can learn about them?</li>
+<li>Describe a major event (such as a mass extinction, colonization of
+land, etc.) and its subsequent effects.</li>
+<li>How do we learn about organisms with no living descendants, such as
+trilobites? How would living descendants affect how we can learn about
+them?</li>
 <li>Can behavior be fossilized? If so, give two examples.</li>
 <li>How can something become a fossil?</li>
 <li>How has continental drift affected the location of organisms?</li>
@@ -1069,19 +1588,23 @@ Grading:</strong></p>
 <li>How might hybrids have greater fitness than their parents?</li>
 <li>Explain the importance of Wolbachia.</li>
 <li>Describe the cause of a contemporary group of extinctions.</li>
-<li>Give an example of a biological trait that may increase extinction risk. Why might it?</li>
+<li>Give an example of a biological trait that may increase extinction
+risk. Why might it?</li>
 <li>How could phylogenetic diversity be useful for conservation?</li>
 <li>Describe a simple model for species diversification.</li>
 <li>Compare and contrast speciation rate and diversification rate.</li>
-<li>How may trait transitions and diversification rates together affect evolution of a group?</li>
+<li>How may trait transitions and diversification rates together affect
+evolution of a group?</li>
 <li>Which requirement for natural selection is most important? Why?</li>
-<li>What, in the context of this class, is an advantage of sexual reproduction?</li>
+<li>What, in the context of this class, is an advantage of sexual
+reproduction?</li>
 <li>Describe Muller’s ratchet</li>
 <li>Describe one mechanism of sexual selection.</li>
 <li>What is Cope’s rule? Why might it be true?</li>
 <li>Contrast a passive and an active trend.</li>
 <li>How would you detect evidence of a trend?</li>
-<li>Contrast mutualism with parasitism. How can one change into the other?</li>
+<li>Contrast mutualism with parasitism. How can one change into the
+other?</li>
 <li>Give an example of a commensalism.</li>
 <li>What is an evolutionarily stable strategy?</li>
 <li>Why is “the good of the species” a problematic concept?</li>
@@ -1091,27 +1614,37 @@ Grading:</strong></p>
 <li>Give a behavior the idea of inclusive fitness could explain.</li>
 <li>Why can delimiting two species be hard?</li>
 <li>Relate Darwin’s work on reefs to his work on evolution.</li>
-<li>What are some potential reasons that gliding evolves much more often than flight?</li>
+<li>What are some potential reasons that gliding evolves much more often
+than flight?</li>
 <li>Why does science utilize peer review?</li>
 <li>What evidence links humans to some megafaunal extinctions?</li>
 <li>How did Gould contribute to macroevolution?</li>
-<li>What is the utility of simulation for understanding macroevolution?</li>
-<li>Pasteur showed life does not spontaneously appear. Biologists believe life originally spontaneously appeared. Reconcile these views.</li>
+<li>What is the utility of simulation for understanding
+macroevolution?</li>
+<li>Pasteur showed life does not spontaneously appear. Biologists
+believe life originally spontaneously appeared. Reconcile these
+views.</li>
 <li>Use insects as an example of a macroevolutionary process.</li>
 <li>What factors affect evolution of virulence? Why?</li>
 <li>What is domestication? How does it happen?</li>
-<li>Does flight lead to lower extinction risk? What is your hypothesis, and how would you evaluate this?</li>
-<li>How can we assess whether (pre-writing) human arrival in an area led to an extinction of macrofauna?</li>
-<li>Give an example from class of evolution happening in modern humans.</li>
-<li>Compare and contrast a squid, human, and fly eye. Are they homologous?</li>
+<li>Does flight lead to lower extinction risk? What is your hypothesis,
+and how would you evaluate this?</li>
+<li>How can we assess whether (pre-writing) human arrival in an area led
+to an extinction of macrofauna?</li>
+<li>Give an example from class of evolution happening in modern
+humans.</li>
+<li>Compare and contrast a squid, human, and fly eye. Are they
+homologous?</li>
 <li>Draw a phylogeny of 10 species; label three synapomorphies.</li>
-<li>Based on information from this class, why is there only evidence for one origin of life on the planet?</li>
+<li>Based on information from this class, why is there only evidence for
+one origin of life on the planet?</li>
 <li>How can we reconstruct language evolution?</li>
 <li>Are mutations usually adaptive? How do we know?</li>
 <li>How has paleoart for dinosaurs changed over time?</li>
 <li>How does paleoart matter for macroevolution?</li>
 <li>Describe major events in spider evolution</li>
-<li>Which is more intelligent, dolphins or ravens? How would you test this?</li>
+<li>Which is more intelligent, dolphins or ravens? How would you test
+this?</li>
 </ol>
 </div>
 </div>

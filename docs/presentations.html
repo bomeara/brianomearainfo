@@ -13,8 +13,8 @@
 
 <title>presentations.knit</title>
 
-<script src="site_libs/header-attrs-2.10/header-attrs.js"></script>
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<script src="site_libs/header-attrs-2.18/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
@@ -60,6 +60,7 @@ if (window.hljs) {
 
 
 
+
 <style type = "text/css">
 .main-container {
   max-width: 940px;
@@ -80,6 +81,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -137,11 +141,15 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark it active
-  menuAnchor.tab('show');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -170,8 +178,8 @@ $(document).ready(function () {
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -179,16 +187,9 @@ $(document).ready(function () {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "&#xe258;";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
+  content: "\e258";
   font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
+  border: none;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -232,7 +233,7 @@ $(document).ready(function () {
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -245,7 +246,7 @@ $(document).ready(function () {
   <a href="index.html">Home</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     CV, etc.
      
     <span class="caret"></span>
@@ -275,7 +276,7 @@ $(document).ready(function () {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Lab
      
     <span class="caret"></span>
@@ -320,7 +321,7 @@ $(document).ready(function () {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Teaching
      
     <span class="caret"></span>
@@ -338,7 +339,7 @@ $(document).ready(function () {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Tutorials
      
     <span class="caret"></span>
@@ -370,47 +371,103 @@ $(document).ready(function () {
 
 <div id="presentations" class="section level2">
 <h2>Presentations</h2>
-<p><strong>Bold</strong> indicates presentation was delivered by me; otherwise, I was a coauthor. Also see various workshops under teaching.</p>
-<p>June 2018: Talk on DateLife project for getting chronograms for the tree of life. Presented at the Society of Systematic Biologists meeting in Columbus, OH. Luna Sanchez Garcia &amp; Brian O’Meara.</p>
-<p>June 2017: Poster on inference of amino acid functionality from DNA sequences using a novel phylogenetic approach at the Society for Molecular Biology and Evolution meeting in Austin, TX. Cedric Landerer, Jeremy Beaulieu, Brian O’Meara, Mike Gilchrist.</p>
-<p><strong>June 2017</strong>: Symposium talk on phylogenetic networks at Evolution 2017 meeting: co-lead author was Tony Jhwueng.</p>
-<p><strong>March 2017</strong>: Invited talk on three projects at U. of Idaho, Moscow.</p>
-<p><strong>September 2016</strong>: Symposium talk on Approximate Bayesian computation for trait evolution on phylogenies at Geological Society of America annual meeting.</p>
-<p>August 2016: Talk on linking leaf spectra to phylogenies at Ecological Society of America 2016 annual meeting. Jose Eduardo Meireles, Brian O’Meara, Anna Schweiger, Aditya Singh, Phil Townsend, Susan Ustin, Michael Schaepman, Franziska Schrodt, John Gamon, and Jeannine Cavender-Bares.</p>
-<p>July 2016: Talk on Moving beyond black box, GTR models in phyogenetic analyses through the use of mechanistic models of sequence evolution at the Genetics Society of America: The Allied Genetics Conference in Orlando, FL. Mike Gilchrist, Russ Zaretzki, Cedric Landerer, Jeremy Beaulieu, and Brian O’Meara</p>
-<p>November 2015: Talk on Improving Phylogenetics via Population Genetics at the Society for the Study of Molecular Evolution Satellite Meeting on Mechanisms of Protein Evolution in Denver, CO. Mike Gilchrist, Jeremy Beaulieu, JJ Chai, and Brian O’Meara.</p>
-<p><strong>September 2015</strong>: Talk on heterogeneity at Texas A&amp;M</p>
-<p>July 2015: Talk on Moving beyond black box, GTR models in phyogenetic analyses through the use of mechanistic models of sequence evolution at the Annual Meeting of the Society for Molecular Biology &amp; Evolution in Vienna, Austria. Mike Gilchrist, Jeremy Beaulieu, and Brian O’Meara</p>
-<p><strong>June 2014</strong>: Talk on floral evolution at Evolution 2014 meeting; co-lead author was Stacey Smith, coauthors were W SArmbruster, L Harder, C Hardy, L Hileman, L Hufford, A Litt, S Magallon, S Smith, P Stevens, C Fenster, P Diggle.</p>
-<p>June 2014: Talk on phylogeography at Evolution 2014 meeting; lead author and speaker was Nathan Jackson, other authors were A. Garcia, B. Carstens, and B. O’Meara.</p>
-<p>June 2014: Talk on biogeography at Evolution 2014; lead author and speaker was Katie Massana (grad student), coauthors were J. Beaulieu, B. O’Meara, and N. Matzke.</p>
-<p>June 2014: Talk on Hawaiian island plant immigration at Evolution 2014; lead author and speaker was Jeremy Beaulieu, coauthor was Brian O’Meara.</p>
+<p><strong>Bold</strong> indicates presentation was delivered by me;
+otherwise, I was a coauthor. Also see various workshops under
+teaching.</p>
+<p>June 2018: Talk on DateLife project for getting chronograms for the
+tree of life. Presented at the Society of Systematic Biologists meeting
+in Columbus, OH. Luna Sanchez Garcia &amp; Brian O’Meara.</p>
+<p>June 2017: Poster on inference of amino acid functionality from DNA
+sequences using a novel phylogenetic approach at the Society for
+Molecular Biology and Evolution meeting in Austin, TX. Cedric Landerer,
+Jeremy Beaulieu, Brian O’Meara, Mike Gilchrist.</p>
+<p><strong>June 2017</strong>: Symposium talk on phylogenetic networks
+at Evolution 2017 meeting: co-lead author was Tony Jhwueng.</p>
+<p><strong>March 2017</strong>: Invited talk on three projects at U. of
+Idaho, Moscow.</p>
+<p><strong>September 2016</strong>: Symposium talk on Approximate
+Bayesian computation for trait evolution on phylogenies at Geological
+Society of America annual meeting.</p>
+<p>August 2016: Talk on linking leaf spectra to phylogenies at
+Ecological Society of America 2016 annual meeting. Jose Eduardo
+Meireles, Brian O’Meara, Anna Schweiger, Aditya Singh, Phil Townsend,
+Susan Ustin, Michael Schaepman, Franziska Schrodt, John Gamon, and
+Jeannine Cavender-Bares.</p>
+<p>July 2016: Talk on Moving beyond black box, GTR models in phyogenetic
+analyses through the use of mechanistic models of sequence evolution at
+the Genetics Society of America: The Allied Genetics Conference in
+Orlando, FL. Mike Gilchrist, Russ Zaretzki, Cedric Landerer, Jeremy
+Beaulieu, and Brian O’Meara</p>
+<p>November 2015: Talk on Improving Phylogenetics via Population
+Genetics at the Society for the Study of Molecular Evolution Satellite
+Meeting on Mechanisms of Protein Evolution in Denver, CO. Mike
+Gilchrist, Jeremy Beaulieu, JJ Chai, and Brian O’Meara.</p>
+<p><strong>September 2015</strong>: Talk on heterogeneity at Texas
+A&amp;M</p>
+<p>July 2015: Talk on Moving beyond black box, GTR models in phyogenetic
+analyses through the use of mechanistic models of sequence evolution at
+the Annual Meeting of the Society for Molecular Biology &amp; Evolution
+in Vienna, Austria. Mike Gilchrist, Jeremy Beaulieu, and Brian
+O’Meara</p>
+<p><strong>June 2014</strong>: Talk on floral evolution at Evolution
+2014 meeting; co-lead author was Stacey Smith, coauthors were W
+SArmbruster, L Harder, C Hardy, L Hileman, L Hufford, A Litt, S
+Magallon, S Smith, P Stevens, C Fenster, P Diggle.</p>
+<p>June 2014: Talk on phylogeography at Evolution 2014 meeting; lead
+author and speaker was Nathan Jackson, other authors were A. Garcia, B.
+Carstens, and B. O’Meara.</p>
+<p>June 2014: Talk on biogeography at Evolution 2014; lead author and
+speaker was Katie Massana (grad student), coauthors were J. Beaulieu, B.
+O’Meara, and N. Matzke.</p>
+<p>June 2014: Talk on Hawaiian island plant immigration at Evolution
+2014; lead author and speaker was Jeremy Beaulieu, coauthor was Brian
+O’Meara.</p>
 <p><strong>May 2014</strong>: Smithsonian Phylopizza</p>
-<p><strong>June, 2013</strong>: Symposium talk on species delimitation, Evolution meetings</p>
-<p><strong>Aug. 2012</strong>: Invited talk on comparative methods, Institute of Bioinformatics, U. of Georgia</p>
-<p><strong>June, 2012</strong>: Symposium talk on ABC and comparative methods, Evolution meetings</p>
-<p><strong>March, 2011</strong>: Phyloseminar talk on ABC and comparative methods. Apple Keynote and PDF.</p>
-<p><strong>May, 2010</strong>: Talk on phylogenetics and iPToL at iPlant meeting in Las Vegas</p>
-<p><strong>April, 2010</strong>: Invited talk on species delimitation at Louisiana State University</p>
-<p><strong>Nov., 2009</strong>: Talk at NIMBios about species delimitation and species tree inference</p>
+<p><strong>June, 2013</strong>: Symposium talk on species delimitation,
+Evolution meetings</p>
+<p><strong>Aug. 2012</strong>: Invited talk on comparative methods,
+Institute of Bioinformatics, U. of Georgia</p>
+<p><strong>June, 2012</strong>: Symposium talk on ABC and comparative
+methods, Evolution meetings</p>
+<p><strong>March, 2011</strong>: Phyloseminar talk on ABC and
+comparative methods. Apple Keynote and PDF.</p>
+<p><strong>May, 2010</strong>: Talk on phylogenetics and iPToL at iPlant
+meeting in Las Vegas</p>
+<p><strong>April, 2010</strong>: Invited talk on species delimitation at
+Louisiana State University</p>
+<p><strong>Nov., 2009</strong>: Talk at NIMBios about species
+delimitation and species tree inference</p>
 <p><strong>Mar., 2009</strong>: Talk to UT Knoxville EEB</p>
 <p><strong>June, 2008</strong>: Talk at Evolution 2008 in Minnesota</p>
-<p><strong>June, 2008</strong>: Poster at Evolution 2008 in Minnesota</p>
-<p><strong>June, 2008</strong>: Invited Joel Keizer Prize in Theoretical Biology lecture at University of California, Davis</p>
-<p><strong>May, 2008</strong>: Invited symposium talk at Interface 2008 [statistics conference] in NC</p>
-<p><strong>April, 2008</strong>: Invited talk to the Organismic and Evolutionary Biology department at Harvard U.</p>
-<p><strong>Jan., 2008</strong>: Invited symposium talk at Society for Integrative and Comparative Biology meeting in TX</p>
-<p><strong>Oct., 2007</strong>: Invited talk at Duke Systematics Discussion Group</p>
-<p><strong>Oct., 2007</strong>: Talk at NESCent brown bag lunch series</p>
+<p><strong>June, 2008</strong>: Poster at Evolution 2008 in
+Minnesota</p>
+<p><strong>June, 2008</strong>: Invited Joel Keizer Prize in Theoretical
+Biology lecture at University of California, Davis</p>
+<p><strong>May, 2008</strong>: Invited symposium talk at Interface 2008
+[statistics conference] in NC</p>
+<p><strong>April, 2008</strong>: Invited talk to the Organismic and
+Evolutionary Biology department at Harvard U.</p>
+<p><strong>Jan., 2008</strong>: Invited symposium talk at Society for
+Integrative and Comparative Biology meeting in TX</p>
+<p><strong>Oct., 2007</strong>: Invited talk at Duke Systematics
+Discussion Group</p>
+<p><strong>Oct., 2007</strong>: Talk at NESCent brown bag lunch
+series</p>
 <p><strong>June, 2007</strong>: Exit seminar</p>
 <p><strong>June, 2006</strong>: Talk at Evolution 2006 in NY</p>
-<p><strong>Feb., 2006</strong>: Poster at CIPRES all hands meeting in TX</p>
-<p><strong>July, 2005</strong>: Talk at CIPRES-funded graduate student meeting in NM</p>
-<p><strong>June, 2005</strong>: Talk on Brownie at Evolution meetings in Alaska.</p>
-<p><strong>Dec, 2004</strong>: Presentation at the Bay Area Biosystematists meeting</p>
-<p><strong>Dec., 2001</strong>: Talk at Entomology Society of America national meeting in CA</p>
+<p><strong>Feb., 2006</strong>: Poster at CIPRES all hands meeting in
+TX</p>
+<p><strong>July, 2005</strong>: Talk at CIPRES-funded graduate student
+meeting in NM</p>
+<p><strong>June, 2005</strong>: Talk on Brownie at Evolution meetings in
+Alaska.</p>
+<p><strong>Dec, 2004</strong>: Presentation at the Bay Area
+Biosystematists meeting</p>
+<p><strong>Dec., 2001</strong>: Talk at Entomology Society of America
+national meeting in CA</p>
 <p><strong>June, 2001</strong>: Poster at Evolution 2001 in TN</p>
-<p><strong>Dec., 2000</strong>: Poster at the Entomology Society of America national meeting in Canada</p>
+<p><strong>Dec., 2000</strong>: Poster at the Entomology Society of
+America national meeting in Canada</p>
 </div>
 
 

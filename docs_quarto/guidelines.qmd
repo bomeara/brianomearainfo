@@ -1,0 +1,155 @@
+---
+layout: page
+link: https://www.brianomeara.info/lab/guidelines/
+slug: guidelines
+title: Guidelines & Recommendations
+---
+
+Lab members should review these; we are all expected to follow the guidelines. The University official policies are [here](https://policy.tennessee.edu/hr_policy/hr0580/); in the case of any conflicts, University policies apply. My goal here is to highlight the most relevant parts for the lab, but we are subject to all of them.
+
+
+## Getting help
+
+
+Depending on the severity of an issue, you could report it to me (directly or using the [anonymous feedback form](https://www.brianomeara.info/feedback)), to the EEB Department Head, or other resources on campus or elsewhere: see below.
+
+
+
+    
+  * For emergencies in the US, **dial 911 on any phone**.
+
+    
+  * [Distressed student protocol](https://seecenter.utk.edu/resources_distressed.php): **If you know someone who needs help, needs to talk to someone, or is acting in a way that makes you concerned for them or others, call 865-974-4357**
+
+    
+  * [Mobile Crisis](https://counselingcenter.utk.edu/emergencies/): A UTK service; call 865-539-2409, 24 hours a day. They also offer walk in services at the Counseling Center.
+
+    
+  * [UT Medical Center Emergency & Trauma Center](https://www.utmedicalcenter.org/emergency-and-trauma-services/)
+
+    
+  * [UTK Police](https://utpolice.utk.edu/): Main Phone: 865-974-3114, Campus Emergency: 865-974-3111
+
+    
+  * [Knoxville Police](https://www.cityofknoxville.org/kpd/criminal.asp): Emergency, 911, otherwise, see their website
+
+    
+  * [Discrimination complaint](https://oed.utk.edu/complaints/): Complaints must be filed in writing within 300 days of the alleged discriminatory action; there is a [form](https://oed.utk.edu/files/2012/05/Complaint-Form-full-1.10.11.pdf) available, but you may also call the [Office of Equity and Diversity](https://oed.utk.edu/) at 865-974-2498. They also have a section of their website devoted to [Sexual Harassment](https://oed.utk.edu/complaints/sexual-harrassment/)
+
+
+
+
+* * *
+
+
+
+
+## Crime
+
+
+
+
+## Sexual harassment
+
+
+See the University description [here](https://oed.utk.edu/complaints/sexual-harrassment/). Briefly, unwelcome sexual advances, request for sexual favors, and other verbal or physical conduct of a sexual nature constitute sexual harassment if it is a condition of employment or status in a course, program or activity; when submission to or rejection of such conduct is used as a basis for employment, grades, etc.; when conduct substantially interferes with an individual's work performance, academic performance, or creates an intimidating, hostile, or offensive work environment. Note that this means that it is possible (that is, it could constitute harassment, not that such behavior is allowed) for a peer to harass a peer or even a supervisor by creating a toxic environment. Harassment is a non-trivial risk in science (i.e., [Clancy et al. 2014](https://www.plosone.org/article/info%3Adoi%2F10.1371%2Fjournal.pone.0102172) ), it is **not the victim's fault**, and it should be reported to the Office of Equity and Diversity, dean of students, dept. head or dean, or human resources (and this is not only me saying this, but also what the [University recommends](https://oed.utk.edu/complaints/sexual-harrassment/)). I am a [mandated reporter](https://sexualassault.utk.edu/mandatory-reporters/) for Title IX violations, as are grad students in their teaching roles; mandated reporters **must** report any issues to the [Title IX Coordinator or her deputies](https://sexualassault.utk.edu/title-ix-coordinators/), who are far more experienced in these issues than we are. Links at the top of the page have information about police, counseling, emergency medical care, and other important resources.
+Many conferences are adopting policies about more general harassment, as well: see [this one](https://mozillascience.org/code-of-conduct/) from [Mozilla Science](https://mozillascience.org) for an example. Even if no such policy exists, sexist, racist, or exclusionary jokes or images should be avoided: be professional, and help make the field better.
+
+
+## Theft
+
+
+Infrequently someone will begin to specialize on stealing computers or equipment from labs ([example](https://tntoday.utk.edu/2016/05/10/graduate-student-helps-utpd-crack-large-theft-case/)). Be aware of this risk. Close and lock the lab door if no one is there (even if you're just stepping out to microwave lunch down the hall). It's also worth thinking about closing the door if you are working in one of the bays that doesn't have a view of the entrance: someone could come in and take something from the part of the lab you can't see. No need to be paranoid, just be careful.
+
+
+## Active shooter
+
+
+This is a very low probability event, but it has happened at other universities. Changes in state law have increased the number of guns on campus, but they must be concealed (other than those of law enforcement personnel); if you see someone else with a weapon, move away and report it. UT has [guidelines](https://safety.utk.edu/emergency-preparedness/active-shooter/) for what to do if there is an active shooter situation. Review it before there is an actual emergency. To let family and friends know you are ok during an emergency (of any kind) you can go to https://reconnect.utk.edu; Facebook also will make a place to register if a situation affects enough people. Note that most interior walls are not bulletproof: if you feel you have to move furniture, computers, etc. to make yourself safer, of course do so.
+
+
+* * *
+
+
+
+
+## Science guidelines
+
+
+
+
+## Authorship
+
+
+Authorship is earned and represents a substantial contribution to a paper. For example, I have helped look at postdocs' papers, given suggestions, but this correctly did not result in them adding me as an author. There are gray areas: does giving someone an idea that their work is then based upon constitute authorship? What about supplying an essential script? The key approach to use is transparency and discussion: at the start of a project, discuss authorship (author order as well as who may be an author at all), and check back in after significant work (simulations done, writing done, etc.). Being an author on a paper is the currency of science; some families do not like discussing currency, but it is essential in keeping the lab working well. In case of conflicts, feel free to have me get involved to help mediate.
+
+
+## Leaving
+
+
+My goal with postdocs and grad students is to make you go away: that is, to help you achieve your career goals and get a position you want (which may or may not be traditional academic track). I also want to do good science with you while you are here, of course. One thing you should not do is pass up a better opportunity for your career. It'll be a bit of a pain for me if you leave your postdoc after six months for a tenure track job at your dream institution (have to search for another candidate, it may be the wrong season, etc.) but I still think you should do it. Good positions are rare enough that you should jump at good opportunities. It is also best for the lab long term: I'd rather have a good colleague for years in the future than someone sad for another year or two of work because she or he missed a great opportunity. This should all be obvious, but I have heard of situations where postdocs are strongly encouraged to stay despite their best interests lying elsewhere.
+
+
+## Protected information
+
+
+When applying to my lab, please do not indicate marital status, kids, etc. I don't want even inadvertent biases to be a potential issue. Once you've been offered the position, though, please let me know what you need. I can't guarantee anything, but in the past, we've found positions for spouses of postdocs, rearranged the lab space to give privacy to a new mother, arranged flexible schedules, etc.
+
+
+## Backup
+
+
+Your computer will fail. Your hard drive will fail. You need to have backups. For your whole computer, I'd recommend Apple's TimeMachine, keeping one drive plugged into your computer, and another unplugged stored somewhere else. Switch them periodically. Keeping one somewhere else lets you have a back up in case someone steals your computer and your drive at the same time, the floor above springs a leak, etc. It is also good to have online backup: Crashplan, Backblaze, or similar. If you do most of your work in git, you can use github to back this up, in addition to other backup procedures.
+
+
+## Computer use
+
+
+Computers (including laptops you use on and off campus) are University property (assuming you have a lab one, not one with your personal funds), and there is a policy document [here](https://policy.tennessee.edu/it_policy/it0110/). It is worth reading in its entirety, but some key highlights:
+
+
+
+    
+  * "There should be no expectation of privacy for any information stored, processed, or transmitted on university IT resources."
+
+    
+  * "email may be a public record and open to public inspection under the Tennessee Public Records Act, unless the email is covered by an exception to the Act, such as personally identifiable student information, proprietary information, or trade secrets."
+
+    
+  * "Users will not... Commit copyright infringement, including file sharing of video, audio, or data without permission from the copyright owner." Many universities have ways of detecting the streaming of pirated content; I do not know if such mechanisms exist here, but you don't want to risk having your internet cut off or even being fired over this.
+
+    
+  * "[U]sers are prohibited from using these resources for personal gain, illegal activities, or obscene activities." This includes things like using a cluster for mining bitcoin or other virtual currencies (which has [happened elsewhere](https://www.thecrimson.com/article/2014/2/20/harvard-odyssey-dogecoin/)). Even if the cluster is not full, this causes wear on the drives, increased power consumption, and other direct harm.
+
+
+Within the lab we sometimes use APIs or get content by repeated queries to websites (for example, with Encyclopedia of Life's permission we wrote a script to download each of their millions of pages). Talk to me before doing something like this: sometimes this is against the terms of use of a website (it can appear like a denial of service attack, in fact) and can have real consequences. For example, [Rod Page's entire university lost access to Google Scholar](https://ispecies.blogspot.com/2006/05/why-google-is-good-for-sciencemaybe.html) due to a free resource he created to find scientific papers related to a species' name; I know of a postdoc who lost access to GenBank after using NCBI's API at the wrong time of day and without enough of a pause between calls. It can happen accidentally, as well: the [Rentrez](https://cran.r-project.org/web/packages/rentrez/index.html) R package can query Entrez for information without violating the rate limits, but if you were to do this in parallel on just two cores, you could violate these limits. There are legitimate use cases for scraping and other ways of doing these things, but just check in with me first.
+To maintain lab computers I may have sudo access; this means that in theory I could look through your emails, etc. I will not (subject to extreme exceptions like a court order); if you have similar admin access to other computers, I expect the same. However, do remember that IT can in theory access all information stored on our computers, and some things like university emails are subject to Freedom of Information Act requests.
+
+
+## Social media
+
+
+Social media are an important way to communicate with friends, family, professional colleagues, and the broader public. Remember that with the digital era, capturing information is easy, erasing it is hard. A candid photo you send to a friend with an app that claims to delete the photo a few seconds later, for example, might be deleted, but could be preserved as a screen shot on a phone, only to reappear before a job interview. Websites are hacked frequently, privacy policies are changed with little notice, etc. so you should operate under the assumption that anything you post or comment on may be world-viewable at some point. Even anonymity can break down (it is "security through obscurity"): see, for example, this [exposure of an "anonymous" twitter user by an editor at a major journal](https://www.popsci.com/article/science/why-did-top-science-journal-editor-expose-bloggers-pen-name). My personal approach to this is to make my public social media persona just about science and related issues (reducing barriers for members of underrepresented groups, open source code, etc.) and keep more personal views about politics, religion, developmental milestones of relatives locked down. That is just one approach; a different approach is publicly share info about all your activities and views. Both are fine; just make sure that if you want to post something that if it "gets out" at some point in the future would cause problems you carefully evaluate the benefits and risks. You would probably not want your tweet about "I pity people who have to work in the state of XYZ" to come up a couple of years later at your job interview at University of XYZ, for example.
+
+
+* * *
+
+
+
+
+## Other
+
+
+
+
+## Weather
+
+
+It will snow, rarely. When it does, roads will shut down, cars will spin out of control, etc. It's a mess. The road we live on has a steep hill and it often won't be plowed until days after the storm, for example. Take extra care with snow; even if you know how to drive on ice and your vehicle can handle it, the pickup truck sliding sideways towards you might not. The University may close; if it doesn't, but you are scheduled to teach, note the [inclement weather policy](https://safety.utk.edu/emergency-management/inclement-weather-policy/).
+Strong thunderstorms and even tornados happen with some frequency (we had a car totaled and a roof severely damaged by tornado-associated hail soon after moving here). There are various weather apps to give you alerts. It is worth noting the distinction between a tornado watch and a tornado warning. A watch means conditions are favorable for tornados: they could form, but haven't been seen yet. Even if there isn't a tornado, though, high wind and hail can be real hazards. A tornado warning means a tornado is imminent or occurring. You should follow [advice](https://www.nws.noaa.gov/os/severeweather/) from the National Weather Service. To give you a sense of what I do, for a tornado watch (at home), I make sure our shelter is clear, that we have flashlights and charged cell phones, and I then watch the weather. When there's a tornado warning for our area, we all go into an interior closet on the first floor of the house.
+
+
+## Football
+
+
+The University has ~27,000 students. The football stadium seats over 100,000 people, and folks also tailgate in parking lots and even the river. During game days, buildings are locked, parking is gone, and there are tons of people. You should only come to the University on a home football day if you're planning to participate in the football festivities; if you're planning to work, I'd advise doing it from home. I haven't noticed other sports on campus having such an effect, though women's and men's basketball are also popular.

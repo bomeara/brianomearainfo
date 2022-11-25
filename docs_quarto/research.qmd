@@ -1,0 +1,85 @@
+---
+comments: false
+layout: page
+link: https://www.brianomeara.info/research/
+slug: research
+title: Research
+---
+
+Note you can see a feed of recent articles at [Google Scholar](https://scholar.google.com/citations?sortby=pubdate&hl=en&user=vpjEkQwAAAAJ&view_op=list_works); this updates more quickly than this page does. In the lag time between submission and publication, you can see my manuscripts on [bioRxiv](https://biorxiv.org/search/author1%3ABrian%2BO%2527Meara%2B).
+
+
+
+### Trait evolution
+
+
+
+
+Work in our lab most usually focuses on trait evolution, with most emphasis on methods that allow heterogeneity over the tree. For example, O’Meara et al. (2006) developed a method that allows the rate of Brownian motion to vary over a tree. This can be used to test ideas about rate evolution (Collar et al. 2009; Collar et al. 2010) and has been cited 150 times (according to Google Scholar in Aug. 2012). This work has been extended to deal with shifting rates, strengths of attraction, and means under an Ornstein-Uhlenbeck process (Beaulieu et al. 2012). Similarly, we have developed a model for different rates of gene loss on different parts of a tree (O'Meara 2007) and methods for looking at hidden rates for discrete characters (Beaulieu et al. 2014). A review of methods in general has been published (O'Meara 2012b) where I tried to show connections across methods. We have also looked at empirical datasets, often plants, to understand evolutionary processes (eg., Zanne et al. 2013, Williams et al. 2014, Cornwell et al. 2014).
+
+
+
+
+
+
+### Species delimitation / gene tree-species tree messiness
+
+
+
+
+The fact that gene trees and containing species trees has become increasingly apparent through work by many researchers. While this is often seen as a problem, our lab used information from gene tree-species tree conflict to estimate species boundaries and a species tree simultaneously, without requiring a priori specification of potential groups (O'Meara 2010). Ongoing work in collaboration with Bryan Carstens has resulted in a draft program to broaden this approach to phylogeography.
+
+
+
+
+
+
+### Phylogenetic inference
+
+
+
+
+To do something useful with a phylogeny first requires getting the phylogeny, perhaps with dates. Various publications have come from inferring trees (Driskell et al. 2004; Abercrombie et al. 2011), developing new implementations for dating trees (Smith and O'Meara 2012), and defending the need for trees (Smith and O'Meara 2009).
+
+
+
+
+
+
+### Software
+
+
+
+
+The point of what we do is to foster new discoveries about biology, especially about macroevolutionary processes. Availability of methods seems to be rate-limiting in many cases: once a new method appears, a flurry of empirical activity uses it to test long-standing hypotheses or infer new patterns. For this to happen, methods have to be available in software. Our work with iPlant (Goff et al. 2011) has aimed to make comparative methods more scalable and accessible, through the iPlant discovery environment and through our recent work on the rPlant interface to iPlant tools. Work in R in general has become a recent trend, ranging from porting existing code to R (Stack et al. 2011) to maintaining a task view of all R packages that deal with phylogenetics (O'Meara 2012a). See the [software page](https://www.brianomeara.info/software) for more.
+
+
+
+
+
+
+
+
+### Selected publications
+
+
+
+
+Abercrombie, J. M., B. C. O'Meara, A. R. Moffatt, and J. H. Williams. 2011. Developmental evolution of flowering plant pollen tube cell walls: callose synthase (CalS) gene expression patterns. EvoDevo 2:14.
+Beaulieu, J. M., D.-C. Jhwueng, C. Boettiger, and B. C. O'Meara. 2012. Modeling stabilizing selection: Expanding the Ornstein- Uhlenbeck model of adaptive evolution. Evolution 66 (8), 2369-2383
+Beaulieu, J.M., B.C. O'Meara, and M.J. Donoghue. 2014. Identifying hidden rate changes in the evolution of a binary morphological character: the evolution of plant habit in campanulid angiosperms. Systematic biology 62 (5), 725-737
+Collar, D. C., B. C. O'Meara, P. C. Wainwright, and T. J. Near. 2009. Piscivory Limits Diversification of Feeding Morphology in Centrarchid Fishes. Evolution 63:1557-1573.
+Collar, D. C., J. A. Schulte, B. C. O'Meara, and J. B. Losos. 2010. Habitat use affects morphological diversification in dragon lizards. Journal of Evolutionary Biology 23:1033-1049.
+WK Cornwell, M Westoby, DS Falster, RG FitzJohn, BC O'Meara, M.W. Pennell, D.J. McGlinn, J.M. Eastman, A.T. Moles, P.B. Reich, D.C. Tank, I.J. Wright, L. Aarssen, J.M. Beaulieu, R.M. Kooyman, M.R. Leishman, E.T. Miller, Ü. Niinemets, J. Oleksyn, A. Ordonez, D.L. Royer, S.A. Smith, P.F. Stevens, L. Warman, P. Wilf, and A.E. Zanne 2014. Functional distinctiveness of major plant lineages. Journal of Ecology 102 (2), 345-356
+Driskell, A. C., C. Ane, J. G. Burleigh, M. M. McMahon, B. C. O'Meara, and M. J. Sanderson. 2004. Prospects for building the tree of life from large sequence databases. Science 306:1172-1174.
+Goff, S., A., M. Vaughn, S. McKay, E. Lyons, E. Stapleton Ann, D. Gessler, N. Matasci, L. Wang, M. Hanlon, A. Lenards, A. Muir, N. Merchant, S. Lowry, S. Mock, M. Helmke, A. Kubach, M. Narro, N. Hopkins, D. Micklos, U. Hilgert, M. Gonzales, C. Jordan, E. Skidmore, R. Dooley, J. Cazes, R. McLay, Z. Lu, S. Pasternak, L. Koesterke, H. Piel William, R. Grene, C. Noutsos, K. Gendler, X. Feng, C. Tang, M. Lent, S.-j. Kim, K. Kvilekval, B. S. Manjunath, V. Tannen, A. Stamatakis, M. Sanderson, M. Welch Stephen, K. Cranston, P. Soltis, D. Soltis, B. C. O'Meara, C. Ane, T. Brutnell, J. Kleibenstein Daniel, W. White Jeffrey, J. Leebens-Mack, J. Donoghue Michael, P. Spalding Edgar, J. Vision Todd, R. Myers Christopher, D. Lowenthal, J. Enquist Brian, B. Boyle, A. Akoglu, G. Andrews, S. Ram, D. Ware, L. Stein, and D. Stanzione. 2011. The iPlant Collaborative: Cyberinfrastructure for Plant Biology. Frontiers in Plant Science 2.
+O'Meara, B. C. 2007. Estimating Different Rates of Gene Loss on a Tree. Genetics 177:1415-1416.
+O'Meara, B. C. 2010. New Heuristic Methods for Joint Species Delimitation and Species Tree Inference. Systematic Biology 59:59-73.
+O'Meara, B. C. 2012a. CRAN Task View: Phylogenetics. Version 2012-02-02, URL https://cran.r-project.org/web/views/Phylogenetics.html.
+O'Meara, B. C. 2012b. Evolutionary Inferences from Phylogenies: A Review of Methods. Annual Review of Ecology, Evolution, and Systematics 43.
+O'Meara, B. C., C. Ane, M. J. Sanderson, and P. C. Wainwright. 2006. Testing for different rates of continuous trait evolution using likelihood. Evolution 60:922-933.
+Smith, S. A., and B. C. O'Meara. 2009. Morphogenera, monophyly, and macroevolution. Proceedings of the National Academy of Sciences of the United States of America 106:E97-E98.
+Smith, S. A., and B. C. O'Meara. 2012. treePL: Divergence time estimation using penalized likelihood for large phylogenies. Bioinformatics.
+Stack, J. C., L. J. Harmon, and B. O'Meara. 2011. RBrownie: an R package for testing hypotheses about rates of evolutionary change. Methods in Ecology and Evolution 2:660-662.
+Williams, J.H., M.L. Taylor, and B.C. O’Meara. 2014. Repeated evolution of tricellular (and bicellular) pollen. American journal of botany 101 (4), 559-571
+Zanne, A.E., D.C. Tank, W.K. Cornwell, J.M. Eastman, S.A. Smith, R.G. FitzJohn, D.J. McGlinn, B.C. O’Meara, A.T. Moles, P.B. Reich, D.L. Royer, D.E. Soltis, P.F. Stevens, M. Westoby, I.J. Wright, L. Aarssen, R.I. Bertin, A. Calaminus, R. Govaerts, F. Hemmings, M.R. Leishman, J. Oleksyn, P.S. Soltis, N.G. Swenson, L. Warman, J.M. Beaulieu. 2013. Three keys to the radiation of angiosperms into freezing environments. Nature.

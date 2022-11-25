@@ -1,0 +1,59 @@
+---
+layout: page
+link: https://www.brianomeara.info/useful/
+slug: useful
+title: Useful links
+output:
+  html_document:
+    includes:
+       in_header: GA_Script.html
+---
+
+Keeping sets of useful links has gone out of vogue, but I keep searching for the same things again and again. So, aggregate:
+
+## R
+
+* Fast Rmarkdown websites (`rmarkdown::render_site()`): https://bookdown.org/yihui/rmarkdown/rmarkdown-site.html
+* Figure out what dependencies are needed when making an R package: https://github.com/Thinkr-open/attachment
+* drake: awesome way to handle batch analyses: https://github.com/ropensci/drake. Also see its manual: https://ropenscilabs.github.io/drake-manual/
+* ropensci have a ton of useful packages: https://ropensci.org/
+* rorcid is a way to pull info from the Orcid repository of information: https://github.com/ropensci/rorcid for the package, my Orcid page is at https://orcid.org/0000-0002-0337-5997 (free, get your own)
+
+## Other software
+
+* I usually use [httrack](https://www.httrack.com/) to download entire websites, but https://github.com/Y2Z/monolith looks interesting (pulls down javascript, too)
+* [NSF Jetstream](https://jetstream-cloud.org/), [cyverse](https://www.cyverse.org/) for running analyses.
+
+## Diversity in science
+
+* National Academy report (you don't have to buy it -- go to the download free pdf or read online links): https://www.nap.edu/catalog/24994/sexual-harassment-of-women-climate-culture-and-consequences-in-academic
+* Overview of sexism facing women (links to many studies, good way to find evidence): https://nplusonemag.com/issue-34/essays/sexism-in-the-academy/
+* [Julie Libarkin](https://geocognitionresearchlaboratory.com/)'s database of academics with evidence of misconduct: https://academic-sexual-misconduct-database.org/
+* Spreadsheet of codes of conduct and ethics for scientific societies: https://docs.google.com/spreadsheets/d/19sj3Q6pHeQB54HceirN06t3aXCfWIqdJmFzrvs2_zDY/edit#gid=0
+* SafeEvolution website: https://www.evolutionmeetings.org/safe-evolution.html
+* Poster on behavior at Evolution: https://figshare.com/articles/Unwelcome_behaviors_at_the_Evolution_meetings_Survey_results/8311595
+* [Responses to 10 common criticisms of anti-racism action in STEM](https://antiracisminstem.wordpress.com/)
+
+## Knoxville
+
+* Distressed faculty and staff: https://hr.utk.edu/care/ 865-946-2273
+* Distressed students: https://dos.utk.edu/974-help/our-approach/ 865-974-4357
+* Resources (discounts, child care options, policies, etc.): https://ascend.utk.edu/work-and-life/work-and-life-resources/
+* Title IX reporting: https://titleix.utk.edu/
+* Bias reporting: https://bias.utk.edu/
+* Campus map (note it includes info like lactation rooms, accessible building entrances): https://maps.utk.edu/?id=314
+* Campus dining hours: https://dining.utk.edu/hours/
+* Academic calendar: https://registrar.utk.edu/calendar/academic-calendars/
+* EEB department: https://eeb.utk.edu/
+* Local newspaper: https://www.knoxnews.com/ (they often have deals -- support local journalism if you're able)
+* Inside of Knoxville: https://insideofknoxville.com/. blog about goings on downtown. See the ten day planner: https://insideofknoxville.com/ten-day-planner/https://insideofknoxville.com/
+* Lawyers in Knoxville: [Legal aid of East TN](https://www.laet.org),  [Knoxville Bar Association find a lawyer service](https://www.knoxbar.org/index.cfm?pg=onlinereferralform). Groups like the [ACLU](https://www.aclu-tn.org/) may also be helpful for some legal questions.
+
+
+## Fun
+
+![Image from Newfound Gap in the Smokies](https://www.air-resource.net/GRSMNFGap/gsng.jpg)
+
+* My academic ancestors and descendants (the latter is more diverse): https://academictree.org/evolution/tree.php?pid=129230
+* Webcams of the Smokies: https://www.nps.gov/grsm/learn/photosmultimedia/webcams.htm
+* Also see R section.

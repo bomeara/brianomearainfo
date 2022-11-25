@@ -1,0 +1,67 @@
+First	Last	Stage	Done	NIMBioS	Start	Stop	Department	URL	CurrentPosition	Note
+Barb	Banbury	Postdoc	Y	N	2010	2012		https://www.linkedin.com/in/bbanbury	Statistical Analyst at Fred Hutch
+Jeremy	Beaulieu	Postdoc	Y	Both	2012	2016		https://www.jeremybeaulieu.org/	Assistant Professor at U. of Arkansas
+Nathan	Jackson	Postdoc	Y	N	2013	2016		https://nathandjackson.com/	Researcher at National Jewish Health
+Sandy	Kawano	Postdoc	Y	Y	2014	2016		https://sandykawano.weebly.com/	Starting as Assistant Professor at  CSU Long Beach in Aug. 2017
+Megan	Rua	Postdoc	Y	Y	2015	2016		https://meganrua.wordpress.com	Assistant Professor Wright State U
+Sam	Borstein	PhD student	Y	N	2014	2019		https://fish4thought.wordpress.com/
+Jenn	Bosco	PhD student	Y	N	2012	2017		https://sites.google.com/site/jenniferboscoinfo/home		Co-advised with Susan Riechert
+Katie	Massana	PhD student	Y	N	2012	2017		https://sites.google.com/site/kathrynamassana/home
+Orlando	Schwery	PhD student	N	N	2014	2020		https://sites.google.com/site/orlandoschwery/home
+Hugo	Alamillo	Postdoc	Y	N	2011	2012		https://people.northseattle.edu/users/halamillo	Assistant Professor North Seattle College
+Juanjuan (JJ)	Crosskey (formerly Chai)	Postdoc	Y	Y	2011	2013		https://www.linkedin.com/in/jjcrosskey	Quantitative Analyst at Quantamental Technologies LLC
+Tony	Jhwueng	Postdoc	Y	Y	2009	2011		https://www.tonyjhwueng.info/	"Assistant Professor Feng-Chia U., Taiwan"
+Dominic	Evangelista	Postdoc	N	Y	2018	2018		https://www.roachbrain.com
+Michelle	Lawing	Postdoc	Y	Y	2012	2014		https://people.tamu.edu/~alawing/	Assistant Professor Texas A&M
+Nick	Matzke	Postdoc	Y	Y	2013	2015		https://nickmatzke.weebly.com	DECRA Fellow at The Australian National University in Canberra
+Ryan	Martin	Postdoc	Y	Y	2012	2013		https://www.martinevolutionaryecologylab.com	Assistant Professor Case Western U
+Christian	Yarber	Undergrad	Y	N	2015	2016		https://www.researchgate.net/profile/Christian_Yarber
+Nicholas	Gladstone	Committee	N				Geology
+Daniel	Gates	GSOC								"GSoC 2012: Optimizing R code for approximate Bayesian computing. Note that the mentors for this project were Barb Banbury, Derrick Zwickl, and Hilmar Lapp"
+J. Conrad	Stack	GSOC								GSoC 2010: Doing ancestral state estimation in R by porting Brownie
+Paul	McMillan	GSOC								"GSoC 2008: dbgraphnav, a tool to facilitate the browsing of data within relational databases. Developed for TreeTapper."
+Will	Atwood	Committee	Y				Geology
+Sharon	Clemmensen	Committee	N				EEB
+Troy	Fadiga	Committee	Y				Geology
+Mauricio	Gonzalez-Forero	Committee	Y				EEB
+Phillip	Hollingsworth	Committee	Y				EEB
+Will	Howell	Committee	Y				EEB
+Bryan	Looney	Committee	Y				EEB
+Ivan	Juric	Committee	Y				EEB
+Max	Rupp	Committee	Y				EEB
+Geetha	Saarunya S	Committee	Y				GST
+Leonidas	Salichos	Committee	Y				Vanderbilt
+Jordan	Utley	Committee	Y				GST
+Aaron	Floden	Committee	Y				EEB
+Alannie-Grace	Grant	Committee	N				EEB
+Whitaker	Hoskins	Committee	Y				EEB
+Cedric	Landerer	Committee	Y				EEB
+Liam	Mueller	Committee	Y				EEB
+Tyson	Paulson	Committee	N				EEB
+Todd	Pierson	Committee	N				EEB
+Marisol	Sanchez-Garcia	Committee	Y				EEB
+Jess	Welch	Committee	Y				EEB
+Rachel	Wooliver	Committee	Y				EEB
+Sarah	Sheffield	Committee	Y				Geology
+Sara	Lipshutz	Committee	Y				EEB
+Jen	Bauer	Committee	Y				Geology
+Ryan	Rooney	Committee	N				Geology
+Sergei	Tarasov	Postdoc	N	Y	2016	2018		https://sites.google.com/site/starasovresearch/	NIMBioS postdoc
+Luna	Sanchez Reyes	Postdoc	Y	N	2017	2019	EEB
+David	Bapst	Postdoc	Y	N	2017		EEB
+John	Reese Committee Y   EEB
+Sam	Williams  Committee Y   Anthropology
+Liz	Agosto  Committee Y   Anthropology
+Liz	Derryberry	Faculty	N	N	2017		EEB	https://derryberrylab.wordpress.com/people/
+Kimberly	Sheldon	Faculty	N	N	2017		EEB	https://www.biogeographyresearch.org/
+Stephanie	Kivlin	Faculty	N	N	2018		EEB	https://skivlin.wordpress.com/
+Jodie	Wiggins	Postdoc	Y	N	2018	2019	EEB   https://jodiewiggins.wixsite.com/mysite
+Zach	Tharpe	Undergrad	Y	N	2019	2020
+Jenn	Summers	PhD student	Y	N	2020	2021		https://cubalibrejenn.wixsite.com/jennsummers		
+Stephen	Ray	Undergrad	Y	Y	2019	2020
+Tyler-Christian	Daniels	Undergrad	Y	N	2019	2020
+Krista	De Cooke	PhD student	N	N	2020			https://www.linkedin.com/in/krista-de-cooke-163a87116/		Co-advised with Dan Simberloff
+Jasper	Lee	Committee	Y				Microbiology
+John	Anderson	Undergrad	N	N	2021	
+
+

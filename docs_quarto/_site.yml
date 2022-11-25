@@ -1,0 +1,63 @@
+name: "Brian O'Meara"
+output_dir: "."
+navbar:
+  title: "Brian O'Meara"
+  left:
+    - text: "Home"
+      href: index.html
+    - text: "CV, etc."
+      menu:
+        - text: "CV"
+          href: cv.html
+        - text: "Calendar"
+          href: "calendar.html"
+        - text: "Feedback"
+          href: "feedback.html"
+        - text: "Useful links"
+          href: "useful.html"
+        - text: "Materials for promotion to associate (and tenure)"
+          href: tenure.html
+        - text: "Materials for promotion to full"
+          href: promotion.html
+        - text: "Candidacy for SSB president"
+          href: SSB.html
+    - text: "Lab"
+      menu:
+        - text: "People"
+          href: personnel.html
+        - text: "Guidelines & Recommendations"
+          href: guidelines.html
+        - text: "Location/Contact"
+          href: location.html
+        - text: "Opportunities"
+          href: opportunities.html
+        - text: "Learning objectives"
+          href: learningobjectives.html
+        - text: "BetterLetter"
+          href: better-letter.html
+        - text: "Should you go to grad school to be a professor?"
+          href: shouldyougotogradschool.html
+        - text: "Materials for promotion to associate (and tenure)"
+          href: tenure.html
+        - text: "Materials for promotion to full"
+          href: promotion.html
+        - text: "Info for general public"
+          href: general.html
+        - text: "COVID"
+          href: covid.html
+        - text: "EEB scheduling"
+          href: schedule.html
+    - text: "Teaching"
+      menu:
+        - text: "Teaching overall"
+          href: teaching.html
+        - text: "Macroevolution (EEB464)"
+          href: eeb464.html
+        - text: "Phylogenetic Methods"
+          href: https://phylometh.info/
+    - text: "Tutorials"
+      menu:
+        - text: "AIC"
+          href: aic.html
+        - text: "Phylogenetics"
+          href: phylogenetics.html

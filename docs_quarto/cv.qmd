@@ -1,0 +1,36 @@
+---
+layout: page
+link: https://www.brianomeara.info/cv/
+slug: cv
+title: CV
+---
+
+```{r child="head.Rmd"}
+```
+
+```{r child="summary.Rmd"}
+```
+
+```{r child="education.Rmd"}
+```
+
+```{r child="employment.Rmd"}
+```
+
+```{r child="publications.Rmd"}
+```
+
+```{r child="teaching.Rmd"}
+```
+
+```{r child="funding.Rmd"}
+```
+
+```{r child="presentations.Rmd"}
+```
+
+```{r child="people.Rmd"}
+```
+
+```{r child="service.Rmd"}
+```

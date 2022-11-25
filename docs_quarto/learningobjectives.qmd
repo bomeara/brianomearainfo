@@ -1,0 +1,93 @@
+---
+comments: false
+layout: page
+link: https://www.brianomeara.info/lab/learningobjectives/
+slug: learningobjectives
+title: Learning Objectives
+---
+
+Students and postdocs in my lab will (eventually) find these very funny. This is how you know your education is complete. They are all from the web comic [xkcd](https://xkcd.com) by Randall Munroe. There are two implementations of this drawing style in R: a general plotting one at [https://xkcd.r-forge.r-project.org/](https://xkcd.r-forge.r-project.org/) and one for phylogenies in [phytools](https://blog.phytools.org/2012/10/new-test-version-of-phytools-v02-02.html).
+
+
+* * *
+
+
+[![](https://imgs.xkcd.com/comics/np_complete.png)](https://xkcd.com/287/)
+
+
+* * *
+
+
+[![](https://imgs.xkcd.com/comics/sandwich.png)](https://xkcd.com/149/)
+
+
+* * *
+
+
+[![](https://imgs.xkcd.com/comics/correlation.png)](https://xkcd.com/552/)
+
+
+* * *
+
+
+[![](https://imgs.xkcd.com/comics/frequentists_vs_bayesians.png)](https://xkcd.com/1132/)
+
+
+* * *
+
+
+[![](https://imgs.xkcd.com/comics/seashell.png)](https://xkcd.com/1236/)
+
+
+* * *
+
+
+[![](https://imgs.xkcd.com/comics/regular_expressions.png)](https://www.xkcd.org/208/)
+
+
+* * *
+
+
+[![](https://imgs.xkcd.com/comics/purity.png)](https://www.xkcd.org/435/)
+
+
+* * *
+
+
+[![](https://imgs.xkcd.com/comics/significant.png)](https://www.xkcd.org/882/)
+
+
+* * *
+
+
+[![](https://imgs.xkcd.com/comics/p_values.png)](https://www.xkcd.org/1478/)
+
+
+* * *
+
+
+[![](https://imgs.xkcd.com/comics/outreach.png)](https://www.xkcd.org/585/)
+
+
+* * *
+
+
+[![](https://imgs.xkcd.com/comics/exploits_of_a_mom.png)](https://www.xkcd.org/327/)
+
+
+* * *
+
+
+[![](https://imgs.xkcd.com/comics/(.png)](https://www.xkcd.org/859/)
+
+
+* * *
+
+
+[![](https://imgs.xkcd.com/comics/standards.png)](https://www.xkcd.org/927/)
+
+
+* * *
+
+
+[![](https://imgs.xkcd.com/comics/birds_and_dinosaurs.png)](https://www.xkcd.org/1211/)

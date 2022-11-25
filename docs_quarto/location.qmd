@@ -1,0 +1,78 @@
+---
+author: brianomeara_ra6153
+comments: false
+date: 2015-07-18 01:13:16+00:00
+layout: page
+link: https://www.brianomeara.info/lab/location/
+slug: location
+title: Location/Contact
+wordpress_id: 22
+---
+
+Our lab is located at the [University of Tennessee, Knoxville](https://www.utk.edu) in the [Department of Ecology and Evolutionary Biology](https://eeb.bio.utk.edu/). The nearest airport is [Knoxville McGhee Tyson Airport (TYS)](https://www.tys.org/) and we are at the intersection of I-40 and I-75. We're about three hours by car from Atlanta and Nashville (the nearest airports with direct flights to many destinations). The nearest Amtrak station is about three hours away by car (Atlanta, GA), and we're approx. 60 miles away from the Appalachian Trail.
+
+
+## Actual office
+
+
+Faculty office: 446 Hesler
+Postdoc/student/visitor office: 425a Hesler
+
+
+## Email
+
+
+[bomeara@utk.edu](mailto:bomeara@utk.edu)
+
+
+## Social
+
+
+[Tweet to @omearabrian](https://twitter.com/intent/tweet?screen_name=omearabrian) [Follow @omearabrian](https://twitter.com/omearabrian)
+
+
+## Mail
+
+
+O'Meara Lab
+Department of Ecology & Evolutionary Biology
+569 Dabney Hall
+University of Tennessee
+Knoxville, Tennessee
+37996-1610
+
+
+## Phone
+
+
+Faculty office: 865-974-2804
+Postdoc/student/visitor space: 865-974-2815
+
+
+## Fax
+
+
+865-974-3067 (but honestly, faxing?)
+
+
+## Map
+
+
+(Also see this [map](https://goo.gl/maps/Xn1Z) with annotations)
+  
+[View Larger Map](https://maps.google.com/?ie=UTF8&hq=&ll=35.957305,-83.925751&spn=0.002171,0.00376&z=18&source=embed)
+
+
+## External view
+
+
+  
+[View Larger Map](https://maps.google.com/maps?q=university+of+tennessee+knoxville&oe=utf-8&client=firefox-a&ie=UTF8&hl=en&hq=&hnear=University+of+Tennessee,+Knoxville,+Tennessee&layer=c&cbll=35.956945,-83.926478&panoid=UnCKNv_JSmSHfDhwQqzAhw&cbp=13,194.74,,0,-2.57&ll=35.950652,-83.926363&spn=0.021817,0.048237&z=14&source=embed)
+
+
+## Parking
+
+
+There is a parking garage on Stadium Drive, which is behind Austin Peay/Hesler.
+  
+[View Larger Map](https://maps.google.com/maps?f=q&source=embed&hl=en&geocode=&q=stadium+drive,+knoxville,+tn&sll=35.899582,-84.049481&sspn=0.016739,0.031757&ie=UTF8&hq=&hnear=Stadium+Dr,+Knoxville,+Knox,+Tennessee+37916&layer=c&cbll=35.956738,-83.927912&panoid=MlZtk5OY8WwXq1gW1TUGEw&cbp=11,210.93,,0,1.81&ll=35.956738,-83.927912&spn=0.000612,0.00302&z=18&iwloc=A)

@@ -1,0 +1,18 @@
+---
+layout: page
+link: https://www.brianomeara.info/ddig
+slug: ddig
+title: DDIG
+output:
+  html_document:
+    includes:
+       in_header: GA_Script.html
+---
+
+The Doctoral Dissertation Improvement Grant was a beloved NSF program that gave small amounts of money (up to $19K) for projects to enhance the dissertations of PhD candidates.
+Its cancellation was motivated by [programmatic needs](https://debblog.nsfbio.com/2017/06/06/ddigs-come-to-a-close/) at NSF. Each DDIG grant requires as much diligence and work by NSF as a regular grant of hundreds of thousands of dollars; in an environment where NSF had to cut its workload, cutting this program dramatically decreased the number of grants NSF had to handle without impacting overall funding to biology as much as other programs. It is clear the NSF staff involved recognize the utility of the program and deeply regret the need for the cuts.
+This elimination has resulted in an outcry from the scientific community.  It has been covered in news stories in _[Science](https://www.sciencemag.org/news/2017/06/ecologists-protest-sudden-end-nsf-dissertation-grants),_ the _[Chronicle of Higher Education](https://www.chronicle.com/article/universities-are-getting-a/240454/), _[_The Scientist_](https://www.the-scientist.com/?articles.view/articleNo/49614/title/NSF-Cuts-PhD-Training-Grant/), and even the [_Minnesota Daily_](https://www.mndaily.com/article/2017/06/nsf-discontinues-research-grant-leaving-u-grad-students-disappointed).  It has also resulted in letters protesting its cut from [three major evolution societies](https://www.systbio.org/letters.html#NSFDDIG), the 10,000 member [Ecological Society of America](https://www.esa.org/esablog/ecology-in-policy/esa-urges-nsf-to-keep-the-doctoral-dissertation-improvement-grant-ddig-program/),  [faculty at Stanford University](https://twitter.com/TadashiFukami/status/875481525424242689), and the [American Society of Plant Taxonomists](https://aspt.net/blog/2017/6/16/aspt-presidents-letter-address-elimination-of-nsf-ddig#.WYSCZq3-22w), as well as numerous emails and letters sent from individual scientists to NSF.
+The National Science Foundation has released aggregate information on the  [overall funding](https://debblog.nsfbio.com/2014/06/24/deb-numbers-ddiging-down-into-dissertation-data/) and  [career trajectories](https://debblog.nsfbio.com/2014/07/08/assessing-the-value-of-the-doctoral-dissertation-improvement-grant-2/) from the DDIG program.
+There have been a few proposals for replacing the DDIG program: [a group led by Maren Friesen](https://friesen.plantbiology.msu.edu/?p=681), an idea of having [awards with DDIG-like subawards](https://twitter.com/omearabrian/status/872488653246930945), and at least one proposal to have a university handle all subawards.
+Many scientists have also posted personal anecdotes about the DDIG's effect on their career, including its substantial return on investment. I have aggregated some of the most compelling below.
+[iframe src="//storify.com/omearabrian/ddig-5984773512f9c414e6627cfc/embed?border=false" height="8000" allowtransparency="true"]

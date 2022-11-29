@@ -8,11 +8,20 @@ I have been in this area for over a dozen years, so I have seen some changes thr
 ### Diversity, equity, and inclusion
 
 * 2022: "Divisive concepts" law banning required training specified "divisive concepts" or requiring people to believe or affirm these concepts. Description of the law's effects [here](https://web.archive.org/web/20220519035635/https://www.knoxnews.com/story/news/education/2022/03/30/tennessee-divisive-concept-bill-bans-diversity-training-how-colleges-affected/9423990002/). The UTK Provost's Office has distributed [information on the law's effects](https://web.archive.org/web/20220422211107/https://provost.utk.edu/divisive-concepts-legislation/).
+* 2016: UTK [disbands](https://archive.knoxnews.com/news/local/ut-disbands-diversity-office-eliminates-four-positions-334868cd-f50c-120d-e053-0100007fa864-380288111.html) its Office for Diversity following defunding from the state. This was prompted by a post from the office arguing for inclusive celebrations (rather than have a government organization celebrate Christmas or other religious holidays) that [some objected to](https://www.utdailybeacon.com/news/article_11f1ea26-9abf-11e5-b399-dbe3c1a90cb1.html) as well as a post that mentioned that not everyone uses gendered pronouns (again resulting in [pushback](https://www.insidehighered.com/news/2015/09/08/u-tennessee-withdraws-guide-pronouns-preferred-some-transgender-people)). In both cases the university quickly took down the posts.
+* 2016: The Pride Center has been [vandalized multiple times](https://www.wbir.com/article/news/local/ut-pride-center-students-rally-after-flag-vandalism/51-316545664).
+* 2022: UTK was ranked [most LGBTQIA+ unfriendly of 488 universities](https://www.wbir.com/article/news/education/ut-most-lgbtqia-unfriendly-university/51-9e1231c8-bb40-40ae-b9b4-0e22c1d609d5) by the Princeton Review. This is based on asking students how much they agree with the statement that "students treat all persons equally, regardless of their sexual orientation and gender identity/expression". UTK suggests a better indicator is the [Campus Pride Index](https://www.campusprideindex.org/campuses/details/197?campus=university-of-tennessee), which is based on survey responses provided by the institituion about institutional investment and resources.
+
+### Sexual misconduct
+
+2018: Multiple reports (see overview [here](https://academic-sexual-misconduct-database.org/incidents?query=&institution=896&role=All&position=All&discipline=All&outcome=All&status=All)). The only named individual is [Dr. Henri Grissino-Mayr](https://www.knoxnews.com/story/news/education/2018/09/27/ut-professor-sexual-misconduct-investigation-henri-grissino-mayer/1409473002/), a geography professor.
+2011-present: UT's Title IX office publishes reports and other documents: https://titleix.utk.edu/about-the-office-of-title-ix/documents-archive/. This includes the number and kind of reports, alleged incidents, support measures, and resolutions.
 
 ### Speech on campus
 
 * 2013-present: Speech and activities during Sex Week have generated great controversy (reviewed [here](https://web.archive.org/web/20201107232037/https://www.insidehighered.com/news/2019/02/22/moves-kill-ut-knoxvilles-sex-week-met-questions)). The Tennessee House voted 69-17 [to condemn the organizers of Sex Week in 2014](https://web.archive.org/web/20221021213603/https://www.utdailybeacon.com/news/sex-week-organizers-now-legally-condemned/article_b9f05d49-f511-536b-933f-dc73fd2eda79.html). 
 * 2016: A UTK law professor [called for running down](https://web.archive.org/web/20220904182607/https://www.insidehighered.com/news/2016/09/23/u-tennessee-investigating-professor-and-popular-conservative-blogger-tweeting) people protesting a police shooting who were blocking a highway. After an investigation, this was [assessed as protected speech with no disciplinary action required](https://web.archive.org/web/20210418204516/https://law.utk.edu/2016/09/27/dean-statement/). In 2022 the professor was [appointed](https://web.archive.org/web/20220927203318/https://law.utk.edu/2022/09/01/ut-system-president-randy-boyd-appoints-law-professor-to-institute-of-american-civics-board/) to the Board of Fellows of the new Institute of American Civics at UTK. Bills have been proposed at least twice ([2017](https://web.archive.org/web/20220818021837/http://www.newschannel5.com/news/drivers-given-civil-immunity-for-hitting-protesters-under-proposed-bill) and [2021](https://web.archive.org/web/20220519222342/https://edition.cnn.com/2021/03/04/us/tennessee-anti-protest-bill-felony-trnd/index.html)) giving drivers immunity for hitting protestors blocking roads. 
+
 
 ### Policing
 
@@ -20,6 +29,24 @@ There are many levels of police here: UTK has its own police force, the city of 
 
 * 2022: Nearly all Black Knoxville (city) police say they face discrimination (article includes links to other recent stories on potential instances): https://web.archive.org/web/20221021025248/https://www.knoxnews.com/story/news/local/2022/10/21/nearly-all-black-knoxville-police-officers-say-they-face-discrimination/69577490007/
 * 2014: "Courtesy notifications" letting UT athletics know in advance if there are any criminal allegations against players. This practice is reported as no longer continuing, partly due to publicity from this case. https://web.archive.org/web/20220125094112/https://www.knoxnews.com/story/news/crime/2018/07/26/aj-johnson-rape-trial-police-ut-vols/839564002/ 
+
+### Science
+
+2012: ['Tennessee ‘monkey bill’ becomes law'](https://www.nature.com/articles/nature.2012.10423); longer description [here](https://www.science.org/content/article/bill-allowing-teachers-challenge-evolution-passes-tennessee-house).
+
+### Conservation
+
+#### Snail darter
+
+* TVA was building the Tellico Dam, with the project starting in 1966.
+* In 1973, UTK faculty member David Etnier discovered a new species where the dam was being built by doing a survey with students of the area that would be affected. He described it (formally naming it according to the rules of species taxonomy), worked with others to get it listed under the shiny new Endangered Species Act, and publicly advocated for its salvation.
+* UTK law student Hank Hill, UT law prof Zyg Plater, and college of law assistant dean Don Cohen filed a federal suit to stop the dam.
+* The suit went up to the US Supreme Court – where [Hill et al. won](https://www.nytimes.com/1978/06/16/archives/high-court-bars-dam-reprieving-rare-fish-but-justices-hint-congress.html), stopping the dam.
+* Senator Baker (Baker Center namesake) and Senator Culver (Iowa) sponsored an Endangered Species Act amendment creating the “God Squad” or “God Committee” – a committee that can choose to allow the extinction of a species by exempting a federal agency (perhaps not coincidentally, such as TVA) from Endangered Species Act requirements.
+* The amendment passed; the committee met; the [committee rejected TVA’s arguments largely on economic grounds](https://www.washingtonpost.com/archive/politics/1979/01/27/dollars-darters-and-no-dam/05441f0b-8692-4ba5-bce5-57189ecc8e9c/), leaving the dam project stopped.
+* Senator Baker added a rider to a 1980 appropriations bill that exempted Tellico Dam from the Endangered Species Act. It passed.
+* The dam was completed, the lake began to fill, and 20 species (according to the [TVA](https://www.tva.com/about-tva/our-history/built-for-the-people/telling-the-story-of-tellico-it-s-complicated)) were eliminated from the impounded river….
+* … but not from the planet (yet). Among them was the snail darter, which had been transplanted to a nearby river (and later, other populations were found). And now, the darter has recovered enough to be taken off the endangered species list.
 
 ### Chancellors
 

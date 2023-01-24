@@ -1,5 +1,0 @@
----
-title: Local COVID data
----
-
-I maintained a very long page of covid info here. However, for readability, I've made it its own separate website instead so info is split across multiple pages. Go to [https://easttn.info/](https://easttn.info/) for the latest info. I also maintain the [https://vaccication.org/](https://vaccication.org/) website for information about covid and vaccination rates in various places (searchable by attractions, so you can see, for example, what the covid situation is [where Dollywood is located](https://vaccication.org/counties/Sevier_TN.html) without knowing its county).

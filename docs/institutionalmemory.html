@@ -1,675 +1,432 @@
 <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
-<html>
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.280">
 
-<head>
-
-<meta charset="utf-8" />
-<meta name="generator" content="pandoc" />
-<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
-
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>Institutional Memory</title>
-
-<script src="site_libs/header-attrs-2.18/header-attrs.js"></script>
-<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
-<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
-<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
-<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
-<style>h1 {font-size: 34px;}
-       h1.title {font-size: 38px;}
-       h2 {font-size: 30px;}
-       h3 {font-size: 24px;}
-       h4 {font-size: 18px;}
-       h5 {font-size: 16px;}
-       h6 {font-size: 12px;}
-       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
-       pre:not([class]) { background-color: white }</style>
-<script src="site_libs/navigation-1.1/tabsets.js"></script>
-<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
-<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-
-<style type="text/css">
-  code{white-space: pre-wrap;}
-  span.smallcaps{font-variant: small-caps;}
-  span.underline{text-decoration: underline;}
-  div.column{display: inline-block; vertical-align: top; width: 50%;}
-  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-  ul.task-list{list-style: none;}
-    </style>
-
-<style type="text/css">code{white-space: pre;}</style>
-<script type="text/javascript">
-if (window.hljs) {
-  hljs.configure({languages: []});
-  hljs.initHighlightingOnLoad();
-  if (document.readyState && document.readyState === "complete") {
-    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
-  }
-}
-</script>
-
-
-
-
-
-
-
-
-
-<style type = "text/css">
-.main-container {
-  max-width: 940px;
-  margin-left: auto;
-  margin-right: auto;
-}
-img {
-  max-width:100%;
-}
-.tabbed-pane {
-  padding-top: 12px;
-}
-.html-widget {
-  margin-bottom: 20px;
-}
-button.code-folding-btn:focus {
-  outline: none;
-}
-summary {
-  display: list-item;
-}
-details > summary > p:only-child {
-  display: inline;
-}
-pre code {
-  padding: 0;
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
 }
 </style>
 
 
-<style type="text/css">
-.dropdown-submenu {
-  position: relative;
-}
-.dropdown-submenu>.dropdown-menu {
-  top: 0;
-  left: 100%;
-  margin-top: -6px;
-  margin-left: -1px;
-  border-radius: 0 6px 6px 6px;
-}
-.dropdown-submenu:hover>.dropdown-menu {
-  display: block;
-}
-.dropdown-submenu>a:after {
-  display: block;
-  content: " ";
-  float: right;
-  width: 0;
-  height: 0;
-  border-color: transparent;
-  border-style: solid;
-  border-width: 5px 0 5px 5px;
-  border-left-color: #cccccc;
-  margin-top: 5px;
-  margin-right: -10px;
-}
-.dropdown-submenu:hover>a:after {
-  border-left-color: #adb5bd;
-}
-.dropdown-submenu.pull-left {
-  float: none;
-}
-.dropdown-submenu.pull-left>.dropdown-menu {
-  left: -100%;
-  margin-left: 10px;
-  border-radius: 6px 0 6px 6px;
-}
-</style>
-
-<script type="text/javascript">
-// manage active state of menu based on current page
-$(document).ready(function () {
-  // active menu anchor
-  href = window.location.pathname
-  href = href.substr(href.lastIndexOf('/') + 1)
-  if (href === "")
-    href = "index.html";
-  var menuAnchor = $('a[href="' + href + '"]');
-
-  // mark the anchor link active (and if it's in a dropdown, also mark that active)
-  var dropdown = menuAnchor.closest('li.dropdown');
-  if (window.bootstrap) { // Bootstrap 4+
-    menuAnchor.addClass('active');
-    dropdown.find('> .dropdown-toggle').addClass('active');
-  } else { // Bootstrap 3
-    menuAnchor.parent().addClass('active');
-    dropdown.addClass('active');
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
   }
-
-  // Navbar adjustments
-  var navHeight = $(".navbar").first().height() + 15;
-  var style = document.createElement('style');
-  var pt = "padding-top: " + navHeight + "px; ";
-  var mt = "margin-top: -" + navHeight + "px; ";
-  var css = "";
-  // offset scroll position for anchor links (for fixed navbar)
-  for (var i = 1; i <= 6; i++) {
-    css += ".section h" + i + "{ " + pt + mt + "}\n";
-  }
-  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
-  document.head.appendChild(style);
-});
-</script>
-
-<!-- tabsets -->
-
-<style type="text/css">
-.tabset-dropdown > .nav-tabs {
-  display: inline-table;
-  max-height: 500px;
-  min-height: 44px;
-  overflow-y: auto;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-}
-
-.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "\e259";
-  font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "\e258";
-  font-family: 'Glyphicons Halflings';
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs > li.active {
-  display: block;
-}
-
-.tabset-dropdown > .nav-tabs > li > a,
-.tabset-dropdown > .nav-tabs > li > a:focus,
-.tabset-dropdown > .nav-tabs > li > a:hover {
-  border: none;
-  display: inline-block;
-  border-radius: 4px;
-  background-color: transparent;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
-  display: block;
-  float: none;
-}
-
-.tabset-dropdown > .nav-tabs > li {
-  display: none;
-}
-</style>
-
-<!-- code folding -->
+}</script>
 
 
-
-
+<link rel="stylesheet" href="styles.css">
 </head>
 
-<body>
+<body class="nav-fixed">
 
-
-<div class="container-fluid main-container">
-
-
-
-
-<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="index.html">Brian O'Meara</a>
-    </div>
-    <div id="navbar" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Brian O’Meara</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-cv-etc." role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">CV, etc.</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-cv-etc.">    
         <li>
-  <a href="index.html">Home</a>
-</li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-    CV, etc.
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li>
-      <a href="cv.html">CV</a>
-    </li>
-    <li>
-      <a href="calendar.html">Calendar</a>
-    </li>
-    <li>
-      <a href="feedback.html">Feedback</a>
-    </li>
-    <li>
-      <a href="useful.html">Useful links</a>
-    </li>
-    <li>
-      <a href="tenure.html">Materials for promotion to associate (and tenure)</a>
-    </li>
-    <li>
-      <a href="promotion.html">Materials for promotion to full</a>
-    </li>
-    <li>
-      <a href="SSB.html">Candidacy for SSB president</a>
-    </li>
+    <a class="dropdown-item" href="./cv.html">
+ <span class="dropdown-text">CV</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./calendar.html">
+ <span class="dropdown-text">Calendar</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./feedback.html">
+ <span class="dropdown-text">Feedback</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./useful.html">
+ <span class="dropdown-text">Useful links</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./tenure.html">
+ <span class="dropdown-text">Materials for promotion to associate (and tenure)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./promotion.html">
+ <span class="dropdown-text">Materials for promotion to full</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./SSB.html">
+ <span class="dropdown-text">Candidacy for SSB president</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-lab" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Lab</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-lab">    
+        <li>
+    <a class="dropdown-item" href="./personnel.html">
+ <span class="dropdown-text">People</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./guidelines.html">
+ <span class="dropdown-text">Guidelines &amp; Recommendations</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./location.html">
+ <span class="dropdown-text">Location/Contact</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./opportunities.html">
+ <span class="dropdown-text">Opportunities</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./learningobjectives.html">
+ <span class="dropdown-text">Learning objectives</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./better-letter.html">
+ <span class="dropdown-text">BetterLetter</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./shouldyougotogradschool.html">
+ <span class="dropdown-text">Should you go to grad school to be a professor?</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./tenure.html">
+ <span class="dropdown-text">Materials for promotion to associate (and tenure)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./promotion.html">
+ <span class="dropdown-text">Materials for promotion to full</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./general.html">
+ <span class="dropdown-text">Info for general public</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./covid.html">
+ <span class="dropdown-text">COVID</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./schedule.html">
+ <span class="dropdown-text">EEB scheduling</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-teaching" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Teaching</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-teaching">    
+        <li>
+    <a class="dropdown-item" href="./teaching.html">
+ <span class="dropdown-text">Teaching overall</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./eeb464.html">
+ <span class="dropdown-text">Macroevolution (EEB464)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://phylometh.info/">
+ <span class="dropdown-text">Phylogenetic Methods</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-tutorials" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Tutorials</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-tutorials">    
+        <li>
+    <a class="dropdown-item" href="./aic.html">
+ <span class="dropdown-text">AIC</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./phylogenetics.html">
+ <span class="dropdown-text">Phylogenetics</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#diversity-equity-and-inclusion" id="toc-diversity-equity-and-inclusion" class="nav-link active" data-scroll-target="#diversity-equity-and-inclusion">Diversity, equity, and inclusion</a></li>
+  <li><a href="#speech-on-campus" id="toc-speech-on-campus" class="nav-link" data-scroll-target="#speech-on-campus">Speech on campus</a></li>
+  <li><a href="#policing" id="toc-policing" class="nav-link" data-scroll-target="#policing">Policing</a></li>
+  <li><a href="#chancellors" id="toc-chancellors" class="nav-link" data-scroll-target="#chancellors">Chancellors</a></li>
+  <li><a href="#sports" id="toc-sports" class="nav-link" data-scroll-target="#sports">Sports</a></li>
   </ul>
-</li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-    Lab
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li>
-      <a href="personnel.html">People</a>
-    </li>
-    <li>
-      <a href="guidelines.html">Guidelines &amp; Recommendations</a>
-    </li>
-    <li>
-      <a href="location.html">Location/Contact</a>
-    </li>
-    <li>
-      <a href="opportunities.html">Opportunities</a>
-    </li>
-    <li>
-      <a href="learningobjectives.html">Learning objectives</a>
-    </li>
-    <li>
-      <a href="better-letter.html">BetterLetter</a>
-    </li>
-    <li>
-      <a href="shouldyougotogradschool.html">Should you go to grad school to be a professor?</a>
-    </li>
-    <li>
-      <a href="tenure.html">Materials for promotion to associate (and tenure)</a>
-    </li>
-    <li>
-      <a href="promotion.html">Materials for promotion to full</a>
-    </li>
-    <li>
-      <a href="general.html">Info for general public</a>
-    </li>
-    <li>
-      <a href="covid.html">COVID</a>
-    </li>
-    <li>
-      <a href="schedule.html">EEB scheduling</a>
-    </li>
-  </ul>
-</li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-    Teaching
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li>
-      <a href="teaching.html">Teaching overall</a>
-    </li>
-    <li>
-      <a href="eeb464.html">Macroevolution (EEB464)</a>
-    </li>
-    <li>
-      <a href="https://phylometh.info/">Phylogenetic Methods</a>
-    </li>
-  </ul>
-</li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-    Tutorials
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li>
-      <a href="aic.html">AIC</a>
-    </li>
-    <li>
-      <a href="phylogenetics.html">Phylogenetics</a>
-    </li>
-  </ul>
-</li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        
-      </ul>
-    </div><!--/.nav-collapse -->
-  </div><!--/.container -->
-</div><!--/.navbar -->
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
 
-<div id="header">
-
-
-
-<h1 class="title toc-ignore">Institutional Memory</h1>
-
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Institutional Memory</h1>
 </div>
 
 
-<p>I have been in this area for over a dozen years, so I have seen some
-changes through time. For new folks coming in it can be hard to
-understand the history, but history is important in knowing what has
-been tried, what people are responding to, and just in understanding
-this community. I typically use wayback machine links so people can see
-the documents as they were.</p>
-<div id="diversity-equity-and-inclusion" class="section level3">
-<h3>Diversity, equity, and inclusion</h3>
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p>I have been in this area for over a dozen years, so I have seen some changes through time. For new folks coming in it can be hard to understand the history, but history is important in knowing what has been tried, what people are responding to, and just in understanding this community. I typically use wayback machine links so people can see the documents as they were.</p>
+<section id="diversity-equity-and-inclusion" class="level3">
+<h3 class="anchored" data-anchor-id="diversity-equity-and-inclusion">Diversity, equity, and inclusion</h3>
 <ul>
-<li>2022: “Divisive concepts” law banning required training specified
-“divisive concepts” or requiring people to believe or affirm these
-concepts. Description of the law’s effects <a
-href="https://web.archive.org/web/20220519035635/https://www.knoxnews.com/story/news/education/2022/03/30/tennessee-divisive-concept-bill-bans-diversity-training-how-colleges-affected/9423990002/">here</a>.
-The UTK Provost’s Office has distributed <a
-href="https://web.archive.org/web/20220422211107/https://provost.utk.edu/divisive-concepts-legislation/">information
-on the law’s effects</a>.</li>
-<li>2016: UTK <a
-href="https://archive.knoxnews.com/news/local/ut-disbands-diversity-office-eliminates-four-positions-334868cd-f50c-120d-e053-0100007fa864-380288111.html">disbands</a>
-its Office for Diversity following defunding from the state. This was
-prompted by a post from the office arguing for inclusive celebrations
-(rather than have a government organization celebrate Christmas or other
-religious holidays) that <a
-href="https://www.utdailybeacon.com/news/article_11f1ea26-9abf-11e5-b399-dbe3c1a90cb1.html">some
-objected to</a> as well as a post that mentioned that not everyone uses
-gendered pronouns (again resulting in <a
-href="https://www.insidehighered.com/news/2015/09/08/u-tennessee-withdraws-guide-pronouns-preferred-some-transgender-people">pushback</a>).
-In both cases the university quickly took down the posts.</li>
-<li>2016: The Pride Center has been <a
-href="https://www.wbir.com/article/news/local/ut-pride-center-students-rally-after-flag-vandalism/51-316545664">vandalized
-multiple times</a>.</li>
-<li>2022: UTK was ranked <a
-href="https://www.wbir.com/article/news/education/ut-most-lgbtqia-unfriendly-university/51-9e1231c8-bb40-40ae-b9b4-0e22c1d609d5">most
-LGBTQIA+ unfriendly of 488 universities</a> by the Princeton Review.
-This is based on asking students how much they agree with the statement
-that “students treat all persons equally, regardless of their sexual
-orientation and gender identity/expression”. UTK suggests a better
-indicator is the <a
-href="https://www.campusprideindex.org/campuses/details/197?campus=university-of-tennessee">Campus
-Pride Index</a>, which is based on survey responses provided by the
-institituion about institutional investment and resources.</li>
+<li>2022: “Divisive concepts” law banning required training specified “divisive concepts” or requiring people to believe or affirm these concepts. Description of the law’s effects <a href="https://web.archive.org/web/20220519035635/https://www.knoxnews.com/story/news/education/2022/03/30/tennessee-divisive-concept-bill-bans-diversity-training-how-colleges-affected/9423990002/">here</a>. The UTK Provost’s Office has distributed <a href="https://web.archive.org/web/20220422211107/https://provost.utk.edu/divisive-concepts-legislation/">information on the law’s effects</a>.</li>
 </ul>
-</div>
-<div id="sexual-misconduct" class="section level3">
-<h3>Sexual misconduct</h3>
+</section>
+<section id="speech-on-campus" class="level3">
+<h3 class="anchored" data-anchor-id="speech-on-campus">Speech on campus</h3>
 <ul>
-<li>2018: Multiple reports (see overview <a
-href="https://academic-sexual-misconduct-database.org/incidents?query=&amp;institution=896&amp;role=All&amp;position=All&amp;discipline=All&amp;outcome=All&amp;status=All">here</a>).
-The only named individual is <a
-href="https://www.knoxnews.com/story/news/education/2018/09/27/ut-professor-sexual-misconduct-investigation-henri-grissino-mayer/1409473002/">Dr. Henri
-Grissino-Mayr</a>, a geography professor.</li>
-<li>2011-present: UT’s Title IX office publishes reports and other
-documents: <a
-href="https://titleix.utk.edu/about-the-office-of-title-ix/documents-archive/"
-class="uri">https://titleix.utk.edu/about-the-office-of-title-ix/documents-archive/</a>.
-This includes the number and kind of reports, alleged incidents, support
-measures, and resolutions.</li>
+<li>2013-present: Speech and activities during Sex Week have generated great controversy (reviewed <a href="https://web.archive.org/web/20201107232037/https://www.insidehighered.com/news/2019/02/22/moves-kill-ut-knoxvilles-sex-week-met-questions">here</a>). The Tennessee House voted 69-17 <a href="https://web.archive.org/web/20221021213603/https://www.utdailybeacon.com/news/sex-week-organizers-now-legally-condemned/article_b9f05d49-f511-536b-933f-dc73fd2eda79.html">to condemn the organizers of Sex Week in 2014</a>.</li>
+<li>2016: A UTK law professor <a href="https://web.archive.org/web/20220904182607/https://www.insidehighered.com/news/2016/09/23/u-tennessee-investigating-professor-and-popular-conservative-blogger-tweeting">called for running down</a> people protesting a police shooting who were blocking a highway. After an investigation, this was <a href="https://web.archive.org/web/20210418204516/https://law.utk.edu/2016/09/27/dean-statement/">assessed as protected speech with no disciplinary action required</a>. In 2022 the professor was <a href="https://web.archive.org/web/20220927203318/https://law.utk.edu/2022/09/01/ut-system-president-randy-boyd-appoints-law-professor-to-institute-of-american-civics-board/">appointed</a> to the Board of Fellows of the new Institute of American Civics at UTK. Bills have been proposed at least twice (<a href="https://web.archive.org/web/20220818021837/http://www.newschannel5.com/news/drivers-given-civil-immunity-for-hitting-protesters-under-proposed-bill">2017</a> and <a href="https://web.archive.org/web/20220519222342/https://edition.cnn.com/2021/03/04/us/tennessee-anti-protest-bill-felony-trnd/index.html">2021</a>) giving drivers immunity for hitting protestors blocking roads.</li>
 </ul>
-</div>
-<div id="speech" class="section level3">
-<h3>Speech</h3>
+</section>
+<section id="policing" class="level3">
+<h3 class="anchored" data-anchor-id="policing">Policing</h3>
+<p>There are many levels of police here: UTK has its own police force, the city of Knoxville has its own force, Knox County has its own force, and there are also state police (and various federal agencies). One thing that seemed unusual to me coming from Boston was that the county basically operates like a city: both the county and city have their own mayors, they set rules for zoning in their respective areas, etc.</p>
 <ul>
-<li>2013-present: Speech and activities during Sex Week have generated
-great controversy (reviewed <a
-href="https://web.archive.org/web/20201107232037/https://www.insidehighered.com/news/2019/02/22/moves-kill-ut-knoxvilles-sex-week-met-questions">here</a>).
-The Tennessee House voted 69-17 <a
-href="https://web.archive.org/web/20221021213603/https://www.utdailybeacon.com/news/sex-week-organizers-now-legally-condemned/article_b9f05d49-f511-536b-933f-dc73fd2eda79.html">to
-condemn the organizers of Sex Week in 2014</a>.</li>
-<li>2018: A bill <a
-href="https://www.cnn.com/2018/04/04/politics/tennessee-legislature-white-nationalist-resolution/index.html">condeming
-white nationalists</a> fails to get a second person in favor (a later
-bill also failed).</li>
-<li>2018-9: UT’s then policy of renting out space to unaffilated groups
-resulted in at least two events that closed parts of campus, hindering
-its teaching, research, and service missions: <a
-href="https://www.knoxnews.com/story/news/education/2018/02/17/white-nationalist-talk-university-tennessee-matthew-heimbach/343307002/">Feb
-2018</a> and <a
-href="https://www.knoxnews.com/story/news/education/2019/05/24/ut-knoxville-groups-speak-against-white-nationalist-event/1220214001/">May
-2019</a>. UT’s policy is <a
-href="https://universitytennessee.policytech.com/dotNet/documents/?docid=692&amp;public=true">now</a>
-that events must have a University sponsor.</li>
-<li>2017: The legislature passed a <a
-href="https://publications.tnsosfiles.com/acts/110/pub/pc0336.pdf">law</a>
-that stresses that an insitution should not shield individuals from
-speech; more <a
-href="https://freespeech.utk.edu/campus-free-speech-protection-act/">here</a>.
-The UT Board of Trustees passed a <a
-href="https://universitytennessee.policytech.com/dotNet/documents/?docid=268&amp;public=true">policy</a>
-about free speech on campus, allowing for constitutional time, manner,
-and place restrictions (which must be viewpoint-neutral) and ensuring
-students have free speech rights. Within the classroom, faculty have
-some restrictions: “Although faculty are free in the classroom to
-discuss subjects within areas of their competence, faculty shall be
-cautious in expressing personal views in the classroom and shall be
-careful not to introduce controversial matters that have no relationship
-to the subject taught, and especially matters in which they have no
-special competence or training and in which, therefore, faculty’s views
-cannot claim the authority accorded statements they make about subjects
-within areas of their competence; provided, that no faculty will face
-adverse employment action for classroom speech, unless it is not
-reasonably germane to the subject matter of the class as broadly
-construed, and comprises a substantial portion of classroom
-instruction.” The policy also prohibits disinviting a speaker invited by
-a student, faculty member, or student organization due to various
-(specified) concerns about the speech by others.</li>
-<li>2016: A UTK law professor <a
-href="https://web.archive.org/web/20220904182607/https://www.insidehighered.com/news/2016/09/23/u-tennessee-investigating-professor-and-popular-conservative-blogger-tweeting">called
-for running down</a> people protesting a police shooting who were
-blocking a highway. After an investigation, this was <a
-href="https://web.archive.org/web/20210418204516/https://law.utk.edu/2016/09/27/dean-statement/">assessed
-as protected speech with no disciplinary action required</a>. In 2022
-the professor was <a
-href="https://web.archive.org/web/20220927203318/https://law.utk.edu/2022/09/01/ut-system-president-randy-boyd-appoints-law-professor-to-institute-of-american-civics-board/">appointed</a>
-to the Board of Fellows of the new Institute of American Civics at UTK.
-Bills have been proposed at least twice (<a
-href="https://web.archive.org/web/20220818021837/http://www.newschannel5.com/news/drivers-given-civil-immunity-for-hitting-protesters-under-proposed-bill">2017</a>
-and <a
-href="https://web.archive.org/web/20220519222342/https://edition.cnn.com/2021/03/04/us/tennessee-anti-protest-bill-felony-trnd/index.html">2021</a>)
-giving drivers immunity for hitting protestors blocking roads.</li>
+<li>2022: Nearly all Black Knoxville (city) police say they face discrimination (article includes links to other recent stories on potential instances): https://web.archive.org/web/20221021025248/https://www.knoxnews.com/story/news/local/2022/10/21/nearly-all-black-knoxville-police-officers-say-they-face-discrimination/69577490007/</li>
+<li>2014: “Courtesy notifications” letting UT athletics know in advance if there are any criminal allegations against players. This practice is reported as no longer continuing, partly due to publicity from this case. https://web.archive.org/web/20220125094112/https://www.knoxnews.com/story/news/crime/2018/07/26/aj-johnson-rape-trial-police-ut-vols/839564002/</li>
 </ul>
-</div>
-<div id="policing" class="section level3">
-<h3>Policing</h3>
-<p>There are many levels of police here: UTK has its own police force,
-the city of Knoxville has its own force, Knox County has its own force,
-and there are also state police (and various federal agencies). One
-thing that seemed unusual to me coming from Boston was that the county
-basically operates like a city: both the county and city have their own
-mayors, they set rules for zoning in their respective areas, etc.</p>
-<ul>
-<li>2022: Nearly all Black Knoxville (city) police say they face
-discrimination (article includes links to other recent stories on
-potential instances): <a
-href="https://web.archive.org/web/20221021025248/https://www.knoxnews.com/story/news/local/2022/10/21/nearly-all-black-knoxville-police-officers-say-they-face-discrimination/69577490007/"
-class="uri">https://web.archive.org/web/20221021025248/https://www.knoxnews.com/story/news/local/2022/10/21/nearly-all-black-knoxville-police-officers-say-they-face-discrimination/69577490007/</a></li>
-<li>2014: “Courtesy notifications” letting UT athletics know in advance
-if there are any criminal allegations against players. This practice is
-reported as no longer continuing, partly due to publicity from this
-case. <a
-href="https://web.archive.org/web/20220125094112/https://www.knoxnews.com/story/news/crime/2018/07/26/aj-johnson-rape-trial-police-ut-vols/839564002/"
-class="uri">https://web.archive.org/web/20220125094112/https://www.knoxnews.com/story/news/crime/2018/07/26/aj-johnson-rape-trial-police-ut-vols/839564002/</a></li>
-</ul>
-</div>
-<div id="science" class="section level3">
-<h3>Science</h3>
-<ul>
-<li>2012: <a
-href="https://www.nature.com/articles/nature.2012.10423">‘Tennessee
-‘monkey bill’ becomes law’</a>; longer description <a
-href="https://www.science.org/content/article/bill-allowing-teachers-challenge-evolution-passes-tennessee-house">here</a>.</li>
-<li>1925: Scopes trial and Butler Act. “An act prohibiting the teaching
-of the Evolution Theory in all the Universities, and all other public
-schools of Tennessee, which are supported in whole or in part by the
-public school funds of the State, and to provide penalties for the
-violations thereof” was passed in 1925 and signed by Governor Austin
-Peay (the Austin Peay building, which houses some ecology and
-evolutionary biology faculty and labs, is named after him). The ACLU
-offered to defend anyone teaching evolution; in order to get publicity
-for Dayton, local town leaders approached local teacher John Scopes to
-admit to teaching evolution to start a trial. The trial was famous (and
-has been the subject of books, plays, and films); Scopes lost. The
-conviction was set aside by the TN Supreme Court on a technicality, but
-the law stayed on the books. <a
-href="https://blogs.scientificamerican.com/observations/50-years-ago-repeal-of-tennessees-monkey-law/">Gary
-Scott was fired</a> for violating it in 1967, but, partly in response,
-the bill was repealed that year (<a
-href="https://www.thefreelibrary.com/The+Tennessee+Academy+of+Science+and+the+repeal+of+the+Butler+Act.-a0335293584">59-30
-to repeal in the House, 20-13 in the Senate</a>).</li>
-</ul>
-</div>
-<div id="conservation" class="section level3">
-<h3>Conservation</h3>
-<div id="snail-darter" class="section level4">
-<h4>Snail darter</h4>
-<ul>
-<li>TVA was building the Tellico Dam, with the project starting in
-1966.</li>
-<li>In 1973, UTK faculty member David Etnier discovered a new species
-where the dam was being built by doing a survey with students of the
-area that would be affected. He described it (formally naming it
-according to the rules of species taxonomy), worked with others to get
-it listed under the shiny new Endangered Species Act, and publicly
-advocated for its salvation.</li>
-<li>UTK law student Hank Hill, UT law prof Zyg Plater, and college of
-law assistant dean Don Cohen filed a federal suit to stop the dam.</li>
-<li>The suit went up to the US Supreme Court – where <a
-href="https://www.nytimes.com/1978/06/16/archives/high-court-bars-dam-reprieving-rare-fish-but-justices-hint-congress.html">Hill
-et al. won</a>, stopping the dam.</li>
-<li>Senator Baker (Baker Center namesake) and Senator Culver (Iowa)
-sponsored an Endangered Species Act amendment creating the “God Squad”
-or “God Committee” – a committee that can choose to allow the extinction
-of a species by exempting a federal agency (perhaps not coincidentally,
-such as TVA) from Endangered Species Act requirements.</li>
-<li>The amendment passed; the committee met; the <a
-href="https://www.washingtonpost.com/archive/politics/1979/01/27/dollars-darters-and-no-dam/05441f0b-8692-4ba5-bce5-57189ecc8e9c/">committee
-rejected TVA’s arguments largely on economic grounds</a>, leaving the
-dam project stopped.</li>
-<li>Senator Baker added a rider to a 1980 appropriations bill that
-exempted Tellico Dam from the Endangered Species Act. It passed.</li>
-<li>The dam was completed, the lake began to fill, and 20 species
-(according to the <a
-href="https://www.tva.com/about-tva/our-history/built-for-the-people/telling-the-story-of-tellico-it-s-complicated">TVA</a>)
-were eliminated from the impounded river….</li>
-<li>… but not from the planet (yet). Among them was the snail darter,
-which had been transplanted to a nearby river (and later, other
-populations were found). And now, the darter has recovered enough to be
-taken off the endangered species list.</li>
-</ul>
-</div>
-</div>
-<div id="chancellors" class="section level3">
-<h3>Chancellors</h3>
-<p>See all the past chancellors listed at <a
-href="https://chancellor.utk.edu/about-the-office/past-chancellors/"
-class="uri">https://chancellor.utk.edu/about-the-office/past-chancellors/</a>.</p>
-</div>
-<div id="sports" class="section level3">
-<h3>Sports</h3>
-<p>Major sports here are men’s football, women’s basketball, and men’s
-basketball (men’s baseball is recently very popular, too). The teams
-compete in the SouthEastern Conference (SEC). They are generally called
-the Vols or Volunteers. There is tremendous fan support for the
-teams.</p>
-<div id="mens-football" class="section level4">
-<h4>Men’s Football</h4>
-<p>The football team’s record is available <a
-href="https://en.wikipedia.org/wiki/List_of_Tennessee_Volunteers_football_seasons">here</a>
-– note especially the orange and yellow rows when they won the national
-and conference championships, respectively. If they win half their
-games, they generally get to go to a bowl game. The quality of opponents
-can vary (some opponents are paid to play and the UTK team is expected
-to win many of those games) – the record against conference opponents is
-considered a better assessment of how the team is doing that year (and
-the SEC is one of the most difficult conferences). The Vols were one of
-the powerhouse teams for many years, then declined, but there is hope
-again this year (Fall 2022). The football coach is traditionally the
-highest paid employee of all state employees. Football coaches generally
-sign on for multiyear contracts: if fired they generally keep being paid
-(unless fired for cause, <a
-href="https://web.archive.org/web/20221021222111/https://www.knoxnews.com/story/sports/college/university-of-tennessee/football/2021/01/18/jeremy-pruitt-fired-tennessee-football-coaching-search-vols/6413502002/">as
-happened in 2021</a>), and if someone else tries to hire them away there
-generally is money paid to UTK in compensation (making hiring them away
-more expensive for competitors). UTK has a history of <a
-href="https://web.archive.org/web/20211207094036/https://www.knoxnews.com/story/sports/columnists/university-of-tennessee/john-adams/2018/06/07/ut-vols-tennessee-football-phillip-fulmer-bruce-pearl-butch-jones-derek-dooley/665507002/">paying
-fired coaches or other personnel</a>, though I am unaware of a
-comparison of UTK’s payouts with those of other schools.</p>
-</div>
-<div id="womens-basketball" class="section level4">
-<h4>Women’s Basketball</h4>
-<p>See their record <a
-href="https://en.wikipedia.org/wiki/Tennessee_Lady_Volunteers_basketball#Season%E2%80%93by%E2%80%93season_results">here</a>:
-yellow or orange rows indicate winning one or more championships.
-Respected, beloved head coach Pat Summitt coached them from 1974 to
-2012.</p>
-</div>
-</div>
+</section>
+<section id="chancellors" class="level3">
+<h3 class="anchored" data-anchor-id="chancellors">Chancellors</h3>
+<p>See all the past chancellors listed at https://chancellor.utk.edu/about-the-office/past-chancellors/.</p>
+</section>
+<section id="sports" class="level3">
+<h3 class="anchored" data-anchor-id="sports">Sports</h3>
+<p>Major sports here are men’s football, women’s basketball, and men’s basketball (men’s baseball is recently very popular, too). The teams compete in the SouthEastern Conference (SEC). They are generally called the Vols or Volunteers. There is tremendous fan support for the teams.</p>
+<section id="mens-football" class="level4">
+<h4 class="anchored" data-anchor-id="mens-football">Men’s Football</h4>
+<p>The football team’s record is available <a href="https://en.wikipedia.org/wiki/List_of_Tennessee_Volunteers_football_seasons">here</a> – note especially the orange and yellow rows when they won the national and conference championships, respectively. If they win half their games, they generally get to go to a bowl game. The quality of opponents can vary (some opponents are paid to play and the UTK team is expected to win many of those games) – the record against conference opponents is considered a better assessment of how the team is doing that year (and the SEC is one of the most difficult conferences). The Vols were one of the powerhouse teams for many years, then declined, but there is hope again this year (Fall 2022). The football coach is traditionally the highest paid employee of all state employees. Football coaches generally sign on for multiyear contracts: if fired they generally keep being paid (unless fired for cause, <a href="https://web.archive.org/web/20221021222111/https://www.knoxnews.com/story/sports/college/university-of-tennessee/football/2021/01/18/jeremy-pruitt-fired-tennessee-football-coaching-search-vols/6413502002/">as happened in 2021</a>), and if someone else tries to hire them away there generally is money paid to UTK in compensation (making hiring them away more expensive for competitors). UTK has a history of <a href="https://web.archive.org/web/20211207094036/https://www.knoxnews.com/story/sports/columnists/university-of-tennessee/john-adams/2018/06/07/ut-vols-tennessee-football-phillip-fulmer-bruce-pearl-butch-jones-derek-dooley/665507002/">paying fired coaches or other personnel</a>, though I am unaware of a comparison of UTK’s payouts with those of other schools.</p>
+</section>
+<section id="womens-basketball" class="level4">
+<h4 class="anchored" data-anchor-id="womens-basketball">Women’s Basketball</h4>
+<p>See their record <a href="https://en.wikipedia.org/wiki/Tennessee_Lady_Volunteers_basketball#Season%E2%80%93by%E2%80%93season_results">here</a>: yellow or orange rows indicate winning one or more championships. Respected, beloved head coach Pat Summitt coached them from 1974 to 2012.</p>
 
 
+</section>
+</section>
 
-
-</div>
-
-<script>
-
-// add bootstrap table styles to pandoc tables
-function bootstrapStylePandocTables() {
-  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
-}
-$(document).ready(function () {
-  bootstrapStylePandocTables();
-});
-
-
-</script>
-
-<!-- tabsets -->
-
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-
-$(document).ready(function () {
-  $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open');
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
   });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
 });
 </script>
+</div> <!-- /content -->
 
-<!-- code folding -->
 
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
-
-</body>
-</html>
+</body></html>

@@ -1,0 +1,15 @@
+---
+layout: Page not found
+link: https://www.brianomeara.info/404/
+slug: 404
+title: Page not found
+---
+
+Sorry, this is not the page  you were looking for. The site has been updated for ease of maintenance and has less hierarchy -- perhaps try the url without the /lab/, etc. part of the URL?
+
+Or you can try a search:
+
+<div>
+<script async src="https://cse.google.com/cse.js?cx=011915954936916202902:j5artqh1fuc"></script>
+<div class="gcse-search"></div>
+</div>

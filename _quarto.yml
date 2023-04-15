@@ -1,6 +1,12 @@
 project:
   type: website
   output-dir: "docs"
+  resources: 
+  - "*.pdf"
+  - "*.png"
+  - "*.jpg"
+  - "*.gif"
+  - "*.pptx"
 
 
 name: "Brian O'Meara"

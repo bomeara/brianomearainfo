@@ -64,6 +64,7 @@ In addition to my own students, of course.
 |:------------------------|:------------|
 |Will Atwood              |Geology      |
 |Jen Bauer                |Geology      |
+|James Boyko              |U Arkansas   |
 |Sharon Clemmensen        |EEB          |
 |Troy Fadiga              |Geology      |
 |Aaron Floden             |EEB          |

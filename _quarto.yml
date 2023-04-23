@@ -11,8 +11,9 @@ project:
 
 name: "Brian O'Meara"
 website: 
+  site-url: https://brianomeara.info
+  title: "Brian O'Meara"
   navbar:
-    title: "Brian O'Meara"
     left:
       - text: "Home"
         href: index.html
@@ -72,6 +73,12 @@ website:
             href: aic.html
           - text: "Phylogenetics"
             href: phylogenetics.html
+      - text: "Blog"
+        menu:
+          - text: "Blog"
+            href: blog.html
+          - icon: "rss"
+            href: blog.xml
 
 format:
   html:

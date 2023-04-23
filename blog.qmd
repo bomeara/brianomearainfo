@@ -1,0 +1,17 @@
+---
+title: "Blog posts"
+listing:
+  contents: posts
+  sort: "date desc"
+  sort-ui: true
+  filter-ui: true
+  type: default
+  categories: true
+  fields: [date, title, description, categories]
+  feed: true
+---
+
+Here I have various blog posts. I created the blog on April 22, 2023, to provide a place for information longer than a mastodon post and perhaps with broader reach. I will be backfilling with posts about older content.
+
+You can filter and search here, but you can also get the RSS feed at [blog.xml](blog.xml). RSS is a format for distributing new content: it is most commonly used for blogs, but it is also a way things like new episodes of podcasts roll out. [Here](https://www.wired.com/story/best-rss-feed-readers/) (*Wired*, soft paywall) is an accessible overview of RSS and how to read it.
+

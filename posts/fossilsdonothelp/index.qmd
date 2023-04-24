@@ -8,8 +8,6 @@ categories: [fossil, R, hisse, misse, diversification, simulation, publication] 
 draft: false
 ---
 
-*[Note that while setting up my blog, I'm adding backdated posts so that RSS feeds will see them as appearing when they* should *have appeared, not when they were actually written. This post was written April 22, 2023]*
-
 Jeremy Beaulieu and I have a [paper](https://doi.org/10.1093/sysbio/syac049) in *Systematic Biology* on the impact of fossils on estimating diversification rates. There has been a lot of interest in the fossilized birth-death process, FBD ([Stadler 2010](https://doi-org.utk.idm.oclc.org/10.1016/j.jtbi.2010.09.010)), and with the rediscovery in the field that diversification methods might be telling tales signifying nothing, Jeremy and I thought about how the FBD might help. We know fossils help, a lot, with things like ancestral state reconstruction and dating trees: knowing about fossils might help with diversification processes (especially with parameters relating to extinction). 
 
 Jeremy implemented it in [*hisse*](https://speciationextinction.info/). One thing we discussed in the implementation is how there are two kinds of fossils FBD uses: 

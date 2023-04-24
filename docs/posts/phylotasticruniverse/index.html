@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.475">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Brian O’Meara">
+<meta name="dcterms.date" content="2023-04-23">
+<meta name="description" content="Phylotastic R-universe as a way of serving up phylogenetics packages in R">
+
+<title>Brian O’Meara - An alternative to CRAN for phylogenetics</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Brian O’Meara</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-cv-etc." role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">CV, etc.</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-cv-etc.">    
+        <li>
+    <a class="dropdown-item" href="../../cv.html">
+ <span class="dropdown-text">CV</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../calendar.html">
+ <span class="dropdown-text">Calendar</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../feedback.html">
+ <span class="dropdown-text">Feedback</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../useful.html">
+ <span class="dropdown-text">Useful links</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../tenure.html">
+ <span class="dropdown-text">Materials for promotion to associate (and tenure)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../promotion.html">
+ <span class="dropdown-text">Materials for promotion to full</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../SSB.html">
+ <span class="dropdown-text">Candidacy for SSB president</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-lab" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Lab</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-lab">    
+        <li>
+    <a class="dropdown-item" href="../../personnel.html">
+ <span class="dropdown-text">People</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../guidelines.html">
+ <span class="dropdown-text">Guidelines &amp; Recommendations</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../location.html">
+ <span class="dropdown-text">Location/Contact</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../opportunities.html">
+ <span class="dropdown-text">Opportunities</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../learningobjectives.html">
+ <span class="dropdown-text">Learning objectives</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../better-letter.html">
+ <span class="dropdown-text">BetterLetter</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../shouldyougotogradschool.html">
+ <span class="dropdown-text">Should you go to grad school to be a professor?</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../tenure.html">
+ <span class="dropdown-text">Materials for promotion to associate (and tenure)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../promotion.html">
+ <span class="dropdown-text">Materials for promotion to full</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../general.html">
+ <span class="dropdown-text">Info for general public</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../covid.html">
+ <span class="dropdown-text">COVID</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../schedule.html">
+ <span class="dropdown-text">EEB scheduling</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-teaching" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Teaching</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-teaching">    
+        <li>
+    <a class="dropdown-item" href="../../teaching.html">
+ <span class="dropdown-text">Teaching overall</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../eeb464.html">
+ <span class="dropdown-text">Macroevolution (EEB464)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://phylometh.info/">
+ <span class="dropdown-text">Phylogenetic Methods</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-tutorials" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Tutorials</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-tutorials">    
+        <li>
+    <a class="dropdown-item" href="../../aic.html">
+ <span class="dropdown-text">AIC</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../phylogenetics.html">
+ <span class="dropdown-text">Phylogenetics</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-blog" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Blog</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-blog">    
+        <li>
+    <a class="dropdown-item" href="../../blog.html">
+ <span class="dropdown-text">Blog</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../blog.xml"><i class="bi bi-rss" role="img">
+</i> 
+ <span class="dropdown-text"></span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">An alternative to CRAN for phylogenetics</h1>
+                  <div>
+        <div class="description">
+          Phylotastic R-universe as a way of serving up phylogenetics packages in R
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">R</div>
+                <div class="quarto-category">rbloggers</div>
+                <div class="quarto-category">reproducibility</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Brian O’Meara </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">April 23, 2023</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#using-the-universe" id="toc-using-the-universe" class="nav-link active" data-scroll-target="#using-the-universe">Using the universe</a></li>
+  <li><a href="#why-phylotastic" id="toc-why-phylotastic" class="nav-link" data-scroll-target="#why-phylotastic">Why “phylotastic”?</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<p>For installing R packages, <a href="https://cran.r-project.org/">CRAN</a> is the main place to go. It’s a fantastic free service that checks R packages to make sure they meet standards and then compiles them for multiple architectures. It’s largely a <a href="https://cran.r-project.org/CRAN_team.htm">volunteer effort</a> and is important to keep packages working together. <a href="https://www.bioconductor.org/">Bioconductor</a> is a more specialized repository. Getting a package to pass the checks to go on CRAN has long been a point of pride, and it does lead to higher quality packages, though with odd constraints (the overall package size must be small, all examples must run very quickly, and more).</p>
+<p>However, <em>keeping</em> a package on CRAN is an issue. Requirements keep changing: will this package work on the development version of R on Debian with a clang compiler, Fedora with a gcc compiler, Mac with both arm and x86 chips, Windows, etc. and continue to do so as operating systems, hardware, and compilers change? For example, our <a href="https://cran.r-project.org/web/checks/check_results_hisse.html"><em>hisse</em></a> package was removed briefly from CRAN in spring 2023 (it’s back online) because of an issue where, while the package passed all checks for Mac, Windows, Linux, all R-devel, R-patched, R-release, and R-oldrel, it would generate a warning if compiled using the <code>-Wlto-type-mismatch</code> flag to GCC. Our code hadn’t changed, and this wouldn’t have affected any users, but CRAN gave us two weeks to fix the warning. We didn’t do it on time, so it was archived, which <em>does</em> affect users (making it impossible for most users on Mac or Windows to use it, for example, as they don’t have compilers installed).</p>
+<p>If you are part of an ecosystem, there are further risks. Many phylogenetics packages depend or import <a href="https://cran.r-project.org/web/packages/geiger/index.html"><code>geiger</code></a> – CRAN removed that package, and then two weeks later would have also archived every package that depends on it. Geiger’s authors got it restored in time, but it shows how brittle CRAN’s policies make our community. It’s like the <a href="https://xkcd.com/2347/">Randall Munroe XKCD cartoon</a>:</p>
+<p><img src="https://imgs.xkcd.com/comics/dependency_2x.png" class="img-fluid" alt="XKCD cartoon showing a stack of boxes labeled 'All modern digital infrastructure' carefullly balancing on a small box labeled 'A project some random person in Nebraska has been thanklessly maintaining since 2003'"></p>
+<p>but with the poor maintainer in Nebraska putting the whole ecosystem at risk if they take two weeks off and there is a new requirement in the interim.</p>
+<p>The nature of academia makes this even more precarious. A student might work on a package for their dissertation and others could find it very useful. There is no guarantee that the student remains in the field: it’s not unusual for someone to go into teaching, or working at a nonprofit, or working for a company, and even the weak incentive of getting more citations is no longer sufficiently relevant for them to volunteer their time to meet changing CRAN standards. Ongoing maintenance would be ideal for the field, but it is a high bar.</p>
+<p>Fortunately, rOpenSci has made an alternative: <a href="https://ropensci.org/r-universe/">r-universe</a>. This creates a place where R packages can be built automatically for different platforms, just as CRAN does, but in nearly real time. If a package is in an open source repository (the best known is GitHub), and the r-universe instance knows about it, it will try to compile it. Thus, even if something goes off CRAN, students taking a class can likely still install it from r-universe.</p>
+<p>To help our community, I’ve created an instance for phylogenetics. The instance is at https://phylotastic.r-universe.dev/ . Information on how to use it is at http://phylotastic.org/phylotastic.r-universe.dev/. For the packages, I’ve used everything from the <a href="https://cran.r-project.org/web/views/Phylogenetics.html">CRAN task view for phylogenetics</a> (something I maintained for over a decade, now taken over by <a href="https://williamgearty.com/">Dr.&nbsp;William Gearty</a> who has assembled a team to keep it going), as well as other packages used in phylogenetics in R, including packages in development.</p>
+<section id="using-the-universe" class="level3">
+<h3 class="anchored" data-anchor-id="using-the-universe">Using the universe</h3>
+<p>To use the most recent available version of each package:</p>
+<pre><code>options(repos = c(
+  phylotastic = 'https://phylotastic.r-universe.dev',
+  CRAN = 'https://cloud.r-project.org')
+ )</code></pre>
+<p>This will check the phylotastic r-universe, and only go to CRAN for packages that are not there.</p>
+<p>To use the CRAN package if available, then use phylotastic as a backup:</p>
+<pre><code>options(repos = c(
+  CRAN = 'https://cloud.r-project.org',
+  phylotastic = 'https://phylotastic.r-universe.dev')
+ )</code></pre>
+</section>
+<section id="why-phylotastic" class="level3">
+<h3 class="anchored" data-anchor-id="why-phylotastic">Why “phylotastic”?</h3>
+<p>Phylotastic started as an idea launched at the [US] National Evolutionary Synthesis Center, NESCent, in 2012. Over hackathons and other events, and later an NSF grant (written by Arlin Stoltzfus, Enrico Pontelli, and me) it resulted in various tools for phylogenetics (includng http://datelife.opentreeoflife.org/ ). I wanted to keep that connection, not least so that people could use phylotastic R packages even when there are CRAN hiccups.</p>
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{o'meara2023,
+  author = {Brian O’Meara},
+  title = {An Alternative to {CRAN} for Phylogenetics},
+  date = {2023-04-23},
+  url = {https://brianomeara.info/posts/phylotasticruniverse},
+  langid = {en}
+}
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-o'meara2023" class="csl-entry quarto-appendix-citeas" role="doc-biblioentry">
+Brian O’Meara. 2023. <span>“An Alternative to CRAN for
+Phylogenetics.”</span> April 23, 2023. <a href="https://brianomeara.info/posts/phylotasticruniverse">https://brianomeara.info/posts/phylotasticruniverse</a>.
+</div></div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

@@ -10,7 +10,7 @@
 <atom:link href="https://brianomeara.info/blog.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.2.475</generator>
-<lastBuildDate>Sat, 22 Apr 2023 04:00:00 GMT</lastBuildDate>
+<lastBuildDate>Sun, 23 Apr 2023 04:00:00 GMT</lastBuildDate>
 <item>
   <title>An alternative to CRAN for phylogenetics</title>
   <dc:creator>Brian O&#39;Meara</dc:creator>
@@ -52,19 +52,19 @@
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{o'meara2023,
   author = {Brian O’Meara},
   title = {An Alternative to {CRAN} for Phylogenetics},
-  date = {2023-04-22},
+  date = {2023-04-23},
   url = {https://brianomeara.info/posts/phylotasticruniverse},
   langid = {en}
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-o'meara2023" class="csl-entry quarto-appendix-citeas">
 Brian O’Meara. 2023. <span>“An Alternative to CRAN for
-Phylogenetics.”</span> April 22, 2023. <a href="https://brianomeara.info/posts/phylotasticruniverse">https://brianomeara.info/posts/phylotasticruniverse</a>.
+Phylogenetics.”</span> April 23, 2023. <a href="https://brianomeara.info/posts/phylotasticruniverse">https://brianomeara.info/posts/phylotasticruniverse</a>.
 </div></div></section></div> ]]></description>
   <category>R</category>
   <category>rbloggers</category>
   <category>reproducibility</category>
   <guid>https://brianomeara.info/posts/phylotasticruniverse/index.html</guid>
-  <pubDate>Sat, 22 Apr 2023 04:00:00 GMT</pubDate>
+  <pubDate>Sun, 23 Apr 2023 04:00:00 GMT</pubDate>
   <media:content url="https://imgs.xkcd.com/comics/dependency_2x.png" medium="image" type="image/png"/>
 </item>
 <item>

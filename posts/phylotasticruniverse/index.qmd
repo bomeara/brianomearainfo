@@ -2,7 +2,7 @@
 title: "An alternative to CRAN for phylogenetics"
 description: "Phylotastic R-universe as a way of serving up phylogenetics packages in R"
 author: "Brian O'Meara"
-date: "04/22/2023"
+date: "04/23/2023"
 citation: true
 categories: [R, rbloggers, reproducibility] 
 draft: false

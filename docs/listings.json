@@ -2,6 +2,7 @@
   {
     "listing": "/blog.html",
     "items": [
+      "/posts/joiningmastodon/index.html",
       "/posts/phylotasticruniverse/index.html",
       "/posts/fossilsdonothelp/index.html"
     ]

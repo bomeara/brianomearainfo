@@ -1,0 +1,80 @@
+---
+title: "Joining Mastodon"
+description: "Instructions for joining mastodon for social media"
+author: "Brian O'Meara"
+date: "04/30/2023"
+citation: true
+categories: [social media] 
+draft: false
+---
+
+Social media keeps changing. I stopped using Facebook years ago (I still have an account, as my kids' schools and some scientific orgs use it for communication, but I'm not active). I stopped using Twitter in November, 2022, though still keep an account to avoid impersonation (though people could find better accounts to impersonate). I'm now using this blog, but it's unidirectional -- you can read it or not, but I deliberately don't have any way for people to comment. 
+
+I'm increasingly active on Mastodon, and various scientific societies and colleagues are now active there, too. Here's an overview.
+
+It's probably easiest to think of Mastodon as 
+
+1. Similar to an email account: are you `example@gmail.com` or `example@harvard.edu`, but now it's `@example@mastodon.social` or `@example@sauropods.win`. People on one provider ("instance" in Mastodon jargon) can generally see information from people on others, unless one of them has put a block on it (in the same way that your email provider may block emails from certain spammy domains).
+2. But set up so that by default you can see what everyone on your instance posts.
+
+### It is not a 1:1 Twitter replacement
+
+* You can search for hashtags but not post content otherwise (people sometimes make sites to allow full search, but this is apparently against the norms and there's pushback)
+* The algorithm is based on recency only. That *is* an algorithm, of course -- it says people who are active at the same time you are should be prioritized. And it's better than many other algorithms in social media ("prioritize things that make people angry", "prioritize posts by the owner", "prioritize people with the wealth to pay for it", etc.). But I'd love to see something that prioritizes users I engage with the most even if they have different sleep schedules. 
+* You can "like" or "boost". Like tells the poster you like something -- it does nothing for ranking that or later posts, for you or for others. Boost sends the post to all of your followers and onto your general instance feed.
+* There is no quote-tweeting. You can reply, or you can write a new post that has a link to the old, but the whole "wrap another post with your commentary" doesn't exist (yet). This is seen as a way by those influencial in Mastodon as a way to prevent bullying, but taking a screen shot of a post is still possible.
+* Posts can be edited, easily.
+* There is a strong culture of including alternative text on images so that those who cannot see the images well know what they are. This is a good thing; do it. 
+* Due to how the instances are organized, they can block one another ("defederate"), just as your email provider could block all emails from a certain domain. This can be a way of blocking from instances that don't have good moderation.
+* Anyone can set up an instance; it's easier than setting up an email provider. However, it's a lot of responsibility: moderating is HARD.
+* You can change your instance easily. It's like moving from hotmail to gmail: you can move your contacts (people you follow), but your posts won't follow.
+* Moderation is up to each instance (similar to reddit subreddits). Some do a good job, others do not. And sometimes people may disagree on what moves are important to them. For example, there was a debate a few months ago about defederating from a journalism instance: a user posted a very bad article from a major US newspaper on the instance: should other instances block this whole instance (which has journalists from many media sources) since they allow this sort of post, or should it still be allowed to communicate? The person administrating your server decides (though you may still block individual people on your own).
+* It still lacks some features important for safety: see [this thread](https://hachyderm.io/@mekkaokereke/110272951321280411), for example. Twitter was not perfect, either, and media reports that it is getting even worse, but this does not mean that Mastodon is doing everything right.
+
+### Which instance to join?
+
+* One of the biggest, and the one run by the main developer, is [mastodon.social](https://mastodon.social/about). It has (as of the date of this post) about 212,000 users. It is a general instance. It's the one I'm currently on: [https://mastodon.social/@omearabrian](https://mastodon.social/@omearabrian) . I like it because I use social media to attempt to have reach. It's also likely stable -- it won't go down if a check bounces or if an admin loses interest. However, see if its moderation works for you. For social media, moderation is a big deal, and it can cover things like hate speech but also things like tone-policing; ignoring vs confronting racism, sexism, homophobia; whether bots are allowed; and more. 
+* A lot of people and journals in my academic sphere are on [https://ecoevo.social/about](https://ecoevo.social/about), which is moderated by [Dr. Alexis Simon](https://www.normalesup.org/~asimon/). It has 1,900 users, including groups like [https://ecoevo.social/@SystBiol](https://ecoevo.social/@SystBiol), [https://ecoevo.social/@ASNAmNat](https://ecoevo.social/@ASNAmNat), [https://ecoevo.social/@sse_evolution](https://ecoevo.social/@sse_evolution), and [https://ecoevo.social/@evol_mtg](https://ecoevo.social/@evol_mtg). It's also a reasonable place to start.
+* There's an instance for bots: [https://botsin.space/about](https://botsin.space/about). I haven't set up anything there yet, but stay tuned.
+* There are a lot of other instances. You can find info at [https://joinmastodon.org/servers](https://joinmastodon.org/servers). Don't overthink it: at this point, it's like choosing between gmail and yahoo for email. There is a difference, but not as big a difference as between having email and not having email. 
+
+### How to find people?
+
+* Searching for hashtags is good. You can get a tweetdeck-like interface by going to Preferences -> Appearance -> Enable advanced web interface and turning it on; then you can have columns dedicated to particular hashtags. See who is posting interesting stuff.
+* You can see who other people are following. I'm following [these people](https://mastodon.social/@omearabrian/following) (note that following does not mean endorsement or agreement, just that I want to hear what they say). 
+
+### How to use?
+
+* There are dedicated apps (some free, some paid). I mostly just use the web instance.
+
+### Automate all the things
+
+Though I'm on mastodon.social, many in my community are on ecoevo.social. So I wanted to follow them all. Here's R code to do that, using `rtoot`:
+
+Schoch David and Chan Chung-hong (2023) rtoot: Collecting and analyzing Mastodon data. R package version 0.3.0, [https://github.com/schochastics/rtoot](https://github.com/schochastics/rtoot). 
+
+Note that I assume this is all ok, and I have a pause to keep from overwhelming anything, but 1) you will be rate-limited at some point and will have to restart after waiting a bit (but it'll only follow new people, so you won't start from scratch), and 2) mass-following could be a scammy thing to do (i.e., someone could mass-follow everyone on a huge instance to try to game getting more followers). I like following ecoevo.social people because mastodon.social's feed is huge and has lots of things not that interesting to me, while ecoeco.social (and a smaller instance, sauropods.win) does have a lot of interesting users, so I want to follow them. It also hopefully encourages new users: "someone want to hear what you say!"
+
+```
+library(rtoot)
+
+instance_name <- 'ecoevo.social'
+
+my_following <- read.csv("~/Downloads/following_accounts.csv")
+
+user_count <- get_instance_general(instance_name)$stats$user_count
+number_of_calls <- min(ceiling(user_count/40),4000)
+for (i in sequence(number_of_calls)) {
+  people <- get_instance_directory(instance_name,offset=40*(i-1), limit=40, local=TRUE, order="new")
+  for (user in people$username) {
+    full_user <- paste0(user, '@', instance_name)
+    print(full_user)
+    if(full_user %in% my_following$Account.address) {
+      print("Already following, not going to add")
+    } else {
+      system(paste0('toot follow ', user, '@', instance_name), timeout=30)
+    }
+    Sys.sleep(10)
+  }
+}
+```

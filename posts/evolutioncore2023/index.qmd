@@ -1,0 +1,134 @@
+---
+title: "Grad core class in evolutionary biology, 2023 edition"
+description: "Topics and teaching in our core class in evolution for graduate students"
+author: "Brian O'Meara"
+date: "05/11/2023"
+citation: true
+number-sections: true
+categories: [teaching, evolution, core, EEB511] # self-defined categories
+draft: false
+---
+
+Our department has long had a core class: one semester on ecology, one on evolution. It originated before I started here (it was somewhat modeled on UC Davis Population Biology's core class, which I took as a student, in fact), but I've taught parts of it (usually a few weeks on phylogenetics and macroevolution) nearly every year I've been here. This year, I took over as the instructor for the evolution semester. Years ago the course was largely team taught with perhaps four or five instructors per semester; over time, this has winnowed down. I chose to do it as sole instructor, with one guest discussion with Dr. Nina Fefferman on getting grants (she's [very good](http://feffermanlab.org/funding.html) at it), as the students wanted to have a discussion on this.
+
+This course is described as "Readings, lectures, and discussion about key concepts in evolution." In practice, it has several goals:
+
+1. Replace the evolution written exam that was formerly part of qualifying exams (so quals can now focus just on the research project itself). This necessitates broad coverage and robust assessments of knowledge.
+2. Make students fluent in evolutionary thought: students emerging with a Masters or PhD in an ecology and evolutionary biology department should be able to talk about genetic drift, the Modern Synthesis, speciation, and more to people studying evolution, even if the students specialize on some other aspect of science and come with a very different background. 
+3. Help students understand how evolution science is done. "Science" is a corpus of knowledge ("the mitochondrion is the powerhouse of the cell") and is often presented as this in undergraduate courses, but it is also a way to get this knowledge. Students will learn how we gain knowledge in evolution.
+4. Onboarding to the department. This is a particular set of people, assembled with care and at great expense: how to thrive in the department, who people are, etc.
+
+Course structure was based on particular topics, with students typically given a paper or two to read and ask questions about, then work through the topic and questions in class (lots of think-pair-share, class questions, etc.). Students asked for more structure, so I started adding basic slides to give broader overviews of the topics and giving sample final exam questions for each topic so they could better understand the type of depth of knowledge I was expecting them to get.
+
+Often this sort of course covers a lot of history of the field, famous scientists, and the like. I focused instead on current understandings of the topics. This aligns with the course description ("key concepts in evolution") but I argue that it's more important for students who are doing their own research: what do we know, and what is still left to learn, rather than who thought what in 1968. That said, there is still vocab people should know in the field, including names of people and organisms, as well as local info (faculty members, Scopes trial, and similar), so I made a [list of jargon (.csv)](Jargonfest.csv), see also @sec-jargon, and had some multiple choice quizzes and part of the final to encourage students to learn about these terms. 
+
+## Overall topics covered
+
+* Jan 24	Intro
+* Jan 26	Effective population size: [Charlesworth (2009)](https://doi.org/10.1038/nrg2526)
+* Jan 31	Adaptation: [Kokko et al. (2017)](http://dx.doi.org/10.1016/j.tree.2016.12.005)
+* Feb 2	Spandrels: [Gould & Lewontin (1979)](https://doi.org/10.1098/rspb.1979.0086)
+* Feb 7	Neutral theory I: [Nei et al. (2010, pages 265-274)](https://doi.org/10.1146/annurev-genom-082908-150129)
+* Feb 9	Neutral theory II: [Nei et al. (2010, pages 274-289)](https://doi.org/10.1146/annurev-genom-082908-150129)
+* Feb 14	R (see @sec-r)
+* Feb 16	Python (see @sec-python)
+* Feb 21	Game theory: [Riechert & Hammerstein (1984)](https://doi.org/10.1146/annurev.es.14.110183.002113) [UTK author]
+* Feb 23	Quantitative genetics and evolvabililty: [Hansen & Pélabon (2021)](https://doi.org/10.1146/annurev-ecolsys-011121-021241)
+* Feb 28	Sexual selection I: [Rosenthal & Ryan (2022)](https://doi.org/10.1126/science.abi6308)
+* Mar 2	Sexual selection II: [Roughgarden (2015)](https://doi.org/10.1007/978-94-017-9585-2_5)
+* Mar 7	Species concepts: [de Queiroz (1998)](https://repository.si.edu/handle/10088/4652)
+* Mar 9	Species delimitation: [Morales et al (2016)](https://doi.org/10.1093/sysbio/syw100) [UTK coauthor; COI]
+* Mar 21	Bayesian, maximum likelihood, and phylogenetics: [Lewis (2001)](https://doi.org/10.1016/s0169-5347(00)02025-5)
+* Mar 23	Phylogenetics discrete characters: [O'Meara (2012)](https://doi.org/10.1146/annurev-ecolsys-110411-160331) [UTK author; COI]
+* Mar 28	Phylogenetics utility: slides for this
+* Mar 30	Work session for students to study and figure out questions
+* Apr 4	Phylogenetics continuous models: slides, also paper above.
+* Apr 11	Diversification: [Ricklefs (2007)](https://doi.org/10.1016/j.tree.2007.06.013)
+* Apr 14	Timeline of life: <https://www.newscientist.com/article/dn17453-timeline-the-evolution-of-life/>
+* Apr 18	Biogeography: [Sanmartín (2012)](https://doi.org/10.1007/s12052-012-0421-2)
+* Apr 20	Paleontology: [Stigall (2019)](https://doi.org/10.1146/annurev-ecolsys-110617-062638) [UTK author]
+* Apr 25	Evolution of behavior: [Whiten (2019)](https://doi.org/10.1146/annurev-ecolsys-110218-025040)
+* Apr 27	EvoDevo: [Mallarino & Abzhanov (2012)](https://doi.org/10.1146/annurev-cellbio-101011-155732)
+* May 2	Grants (with Dr. Nina Fefferman)
+* May 4	Eugenics: ["Facing our History – Building an Equitable Future" by American Society of Human Genetics, page 5-15](https://www.ashg.org/wp-content/uploads/2023/01/Facing_Our_History-Building_an_Equitable_Future_Final_Report_January_2023.pdf) and [Villarosa (2019)](https://www.nytimes.com/2022/06/08/magazine/eugenics-movement-america.html?unlocked_article_code=Yd0N6bRMTs9hkiFQjlNyB5EYekKtNRfbRxktfpFMCF_IbOUR5SeUjL0wEYaloYcd4LfTIKspaC31l8N7flxkVtM8NsLmR36mM_0wfoUPGOit7Cxvn-2yd1SUUGplzyIuXlNRylugiCqAC6tDwoA7feN7ILjzA_DHXO6H-JdLmjZUGhgsdxmo4dMy8Y-t2PG1n7GjSO33NofeAVTh4tGOcqLCttGWVo04KPwEDP2oFCyt_UFyPHvz-rKSEx8V2kze-43rjIUOsRL2B5OIkRw452JxvUAl5qRSdu6UcJ-nfTo1AiDu0Vu97NsG_CD8jYmWwegZH6CkXd_VYbuGtGIm-EEydtQ&smid=url-share)
+* May 9	Human evolution: [Bergström et al. (2021)](https://doi.org/10.1038/s41586-021-03244-5)
+
+Given the audience (a course like this is varied: some are students with a Masters degree in evolution, some have had very little biology and come from fields like linguistics, math, or geography), slightly more than half the articles are reviews, while others are particular studies that illustrate what a field can be. I tried to focus discussions on helping with confusing concepts and then talking about why this area of research and its questions can matter. I worked to pull from authors from a variety of backgrounds and perspectives; I'll be continuing to revisit the set of papers used in the class in the future (and suggestions welcome!). 
+
+## Accessibility {#sec-accessibility}
+
+Some steps I took to attempt to help with accessibility:
+
+* PowerPoint live captioning is great: even when the slide show part of a class was done, I'd leave it open and running so that people can see what is being said
+* The class was in person, but I always had a zoom stream going. No more than one or two students used it at a time, but it still gave flexibility for those who needed it.
+* I used clear N95 masks: <https://optrel.us/product/p-air-clear-n95-masks-20-pack/>. They're more expensive than the regular masks, but they let students see my lips while giving me and them some degree of protection.
+* Quizzes and tests are not timed (other than a deadline to turn them in, days after they were made available)
+
+## Programming {#sec-programming}
+
+We spent one week on programming. My goal was to have students get a bit of exposure and get over initial fear: they're not going to be writing packages after a week, but they'll know some of how this all works, that error messages are normal, how to get help, how to start using R and python, etc.
+
+### R {#sec-r}
+
+I made an exercise at <https://github.com/bomeara/geewhizR>, focused on this Rmarkdown file (<https://github.com/bomeara/geewhizR/blob/main/main.Rmd>) for students to download; we worked through it in class. You can see it rendered fully here as a [pdf](main.pdf). Some of the basic concepts I wanted them to learn:
+
+* Rmarkdown for reproducibility and keeping things organized
+* Installing and loading packages
+* The importance of actually looking at datasets (using [datasaurus](https://blog.revolutionanalytics.com/2017/05/the-datasaurus-dozen.html))
+* Getting information from online sources like GBIF, iNaturalist, and Datelife
+* Making maps
+
+The script does all this and gives them something to build from. I also gave them links to these resources:
+
+* <https://swirlstats.com/>: good way to learn basic R
+* <https://posit.co/resources/cheatsheets/>: summaries of functions in popular packages
+* <https://cran.r-project.org/web/views/>: overviews of packages in particular domains. Phylogenetics can be particularly useful
+* <https://adv-r.hadley.nz/>: free online R textbook
+* <https://rmarkdown.rstudio.com/>: Rmarkdown, a way to combine code and text
+* <https://quarto.org/>: The successor to Rmarkdown; works better with both python and R
+* <https://books.ropensci.org/targets/>: a package for doing complex workflows
+
+### Python {#sec-python}
+
+I've barely used any python so far (I'm heavily invested in the R ecosystem) but it's worth having students learn it: it's especially important in genomics and machine learning. I thought showing them how to do machine learning could be useful, including having them viscerally feel the issues that could come from image classification. For a sample problem, since I had shown them a local salamander in the R tutorial, and they were interested, I suggested solving a problem of using machine learning to assess whether a sampled individual was a juvenile or adult ([*Notophthalmus viridescens*, the Eastern Newt](https://www.inaturalist.org/taxa/27805-Notophthalmus-viridescens/browse_photos)) -- sort of a "awesome, I can see how this could scale up for my research" inspiration. Thus, I made this exercise (<https://github.com/bomeara/geewhizPython>), especially this sample script (<https://github.com/bomeara/geewhizPython/blob/main/salamander.py>). I wanted them to learn:
+
+* Installing python libraries
+* How to import from python libraries
+* How to point to a folder (directory)
+* How to do machine learning with a training and testing dataset
+* How to pull in information from iNaturalist
+* Possibilities and problems with machine learning results
+
+Some of the other resources I pointed them to:
+
+* <https://pyinaturalist.readthedocs.io/en/stable/examples/Tutorial_1_Observations.html>: the pyinaturalist Python package for using iNaturalist data
+* <https://keras.io>: for machine learning in general
+* <https://www.tensorflow.org>: for a very popular machine learning framework
+* <https://www.anaconda.com/products/distribution>: Anaconda for making isolated python environments
+* <https://jupyter.org>: Jupyter notebooks (like Rmarkdown, but for python, and often working online)
+* <https://colab.research.google.com>: Google colab, for running python on the web (though consider long term stability: <https://killedbygoogle.com>)
+* <https://en.wikipedia.org/wiki/Weapons_of_Math_Destruction>: Overview of a book on how algorithms can cause harm (and there's been a lot more work on this topic since)
+* <https://diffusionbee.com>: An application for making AI art
+* <https://en.wikipedia.org/wiki/Stable_Diffusion>: Stable Diffusion, an AI for making art
+* <https://chat.openai.com/chat>: ChatGPT, an engine that can respond to prompts in various ways, including suggesting code.
+
+## Jargon {#sec-jargon}
+
+This can be downloaded as a [csv file](Jargonfest.csv).
+
+```{r, echo=FALSE}
+jargon <- read.csv("Jargonfest.csv")
+library(DT)
+datatable(jargon, options = list(pageLength = 10))
+```
+
+## Things to change
+
+Assuming I teach this again in 2024, some of the things I'd like to change:
+
+* Continued revision of chosen papers: most worked ok, but some got in too much depth; also broader sampling of the literature
+* More use of overview slides early in the course
+* More frequent assessments: this could help students self-assess their knowledge over time
+* Encourage more evenness of classroom participation: everyone contributed, but the evenness could be improved
+* Add more contemporary human evolution, like the Framingham heart study
+* Other things students will suggest via their feedback forms

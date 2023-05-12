@@ -7,6 +7,9 @@ project:
   - "*.jpg"
   - "*.gif"
   - "*.pptx"
+  - "*.csv"
+  - "*.xlsx"
+  - "*.docx"
 
 
 name: "Brian O'Meara"

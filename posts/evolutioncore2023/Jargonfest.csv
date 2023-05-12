@@ -1,0 +1,420 @@
+Term,Type
+adaptation,general
+adaptive landscape,general
+arms race,general
+artificial selection,general
+asexual reproduction,general
+Batesian mimicry,general
+biological constraints,general
+Brownian motion,general
+census population size,general
+central dogma,general
+coadaptation,general
+coevolution,general
+colonization,general
+commensalism,general
+cytoplasmic isolation,general
+dispersal,general
+Dobzhansky-Muller model,general
+dynamic equilibrium,general
+ecological niche,general
+effective population size,general
+endemism,general
+endosymbiosis,general
+ethology,general
+evolutionary medicine,general
+extant,general
+fitness,general
+iteroparity,general
+K-strategy,general
+lek,general
+logistic growth,general
+LUCA,general
+negative selection,general
+neontology,general
+niche,general
+NP-hard,general
+phenotype,general
+phylogeography,general
+population,general
+postzygotic isolating mechanism,general
+prezygotic isolating mechanism,general
+R-strategy,general
+r/K selection,general
+reinforcement,general
+semelparity,general
+sexual dimorphism,general
+sexual selection,general
+social Darwinism,general
+survival of the fittest,general
+theory,general
+urban evolution,general
+zygote,general
+allometry,general
+evo-devo,general
+ontogeny,general
+altruism,general
+alternative splicing,microevolution
+assortative mating,microevolution
+backcrossing,microevolution
+bottleneck,microevolution
+Breeder's equation,microevolution
+canalization,microevolution
+candidate gene,microevolution
+cis-regulatory element,microevolution
+cline,microevolution
+coalescent,microevolution
+codon,microevolution
+codon usage bias,microevolution
+constitutive expression,microevolution
+crossing over,microevolution
+degeneracy of genetic code,microevolution
+dominant,microevolution
+dosage compensation,microevolution
+epigenetics,microevolution
+epistasis,microevolution
+exon,microevolution
+facultative expression,microevolution
+fixation (of alleles),microevolution
+founder effect,microevolution
+frameshift mutation,microevolution
+frequency-dependent selection,microevolution
+G matrix,microevolution
+gamete,microevolution
+gene,microevolution
+gene dosage,microevolution
+gene drive,microevolution
+gene duplication,microevolution
+gene flow,microevolution
+gene pool,microevolution
+generation time,microevolution
+genetic distance,microevolution
+genetic drift,microevolution
+genetic hitchhiking,microevolution
+genetic load,microevolution
+genetic marker,microevolution
+genomic imprinting,microevolution
+genotype,microevolution
+germ line,microevolution
+haplodiploidy,microevolution
+Hardy-Weinberg principle,microevolution
+hemizygous,microevolution
+heredity,microevolution
+heritability,microevolution
+heterogametic sex,microevolution
+heterosis,microevolution
+homozygous,microevolution
+hox genes,microevolution
+hybrid,microevolution
+hybrid inviability,microevolution
+hybrid swarm,microevolution
+hybrid zone,microevolution
+identical by descent,microevolution
+identical by state,microevolution
+inbreeding depression,microevolution
+indel,microevolution
+intergenic region,microevolution
+intragenomic conflict,microevolution
+introgression,microevolution
+intron,microevolution
+isolation by distance,microevolution
+junk DNA,microevolution
+karyotype,microevolution
+kin selection,microevolution
+linkage disequilibrium,microevolution
+maternal effect,microevolution
+meiosis,microevolution
+Mendelian inheritance,microevolution
+migration,microevolution
+missense mutation,microevolution
+mitosis,microevolution
+Moran process,microevolution
+mutation,microevolution
+mutation rate,microevolution
+N_e,microevolution
+nearly neutral theory,microevolution
+neutral mutation,microevolution
+neutral theory,microevolution
+non-Mendelian inheritance,microevolution
+nonsense mutation,microevolution
+ortholog,microevolution
+panmixia,microevolution
+point mutation,microevolution
+polymorphism,microevolution
+polyploidy,microevolution
+positive selection,microevolution
+psuedogene,microevolution
+Punnett square,microevolution
+quantitative genetics,microevolution
+random mating,microevolution
+reaction norm,microevolution
+recessive,microevolution
+recombination,microevolution
+runaway sexual selection,microevolution
+secondary contact,microevolution
+selection coefficient,microevolution
+selective pressure,microevolution
+selective sweep,microevolution
+selfish genetic element,microevolution
+sex chromosome,microevolution
+stabilizing selection,microevolution
+trans-regulatory element,microevolution
+transcription,microevolution
+translation,microevolution
+wild type,microevolution
+Wright-Fisher process,microevolution
+X-linked gene,microevolution
+Y-linked gene,microevolution
+Alfred Russel Wallace,people
+Alfred Wegener,people
+Austin Peay,people
+Ben Fitzpatrick,people
+Beth Schussler,people
+Brandon Matheny,people
+Carl Woese,people
+Carolus Linnaeus,people
+Charles Darwin,people
+Charles Lyell,people
+Clarence Darrow,people
+Dan Simberloff,people
+Ed Schilling,people
+Elisabeth Vrba,people
+EO Wilson,people
+Ernst Mayr,people
+G. Ledyard Stebbins,people
+George Gaylord Simpson,people
+Gregor Mendel,people
+Henreitte Jager,people
+JBS Haldane,people
+Jean-Baptiste Lamark,people
+Jen Schweitzer,people
+Jessica Budke,people
+Jessie Tanner,people
+Jim Fordyce,people
+Joe Bailey,people
+Joe Williams,people
+John Edmonstone,people
+John Maynard Smith,people
+John Scopes,people
+Julian Huxley,people
+Karen Hughes,people
+Kimberly Sheldon,people
+Laura Russo,people
+Leigh Van Valen,people
+Liz Derryberry,people
+Lynn Margulis,people
+Mary Anning,people
+Michael Gilchrist,people
+Mona Papeş,people
+Montgomery Slatkin,people
+Motoo Kimura,people
+Muller's ratchet,people
+Nina Fefferman,people
+Orou Gaoue,people
+Paul Armsworth,people
+Randy Small,people
+Richard Dawkins,people
+Richard Lewontin,people
+Richard Owen,people
+Ronald Fisher,people
+Rosemary & Peter Gillespie,people
+Sebastian Stockmaier,people
+Sergey Gavrilets,people
+Sewall Wright,people
+Stephanie Kivlin,people
+Steven J. Gould,people
+Theodosius Dobzhansky,people
+Thomas Malthus,people
+Udny Yule,people
+Xingli Giam,people
+Butler Act,local interest
+Gary Scott,local interest
+who won the Scopes trial,local interest
+William Jennings Bryan,local interest
+adaptationalism,macroevolution
+adaptive radiation,macroevolution
+allochronic speciation,macroevolution
+allopatric speciation,macroevolution
+anagenesis,macroevolution
+ancestral trait,macroevolution
+apomorphy,macroevolution
+aptation,macroevolution
+background extinction rate,macroevolution
+biogeography,macroevolution
+biological species concept,macroevolution
+Burgess shale,macroevolution
+Cambrian explosion,macroevolution
+character displacement,macroevolution
+chronospecies,macroevolution
+cladistics,macroevolution
+cladogenesis,macroevolution
+comparative methods,macroevolution
+continental drift,macroevolution
+convergent evolution,macroevolution
+Cope's rule,macroevolution
+crown group,macroevolution
+cryptic species,macroevolution
+Deccan traps,macroevolution
+derived trait,macroevolution
+disruptive seelction,macroevolution
+End-Permian extinction,macroevolution
+eugenics,macroevolution
+evolutionary arms race,macroevolution
+exaptation,macroevolution
+extinction,macroevolution
+extinction rate,macroevolution
+fossil record,macroevolution
+geologic time scale,macroevolution
+ghost lineages,macroevolution
+Gondwana,macroevolution
+gradualism,macroevolution
+Great oxidation event,macroevolution
+green beard,macroevolution
+group selection,macroevolution
+Haldane's rule,macroevolution
+Hamilton's Rule,macroevolution
+homology,macroevolution
+homoplasy,macroevolution
+inclusive fitness,macroevolution
+island biogeography,macroevolution
+island model,macroevolution
+isolating mechanism,macroevolution
+KT extinction,macroevolution
+land bridge,macroevolution
+Laurasia,macroevolution
+left wall of minimal complexity,macroevolution
+mating system,macroevolution
+mechanical isolation,macroevolution
+meme,macroevolution
+mimicry,macroevolution
+Modern Synthesis,macroevolution
+MRCA,macroevolution
+Müllerian mimicry,macroevolution
+multifurcation,macroevolution
+mutualism,macroevolution
+natural selection,macroevolution
+net diversification rate,macroevolution
+non-independence,macroevolution
+outgroup,macroevolution
+paleontology,macroevolution
+Pangaea,macroevolution
+parallel evolution,macroevolution
+parapatric speciation,macroevolution
+paraphyly,macroevolution
+parasitism,macroevolution
+parsimony,macroevolution
+parthenogenisis,macroevolution
+peripatric speciation,macroevolution
+phenetics,macroevolution
+phylogeny,macroevolution
+plesiomorphy,macroevolution
+polyphyly,macroevolution
+punctuated equilibrium,macroevolution
+recapitulation,macroevolution
+Red queen hypothesis,macroevolution
+refugium,macroevolution
+reproductive isolation,macroevolution
+reticulate evolution,macroevolution
+ring species,macroevolution
+RNA world,macroevolution
+saltation,macroevolution
+spandrel,macroevolution
+speciation,macroevolution
+speciation rate,macroevolution
+species selection,macroevolution
+species sorting,macroevolution
+stag hunt,macroevolution
+stem group,macroevolution
+sympatric speciation,macroevolution
+symplesiomorphy,macroevolution
+synapomorphy,macroevolution
+taphonomic bias,macroevolution
+taxon,macroevolution
+trait,macroevolution
+turnover rate,macroevolution
+variance,macroevolution
+vestigial,macroevolution
+vicariance,macroevolution
+vicariance biogeography,macroevolution
+virulence,macroevolution
+allele,microevolution
+allele frequency,microevolution
+Acromyrmex,organism
+Amborella,organism
+Amborella,organism
+ammonite,organism
+angiosperm,organism
+Anolis,organism
+Anolis,organism
+Anomalocaris,organism
+Archaea,organism
+bdelloid rotifers,organism
+bonobo,organism
+brachiopod,organism
+Buchnera,organism
+crinoid,organism
+Darwin's finches,organism
+diatoms,organism
+Dimetrodon,organism
+Dionaea muscipula,organism
+Ediacaran fauna,organism
+eubacteria,organism
+fig wasp,organism
+Gasterosteus aculeatus,organism
+Geospizinae,organism
+gingko,organism
+Hawaiian honeycreepers,organism
+HIV,organism
+Ichthyornis dispar,organism
+isopod,organism
+lycophytes,organism
+Maiasaura,organism
+Plasmodium,organism
+red panda,organism
+rift lake cichlids,organism
+silversword,organism
+spiny anteater,organism
+Strepsiptera,organism
+Thermus aquaticus,organism
+Tiktaalik,organism
+Tribolium,organism
+trilobite,organism
+tunicates,organism
+Welwischia,organism
+Wolbachia,organism
+16S,tools
+amber fossil,tools
+approximate Bayesian computation,tools
+Bayes rule,tools
+Bayesianism,tools
+binomial nomenclature,tools
+BLAST,tools
+body fossil,tools
+bootstrap,tools
+chloroplast DNA,tools
+CRISPR,tools
+fossil,tools
+frequentist,tools
+holotype,tools
+impression fossil,tools
+in silico,tools
+in situ,tools
+in vivo,tools
+inbred line,tools
+independent contrasts,tools
+likelihood,tools
+microsatellites,tools
+mitochondrial DNA,tools
+molecular clock,tools
+NCBI,tools
+neotype,tools
+nuclear DNA,tools
+paratype,tools
+PCR,tools
+posterior,tools
+prior,tools
+Robert FitzRoy,tools
+rock strata,tools
+Sanger sequencing,tools
+SNP,tools
+type specimen,tools

@@ -132,3 +132,8 @@ Assuming I teach this again in 2024, some of the things I'd like to change:
 * Encourage more evenness of classroom participation: everyone contributed, but the evenness could be improved
 * Add more contemporary human evolution, like the Framingham heart study
 * Other things students will suggest via their feedback forms
+
+
+___
+
+To subscribe, go to <https://brianomeara.info/blog.xml> in an RSS reader.

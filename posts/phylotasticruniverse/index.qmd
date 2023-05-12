@@ -50,3 +50,8 @@ options(repos = c(
 ### Why "phylotastic"?
  
 Phylotastic started as an idea launched at the [US] National Evolutionary Synthesis Center, NESCent, in 2012. Over hackathons and other events, and later an NSF grant (written by Arlin Stoltzfus, Enrico Pontelli, and me) it resulted in various tools for phylogenetics (includng http://datelife.opentreeoflife.org/ ). I wanted to keep that connection, not least so that people could use phylotastic R packages even when there are CRAN hiccups. 
+
+
+___
+
+To subscribe, go to <https://brianomeara.info/blog.xml>

@@ -28,3 +28,7 @@ To see all the code we used, go to https://github.com/thej022214/Fossils_impact_
 
 To see how to use fossils in *hisse*, including in models with and without traits, look at Jeremy's vignette: https://speciationextinction.info/articles/adding_fossils.html . Based on our analysis, fossils don't help much with diversification, but you can prove us wrong for your data, and you can use these tools for things like looking at correlations where fossils might indeed help. 
 
+
+___
+
+To subscribe, go to <https://brianomeara.info/blog.xml> in an RSS reader.

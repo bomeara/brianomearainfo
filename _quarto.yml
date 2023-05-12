@@ -16,6 +16,7 @@ name: "Brian O'Meara"
 website: 
   site-url: https://brianomeara.info
   title: "Brian O'Meara"
+  favicon: logo.png
   navbar:
     left:
       - text: "Home"
@@ -80,7 +81,7 @@ website:
         menu:
           - text: "Blog"
             href: blog.html
-          - icon: "rss"
+          - text: "RSS feed"
             href: blog.xml
 
 format:

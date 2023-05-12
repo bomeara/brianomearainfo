@@ -78,3 +78,7 @@ for (i in sequence(number_of_calls)) {
   }
 }
 ```
+
+___
+
+To subscribe, go to <https://brianomeara.info/blog.xml> in an RSS reader.

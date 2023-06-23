@@ -6,8 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Brian O’Meara">
+<meta name="dcterms.date" content="2023-05-24">
+<meta name="description" content="Estimating ancestral states under complex models and the perils of optimization routines in R">
 
-<title>Brian O'Meara – presentations</title>
+<title>Brian O’Meara - Ancestral state estimation and optimization</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,23 +26,23 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./logo.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../logo.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -71,7 +74,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Brian O’Meara</span>
     </a>
   </div>
@@ -82,7 +85,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html" rel="" target="">
+    <a class="nav-link" href="../../index.html" rel="" target="">
  <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -91,31 +94,31 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-cv-etc.">    
         <li>
-    <a class="dropdown-item" href="./cv.html" rel="" target="">
+    <a class="dropdown-item" href="../../cv.html" rel="" target="">
  <span class="dropdown-text">CV</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./calendar.html" rel="" target="">
+    <a class="dropdown-item" href="../../calendar.html" rel="" target="">
  <span class="dropdown-text">Calendar</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./feedback.html" rel="" target="">
+    <a class="dropdown-item" href="../../feedback.html" rel="" target="">
  <span class="dropdown-text">Feedback</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./useful.html" rel="" target="">
+    <a class="dropdown-item" href="../../useful.html" rel="" target="">
  <span class="dropdown-text">Useful links</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./tenure.html" rel="" target="">
+    <a class="dropdown-item" href="../../tenure.html" rel="" target="">
  <span class="dropdown-text">Materials for promotion to associate (and tenure)</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./promotion.html" rel="" target="">
+    <a class="dropdown-item" href="../../promotion.html" rel="" target="">
  <span class="dropdown-text">Materials for promotion to full</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./SSB.html" rel="" target="">
+    <a class="dropdown-item" href="../../SSB.html" rel="" target="">
  <span class="dropdown-text">Candidacy for SSB president</span></a>
   </li>  
     </ul>
@@ -126,51 +129,51 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-lab">    
         <li>
-    <a class="dropdown-item" href="./personnel.html" rel="" target="">
+    <a class="dropdown-item" href="../../personnel.html" rel="" target="">
  <span class="dropdown-text">People</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./guidelines.html" rel="" target="">
+    <a class="dropdown-item" href="../../guidelines.html" rel="" target="">
  <span class="dropdown-text">Guidelines &amp; Recommendations</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./location.html" rel="" target="">
+    <a class="dropdown-item" href="../../location.html" rel="" target="">
  <span class="dropdown-text">Location/Contact</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./opportunities.html" rel="" target="">
+    <a class="dropdown-item" href="../../opportunities.html" rel="" target="">
  <span class="dropdown-text">Opportunities</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./learningobjectives.html" rel="" target="">
+    <a class="dropdown-item" href="../../learningobjectives.html" rel="" target="">
  <span class="dropdown-text">Learning objectives</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./better-letter.html" rel="" target="">
+    <a class="dropdown-item" href="../../better-letter.html" rel="" target="">
  <span class="dropdown-text">BetterLetter</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./shouldyougotogradschool.html" rel="" target="">
+    <a class="dropdown-item" href="../../shouldyougotogradschool.html" rel="" target="">
  <span class="dropdown-text">Should you go to grad school to be a professor?</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./tenure.html" rel="" target="">
+    <a class="dropdown-item" href="../../tenure.html" rel="" target="">
  <span class="dropdown-text">Materials for promotion to associate (and tenure)</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./promotion.html" rel="" target="">
+    <a class="dropdown-item" href="../../promotion.html" rel="" target="">
  <span class="dropdown-text">Materials for promotion to full</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./general.html" rel="" target="">
+    <a class="dropdown-item" href="../../general.html" rel="" target="">
  <span class="dropdown-text">Info for general public</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./covid.html" rel="" target="">
+    <a class="dropdown-item" href="../../covid.html" rel="" target="">
  <span class="dropdown-text">COVID</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./schedule.html" rel="" target="">
+    <a class="dropdown-item" href="../../schedule.html" rel="" target="">
  <span class="dropdown-text">EEB scheduling</span></a>
   </li>  
     </ul>
@@ -181,11 +184,11 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-teaching">    
         <li>
-    <a class="dropdown-item" href="./teaching.html" rel="" target="">
+    <a class="dropdown-item" href="../../teaching.html" rel="" target="">
  <span class="dropdown-text">Teaching overall</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./eeb464.html" rel="" target="">
+    <a class="dropdown-item" href="../../eeb464.html" rel="" target="">
  <span class="dropdown-text">Macroevolution (EEB464)</span></a>
   </li>  
         <li>
@@ -200,11 +203,11 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-tutorials">    
         <li>
-    <a class="dropdown-item" href="./aic.html" rel="" target="">
+    <a class="dropdown-item" href="../../aic.html" rel="" target="">
  <span class="dropdown-text">AIC</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./phylogenetics.html" rel="" target="">
+    <a class="dropdown-item" href="../../phylogenetics.html" rel="" target="">
  <span class="dropdown-text">Phylogenetics</span></a>
   </li>  
     </ul>
@@ -215,11 +218,11 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-blog">    
         <li>
-    <a class="dropdown-item" href="./blog.html" rel="" target="">
+    <a class="dropdown-item" href="../../blog.html" rel="" target="">
  <span class="dropdown-text">Blog</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./blog.xml" rel="" target="">
+    <a class="dropdown-item" href="../../blog.xml" rel="" target="">
  <span class="dropdown-text">RSS feed</span></a>
   </li>  
     </ul>
@@ -232,71 +235,76 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Ancestral state estimation and optimization</h1>
+                  <div>
+        <div class="description">
+          Estimating ancestral states under complex models and the perils of optimization routines in R
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">R</div>
+                <div class="quarto-category">rbloggers</div>
+                <div class="quarto-category">optimization</div>
+                <div class="quarto-category">OUwie</div>
+                <div class="quarto-category">OU</div>
+                <div class="quarto-category">ancestral state estimation</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Brian O’Meara </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">May 24, 2023</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#presentations" id="toc-presentations" class="nav-link active" data-scroll-target="#presentations">Presentations</a></li>
-  </ul>
-</nav>
+        
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
-<section id="presentations" class="level2">
-<h2 class="anchored" data-anchor-id="presentations">Presentations</h2>
-<p><strong>Bold</strong> indicates presentation was delivered by me; otherwise, I was a coauthor. Also see various workshops under teaching.</p>
-<p>June 2018: Talk on DateLife project for getting chronograms for the tree of life. Presented at the Society of Systematic Biologists meeting in Columbus, OH. Luna Sanchez Garcia &amp; Brian O’Meara.</p>
-<p>June 2017: Poster on inference of amino acid functionality from DNA sequences using a novel phylogenetic approach at the Society for Molecular Biology and Evolution meeting in Austin, TX. Cedric Landerer, Jeremy Beaulieu, Brian O’Meara, Mike Gilchrist.</p>
-<p><strong>June 2017</strong>: Symposium talk on phylogenetic networks at Evolution 2017 meeting: co-lead author was Tony Jhwueng.</p>
-<p><strong>March 2017</strong>: Invited talk on three projects at U. of Idaho, Moscow.</p>
-<p><strong>September 2016</strong>: Symposium talk on Approximate Bayesian computation for trait evolution on phylogenies at Geological Society of America annual meeting.</p>
-<p>August 2016: Talk on linking leaf spectra to phylogenies at Ecological Society of America 2016 annual meeting. Jose Eduardo Meireles, Brian O’Meara, Anna Schweiger, Aditya Singh, Phil Townsend, Susan Ustin, Michael Schaepman, Franziska Schrodt, John Gamon, and Jeannine Cavender-Bares.</p>
-<p>July 2016: Talk on Moving beyond black box, GTR models in phyogenetic analyses through the use of mechanistic models of sequence evolution at the Genetics Society of America: The Allied Genetics Conference in Orlando, FL. Mike Gilchrist, Russ Zaretzki, Cedric Landerer, Jeremy Beaulieu, and Brian O’Meara</p>
-<p>November 2015: Talk on Improving Phylogenetics via Population Genetics at the Society for the Study of Molecular Evolution Satellite Meeting on Mechanisms of Protein Evolution in Denver, CO. Mike Gilchrist, Jeremy Beaulieu, JJ Chai, and Brian O’Meara.</p>
-<p><strong>September 2015</strong>: Talk on heterogeneity at Texas A&amp;M</p>
-<p>July 2015: Talk on Moving beyond black box, GTR models in phyogenetic analyses through the use of mechanistic models of sequence evolution at the Annual Meeting of the Society for Molecular Biology &amp; Evolution in Vienna, Austria. Mike Gilchrist, Jeremy Beaulieu, and Brian O’Meara</p>
-<p><strong>June 2014</strong>: Talk on floral evolution at Evolution 2014 meeting; co-lead author was Stacey Smith, coauthors were W SArmbruster, L Harder, C Hardy, L Hileman, L Hufford, A Litt, S Magallon, S Smith, P Stevens, C Fenster, P Diggle.</p>
-<p>June 2014: Talk on phylogeography at Evolution 2014 meeting; lead author and speaker was Nathan Jackson, other authors were A. Garcia, B. Carstens, and B. O’Meara.</p>
-<p>June 2014: Talk on biogeography at Evolution 2014; lead author and speaker was Katie Massana (grad student), coauthors were J. Beaulieu, B. O’Meara, and N. Matzke.</p>
-<p>June 2014: Talk on Hawaiian island plant immigration at Evolution 2014; lead author and speaker was Jeremy Beaulieu, coauthor was Brian O’Meara.</p>
-<p><strong>May 2014</strong>: Smithsonian Phylopizza</p>
-<p><strong>June, 2013</strong>: Symposium talk on species delimitation, Evolution meetings</p>
-<p><strong>Aug.&nbsp;2012</strong>: Invited talk on comparative methods, Institute of Bioinformatics, U. of Georgia</p>
-<p><strong>June, 2012</strong>: Symposium talk on ABC and comparative methods, Evolution meetings</p>
-<p><strong>March, 2011</strong>: Phyloseminar talk on ABC and comparative methods. Apple Keynote and PDF.</p>
-<p><strong>May, 2010</strong>: Talk on phylogenetics and iPToL at iPlant meeting in Las Vegas</p>
-<p><strong>April, 2010</strong>: Invited talk on species delimitation at Louisiana State University</p>
-<p><strong>Nov., 2009</strong>: Talk at NIMBios about species delimitation and species tree inference</p>
-<p><strong>Mar., 2009</strong>: Talk to UT Knoxville EEB</p>
-<p><strong>June, 2008</strong>: Talk at Evolution 2008 in Minnesota</p>
-<p><strong>June, 2008</strong>: Poster at Evolution 2008 in Minnesota</p>
-<p><strong>June, 2008</strong>: Invited Joel Keizer Prize in Theoretical Biology lecture at University of California, Davis</p>
-<p><strong>May, 2008</strong>: Invited symposium talk at Interface 2008 [statistics conference] in NC</p>
-<p><strong>April, 2008</strong>: Invited talk to the Organismic and Evolutionary Biology department at Harvard U.</p>
-<p><strong>Jan., 2008</strong>: Invited symposium talk at Society for Integrative and Comparative Biology meeting in TX</p>
-<p><strong>Oct., 2007</strong>: Invited talk at Duke Systematics Discussion Group</p>
-<p><strong>Oct., 2007</strong>: Talk at NESCent brown bag lunch series</p>
-<p><strong>June, 2007</strong>: Exit seminar</p>
-<p><strong>June, 2006</strong>: Talk at Evolution 2006 in NY</p>
-<p><strong>Feb., 2006</strong>: Poster at CIPRES all hands meeting in TX</p>
-<p><strong>July, 2005</strong>: Talk at CIPRES-funded graduate student meeting in NM</p>
-<p><strong>June, 2005</strong>: Talk on Brownie at Evolution meetings in Alaska.</p>
-<p><strong>Dec, 2004</strong>: Presentation at the Bay Area Biosystematists meeting</p>
-<p><strong>Dec., 2001</strong>: Talk at Entomology Society of America national meeting in CA</p>
-<p><strong>June, 2001</strong>: Poster at Evolution 2001 in TN</p>
-<p><strong>Dec., 2000</strong>: Poster at the Entomology Society of America national meeting in Canada</p>
+
+<p><code>OUwie</code> is an R package developed by <a href="https://www.jeremybeaulieu.org/">Jeremy Beaulieu</a> and, to a <a href="https://github.com/thej022214/OUwie/graphs/contributors">lesser extent</a>, <a href="https://jamesboyko.com/">James Boyko</a> and me. <a href="https://github.com/thej022214/OUwie/blame/master/R/OUwie.anc.R">One part</a> I worked on was ancestral state estimation: reconstructing states on the phylogeny. This is very dangerous. Normally, we have N tips, each with one trait: we know that trying to estimate all the parameters of a model can be hard or even impossible (OUwie now tries to check for the latter). With ancestral state reconstruction, we now try to estimate what is happening at N-1 nodes. In the US a popular thing is to bet on <a href="https://www.ncaa.com/news/basketball-men/article/2023-04-18/2023-ncaa-bracket-scores-stats-march-madness-mens-tournament">college basketball brackets</a>: a balanced tree of 32 teams, where each node represents a game, and you must reconstruct which team wins each game.</p>
+<hr>
+<p>To subscribe, go to <a href="https://brianomeara.info/blog.xml" class="uri">https://brianomeara.info/blog.xml</a></p>
 
 
-</section>
 
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{o'meara2023,
+  author = {O’Meara, Brian},
+  title = {Ancestral State Estimation and Optimization},
+  date = {2023-05-24},
+  url = {https://brianomeara.info/posts/ouwieanc},
+  langid = {en}
+}
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-o'meara2023" class="csl-entry quarto-appendix-citeas" role="listitem">
+O’Meara, Brian. 2023. <span>“Ancestral State Estimation and
+Optimization.”</span> May 24, 2023. <a href="https://brianomeara.info/posts/ouwieanc">https://brianomeara.info/posts/ouwieanc</a>.
+</div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

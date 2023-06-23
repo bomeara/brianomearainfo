@@ -9,8 +9,8 @@
 <link>https://brianomeara.info/blog.html</link>
 <atom:link href="https://brianomeara.info/blog.xml" rel="self" type="application/rss+xml"/>
 <description></description>
-<generator>quarto-1.3.340</generator>
-<lastBuildDate>Thu, 11 May 2023 04:00:00 GMT</lastBuildDate>
+<generator>quarto-1.3.361</generator>
+<lastBuildDate>Thu, 11 May 2023 06:00:00 GMT</lastBuildDate>
 <item>
   <title>Grad core class in evolutionary biology, 2023 edition</title>
   <dc:creator>Brian O&#39;Meara</dc:creator>
@@ -168,7 +168,7 @@ O’Meara, Brian. 2023. <span>“Grad Core Class in Evolutionary Biology,
   <category>core</category>
   <category>EEB511</category>
   <guid>https://brianomeara.info/posts/evolutioncore2023/index.html</guid>
-  <pubDate>Thu, 11 May 2023 04:00:00 GMT</pubDate>
+  <pubDate>Thu, 11 May 2023 06:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Joining Mastodon</title>
@@ -269,7 +269,7 @@ O’Meara, Brian. 2023. <span>“Joining Mastodon.”</span> April 30, 2023.
 </div></div></section></div> ]]></description>
   <category>social media</category>
   <guid>https://brianomeara.info/posts/joiningmastodon/index.html</guid>
-  <pubDate>Sun, 30 Apr 2023 04:00:00 GMT</pubDate>
+  <pubDate>Sun, 30 Apr 2023 06:00:00 GMT</pubDate>
 </item>
 <item>
   <title>An alternative to CRAN for phylogenetics</title>
@@ -326,7 +326,7 @@ Phylogenetics.”</span> April 23, 2023. <a href="https://brianomeara.info/posts
   <category>rbloggers</category>
   <category>reproducibility</category>
   <guid>https://brianomeara.info/posts/phylotasticruniverse/index.html</guid>
-  <pubDate>Sun, 23 Apr 2023 04:00:00 GMT</pubDate>
+  <pubDate>Sun, 23 Apr 2023 06:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Fossils do not help fix diversification parameter estimates</title>
@@ -371,7 +371,7 @@ Parameter Estimates.”</span> April 22, 2023. <a href="https://brianomeara.info
   <category>simulation</category>
   <category>publication</category>
   <guid>https://brianomeara.info/posts/fossilsdonothelp/index.html</guid>
-  <pubDate>Sat, 22 Apr 2023 04:00:00 GMT</pubDate>
+  <pubDate>Sat, 22 Apr 2023 06:00:00 GMT</pubDate>
 </item>
 </channel>
 </rss>

@@ -1,0 +1,15 @@
+---
+title: "Ancestral state estimation and optimization"
+description: "Estimating ancestral states under complex models and the perils of optimization routines in R"
+author: "Brian O'Meara"
+date: "05/24/2023"
+citation: true
+categories: [R, rbloggers, optimization, OUwie, OU, ancestral state estimation] 
+draft: true
+---
+
+`OUwie` is an R package developed by [Jeremy Beaulieu](https://www.jeremybeaulieu.org/) and, to a [lesser extent](https://github.com/thej022214/OUwie/graphs/contributors), [James Boyko](https://jamesboyko.com/) and me. [One part](https://github.com/thej022214/OUwie/blame/master/R/OUwie.anc.R) I worked on was ancestral state estimation: reconstructing states on the phylogeny. This is very dangerous. Normally, we have N tips, each with one trait: we know that trying to estimate all the parameters of a model can be hard or even impossible (OUwie now tries to check for the latter). With ancestral state reconstruction, we now try to estimate what is happening at N-1 nodes. In the US a popular thing is to bet on [college basketball brackets](https://www.ncaa.com/news/basketball-men/article/2023-04-18/2023-ncaa-bracket-scores-stats-march-madness-mens-tournament): a balanced tree of 32 teams, where each node represents a game, and you must reconstruct which team wins each game. 
+
+___
+
+To subscribe, go to <https://brianomeara.info/blog.xml>

@@ -2,18 +2,80 @@
 title: Evolution 2023 SSB Presidential Address
 ---
 
-On June 24, 2023, I gave a talk as the Society of Systematic Biologists past president. Here is material related to the talk.
+On June 24, 2023, I gave a talk as the Society of Systematic Biologists past president. Here is material related to the talk. 
+
+### Talk slides
+
+Feel free to use these for social media.
+
+[PDF](2023_SSB_Presidential_Address.pdf)
+
+![](2023_SSB_Presidential_Address.gif){fig-alt="All the slides as a gif"}
 
 ### Snail darter and the dam
 
+* [Overview, including the recovery](https://www.npr.org/2022/10/04/1126825745/snail-darter-endangered-species-list)
+* [***The Snail Darter and the Dam***](https://yalebooks.yale.edu/book/9780300209419/the-snail-darter-and-the-dam/) by Zygmunt Plater, the assistant law professor who brought the case and argued it, successfully, before the US Supreme Court. He was also on the petition to delist the recovered species
+* [David Etnier obituary](https://www.knoxnews.com/obituaries/kns058203) from May, 2023
+* [Etnier, D.A. (1976) "***Percina (Imostoma) tanasi***, A new percid fish from the Little Tennessee River, Tennessee." Proceedings of the Biological Society of Washington, 88(44) 469-488](https://ia800205.us.archive.org/4/items/biostor-82093/biostor-82093.pdf)
+* [Modern TVA description of the Tellico Dam](https://www.tva.com/about-tva/our-history/built-for-the-people/telling-the-story-of-tellico-it-s-complicated)
+* [Tennessee Valley Authority vs Hill Supreme Court Case](https://www.oyez.org/cases/1977/76-1701): includes links to lots of material, including recordings of oral arguments
 
 
-### Eugenics reading
+### Misconduct
+
+* Proposed code of ethics: [evolutioncodeofethics.org](https://www.evolutioncodeofethics.org/)
+* [Safe Evolution](https://www.evolutionmeetings.org/safe-evolution.html)
+  * [Policy overview](https://www.evolutionmeetings.org/policies.html)
+  * [Detailed reporting procedures](https://www.evolutionmeetings.org/uploads/4/8/8/0/48804503/reporting.pdf) (PDF)
+  * Safety officer (for Evolution 2023): Kerrell Dunsmore, evolutionsafetyofficer@gmail.com, 480-609-3999
+  * Transparency reports: [2017-8](https://www.evolutionmeetings.org/uploads/4/8/8/0/48804503/transparency_report.pdf), [2019](https://www.evolutionmeetings.org/uploads/4/8/8/0/48804503/transparency_report__2019.pdf), 2020 no meeting, [2021](https://www.evolutionmeetings.org/uploads/4/8/8/0/48804503/code_of_conduct_evolution_2021_transparency_report.pdf), [2022](https://www.evolutionmeetings.org/uploads/4/8/8/0/48804503/transparency_report_2022.pdf)
+  * [Evo Allies program](https://www.evolutionsociety.org/news/display/2019/4/16/new-program-for-the-evolution-meetings-evo-allies/)
+* [Poster](https://figshare.com/articles/poster/Unwelcome_behaviors_at_the_Evolution_meetings_Survey_results/8311595) with survey results on experiences in the field and at the meeting
+* [Clancy, KBH; RG Nelson; JN Rutherford; K Hinde. (2014) "Survey of Academic Field Experiences (SAFE): Trainees Report Harassment and Assault." PLOS ONE](https://doi.org/10.1371/journal.pone.0102172)
+* [Academic Sexual Misconduct Database](https://academic-sexual-misconduct-database.org/) started by [Julie Libarkin](https://geocognitionresearchlaboratory.com/personnel-in-the-grl/julie-libarkin/)
+* [Andrea Case](https://andrealcase.weebly.com/), long term chair of the Tri-Societies Code of Conduct Committee. Recently inducted as an [AAAS fellow](https://msutoday.msu.edu/news/2023/msu-researchers-honored-achievements-science-society)
+* [Societies Consortium](https://societiesconsortium.com/) group, a network of scientific societies working for reducing harassment and bias
+* NSF (US National Science Foundation, a major source of science research funding)
+  * [Safe and Inclusive working environment requirements FAQ](https://www.nsf.gov/pubs/2023/nsf23071/nsf23071.pdf)
+  * [Notification requirement for findings of sexual harassment, other forms of harassment, or sexual assault](https://www.nsf.gov/od/oecr/term_and_condition.jsp) (includes a bit of data on reporting over the past few years)
+* [National Academies report on sexual harassment](https://www.nationalacademies.org/our-work/sexual-harassment-in-academia)
+
+### Award naming
+
+#### Changes and attempted changes
+
+* [SSB proposed amendment to rename Mayr Award](https://www.systbio.org/award-naming.html)
+* [SSB follow up given discussion](https://www.systbio.org/award-naming-discussion.html)
+* [SSE statement on renaming the Fisher Prize](https://www.evolutionsociety.org/news/display/2020/6/12/renaming-the-r-a-fisher-prize/)
+* [ASN statement on renaming all named awards](https://amnat.org/announcements/named-awards.html)
+* [Vote on changing *Copeia* to *Ichthyology & Herpetology*](http://www.ichthyologyandherpetology.org/blog/2020/6/29/motion-to-change-the-name-of-the-asih-journal)
+* [Linnean Games retitled to Entomology Games](https://www.entsoc.org/entomological-society-america-renames-student-quiz-competition)
+
+#### Further reading on naming
+
+* [Bazner, K.J., J. Vaid, and C.A. Stanley. 2020. “Who is meritorious? Gendered and racialized discourse in named award descriptions in professional societies of higher education” Journal of Qualitative Studies in Education 34(2): 108-124](https://doi.org/10.1080/09518398.2020.1735559)
+* [Pourret, O., P. Anand, S. Arndt, P. Bots, A. Dosseto, Z. Li, J.M. Carbonne, J. Middleton, B. Ngwenya, and A. J.V. Riches. 2021. “Diversity, equity, and inclusion: Tackling underrepresentation and recognition of talents in geochemistry and cosmochemistry” Geochimica et Cosmochimica Acta. 310: 363-371.](https://doi.org/10.1080/09518398.2020.1735559)
+* [Guedes, P., F. Alves-Martins, J.M. Arribas, S. Chatterjee, A.M.C. Santos, A. Lewin, L. Bako, P.W. Webala, R.A. Correia, R. Rocha & R.J. Ladle. 2023. "Eponyms have no place in 21st-century biological nomenclature." Nature Ecology & Evolution](https://doi.org/10.1038/s41559-023-02022-y)
+* [Smith, G.F. and E. Figueiredo. 2021. "'Rhodes-' must fall: Some of the consequences of colonialism for botany and plant nomenclature". Taxon 71(1): 1-5](https://doi.org/10.1002/tax.12598)
+* [Berenbaum, M. 2010. "ICE Breakers." American Entomologist 56(3): 132-133 & 185](https://academic.oup.com/ae/article-pdf/56/3/132/18751595/ae56-0132.pdf)
+
+### Eugenics 
 
 * Timnit Gebru [talk](https://www.youtube.com/watch?v=P7XT4TWLzJw&ab_channel=NicolasPapernot) on modern eugenics and [post](https://www.linkedin.com/posts/timnit-gebru-7b3b407_effective-altruism-has-a-hostile-culture-activity-7029238726010552320-sYdU/?originalSubdomain=re) about this and effective altruism.
 * Sterilization of [Native Americans](https://time.com/5737080/native-american-sterilization-history/)
 * Sterilization of California inmates [without informed consent](https://revealnews.org/article/female-prison-inmates-sterilized-illegally-california-audit-confirms/)
 * Reduced sentences for [inmates opting to be sterilized in Tennessee](https://www.washingtonpost.com/news/morning-mix/wp/2017/11/21/tenn-judge-reprimanded-for-offering-reduced-jail-time-in-exchange-for-sterilization/)
+* Videos of talks in the 2023 SSE Presidential Symposium:
+  * Brian Donovan – [Genetics Education Needs to Move Beyond Mendel to Combat White Supremacy](https://www.youtube.com/watch?v=fogrREQxAX4&list=PLnl_pi1g6UveUBQ63SaajGgRfEHsHkz7c&index=2&t=0s)
+  * Joanne Woiak – [History of Eugenics and Disability](https://www.youtube.com/watch?v=fogrREQxAX4&list=PLnl_pi1g6UveUBQ63SaajGgRfEHsHkz7c&index=2&t=1818s)
+  * Graham Coop – [Describing Human Genetic Variation](https://www.youtube.com/watch?v=fogrREQxAX4&list=PLnl_pi1g6UveUBQ63SaajGgRfEHsHkz7c&index=2&t=3670s)
+  * Jed Carlson – [Combating the Weaponization of Science](https://www.youtube.com/watch?v=fogrREQxAX4&list=PLnl_pi1g6UveUBQ63SaajGgRfEHsHkz7c&index=2&t=5490s)
 
 ### Eugenics analysis
+
+![](network.gif){fig-alt="Coauthorship network over time"}
+
+![](waffle_grid.gif){fig-alt="Authors publishing in both journals"}
+
 

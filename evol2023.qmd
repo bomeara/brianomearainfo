@@ -59,6 +59,7 @@ Feel free to use these for social media.
 * [Guedes, P., F. Alves-Martins, J.M. Arribas, S. Chatterjee, A.M.C. Santos, A. Lewin, L. Bako, P.W. Webala, R.A. Correia, R. Rocha & R.J. Ladle. 2023. "Eponyms have no place in 21st-century biological nomenclature." Nature Ecology & Evolution](https://doi.org/10.1038/s41559-023-02022-y)
 * [Smith, G.F. and E. Figueiredo. 2021. "'Rhodes-' must fall: Some of the consequences of colonialism for botany and plant nomenclature". Taxon 71(1): 1-5](https://doi.org/10.1002/tax.12598)
 * [Berenbaum, M. 2010. "ICE Breakers." American Entomologist 56(3): 132-133 & 185](https://academic.oup.com/ae/article-pdf/56/3/132/18751595/ae56-0132.pdf)
+* Ogbunu, C.B. 2022. "Ghosts of Science Past Still Haunt Us. We Can Put Them to Rest." <https://race.undark.org/articles/ghosts-of-science-past-still-haunt-us-we-can-put-them-to-rest>. 
 
 ### Eugenics 
 
@@ -71,8 +72,22 @@ Feel free to use these for social media.
   * Joanne Woiak – [History of Eugenics and Disability](https://www.youtube.com/watch?v=fogrREQxAX4&list=PLnl_pi1g6UveUBQ63SaajGgRfEHsHkz7c&index=2&t=1818s)
   * Graham Coop – [Describing Human Genetic Variation](https://www.youtube.com/watch?v=fogrREQxAX4&list=PLnl_pi1g6UveUBQ63SaajGgRfEHsHkz7c&index=2&t=3670s)
   * Jed Carlson – [Combating the Weaponization of Science](https://www.youtube.com/watch?v=fogrREQxAX4&list=PLnl_pi1g6UveUBQ63SaajGgRfEHsHkz7c&index=2&t=5490s)
+* ***Control*** by Adam Rutherford: <https://wwnorton.com/books/9781324035602>
+* [Rutherford, A. 2021. "A cautionary history of eugenics." Science. 373: 6562](https://www.science.org/doi/10.1126/science.abm4415)
+* [Mazumdar, P.M.H. 2002. "'Reform' eugenics and the decline of Mendelism." Trends in Genetics 18(1): 48-52](https://doi.org/10.1016/s0168-9525(01)02551-3)
+* [Allan, G.E. 1986. "The Eugenics Records Office at Cold Spring Harbor, 1910-1940: An Essay in Institutional History." Osiris 2: 225-264.](https://www.jstor.org/stable/301835)
+* [Muller, H.J. 1950. "Our Load of Mutations." The American Journal of Human Genetics 2(2): 111-176](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1716299/)
+* [Riddle, O. 1946. "Biographical Memoir of Charles Benedict Davenport." National Academy of Sciences Biographical Memoirs](http://www.nasonline.org/publications/biographical-memoirs/memoir-pdfs/davenport-charles.pdf)
+* [Bodmer, W.,  R. A. Bailey, B. Charlesworth,  A. Eyre-Walker, V. Farewell, A. Mead, S. Senn. 2021. "The outstanding scientist, R.A. Fisher: his views on eugenics and race." Heredity 126:565–576](https://doi.org/10.1038/s41437-020-00394-6)
+* ***The Genetical Theory of Natural Selection*** by R.A. Fisher, 1930. <https://www.biodiversitylibrary.org/bibliography/27468>
+* [Mayr, E. 1971. Letter to Francis Crick](https://collections.nlm.nih.gov/catalog/nlm:nlmuid-101584582X183-doc)
+* [Hardin, G. 1968. "The Tragedy of the Commons." Science 162(3859): 1243-1248](https://www.jstor.org/stable/1724745).
+* [Presser, H.B. 1969. "The Role of Sterilization in Controlling Puerto Rican Fertility." Population Studies 23(3): 343-361](https://www.jstor.org/stable/2172875)
+
 
 ### Eugenics analysis
+
+<https://github.com/bomeara/EugenicsPublicationAnalysis>. Note that as I'm not sure about licensing for downloaded Web of Science data, it starts one step after the actual run process, after all the downloaded files have been aggregated. See the readme for more. It uses R and `targets` for a workflow.
 
 ![](network.gif){fig-alt="Coauthorship network over time"}
 

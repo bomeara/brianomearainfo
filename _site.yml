@@ -21,6 +21,8 @@ navbar:
           href: promotion.html
         - text: "Candidacy for SSB president"
           href: SSB.html
+        - text: "SSB Presidential Address 2023"
+          href: evol2023.html
     - text: "Lab"
       menu:
         - text: "People"

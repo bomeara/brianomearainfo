@@ -4,6 +4,10 @@ title: Evolution 2023 SSB Presidential Address
 
 On June 24, 2023, I gave a talk as the Society of Systematic Biologists past president. Here is material related to the talk. 
 
+### Talk recording
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/2lbfjtOVntA?start=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 ### Talk slides
 
 Feel free to use these for social media.

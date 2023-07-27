@@ -6,8 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Brian O’Meara">
+<meta name="dcterms.date" content="2023-07-27">
+<meta name="description" content="How to fix the bad credentials error with devtools::install">
 
-<title>Brian O’Meara - Blog posts</title>
+<title>Brian O’Meara - Github rate limit</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,25 +26,23 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./logo.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../logo.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -62,40 +63,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<link rel="alternate" type="application/rss+xml" title="Brian O'Meara" href="blog.xml"></head>
+</head>
 
 <body class="nav-fixed">
 
@@ -104,7 +74,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Brian O’Meara</span>
     </a>
   </div>
@@ -115,7 +85,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html" rel="" target="">
+    <a class="nav-link" href="../../index.html" rel="" target="">
  <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -124,35 +94,35 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-cv-etc.">    
         <li>
-    <a class="dropdown-item" href="./cv.html" rel="" target="">
+    <a class="dropdown-item" href="../../cv.html" rel="" target="">
  <span class="dropdown-text">CV</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./calendar.html" rel="" target="">
+    <a class="dropdown-item" href="../../calendar.html" rel="" target="">
  <span class="dropdown-text">Calendar</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./feedback.html" rel="" target="">
+    <a class="dropdown-item" href="../../feedback.html" rel="" target="">
  <span class="dropdown-text">Feedback</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./useful.html" rel="" target="">
+    <a class="dropdown-item" href="../../useful.html" rel="" target="">
  <span class="dropdown-text">Useful links</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./tenure.html" rel="" target="">
+    <a class="dropdown-item" href="../../tenure.html" rel="" target="">
  <span class="dropdown-text">Materials for promotion to associate (and tenure)</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./promotion.html" rel="" target="">
+    <a class="dropdown-item" href="../../promotion.html" rel="" target="">
  <span class="dropdown-text">Materials for promotion to full</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./SSB.html" rel="" target="">
+    <a class="dropdown-item" href="../../SSB.html" rel="" target="">
  <span class="dropdown-text">Candidacy for SSB president</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./evol2023.html" rel="" target="">
+    <a class="dropdown-item" href="../../evol2023.html" rel="" target="">
  <span class="dropdown-text">SSB Presidential Address 2023</span></a>
   </li>  
     </ul>
@@ -163,51 +133,51 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-lab">    
         <li>
-    <a class="dropdown-item" href="./personnel.html" rel="" target="">
+    <a class="dropdown-item" href="../../personnel.html" rel="" target="">
  <span class="dropdown-text">People</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./guidelines.html" rel="" target="">
+    <a class="dropdown-item" href="../../guidelines.html" rel="" target="">
  <span class="dropdown-text">Guidelines &amp; Recommendations</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./location.html" rel="" target="">
+    <a class="dropdown-item" href="../../location.html" rel="" target="">
  <span class="dropdown-text">Location/Contact</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./opportunities.html" rel="" target="">
+    <a class="dropdown-item" href="../../opportunities.html" rel="" target="">
  <span class="dropdown-text">Opportunities</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./learningobjectives.html" rel="" target="">
+    <a class="dropdown-item" href="../../learningobjectives.html" rel="" target="">
  <span class="dropdown-text">Learning objectives</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./better-letter.html" rel="" target="">
+    <a class="dropdown-item" href="../../better-letter.html" rel="" target="">
  <span class="dropdown-text">BetterLetter</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./shouldyougotogradschool.html" rel="" target="">
+    <a class="dropdown-item" href="../../shouldyougotogradschool.html" rel="" target="">
  <span class="dropdown-text">Should you go to grad school to be a professor?</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./tenure.html" rel="" target="">
+    <a class="dropdown-item" href="../../tenure.html" rel="" target="">
  <span class="dropdown-text">Materials for promotion to associate (and tenure)</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./promotion.html" rel="" target="">
+    <a class="dropdown-item" href="../../promotion.html" rel="" target="">
  <span class="dropdown-text">Materials for promotion to full</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./general.html" rel="" target="">
+    <a class="dropdown-item" href="../../general.html" rel="" target="">
  <span class="dropdown-text">Info for general public</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./covid.html" rel="" target="">
+    <a class="dropdown-item" href="../../covid.html" rel="" target="">
  <span class="dropdown-text">COVID</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./schedule.html" rel="" target="">
+    <a class="dropdown-item" href="../../schedule.html" rel="" target="">
  <span class="dropdown-text">EEB scheduling</span></a>
   </li>  
     </ul>
@@ -218,11 +188,11 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-teaching">    
         <li>
-    <a class="dropdown-item" href="./teaching.html" rel="" target="">
+    <a class="dropdown-item" href="../../teaching.html" rel="" target="">
  <span class="dropdown-text">Teaching overall</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./eeb464.html" rel="" target="">
+    <a class="dropdown-item" href="../../eeb464.html" rel="" target="">
  <span class="dropdown-text">Macroevolution (EEB464)</span></a>
   </li>  
         <li>
@@ -237,11 +207,11 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-tutorials">    
         <li>
-    <a class="dropdown-item" href="./aic.html" rel="" target="">
+    <a class="dropdown-item" href="../../aic.html" rel="" target="">
  <span class="dropdown-text">AIC</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./phylogenetics.html" rel="" target="">
+    <a class="dropdown-item" href="../../phylogenetics.html" rel="" target="">
  <span class="dropdown-text">Phylogenetics</span></a>
   </li>  
     </ul>
@@ -252,11 +222,11 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-blog">    
         <li>
-    <a class="dropdown-item" href="./blog.html" rel="" target="">
+    <a class="dropdown-item" href="../../blog.html" rel="" target="">
  <span class="dropdown-text">Blog</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./blog.xml" rel="" target="">
+    <a class="dropdown-item" href="../../blog.xml" rel="" target="">
  <span class="dropdown-text">RSS feed</span></a>
   </li>  
     </ul>
@@ -269,251 +239,82 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Github rate limit</h1>
+                  <div>
+        <div class="description">
+          How to fix the bad credentials error with devtools::install
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">github</div>
+                <div class="quarto-category">software</div>
+                <div class="quarto-category">rstats</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Brian O’Meara </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">July 27, 2023</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(5)</span></div><div class="category" data-category="EEB511">EEB511 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="R">R <span class="quarto-category-count">(2)</span></div><div class="category" data-category="core">core <span class="quarto-category-count">(1)</span></div><div class="category" data-category="diversification">diversification <span class="quarto-category-count">(1)</span></div><div class="category" data-category="evolution">evolution <span class="quarto-category-count">(1)</span></div><div class="category" data-category="fossil">fossil <span class="quarto-category-count">(1)</span></div><div class="category" data-category="github">github <span class="quarto-category-count">(1)</span></div><div class="category" data-category="hisse">hisse <span class="quarto-category-count">(1)</span></div><div class="category" data-category="misse">misse <span class="quarto-category-count">(1)</span></div><div class="category" data-category="publication">publication <span class="quarto-category-count">(1)</span></div><div class="category" data-category="rbloggers">rbloggers <span class="quarto-category-count">(1)</span></div><div class="category" data-category="reproducibility">reproducibility <span class="quarto-category-count">(1)</span></div><div class="category" data-category="rstats">rstats <span class="quarto-category-count">(1)</span></div><div class="category" data-category="simulation">simulation <span class="quarto-category-count">(1)</span></div><div class="category" data-category="social media">social media <span class="quarto-category-count">(1)</span></div><div class="category" data-category="software">software <span class="quarto-category-count">(1)</span></div><div class="category" data-category="teaching">teaching <span class="quarto-category-count">(1)</span></div></div></div>
-<!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Blog posts</h1>
-</div>
-
-
-
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
-
-</header>
-
-<p>Here I have various blog posts. I created the blog on April 22, 2023, to provide a place for information longer than a mastodon post and perhaps with broader reach. I will be backfilling with posts about older content.</p>
-<p>You can filter and search here, but you can also get the RSS feed at <a href="blog.xml">blog.xml</a>. RSS is a format for distributing new content: it is most commonly used for blogs, but it is also a way things like new episodes of podcasts roll out. <a href="https://www.wired.com/story/best-rss-feed-readers/">Here</a> (<em>Wired</em>, soft paywall) is an accessible overview of RSS and how to read it.</p>
-
-
-
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="listing-actions-group">
-   <div class="input-group input-group-sm quarto-listing-sort">
-     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
-     <select id="listing-listing-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
-       <option value="" disabled="" selected="" hidden="">Order By</option>
-       <option value="index" data-direction="asc">Default</option>
-         <option value="listing-title" data-direction="asc">
-          Title
-        </option>
-         <option value="listing-date-sort" data-direction="asc">
-          Date - Oldest
-        </option>
-         <option value="listing-date-sort" data-direction="desc">
-          Date - Newest
-        </option>
-     </select>
-  </div>
-    <div class="input-group input-group-sm quarto-listing-filter">
-      <span class="input-group-text"><i class="bi bi-search"></i></span>
-      <input type="text" class="search form-control" placeholder="Filter">
     </div>
-</div>
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="github,software,rstats" data-listing-date-sort="1690430400000" data-listing-file-modified-sort="1690491840062" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
-<div class="body">
-<a href="./posts/githubratelimit/index.html">
-<h3 class="no-anchor listing-title">
-Github rate limit
-</h3>
-<div class="listing-subtitle">
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
-</div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('github'); return false;">
-github
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('software'); return false;">
-software
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('rstats'); return false;">
-rstats
-</div>
-</div>
-<a href="./posts/githubratelimit/index.html">
-<div class="listing-description">
-<p>How to fix the bad credentials error with devtools::install</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/githubratelimit/index.html">
-<div class="listing-date">
-Jul 27, 2023
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="teaching,evolution,core,EEB511" data-listing-date-sort="1683777600000" data-listing-file-modified-sort="1683894670422" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8">
-<div class="body">
-<a href="./posts/evolutioncore2023/index.html">
-<h3 class="no-anchor listing-title">
-Grad core class in evolutionary biology, 2023 edition
-</h3>
-<div class="listing-subtitle">
 
-</div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('teaching'); return false;">
-teaching
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('evolution'); return false;">
-evolution
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('core'); return false;">
-core
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('EEB511'); return false;">
-EEB511
-</div>
-</div>
-<a href="./posts/evolutioncore2023/index.html">
-<div class="listing-description">
-<p>Topics and teaching in our core class in evolution for graduate students</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/evolutioncore2023/index.html">
-<div class="listing-date">
-May 11, 2023
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="social media" data-listing-date-sort="1682827200000" data-listing-file-modified-sort="1683894675840" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7">
-<div class="body">
-<a href="./posts/joiningmastodon/index.html">
-<h3 class="no-anchor listing-title">
-Joining Mastodon
-</h3>
-<div class="listing-subtitle">
 
-</div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('social media'); return false;">
-social media
-</div>
-</div>
-<a href="./posts/joiningmastodon/index.html">
-<div class="listing-description">
-<p>Instructions for joining mastodon for social media</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/joiningmastodon/index.html">
-<div class="listing-date">
-Apr 30, 2023
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-categories="R,rbloggers,reproducibility" data-listing-date-sort="1682222400000" data-listing-file-modified-sort="1683894382144" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4">
-<div class="body">
-<a href="./posts/phylotasticruniverse/index.html">
-<h3 class="no-anchor listing-title">
-An alternative to CRAN for phylogenetics
-</h3>
-<div class="listing-subtitle">
 
-</div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
-R
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('rbloggers'); return false;">
-rbloggers
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('reproducibility'); return false;">
-reproducibility
-</div>
-</div>
-<a href="./posts/phylotasticruniverse/index.html">
-<div class="listing-description">
-<p>Phylotastic R-universe as a way of serving up phylogenetics packages in R</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/phylotasticruniverse/index.html">
-<div class="listing-date">
-Apr 23, 2023
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="4" data-categories="fossil,R,hisse,misse,diversification,simulation,publication" data-listing-date-sort="1682136000000" data-listing-file-modified-sort="1683894661259" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4">
-<div class="body">
-<a href="./posts/fossilsdonothelp/index.html">
-<h3 class="no-anchor listing-title">
-Fossils do not help fix diversification parameter estimates
-</h3>
-<div class="listing-subtitle">
+<p>Lately I have been getting this error on occasion when running <code>devtools::install()</code> in R:</p>
+<pre><code>&gt; devtools::install()
+Error: HTTP error 401.
+  Bad credentials
 
-</div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('fossil'); return false;">
-fossil
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
-R
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('hisse'); return false;">
-hisse
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('misse'); return false;">
-misse
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('diversification'); return false;">
-diversification
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('simulation'); return false;">
-simulation
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('publication'); return false;">
-publication
-</div>
-</div>
-<a href="./posts/fossilsdonothelp/index.html">
-<div class="listing-description">
-<p>Overview of ‘Fossils Do Not Substantially Improve, and May Even Harm, Estimates of Diversification Rate Heterogeneity’, published in Systematic Biology in 2022</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/fossilsdonothelp/index.html">
-<div class="listing-date">
-Apr 22, 2023
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div></main> <!-- /main -->
+  Rate limit remaining: 59/60
+  Rate limit reset at: 2023-07-27 21:55:54 UTC</code></pre>
+<p>The solution, from <a href="https://community.rstudio.com/t/unable-to-install-packages-from-github/124372" class="uri">https://community.rstudio.com/t/unable-to-install-packages-from-github/124372</a>, is to do</p>
+<pre><code>Sys.unsetenv("GITHUB_PAT")</code></pre>
+<p>There have been past reports on this in the devtools package, but it was apparently fixed some time ago. I am using Mac OS 13.4, R 4.2.3. This line does fix it, though.</p>
+<hr>
+<p>To subscribe, go to <a href="https://brianomeara.info/blog.xml" class="uri">https://brianomeara.info/blog.xml</a> in an RSS reader.</p>
+
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{o'meara2023,
+  author = {O’Meara, Brian},
+  title = {Github Rate Limit},
+  date = {2023-07-27},
+  url = {https://brianomeara.info/posts/githubratelimit},
+  langid = {en}
+}
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-o'meara2023" class="csl-entry quarto-appendix-citeas" role="listitem">
+O’Meara, Brian. 2023. <span>“Github Rate Limit.”</span> July 27, 2023.
+<a href="https://brianomeara.info/posts/githubratelimit">https://brianomeara.info/posts/githubratelimit</a>.
+</div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

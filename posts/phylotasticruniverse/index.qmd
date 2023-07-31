@@ -54,4 +54,4 @@ Phylotastic started as an idea launched at the [US] National Evolutionary Synthe
 
 ___
 
-To subscribe, go to <https://brianomeara.info/blog.xml>
+To subscribe, go to <https://brianomeara.info/blog.xml> in an RSS reader.

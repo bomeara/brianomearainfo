@@ -1,0 +1,32 @@
+---
+title: "Fraction of history"
+description: "Figure out what fraction of history you have lived through"
+author: "Brian O'Meara"
+date: "09/01/2023"
+citation: true
+categories: [history, mastodon] 
+draft: true
+---
+
+On mastodon, [Marius Gunderen](https://mastodon.social/@gundersen), [posted](https://mastodon.social/@gundersen/110972549747804838):
+
+"It's wild to think about how short human history is. For example, the iron age started approximately 1200BC, which means that if you are 32 years old you have been alive for 1% of the time humans have used iron. If you are 54 years old then you have lived through 1% of horses being domesticated, the wheel being used for transport, written language and living in towns."
+
+I thought it would be interesting educationally to do this with many events. Enter a human age in years below to do this:
+
+
+<form>
+Age in years: <input type="text" id="age" /><br>
+</form>
+
+```{ojs}
+5^2
+```
+
+<p>The Result is : <br>
+<span id = "result"></span>
+</p>
+
+___
+
+To subscribe, go to <https://brianomeara.info/blog.xml>

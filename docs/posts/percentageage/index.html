@@ -23,40 +23,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -97,8 +63,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<script type="module" src="../../site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
-<link href="../../site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
+<script>
+function convert_age()
+{
+        age = document.getElementById("age").value;
+        document.getElementById("iron").innerHTML = create_percentage(age, 1200+2023);
+		document.getElementById("corn").innerHTML = create_percentage(age, 8700); // https://www.nsf.gov/news/news_summ.jsp?cntn_id=114445
+		document.getElementById("lightbulb").innerHTML = create_percentage(age,2023-1879); 
+		document.getElementById("credit").innerHTML = create_percentage(age,2023-1974);
+		document.getElementById("segregation").innerHTML = create_percentage(age,2023-1964);
+		document.getElementById("flight").innerHTML = create_percentage(age,2023-1903);
+		document.getElementById("email").innerHTML = create_percentage(age,2023-1971);
+		document.getElementById("printing").innerHTML = create_percentage(age,2023-1440);
+		document.getElementById("platetectonics").innerHTML = create_percentage(age,2023-1965);
+		document.getElementById("womenvote").innerHTML = create_percentage(age,2023-1920);
+		document.getElementById("dna").innerHTML = create_percentage(age,2023-1953);
+
+
+}
+
+function create_percentage(age, years_elapsed)
+{
+	var percentage = 100*age / years_elapsed;
+	return percentage.toFixed(1);
+}
+
+document.addEventListener('readystatechange', () => {    
+  if (document.readyState == 'complete') convert_age();
+});
+    </script>
 
 
 </head>
@@ -326,21 +319,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <p>On mastodon, <a href="https://mastodon.social/@gundersen">Marius Gunderen</a>, <a href="https://mastodon.social/@gundersen/110972549747804838">posted</a>:</p>
 <p>“It’s wild to think about how short human history is. For example, the iron age started approximately 1200BC, which means that if you are 32 years old you have been alive for 1% of the time humans have used iron. If you are 54 years old then you have lived through 1% of horses being domesticated, the wheel being used for transport, written language and living in towns.”</p>
-<p>I thought it would be interesting educationally to do this with many events. Enter a human age in years below to do this:</p>
+<p>I thought it would be interesting educationally to do this with many events. Enter a human age in years below to do this, then click somewhere outside the box:</p>
 <form>
-Age in years: <input type="text" id="age"><br>
+Age in years: <input type="text" id="age" value="44" onchange="convert_age()"><br>
 </form>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1" data-startfrom="22" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 21;"><span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span><span class="op">^</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div id="ojs-cell-1" data-nodetype="expression">
-
-</div>
-</div>
-</div>
-<p>
-The Result is : <br> <span id="result"></span>
-</p>
+<p><br></p>
+<h3 class="anchored">
+Been alive for what percentage of time since:
+</h3>
+<ul>
+<li>Domestication of corn (6700 BCE): <span id="corn"></span>%</li>
+<li>Start of the iron age (1200 BCE): <span id="iron"></span>%</li>
+<li>Gutenberg printing press (1400 CE): <span id="printing"></span>%</li>
+<li>First usable light bulb (1879): <span id="lightbulb"></span>%</li>
+<li>First flight (1903): <span id="flight"></span>%</li>
+<li>US women right to vote (1920): <span id="womenvote"></span>%</li>
+<li>Discovery of the structure of DNA (1953): <span id="dna"></span>%</li>
+<li>US banning of segregation (1964): <span id="segregation"></span>%</li>
+<li>Widespread scientific acceptance of plate tectonics (1965): <span id="platetectonics"></span>%</li>
+<li>First email (1971): <span id="email"></span>%</li>
+<li>US discrimination in lending banned (1974): <span id="credit"></span>%</li>
+</ul>
 <hr>
 <p>To subscribe, go to <a href="https://brianomeara.info/blog.xml" class="uri">https://brianomeara.info/blog.xml</a></p>
 
@@ -357,17 +356,6 @@ The Result is : <br> <span id="result"></span>
 O’Meara, Brian. 2023. <span>“Fraction of History.”</span> September 1,
 2023. <a href="https://brianomeara.info/posts/percentageage">https://brianomeara.info/posts/percentageage</a>.
 </div></div></section></div></main> <!-- /main -->
-<script type="ojs-module-contents">
-{"contents":[{"methodName":"interpret","cellName":"ojs-cell-1","inline":false,"source":"5^2\n"}]}
-</script>
-<script type="module">
-if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
-window._ojs.paths.runtimeToDoc = "../../posts/percentageage";
-window._ojs.paths.runtimeToRoot = "../..";
-window._ojs.paths.docToRoot = "../..";
-window._ojs.selfContained = false;
-window._ojs.runtime.interpretFromScriptTags();
-</script>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

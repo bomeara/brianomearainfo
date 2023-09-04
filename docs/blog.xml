@@ -10,7 +10,60 @@
 <atom:link href="https://brianomeara.info/blog.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.3.433</generator>
-<lastBuildDate>Thu, 27 Jul 2023 04:00:00 GMT</lastBuildDate>
+<lastBuildDate>Fri, 01 Sep 2023 04:00:00 GMT</lastBuildDate>
+<item>
+  <title>Fraction of history</title>
+  <dc:creator>Brian O&#39;Meara</dc:creator>
+  <link>https://brianomeara.info/posts/percentageage/index.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>On mastodon, <a href="https://mastodon.social/@gundersen">Marius Gunderen</a>, <a href="https://mastodon.social/@gundersen/110972549747804838">posted</a>:</p>
+<p>“It’s wild to think about how short human history is. For example, the iron age started approximately 1200BC, which means that if you are 32 years old you have been alive for 1% of the time humans have used iron. If you are 54 years old then you have lived through 1% of horses being domesticated, the wheel being used for transport, written language and living in towns.”</p>
+<p>I thought it would be interesting educationally to do this with many events. Enter a human age in years below to do this, then click somewhere outside the box:</p>
+<form>
+Age in years: <input type="text" id="age" value="44" onchange="convert_age()"><br>
+</form>
+<p><br></p>
+<h3 class="anchored">
+Been alive for what percentage of time since:
+</h3>
+<ul>
+<li>Domestication of corn (6700 BCE): <span id="corn"></span>%</li>
+<li>Start of the iron age (1200 BCE): <span id="iron"></span>%</li>
+<li>Gutenberg printing press (1400 CE): <span id="printing"></span>%</li>
+<li>First usable light bulb (1879): <span id="lightbulb"></span>%</li>
+<li>First flight (1903): <span id="flight"></span>%</li>
+<li>US women right to vote (1920): <span id="womenvote"></span>%</li>
+<li>Discovery of the structure of DNA (1953): <span id="dna"></span>%</li>
+<li>US banning of segregation (1964): <span id="segregation"></span>%</li>
+<li>Widespread scientific acceptance of plate tectonics (1965): <span id="platetectonics"></span>%</li>
+<li>First email (1971): <span id="email"></span>%</li>
+<li>US discrimination in lending banned (1974): <span id="credit"></span>%</li>
+</ul>
+<hr>
+<p>To subscribe, go to <a href="https://brianomeara.info/blog.xml" class="uri">https://brianomeara.info/blog.xml</a></p>
+
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{o'meara2023,
+  author = {O’Meara, Brian},
+  title = {Fraction of History},
+  date = {2023-09-01},
+  url = {https://brianomeara.info/posts/percentageage},
+  langid = {en}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-o'meara2023" class="csl-entry quarto-appendix-citeas">
+O’Meara, Brian. 2023. <span>“Fraction of History.”</span> September 1,
+2023. <a href="https://brianomeara.info/posts/percentageage">https://brianomeara.info/posts/percentageage</a>.
+</div></div></section></div> ]]></description>
+  <category>history</category>
+  <category>mastodon</category>
+  <guid>https://brianomeara.info/posts/percentageage/index.html</guid>
+  <pubDate>Fri, 01 Sep 2023 04:00:00 GMT</pubDate>
+</item>
 <item>
   <title>Github rate limit</title>
   <dc:creator>Brian O&#39;Meara</dc:creator>

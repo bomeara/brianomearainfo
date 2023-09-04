@@ -2,6 +2,7 @@
   {
     "listing": "/blog.html",
     "items": [
+      "/posts/percentageage/index.html",
       "/posts/githubratelimit/index.html",
       "/posts/evolutioncore2023/index.html",
       "/posts/joiningmastodon/index.html",

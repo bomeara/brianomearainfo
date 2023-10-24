@@ -9,6 +9,7 @@ A key question I get from advanced level undergrads is whether they should go to
 
 ### Pros
 
+  * You **get PAID to go to grad school**. This isn't universally true, and sometimes it's only for PhD, but it's fairly common in evolution and ecology in the United States. The pay 
 
   * If all goes well, you get to **pursue your passion**: if you care about how anoles in Cuba feed, you can spend your life studying that; or figuring out how Ebola spreads, what conditions are required for life to evolve, etc. This is a huge benefit: very, very few humans are privileged enough to follow their passions as the core of how they make their living.
 
@@ -47,4 +48,5 @@ A key question I get from advanced level undergrads is whether they should go to
 
 
 I am personally very glad I've made this choice of career; there are bumps, but overall it has been wonderful. My goal is not to dissuade people from going to grad school, only that you are well-informed about the risks and benefits before you start. My list has more cons, but that doesn't mean they outweigh the benefits, only that I think they require more explanation: the benefits of a career in science are many and obvious to those with contact with this. Talk to current and past students, find out from the program about their outcomes, talk to faculty and postdocs at your current institution and at where you may go to grad school. Also be sure to find out about alternate careers after grad school: most faculty know best about how to make more faculty, but your passion may lie in starting a conservation organization, working with Congress to pass legislation, designing software for biology education, writing popular books about science, or a myriad of other careers that relate to biology but which do not necessarily lead to a faculty job (or even require grad school).
+
 I strongly urge people applying to my lab to first read [**The Professor Is In**](https://theprofessorisin.com/buy-the-book/) by Karen Kelsky. It's cheap ($15 cover price, ~$8 at some retailers) and provides a good, albeit harrowing, overview of how a career with a PhD works now and what strategies will help. Some of it is tailored towards humanities rather than sciences, so check before following all its advice (i.e., getting outside teaching gigs while a grad student is _not_ a good idea for most science students), but it's a good book overall.

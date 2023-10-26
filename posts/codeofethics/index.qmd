@@ -1,0 +1,37 @@
+---
+title: "SSB Code of Ethics"
+description: "SSB is voting on a code of ethics"
+author: "Brian O'Meara"
+date: "10/26/2023"
+citation: true
+categories: [code of ethics, SSB, systematics, ethics] 
+draft: false
+---
+
+People who are members of the Society of Systematic Biologists should check for an email with subject: "SSB Code of Ethics". It contains a link to a ballot and more information.
+
+> Dear SSB Members,
+>
+> Based on 4+ years of intensive work by multiple ASN/SSB/SSE joint committees, SSB has developed a Code of Ethics and an accompanying [Enforcement Policy](https://www.evolutioncodeofethics.org/uploads/1/3/9/1/139124864/ssb_coe_-_final.docx.pdf). Here, we ask members to vote on amending the SSB Governance Documents ([Constitution and Bylaws](https://github.com/systbiol/docs/blob/master/constitution.txt)) to require members to adhere to this Code of Ethics, to empower the Council to establish and enforce this Code of Ethics, and to establish a mechanism whereby the Code of Ethics can be updated in the future.
+> 
+> **The SSB Council has already voted in favor of this Code of Ethics. However, before the Code takes effect, we believe it is necessary to amend the SSB Governance documents (Constitution and Bylaws).**
+>
+> The proposed changes are described in detail, along with accompanying explanations, on the voting page linked below [BCO: only for members; I don't include the link here]. The proposed amendments are also [available to view in SSB's GitHub repository](https://github.com/systbiol/docs/pull/9/files), in the context of the entire SSB Constitution.
+>
+> Voting will remain open through Nov. 10th.
+>
+> As always, thank you for your continued participation in the Society!
+>
+> The SSB Council
+
+This reflects a lot of work by a lot of people across SSB, the Society for the Study of Evolution (SSE), and the American Society of Naturalists (ASN), as well as experts outside the societies, and rounds of feedback by members and councils.
+
+I really hope this passes in SSB and ASN (it already did, overwhelmingly, in SSE). I talked a bit about why in my SSB Presidential address this summer ([go here](https://brianomeara.info/evol2023.html) for materials from it, [and here](https://youtu.be/2lbfjtOVntA?si=qCNx4-8iv_xj32Lh&t=1002) to jump right to the section of the speech on this area). We know misconduct happens in our field, both anecdotally and from quantitative data. One extreme response, though historically common, is ignoring it completely. Another extreme is to do things unofficially based on rumors. A good approach is to have a robust code of ethics with clear procedures. SSB Council has approved a code that has strong protections for confidentiality (but does not allow anonymous reporting), has a trained investigator get evidence in a case, and has a committee of peers decide on any possible sanctions. Now it's up to the membership to vote on a constitution and bylaw change so the Council can implement it and tweak it as needed. Despite all the work that's gone into it, there will likely be things that need to be adjusted in future years -- this will let the Council do minor changes, while major ones will go to the membership for another vote.
+
+For more on the code, go to https://www.evolutioncodeofethics.org, which has an FAQ, diagrams of how it all works, and more.
+
+And a big thank you to all the people who worked on this. Please vote!
+
+___
+
+To subscribe, go to <https://brianomeara.info/blog.xml> in an RSS reader.

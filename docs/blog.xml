@@ -10,7 +10,53 @@
 <atom:link href="https://brianomeara.info/blog.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.3.450</generator>
-<lastBuildDate>Fri, 01 Sep 2023 04:00:00 GMT</lastBuildDate>
+<lastBuildDate>Thu, 26 Oct 2023 04:00:00 GMT</lastBuildDate>
+<item>
+  <title>SSB Code of Ethics</title>
+  <dc:creator>Brian O&#39;Meara</dc:creator>
+  <link>https://brianomeara.info/posts/codeofethics/index.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>People who are members of the Society of Systematic Biologists should check for an email with subject: “SSB Code of Ethics”. It contains a link to a ballot and more information.</p>
+<blockquote class="blockquote">
+<p>Dear SSB Members,</p>
+<p>Based on 4+ years of intensive work by multiple ASN/SSB/SSE joint committees, SSB has developed a Code of Ethics and an accompanying <a href="https://www.evolutioncodeofethics.org/uploads/1/3/9/1/139124864/ssb_coe_-_final.docx.pdf">Enforcement Policy</a>. Here, we ask members to vote on amending the SSB Governance Documents (<a href="https://github.com/systbiol/docs/blob/master/constitution.txt">Constitution and Bylaws</a>) to require members to adhere to this Code of Ethics, to empower the Council to establish and enforce this Code of Ethics, and to establish a mechanism whereby the Code of Ethics can be updated in the future.</p>
+<p><strong>The SSB Council has already voted in favor of this Code of Ethics. However, before the Code takes effect, we believe it is necessary to amend the SSB Governance documents (Constitution and Bylaws).</strong></p>
+<p>The proposed changes are described in detail, along with accompanying explanations, on the voting page linked below [BCO: only for members; I don’t include the link here]. The proposed amendments are also <a href="https://github.com/systbiol/docs/pull/9/files">available to view in SSB’s GitHub repository</a>, in the context of the entire SSB Constitution.</p>
+<p>Voting will remain open through Nov.&nbsp;10th.</p>
+<p>As always, thank you for your continued participation in the Society!</p>
+<p>The SSB Council</p>
+</blockquote>
+<p>This reflects a lot of work by a lot of people across SSB, the Society for the Study of Evolution (SSE), and the American Society of Naturalists (ASN), as well as experts outside the societies, and rounds of feedback by members and councils.</p>
+<p>I really hope this passes in SSB and ASN (it already did, overwhelmingly, in SSE). I talked a bit about why in my SSB Presidential address this summer (<a href="https://brianomeara.info/evol2023.html">go here</a> for materials from it, <a href="https://youtu.be/2lbfjtOVntA?si=qCNx4-8iv_xj32Lh&amp;t=1002">and here</a> to jump right to the section of the speech on this area). We know misconduct happens in our field, both anecdotally and from quantitative data. One extreme response, though historically common, is ignoring it completely. Another extreme is to do things unofficially based on rumors. A good approach is to have a robust code of ethics with clear procedures. SSB Council has approved a code that has strong protections for confidentiality (but does not allow anonymous reporting), has a trained investigator get evidence in a case, and has a committee of peers decide on any possible sanctions. Now it’s up to the membership to vote on a constitution and bylaw change so the Council can implement it and tweak it as needed. Despite all the work that’s gone into it, there will likely be things that need to be adjusted in future years – this will let the Council do minor changes, while major ones will go to the membership for another vote.</p>
+<p>For more on the code, go to https://www.evolutioncodeofethics.org, which has an FAQ, diagrams of how it all works, and more.</p>
+<p>And a big thank you to all the people who worked on this. Please vote!</p>
+<hr>
+<p>To subscribe, go to <a href="https://brianomeara.info/blog.xml" class="uri">https://brianomeara.info/blog.xml</a> in an RSS reader.</p>
+
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{o'meara2023,
+  author = {O’Meara, Brian},
+  title = {SSB {Code} of {Ethics}},
+  date = {2023-10-26},
+  url = {https://brianomeara.info/posts/codeofethics},
+  langid = {en}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-o'meara2023" class="csl-entry quarto-appendix-citeas">
+O’Meara, Brian. 2023. <span>“SSB Code of Ethics.”</span> October 26,
+2023. <a href="https://brianomeara.info/posts/codeofethics">https://brianomeara.info/posts/codeofethics</a>.
+</div></div></section></div> ]]></description>
+  <category>code of ethics</category>
+  <category>SSB</category>
+  <category>systematics</category>
+  <category>ethics</category>
+  <guid>https://brianomeara.info/posts/codeofethics/index.html</guid>
+  <pubDate>Thu, 26 Oct 2023 04:00:00 GMT</pubDate>
+</item>
 <item>
   <title>Fraction of history</title>
   <dc:creator>Brian O&#39;Meara</dc:creator>

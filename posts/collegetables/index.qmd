@@ -2,11 +2,11 @@
 title: "13,000 page site with Rmarkdown and targets"
 description: "How I made a site comparing every higher ed institution in the US"
 author: "Brian O'Meara"
-date: "10/22/2023"
+date: "10/28/2023"
 citation: true
 number-sections: true
 categories: [github, software, rstats, highered, targets, rmarkdown] 
-draft: true
+draft: false
 ---
 
 Last year, one of my kids was a junior starting to look at colleges. Picking a college is a big deal; when I get stressed, I like data: my security blanket is a big matrix. There are sites that allow you to compare colleges, but they often use weird metrics (how do provosts rate other colleges), don't often have a nice table for comparison (turns out some of them put public data behind a paywall, too), and omit some important information (are the instructors used in the student-to-instructor ratio tenure track faculty (who have stability in their jobs) or more contingent faculty who might have to scramble to make ends meet semester to semester?). So I decided to gather data: initially I just wanted to get a table, but then thought, well, it woudn't be that much harder to put it online, and then... it snowballed into the current site at <https://collegetables.info/> with 13,424 pages (including one page for every college and every major). It also was featured in a [column](https://www.nytimes.com/2023/04/15/your-money/college-cost-data-tools.html?unlocked_article_code=hN2IwBdFONp5CmgbxhKM-HVUid0P2EEoomfIcGniJ6EcogeoxOwoimKabx7gynOb0f6-QxIpIELuqqT35rk-nLmDMZMDAljFtcY-YQBvNGWVgLCKOj7omvSxUjcQbXnG4B8H67gTFWQA8USo6Y3Xs5RWuXjQ8Chp2WchftGv-k9oTf7m0nPvki2JmPoQiawOquJTtiwFG9lxEX5-vSzJIvBPu5Gl_-jhW5wisUpTZCQWfzr9Ar56ix7q2rQ2B4qqyQxpPWqow2gJ_D0eF5c4PhAzh-QksTofGv9rUG0SJmgnDhUkCcF361B0kpugBjccqwqYBuaTbSFMqBowPacjapogDFA&giftCopy=1_CurrentCopy&smid=url-share) by Ron Lieber in the *New York Times*.

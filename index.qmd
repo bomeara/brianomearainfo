@@ -17,11 +17,9 @@ output:
 
 _Most of this website is written for a specialist scientific audience; folks who aren't scientists are very welcome to look around, but [this page](general.qmd) might be a more accessible introduction. For a compressed version of information about me, please see my [CV](cv.qmd)._
 
-For my June 24, 2023, SSB Presidential Address at Evolution, go to [here](evol2023.qmd).
-
 I am a professor at [U of Tennessee, Knoxville](https://www.utk.edu/), in the department of [Ecology & Evolutionary Biology](https://eeb.bio.utk.edu/). In my lab, we develop and apply phylogenetic tools to address evolutionary questions.
 
-```{r, echo=FALSE, warning=FALSE, message=FALSE, cache=TRUE}
+```{r, echo=FALSE, warning=FALSE, message=FALSE, cache=TRUE, eval=FALSE}
 library(scholar)
 library(plotly)
 
@@ -48,10 +46,8 @@ fig <- plot_ly(data=not_preprints, x=~year, y=~log1pcites, type='scatter', mode=
 	)
 ```
 
-Some recent work from the last few years includes some of the papers below; go to my [CV](cv.qmd) for a more complete list. 
 
-
-```{r, echo=FALSE, warning=FALSE}
+```{r, echo=FALSE, warning=FALSE, eval=FALSE}
 fig
 ```
 

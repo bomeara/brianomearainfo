@@ -109,4 +109,4 @@ In the last ten years, work in the lab has been funded by six NSF grants to me a
 
 ## Contact
 
-To contact me, bomeara@utk.edu. I am also on <a rel="me" href="https://mastodon.social/@omearabrian">Mastodon</a>. Office hours, including virtual ones are at my [calendar](calendar.qmd).
+To contact me, bomeara@utk.edu. I am also on <a rel="me" href="https://mastodon.social/@omearabrian">Mastodon</a> and [bluesky](https://bsky.app/profile/omearabrian.bsky.social). Office hours, including virtual ones are at my [calendar](calendar.qmd).

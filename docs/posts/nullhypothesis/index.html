@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Brian O’Meara">
+<meta name="dcterms.date" content="2024-02-07">
+<meta name="description" content="An example of how rejecting a null hypothesis does not mean the alternate is true.">
+
+<title>Brian O’Meara - Democrat Bernie Sanders wins Republican Nevada primary; or, How null hypothesis rejection can be misleading</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../logo.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Brian O’Meara</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html" rel="" target="">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-cv-etc." role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">CV, etc.</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-cv-etc.">    
+        <li>
+    <a class="dropdown-item" href="../../cv.html" rel="" target="">
+ <span class="dropdown-text">CV</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../calendar.html" rel="" target="">
+ <span class="dropdown-text">Calendar</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../feedback.html" rel="" target="">
+ <span class="dropdown-text">Feedback</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../useful.html" rel="" target="">
+ <span class="dropdown-text">Useful links</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../tenure.html" rel="" target="">
+ <span class="dropdown-text">Materials for promotion to associate (and tenure)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../promotion.html" rel="" target="">
+ <span class="dropdown-text">Materials for promotion to full</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../SSB.html" rel="" target="">
+ <span class="dropdown-text">Candidacy for SSB president</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../evol2023.html" rel="" target="">
+ <span class="dropdown-text">SSB Presidential Address 2023</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-lab" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Lab</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-lab">    
+        <li>
+    <a class="dropdown-item" href="../../personnel.html" rel="" target="">
+ <span class="dropdown-text">People</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../guidelines.html" rel="" target="">
+ <span class="dropdown-text">Guidelines &amp; Recommendations</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../location.html" rel="" target="">
+ <span class="dropdown-text">Location/Contact</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../opportunities.html" rel="" target="">
+ <span class="dropdown-text">Opportunities</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../learningobjectives.html" rel="" target="">
+ <span class="dropdown-text">Learning objectives</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../better-letter.html" rel="" target="">
+ <span class="dropdown-text">BetterLetter</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../shouldyougotogradschool.html" rel="" target="">
+ <span class="dropdown-text">Should you go to grad school to be a professor?</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../tenure.html" rel="" target="">
+ <span class="dropdown-text">Materials for promotion to associate (and tenure)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../promotion.html" rel="" target="">
+ <span class="dropdown-text">Materials for promotion to full</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../general.html" rel="" target="">
+ <span class="dropdown-text">Info for general public</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../covid.html" rel="" target="">
+ <span class="dropdown-text">COVID</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../schedule.html" rel="" target="">
+ <span class="dropdown-text">EEB scheduling</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-teaching" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Teaching</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-teaching">    
+        <li>
+    <a class="dropdown-item" href="../../teaching.html" rel="" target="">
+ <span class="dropdown-text">Teaching overall</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../eeb464.html" rel="" target="">
+ <span class="dropdown-text">Macroevolution (EEB464)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://phylometh.info/" rel="" target="">
+ <span class="dropdown-text">Phylogenetic Methods</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-tutorials" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Tutorials</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-tutorials">    
+        <li>
+    <a class="dropdown-item" href="../../aic.html" rel="" target="">
+ <span class="dropdown-text">AIC</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../phylogenetics.html" rel="" target="">
+ <span class="dropdown-text">Phylogenetics</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-blog" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Blog</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-blog">    
+        <li>
+    <a class="dropdown-item" href="../../blog.html" rel="" target="">
+ <span class="dropdown-text">Blog</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../blog.xml" rel="" target="">
+ <span class="dropdown-text">RSS feed</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+            <div class="quarto-navbar-tools ms-auto">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Democrat Bernie Sanders wins Republican Nevada primary; or, How null hypothesis rejection can be misleading</h1>
+                  <div>
+        <div class="description">
+          An example of how rejecting a null hypothesis does not mean the alternate is true.
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">statistics</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Brian O’Meara </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">February 7, 2024</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#a-better-way" id="toc-a-better-way" class="nav-link active" data-scroll-target="#a-better-way">A better way</a></li>
+  <li><a href="#parameters" id="toc-parameters" class="nav-link" data-scroll-target="#parameters">Parameters</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<p>I am not a fan of null hypothesis testing as it’s commonly used in biology. We know that two different populations / areas / species / traits are not exactly equal, so the null hypothesis of no difference must be false. It becomes an exercise of how much power we have to detect a difference, which is a function of the effect size, sample size, and luck. Jeremy Beaulieu and I go further into this in our paper on <code>hisse</code> (<a href="https://doi.org/10.1093/sysbio/syw022" class="uri">https://doi.org/10.1093/sysbio/syw022</a>) and poke at it in other work.</p>
+<p>A “teachable moment” happened yesterday (Feb 6, 2024) in the Nevada Republican primary. Primaries and caucuses are ways US political parties select their candidates for office. At this point in the race, there are two “major candidates” remaining in the Republican contest for president: former president Donald Trump and former ambassador Nikki Haley. However, Nevada is running two different contests, a primary (Feb 6) and a caucus (Feb 8); former ambassador Haley is in the former (along with other candidates who are not reported as “major candidates” with active campaigns), former president Trump in the latter.</p>
+<p>Thus, in the primary, we have an election where there is just one major active candidate. A null might be that the major candidate will get half of the votes, given that the voters are made of people of the candidate’s own party. Here are the results as of writing, from the <em><a href="https://www.theguardian.com/us-news/2024/feb/06/nevada-primary-election-results">Guardian</a></em> and Associated Press:</p>
+<p><img src="results.png" class="img-fluid" alt="Results of the Nevada Republican primary, 2024. Haley has 30.5% of the votes, 'None of these candidates' has 63.2%"></p>
+<ul>
+<li>Haley: 30.5% of votes, 21,999 votes total</li>
+<li>“None of these candidates”: 63.2% of votes</li>
+<li>Other candidates: 6.3% of votes</li>
+<li>88.64% of votes are counted</li>
+</ul>
+<p>Based on this, we can estimate that 72,128 votes have been counted at this point. The probability of getting 21,999 or fewer votes for Haley given that the null hypothesis is true (that she gets half of the votes) is:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pbinom</span>(<span class="dv">21999</span>, <span class="dv">72128</span>, <span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0</code></pre>
+</div>
+</div>
+<p>This is too small for standard R to report as anything but zero; if we use Rmpfr for more precision, we get a p-value of 1.3e-2449. That is quite a bit smaller than 0.05, the standard threshold for significance (and we could do slightly more complex calculations for things like “support for the sole major candidate should be at least 50% or greater” rather the simple test above, but that’s not the point here).</p>
+<p>So, we reject the null that former ambassador Haley got at least half the support. In biology, that is typically taken as support that the alternate hypothesis is true (even though this is <strong>not</strong> how statisticians say to interpret this). “I rejected the null hypothesis that more parental time with offspring has zero effect on offspring survival, so it’s clear that more time with their parents helps offspring survive.” In the primary case, we can even reject some alternate hypotheses, as well: former vice president Mike Pence got only 4% of the votes, so it is not that voters are preferring him, for example. One alternative could be that voters are preferring the other remaining major Republican candidate, former president Trump. A different alternative could be that the “None of these candidates” option represented a whole set of different preferences with no single candidate dominating.</p>
+<p>Another alternative hypothesis could be that voters want senator Bernie Sanders: he did very well in the Nevada Democratic caucus in 2020 after all, maybe those voters are now voting in the Republican primary and want Sanders to run for president. This is of course NOT what is happening. But if we present the hypotheses as <span class="math inline">\(H_0\)</span>: Haley gets at least half the votes, <span class="math inline">\(H_1\)</span>: Sanders must have substantial support, then <span class="math inline">\(H_0\)</span> is wildly rejected, so <span class="math inline">\(H_1\)</span> is true if we’re doing the (statistically incorrect) “reject the null, accept the alternate” approach.</p>
+<section id="a-better-way" class="level3">
+<h3 class="anchored" data-anchor-id="a-better-way">A better way</h3>
+<p>So what is a solution? <em>Godzilla</em> movies have the answer:</p>
+<p><img src="letthemfight.jpg" class="img-fluid" alt="Movie still from Godzilla, with the iconic 'let them fight' scene, with the text 'There are multiple hypotheses; Let them fight'"></p>
+<p>aka multi-model inference. In the Nevada primary, we can tell that former ambassador Haley beat former vice president Pence because both were included on the ballot; we can’t compare them with senator Sanders because he was not included as an alternative, we just know that neither Haley nor Pence support is the reason for the “None of these candidates” votes. It’s the same with fitting biological models: we can only really tell that model B is better than model A if both are analyzed, not just from rejecting model A.</p>
+<p>There are a bunch of ways to do this. I like using the Akaike Information Criterion to compare models based on how much information about reality each one loses. One can use estimates from the best model, or one can weight estimates across multiple models if they have substantial support. Other approaches are to use Bayes factors to compare models, to use reversible-jump MCMC to sample across models, and other approaches. The core for all of these is using information about the likelihood of the data from all the reasonable models, not just use rejection of the simplest, especially since in biology the simplest is almost never true.</p>
+</section>
+<section id="parameters" class="level3">
+<h3 class="anchored" data-anchor-id="parameters">Parameters</h3>
+<p>This example also shows the importance of the parameters themselves. If former ambassador Haley’s support were 49% it might still be significantly less than half, but a very different story from 30.5%. The story would be different if her support were 0.3%, though also significantly less than the null. It’s another reason why I often advocate for looking at parameter estimates (and even averaging them across decently supported models) rather than just seeing which (flawed, oversimplified) model is preferred. Parameter estimates with confidence or credibility intervals are great for this, too.</p>
+<hr>
+<p>To subscribe, go to <a href="https://brianomeara.info/blog.xml" class="uri">https://brianomeara.info/blog.xml</a> in an RSS reader.</p>
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{o'meara2024,
+  author = {O’Meara, Brian},
+  title = {Democrat {Bernie} {Sanders} Wins {Republican} {Nevada}
+    Primary; or, {How} Null Hypothesis Rejection Can Be Misleading},
+  date = {2024-02-07},
+  url = {https://brianomeara.info/posts/nullhypothesis},
+  langid = {en}
+}
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-o'meara2024" class="csl-entry quarto-appendix-citeas" role="listitem">
+O’Meara, Brian. 2024. <span>“Democrat Bernie Sanders Wins Republican
+Nevada Primary; or, How Null Hypothesis Rejection Can Be
+Misleading.”</span> February 7, 2024. <a href="https://brianomeara.info/posts/nullhypothesis">https://brianomeara.info/posts/nullhypothesis</a>.
+</div></div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

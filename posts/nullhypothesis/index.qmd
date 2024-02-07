@@ -5,7 +5,7 @@ author: "Brian O'Meara"
 date: "02/07/2024"
 citation: true
 categories: [statistics] # self-defined categories
-draft: true
+draft: false
 ---
 
 I am not a fan of null hypothesis testing as it's commonly used in biology. We know that two different populations / areas / species / traits are not exactly equal, so the null hypothesis of no difference must be false. It becomes an exercise of how much power we have to detect a difference, which is a function of the effect size, sample size, and luck. Jeremy Beaulieu and I go further into this in our paper on `hisse` (<https://doi.org/10.1093/sysbio/syw022>) and poke at it in other work. 

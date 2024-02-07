@@ -10,7 +10,77 @@
 <atom:link href="https://brianomeara.info/blog.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.3.450</generator>
-<lastBuildDate>Sat, 28 Oct 2023 04:00:00 GMT</lastBuildDate>
+<lastBuildDate>Wed, 07 Feb 2024 05:00:00 GMT</lastBuildDate>
+<item>
+  <title>Democrat Bernie Sanders wins Republican Nevada primary; or, How null hypothesis rejection can be misleading</title>
+  <dc:creator>Brian O&#39;Meara</dc:creator>
+  <link>https://brianomeara.info/posts/nullhypothesis/index.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>I am not a fan of null hypothesis testing as it’s commonly used in biology. We know that two different populations / areas / species / traits are not exactly equal, so the null hypothesis of no difference must be false. It becomes an exercise of how much power we have to detect a difference, which is a function of the effect size, sample size, and luck. Jeremy Beaulieu and I go further into this in our paper on <code>hisse</code> (<a href="https://doi.org/10.1093/sysbio/syw022" class="uri">https://doi.org/10.1093/sysbio/syw022</a>) and poke at it in other work.</p>
+<p>A “teachable moment” happened yesterday (Feb 6, 2024) in the Nevada Republican primary. Primaries and caucuses are ways US political parties select their candidates for office. At this point in the race, there are two “major candidates” remaining in the Republican contest for president: former president Donald Trump and former ambassador Nikki Haley. However, Nevada is running two different contests, a primary (Feb 6) and a caucus (Feb 8); former ambassador Haley is in the former (along with other candidates who are not reported as “major candidates” with active campaigns), former president Trump in the latter.</p>
+<p>Thus, in the primary, we have an election where there is just one major active candidate. A null might be that the major candidate will get half of the votes, given that the voters are made of people of the candidate’s own party. Here are the results as of writing, from the <em><a href="https://www.theguardian.com/us-news/2024/feb/06/nevada-primary-election-results">Guardian</a></em> and Associated Press:</p>
+<p><img src="https://brianomeara.info/posts/nullhypothesis/results.png" class="img-fluid" alt="Results of the Nevada Republican primary, 2024. Haley has 30.5% of the votes, 'None of these candidates' has 63.2%"></p>
+<ul>
+<li>Haley: 30.5% of votes, 21,999 votes total</li>
+<li>“None of these candidates”: 63.2% of votes</li>
+<li>Other candidates: 6.3% of votes</li>
+<li>88.64% of votes are counted</li>
+</ul>
+<p>Based on this, we can estimate that 72,128 votes have been counted at this point. The probability of getting 21,999 or fewer votes for Haley given that the null hypothesis is true (that she gets half of the votes) is:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">pbinom</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">21999</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">72128</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.5</span>)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0</code></pre>
+</div>
+</div>
+<p>This is too small for standard R to report as anything but zero; if we use Rmpfr for more precision, we get a p-value of 1.3e-2449. That is quite a bit smaller than 0.05, the standard threshold for significance (and we could do slightly more complex calculations for things like “support for the sole major candidate should be at least 50% or greater” rather the simple test above, but that’s not the point here).</p>
+<p>So, we reject the null that former ambassador Haley got at least half the support. In biology, that is typically taken as support that the alternate hypothesis is true (even though this is <strong>not</strong> how statisticians say to interpret this). “I rejected the null hypothesis that more parental time with offspring has zero effect on offspring survival, so it’s clear that more time with their parents helps offspring survive.” In the primary case, we can even reject some alternate hypotheses, as well: former vice president Mike Pence got only 4% of the votes, so it is not that voters are preferring him, for example. One alternative could be that voters are preferring the other remaining major Republican candidate, former president Trump. A different alternative could be that the “None of these candidates” option represented a whole set of different preferences with no single candidate dominating.</p>
+<p>Another alternative hypothesis could be that voters want senator Bernie Sanders: he did very well in the Nevada Democratic caucus in 2020 after all, maybe those voters are now voting in the Republican primary and want Sanders to run for president. This is of course NOT what is happening. But if we present the hypotheses as <img src="https://latex.codecogs.com/png.latex?H_0">: Haley gets at least half the votes, <img src="https://latex.codecogs.com/png.latex?H_1">: Sanders must have substantial support, then <img src="https://latex.codecogs.com/png.latex?H_0"> is wildly rejected, so <img src="https://latex.codecogs.com/png.latex?H_1"> is true if we’re doing the (statistically incorrect) “reject the null, accept the alternate” approach.</p>
+<section id="a-better-way" class="level3">
+<h3 class="anchored" data-anchor-id="a-better-way">A better way</h3>
+<p>So what is a solution? <em>Godzilla</em> movies have the answer:</p>
+<p><img src="https://brianomeara.info/posts/nullhypothesis/letthemfight.jpg" class="img-fluid" alt="Movie still from Godzilla, with the iconic 'let them fight' scene, with the text 'There are multiple hypotheses; Let them fight'"></p>
+<p>aka multi-model inference. In the Nevada primary, we can tell that former ambassador Haley beat former vice president Pence because both were included on the ballot; we can’t compare them with senator Sanders because he was not included as an alternative, we just know that neither Haley nor Pence support is the reason for the “None of these candidates” votes. It’s the same with fitting biological models: we can only really tell that model B is better than model A if both are analyzed, not just from rejecting model A.</p>
+<p>There are a bunch of ways to do this. I like using the Akaike Information Criterion to compare models based on how much information about reality each one loses. One can use estimates from the best model, or one can weight estimates across multiple models if they have substantial support. Other approaches are to use Bayes factors to compare models, to use reversible-jump MCMC to sample across models, and other approaches. The core for all of these is using information about the likelihood of the data from all the reasonable models, not just use rejection of the simplest, especially since in biology the simplest is almost never true.</p>
+</section>
+<section id="parameters" class="level3">
+<h3 class="anchored" data-anchor-id="parameters">Parameters</h3>
+<p>This example also shows the importance of the parameters themselves. If former ambassador Haley’s support were 49% it might still be significantly less than half, but a very different story from 30.5%. The story would be different if her support were 0.3%, though also significantly less than the null. It’s another reason why I often advocate for looking at parameter estimates (and even averaging them across decently supported models) rather than just seeing which (flawed, oversimplified) model is preferred. Parameter estimates with confidence or credibility intervals are great for this, too.</p>
+<hr>
+<p>To subscribe, go to <a href="https://brianomeara.info/blog.xml" class="uri">https://brianomeara.info/blog.xml</a> in an RSS reader.</p>
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{o'meara2024,
+  author = {O’Meara, Brian},
+  title = {Democrat {Bernie} {Sanders} Wins {Republican} {Nevada}
+    Primary; or, {How} Null Hypothesis Rejection Can Be Misleading},
+  date = {2024-02-07},
+  url = {https://brianomeara.info/posts/nullhypothesis},
+  langid = {en}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-o'meara2024" class="csl-entry quarto-appendix-citeas">
+O’Meara, Brian. 2024. <span>“Democrat Bernie Sanders Wins Republican
+Nevada Primary; or, How Null Hypothesis Rejection Can Be
+Misleading.”</span> February 7, 2024. <a href="https://brianomeara.info/posts/nullhypothesis">https://brianomeara.info/posts/nullhypothesis</a>.
+</div></div></section></div> ]]></description>
+  <category>statistics</category>
+  <guid>https://brianomeara.info/posts/nullhypothesis/index.html</guid>
+  <pubDate>Wed, 07 Feb 2024 05:00:00 GMT</pubDate>
+</item>
 <item>
   <title>13,000 page site with Rmarkdown and targets</title>
   <dc:creator>Brian O&#39;Meara</dc:creator>

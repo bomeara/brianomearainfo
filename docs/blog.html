@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.549">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -48,7 +48,13 @@ ul.task-list li input[type="checkbox"] {
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -57,6 +63,7 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -95,15 +102,42 @@ ul.task-list li input[type="checkbox"] {
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="alternate" type="application/rss+xml" title="Brian O'Meara" href="blog.xml"></head>
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="alternate" type="application/rss+xml" title="Brian O'Meara" href="blog.xml" data-external="1"></head>
 
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">Brian O’Meara</span>
     </a>
@@ -115,156 +149,156 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html" rel="" target="">
- <span class="menu-text">Home</span></a>
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-cv-etc." role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-cv-etc." role="button" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">CV, etc.</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-cv-etc.">    
         <li>
-    <a class="dropdown-item" href="./cv.html" rel="" target="">
+    <a class="dropdown-item" href="./cv.html">
  <span class="dropdown-text">CV</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./calendar.html" rel="" target="">
+    <a class="dropdown-item" href="./calendar.html">
  <span class="dropdown-text">Calendar</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./feedback.html" rel="" target="">
+    <a class="dropdown-item" href="./feedback.html">
  <span class="dropdown-text">Feedback</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./useful.html" rel="" target="">
+    <a class="dropdown-item" href="./useful.html">
  <span class="dropdown-text">Useful links</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./tenure.html" rel="" target="">
+    <a class="dropdown-item" href="./tenure.html">
  <span class="dropdown-text">Materials for promotion to associate (and tenure)</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./promotion.html" rel="" target="">
+    <a class="dropdown-item" href="./promotion.html">
  <span class="dropdown-text">Materials for promotion to full</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./SSB.html" rel="" target="">
+    <a class="dropdown-item" href="./SSB.html">
  <span class="dropdown-text">Candidacy for SSB president</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./evol2023.html" rel="" target="">
+    <a class="dropdown-item" href="./evol2023.html">
  <span class="dropdown-text">SSB Presidential Address 2023</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-lab" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-lab" role="button" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Lab</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-lab">    
         <li>
-    <a class="dropdown-item" href="./personnel.html" rel="" target="">
+    <a class="dropdown-item" href="./personnel.html">
  <span class="dropdown-text">People</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./guidelines.html" rel="" target="">
+    <a class="dropdown-item" href="./guidelines.html">
  <span class="dropdown-text">Guidelines &amp; Recommendations</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./location.html" rel="" target="">
+    <a class="dropdown-item" href="./location.html">
  <span class="dropdown-text">Location/Contact</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./opportunities.html" rel="" target="">
+    <a class="dropdown-item" href="./opportunities.html">
  <span class="dropdown-text">Opportunities</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./learningobjectives.html" rel="" target="">
+    <a class="dropdown-item" href="./learningobjectives.html">
  <span class="dropdown-text">Learning objectives</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./better-letter.html" rel="" target="">
+    <a class="dropdown-item" href="./better-letter.html">
  <span class="dropdown-text">BetterLetter</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./shouldyougotogradschool.html" rel="" target="">
+    <a class="dropdown-item" href="./shouldyougotogradschool.html">
  <span class="dropdown-text">Should you go to grad school to be a professor?</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./tenure.html" rel="" target="">
+    <a class="dropdown-item" href="./tenure.html">
  <span class="dropdown-text">Materials for promotion to associate (and tenure)</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./promotion.html" rel="" target="">
+    <a class="dropdown-item" href="./promotion.html">
  <span class="dropdown-text">Materials for promotion to full</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./general.html" rel="" target="">
+    <a class="dropdown-item" href="./general.html">
  <span class="dropdown-text">Info for general public</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./covid.html" rel="" target="">
+    <a class="dropdown-item" href="./covid.html">
  <span class="dropdown-text">COVID</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./schedule.html" rel="" target="">
+    <a class="dropdown-item" href="./schedule.html">
  <span class="dropdown-text">EEB scheduling</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-teaching" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-teaching" role="button" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Teaching</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-teaching">    
         <li>
-    <a class="dropdown-item" href="./teaching.html" rel="" target="">
+    <a class="dropdown-item" href="./teaching.html">
  <span class="dropdown-text">Teaching overall</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./eeb464.html" rel="" target="">
+    <a class="dropdown-item" href="./eeb464.html">
  <span class="dropdown-text">Macroevolution (EEB464)</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="https://phylometh.info/" rel="" target="">
+    <a class="dropdown-item" href="https://phylometh.info/">
  <span class="dropdown-text">Phylogenetic Methods</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-tutorials" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-tutorials" role="button" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Tutorials</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-tutorials">    
         <li>
-    <a class="dropdown-item" href="./aic.html" rel="" target="">
+    <a class="dropdown-item" href="./aic.html">
  <span class="dropdown-text">AIC</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./phylogenetics.html" rel="" target="">
+    <a class="dropdown-item" href="./phylogenetics.html">
  <span class="dropdown-text">Phylogenetics</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-blog" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-blog" role="button" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Blog</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-blog">    
         <li>
-    <a class="dropdown-item" href="./blog.html" rel="" target="">
+    <a class="dropdown-item" href="./blog.html">
  <span class="dropdown-text">Blog</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./blog.xml" rel="" target="">
+    <a class="dropdown-item" href="./blog.xml">
  <span class="dropdown-text">RSS feed</span></a>
   </li>  
     </ul>
   </li>
 </ul>
-            <div class="quarto-navbar-tools ms-auto">
-</div>
           </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -274,7 +308,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(9)</span></div><div class="category" data-category="EEB511">EEB511 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="R">R <span class="quarto-category-count">(2)</span></div><div class="category" data-category="SSB">SSB <span class="quarto-category-count">(1)</span></div><div class="category" data-category="code of ethics">code of ethics <span class="quarto-category-count">(1)</span></div><div class="category" data-category="core">core <span class="quarto-category-count">(1)</span></div><div class="category" data-category="diversification">diversification <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ethics">ethics <span class="quarto-category-count">(1)</span></div><div class="category" data-category="evolution">evolution <span class="quarto-category-count">(1)</span></div><div class="category" data-category="fossil">fossil <span class="quarto-category-count">(1)</span></div><div class="category" data-category="github">github <span class="quarto-category-count">(2)</span></div><div class="category" data-category="highered">highered <span class="quarto-category-count">(1)</span></div><div class="category" data-category="hisse">hisse <span class="quarto-category-count">(1)</span></div><div class="category" data-category="history">history <span class="quarto-category-count">(1)</span></div><div class="category" data-category="mastodon">mastodon <span class="quarto-category-count">(1)</span></div><div class="category" data-category="misse">misse <span class="quarto-category-count">(1)</span></div><div class="category" data-category="publication">publication <span class="quarto-category-count">(1)</span></div><div class="category" data-category="rbloggers">rbloggers <span class="quarto-category-count">(1)</span></div><div class="category" data-category="reproducibility">reproducibility <span class="quarto-category-count">(1)</span></div><div class="category" data-category="rmarkdown">rmarkdown <span class="quarto-category-count">(1)</span></div><div class="category" data-category="rstats">rstats <span class="quarto-category-count">(2)</span></div><div class="category" data-category="simulation">simulation <span class="quarto-category-count">(1)</span></div><div class="category" data-category="social media">social media <span class="quarto-category-count">(1)</span></div><div class="category" data-category="software">software <span class="quarto-category-count">(2)</span></div><div class="category" data-category="statistics">statistics <span class="quarto-category-count">(1)</span></div><div class="category" data-category="systematics">systematics <span class="quarto-category-count">(1)</span></div><div class="category" data-category="targets">targets <span class="quarto-category-count">(1)</span></div><div class="category" data-category="teaching">teaching <span class="quarto-category-count">(1)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(8)</span></div><div class="category" data-category="EEB511">EEB511 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="R">R <span class="quarto-category-count">(2)</span></div><div class="category" data-category="SSB">SSB <span class="quarto-category-count">(1)</span></div><div class="category" data-category="code of ethics">code of ethics <span class="quarto-category-count">(1)</span></div><div class="category" data-category="core">core <span class="quarto-category-count">(1)</span></div><div class="category" data-category="diversification">diversification <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ethics">ethics <span class="quarto-category-count">(1)</span></div><div class="category" data-category="evolution">evolution <span class="quarto-category-count">(1)</span></div><div class="category" data-category="fossil">fossil <span class="quarto-category-count">(1)</span></div><div class="category" data-category="github">github <span class="quarto-category-count">(2)</span></div><div class="category" data-category="highered">highered <span class="quarto-category-count">(1)</span></div><div class="category" data-category="hisse">hisse <span class="quarto-category-count">(1)</span></div><div class="category" data-category="history">history <span class="quarto-category-count">(1)</span></div><div class="category" data-category="mastodon">mastodon <span class="quarto-category-count">(1)</span></div><div class="category" data-category="misse">misse <span class="quarto-category-count">(1)</span></div><div class="category" data-category="publication">publication <span class="quarto-category-count">(1)</span></div><div class="category" data-category="rbloggers">rbloggers <span class="quarto-category-count">(1)</span></div><div class="category" data-category="reproducibility">reproducibility <span class="quarto-category-count">(1)</span></div><div class="category" data-category="rmarkdown">rmarkdown <span class="quarto-category-count">(1)</span></div><div class="category" data-category="rstats">rstats <span class="quarto-category-count">(2)</span></div><div class="category" data-category="simulation">simulation <span class="quarto-category-count">(1)</span></div><div class="category" data-category="social media">social media <span class="quarto-category-count">(1)</span></div><div class="category" data-category="software">software <span class="quarto-category-count">(2)</span></div><div class="category" data-category="systematics">systematics <span class="quarto-category-count">(1)</span></div><div class="category" data-category="targets">targets <span class="quarto-category-count">(1)</span></div><div class="category" data-category="teaching">teaching <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -293,7 +327,9 @@ ul.task-list li input[type="checkbox"] {
   </div>
   
 
+
 </header>
+
 
 <p>Here I have various blog posts. I created the blog on April 22, 2023, to provide a place for information longer than a mastodon post and perhaps with broader reach. I will be backfilling with posts about older content.</p>
 <p>You can filter and search here, but you can also get the RSS feed at <a href="blog.xml">blog.xml</a>. RSS is a format for distributing new content: it is most commonly used for blogs, but it is also a way things like new episodes of podcasts roll out. <a href="https://www.wired.com/story/best-rss-feed-readers/">Here</a> (<em>Wired</em>, soft paywall) is an accessible overview of RSS and how to read it.</p>
@@ -325,45 +361,14 @@ ul.task-list li input[type="checkbox"] {
     </div>
 </div>
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="statistics" data-listing-date-sort="1707282000000" data-listing-file-modified-sort="1707322341537" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5">
+<div class="quarto-post image-right" data-index="0" data-categories="github,software,rstats,highered,targets,rmarkdown" data-listing-date-sort="1698465600000" data-listing-file-modified-sort="1698504663220" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="15" data-listing-word-count-sort="2846">
 <div class="body">
-<a href="./posts/nullhypothesis/index.html">
 <h3 class="no-anchor listing-title">
-Democrat Bernie Sanders wins Republican Nevada primary; or, How null hypothesis rejection can be misleading
+<a href="./posts/collegetables/index.html" class="no-external">13,000 page site with Rmarkdown and targets</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/collegetables/index.html" class="no-external"></a>
 </div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('statistics'); return false;">
-statistics
-</div>
-</div>
-<a href="./posts/nullhypothesis/index.html">
-<div class="listing-description">
-<p>An example of how rejecting a null hypothesis does not mean the alternate is true.</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/nullhypothesis/index.html">
-<div class="listing-date">
-Feb 7, 2024
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="github,software,rstats,highered,targets,rmarkdown" data-listing-date-sort="1698465600000" data-listing-file-modified-sort="1698504663220" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="15">
-<div class="body">
-<a href="./posts/collegetables/index.html">
-<h3 class="no-anchor listing-title">
-13,000 page site with Rmarkdown and targets
-</h3>
-<div class="listing-subtitle">
-
-</div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('github'); return false;">
 github
@@ -384,30 +389,26 @@ targets
 rmarkdown
 </div>
 </div>
-<a href="./posts/collegetables/index.html">
 <div class="listing-description">
-<p>How I made a site comparing every higher ed institution in the US</p>
+<a href="./posts/collegetables/index.html" class="no-external">How I made a site comparing every higher ed institution in the US</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/collegetables/index.html">
+<a href="./posts/collegetables/index.html" class="no-external">
 <div class="listing-date">
 Oct 28, 2023
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="2" data-categories="code of ethics,SSB,systematics,ethics" data-listing-date-sort="1698292800000" data-listing-file-modified-sort="1698343744956" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3">
+<div class="quarto-post image-right" data-index="1" data-categories="code of ethics,SSB,systematics,ethics" data-listing-date-sort="1698292800000" data-listing-file-modified-sort="1698343744956" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="494">
 <div class="body">
-<a href="./posts/codeofethics/index.html">
 <h3 class="no-anchor listing-title">
-SSB Code of Ethics
+<a href="./posts/codeofethics/index.html" class="no-external">SSB Code of Ethics</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/codeofethics/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('code of ethics'); return false;">
 code of ethics
@@ -422,30 +423,26 @@ systematics
 ethics
 </div>
 </div>
-<a href="./posts/codeofethics/index.html">
 <div class="listing-description">
-<p>SSB is voting on a code of ethics</p>
+<a href="./posts/codeofethics/index.html" class="no-external">SSB is voting on a code of ethics</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/codeofethics/index.html">
+<a href="./posts/codeofethics/index.html" class="no-external">
 <div class="listing-date">
 Oct 26, 2023
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="3" data-categories="history,mastodon" data-listing-date-sort="1693540800000" data-listing-file-modified-sort="1693786102409" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
+<div class="quarto-post image-right" data-index="2" data-categories="history,mastodon" data-listing-date-sort="1693540800000" data-listing-file-modified-sort="1693786102409" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="222">
 <div class="body">
-<a href="./posts/percentageage/index.html">
 <h3 class="no-anchor listing-title">
-Fraction of history
+<a href="./posts/percentageage/index.html" class="no-external">Fraction of history</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/percentageage/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('history'); return false;">
 history
@@ -454,30 +451,26 @@ history
 mastodon
 </div>
 </div>
-<a href="./posts/percentageage/index.html">
 <div class="listing-description">
-<p>Figure out what fraction of history you have lived through</p>
+<a href="./posts/percentageage/index.html" class="no-external">Figure out what fraction of history you have lived through</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/percentageage/index.html">
+<a href="./posts/percentageage/index.html" class="no-external">
 <div class="listing-date">
 Sep 1, 2023
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="4" data-categories="github,software,rstats" data-listing-date-sort="1690430400000" data-listing-file-modified-sort="1690491840062" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<div class="quarto-post image-right" data-index="3" data-categories="github,software,rstats" data-listing-date-sort="1690430400000" data-listing-file-modified-sort="1690491840062" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="80">
 <div class="body">
-<a href="./posts/githubratelimit/index.html">
 <h3 class="no-anchor listing-title">
-Github rate limit
+<a href="./posts/githubratelimit/index.html" class="no-external">Github rate limit</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/githubratelimit/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('github'); return false;">
 github
@@ -489,30 +482,26 @@ software
 rstats
 </div>
 </div>
-<a href="./posts/githubratelimit/index.html">
 <div class="listing-description">
-<p>How to fix the bad credentials error with devtools::install</p>
+<a href="./posts/githubratelimit/index.html" class="no-external">How to fix the bad credentials error with devtools::install</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/githubratelimit/index.html">
+<a href="./posts/githubratelimit/index.html" class="no-external">
 <div class="listing-date">
 Jul 27, 2023
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="5" data-categories="teaching,evolution,core,EEB511" data-listing-date-sort="1683777600000" data-listing-file-modified-sort="1699891815205" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9">
+<div class="quarto-post image-right" data-index="4" data-categories="teaching,evolution,core,EEB511" data-listing-date-sort="1683777600000" data-listing-file-modified-sort="1699891815205" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1606">
 <div class="body">
-<a href="./posts/evolutioncore2023/index.html">
 <h3 class="no-anchor listing-title">
-Grad core class in evolutionary biology, 2023 edition
+<a href="./posts/evolutioncore2023/index.html" class="no-external">Grad core class in evolutionary biology, 2023 edition</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/evolutioncore2023/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('teaching'); return false;">
 teaching
@@ -527,59 +516,51 @@ core
 EEB511
 </div>
 </div>
-<a href="./posts/evolutioncore2023/index.html">
 <div class="listing-description">
-<p>Topics and teaching in our core class in evolution for graduate students</p>
+<a href="./posts/evolutioncore2023/index.html" class="no-external">Topics and teaching in our core class in evolution for graduate students</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/evolutioncore2023/index.html">
+<a href="./posts/evolutioncore2023/index.html" class="no-external">
 <div class="listing-date">
 May 11, 2023
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="6" data-categories="social media" data-listing-date-sort="1682827200000" data-listing-file-modified-sort="1683894675840" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7">
+<div class="quarto-post image-right" data-index="5" data-categories="social media" data-listing-date-sort="1682827200000" data-listing-file-modified-sort="1683894675840" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1239">
 <div class="body">
-<a href="./posts/joiningmastodon/index.html">
 <h3 class="no-anchor listing-title">
-Joining Mastodon
+<a href="./posts/joiningmastodon/index.html" class="no-external">Joining Mastodon</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/joiningmastodon/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('social media'); return false;">
 social media
 </div>
 </div>
-<a href="./posts/joiningmastodon/index.html">
 <div class="listing-description">
-<p>Instructions for joining mastodon for social media</p>
+<a href="./posts/joiningmastodon/index.html" class="no-external">Instructions for joining mastodon for social media</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/joiningmastodon/index.html">
+<a href="./posts/joiningmastodon/index.html" class="no-external">
 <div class="listing-date">
 Apr 30, 2023
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="7" data-categories="R,rbloggers,reproducibility" data-listing-date-sort="1682222400000" data-listing-file-modified-sort="1690492277879" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4">
+<div class="quarto-post image-right" data-index="6" data-categories="R,rbloggers,reproducibility" data-listing-date-sort="1682222400000" data-listing-file-modified-sort="1690492277879" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="761">
 <div class="body">
-<a href="./posts/phylotasticruniverse/index.html">
 <h3 class="no-anchor listing-title">
-An alternative to CRAN for phylogenetics
+<a href="./posts/phylotasticruniverse/index.html" class="no-external">An alternative to CRAN for phylogenetics</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/phylotasticruniverse/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
 R
@@ -591,30 +572,26 @@ rbloggers
 reproducibility
 </div>
 </div>
-<a href="./posts/phylotasticruniverse/index.html">
 <div class="listing-description">
-<p>Phylotastic R-universe as a way of serving up phylogenetics packages in R</p>
+<a href="./posts/phylotasticruniverse/index.html" class="no-external">Phylotastic R-universe as a way of serving up phylogenetics packages in R</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/phylotasticruniverse/index.html">
+<a href="./posts/phylotasticruniverse/index.html" class="no-external">
 <div class="listing-date">
 Apr 23, 2023
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="8" data-categories="fossil,R,hisse,misse,diversification,simulation,publication" data-listing-date-sort="1682136000000" data-listing-file-modified-sort="1683894661259" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4">
+<div class="quarto-post image-right" data-index="7" data-categories="fossil,R,hisse,misse,diversification,simulation,publication" data-listing-date-sort="1682136000000" data-listing-file-modified-sort="1683894661259" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="626">
 <div class="body">
-<a href="./posts/fossilsdonothelp/index.html">
 <h3 class="no-anchor listing-title">
-Fossils do not help fix diversification parameter estimates
+<a href="./posts/fossilsdonothelp/index.html" class="no-external">Fossils do not help fix diversification parameter estimates</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/fossilsdonothelp/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('fossil'); return false;">
 fossil
@@ -638,14 +615,12 @@ simulation
 publication
 </div>
 </div>
-<a href="./posts/fossilsdonothelp/index.html">
 <div class="listing-description">
-<p>Overview of ‘Fossils Do Not Substantially Improve, and May Even Harm, Estimates of Diversification Rate Heterogeneity’, published in Systematic Biology in 2022</p>
+<a href="./posts/fossilsdonothelp/index.html" class="no-external">Overview of ‘Fossils Do Not Substantially Improve, and May Even Harm, Estimates of Diversification Rate Heterogeneity’, published in Systematic Biology in 2022</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/fossilsdonothelp/index.html">
+<a href="./posts/fossilsdonothelp/index.html" class="no-external">
 <div class="listing-date">
 Apr 22, 2023
 </div>
@@ -736,10 +711,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -749,8 +723,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -763,6 +746,125 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -806,6 +908,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -831,6 +934,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -891,6 +1020,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+
 
 
 

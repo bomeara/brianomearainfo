@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.549">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -49,7 +49,13 @@ ul.task-list li input[type="checkbox"] {
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -58,12 +64,12 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
 }</script>
-
 <script src="../../site_libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
 <link href="../../site_libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
 <script src="../../site_libs/datatables-binding-0.27/datatables.js"></script>
@@ -80,10 +86,10 @@ ul.task-list li input[type="checkbox"] {
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Brian O’Meara</span>
     </a>
@@ -95,156 +101,156 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../index.html" rel="" target="">
- <span class="menu-text">Home</span></a>
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-cv-etc." role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-cv-etc." role="button" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">CV, etc.</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-cv-etc.">    
         <li>
-    <a class="dropdown-item" href="../../cv.html" rel="" target="">
+    <a class="dropdown-item" href="../../cv.html">
  <span class="dropdown-text">CV</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../calendar.html" rel="" target="">
+    <a class="dropdown-item" href="../../calendar.html">
  <span class="dropdown-text">Calendar</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../feedback.html" rel="" target="">
+    <a class="dropdown-item" href="../../feedback.html">
  <span class="dropdown-text">Feedback</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../useful.html" rel="" target="">
+    <a class="dropdown-item" href="../../useful.html">
  <span class="dropdown-text">Useful links</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../tenure.html" rel="" target="">
+    <a class="dropdown-item" href="../../tenure.html">
  <span class="dropdown-text">Materials for promotion to associate (and tenure)</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../promotion.html" rel="" target="">
+    <a class="dropdown-item" href="../../promotion.html">
  <span class="dropdown-text">Materials for promotion to full</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../SSB.html" rel="" target="">
+    <a class="dropdown-item" href="../../SSB.html">
  <span class="dropdown-text">Candidacy for SSB president</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../evol2023.html" rel="" target="">
+    <a class="dropdown-item" href="../../evol2023.html">
  <span class="dropdown-text">SSB Presidential Address 2023</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-lab" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-lab" role="button" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Lab</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-lab">    
         <li>
-    <a class="dropdown-item" href="../../personnel.html" rel="" target="">
+    <a class="dropdown-item" href="../../personnel.html">
  <span class="dropdown-text">People</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../guidelines.html" rel="" target="">
+    <a class="dropdown-item" href="../../guidelines.html">
  <span class="dropdown-text">Guidelines &amp; Recommendations</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../location.html" rel="" target="">
+    <a class="dropdown-item" href="../../location.html">
  <span class="dropdown-text">Location/Contact</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../opportunities.html" rel="" target="">
+    <a class="dropdown-item" href="../../opportunities.html">
  <span class="dropdown-text">Opportunities</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../learningobjectives.html" rel="" target="">
+    <a class="dropdown-item" href="../../learningobjectives.html">
  <span class="dropdown-text">Learning objectives</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../better-letter.html" rel="" target="">
+    <a class="dropdown-item" href="../../better-letter.html">
  <span class="dropdown-text">BetterLetter</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../shouldyougotogradschool.html" rel="" target="">
+    <a class="dropdown-item" href="../../shouldyougotogradschool.html">
  <span class="dropdown-text">Should you go to grad school to be a professor?</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../tenure.html" rel="" target="">
+    <a class="dropdown-item" href="../../tenure.html">
  <span class="dropdown-text">Materials for promotion to associate (and tenure)</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../promotion.html" rel="" target="">
+    <a class="dropdown-item" href="../../promotion.html">
  <span class="dropdown-text">Materials for promotion to full</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../general.html" rel="" target="">
+    <a class="dropdown-item" href="../../general.html">
  <span class="dropdown-text">Info for general public</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../covid.html" rel="" target="">
+    <a class="dropdown-item" href="../../covid.html">
  <span class="dropdown-text">COVID</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../schedule.html" rel="" target="">
+    <a class="dropdown-item" href="../../schedule.html">
  <span class="dropdown-text">EEB scheduling</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-teaching" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-teaching" role="button" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Teaching</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-teaching">    
         <li>
-    <a class="dropdown-item" href="../../teaching.html" rel="" target="">
+    <a class="dropdown-item" href="../../teaching.html">
  <span class="dropdown-text">Teaching overall</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../eeb464.html" rel="" target="">
+    <a class="dropdown-item" href="../../eeb464.html">
  <span class="dropdown-text">Macroevolution (EEB464)</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="https://phylometh.info/" rel="" target="">
+    <a class="dropdown-item" href="https://phylometh.info/">
  <span class="dropdown-text">Phylogenetic Methods</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-tutorials" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-tutorials" role="button" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Tutorials</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-tutorials">    
         <li>
-    <a class="dropdown-item" href="../../aic.html" rel="" target="">
+    <a class="dropdown-item" href="../../aic.html">
  <span class="dropdown-text">AIC</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../phylogenetics.html" rel="" target="">
+    <a class="dropdown-item" href="../../phylogenetics.html">
  <span class="dropdown-text">Phylogenetics</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-blog" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-blog" role="button" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Blog</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-blog">    
         <li>
-    <a class="dropdown-item" href="../../blog.html" rel="" target="">
+    <a class="dropdown-item" href="../../blog.html">
  <span class="dropdown-text">Blog</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../blog.xml" rel="" target="">
+    <a class="dropdown-item" href="../../blog.xml">
  <span class="dropdown-text">RSS feed</span></a>
   </li>  
     </ul>
   </li>
 </ul>
-            <div class="quarto-navbar-tools ms-auto">
-</div>
           </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -314,6 +320,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 
+
 <p>Our department has long had a core class: one semester on ecology, one on evolution. It originated before I started here (it was somewhat modeled on UC Davis Population Biology’s core class, which I took as a student, in fact), but I’ve taught parts of it (usually a few weeks on phylogenetics and macroevolution) nearly every year I’ve been here. This year, I took over as the instructor for the evolution semester. Years ago the course was largely team taught with perhaps four or five instructors per semester; over time, this has winnowed down. I chose to do it as the sole instructor, with one guest discussion with Dr.&nbsp;Nina Fefferman on getting grants (she’s <a href="http://feffermanlab.org/funding.html">very good</a> at it), as the students wanted to have a discussion on this.</p>
 <p>This course is described as “Readings, lectures, and discussion about key concepts in evolution.” In practice, it has several goals:</p>
 <ol type="1">
@@ -323,7 +330,7 @@ ul.task-list li input[type="checkbox"] {
 <li>Onboarding to the department. This is a particular set of people, assembled with care and at great expense: how to thrive in the department, who people are, etc.</li>
 </ol>
 <p>Course structure was based on particular topics, with students typically given a paper or two to read and ask questions about, then work through the topic and questions in class (lots of think-pair-share, class questions, etc.). Students asked for more structure, so I started adding basic slides to give broader overviews of the topics and giving sample final exam questions for each topic so they could better understand the type of depth of knowledge I was expecting them to get.</p>
-<p>Often this sort of course covers a lot of history of the field, famous scientists, and the like. I focused instead on current understandings of the topics. This aligns with the course description (“key concepts in evolution”) but I argue that it’s more important for students who are doing their own research: what do we know, and what is still left to learn, rather than who thought what in 1968. That said, there is still vocab people should know in the field, including names of people and organisms, as well as local info (faculty members, Scopes trial, and similar), so I made a <a href="Jargonfest.csv">list of jargon (.csv)</a>, see also <a href="#sec-jargon">Section&nbsp;4</a>, and had some multiple choice quizzes and part of the final to encourage students to learn about these terms.</p>
+<p>Often this sort of course covers a lot of history of the field, famous scientists, and the like. I focused instead on current understandings of the topics. This aligns with the course description (“key concepts in evolution”) but I argue that it’s more important for students who are doing their own research: what do we know, and what is still left to learn, rather than who thought what in 1968. That said, there is still vocab people should know in the field, including names of people and organisms, as well as local info (faculty members, Scopes trial, and similar), so I made a <a href="Jargonfest.csv">list of jargon (.csv)</a>, see also <a href="#sec-jargon" class="quarto-xref">Section&nbsp;4</a>, and had some multiple choice quizzes and part of the final to encourage students to learn about these terms.</p>
 <section id="overall-topics-covered" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="overall-topics-covered"><span class="header-section-number">1</span> Overall topics covered</h2>
 <ul>
@@ -333,8 +340,8 @@ ul.task-list li input[type="checkbox"] {
 <li>Feb 2 Spandrels: <a href="https://doi.org/10.1098/rspb.1979.0086">Gould &amp; Lewontin (1979)</a></li>
 <li>Feb 7 Neutral theory I: <a href="https://doi.org/10.1146/annurev-genom-082908-150129">Nei et al.&nbsp;(2010, pages 265-274)</a></li>
 <li>Feb 9 Neutral theory II: <a href="https://doi.org/10.1146/annurev-genom-082908-150129">Nei et al.&nbsp;(2010, pages 274-289)</a></li>
-<li>Feb 14 R (see <a href="#sec-r">Section&nbsp;3.1</a>)</li>
-<li>Feb 16 Python (see <a href="#sec-python">Section&nbsp;3.2</a>)</li>
+<li>Feb 14 R (see <a href="#sec-r" class="quarto-xref">Section&nbsp;3.1</a>)</li>
+<li>Feb 16 Python (see <a href="#sec-python" class="quarto-xref">Section&nbsp;3.2</a>)</li>
 <li>Feb 21 Game theory: <a href="https://doi.org/10.1146/annurev.es.14.110183.002113">Riechert &amp; Hammerstein (1984)</a> [UTK author]</li>
 <li>Feb 23 Quantitative genetics and evolvabililty: <a href="https://doi.org/10.1146/annurev-ecolsys-011121-021241">Hansen &amp; Pélabon (2021)</a></li>
 <li>Feb 28 Sexual selection I: <a href="https://doi.org/10.1126/science.abi6308">Rosenthal &amp; Ryan (2022)</a></li>
@@ -423,7 +430,6 @@ ul.task-list li input[type="checkbox"] {
 <p>This can be downloaded as a <a href="Jargonfest.csv">csv file</a>.</p>
 <div class="cell">
 <div class="cell-output-display">
-
 <div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-dd5000d92242385f90c8" style="width:100%;height:auto;"></div>
 <script type="application/json" data-for="htmlwidget-dd5000d92242385f90c8">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59","60","61","62","63","64","65","66","67","68","69","70","71","72","73","74","75","76","77","78","79","80","81","82","83","84","85","86","87","88","89","90","91","92","93","94","95","96","97","98","99","100","101","102","103","104","105","106","107","108","109","110","111","112","113","114","115","116","117","118","119","120","121","122","123","124","125","126","127","128","129","130","131","132","133","134","135","136","137","138","139","140","141","142","143","144","145","146","147","148","149","150","151","152","153","154","155","156","157","158","159","160","161","162","163","164","165","166","167","168","169","170","171","172","173","174","175","176","177","178","179","180","181","182","183","184","185","186","187","188","189","190","191","192","193","194","195","196","197","198","199","200","201","202","203","204","205","206","207","208","209","210","211","212","213","214","215","216","217","218","219","220","221","222","223","224","225","226","227","228","229","230","231","232","233","234","235","236","237","238","239","240","241","242","243","244","245","246","247","248","249","250","251","252","253","254","255","256","257","258","259","260","261","262","263","264","265","266","267","268","269","270","271","272","273","274","275","276","277","278","279","280","281","282","283","284","285","286","287","288","289","290","291","292","293","294","295","296","297","298","299","300","301","302","303","304","305","306","307","308","309","310","311","312","313","314","315","316","317","318","319","320","321","322","323","324","325","326","327","328","329","330","331","332","333","334","335","336","337","338","339","340","341","342","343","344","345","346","347","348","349","350","351","352","353","354","355","356","357","358","359","360","361","362","363","364","365","366","367","368","369","370","371","372","373","374","375","376","377","378","379","380","381","382","383","384","385","386","387","388","389","390","391","392","393","394","395","396","397","398","399","400","401","402","403","404","405","406","407","408","409","410","411","412","413","414","415","416","417","418","419"],["adaptation","adaptive landscape","arms race","artificial selection","asexual reproduction","Batesian mimicry","biological constraints","Brownian motion","census population size","central dogma","coadaptation","coevolution","colonization","commensalism","cytoplasmic isolation","dispersal","Dobzhansky-Muller model","dynamic equilibrium","ecological niche","effective population size","endemism","endosymbiosis","ethology","evolutionary medicine","extant","fitness","iteroparity","K-strategy","lek","logistic growth","LUCA","negative selection","neontology","niche","NP-hard","phenotype","phylogeography","population","postzygotic isolating mechanism","prezygotic isolating mechanism","R-strategy","r/K selection","reinforcement","semelparity","sexual dimorphism","sexual selection","social Darwinism","survival of the fittest","theory","urban evolution","zygote","allometry","evo-devo","ontogeny","altruism","alternative splicing","assortative mating","backcrossing","bottleneck","Breeder's equation","canalization","candidate gene","cis-regulatory element","cline","coalescent","codon","codon usage bias","constitutive expression","crossing over","degeneracy of genetic code","dominant","dosage compensation","epigenetics","epistasis","exon","facultative expression","fixation (of alleles)","founder effect","frameshift mutation","frequency-dependent selection","G matrix","gamete","gene","gene dosage","gene drive","gene duplication","gene flow","gene pool","generation time","genetic distance","genetic drift","genetic hitchhiking","genetic load","genetic marker","genomic imprinting","genotype","germ line","haplodiploidy","Hardy-Weinberg principle","hemizygous","heredity","heritability","heterogametic sex","heterosis","homozygous","hox genes","hybrid","hybrid inviability","hybrid swarm","hybrid zone","identical by descent","identical by state","inbreeding depression","indel","intergenic region","intragenomic conflict","introgression","intron","isolation by distance","junk DNA","karyotype","kin selection","linkage disequilibrium","maternal effect","meiosis","Mendelian inheritance","migration","missense mutation","mitosis","Moran process","mutation","mutation rate","N_e","nearly neutral theory","neutral mutation","neutral theory","non-Mendelian inheritance","nonsense mutation","ortholog","panmixia","point mutation","polymorphism","polyploidy","positive selection","psuedogene","Punnett square","quantitative genetics","random mating","reaction norm","recessive","recombination","runaway sexual selection","secondary contact","selection coefficient","selective pressure","selective sweep","selfish genetic element","sex chromosome","stabilizing selection","trans-regulatory element","transcription","translation","wild type","Wright-Fisher process","X-linked gene","Y-linked gene","Alfred Russel Wallace","Alfred Wegener","Austin Peay","Ben Fitzpatrick","Beth Schussler","Brandon Matheny","Carl Woese","Carolus Linnaeus","Charles Darwin","Charles Lyell","Clarence Darrow","Dan Simberloff","Ed Schilling","Elisabeth Vrba","EO Wilson","Ernst Mayr","G. Ledyard Stebbins","George Gaylord Simpson","Gregor Mendel","Henreitte Jager","JBS Haldane","Jean-Baptiste Lamark","Jen Schweitzer","Jessica Budke","Jessie Tanner","Jim Fordyce","Joe Bailey","Joe Williams","John Edmonstone","John Maynard Smith","John Scopes","Julian Huxley","Karen Hughes","Kimberly Sheldon","Laura Russo","Leigh Van Valen","Liz Derryberry","Lynn Margulis","Mary Anning","Michael Gilchrist","Mona Papeş","Montgomery Slatkin","Motoo Kimura","Muller's ratchet","Nina Fefferman","Orou Gaoue","Paul Armsworth","Randy Small","Richard Dawkins","Richard Lewontin","Richard Owen","Ronald Fisher","Rosemary &amp; Peter Gillespie","Sebastian Stockmaier","Sergey Gavrilets","Sewall Wright","Stephanie Kivlin","Steven J. Gould","Theodosius Dobzhansky","Thomas Malthus","Udny Yule","Xingli Giam","Butler Act","Gary Scott","who won the Scopes trial","William Jennings Bryan","adaptationalism","adaptive radiation","allochronic speciation","allopatric speciation","anagenesis","ancestral trait","apomorphy","aptation","background extinction rate","biogeography","biological species concept","Burgess shale","Cambrian explosion","character displacement","chronospecies","cladistics","cladogenesis","comparative methods","continental drift","convergent evolution","Cope's rule","crown group","cryptic species","Deccan traps","derived trait","disruptive seelction","End-Permian extinction","eugenics","evolutionary arms race","exaptation","extinction","extinction rate","fossil record","geologic time scale","ghost lineages","Gondwana","gradualism","Great oxidation event","green beard","group selection","Haldane's rule","Hamilton's Rule","homology","homoplasy","inclusive fitness","island biogeography","island model","isolating mechanism","KT extinction","land bridge","Laurasia","left wall of minimal complexity","mating system","mechanical isolation","meme","mimicry","Modern Synthesis","MRCA","Müllerian mimicry","multifurcation","mutualism","natural selection","net diversification rate","non-independence","outgroup","paleontology","Pangaea","parallel evolution","parapatric speciation","paraphyly","parasitism","parsimony","parthenogenisis","peripatric speciation","phenetics","phylogeny","plesiomorphy","polyphyly","punctuated equilibrium","recapitulation","Red queen hypothesis","refugium","reproductive isolation","reticulate evolution","ring species","RNA world","saltation","spandrel","speciation","speciation rate","species selection","species sorting","stag hunt","stem group","sympatric speciation","symplesiomorphy","synapomorphy","taphonomic bias","taxon","trait","turnover rate","variance","vestigial","vicariance","vicariance biogeography","virulence","allele","allele frequency","Acromyrmex","Amborella","Amborella","ammonite","angiosperm","Anolis","Anolis","Anomalocaris","Archaea","bdelloid rotifers","bonobo","brachiopod","Buchnera","crinoid","Darwin's finches","diatoms","Dimetrodon","Dionaea muscipula","Ediacaran fauna","eubacteria","fig wasp","Gasterosteus aculeatus","Geospizinae","gingko","Hawaiian honeycreepers","HIV","Ichthyornis dispar","isopod","lycophytes","Maiasaura","Plasmodium","red panda","rift lake cichlids","silversword","spiny anteater","Strepsiptera","Thermus aquaticus","Tiktaalik","Tribolium","trilobite","tunicates","Welwischia","Wolbachia","16S","amber fossil","approximate Bayesian computation","Bayes rule","Bayesianism","binomial nomenclature","BLAST","body fossil","bootstrap","chloroplast DNA","CRISPR","fossil","frequentist","holotype","impression fossil","in silico","in situ","in vivo","inbred line","independent contrasts","likelihood","microsatellites","mitochondrial DNA","molecular clock","NCBI","neotype","nuclear DNA","paratype","PCR","posterior","prior","Robert FitzRoy","rock strata","Sanger sequencing","SNP","type specimen"],["general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","local interest","local interest","local interest","local interest","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","microevolution","microevolution","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","tools","tools","tools","tools","tools","tools","tools","tools","tools","tools","tools","tools","tools","tools","tools","tools","tools","tools","tools","tools","tools","tools","tools","tools","tools","tools","tools","tools","tools","tools","tools","tools","tools","tools","tools","tools"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Term<\/th>\n      <th>Type<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":10,"columnDefs":[{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 </div>
@@ -446,7 +452,7 @@ ul.task-list li input[type="checkbox"] {
 
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{o'meara2023,
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{o'meara2023,
   author = {O’Meara, Brian},
   title = {Grad Core Class in Evolutionary Biology, 2023 Edition},
   date = {2023-05-11},
@@ -536,10 +542,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -549,8 +554,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -563,6 +577,125 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -606,6 +739,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -631,6 +765,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -691,6 +851,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+
 
 
 

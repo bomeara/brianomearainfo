@@ -9,83 +9,14 @@
 <link>https://brianomeara.info/blog.html</link>
 <atom:link href="https://brianomeara.info/blog.xml" rel="self" type="application/rss+xml"/>
 <description></description>
-<generator>quarto-1.3.450</generator>
-<lastBuildDate>Wed, 07 Feb 2024 05:00:00 GMT</lastBuildDate>
-<item>
-  <title>Democrat Bernie Sanders wins Republican Nevada primary; or, How null hypothesis rejection can be misleading</title>
-  <dc:creator>Brian O&#39;Meara</dc:creator>
-  <link>https://brianomeara.info/posts/nullhypothesis/index.html</link>
-  <description><![CDATA[ 
-
-
-
-
-<p>I am not a fan of null hypothesis testing as it’s commonly used in biology. We know that two different populations / areas / species / traits are not exactly equal, so the null hypothesis of no difference must be false. It becomes an exercise of how much power we have to detect a difference, which is a function of the effect size, sample size, and luck. Jeremy Beaulieu and I go further into this in our paper on <code>hisse</code> (<a href="https://doi.org/10.1093/sysbio/syw022" class="uri">https://doi.org/10.1093/sysbio/syw022</a>) and poke at it in other work.</p>
-<p>A “teachable moment” happened yesterday (Feb 6, 2024) in the Nevada Republican primary. Primaries and caucuses are ways US political parties select their candidates for office. At this point in the race, there are two “major candidates” remaining in the Republican contest for president: former president Donald Trump and former ambassador Nikki Haley. However, Nevada is running two different contests, a primary (Feb 6) and a caucus (Feb 8); former ambassador Haley is in the former (along with other candidates who are not reported as “major candidates” with active campaigns), former president Trump in the latter.</p>
-<p>Thus, in the primary, we have an election where there is just one major active candidate. A null might be that the major candidate will get half of the votes, given that the voters are made of people of the candidate’s own party. Here are the results as of writing, from the <em><a href="https://www.theguardian.com/us-news/2024/feb/06/nevada-primary-election-results">Guardian</a></em> and Associated Press:</p>
-<p><img src="https://brianomeara.info/posts/nullhypothesis/results.png" class="img-fluid" alt="Results of the Nevada Republican primary, 2024. Haley has 30.5% of the votes, 'None of these candidates' has 63.2%"></p>
-<ul>
-<li>Haley: 30.5% of votes, 21,999 votes total</li>
-<li>“None of these candidates”: 63.2% of votes</li>
-<li>Other candidates: 6.3% of votes</li>
-<li>88.64% of votes are counted</li>
-</ul>
-<p>Based on this, we can estimate that 72,128 votes have been counted at this point. The probability of getting 21,999 or fewer votes for Haley given that the null hypothesis is true (that she gets half of the votes) is:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">pbinom</span>(<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">21999</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">72128</span>, <span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0.5</span>)</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0</code></pre>
-</div>
-</div>
-<p>This is too small for standard R to report as anything but zero; if we use Rmpfr for more precision, we get a p-value of 1.3e-2449. That is quite a bit smaller than 0.05, the standard threshold for significance (and we could do slightly more complex calculations for things like “support for the sole major candidate should be at least 50% or greater” rather the simple test above, but that’s not the point here).</p>
-<p>So, we reject the null that former ambassador Haley got at least half the support. In biology, that is typically taken as support that the alternate hypothesis is true (even though this is <strong>not</strong> how statisticians say to interpret this). “I rejected the null hypothesis that more parental time with offspring has zero effect on offspring survival, so it’s clear that more time with their parents helps offspring survive.” In the primary case, we can even reject some alternate hypotheses, as well: former vice president Mike Pence got only 4% of the votes, so it is not that voters are preferring him, for example. One alternative could be that voters are preferring the other remaining major Republican candidate, former president Trump. A different alternative could be that the “None of these candidates” option represented a whole set of different preferences with no single candidate dominating.</p>
-<p>Another alternative hypothesis could be that voters want senator Bernie Sanders: he did very well in the Nevada Democratic caucus in 2020 after all, maybe those voters are now voting in the Republican primary and want Sanders to run for president. This is of course NOT what is happening. But if we present the hypotheses as <img src="https://latex.codecogs.com/png.latex?H_0">: Haley gets at least half the votes, <img src="https://latex.codecogs.com/png.latex?H_1">: Sanders must have substantial support, then <img src="https://latex.codecogs.com/png.latex?H_0"> is wildly rejected, so <img src="https://latex.codecogs.com/png.latex?H_1"> is true if we’re doing the (statistically incorrect) “reject the null, accept the alternate” approach.</p>
-<section id="a-better-way" class="level3">
-<h3 class="anchored" data-anchor-id="a-better-way">A better way</h3>
-<p>So what is a solution? <em>Godzilla</em> movies have the answer:</p>
-<p><img src="https://brianomeara.info/posts/nullhypothesis/letthemfight.jpg" class="img-fluid" alt="Movie still from Godzilla, with the iconic 'let them fight' scene, with the text 'There are multiple hypotheses; Let them fight'"></p>
-<p>aka multi-model inference. In the Nevada primary, we can tell that former ambassador Haley beat former vice president Pence because both were included on the ballot; we can’t compare them with senator Sanders because he was not included as an alternative, we just know that neither Haley nor Pence support is the reason for the “None of these candidates” votes. It’s the same with fitting biological models: we can only really tell that model B is better than model A if both are analyzed, not just from rejecting model A.</p>
-<p>There are a bunch of ways to do this. I like using the Akaike Information Criterion to compare models based on how much information about reality each one loses. One can use estimates from the best model, or one can weight estimates across multiple models if they have substantial support. Other approaches are to use Bayes factors to compare models, to use reversible-jump MCMC to sample across models, and other approaches. The core for all of these is using information about the likelihood of the data from all the reasonable models, not just use rejection of the simplest, especially since in biology the simplest is almost never true.</p>
-</section>
-<section id="parameters" class="level3">
-<h3 class="anchored" data-anchor-id="parameters">Parameters</h3>
-<p>This example also shows the importance of the parameters themselves. If former ambassador Haley’s support were 49% it might still be significantly less than half, but a very different story from 30.5%. The story would be different if her support were 0.3%, though also significantly less than the null. It’s another reason why I often advocate for looking at parameter estimates (and even averaging them across decently supported models) rather than just seeing which (flawed, oversimplified) model is preferred. Parameter estimates with confidence or credibility intervals are great for this, too.</p>
-<hr>
-<p>To subscribe, go to <a href="https://brianomeara.info/blog.xml" class="uri">https://brianomeara.info/blog.xml</a> in an RSS reader.</p>
-
-
-</section>
-
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{o'meara2024,
-  author = {O’Meara, Brian},
-  title = {Democrat {Bernie} {Sanders} Wins {Republican} {Nevada}
-    Primary; or, {How} Null Hypothesis Rejection Can Be Misleading},
-  date = {2024-02-07},
-  url = {https://brianomeara.info/posts/nullhypothesis},
-  langid = {en}
-}
-</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-o'meara2024" class="csl-entry quarto-appendix-citeas">
-O’Meara, Brian. 2024. <span>“Democrat Bernie Sanders Wins Republican
-Nevada Primary; or, How Null Hypothesis Rejection Can Be
-Misleading.”</span> February 7, 2024. <a href="https://brianomeara.info/posts/nullhypothesis">https://brianomeara.info/posts/nullhypothesis</a>.
-</div></div></section></div> ]]></description>
-  <category>statistics</category>
-  <guid>https://brianomeara.info/posts/nullhypothesis/index.html</guid>
-  <pubDate>Wed, 07 Feb 2024 05:00:00 GMT</pubDate>
-</item>
+<generator>quarto-1.4.549</generator>
+<lastBuildDate>Sat, 28 Oct 2023 04:00:00 GMT</lastBuildDate>
 <item>
   <title>13,000 page site with Rmarkdown and targets</title>
   <dc:creator>Brian O&#39;Meara</dc:creator>
-  <link>https://brianomeara.info/posts/collegetables/index.html</link>
+  <link>https://brianomeara.info/posts/collegetables/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -204,7 +135,7 @@ Misleading.”</span> February 7, 2024. <a href="https://brianomeara.info/posts/
 
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{o'meara2023,
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{o'meara2023,
   author = {O’Meara, Brian},
   title = {13,000 Page Site with {Rmarkdown} and Targets},
   date = {2023-10-28},
@@ -221,14 +152,15 @@ Targets.”</span> October 28, 2023. <a href="https://brianomeara.info/posts/col
   <category>highered</category>
   <category>targets</category>
   <category>rmarkdown</category>
-  <guid>https://brianomeara.info/posts/collegetables/index.html</guid>
+  <guid>https://brianomeara.info/posts/collegetables/</guid>
   <pubDate>Sat, 28 Oct 2023 04:00:00 GMT</pubDate>
 </item>
 <item>
   <title>SSB Code of Ethics</title>
   <dc:creator>Brian O&#39;Meara</dc:creator>
-  <link>https://brianomeara.info/posts/codeofethics/index.html</link>
+  <link>https://brianomeara.info/posts/codeofethics/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -252,7 +184,7 @@ Targets.”</span> October 28, 2023. <a href="https://brianomeara.info/posts/col
 
 
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{o'meara2023,
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{o'meara2023,
   author = {O’Meara, Brian},
   title = {SSB {Code} of {Ethics}},
   date = {2023-10-26},
@@ -267,14 +199,15 @@ O’Meara, Brian. 2023. <span>“SSB Code of Ethics.”</span> October 26,
   <category>SSB</category>
   <category>systematics</category>
   <category>ethics</category>
-  <guid>https://brianomeara.info/posts/codeofethics/index.html</guid>
+  <guid>https://brianomeara.info/posts/codeofethics/</guid>
   <pubDate>Thu, 26 Oct 2023 04:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Fraction of history</title>
   <dc:creator>Brian O&#39;Meara</dc:creator>
-  <link>https://brianomeara.info/posts/percentageage/index.html</link>
+  <link>https://brianomeara.info/posts/percentageage/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -307,7 +240,7 @@ Been alive for what percentage of time since:
 
 
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{o'meara2023,
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{o'meara2023,
   author = {O’Meara, Brian},
   title = {Fraction of History},
   date = {2023-09-01},
@@ -320,14 +253,15 @@ O’Meara, Brian. 2023. <span>“Fraction of History.”</span> September 1,
 </div></div></section></div> ]]></description>
   <category>history</category>
   <category>mastodon</category>
-  <guid>https://brianomeara.info/posts/percentageage/index.html</guid>
+  <guid>https://brianomeara.info/posts/percentageage/</guid>
   <pubDate>Fri, 01 Sep 2023 04:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Github rate limit</title>
   <dc:creator>Brian O&#39;Meara</dc:creator>
-  <link>https://brianomeara.info/posts/githubratelimit/index.html</link>
+  <link>https://brianomeara.info/posts/githubratelimit/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -347,7 +281,7 @@ Error: HTTP error 401.
 
 
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{o'meara2023,
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{o'meara2023,
   author = {O’Meara, Brian},
   title = {Github Rate Limit},
   date = {2023-07-27},
@@ -361,14 +295,15 @@ O’Meara, Brian. 2023. <span>“Github Rate Limit.”</span> July 27, 2023.
   <category>github</category>
   <category>software</category>
   <category>rstats</category>
-  <guid>https://brianomeara.info/posts/githubratelimit/index.html</guid>
+  <guid>https://brianomeara.info/posts/githubratelimit/</guid>
   <pubDate>Thu, 27 Jul 2023 04:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Grad core class in evolutionary biology, 2023 edition</title>
   <dc:creator>Brian O&#39;Meara</dc:creator>
-  <link>https://brianomeara.info/posts/evolutioncore2023/index.html</link>
+  <link>https://brianomeara.info/posts/evolutioncore2023/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -482,7 +417,6 @@ O’Meara, Brian. 2023. <span>“Github Rate Limit.”</span> July 27, 2023.
 <p>This can be downloaded as a <a href="Jargonfest.csv">csv file</a>.</p>
 <div class="cell">
 <div class="cell-output-display">
-
 <div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-dd5000d92242385f90c8" style="width:100%;height:auto;"></div>
 <script type="application/json" data-for="htmlwidget-dd5000d92242385f90c8">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59","60","61","62","63","64","65","66","67","68","69","70","71","72","73","74","75","76","77","78","79","80","81","82","83","84","85","86","87","88","89","90","91","92","93","94","95","96","97","98","99","100","101","102","103","104","105","106","107","108","109","110","111","112","113","114","115","116","117","118","119","120","121","122","123","124","125","126","127","128","129","130","131","132","133","134","135","136","137","138","139","140","141","142","143","144","145","146","147","148","149","150","151","152","153","154","155","156","157","158","159","160","161","162","163","164","165","166","167","168","169","170","171","172","173","174","175","176","177","178","179","180","181","182","183","184","185","186","187","188","189","190","191","192","193","194","195","196","197","198","199","200","201","202","203","204","205","206","207","208","209","210","211","212","213","214","215","216","217","218","219","220","221","222","223","224","225","226","227","228","229","230","231","232","233","234","235","236","237","238","239","240","241","242","243","244","245","246","247","248","249","250","251","252","253","254","255","256","257","258","259","260","261","262","263","264","265","266","267","268","269","270","271","272","273","274","275","276","277","278","279","280","281","282","283","284","285","286","287","288","289","290","291","292","293","294","295","296","297","298","299","300","301","302","303","304","305","306","307","308","309","310","311","312","313","314","315","316","317","318","319","320","321","322","323","324","325","326","327","328","329","330","331","332","333","334","335","336","337","338","339","340","341","342","343","344","345","346","347","348","349","350","351","352","353","354","355","356","357","358","359","360","361","362","363","364","365","366","367","368","369","370","371","372","373","374","375","376","377","378","379","380","381","382","383","384","385","386","387","388","389","390","391","392","393","394","395","396","397","398","399","400","401","402","403","404","405","406","407","408","409","410","411","412","413","414","415","416","417","418","419"],["adaptation","adaptive landscape","arms race","artificial selection","asexual reproduction","Batesian mimicry","biological constraints","Brownian motion","census population size","central dogma","coadaptation","coevolution","colonization","commensalism","cytoplasmic isolation","dispersal","Dobzhansky-Muller model","dynamic equilibrium","ecological niche","effective population size","endemism","endosymbiosis","ethology","evolutionary medicine","extant","fitness","iteroparity","K-strategy","lek","logistic growth","LUCA","negative selection","neontology","niche","NP-hard","phenotype","phylogeography","population","postzygotic isolating mechanism","prezygotic isolating mechanism","R-strategy","r/K selection","reinforcement","semelparity","sexual dimorphism","sexual selection","social Darwinism","survival of the fittest","theory","urban evolution","zygote","allometry","evo-devo","ontogeny","altruism","alternative splicing","assortative mating","backcrossing","bottleneck","Breeder's equation","canalization","candidate gene","cis-regulatory element","cline","coalescent","codon","codon usage bias","constitutive expression","crossing over","degeneracy of genetic code","dominant","dosage compensation","epigenetics","epistasis","exon","facultative expression","fixation (of alleles)","founder effect","frameshift mutation","frequency-dependent selection","G matrix","gamete","gene","gene dosage","gene drive","gene duplication","gene flow","gene pool","generation time","genetic distance","genetic drift","genetic hitchhiking","genetic load","genetic marker","genomic imprinting","genotype","germ line","haplodiploidy","Hardy-Weinberg principle","hemizygous","heredity","heritability","heterogametic sex","heterosis","homozygous","hox genes","hybrid","hybrid inviability","hybrid swarm","hybrid zone","identical by descent","identical by state","inbreeding depression","indel","intergenic region","intragenomic conflict","introgression","intron","isolation by distance","junk DNA","karyotype","kin selection","linkage disequilibrium","maternal effect","meiosis","Mendelian inheritance","migration","missense mutation","mitosis","Moran process","mutation","mutation rate","N_e","nearly neutral theory","neutral mutation","neutral theory","non-Mendelian inheritance","nonsense mutation","ortholog","panmixia","point mutation","polymorphism","polyploidy","positive selection","psuedogene","Punnett square","quantitative genetics","random mating","reaction norm","recessive","recombination","runaway sexual selection","secondary contact","selection coefficient","selective pressure","selective sweep","selfish genetic element","sex chromosome","stabilizing selection","trans-regulatory element","transcription","translation","wild type","Wright-Fisher process","X-linked gene","Y-linked gene","Alfred Russel Wallace","Alfred Wegener","Austin Peay","Ben Fitzpatrick","Beth Schussler","Brandon Matheny","Carl Woese","Carolus Linnaeus","Charles Darwin","Charles Lyell","Clarence Darrow","Dan Simberloff","Ed Schilling","Elisabeth Vrba","EO Wilson","Ernst Mayr","G. Ledyard Stebbins","George Gaylord Simpson","Gregor Mendel","Henreitte Jager","JBS Haldane","Jean-Baptiste Lamark","Jen Schweitzer","Jessica Budke","Jessie Tanner","Jim Fordyce","Joe Bailey","Joe Williams","John Edmonstone","John Maynard Smith","John Scopes","Julian Huxley","Karen Hughes","Kimberly Sheldon","Laura Russo","Leigh Van Valen","Liz Derryberry","Lynn Margulis","Mary Anning","Michael Gilchrist","Mona Papeş","Montgomery Slatkin","Motoo Kimura","Muller's ratchet","Nina Fefferman","Orou Gaoue","Paul Armsworth","Randy Small","Richard Dawkins","Richard Lewontin","Richard Owen","Ronald Fisher","Rosemary &amp; Peter Gillespie","Sebastian Stockmaier","Sergey Gavrilets","Sewall Wright","Stephanie Kivlin","Steven J. Gould","Theodosius Dobzhansky","Thomas Malthus","Udny Yule","Xingli Giam","Butler Act","Gary Scott","who won the Scopes trial","William Jennings Bryan","adaptationalism","adaptive radiation","allochronic speciation","allopatric speciation","anagenesis","ancestral trait","apomorphy","aptation","background extinction rate","biogeography","biological species concept","Burgess shale","Cambrian explosion","character displacement","chronospecies","cladistics","cladogenesis","comparative methods","continental drift","convergent evolution","Cope's rule","crown group","cryptic species","Deccan traps","derived trait","disruptive seelction","End-Permian extinction","eugenics","evolutionary arms race","exaptation","extinction","extinction rate","fossil record","geologic time scale","ghost lineages","Gondwana","gradualism","Great oxidation event","green beard","group selection","Haldane's rule","Hamilton's Rule","homology","homoplasy","inclusive fitness","island biogeography","island model","isolating mechanism","KT extinction","land bridge","Laurasia","left wall of minimal complexity","mating system","mechanical isolation","meme","mimicry","Modern Synthesis","MRCA","Müllerian mimicry","multifurcation","mutualism","natural selection","net diversification rate","non-independence","outgroup","paleontology","Pangaea","parallel evolution","parapatric speciation","paraphyly","parasitism","parsimony","parthenogenisis","peripatric speciation","phenetics","phylogeny","plesiomorphy","polyphyly","punctuated equilibrium","recapitulation","Red queen hypothesis","refugium","reproductive isolation","reticulate evolution","ring species","RNA world","saltation","spandrel","speciation","speciation rate","species selection","species sorting","stag hunt","stem group","sympatric speciation","symplesiomorphy","synapomorphy","taphonomic bias","taxon","trait","turnover rate","variance","vestigial","vicariance","vicariance biogeography","virulence","allele","allele frequency","Acromyrmex","Amborella","Amborella","ammonite","angiosperm","Anolis","Anolis","Anomalocaris","Archaea","bdelloid rotifers","bonobo","brachiopod","Buchnera","crinoid","Darwin's finches","diatoms","Dimetrodon","Dionaea muscipula","Ediacaran fauna","eubacteria","fig wasp","Gasterosteus aculeatus","Geospizinae","gingko","Hawaiian honeycreepers","HIV","Ichthyornis dispar","isopod","lycophytes","Maiasaura","Plasmodium","red panda","rift lake cichlids","silversword","spiny anteater","Strepsiptera","Thermus aquaticus","Tiktaalik","Tribolium","trilobite","tunicates","Welwischia","Wolbachia","16S","amber fossil","approximate Bayesian computation","Bayes rule","Bayesianism","binomial nomenclature","BLAST","body fossil","bootstrap","chloroplast DNA","CRISPR","fossil","frequentist","holotype","impression fossil","in silico","in situ","in vivo","inbred line","independent contrasts","likelihood","microsatellites","mitochondrial DNA","molecular clock","NCBI","neotype","nuclear DNA","paratype","PCR","posterior","prior","Robert FitzRoy","rock strata","Sanger sequencing","SNP","type specimen"],["general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","local interest","local interest","local interest","local interest","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","microevolution","microevolution","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","tools","tools","tools","tools","tools","tools","tools","tools","tools","tools","tools","tools","tools","tools","tools","tools","tools","tools","tools","tools","tools","tools","tools","tools","tools","tools","tools","tools","tools","tools","tools","tools","tools","tools","tools","tools"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Term<\/th>\n      <th>Type<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":10,"columnDefs":[{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 </div>
@@ -505,7 +439,7 @@ O’Meara, Brian. 2023. <span>“Github Rate Limit.”</span> July 27, 2023.
 
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{o'meara2023,
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{o'meara2023,
   author = {O’Meara, Brian},
   title = {Grad Core Class in Evolutionary Biology, 2023 Edition},
   date = {2023-05-11},
@@ -520,14 +454,15 @@ O’Meara, Brian. 2023. <span>“Grad Core Class in Evolutionary Biology,
   <category>evolution</category>
   <category>core</category>
   <category>EEB511</category>
-  <guid>https://brianomeara.info/posts/evolutioncore2023/index.html</guid>
+  <guid>https://brianomeara.info/posts/evolutioncore2023/</guid>
   <pubDate>Thu, 11 May 2023 04:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Joining Mastodon</title>
   <dc:creator>Brian O&#39;Meara</dc:creator>
-  <link>https://brianomeara.info/posts/joiningmastodon/index.html</link>
+  <link>https://brianomeara.info/posts/joiningmastodon/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -609,7 +544,7 @@ for (i in sequence(number_of_calls)) {
 
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{o'meara2023,
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{o'meara2023,
   author = {O’Meara, Brian},
   title = {Joining {Mastodon}},
   date = {2023-04-30},
@@ -621,14 +556,15 @@ O’Meara, Brian. 2023. <span>“Joining Mastodon.”</span> April 30, 2023.
 <a href="https://brianomeara.info/posts/joiningmastodon">https://brianomeara.info/posts/joiningmastodon</a>.
 </div></div></section></div> ]]></description>
   <category>social media</category>
-  <guid>https://brianomeara.info/posts/joiningmastodon/index.html</guid>
+  <guid>https://brianomeara.info/posts/joiningmastodon/</guid>
   <pubDate>Sun, 30 Apr 2023 04:00:00 GMT</pubDate>
 </item>
 <item>
   <title>An alternative to CRAN for phylogenetics</title>
   <dc:creator>Brian O&#39;Meara</dc:creator>
-  <link>https://brianomeara.info/posts/phylotasticruniverse/index.html</link>
+  <link>https://brianomeara.info/posts/phylotasticruniverse/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -636,7 +572,7 @@ O’Meara, Brian. 2023. <span>“Joining Mastodon.”</span> April 30, 2023.
 <p>For installing R packages, <a href="https://cran.r-project.org/">CRAN</a> is the main place to go. It’s a fantastic free service that checks R packages to make sure they meet standards and then compiles them for multiple architectures. It’s largely a <a href="https://cran.r-project.org/CRAN_team.htm">volunteer effort</a> and is important to keep packages working together. <a href="https://www.bioconductor.org/">Bioconductor</a> is a more specialized repository. Getting a package to pass the checks to go on CRAN has long been a point of pride, and it does lead to higher quality packages, though with odd constraints (the overall package size must be small, all examples must run very quickly, and more).</p>
 <p>However, <em>keeping</em> a package on CRAN is an issue. Requirements keep changing: will this package work on the development version of R on Debian with a clang compiler, Fedora with a gcc compiler, Mac with both arm and x86 chips, Windows, etc. and continue to do so as operating systems, hardware, and compilers change? For example, our <a href="https://cran.r-project.org/web/checks/check_results_hisse.html"><em>hisse</em></a> package was removed briefly from CRAN in spring 2023 (it’s back online) because of an issue where, while the package passed all checks for Mac, Windows, Linux, all R-devel, R-patched, R-release, and R-oldrel, it would generate a warning if compiled using the <code>-Wlto-type-mismatch</code> flag to GCC. Our code hadn’t changed, and this wouldn’t have affected any users, but CRAN gave us two weeks to fix the warning. We didn’t do it on time, so it was archived, which <em>does</em> affect users (making it impossible for most users on Mac or Windows to use it, for example, as they don’t have compilers installed).</p>
 <p>If you are part of an ecosystem, there are further risks. Many phylogenetics packages depend or import <a href="https://cran.r-project.org/web/packages/geiger/index.html"><code>geiger</code></a> – CRAN removed that package, and then two weeks later would have also archived every package that depends on it. Geiger’s authors got it restored in time, but it shows how brittle CRAN’s policies make our community. It’s like the <a href="https://xkcd.com/2347/">Randall Munroe XKCD cartoon</a>:</p>
-<p><img src="https://brianomeara.info/posts/phylotasticruniverse/https:/imgs.xkcd.com/comics/dependency_2x.png" class="img-fluid" alt="XKCD cartoon showing a stack of boxes labeled 'All modern digital infrastructure' carefullly balancing on a small box labeled 'A project some random person in Nebraska has been thanklessly maintaining since 2003'"></p>
+<p><img src="https://imgs.xkcd.com/comics/dependency_2x.png" class="img-fluid" alt="XKCD cartoon showing a stack of boxes labeled 'All modern digital infrastructure' carefullly balancing on a small box labeled 'A project some random person in Nebraska has been thanklessly maintaining since 2003'"></p>
 <p>but with the poor maintainer in Nebraska putting the whole ecosystem at risk if they take two weeks off and there is a new requirement in the interim.</p>
 <p>The nature of academia makes this even more precarious. A student might work on a package for their dissertation and others could find it very useful. There is no guarantee that the student remains in the field: it’s not unusual for someone to go into teaching, or working at a nonprofit, or working for a company, and even the weak incentive of getting more citations is no longer sufficiently relevant for them to volunteer their time to meet changing CRAN standards. Ongoing maintenance would be ideal for the field, but it is a high bar.</p>
 <p>Fortunately, rOpenSci has made an alternative: <a href="https://ropensci.org/r-universe/">r-universe</a>. This creates a place where R packages can be built automatically for different platforms, just as CRAN does, but in nearly real time. If a package is in an open source repository (the best known is GitHub), and the r-universe instance knows about it, it will try to compile it. Thus, even if something goes off CRAN, students taking a class can likely still install it from r-universe.</p>
@@ -664,7 +600,7 @@ O’Meara, Brian. 2023. <span>“Joining Mastodon.”</span> April 30, 2023.
 
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{o'meara2023,
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{o'meara2023,
   author = {O’Meara, Brian},
   title = {An Alternative to {CRAN} for Phylogenetics},
   date = {2023-04-23},
@@ -678,14 +614,15 @@ Phylogenetics.”</span> April 23, 2023. <a href="https://brianomeara.info/posts
   <category>R</category>
   <category>rbloggers</category>
   <category>reproducibility</category>
-  <guid>https://brianomeara.info/posts/phylotasticruniverse/index.html</guid>
+  <guid>https://brianomeara.info/posts/phylotasticruniverse/</guid>
   <pubDate>Sun, 23 Apr 2023 04:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Fossils do not help fix diversification parameter estimates</title>
   <dc:creator>Brian O&#39;Meara</dc:creator>
-  <link>https://brianomeara.info/posts/fossilsdonothelp/index.html</link>
+  <link>https://brianomeara.info/posts/fossilsdonothelp/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -705,7 +642,7 @@ Phylogenetics.”</span> April 23, 2023. <a href="https://brianomeara.info/posts
 
 
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{o'meara2023,
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{o'meara2023,
   author = {O’Meara, Brian},
   title = {Fossils Do Not Help Fix Diversification Parameter Estimates},
   date = {2023-04-22},
@@ -723,7 +660,7 @@ Parameter Estimates.”</span> April 22, 2023. <a href="https://brianomeara.info
   <category>diversification</category>
   <category>simulation</category>
   <category>publication</category>
-  <guid>https://brianomeara.info/posts/fossilsdonothelp/index.html</guid>
+  <guid>https://brianomeara.info/posts/fossilsdonothelp/</guid>
   <pubDate>Sat, 22 Apr 2023 04:00:00 GMT</pubDate>
 </item>
 </channel>

@@ -10,7 +10,58 @@
 <atom:link href="https://brianomeara.info/blog.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.4.549</generator>
-<lastBuildDate>Sat, 28 Oct 2023 04:00:00 GMT</lastBuildDate>
+<lastBuildDate>Thu, 29 Feb 2024 05:00:00 GMT</lastBuildDate>
+<item>
+  <title>Dentist for likelihood</title>
+  <dc:creator>Brian O&#39;Meara</dc:creator>
+  <link>https://brianomeara.info/posts/dentist/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>If you want to estimate the uncertainty in parameter estimates, including potential correlation issues between parameters, you can use our new package <code>dentist</code> (<a href="https://doi.org/10.1111/2041-210X.14297">Boyko and O’Meara, 2024</a>). It can take a function that computes a likelihood and explore parameters around it to get uncertainty, including varying by multiple parameters at once to help detect ridges.</p>
+<p>If you don’t know <em>why</em> you want this, read on.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://brianomeara.info/posts/dentist/images/Fig3b.png" class="img-fluid figure-img" alt="Two univariate scatterplots showing a mixture of black points near the optimum and gray further out. It also has a bivariate plot showing a tilted ellipse with black points in the good enough region."></p>
+<figcaption>Figure 3b from the <a href="https://doi.org/10.1111/2041-210X.14297">dentist</a> paper, showing the focal region in black, maximum likelihood estimate in red, and other sampled points too far from the optimum in gray</figcaption>
+</figure>
+</div>
+<p>There are many R functions that use likelihood to fit models (<code>OUwie</code>, <code>geiger</code>, <code>corHMM</code>, <code>phytools</code>, and many more), which are often compared with measures like the Akaike Information Criterion (AIC). Jeremy Beaulieu and I (among <em>many</em> others) have long pushed for for people to focus on parameter estimates rather than just which model fits best. An Ornstein-Uhlenbeck model with two optima might fit better than a model with one, but while it is statistically supported it might not be biologically very relevant if the optima are close and the tip values range much more widely due to a low pull parameter. If different species range in size from 2 to 30 mm, two optima of 5 and 7 mm rather than one of 6 mm might not matter much in practice.</p>
+<p>But even when people report parameter estimates, they often don’t report uncertainty in those estimates. This is deeply weird. We’re used to seeing “42 (CI 37-52) mm” or “42 ± 9 mm” but in comparative methods, people will only report “42 mm” (or, more commonly, “42” since we often omit units, too?!).</p>
+<p>A major reason for this is lack of tools. Some software does not calculate uncertainty at all. Some does, but only using an approximation of curvature at the peak itself (methods using the Hessian). Others do it with a Bayesian approach, which has some advantages, but requires setting a prior, and which can hide ridges in the likelihood surface if the prior is uniform, lognormal, normal, exponential, or anything else that is not perfectly flat for all values.</p>
+<p>Dentist is a new approach. It has something of the feel of MCMC, but rather than traversing a surface of likelihood times prior, it explores a “dented” likelihood surface to find the contour with points far enough from the optimum to represent a confidence interval. Imagine a likelihood surface is a mountain peak; we dent it so that it looks like a crater, and we try to find the rim. We have algorithms to do this with different kinds of moves if needed.</p>
+<p>When it is done, the user gets not only the best parameter estimate but also a visualization of the confidence region around this space and a table with the parameter bounds. They can thus see ridges, as well as get a good estimate based on looking at the actual surface rather than just an estimate at the discovered peak.</p>
+<p>For more details on why to use it, how to use it, and how it can fail, please see the <a href="https://doi.org/10.1111/2041-210X.14297">paper</a>.</p>
+<p>It was a joy working with James Boyko on this. He was essential for pushing it forward, testing methods, writing, and so much more.</p>
+<p>Our paper has the usual boilerplate about thanking the reviewers and associate editor (Natalie Cooper). But in this case it is genuine. The paper, and method, improved through peer review (most essentially by encouraging us to let the threshold be set based on the number of parameters rather than left entirely up to the users, but in other ways, too, including pushing us to compare more directly with other approaches). There are lots of issues with peer review (biases in the reviews, unpaid expert efforts for obscenely profitable companies, delays in publication, impact selection, and more) but it really can help sometimes, as it did here.</p>
+<p>And finally, thank you to the US National Science Foundation (grant DEB-1916539) and the Eric and Wendy Schmidt AI in Science Postdoctoral Fellowship, a Schmidt Futures programme.</p>
+<hr>
+<p>To subscribe, go to <a href="https://brianomeara.info/blog.xml" class="uri">https://brianomeara.info/blog.xml</a> in an RSS reader.</p>
+
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{o'meara2024,
+  author = {O’Meara, Brian},
+  title = {Dentist for Likelihood},
+  date = {2024-02-29},
+  url = {https://brianomeara.info/posts/dentist},
+  langid = {en}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-o'meara2024" class="csl-entry quarto-appendix-citeas">
+O’Meara, Brian. 2024. <span>“Dentist for Likelihood.”</span> February
+29, 2024. <a href="https://brianomeara.info/posts/dentist">https://brianomeara.info/posts/dentist</a>.
+</div></div></section></div> ]]></description>
+  <category>R</category>
+  <category>Rstats</category>
+  <category>likelihood</category>
+  <category>uncertainty</category>
+  <category>publication</category>
+  <guid>https://brianomeara.info/posts/dentist/</guid>
+  <pubDate>Thu, 29 Feb 2024 05:00:00 GMT</pubDate>
+</item>
 <item>
   <title>13,000 page site with Rmarkdown and targets</title>
   <dc:creator>Brian O&#39;Meara</dc:creator>

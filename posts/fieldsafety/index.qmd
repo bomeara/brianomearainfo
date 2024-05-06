@@ -1,0 +1,256 @@
+---
+title: "Field Safety"
+description: "Info on field safety protocols"
+author: "Brian O'Meara"
+date: "10/26/2023"
+citation: true
+categories: [field safety, fieldwork, safety, NSF, inclusion] 
+draft: false
+---
+
+Over the 2023-2024 academic year, a committee in UTK EEB worked on field safety. This involves things like avoiding snakebite and traffic accidents (see Richard Conniff's memorial to fallen naturalists(https://strangebehaviors.wordpress.com/2011/01/14/the-wall-of-the-dead/)) but also social factors. I am putting some information from this here to help others access it, but note it is a team effort.
+
+We went through a set of readings. Some relevant ones in this area (*more to be added soon*) include:
+
+* Demery & Pipkin (2020): <https://www.nature.com/articles/s41559-020-01328-5>
+* Rudzki et al. (2022): <https://besjournals.onlinelibrary.wiley.com/doi/10.1111/2041-210X.13970>
+* Blonder (2022): <https://esajournals.onlinelibrary.wiley.com/doi/full/10.1002/bes2.2031>
+* Clancy et al. (2014): <https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0102172>
+
+To help with this, several of us made a checklist. It is below. Feel free to adapt it for your own use.
+
+**Work travel checklist**
+
+**Discussions to have before going**
+
+-   Introductions between all participants
+
+-   Comfort levels with risk, activities
+
+    -   Discussing criteria for deciding when/if to end fieldwork;
+        students (everyone) should be empowered to speak up about
+        conditions and expectations
+
+-   Health needs, accessibility needs, safety needs of all participants,
+    medication needs
+
+-   Financial arrangements: how paying for things works in the field:
+    who is paying for what and how
+
+-   Housing arrangement discussions
+
+-   Personal space, downtime, bathroom needs / procedures
+
+-   Bathrooms: people should use the one they feel most comfortable
+    with; it is no one on the team's role to police others' bathroom
+    use. Note that various locations may have different policies; it is
+    up to individuals to assess these for themselves.
+
+-   Culture, language, and etiquette of the location, especially
+    internationally
+
+-   Weapons in the field
+
+    -   People you will encounter in the field will be armed (and think
+        about PTSD)
+
+    -   Note UTK firearms policy if any participant may be considering
+        carrying:
+        https://policy.tennessee.edu/policy/sa0875-firearms/(https://policy.tennessee.edu/policy/sa0875-firearms/)
+
+    -   UTK policies for weapons (e.g. knives, pepper spray): UTK
+        Student Code of
+        Conduct(https://studentconduct.utk.edu/wp-content/uploads/sites/53/2021/08/2m3k1ac-Fall-StudentCodeOfConduct_WEB.pdf).
+        Carrying a knife in the field can be useful if allowable
+
+    -   Note policies of various places about firearms (GSMNP does not
+        allow firearms, for example)
+
+    -   Discuss safety in general
+
+-   Possible hazards at site
+
+    -   List the ones possible: could be human factors (civil unrest),
+        wildlife, falling branches, driving risks, etc.
+
+**To resolve months in advance**
+
+-   Vaccination requirements
+
+-   Research permits for site
+
+-   Import permits
+
+-   Chemical permits: look at EHS policies for chemical safety
+
+-   Visas (note that participants may be citizens of different
+    countries leading to different requirements)
+
+-   State department guidelines for various countries
+
+-   California travel warnings for certain states
+
+-   LGBTQ travel advisories for non-US travel: <https://travel.state.gov/content/travel/en/international-travel/before-you-go/travelers-with-special-considerations/lgbtqi.html>
+
+-   Travel insurance: <https://cge.utk.edu/intlsos/> if
+    university-sponsored travel (ask EEB for funding if you are paying
+    on your own)
+
+-   UTK travel authorization form (extra steps if international;​​
+    <https://cge.utk.edu/travel/>)
+
+-   Have discussion about health needs, accessibility needs, safety
+    needs of all participants, medication needs
+
+-   For air travel, documentation required for boarding (think about
+    how equipment and chemicals will be shipped)
+
+-   Request travel advance from the department
+
+**At least a month in advance of field work**
+
+-   Daily communication plan established
+
+-   Hazard plan for each site established
+
+    -   Consider all hazards, including but not limited to automobiles
+        (wear seat belts!), landslides, flooding, volcanic eruptions,
+        earthquakes, extreme heat, wildfires, civil unrest, protests,
+        animals, plants, diseases, racism, sexism
+
+    -   Recreational hazards: swimming in ocean, ziplining, rafting,
+        etc.
+
+-   Field research letter from the department
+
+-   Notify residents near the field site about plans, get permissions
+    if possible - in letter, email, phone, or go door to door
+
+-   Check if site or travel route has a recent history of incidents -
+    for example, is it a possible Sundown Town? What places are not safe
+    to stop for gas?
+
+    -   <https://justice.tougaloo.edu/sundown-towns/using-the-sundown-towns-database/state-map/(https://justice.tougaloo.edu/sundown-towns/using-the-sundown-towns-database/state-map/>)
+
+    -   Check for short term events that may cause risks, delays, etc.:
+        anything from a parade to roads washing out to an event that
+        could get heated
+
+-   Assess need for satellite phones or other communication devices
+    that work without cell service
+
+-   Appropriate field clothing (footwear, sun protection)
+
+-   Make sure there are enough vehicles (UTK fleet:
+    <https://fleetmanagement.utk.edu/>)
+
+-   Get book of receipts (for buying things that don't usually come
+    with receipts)
+
+-   Have protocol for saving receipts of all kinds
+
+-   Consider travel advance, especially for longer trips.
+
+-   Mileage logbook
+
+-   List of emergency contacts, including:
+
+    -   Local contact info for emergency assistance (911 isn't global);
+        International SOS card <https://cge.utk.edu/intlsos/>
+
+    -   Contacts of others on the trip
+
+    -   UTK assistance:
+
+        -   Travel office
+
+        -   Title IX office (for harassment):
+            <https://titleix.utk.edu/>
+
+        -   Workmans' compensation (for getting coverage for injuries
+            during work/travel):
+            <https://riskmanagement.tennessee.edu/workers-compensation/>
+
+**Before leaving**
+
+-   Project specific equipment: personal gear, safety gear (hard hats,
+    gloves, etc.), scientific equipment, sharpies, baggies, etc. Spell
+    them all out as a separate checklist specific to this
+    activity.
+
+-   Cell phones charged
+
+-   Chargers
+
+-   Sufficient water [(0.5-1 liters per person per hour in the
+    field)](https://www.rei.com/learn/expert-advice/hydrate.html)
+
+-   First aid kit on board (comprehensive, not just bandaids. Handle
+    sprains, pain, deep cuts, etc.)
+
+-   Sunscreen
+
+-   Car magnets
+
+-   Food/snacks
+
+-   Hygiene products
+
+    -   Hand sanitizer
+
+    -   Soap
+
+    -   Toilet paper, trowel for digging hole (when allowed in the
+        field)
+
+    -   Tampons/pads
+
+-   Personal medication (brought by each individual)
+
+    -   Allergy medication
+
+    -   Painkillers
+
+    -   Digestive medications
+
+-   Flashlights (spare batteries?)
+
+-   Emergency tool kit (pliers, hammer, rope, screwdriver, pry bar,
+    etc)
+
+-   GPS
+
+-   Signaling device (Garmin InReach, Motorola Defy Satellite Link, or
+    similar) if going to an area without good cell coverage
+
+-   Trip plan (let someone know where you are, when you'll be back, how
+    often you'll check in)
+
+**Handling problems when or after they arise**
+
+-   Reach out to the head or associate heads
+
+-   Title IX (for sexual harassment, stalking, or similar):
+    <https://titleix.utk.edu/>
+
+-   Office of Equity and Diversity (racism, sexism, accessibility):
+    <https://oed.utk.edu/>
+
+-   Office of Environmental Health & Safety (emergency response, safety
+    issues):
+    <https://ehs.utk.edu/>
+
+-   Ombudsperson (confidential advice):
+   <https://ombuds.utk.edu/>
+
+-   Office of Research Integrity (authorship conflicts, responsible
+    conduct of research):
+    <https://research.utk.edu/research-integrity/>
+
+-   NSF hotline:
+    <https://oig.nsf.gov/contact/hotline>
+
+
+___
+
+To subscribe, go to <https://brianomeara.info/blog.xml> in an RSS reader.

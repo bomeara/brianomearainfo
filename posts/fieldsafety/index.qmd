@@ -2,7 +2,7 @@
 title: "Field Safety"
 description: "Info on field safety protocols"
 author: "Brian O'Meara"
-date: "10/26/2023"
+date: "05/08/2024"
 citation: true
 categories: [field safety, fieldwork, safety, NSF, inclusion] 
 draft: false

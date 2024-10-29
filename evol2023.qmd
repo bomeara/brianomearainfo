@@ -6,7 +6,14 @@ On June 24, 2023, I gave a talk as the Society of Systematic Biologists past pre
 
 ### Talk recording
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/2lbfjtOVntA?start=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/2lbfjtOVntA?start=533" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+### Jump to sections of talk:
+
+* [Species delimitation](https://youtu.be/2lbfjtOVntA?si=m5AJqdKN8qpSfOcv&t=578): Naming a species and one of the first tests of the US Endangered Species Act
+* [Misconduct in our field](https://youtu.be/2lbfjtOVntA?si=TFu8H-1W_kFiQ0Hl&t=1000): How calling out misconduct, and a lot of work by many people, led to changes
+* [Eponyms in our field](https://youtu.be/2lbfjtOVntA?si=cubXiMqz0qWFTn5g&t=1883): Issues with naming awards (and more) after people
+* [Eugenics and our past and current role in it](https://youtu.be/2lbfjtOVntA?si=fe1U_V8XokdHO1Zl&t=2253): How our field has been involved in eugenics and how long it has persisted after its supposed end
 
 ### Talk slides
 

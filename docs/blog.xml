@@ -9,7 +9,7 @@
 <link>https://brianomeara.info/blog.html</link>
 <atom:link href="https://brianomeara.info/blog.xml" rel="self" type="application/rss+xml"/>
 <description></description>
-<generator>quarto-1.4.554</generator>
+<generator>quarto-1.5.57</generator>
 <lastBuildDate>Wed, 08 May 2024 04:00:00 GMT</lastBuildDate>
 <item>
   <title>Field Safety</title>
@@ -155,11 +155,11 @@
   author = {O’Meara, Brian},
   title = {Field {Safety}},
   date = {2024-05-08},
-  url = {https://brianomeara.info/posts/fieldsafety},
+  url = {https://brianomeara.info/posts/fieldsafety/},
   langid = {en}
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-o'meara2024" class="csl-entry quarto-appendix-citeas">
-O’Meara, Brian. 2024. <span>“Field Safety.”</span> May 8, 2024. <a href="https://brianomeara.info/posts/fieldsafety">https://brianomeara.info/posts/fieldsafety</a>.
+O’Meara, Brian. 2024. <span>“Field Safety.”</span> May 8, 2024. <a href="https://brianomeara.info/posts/fieldsafety/">https://brianomeara.info/posts/fieldsafety/</a>.
 </div></div></section></div> ]]></description>
   <category>field safety</category>
   <category>fieldwork</category>
@@ -205,12 +205,12 @@ O’Meara, Brian. 2024. <span>“Field Safety.”</span> May 8, 2024. <a href="h
   author = {O’Meara, Brian},
   title = {Dentist for Likelihood},
   date = {2024-02-29},
-  url = {https://brianomeara.info/posts/dentist},
+  url = {https://brianomeara.info/posts/dentist/},
   langid = {en}
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-o'meara2024" class="csl-entry quarto-appendix-citeas">
 O’Meara, Brian. 2024. <span>“Dentist for Likelihood.”</span> February
-29, 2024. <a href="https://brianomeara.info/posts/dentist">https://brianomeara.info/posts/dentist</a>.
+29, 2024. <a href="https://brianomeara.info/posts/dentist/">https://brianomeara.info/posts/dentist/</a>.
 </div></div></section></div> ]]></description>
   <category>R</category>
   <category>Rstats</category>
@@ -348,12 +348,12 @@ O’Meara, Brian. 2024. <span>“Dentist for Likelihood.”</span> February
   author = {O’Meara, Brian},
   title = {13,000 Page Site with {Rmarkdown} and Targets},
   date = {2023-10-28},
-  url = {https://brianomeara.info/posts/collegetables},
+  url = {https://brianomeara.info/posts/collegetables/},
   langid = {en}
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-o'meara2023" class="csl-entry quarto-appendix-citeas">
 O’Meara, Brian. 2023. <span>“13,000 Page Site with Rmarkdown and
-Targets.”</span> October 28, 2023. <a href="https://brianomeara.info/posts/collegetables">https://brianomeara.info/posts/collegetables</a>.
+Targets.”</span> October 28, 2023. <a href="https://brianomeara.info/posts/collegetables/">https://brianomeara.info/posts/collegetables/</a>.
 </div></div></section></div> ]]></description>
   <category>github</category>
   <category>software</category>
@@ -397,12 +397,12 @@ Targets.”</span> October 28, 2023. <a href="https://brianomeara.info/posts/col
   author = {O’Meara, Brian},
   title = {SSB {Code} of {Ethics}},
   date = {2023-10-26},
-  url = {https://brianomeara.info/posts/codeofethics},
+  url = {https://brianomeara.info/posts/codeofethics/},
   langid = {en}
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-o'meara2023" class="csl-entry quarto-appendix-citeas">
 O’Meara, Brian. 2023. <span>“SSB Code of Ethics.”</span> October 26,
-2023. <a href="https://brianomeara.info/posts/codeofethics">https://brianomeara.info/posts/codeofethics</a>.
+2023. <a href="https://brianomeara.info/posts/codeofethics/">https://brianomeara.info/posts/codeofethics/</a>.
 </div></div></section></div> ]]></description>
   <category>code of ethics</category>
   <category>SSB</category>
@@ -453,12 +453,12 @@ Been alive for what percentage of time since:
   author = {O’Meara, Brian},
   title = {Fraction of History},
   date = {2023-09-01},
-  url = {https://brianomeara.info/posts/percentageage},
+  url = {https://brianomeara.info/posts/percentageage/},
   langid = {en}
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-o'meara2023" class="csl-entry quarto-appendix-citeas">
 O’Meara, Brian. 2023. <span>“Fraction of History.”</span> September 1,
-2023. <a href="https://brianomeara.info/posts/percentageage">https://brianomeara.info/posts/percentageage</a>.
+2023. <a href="https://brianomeara.info/posts/percentageage/">https://brianomeara.info/posts/percentageage/</a>.
 </div></div></section></div> ]]></description>
   <category>history</category>
   <category>mastodon</category>
@@ -494,12 +494,12 @@ Error: HTTP error 401.
   author = {O’Meara, Brian},
   title = {Github Rate Limit},
   date = {2023-07-27},
-  url = {https://brianomeara.info/posts/githubratelimit},
+  url = {https://brianomeara.info/posts/githubratelimit/},
   langid = {en}
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-o'meara2023" class="csl-entry quarto-appendix-citeas">
 O’Meara, Brian. 2023. <span>“Github Rate Limit.”</span> July 27, 2023.
-<a href="https://brianomeara.info/posts/githubratelimit">https://brianomeara.info/posts/githubratelimit</a>.
+<a href="https://brianomeara.info/posts/githubratelimit/">https://brianomeara.info/posts/githubratelimit/</a>.
 </div></div></section></div> ]]></description>
   <category>github</category>
   <category>software</category>
@@ -652,12 +652,12 @@ O’Meara, Brian. 2023. <span>“Github Rate Limit.”</span> July 27, 2023.
   author = {O’Meara, Brian},
   title = {Grad Core Class in Evolutionary Biology, 2023 Edition},
   date = {2023-05-11},
-  url = {https://brianomeara.info/posts/evolutioncore2023},
+  url = {https://brianomeara.info/posts/evolutioncore2023/},
   langid = {en}
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-o'meara2023" class="csl-entry quarto-appendix-citeas">
 O’Meara, Brian. 2023. <span>“Grad Core Class in Evolutionary Biology,
-2023 Edition.”</span> May 11, 2023. <a href="https://brianomeara.info/posts/evolutioncore2023">https://brianomeara.info/posts/evolutioncore2023</a>.
+2023 Edition.”</span> May 11, 2023. <a href="https://brianomeara.info/posts/evolutioncore2023/">https://brianomeara.info/posts/evolutioncore2023/</a>.
 </div></div></section></div> ]]></description>
   <category>teaching</category>
   <category>evolution</category>
@@ -757,12 +757,12 @@ for (i in sequence(number_of_calls)) {
   author = {O’Meara, Brian},
   title = {Joining {Mastodon}},
   date = {2023-04-30},
-  url = {https://brianomeara.info/posts/joiningmastodon},
+  url = {https://brianomeara.info/posts/joiningmastodon/},
   langid = {en}
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-o'meara2023" class="csl-entry quarto-appendix-citeas">
 O’Meara, Brian. 2023. <span>“Joining Mastodon.”</span> April 30, 2023.
-<a href="https://brianomeara.info/posts/joiningmastodon">https://brianomeara.info/posts/joiningmastodon</a>.
+<a href="https://brianomeara.info/posts/joiningmastodon/">https://brianomeara.info/posts/joiningmastodon/</a>.
 </div></div></section></div> ]]></description>
   <category>social media</category>
   <guid>https://brianomeara.info/posts/joiningmastodon/</guid>
@@ -813,12 +813,12 @@ O’Meara, Brian. 2023. <span>“Joining Mastodon.”</span> April 30, 2023.
   author = {O’Meara, Brian},
   title = {An Alternative to {CRAN} for Phylogenetics},
   date = {2023-04-23},
-  url = {https://brianomeara.info/posts/phylotasticruniverse},
+  url = {https://brianomeara.info/posts/phylotasticruniverse/},
   langid = {en}
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-o'meara2023" class="csl-entry quarto-appendix-citeas">
 O’Meara, Brian. 2023. <span>“An Alternative to CRAN for
-Phylogenetics.”</span> April 23, 2023. <a href="https://brianomeara.info/posts/phylotasticruniverse">https://brianomeara.info/posts/phylotasticruniverse</a>.
+Phylogenetics.”</span> April 23, 2023. <a href="https://brianomeara.info/posts/phylotasticruniverse/">https://brianomeara.info/posts/phylotasticruniverse/</a>.
 </div></div></section></div> ]]></description>
   <category>R</category>
   <category>rbloggers</category>
@@ -855,12 +855,12 @@ Phylogenetics.”</span> April 23, 2023. <a href="https://brianomeara.info/posts
   author = {O’Meara, Brian},
   title = {Fossils Do Not Help Fix Diversification Parameter Estimates},
   date = {2023-04-22},
-  url = {https://brianomeara.info/posts/fossilsdonothelp},
+  url = {https://brianomeara.info/posts/fossilsdonothelp/},
   langid = {en}
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-o'meara2023" class="csl-entry quarto-appendix-citeas">
 O’Meara, Brian. 2023. <span>“Fossils Do Not Help Fix Diversification
-Parameter Estimates.”</span> April 22, 2023. <a href="https://brianomeara.info/posts/fossilsdonothelp">https://brianomeara.info/posts/fossilsdonothelp</a>.
+Parameter Estimates.”</span> April 22, 2023. <a href="https://brianomeara.info/posts/fossilsdonothelp/">https://brianomeara.info/posts/fossilsdonothelp/</a>.
 </div></div></section></div> ]]></description>
   <category>fossil</category>
   <category>R</category>

@@ -1,0 +1,169 @@
+---
+title: "Brian C. O'Meara CV"
+author: "bomeara@utk.edu"
+date: today
+date-format: medium
+format: pdf
+---
+
+```{r, echo=FALSE, cache=TRUE}
+library(scholar)
+library(rorcid)
+library(rcrossref)
+library(cranlogs)
+
+
+### From bibr: https://github.com/edonnachie/bibr/blob/master/R/doi_parse.R
+
+#' https://github.com/regexhq/doi-regex
+#' http://www.doi.org/doi_handbook/2_Numbering.html#2.2
+doiRegex <- '(10[.][0-9]{4,}(?:[.][0-9]+)*/(?:(?![%"#? ])\\S)+)'
+
+#' Test whether string contains a doi
+#'
+#' @param string String to test
+#' @return Logical indicator TRUE (matches doi specification) or FALSE
+#' @export
+is_doi <- function(string) {
+  grepl(doiRegex, string, perl=TRUE)
+}
+
+
+#' Extract all DOI from a character object
+#'
+#'
+#' @param string String from which to extract all doi entries
+#' @param as_vector A single logical value. If TRUE (default), calls `unlist` to return to a single character vector. If FALSE, returns a list of character vectors, one for each element of `string`
+#' @export
+#' @importFrom stringi stri_extract_all
+extract_doi <- function(string, as_vector = TRUE) {
+  out <- stringi::stri_extract_all_regex(string, pattern = doiRegex)
+  if (as_vector)
+    out <- unlist(out)
+   out <- doi_strip_url(unique(gsub(',','',out))) # This line by Brian O'Meara
+  return(out)
+}
+
+
+#' Remove the URL part (i.e. "http://dx.doi.org/") from a doi
+#'
+#' @param doi DOI, with or without URL part
+#' @return string with URL part removed
+#' @export
+doi_strip_url <- function(doi){
+  sub("http://dx.doi.org/", "", doi)
+}
+
+try_unname_unlist <- function(x) {
+	result <- ""
+	try({
+		result <- unname(unlist(x))
+	}, silent=TRUE)
+	return(result)
+}
+
+unique_no_NA <- function(x) {
+	unique(x[!is.na(x)])
+}
+
+scholar.id="vpjEkQwAAAAJ"
+orcid.id="0000-0002-0337-5997"
+g.profile <- scholar::get_profile(scholar.id)
+scholar_pubs <- scholar::get_publications(scholar.id)
+orcid_pubs <- rorcid::orcid_works(orcid.id, format="application/json")[[1]][[1]]
+
+orcid_pubs$dois <- NA
+for (i in sequence(nrow(orcid_pubs))) {
+	all_dois <- unique_no_NA(c(extract_doi(orcid_pubs$url.value[i]), extract_doi(try_unname_unlist(orcid_pubs$`external-ids.external-id`[i][[1]][,'external-id-value']))))
+	if(length(all_dois) > 0) {
+		orcid_pubs$dois[i] <- all_dois[1]
+	}
+}
+
+orcid_pubs <- orcid_pubs[!is.na(orcid_pubs$dois),]
+orcid_pubs <- orcid_pubs[!duplicated(orcid_pubs$dois),]
+
+orcid_pubs_preprints <- subset(orcid_pubs, grepl("xiv", orcid_pubs$`journal-title.value`, ignore.case=TRUE))
+orcid_pubs_not_preprints <- subset(orcid_pubs, !grepl("xiv", orcid_pubs$`journal-title.value`, ignore.case=TRUE))
+
+
+publications_formatted <- rcrossref::cr_cn(orcid_pubs_not_preprints$dois, format='text', style='apa')
+
+preprints_formatted <- rcrossref::cr_cn(orcid_pubs_preprints$dois, format='text', style='apa')
+
+ouwie <- sum(cran_downloads(package = "OUwie", from = "2001-01-01", to = Sys.Date())$count, na.rm = TRUE)
+hisse <- sum(cran_downloads(package = "hisse", from = "2001-01-01", to = Sys.Date())$count, na.rm = TRUE)
+corHMM <- sum(cran_downloads(package = "corHMM", from = "2001-01-01", to = Sys.Date())$count, na.rm = TRUE)
+
+# lots not on CRAN, too, and this only tracks rstudio
+
+
+```
+
+# Personal Information
+
+- **Name:** Brian O'Meara
+- **Email:** bomeara@utk.edu
+- **Website:** [brianomeara.info](https://www.brianomeara.info)
+- **GitHub:** <https://github.com/bomeara>
+
+
+# Research
+
+I address questions in evolutionary biology through development, implementation, and application of new phylogenetic methods. These include approaches for examining the process of continuous trait evolution (rate, optimal values, and other factors), species delimitation, phylogeography, diversification analyses, biogeography, and more. I also collaborate extensively with empiricists, including some of my own students. My R packages have been downloaded over `r ouwie + hisse + corHMM` times.
+
+# Education
+
+* University of California Davis: PhD (2008) in Population Biology. Advisors: Mike Sanderson, Phil Ward, Michael Turelli
+
+* Harvard University: Bachelors (magna cum laude), with highest honors in
+Biology (2001)
+
+# Employment
+
+* 2019-Present: **Professor**, Dept. of Ecology & Evolutionary Biology, University of Tennessee, Knoxville, TN
+
+* 2016-2022: **Associate Head**, Dept. of Ecology and Evolutionary Biology, University of Tennessee, Knoxville, TN
+
+* 2016-2017: **Associate Director**, National Institute for Mathematical and Biological Synthesis (NIMBioS), University of Tennessee, Knoxville, TN
+
+* 2015-2019: **Associate Professor**, Dept. of Ecology & Evolutionary Biology, University of Tennessee, Knoxville, TN
+
+* 2009-2015: **Assistant Professor**, Dept. of Ecology and Evolutionary Biology, University of Tennessee, Knoxville, TN
+
+* 2007-2009: **Postdoc**, National Evolutionary Synthesis Center, Durham, NC
+
+# Publications
+
+According to Google Scholar, my work has been cited `r g.profile$total_cites` times, and my h-index is `r g.profile$h_index`. I use a stringent criterion for when I get authorship -- I have to actively make a significant contribution to the research and writing to merit authorship (for example, not all postdoc or grad student projects in my lab have me as a coauthor, even if I helped direct some of the research). 
+
+
+`r paste(unlist(publications_formatted), collapse = "\n\n")`
+
+
+# Preprints
+
+`r paste(unlist(preprints_formatted), collapse = "\n\n")`
+
+# Teaching
+
+Our standard load is to have three substantial courses and one small course (like a reading group) over a two year period (but teaching every semester). I have been teaching slightly over this (with my agreement) for the past few years.
+
+## Current
+
+* Macroevolution (EEB 464): An undergraduate or early grad student course on "macroevolution" which includes everything from spandrels to genomes. I created this course as an assistant professor; its enrollment has grown and now has 40 students. I currently teach it every year; its modality is asynchronous online. I have a mixture of recorded lectures, readings, videos from others, software demos, and more.
+* Core Evolution (EEB 509): An introduction to evolution: required for all grad students in UTK EEB, and often taken by students in related departments. It fulfills part of the background knowledge part of their candidacy exam. Each session is typically a mixture of a brief introductory lecture to a topic, then a longer full class discussion (including think-pair-share) of one or more papers previously assigned on that topic. Typically 10-20 students.
+
+## Past
+
+* PhyloMeth: Partially supported by an NSF CAREER grant, a class that focuses on phylogenetics, with a focus on methods for using trees. The capstone was students developing a method (tuned to the starting level of the students). Materials are available on <phylometh.info>. 
+* Speciation reading group: Grad students, postdocs, and faculty meet weekly to discuss papers on speciation (or related topics).
+* Introduction to Biology (BIO 130 or 150): Large (150-200 student) enrollment classes. 
+* Various workshops on comparative methods and R (e.g., at NIMBioS, NESCent, Friday Harbor, Mathematical Biosciences Institute (MBI), scientific conferences, etc.). Easily over a thousand students have taken these workshops.
+* Group lab meetings (3-4 evolutionary biology labs meeting jointly), counted as a graduate seminar. 
+
+# Funding
+
+While my lab infrastructure is fairly cheap (computers, whiteboards, and markers), paying humanely for people isn't. Fortunately, I have been able to secure funding for my lab (see below). As with my listing of publications, this does not include funding earned by students or postdocs in my lab (GRFPs, postdoc fellowships, research funds, etc.) -- those go on their CVs. 
+
+* 

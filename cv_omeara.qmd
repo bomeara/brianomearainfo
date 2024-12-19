@@ -97,16 +97,9 @@ corHMM <- sum(cran_downloads(package = "corHMM", from = "2001-01-01", to = Sys.D
 
 # lots not on CRAN, too, and this only tracks rstudio
 
+total_funding <- 193401 + 738297 + 148101 + 520000 + 340000 + 393074 + 98252 + 138590 + 132345
 
 ```
-
-# Personal Information
-
-- **Name:** Brian O'Meara
-- **Email:** bomeara@utk.edu
-- **Website:** [brianomeara.info](https://www.brianomeara.info)
-- **GitHub:** <https://github.com/bomeara>
-
 
 # Research
 
@@ -162,8 +155,76 @@ Our standard load is to have three substantial courses and one small course (lik
 * Various workshops on comparative methods and R (e.g., at NIMBioS, NESCent, Friday Harbor, Mathematical Biosciences Institute (MBI), scientific conferences, etc.). Easily over a thousand students have taken these workshops.
 * Group lab meetings (3-4 evolutionary biology labs meeting jointly), counted as a graduate seminar. 
 
-# Funding
+# External Funding
 
-While my lab infrastructure is fairly cheap (computers, whiteboards, and markers), paying humanely for people isn't. Fortunately, I have been able to secure funding for my lab (see below). As with my listing of publications, this does not include funding earned by students or postdocs in my lab (GRFPs, postdoc fellowships, research funds, etc.) -- those go on their CVs. 
+While my lab infrastructure is fairly cheap (computers, whiteboards, and markers), paying humanely for people isn't. Fortunately, I have been able to secure $`r formatC(total_funding, format="d", big.mark=",")` funding for my institution (see below). As with my listing of publications, this does not include funding earned by students or postdocs in my lab (GRFPs, DDIGs, postdoc fellowships like one from the Encyclopedia of Life, research funds, etc.) -- those go on their CVs. Funding indicated is that going to my institution, not necessarily the total amount of the grant.
 
-* 
+* 2019-2024: "Collaborative Research:  Novel framework for estimating continuously-varying diversification rates." NSF DEB, Systematics & Biodiversity Science. $193,401
+* 2015-2021: "CAREER: Reducing barriers for comparative methods." NSF DEB, Phylogenetic Systematics. $738,297
+* 2015-2019: "Collaborative Research: ABI Development: An open infrastructure to disseminate phylogenetic knowledge." NSF DBI, Advances in Bioinformatics. $148,101
+* 2014-2019: "Population genetics-based codon models." NSF DEB, Genetic Mechanisms, Information Technology Researc, Cross-BIO Activities, Systematics & Biodiversity Sci, Algorithmic Foundations. $520,000
+* 2013-2017: "Collaborative Research: Phylogeographic Inference Using Approximated Likelihoods." NSF DEB, Phylogenetic Systematics. $340,000.
+* 2012-2017: "Historical naming traditions and cryptic speciation bias biodiversity estimates in transatlantic agaric fungi." NSF DEB, Biodiversity: Discovery & Analysis. $393,074
+* 2012-2013: "rPlant". Subaward from an NSF $50,846,500 grant. $98,252 to UTK
+* 2011-2012: "iPlant: Trait evolution group, year 2". Subaward from an NSF $50,846,500 grant. $138,590 to UTK
+* 2010-2011: "iPlant: Trait evolution group, year 1". Subaward from an NSF $50,846,500 grant. $132,345 to UTK
+
+# Mentoring
+
+## Postdocs
+
+|Name                                                                             |Duration     |NIMBioS |Current Position                                                |
+|:--------------------------------------------------------------------------------|:------------|:-------|:---------------------------------------------------------------|
+|[Hugo Alamillo](https://people.northseattle.edu/users/halamillo)                 |2011-2012    |N       |Assistant Professor at North Seattle College                    |
+|[Barb Banbury](https://www.linkedin.com/in/bbanbury)                             |2010-2012    |N       |Statistical Analyst at Fred Hutch                               |
+|[David Bapst](https://geogeo.tamu.edu/people/profiles/faculty/bapstdavidwilliam.html)  |2017-2019    |N       |Instructional Assistant Professor at Texas A&M             |
+|[Jeremy Beaulieu](https://www.jeremybeaulieu.org/)                                |2012-2016    |Both    |Associate Professor at U. of Arkansas                           |
+|[James Boyko](https://jamesboyko.com/)                                |2022-present   |N    |Current lab postdoc                           |
+|[Juanjuan (JJ) Crosskey (formerly Chai)](https://www.linkedin.com/in/jjcrosskey) |2011-2013    |Y       |Quantitative Analyst at Quantamental Technologies LLC           |
+|[Dominic Evangelista](https://www.roachbrain.com)                                |2018-2018    |Y       |Assistant Professor at Adelphi U                                 |
+|[Nathan Jackson](https://nathandjackson.com/)                                     |2013-2016    |N       |Researcher at National Jewish Health                            |
+|[Tony Jhwueng](https://www.tonyjhwueng.info/)                                     |2009-2011    |Y       |Associate Professor Feng-Chia U., Taiwan                        |
+|[Sandy Kawano](https://sandykawano.weebly.com/)                                   |2014-2016    |Y       |Assistant Professor at George Washington U |
+|[Michelle Lawing](https://people.tamu.edu/~alawing/)                              |2012-2014    |Y       |Assistant Professor at Texas A&M                                   |
+|[Ryan Martin](https://www.martinevolutionaryecologylab.com)                       |2012-2013    |Y       |Assistant Professor at Case Western U                              |
+|[Nick Matzke](https://nickmatzke.weebly.com)                                      |2013-2015    |Y       |DECRA Fellow at The Australian National University in Canberra  |
+|[Megan Rua](https://meganrua.wordpress.com)                                      |2015-2016    |Y       |Assistant Professor Wright State U                              |
+|[Luna Sanchez Reyes](https://www.lunasare.com/)                                  |2017-2019    |N       |Postdoc in Emily McTavish's lab           |
+|[Sergei Tarasov](https://www.tarasovlab.com/)                |2016-2018    |Y       |Coleoptera Curator at Finish Museum of Natural History    |
+|[Jodie Wiggins](https://jwiggi18.github.io/)                                     |2018-2019    |N       |Teaching Assistant Professor, Oklahoma State U                  |
+
+## Grad students in my lab
+
+
+
+|Name                                                                      |Stage       |Time in Lab  |Note                           |
+|:-------------------------------------------------------------------------|:-----------|:------------|:------------------------------|
+|[Sam Borstein](https://fish4thought.wordpress.com/)                       |PhD student |2014-2019    |                               |
+|[Jenn Bosco](https://sites.google.com/site/jenniferboscoinfo/home)        |PhD student |2012-2017    |Co-advised with Susan Riechert |
+|[Amanda Chandler](https://www.linkedin.com/in/amanda-chandler-90045b1b9/)                       |Masters student |2024-present    | 
+|[Krista De Cooke](https://www.linkedin.com/in/krista-de-cooke-163a87116/) |Masters student |2020-2023 |Co-advised with Dan Simberloff |
+|[Katie Massana](https://sites.google.com/site/kathrynamassana/home)       |PhD student |2012-2017    |        
+|[Alivia Nytko](https://alivianytko8.wixsite.com/alivia-nytko)       |PhD student |2024-present    |Co-advised with Joe Bailey |
+|[Orlando Schwery](https://sites.google.com/site/orlandoschwery/home)      |PhD student |2014-2020    |                               |
+|[Jenn Summers](https://cubalibrejenn.wixsite.com/jennsummers)             |PhD student |2020-2021 |                               |
+
+## Undergrad students in my lab
+
+
+
+|Name                                                                      |Stage     |Time in Lab |Note |
+|:-------------------------------------------------------------------------|:---------|:-----------|:----|
+|Tyler-Christian Daniels                                                   |Undergrad |2019-2020   |     |
+|Stephen Ray                                                               |Undergrad |2019-2020   |     |
+|Zach Tharpe                                                               |Undergrad |2019-2020   |     |
+|[Christian Yarber](https://www.researchgate.net/profile/Christian_Yarber) |Undergrad |2015-2016   |     |
+|[John Anderson](https://sites.google.com/view/john-anderson-research)	   |Undergrad |2021-present   |     |
+
+## Faculty
+
+|Name                                                          |Department |
+|:-------------------------------------------------------------|:----------|
+|[Liz Derryberry](https://derryberrylab.wordpress.com/people/) |EEB        |
+|[Stephanie Kivlin](https://skivlin.wordpress.com/)            |EEB        |
+|[Laura Russo](https://drlaurarusso.weebly.com)            |EEB        |
+|[Kimberly Sheldon](https://www.biogeographyresearch.org/)      |EEB        |

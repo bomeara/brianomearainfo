@@ -9,8 +9,52 @@
 <link>https://brianomeara.info/blog.html</link>
 <atom:link href="https://brianomeara.info/blog.xml" rel="self" type="application/rss+xml"/>
 <description></description>
-<generator>quarto-1.5.57</generator>
-<lastBuildDate>Wed, 08 May 2024 04:00:00 GMT</lastBuildDate>
+<generator>quarto-1.6.40</generator>
+<lastBuildDate>Fri, 31 Jan 2025 05:00:00 GMT</lastBuildDate>
+<item>
+  <title>Uncertainty and risk</title>
+  <dc:creator>Brian O&#39;Meara</dc:creator>
+  <link>https://brianomeara.info/posts/uncertaintyandrisk/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>As I write this (Jan 31, 2025), it is an odd time. The new US presidential administration cut off disbursement of most federal funds; a court order then stayed this, and the memo pausing disbursement was retracted, but there is still an argument as to whether funds may flow. Regardless, the National Science Foundation is still not disbursing funds, even to PRFB postdocs who rely on requested withdrawals to be paid (even requests from last week are not being processed). There is an “updated often” <a href="https://web.archive.org/web/20250131165539/https://new.nsf.gov/executive-orders">page</a> from NSF that hasn’t changed in a couple of days. It’s not clear when or if funding will resume, nor what programs, if any, might be cut. Some colleges have told people to rein in expenditures, others just to limit expenditures that might violate an executive order, some have said change nothing in how funds should be used.</p>
+<p>In the meantime, on social media there are many splashy advertisements to recruit students for NSF-sponsored research experiences for undergrads (REUs). These can be transformative: undergrads are supported over a summer to do new research they drive, often surrounded by strong mentoring and other support structures. If a student takes this, it replaces essentially a summer job or other internship.</p>
+<p>This is also a time when grad recruiting is happening: some programs are flying students out for interviews and visits. In the sciences, generally students are both admitted to a program <strong>and</strong> offered a job as a teaching assistant or research assistant; the job pays tuition, offers healthcare, and gives a student a stipend. TAs are generally centrally funded: there must be people to run discussion sections or labs, and so departments get a certain number of lines to staff their classes. The funding for these will generally come out of university funds, a mixture of tuition and perhaps state support or endowment funds. RAs are generally funded by external grants (with some exceptions). If an RA dries up, a student might then be put on a TA line.</p>
+<p>The uncertainty is what happens to REUs and RA lines in the future. It could be that everything reverts to how it was: it is a rigorous process to select what the government will fund (with the vast majority of proposals being rejected), using criteria that were passed into law and have been stable for many years, and so changing them, especially on already awarded funds, might not take place (and there are legal and prudential arguments for such an outcome). The other extreme is that all current NSF funding is cut, eliminating REUs and RAs entirely, and even existing TAs might be needed for current grad students on an RA. Or it could be something in between. There is nothing public that is definitive either way. And even if we had perfect knowledge of current plans, that is of only modest predictive value: maybe a lawsuit stops one intended outcome, maybe another Sputnik moment leads to an <em>increase</em> in funding. We just can’t know, and that may go on for a while.</p>
+<p>There are lots of discussions about what various external actors should be doing with this; a thing we have control of is <strong>how we handle this uncertainty</strong>. A big part of that is deciding <strong>who inherits the risk</strong> and <strong>how the risk is communicated</strong>.</p>
+<ul>
+<li>For example, one approach is to assume things continue as before: anything with allocated or promised funding will continue to receive funds. Offers are made to an REU or grad school, likely with a small parenthetical statement on “(subject to availability of funds),” and students jump at the offered chance and get rid of their other options. This is optimal for the REU or grad program: if all goes well, great students sign up early, so the grant or the RA line is filled with strong candidates. If funds do go away, the students are out of a job and have to scramble, but the program itself is fine – no loss of money. This maximizes risk to students. It also incentivizes minimizing communication of risk so students feel safe signing up early. But students are in a very poor position to understand risk: if faculty and administrators don’t know what is going on, what chance does a sophomore applying to an REU or a senior applying for a grad program have?</li>
+<li>A different approach would be to have the university assume the risk. Make the offers, but if funding does not arrive, the university takes on the burden of supporting the students. This is a major risk to the university, but the university at least has better ways to assess risk (through connections to lobbyists, legislators, etc.) than a bunch of undergrads do. A university also likely has a much fatter savings account (endowment) than students, though often with contraints on how it can be spent. Besides the risk to the university, this does also lead to fewer opportunities: the university might be able to support only half the enrollment a grant would, so fewer students get an offer.</li>
+<li>An intermediate approach would be maximal communication. Be very up front about risks to funding and that, even if the program wants to admit them, students should keep a backup plan up to some reasonable date. One approach to this, borrowed from college athletics, could be letters of intent. “We intend to admit you to our REU / grad program with this offer, but cannot formally promise this until [some date].” Then, when funding is assured or the university is comfortable assuming the risk for the student, send a formal offer of admissions. The risk is that “good” students might go to a university adopting the first approach (“I have a letter of intent from you, but they gave me an offer [with an asterisk I missed], so I’m going there”); the benefit is that it’s possible that there are more students admitted than under approach two. It’s also less dishonest than the first approach (which does not exactly lie, but is far from forthcoming about possibilities).</li>
+</ul>
+<p>This is likely to be a long period of uncertainty, with a lot of focus on what people can do to change things at national levels. But we do have (more) control on what we do within our own institutions. We will need to continually ask ourselves who we are helping, who we are putting at risk, and how we can be honest about this. This is on us.</p>
+<hr>
+<p>To subscribe, go to <a href="https://brianomeara.info/blog.xml" class="uri">https://brianomeara.info/blog.xml</a> in an RSS reader.</p>
+
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{o'meara2025,
+  author = {O’Meara, Brian},
+  title = {Uncertainty and Risk},
+  date = {2025-01-31},
+  url = {https://brianomeara.info/posts/uncertaintyandrisk/},
+  langid = {en}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-o'meara2025" class="csl-entry quarto-appendix-citeas">
+O’Meara, Brian. 2025. <span>“Uncertainty and Risk.”</span> January 31,
+2025. <a href="https://brianomeara.info/posts/uncertaintyandrisk/">https://brianomeara.info/posts/uncertaintyandrisk/</a>.
+</div></div></section></div> ]]></description>
+  <category>NSF</category>
+  <category>REU</category>
+  <category>gradschool</category>
+  <category>funding</category>
+  <guid>https://brianomeara.info/posts/uncertaintyandrisk/</guid>
+  <pubDate>Fri, 31 Jan 2025 05:00:00 GMT</pubDate>
+</item>
 <item>
   <title>Field Safety</title>
   <dc:creator>Brian O&#39;Meara</dc:creator>

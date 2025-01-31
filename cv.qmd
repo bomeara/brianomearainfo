@@ -5,8 +5,7 @@ slug: cv
 title: CV
 ---
 
+PDF is [here](cv_omeara.pdf).
+
 Also see [Google Scholar](https://scholar.google.com/citations?hl=en&user=vpjEkQwAAAAJ&view_op=list_works&sortby=pubdate&inst=9897619243961157265).
 
-```{=html}
-<iframe width="800" height="6000" src="https://orcid.org/0000-0002-0337-5997/print" title="CV"></iframe>
-```

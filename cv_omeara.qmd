@@ -83,8 +83,11 @@ for (i in sequence(nrow(orcid_pubs))) {
 orcid_pubs <- orcid_pubs[!is.na(orcid_pubs$dois),]
 orcid_pubs <- orcid_pubs[!duplicated(orcid_pubs$dois),]
 
-orcid_pubs_preprints <- subset(orcid_pubs, grepl("xiv", orcid_pubs$`journal-title.value`, ignore.case=TRUE))
-orcid_pubs_not_preprints <- subset(orcid_pubs, !grepl("xiv", orcid_pubs$`journal-title.value`, ignore.case=TRUE))
+preprint_indices <- c(which(grepl("xiv", orcid_pubs$`journal-title.value`, ignore.case=TRUE)), which(is.na(orcid_pubs$`journal-title.value`)))
+
+
+orcid_pubs_preprints <- orcid_pubs[preprint_indices,]
+orcid_pubs_not_preprints <- orcid_pubs[-preprint_indices,]
 
 
 publications_formatted <- rcrossref::cr_cn(orcid_pubs_not_preprints$dois, format='text', style='apa')
@@ -97,13 +100,26 @@ corHMM <- sum(cran_downloads(package = "corHMM", from = "2001-01-01", to = Sys.D
 
 # lots not on CRAN, too, and this only tracks rstudio
 
-total_funding <- 193401 + 738297 + 148101 + 520000 + 340000 + 393074 + 98252 + 138590 + 132345
+funding_amounts <- c(193401,738297,148101, 520000, 340000 , 393074 , 98252 ,138590 , 132345)
+total_funding <- sum(funding_amounts)
 
 ```
 
+# Overview
+
+* **Website**: [brianomeara.info](https://brianomeara.info)
+* **Email**: bomeara@utk.edu
+* **Github**: [github.com/bomeara](https://github.com/bomeara)
+* **Research**: Evolutionary biology, with a focus on phylogenetics and macroevolution
+* **Teaching**: Macroevolution, Core Evolution, Phylogenetic Methods
+* **Publications**: `r nrow(orcid_pubs_not_preprints)` publications, `r g.profile$total_cites` citations, h-index of `r g.profile$h_index`
+* **Funding**: $`r formatC(total_funding, format="d", big.mark=",")` in external funding from `r length(funding_amounts)` grants
+* **Mentoring**: Mentored 17 postdocs, 8 grad students (including 2 current), 5 undergrad students, 4 faculty, and served on numerous grad student committees
+* **Service**: President of the Society of Systematic Biologists, Associate Head of EEB, Associate Director of NIMBioS, Code of Conduct for three evolution societies, and much more
+
 # Research
 
-I address questions in evolutionary biology through development, implementation, and application of new phylogenetic methods. These include approaches for examining the process of continuous trait evolution (rate, optimal values, and other factors), species delimitation, phylogeography, diversification analyses, biogeography, and more. I also collaborate extensively with empiricists, including some of my own students. My R packages have been downloaded over `r ouwie + hisse + corHMM` times.
+I address questions in evolutionary biology through development, implementation, and application of new phylogenetic methods. These include approaches for examining the process of continuous trait evolution (rate, optimal values, and other factors), species delimitation, phylogeography, diversification analyses, biogeography, and more. I collaborate extensively with empiricists, including some of my own students. Many of my approaches are made usable in popular software collaborators and I write; for example, my R packages have over `r formatC(1000*floor((1/1000)*(ouwie + hisse + corHMM)), format="d", big.mark=",")` downloads.
 
 # Education
 
@@ -128,7 +144,7 @@ Biology (2001)
 
 # Publications
 
-According to Google Scholar, my work has been cited `r g.profile$total_cites` times, and my h-index is `r g.profile$h_index`. I use a stringent criterion for when I get authorship -- I have to actively make a significant contribution to the research and writing to merit authorship (for example, not all postdoc or grad student projects in my lab have me as a coauthor, even if I helped direct some of the research). 
+According to Google Scholar, my work has been cited `r g.profile$total_cites` times, and my h-index is `r g.profile$h_index`. I use a stringent criterion for when I get authorship -- I have to actively make a significant contribution to the research and writing to merit authorship (for example, not all postdoc or grad student projects in my lab have me as a coauthor, even if I helped with feedback or ideas -- perhaps a bit annoying in the year people in my lab got three different *Science* papers without me as a coauthor, but still I think an honest way to do science). 
 
 
 `r paste(unlist(publications_formatted), collapse = "\n\n")`
@@ -157,7 +173,7 @@ Our standard load is to have three substantial courses and one small course (lik
 
 # External Funding
 
-While my lab infrastructure is fairly cheap (computers, whiteboards, and markers), paying humanely for people isn't. Fortunately, I have been able to secure $`r formatC(total_funding, format="d", big.mark=",")` funding for my institution (see below). As with my listing of publications, this does not include funding earned by students or postdocs in my lab (GRFPs, DDIGs, postdoc fellowships like one from the Encyclopedia of Life, research funds, etc.) -- those go on their CVs. Funding indicated is that going to my institution, not necessarily the total amount of the grant.
+While my lab infrastructure is fairly cheap (individual computers, computing clusters, whiteboards, and markers), paying humanely for people isn't. Fortunately, I have been able to secure $`r formatC(total_funding, format="d", big.mark=",")` funding for my institution (see below). As with my listing of publications, this does not include funding earned by students or postdocs in my lab (GRFPs, DDIGs, postdoc fellowships, research funds, etc.) -- those go on their CVs. Funding indicated is that going to my institution, not necessarily the total amount of the grant.
 
 * 2019-2024: "Collaborative Research:  Novel framework for estimating continuously-varying diversification rates." NSF DEB, Systematics & Biodiversity Science. $193,401
 * 2015-2021: "CAREER: Reducing barriers for comparative methods." NSF DEB, Phylogenetic Systematics. $738,297
@@ -171,31 +187,33 @@ While my lab infrastructure is fairly cheap (computers, whiteboards, and markers
 
 # Mentoring
 
+Here are some of the people I have mentored; I am not including graduate students on whose committees I have served (probably dozens by this point, across multiple departments at UTK and as an external member at other institutions).
+
 ## Postdocs
 
-|Name                                                                             |Duration     |NIMBioS |Current Position                                                |
+|Name                                                                             |Duration     |NIMBioS |
 |:--------------------------------------------------------------------------------|:------------|:-------|:---------------------------------------------------------------|
-|[Hugo Alamillo](https://people.northseattle.edu/users/halamillo)                 |2011-2012    |N       |Assistant Professor at North Seattle College                    |
-|[Barb Banbury](https://www.linkedin.com/in/bbanbury)                             |2010-2012    |N       |Statistical Analyst at Fred Hutch                               |
-|[David Bapst](https://geogeo.tamu.edu/people/profiles/faculty/bapstdavidwilliam.html)  |2017-2019    |N       |Instructional Assistant Professor at Texas A&M             |
-|[Jeremy Beaulieu](https://www.jeremybeaulieu.org/)                                |2012-2016    |Both    |Associate Professor at U. of Arkansas                           |
-|[James Boyko](https://jamesboyko.com/)                                |2022-present   |N    |Current lab postdoc                           |
-|[Juanjuan (JJ) Crosskey (formerly Chai)](https://www.linkedin.com/in/jjcrosskey) |2011-2013    |Y       |Quantitative Analyst at Quantamental Technologies LLC           |
-|[Dominic Evangelista](https://www.roachbrain.com)                                |2018-2018    |Y       |Assistant Professor at Adelphi U                                 |
-|[Nathan Jackson](https://nathandjackson.com/)                                     |2013-2016    |N       |Researcher at National Jewish Health                            |
-|[Tony Jhwueng](https://www.tonyjhwueng.info/)                                     |2009-2011    |Y       |Associate Professor Feng-Chia U., Taiwan                        |
-|[Sandy Kawano](https://sandykawano.weebly.com/)                                   |2014-2016    |Y       |Assistant Professor at George Washington U |
-|[Michelle Lawing](https://people.tamu.edu/~alawing/)                              |2012-2014    |Y       |Assistant Professor at Texas A&M                                   |
-|[Ryan Martin](https://www.martinevolutionaryecologylab.com)                       |2012-2013    |Y       |Assistant Professor at Case Western U                              |
-|[Nick Matzke](https://nickmatzke.weebly.com)                                      |2013-2015    |Y       |DECRA Fellow at The Australian National University in Canberra  |
-|[Megan Rua](https://meganrua.wordpress.com)                                      |2015-2016    |Y       |Assistant Professor Wright State U                              |
-|[Luna Sanchez Reyes](https://www.lunasare.com/)                                  |2017-2019    |N       |Postdoc in Emily McTavish's lab           |
-|[Sergei Tarasov](https://www.tarasovlab.com/)                |2016-2018    |Y       |Coleoptera Curator at Finish Museum of Natural History    |
-|[Jodie Wiggins](https://jwiggi18.github.io/)                                     |2018-2019    |N       |Teaching Assistant Professor, Oklahoma State U                  |
+|[Hugo Alamillo](https://people.northseattle.edu/users/halamillo)                 |2011-2012    |N                           |
+|[Barb Banbury](https://www.linkedin.com/in/bbanbury)                             |2010-2012    |N                                 |
+|[David Bapst](https://geogeo.tamu.edu/people/profiles/faculty/bapstdavidwilliam.html)  |2017-2019    |N                    |
+|[Jeremy Beaulieu](https://www.jeremybeaulieu.org/)                                |2012-2016    |Both                              |
+|[James Boyko](https://jamesboyko.com/)                                |2022-2023   |N                               |
+|[Juanjuan (JJ) Crosskey (formerly Chai)](https://www.linkedin.com/in/jjcrosskey) |2011-2013    |Y                  |
+|[Dominic Evangelista](https://www.roachbrain.com)                                |2018-2018    |Y                              |
+|[Nathan Jackson](https://nathandjackson.com/)                                     |2013-2016    |N                            |
+|[Tony Jhwueng](https://www.tonyjhwueng.info/)                                     |2009-2011    |Y                              |
+|[Sandy Kawano](https://sandykawano.weebly.com/)                                   |2014-2016    |Y       |
+|[Michelle Lawing](https://people.tamu.edu/~alawing/)                              |2012-2014    |Y                                         |
+|[Ryan Martin](https://www.martinevolutionaryecologylab.com)                       |2012-2013    |Y                                    |
+|[Nick Matzke](https://nickmatzke.weebly.com)                                      |2013-2015    |Y         |
+|[Megan Rua](https://meganrua.wordpress.com)                                      |2015-2016    |Y                              |
+|[Luna Sanchez Reyes](https://www.lunasare.com/)                                  |2017-2019    |N                |
+|[Sergei Tarasov](https://www.tarasovlab.com/)                |2016-2018    |Y          |
+|[Jodie Wiggins](https://jwiggi18.github.io/)                                     |2018-2019    |N                      |
 
 ## Grad students in my lab
 
-
+These are students for whom I was their advisor or co-advisor. Note that I include just the time they were in my lab, not the time they were in the program. Our students must have one or more advisors when they enroll, but they may also add or replace advisors. All but one of the students below started in a different lab and then added me; so far, the reverse has not happened (but I encourage any of my students reading this CV to switch if it helps you with your goals).
 
 |Name                                                                      |Stage       |Time in Lab  |Note                           |
 |:-------------------------------------------------------------------------|:-----------|:------------|:------------------------------|
@@ -222,9 +240,23 @@ While my lab infrastructure is fairly cheap (computers, whiteboards, and markers
 
 ## Faculty
 
+Our department creates a mentoring committee for each new faculty member. I have been on the mentoring committee for the following faculty members:
+
 |Name                                                          |Department |
 |:-------------------------------------------------------------|:----------|
 |[Liz Derryberry](https://derryberrylab.wordpress.com/people/) |EEB        |
 |[Stephanie Kivlin](https://skivlin.wordpress.com/)            |EEB        |
 |[Laura Russo](https://drlaurarusso.weebly.com)            |EEB        |
 |[Kimberly Sheldon](https://www.biogeographyresearch.org/)      |EEB        |
+
+# Service
+
+Some of my service comes directly through publications (for example, DateLife allows people to easily get dated trees of life for teaching or research). Some comes through informal service (a colleague at a different institution reaching out for advice on a situation in their department, for example). Here I am listing more formal service.
+
+* **Associate Head for EEB**: One of two associate heads under Head Susan Kalisz, my focus was on grad students and overall equity in the department. I also split interim head duties during a semester when the head was on sabbatical. My work included working with our grad admissions and grad affairs committees (including chairing the former one year while also serving as associate head), working on covid policy for the department (making sure everyone in a lab approved its safety protocols before it reopened, for example), and working with university lawyers on various issues (to be clear, none with me as a respondent or anything of the sort).
+* **Associate Director for NIMBioS**: My focus was on postdocs, including vocational mentoring and building their social interactions.
+* **President of the Society of Systematic Biologists**: This involves three years of commitment, as president-elect, president, and past president. During that time, I was involved in decisions on named awards, leadership and support of the society's two journals, a mentorship program, and more. I also served as de facto representative on the joint meeting committee for the Evolution meetings. I used my [presidential address](https://brianomeara.info/evol2023.html) to highlight four issues: how naming affects conservation; the need for and progress in handling misconduct in our field; issues with eponyms in our field; and our field's past and ongoing connection with eugenics (part of this included a new analysis of 122,096 papers and 141,284 unique authors).
+* **Code of Conduct Committee for Evolution**: I have been on this committee since its inception. We built up support for an actionable code of conduct (I led an IRB-approved [study](https://figshare.com/articles/poster/Unwelcome_behaviors_at_the_Evolution_meetings_Survey_results/8311595?file=15572909) on the topic), developed a working code in association with various lawyers and other experts, interviewed and selected safety officers, and wrote up transparency reports based on incidents at the meeting.
+* **Code of Ethics for the three societies**: The Society of Systematic Biologists, the Society for the Study of Evolution, and the American Society of Naturalists together worked on a shared code of ethics (to handle misconduct in general, not just at meetings). I gave feedback at various stages in the process and then helped more substantially in the final stages of getting it approved and selecting an investigatory agent for two of the societies (SSB and SSE).
+* **Liason between joint meeting committee and the meeting location committee**: The Evolution meetings (annual meetings of 3-4 evolution societies with 1500-2000 attendees) have long been guided by California's travel ban policy in choosing locations (though with the time lead required between choosing a location and the meeting, many things can change). A group was tasked with creating recommendations for how to choose meetings in the future, including doing a survey; I act as a liason between that group and the joint meeting committee, and made recommendations on making their product more actionable.
+* **Internal service**: Reviews of proposals and fellowships for our office of research and the grad school, workshops on applying for the NSF GRFP, review of another department, serving on an enhanced post-tenure review committee, dean's advisory committee, head search committee, college strategic planning committee for graduate education, and more.

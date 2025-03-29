@@ -10,7 +10,80 @@
 <atom:link href="https://brianomeara.info/blog.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.6.40</generator>
-<lastBuildDate>Fri, 31 Jan 2025 05:00:00 GMT</lastBuildDate>
+<lastBuildDate>Fri, 28 Mar 2025 04:00:00 GMT</lastBuildDate>
+<item>
+  <title>How long does balance in eponymous names require?</title>
+  <dc:creator>Brian O&#39;Meara</dc:creator>
+  <link>https://brianomeara.info/posts/eponymous_birds/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>Today I saw a <a href="https://bsky.app/profile/zoojlinnsoc.bsky.social/post/3llgxuqt7pg2x">post</a> on bluesky from the <em>Zoological Journal of the Linnean Society</em> about a <a href="https://doi.org/10.1093/zoolinnean/zlaf022">new paper</a> by Dr.&nbsp;George Sangster on eponyms in birds: naming birds after people. This is an issue I’ve been curious about for some time, partly due to the related issue of naming awards after people (see <a href="https://brianomeara.info/evol2023.html#award-naming">here</a>). Issues that come up in these areas are 1) should we name organisms after people who did awful things? 2) how extensive are the biases in who gets species named after them? 3) what are the effects of either of the above on recruiting and retainng people in the field? and 4) how will changes in naming practices, both moving forward and (more controversially) changing existing names affect the above three points? The paper represents a tremendous amount of careful work to address the second question, including an analysis of how the biases have changed over time.</p>
+<p>The <a href="https://doi.org/10.1093/zoolinnean/zlaf022">paper</a> is well worth reading and contributes greatly to this discussion. However, I was a bit surprised by one of its conclusions:</p>
+<p>“Importantly, there is no need for drastic changes in naming practices, because the desired changes (greater representation of women and non-western people) are already taking place (and have been for several decades).”</p>
+<p>The paper does identify trends in this direction, but I was curious about how long the changes would require. Dr.&nbsp;Sangster generously released the analyzed data as a supplemental file, so I downloaded it to run some analyses. It already had some linear regressions showing changes in representation since 1900; I threw the file into R to do similar analyses, but extrapolating to the future.</p>
+<section id="proportionality-in-new-names" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="proportionality-in-new-names"><span class="header-section-number">1</span> Proportionality in new names</h2>
+<p>The first question is how long with current trends it will take for a proportional fraction of the eponymous names to be named after people in the different groups. For gender, if we limit the population of potential namesakes to women and men only, and assume they are equal frequencies in the population, parity is at 50%. For Western vs non-Western, one standard would also be 50%; a better one might be to use proportion of the world population that is Western vs non-Western (though this has also changed over time). Using populations sizes from <a href="https://www.worldometers.info/world-population/">here</a>, and adopting the definition of Western the paper seemed to use, 85.8% of people are non-Western.</p>
+<p>Using these thresholds and linear regression, with a 95% confidence interval:</p>
+<ul>
+<li><strong>Year when half of NEW eponyms are named for women: 2340 (2220, 2662)</strong></li>
+<li><strong>Year when half of NEW eponyms are named for non-Western people: 2101 (2070, 2156)</strong></li>
+<li><strong>Year when a proportional number of NEW eponyms are named for non-Western people: 2255 (2191, 2367)</strong></li>
+</ul>
+<p>So, it will take 315 years to have equal representation of women in new eponyms, and 230 years to have proportional representation of non-Western people, under the current yearly increase in representation in names taxonomists choose. This is about as far in the future as Linneaus was in the past. That’s a long time.</p>
+<p>Below are some plots showing the extrapolations. Clearly, extrapolating out this far is silly: but the big point is that even with current trends it’s going to take a very, very long time.</p>
+<p><img src="https://brianomeara.info/posts/eponymous_birds/women_future.jpg" class="img-fluid" alt="Scatter plot showing the proportion of women in eponymous names over time, with a linear regression line showing the trend. A dotted line shows the 50% value, which is not reached until far in the future."></p>
+<p><img src="https://brianomeara.info/posts/eponymous_birds/nonwestern_future.jpg" class="img-fluid" alt="Scatter plot showing the proportion of non-Western people in eponymous names over time, with a linear regression line showing the trend. A dotted line shows the 50% value and the 85% values."></p>
+</section>
+<section id="proportionality-in-all-names" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="proportionality-in-all-names"><span class="header-section-number">2</span> Proportionality in all names</h2>
+<p>A different question is how long it will take for half of the eponymous bird species to be named after women, and how long it will take for the proportion of eponymous names for non-Western people to be equal to their population. One issue is that birds are a well-studied group: the number of new species being described is declining (though not an argument for lack of a need for more taxonomy):</p>
+<p><img src="https://brianomeara.info/posts/eponymous_birds/new_birds.jpg" class="img-fluid" alt="Scatter plot showing the number of new bird species described over time, with a linear regression line and smooth regression line showing the trend after 1900."></p>
+<p>An extrapolation into the future quickly results in having a negative number of newly described species in future years. I instead used a more optimistic assumption that the future will resemble the 10 year average of the most recent years in the dataset, so with 16.7 species described per year.</p>
+<p>We can see how the number of species named after women, men, Westerners, and non-Westerners has changed over time up to the present:</p>
+<p><img src="https://brianomeara.info/posts/eponymous_birds/full_predictions_present.jpg" class="img-fluid" alt="Line plot showing the number of eponymous names over time. Men and Western are very similar (since they were the vast majority of people having species named after them) but the rate has slowed down; Women and non-Western people are increasing, but the number of such species is still far lower than for the first two groups."></p>
+<p>And then we can continue the trend into the future, incorporating the increasing proportion of species named for women and non-Western people but also the trend of a greater proportion of eponyms overall (which I was surprised to learn about in the original paper). I ran the model for a thousand years into the future:</p>
+<p><img src="https://brianomeara.info/posts/eponymous_birds/full_predictions_future.jpg" class="img-fluid" alt="Line plot showing the number of eponymous names over time from 1758 to 3025. Lines for Men and Westerners continue to be well above the lines for Women and non-Westerners for the duration of the plot."></p>
+<p>So at least over the next thousand years, eponymous bird names will not reach parity with human population proportions for the groups analyzed in this paper.</p>
+</section>
+<section id="conclusions" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="conclusions"><span class="header-section-number">3</span> Conclusions</h2>
+<p>Taxonomy works on long time scales. But if having more representative names is considered important, business as usual, even with trends for more inclusive naming practices, are at best centuries from reaching parity for new names and may never reach it for all names in birds.</p>
+</section>
+<section id="analysis-code" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="analysis-code"><span class="header-section-number">4</span> Analysis code</h2>
+<p>This was all done in R using the packages <code>targets</code>, <code>tidyverse</code>, <code>ggplot2</code>, <code>readxl</code>, <code>ggpmisc</code>, <code>stringr</code>, <code>ggrepel</code>, and <code>RColorBrewer</code>. Source code is at <a href="https://github.com/bomeara/eponymous_birds" class="uri">https://github.com/bomeara/eponymous_birds</a>.</p>
+</section>
+<section id="acknowledgements" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="acknowledgements"><span class="header-section-number">5</span> Acknowledgements</h2>
+<p>Thank you to Dr.&nbsp;Sangster for the detailed work on this important issue, for writing a compelling paper, and for making the data so available. Again, I encourage you to read <a href="https://doi.org/10.1093/zoolinnean/zlaf022">this work</a> for its insights.</p>
+<hr>
+<p>To subscribe, go to <a href="https://brianomeara.info/blog.xml" class="uri">https://brianomeara.info/blog.xml</a> in an RSS reader.</p>
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{o'meara2025,
+  author = {O’Meara, Brian},
+  title = {How Long Does Balance in Eponymous Names Require?},
+  date = {2025-03-28},
+  url = {https://brianomeara.info/posts/eponymous_birds/},
+  langid = {en}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-o'meara2025" class="csl-entry quarto-appendix-citeas">
+O’Meara, Brian. 2025. <span>“How Long Does Balance in Eponymous Names
+Require?”</span> March 28, 2025. <a href="https://brianomeara.info/posts/eponymous_birds/">https://brianomeara.info/posts/eponymous_birds/</a>.
+</div></div></section></div> ]]></description>
+  <category>taxonomy</category>
+  <category>birds</category>
+  <category>rstats</category>
+  <guid>https://brianomeara.info/posts/eponymous_birds/</guid>
+  <pubDate>Fri, 28 Mar 2025 04:00:00 GMT</pubDate>
+</item>
 <item>
   <title>Uncertainty and risk</title>
   <dc:creator>Brian O&#39;Meara</dc:creator>

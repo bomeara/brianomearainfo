@@ -10,7 +10,7 @@ draft: false
 
 Over the 2023-2024 academic year, a committee in UTK EEB worked on field safety. This involves things like avoiding snakebite and traffic accidents (see Richard Conniff's [memorial to fallen naturalists](<https://strangebehaviors.wordpress.com/2011/01/14/the-wall-of-the-dead/>)) but also social factors. I am putting some information from this here to help others access it, but note it is a team effort.
 
-We went through a set of readings. Some relevant ones in this area (*more to be added soon*) include:
+We went through a set of readings. Some relevant ones in this area include:
 
 * Demery & Pipkin (2020): <https://www.nature.com/articles/s41559-020-01328-5>
 * Rudzki et al. (2022): <https://besjournals.onlinelibrary.wiley.com/doi/10.1111/2041-210X.13970>

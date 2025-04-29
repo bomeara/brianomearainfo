@@ -8,7 +8,7 @@ categories: [field safety, fieldwork, safety, NSF, inclusion]
 draft: false
 ---
 
-Over the 2023-2024 academic year, a committee in UTK EEB worked on field safety. This involves things like avoiding snakebite and traffic accidents (see Richard Conniff's memorial to fallen naturalists(https://strangebehaviors.wordpress.com/2011/01/14/the-wall-of-the-dead/)) but also social factors. I am putting some information from this here to help others access it, but note it is a team effort.
+Over the 2023-2024 academic year, a committee in UTK EEB worked on field safety. This involves things like avoiding snakebite and traffic accidents (see Richard Conniff's [memorial to fallen naturalists](<https://strangebehaviors.wordpress.com/2011/01/14/the-wall-of-the-dead/>)) but also social factors. I am putting some information from this here to help others access it, but note it is a team effort.
 
 We went through a set of readings. Some relevant ones in this area (*more to be added soon*) include:
 
@@ -54,13 +54,11 @@ To help with this, several of us made a checklist. It is below. Feel free to ada
     -   People you will encounter in the field will be armed (and think
         about PTSD)
 
-    -   Note UTK firearms policy if any participant may be considering
-        carrying:
-        https://policy.tennessee.edu/policy/sa0875-firearms/(https://policy.tennessee.edu/policy/sa0875-firearms/)
+    -   Note [UTK firearms policy](https://policy.tennessee.edu/policy/sa0875-firearms/) if any participant may be considering carrying
 
-    -   UTK policies for weapons (e.g. knives, pepper spray): UTK
+    -   UTK policies for weapons (e.g. knives, pepper spray): [UTK
         Student Code of
-        Conduct(https://studentconduct.utk.edu/wp-content/uploads/sites/53/2021/08/2m3k1ac-Fall-StudentCodeOfConduct_WEB.pdf).
+        Conduct](https://studentconduct.utk.edu/wp-content/uploads/sites/53/2021/08/2m3k1ac-Fall-StudentCodeOfConduct_WEB.pdf).
         Carrying a knife in the field can be useful if allowable
 
     -   Note policies of various places about firearms (GSMNP does not

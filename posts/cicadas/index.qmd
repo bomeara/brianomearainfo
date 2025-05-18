@@ -1,0 +1,38 @@
+---
+title: "Periodical cicadas"
+description: "The long wait is over: periodical cicadas are here!"
+author: "Brian O'Meara"
+date: "05/18/2025"
+citation: true
+categories: [cicadas, natural history] 
+---
+
+# Periodical cicadas
+
+We aren't used to abundance in the natural world any longer. There used to be millions of bison on the plains: now there are [around 20,000](https://www.fws.gov/species/plains-bison-bison-bison-bison) (plus ones in commercial herds), not enough wild individuals to fill a fifth of the seats of our local football stadium. Passenger pigeons have gone from flocks taking days to pass overhead to extinction. There is scientific evidence for a [massive decline of insects](https://www.pnas.org/doi/10.1073/pnas.2023989118) (plus the anecdotal evidence -- how many insects have you had to clean off the front of your car, or how many have you seen circling the porch lights lately?). American chestnuts have gone from a population of billions to functional extinction.
+
+Given all this, it's amazing that there are still creatures whose survival strategy is abundance: fill every hungry mouth, and the excess survive and reproduce. Periodical cicadas emerge at a location every 13 or 17 years (depends on the species) in tremendous numbers. We had one brood in Eastern Tennessee last year, and the brood this year is starting to emerge. 
+
+It's still early, but you can defintely hear them and if you look carefully, see them (follow the sound; then look for ones flying near the tops of trees; then look more closely at the places where they land; eventually you will get a good search image. Later in the year they'll be extremely obvious in the places they live). Here's a zoomed in picture from yesterday of several on a branch (look for bits peeking out behind leaves):
+
+![](Cicadas.jpg){fig-alt="Branch with many green leaves glowing in the sun. Two cicadas black with orange accents, are visible, with other ones partially hidden elsewhere on the branch."}
+
+And the surprising thing is how accessible they are. These are on a bike path next to Calhoun's in Oak Ridge, TN -- I found them from the sound of their calling, over the sound of a podcast in a closed car. Here's the tree with them now, so folks in Oak Ridge can find them (walk on the greenway from the rowing association towards Calhoun's, look at the tops of the two trees on the right just after you cross the bridge close to the restaurant):
+
+![](CicadaTree.png){fig-alt="A tree next to a bike path has a red circle on it; a metal bridge handrail is to the side."}
+
+And a [map](https://www.google.com/maps?q=loc:36.0432778,-84.2026222) showing their location:
+
+![](CicadaMap.png){fig-alt="An aerial map of Oak Ridge, TN, showing the location of the cicadas with a marker, near Calhoun's restaurant."}
+
+It is still early in the emergence -- I hope for more as the season progresses. These were still pretty high up in the trees; last year they were lower and more accessible in a slightly different location (broods can overlap somewhat).
+
+One approach to finding them near you is to use iNaturalist, which has a [map](https://www.inaturalist.org/observations?d1=2025-04-01&subview=map&taxon_id=83854) of periodical cicadas from this year:
+
+![](CicadaINat.png){fig-alt="A map of the eastern US showing the locations of periodical cicadas observed since April 1, 2025."}
+
+[Cicada Safari](https://cicadasafari.org) has more info on periodical cicadas.
+
+___
+
+To subscribe, go to <https://brianomeara.info/blog.xml> in an RSS reader.

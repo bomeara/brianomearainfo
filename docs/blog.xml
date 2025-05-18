@@ -10,7 +10,53 @@
 <atom:link href="https://brianomeara.info/blog.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.6.40</generator>
-<lastBuildDate>Sun, 04 May 2025 04:00:00 GMT</lastBuildDate>
+<lastBuildDate>Sun, 18 May 2025 04:00:00 GMT</lastBuildDate>
+<item>
+  <title>Periodical cicadas</title>
+  <dc:creator>Brian O&#39;Meara</dc:creator>
+  <link>https://brianomeara.info/posts/cicadas/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<section id="periodical-cicadas" class="level1">
+<h1>Periodical cicadas</h1>
+<p>We aren’t used to abundance in the natural world any longer. There used to be millions of bison on the plains: now there are <a href="https://www.fws.gov/species/plains-bison-bison-bison-bison">around 20,000</a> (plus ones in commercial herds), not enough wild individuals to fill a fifth of the seats of our local football stadium. Passenger pigeons have gone from flocks taking days to pass overhead to extinction. There is scientific evidence for a <a href="https://www.pnas.org/doi/10.1073/pnas.2023989118">massive decline of insects</a> (plus the anecdotal evidence – how many insects have you had to clean off the front of your car, or how many have you seen circling the porch lights lately?). American chestnuts have gone from a population of billions to functional extinction.</p>
+<p>Given all this, it’s amazing that there are still creatures whose survival strategy is abundance: fill every hungry mouth, and the excess survive and reproduce. Periodical cicadas emerge at a location every 13 or 17 years (depends on the species) in tremendous numbers. We had one brood in Eastern Tennessee last year, and the brood this year is starting to emerge.</p>
+<p>It’s still early, but you can defintely hear them and if you look carefully, see them (follow the sound; then look for ones flying near the tops of trees; then look more closely at the places where they land; eventually you will get a good search image. Later in the year they’ll be extremely obvious in the places they live). Here’s a zoomed in picture from yesterday of several on a branch (look for bits peeking out behind leaves):</p>
+<p><img src="https://brianomeara.info/posts/cicadas/Cicadas.jpg" class="img-fluid" alt="Branch with many green leaves glowing in the sun. Two cicadas black with orange accents, are visible, with other ones partially hidden elsewhere on the branch."></p>
+<p>And the surprising thing is how accessible they are. These are on a bike path next to Calhoun’s in Oak Ridge, TN – I found them from the sound of their calling, over the sound of a podcast in a closed car. Here’s the tree with them now, so folks in Oak Ridge can find them (walk on the greenway from the rowing association towards Calhoun’s, look at the tops of the two trees on the right just after you cross the bridge close to the restaurant):</p>
+<p><img src="https://brianomeara.info/posts/cicadas/CicadaTree.png" class="img-fluid" alt="A tree next to a bike path has a red circle on it; a metal bridge handrail is to the side."></p>
+<p>And a <a href="https://www.google.com/maps?q=loc:36.0432778,-84.2026222">map</a> showing their location:</p>
+<p><img src="https://brianomeara.info/posts/cicadas/CicadaMap.png" class="img-fluid" alt="An aerial map of Oak Ridge, TN, showing the location of the cicadas with a marker, near Calhoun's restaurant."></p>
+<p>It is still early in the emergence – I hope for more as the season progresses. These were still pretty high up in the trees; last year they were lower and more accessible in a slightly different location (broods can overlap somewhat).</p>
+<p>One approach to finding them near you is to use iNaturalist, which has a <a href="https://www.inaturalist.org/observations?d1=2025-04-01&amp;subview=map&amp;taxon_id=83854">map</a> of periodical cicadas from this year:</p>
+<p><img src="https://brianomeara.info/posts/cicadas/CicadaINat.png" class="img-fluid" alt="A map of the eastern US showing the locations of periodical cicadas observed since April 1, 2025."></p>
+<p><a href="https://cicadasafari.org">Cicada Safari</a> has more info on periodical cicadas.</p>
+<hr>
+<p>To subscribe, go to <a href="https://brianomeara.info/blog.xml" class="uri">https://brianomeara.info/blog.xml</a> in an RSS reader.</p>
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{o'meara2025,
+  author = {O’Meara, Brian},
+  title = {Periodical Cicadas},
+  date = {2025-05-18},
+  url = {https://brianomeara.info/posts/cicadas/},
+  langid = {en}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-o'meara2025" class="csl-entry quarto-appendix-citeas">
+O’Meara, Brian. 2025. <span>“Periodical Cicadas.”</span> May 18, 2025.
+<a href="https://brianomeara.info/posts/cicadas/">https://brianomeara.info/posts/cicadas/</a>.
+</div></div></section></div> ]]></description>
+  <category>cicadas</category>
+  <category>natural history</category>
+  <guid>https://brianomeara.info/posts/cicadas/</guid>
+  <pubDate>Sun, 18 May 2025 04:00:00 GMT</pubDate>
+</item>
 <item>
   <title>Funding for tenure</title>
   <dc:creator>Brian O&#39;Meara</dc:creator>

@@ -1,0 +1,37 @@
+---
+title: "Williams College stops seeking federal grants"
+description: "Williams College announced it will stop seeking federal research grants -- running numbers on impact"
+author: "Brian O'Meara"
+date: "06/07/2025"
+citation: true
+categories: [grants, financing] 
+---
+
+Jeffrey Mervis in *Science* is reporting that [Williams College is declining federal science grants](https://www.science.org/content/article/u-s-college-first-decline-federal-science-grants-because-new-dei-language). According to the article:
+
+> School officials told the faculty Williams won’t accept new grants from the National Science Foundation (NSF) or the National Institutes of Health (NIH) until the agencies clarify new language requiring grantee institutions to certify they aren’t doing anything to “promote or advance diversity, equity, and inclusion (DEI) … in violation of federal antidiscrimination laws."
+
+and 
+
+> The provost’s email to faculty also cites a new initiative from the U.S. Department of Justice that allows private citizens to file a complaint against institutions receiving federal funds that they believe are violating federal civil rights laws. Refusing federal grants might decrease the risk that Williams could be sued, the email notes.
+
+Williams College is a small liberal arts college with a high graduation rate, good ratio of tenure stream faculty to students, and an increasing ratio of applicants to available positions (see [here](https://collegetables.info/168342.html)). Their faculty, staff, and students publish [hundreds of academic works per year](https://openalex.org/works?page=1&filter=authorships.institutions.lineage%3Ai22675022&sort=publication_year%3Adesc). They have a [robust endowment](https://investment.williams.edu/endowment/). Williams has taken [steps](https://williamsrecord.com/464356/news/williams-college-budget-fiscal-year-2024-explained-fy24/) to control expenses while focusing on priorities. All this is just to say that, from a poorly informed external perspective (mine), they seem to do be doing well overall -- while there is concern about a lot of small liberal arts colleges, Williams is likely not in that set.
+
+So one question I had was what the potential impact of declining grants could be on a college like this. Looking up grants at [NSF](https://www.nsf.gov/awardsearch/advancedSearch.jsp) and [NIH](https://reporter.nih.gov), Williams College was listed as getting nine NSF grants worth $2M in 2024 and nine NSF grants worth $1.8M in 2023; it had no NIH grants in 2024 and one worth $435K in 2023. Based on its budget guide, its F&A rate (the negotiated amount that *mostly* covers the cost of infrastructure, personnel, and similar to support the research) is 50.8%. So, if we take its two year average of NSF and NIH funding, it could expect $2.1M in grants per year, of which about $1.4M is direct costs and $713K is indirect costs (the exact numbers are hard to calculate as not all direct costs are subject to the F&A rate).
+
+This can pay for a lot of research, and so its **loss will have a real impact on Williams College**, and on **everyone else who would benefit from the discoveries that would have been made**. Federal funding is a zero sum game (if things work well) so the grant money Williams will not get will hopefully flow somewhere else, but Williams stepping back from competing means the pool of ideas to fund is impoverished, the same as any competition if a set of people are excluded from it.
+
+The policy of declining funding has to be weighed against the risks associated with that funding, but some of those risks are unknown -- for example, what are the potential risks from a private citizen complaint, and what is the probability of those risks? One federal sanction applied to a different college has been to prohibit international student enrollment (as of today, June 7, 2025, that has been temporarily put on hold, but the final resolution is not certain). International students often pay full tuition, so their loss would be a significant financial hit; that could be less true at Williams since it gives [substantial aid](https://www.williams.edu/admission-aid/financial-aid/international/) to many international students, but it would still be costly (quick calculation: 2,146 undergrads, 9% are international, 30% of international pay full tuition = $4.2M in tuition just from these ~58 students, far more than the grant funding loss). Other potential risks include changing taxes on endowments or pressure to remove accreditation. Maybe forgoing federal research funding reduces these risks, though there still are requirements that come with things like federal funding for students that Williams still accepts (a few colleges, like Hillsdale College, [choose not to accept federal funds](https://www.washingtonpost.com/local/education/hillsdale-college-subject-of-senate-debate-is-known-for-rejecting-federal-funds/2017/12/04/126f94ca-d91b-11e7-b1a8-62589434a581_story.html) and thus are not subject to Title IV and some other regulations).
+
+This policy also reduces the risk of wasted effort on grant proposals. According to the [proposed NSF budget](https://nsf-gov-resources.nsf.gov/files/00-NSF-FY26-CJ-Entire-Rollup.pdf) (see Summary Tables page 5), the success rate for grants will drop from 26% to 7%. That suggests that, if Williams College proposals have the same success rate as the average (likely wrong due to variation across programs and areas, but wrong in an unclear direction), faculty would have written 35 proposals to get their nine funded ones in 2024, but next budget year would have to write 129 to get nine funded ones. Presumably scaling up writing this much wouldn't be feasible: if instead they put in as many proposals as likely in the past, they could only expect 2-3 grants under the proposed budget. So the prohibition on receiving funding from proposals (and presumably not writing them) means a loss of 2-3 grants rather than 9 (if the proposed budget becomes the de facto one that NSF spends), but also saves the effort of writing 14 proposals for each one that happens to get funded.
+
+One other effect is on tenure expectations. Williams' new policy makes it less likely to fire early career faculty for not getting major grants (in a tough climate to win funding) since the institution prohibits getting those grants for now (see another [post](https://brianomeara.info/posts/fundingfortenure/) by me on this).
+
+These are all rough numbers based on readily available external information only -- I'm not part of the Williams community to know all the factors at play, and I have no special insight into what is happening and could happen at the federal level. I also could have just made simple errors (such as missing a whole set of grants in the NSF data). 
+
+Overall, I'm not sure if the Williams College policy is a good one or not. It is more likely to be good if it came from a shared governance process so that a lot of smart, concerned people who would be affected by it helped craft it. But my first response to questions like this is to run numbers and analyses, and try to consider all the potential pros and cons, so I'm putting the rough analysis here in case others find parts of it useful.
+
+
+___
+
+To subscribe, go to <https://brianomeara.info/blog.xml> in an RSS reader.

@@ -10,7 +10,54 @@
 <atom:link href="https://brianomeara.info/blog.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.6.40</generator>
-<lastBuildDate>Sun, 18 May 2025 04:00:00 GMT</lastBuildDate>
+<lastBuildDate>Sat, 07 Jun 2025 04:00:00 GMT</lastBuildDate>
+<item>
+  <title>Williams College stops seeking federal grants</title>
+  <dc:creator>Brian O&#39;Meara</dc:creator>
+  <link>https://brianomeara.info/posts/williamsgrants/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>Jeffrey Mervis in <em>Science</em> is reporting that <a href="https://www.science.org/content/article/u-s-college-first-decline-federal-science-grants-because-new-dei-language">Williams College is declining federal science grants</a>. According to the article:</p>
+<blockquote class="blockquote">
+<p>School officials told the faculty Williams won’t accept new grants from the National Science Foundation (NSF) or the National Institutes of Health (NIH) until the agencies clarify new language requiring grantee institutions to certify they aren’t doing anything to “promote or advance diversity, equity, and inclusion (DEI) … in violation of federal antidiscrimination laws.”</p>
+</blockquote>
+<p>and</p>
+<blockquote class="blockquote">
+<p>The provost’s email to faculty also cites a new initiative from the U.S. Department of Justice that allows private citizens to file a complaint against institutions receiving federal funds that they believe are violating federal civil rights laws. Refusing federal grants might decrease the risk that Williams could be sued, the email notes.</p>
+</blockquote>
+<p>Williams College is a small liberal arts college with a high graduation rate, good ratio of tenure stream faculty to students, and an increasing ratio of applicants to available positions (see <a href="https://collegetables.info/168342.html">here</a>). Their faculty, staff, and students publish <a href="https://openalex.org/works?page=1&amp;filter=authorships.institutions.lineage%3Ai22675022&amp;sort=publication_year%3Adesc">hundreds of academic works per year</a>. They have a <a href="https://investment.williams.edu/endowment/">robust endowment</a>. Williams has taken <a href="https://williamsrecord.com/464356/news/williams-college-budget-fiscal-year-2024-explained-fy24/">steps</a> to control expenses while focusing on priorities. All this is just to say that, from a poorly informed external perspective (mine), they seem to do be doing well overall – while there is concern about a lot of small liberal arts colleges, Williams is likely not in that set.</p>
+<p>So one question I had was what the potential impact of declining grants could be on a college like this. Looking up grants at <a href="https://www.nsf.gov/awardsearch/advancedSearch.jsp">NSF</a> and <a href="https://reporter.nih.gov">NIH</a>, Williams College was listed as getting nine NSF grants worth $2M in 2024 and nine NSF grants worth $1.8M in 2023; it had no NIH grants in 2024 and one worth $435K in 2023. Based on its budget guide, its F&amp;A rate (the negotiated amount that <em>mostly</em> covers the cost of infrastructure, personnel, and similar to support the research) is 50.8%. So, if we take its two year average of NSF and NIH funding, it could expect $2.1M in grants per year, of which about $1.4M is direct costs and $713K is indirect costs (the exact numbers are hard to calculate as not all direct costs are subject to the F&amp;A rate).</p>
+<p>This can pay for a lot of research, and so its <strong>loss will have a real impact on Williams College</strong>, and on <strong>everyone else who would benefit from the discoveries that would have been made</strong>. Federal funding is a zero sum game (if things work well) so the grant money Williams will not get will hopefully flow somewhere else, but Williams stepping back from competing means the pool of ideas to fund is impoverished, the same as any competition if a set of people are excluded from it.</p>
+<p>The policy of declining funding has to be weighed against the risks associated with that funding, but some of those risks are unknown – for example, what are the potential risks from a private citizen complaint, and what is the probability of those risks? One federal sanction applied to a different college has been to prohibit international student enrollment (as of today, June 7, 2025, that has been temporarily put on hold, but the final resolution is not certain). International students often pay full tuition, so their loss would be a significant financial hit; that could be less true at Williams since it gives <a href="https://www.williams.edu/admission-aid/financial-aid/international/">substantial aid</a> to many international students, but it would still be costly (quick calculation: 2,146 undergrads, 9% are international, 30% of international pay full tuition = $4.2M in tuition just from these ~58 students, far more than the grant funding loss). Other potential risks include changing taxes on endowments or pressure to remove accreditation. Maybe forgoing federal research funding reduces these risks, though there still are requirements that come with things like federal funding for students that Williams still accepts (a few colleges, like Hillsdale College, <a href="https://www.washingtonpost.com/local/education/hillsdale-college-subject-of-senate-debate-is-known-for-rejecting-federal-funds/2017/12/04/126f94ca-d91b-11e7-b1a8-62589434a581_story.html">choose not to accept federal funds</a> and thus are not subject to Title IV and some other regulations).</p>
+<p>This policy also reduces the risk of wasted effort on grant proposals. According to the <a href="https://nsf-gov-resources.nsf.gov/files/00-NSF-FY26-CJ-Entire-Rollup.pdf">proposed NSF budget</a> (see Summary Tables page 5), the success rate for grants will drop from 26% to 7%. That suggests that, if Williams College proposals have the same success rate as the average (likely wrong due to variation across programs and areas, but wrong in an unclear direction), faculty would have written 35 proposals to get their nine funded ones in 2024, but next budget year would have to write 129 to get nine funded ones. Presumably scaling up writing this much wouldn’t be feasible: if instead they put in as many proposals as likely in the past, they could only expect 2-3 grants under the proposed budget. So the prohibition on receiving funding from proposals (and presumably not writing them) means a loss of 2-3 grants rather than 9 (if the proposed budget becomes the de facto one that NSF spends), but also saves the effort of writing 14 proposals for each one that happens to get funded.</p>
+<p>One other effect is on tenure expectations. Williams’ new policy makes it less likely to fire early career faculty for not getting major grants (in a tough climate to win funding) since the institution prohibits getting those grants for now (see another <a href="https://brianomeara.info/posts/fundingfortenure/">post</a> by me on this).</p>
+<p>These are all rough numbers based on readily available external information only – I’m not part of the Williams community to know all the factors at play, and I have no special insight into what is happening and could happen at the federal level. I also could have just made simple errors (such as missing a whole set of grants in the NSF data).</p>
+<p>Overall, I’m not sure if the Williams College policy is a good one or not. It is more likely to be good if it came from a shared governance process so that a lot of smart, concerned people who would be affected by it helped craft it. But my first response to questions like this is to run numbers and analyses, and try to consider all the potential pros and cons, so I’m putting the rough analysis here in case others find parts of it useful.</p>
+<hr>
+<p>To subscribe, go to <a href="https://brianomeara.info/blog.xml" class="uri">https://brianomeara.info/blog.xml</a> in an RSS reader.</p>
+
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{o'meara2025,
+  author = {O’Meara, Brian},
+  title = {Williams {College} Stops Seeking Federal Grants},
+  date = {2025-06-07},
+  url = {https://brianomeara.info/posts/williamsgrants/},
+  langid = {en}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-o'meara2025" class="csl-entry quarto-appendix-citeas">
+O’Meara, Brian. 2025. <span>“Williams College Stops Seeking Federal
+Grants.”</span> June 7, 2025. <a href="https://brianomeara.info/posts/williamsgrants/">https://brianomeara.info/posts/williamsgrants/</a>.
+</div></div></section></div> ]]></description>
+  <category>grants</category>
+  <category>financing</category>
+  <guid>https://brianomeara.info/posts/williamsgrants/</guid>
+  <pubDate>Sat, 07 Jun 2025 04:00:00 GMT</pubDate>
+</item>
 <item>
   <title>Periodical cicadas</title>
   <dc:creator>Brian O&#39;Meara</dc:creator>

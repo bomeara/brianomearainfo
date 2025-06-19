@@ -1,0 +1,47 @@
+---
+title: "Conference locations"
+description: "Overview of considerations for selecting a location for a conference"
+author: "Brian O'Meara"
+date: "06/19/2025"
+citation: true
+categories: [conferences, travel, meetings] 
+---
+
+A committee across three evolution societies (Society for the Study of Evolution, Society of Systematic Biologists, American Society of Naturalists) surveyed members and read the literature to make recommendations on how to select conference locations. I wasn't on this committee, but I served as a liason between them and the joint meeting committee. Their report is [here](https://www.evolutionmeetings.org/uploads/4/8/8/0/48804503/finalreport.toshare_c-conflocations_dec2024.pdf). An important thing to note is that it was finalized in December 2024, before all the changes that have happened in the world since then. 
+
+This is intended as a guide for the [Evolution meetings](https://www.evolutionmeetings.org), which happen most commonly in the US (where the majority of the members are) but which do rotate around the world (Brazil, New Zealand, France, Canada, and more). For years the meeting locations were decided based on avoiding states on the [California travel ban](https://en.wikipedia.org/wiki/California_state-funded_travel_ban) for both potential safety reasons and due to limitations on travel from scientists in California, but California has now repealed this ban; other factors considered include cost (of travel, lodging, and the convention center), other safety issues, and spreading out where the meetings are. Appeal of the location also matters -- the meetings are run to break even, not make or lose money, but having a location where people want to go is important.
+
+The committee noted how much members valued different factors and used these to develop a weighted rubric for choosing locations within the US. There is a separate level of decision about which country to have a conference in, and that can change radically with geopolitical realities, visa restrictions, distribution of members, and much more -- this is an increasingly important question but was out of scope for the committee.
+
+So, assuming the conference will be somewhere in the US, the rubric on locations is: 
+
+| Factor                       | Metric                                                        | Weight |
+|------------------------------|---------------------------------------------------------------|--------|
+| Personal safety              | Gun safety (1-5, 1=strongest)                                 | 3/16   |
+| Personal safety              | Hate crime incidence (1-5, 1=lowest)                          | 3/16   |
+| Experiencing discrimination  | LGBTQ+ legal protection (1-5, 1=lowest)                       | 1/8    |
+| Experiencing discrimination  | Race/ethnicity legal protection (1-5, 1=high)                 | 1/8    |
+| Availability of medical care | Abortion policies (1-5, 1=least restrictive)                  | 1/8    |
+| Availability of medical care | Gender affirming care laws (1-5, 1=least restrictive)         | 1/8    |
+| Legal risks                  | Anti-trans bathroom laws (1-5, 1=no bans, 5=criminal offense) | 1/8    |
+
+Lower scores are better. The sources they pointed to for data included:
+
+* <https://everytownresearch.org/rankings/>
+* <https://www.justice.gov/hatecrimes/state-data>
+* <https://www.lgbtmap.org/>
+* <https://bjs.ojp.gov/sites/g/files/xyckuh236/files/media/document/naacp_hate_crime_laws_by_state.pdf>
+* <https://www.ncsl.org/civil-and-criminal-justice/racial-and-ethnic-disparities-in-the-criminal-justice-system#anchor5408>
+* <https://states.guttmacher.org/policies/>
+* <https://www.lgbtmap.org/equality-maps/healthcare_laws_and_policies>
+* <https://www.lgbtmap.org/equality-maps/nondiscrimination/bathroom_bans>
+
+This is not the only factor. For example, cost for travel and lodging can vary substanially between locations, and does not always follow conceptions of "expensive" places -- a place on the US West Coast with lots of direct flights might be cheaper than a place with a lower cost of living but where most attendees would have to take two or three connecting flights.
+
+One issue that has come up in the past with the California ban list is changing conditions between when a conference is scheduled and when it is held: for example, Ohio was considered fine for years, then it changed its laws. For a meeting like the Evolution meetings, with around 1500 attendees, conference centers are reserved 4-5 years in advance. Things like laws on healthcare access can change dramatically over that time; they can also change at a national level making any state laws moot. Moving can result in large financial penalties -- one back of the envelope calculation suggested changing one particular venue might result in hundreds of dollars more per individual registration. It can thus be infeasible to move events even with a year or two warning, making it even more imoportant to try to understand trends before picking locations.
+
+For more detail on the committee's reasoning and their insights from their survey, check out their [PDF](https://www.evolutionmeetings.org/uploads/4/8/8/0/48804503/finalreport.toshare_c-conflocations_dec2024.pdf). You can see more about choosing locations and other questions for the Evolution meeting [here](https://www.evolutionmeetings.org/general-information.html).
+
+___
+
+To subscribe, go to <https://brianomeara.info/blog.xml> in an RSS reader.

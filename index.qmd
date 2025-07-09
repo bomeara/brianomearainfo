@@ -86,7 +86,7 @@ Why are there so many species? What traits affect rates of species persistance a
 
 ## Teaching
 
-I've taught everything from 200-person introductory biology courses to small graduate reading groups. Every Fall I teach a macroevolution course for upper level undergraduate students and graduate students. I also taught an [open graduate course in phylogenetic methods](https://phylometh.info) every spring for years as part of an NSF CAREER grant. I teach our graduate core course in evolution. I also organize and/or teach at a variety of workshops.
+I've taught everything from 200-person introductory biology courses to small graduate reading groups. A major component of my teaching has been an upper level course in macroevolution, covering diversification, trait evolution, sexual selection, and more. I also taught an [open graduate course in phylogenetic methods](https://phylometh.info) every spring for years as part of an NSF CAREER grant. I have also taught our graduate core course in evolution. I also organize and/or teach at a variety of workshops.
 
 A key component of teaching is mentoring students and postdocs. I've mentored four graduate students and fifteen postdocs directly. See [here](people.qmd) for more information.
 
@@ -94,8 +94,9 @@ A key component of teaching is mentoring students and postdocs. I've mentored fo
 ## Service
 
 
+* I serve as interim director of the National Institute for Modeling Biological Systems (NIMBioS).
 * I served as an associate head for the EEB department for several years, focusing on graduate students, plus additional duties like helping to craft a covid response plan. In that role I worked to address student concerns and try to improve climate, and I continued that work as a member of EEB's diversity committee. 
-* I was also the associate director for postdoctoral activities at the National Institute for Biological and Mathematical Synthesis (NIMBioS), managing training and evaluation of postdocs. Other service includes organizing things like hackathons to draw in new participants and workshops to train biologists in new tools. 
+* I was also the associate director for postdoctoral activities at the National Institute for Biological and Mathematical Synthesis (NIMBioS, under its previous name), managing training and evaluation of postdocs. Other service includes organizing things like hackathons to draw in new participants and workshops to train biologists in new tools. 
 * I also co-organized the iEvoBio conference for three years and helped with other biology conferences (for example, scheduling all the lightning talks at a couple of Evolution meetings). 
 * I've done workshops to help with students applying to grants, overseen grad admissions, etc. 
 * I have been heavily involved in the Society of Systematic Biologists, in the past serving as the communications director, a member of the council, and its president. I have also been one of the longest serving members the joint code of conduct committee for the Evolution meetings, where have been part of the team creating [Safe Evolution](https://www.evolutionmeetings.org/safe-evolution.html), as well as doing IRB-approved research on climate at our meetings ([poster](https://figshare.com/articles/poster/Unwelcome_behaviors_at_the_Evolution_meetings_Survey_results/8311595)). 
@@ -105,8 +106,10 @@ A key component of teaching is mentoring students and postdocs. I've mentored fo
 
 ## Funding
 
-In the last ten years, work in the lab has been funded by six NSF grants to me as PI or Co-PI as well as awards from iPlant, Encyclopedia of Life, and Google Summer of Code to me or people doing work in the lab (see more info [here](funding.qmd)). Grad students in the lab have been supported by teaching assistantships as well as a [PEER](https://web.utk.edu/~peer/) fellowship. The UT Knoxville-based [National Institute for Mathematical and Biological Synthesis (NIMBioS)](https://www.nimbios.org/) remains critically important for my work, whether by funding independent postdocs (I have mentored multiple NIMBioS postdocs, in addition to additional postdocs in my lab with other funds), sponsoring workshops, or organizing working groups.
+Over my career, work in the lab has been funded by multiple NSF grants to me as PI or Co-PI as well as awards from iPlant, Encyclopedia of Life, and Google Summer of Code to me or people doing work in the lab (see more info [here](funding.qmd)). Grad students in the lab have been supported by teaching assistantships as well as a [PEER](https://web.utk.edu/~peer/) fellowship. The UT Knoxville-based [National Institute for Mathematical and Biological Synthesis (NIMBioS)](https://www.nimbios.org/) remains critically important for my work, whether by funding independent postdocs (I have mentored multiple NIMBioS postdocs, in addition to additional postdocs in my lab with other funds), sponsoring workshops, or organizing working groups.
+
+I owe my career to US National Science Foundation support: I was funded as a grad student by an NSF GRFP, postdoc at an NSF-funded synthesis center (NESCent), and continued support for over fifteen years as a faculty member.
 
 ## Contact
 
-To contact me, bomeara@utk.edu. I am also on <a rel="me" href="https://mastodon.social/@omearabrian">Mastodon</a> and [bluesky](https://bsky.app/profile/omearabrian.bsky.social). Office hours, including virtual ones are at my [calendar](calendar.qmd).
+To contact me, bomeara@utk.edu. I am also on [bluesky](https://bsky.app/profile/omearabrian.bsky.social). Office hours, including virtual ones are at my [calendar](calendar.qmd).

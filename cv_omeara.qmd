@@ -130,6 +130,8 @@ Biology (2001)
 
 # Employment
 
+* 2025-Present: **Interim Director**, National Institute for Modeling Biological Systems (NIMBioS), Knoxville, TN
+
 * 2019-Present: **Professor**, Dept. of Ecology & Evolutionary Biology, University of Tennessee, Knoxville, TN
 
 * 2016-2022: **Associate Head**, Dept. of Ecology and Evolutionary Biology, University of Tennessee, Knoxville, TN
@@ -175,6 +177,7 @@ Our standard load is to have three substantial courses and one small course (lik
 
 While my lab infrastructure is fairly cheap (individual computers, computing clusters, whiteboards, and markers), paying humanely for people isn't. Fortunately, I have been able to secure $`r formatC(total_funding, format="d", big.mark=",")` funding for my institution (see below). As with my listing of publications, this does not include funding earned by students or postdocs in my lab (GRFPs, DDIGs, postdoc fellowships, research funds, etc.) -- those go on their CVs. Funding indicated is that going to my institution, not necessarily the total amount of the grant.
 
+* 2022-2025: "Collaborative Research: ORCC: The role of bioenergetic budgets in defining elevation limits and modeling geographic ranges of species." NSF IOS. Xingli Giam PI ($614,248), I'm research personnel on the grant.
 * 2019-2024: "Collaborative Research:  Novel framework for estimating continuously-varying diversification rates." NSF DEB, Systematics & Biodiversity Science. $193,401
 * 2015-2021: "CAREER: Reducing barriers for comparative methods." NSF DEB, Phylogenetic Systematics. $738,297
 * 2015-2019: "Collaborative Research: ABI Development: An open infrastructure to disseminate phylogenetic knowledge." NSF DBI, Advances in Bioinformatics. $148,101
@@ -253,6 +256,7 @@ Our department creates a mentoring committee for each new faculty member. I have
 
 Some of my service comes directly through publications (for example, DateLife allows people to easily get dated trees of life for teaching or research). Some comes through informal service (a colleague at a different institution reaching out for advice on a situation in their department, for example). Here I am listing more formal service.
 
+* **Interim Director, NIMBioS**: I am taking over running NIMBioS, the National Institute for Modeling Biological Systems, at a time of transition as we plan for its future. NIMBioS has a long history of work at the interface of math and biology, and it's exciting to work for its future.
 * **Associate Head for EEB**: One of two associate heads under Head Susan Kalisz, my focus was on grad students and overall equity in the department. I also split interim head duties during a semester when the head was on sabbatical. My work included working with our grad admissions and grad affairs committees (including chairing the former one year while also serving as associate head), working on covid policy for the department (making sure everyone in a lab approved its safety protocols before it reopened, for example), and working with university lawyers on various issues (to be clear, none with me as a respondent or anything of the sort).
 * **Associate Director for NIMBioS**: My focus was on postdocs, including vocational mentoring and building their social interactions.
 * **President of the Society of Systematic Biologists**: This involves three years of commitment, as president-elect, president, and past president. During that time, I was involved in decisions on named awards, leadership and support of the society's two journals, a mentorship program, and more. I also served as de facto representative on the joint meeting committee for the Evolution meetings. I used my [presidential address](https://brianomeara.info/evol2023.html) to highlight four issues: how naming affects conservation; the need for and progress in handling misconduct in our field; issues with eponyms in our field; and our field's past and ongoing connection with eugenics (part of this included a new analysis of 122,096 papers and 141,284 unique authors).

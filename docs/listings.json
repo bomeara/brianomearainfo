@@ -2,6 +2,7 @@
   {
     "listing": "/blog.html",
     "items": [
+      "/posts/rsig/index.html",
       "/posts/conferencelocations/index.html",
       "/posts/williamsgrants/index.html",
       "/posts/cicadas/index.html",

@@ -10,7 +10,53 @@
 <atom:link href="https://brianomeara.info/blog.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.6.40</generator>
-<lastBuildDate>Thu, 19 Jun 2025 04:00:00 GMT</lastBuildDate>
+<lastBuildDate>Fri, 18 Jul 2025 04:00:00 GMT</lastBuildDate>
+<item>
+  <title>Course ads on R-sig-phylo</title>
+  <dc:creator>Brian O&#39;Meara</dc:creator>
+  <link>https://brianomeara.info/posts/rsig/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>The R project maintains <a href="https://www.r-project.org/mail.html">special interest mailing lists</a>: using R in ecology, using R in phylogenetics, etc.:</p>
+<blockquote class="blockquote">
+<p>Additionally, there are several specific Special Interest Group (=: SIG) mailing lists; however do post to only one list at time (‘SIG’ or general one), cross-posting is considered to be impolite.</p>
+</blockquote>
+<p>The phylogenetics one has been a good place for discussion and learning; I even quote posts from it at length in the <a href="https://thej022214.github.io/OUwie/reference/OUwie.anc.html#details-1">help for ancestral state reconstruction</a> using Ornstein-Uhlenbeck models in the OUwie documentation, as Joe Felsenstein, Dave Bapst, Simone Blomberg, Marguerite Butler, Nick Matzke, and Thomas Hansen all weighed in (I wrote the function so that by default it gives an error until a user indicates they actually read the documentation about the risks of this analysis).</p>
+<p>However, lately the list is filled with posts for courses in R. It might not be unreasonable: a workshop in R for phylogenetics, like the <a href="https://eqgw.github.io/index.html">evolutionary quantitative genetics workshop</a> led by community members Josef Uyeda and Fabio Machado, could be appropriately sent to the list. But now the list nearly <em>all</em> ads for courses, most of which do not relate to phylogenetics. Out of the last 50 <a href="https://www.mail-archive.com/r-sig-phylo@r-project.org/index.html">threads</a> on the list (Feb 2025-July 2025):</p>
+<ul>
+<li>22 were by Carlo Pecoraro of Physalia Courses</li>
+<li>9 were by Oliver Hooker of PR Statistics</li>
+<li>8 were by Soledad De Esteban-Trivigno of Transmitting Science</li>
+</ul>
+<p>Nearly all of these were for paid courses offered by these groups.</p>
+<p>There were also two (2!) threads with actual questions on R in phylogenetics (only one of which had answers), a request to nominate scientists for a medal, and two posts from the long-serving volunteer list moderator, Hilmar Lapp, about proper conduct, including <a href="https://www.mail-archive.com/r-sig-phylo@r-project.org/msg06067.html">one about too many training course advertisements</a>. Hilmar’s request was that groups post no more than two courses a month and only post each course once (no “last chance of” or similar follow-ups). All the companies above violated this (links to examples): <a href="https://www.mail-archive.com/r-sig-phylo@r-project.org/msg06092.html">Physalia</a> (which also posts over 3.5 courses per month), <a href="https://www.mail-archive.com/r-sig-phylo@r-project.org/msg06082.html">PR Statistics</a>, and <a href="https://www.mail-archive.com/r-sig-phylo@r-project.org/msg06106.html">Transmitting Science</a>.</p>
+<p>An easy criticism would be to argue for different moderation choices or actions, but any such move puts even more work on a long-serving community member. Why should someone volunteer their time to play whack-a-mole with multiple people who are paid to send out announcements as part of their day job? It’s not sustainable. It would be better if companies decided to be responsible and respect listserv rules (including the R-project’s request not to cross-post). They could even start their own R-sig listserv of courses that people could opt into – there’s a need for quality R courses, after all.</p>
+<p>Use of mailing lists just to sell courses is even worse outside R-sig-phylo – for example, in June the <a href="https://stat.ethz.ch/pipermail/r-sig-ecology/2025-June/thread.html">28 threads in the R-sig-ecology list</a> were ALL for courses (11 from Physalia, 8 from PR Statistics, 6 from the Institute for Statistical and Data Science, 2 from Transmitting Science, 1 from Highland Statistics), despite the huge number of R users in ecology, and the trend is continuing in July.</p>
+<p>Email discussion lists are definitely declining (you can see looking through the R special interest lists how many are practically abandoned) – we all get too many emails, and in some ways social media has replaced the need for mailing lists to ask questions and get answers (see <code>#rstats</code> on bluesky, for example). But one could imagine that in the coming era of AI slop, mailing lists with responses limited to those written by actual humans would once more become essential. It’s sad to see something like R-sig-phylo, which has been a place for good discussion and could be again, get overwhelmed by companies choosing to use it to sell courses: who wants to join or stay on a list if only 4% of posts are directly connected to the list topic? I myself was considering unsubscribing this morning – thus this plea for things to change (and I might as an intermediate step just block any mail from particular companies).</p>
+<hr>
+<p>To subscribe, go to <a href="https://brianomeara.info/blog.xml" class="uri">https://brianomeara.info/blog.xml</a> in an RSS reader.</p>
+
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{o'meara2025,
+  author = {O’Meara, Brian},
+  title = {Course Ads on {R-sig-phylo}},
+  date = {2025-07-18},
+  url = {https://brianomeara.info/posts/rsig/},
+  langid = {en}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-o'meara2025" class="csl-entry quarto-appendix-citeas">
+O’Meara, Brian. 2025. <span>“Course Ads on R-Sig-Phylo.”</span> July 18,
+2025. <a href="https://brianomeara.info/posts/rsig/">https://brianomeara.info/posts/rsig/</a>.
+</div></div></section></div> ]]></description>
+  <category>Rstats</category>
+  <guid>https://brianomeara.info/posts/rsig/</guid>
+  <pubDate>Fri, 18 Jul 2025 04:00:00 GMT</pubDate>
+</item>
 <item>
   <title>Conference locations</title>
   <dc:creator>Brian O&#39;Meara</dc:creator>

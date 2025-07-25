@@ -1,0 +1,60 @@
+---
+title: "Watching memory in targets in R"
+description: "Quick way to keep from running out of memory when running targets in R"
+author: "Brian O'Meara"
+date: "07/25/2025"
+citation: true
+categories: [Rstats, targets] 
+---
+
+I loved drake for R workflows, and I love using its successor, [targets](https://books.ropensci.org/targets/) -- great thanks to author Will Landau, his funder, Eli Lilly & Company, and its host, rOpenSci. The basic workflow it creates is simple and reproducible:
+
+* A file of functions.
+* A list of targets that use your functions and other functions to create a series of steps
+
+It's much more logical than the mixture of functions and workflow you see in a lot of beginning R user scripts. It also saves time: if you have a three step process, A -> B -> C, you can run it through once, decide step B needs to be tweaked, change the function for that step, and it will know to run only steps B and C again, keeping A unchanged. This is great for doing simulation analyses: "oh, let's add more conditions to understand the behavior between t=5 and t=50, as that is where things seem to change" -- only the new values will be run. I use targets for everything from [analyses and creating figures for papers](https://github.com/bomeara/hyperbolic_rates/blob/main/hyperanalysis/_targets.R) to creating a [multi-thousand page website](https://collegetables.info) for helping my kids compare colleges (as one does). 
+
+It has [great abilities](https://books.ropensci.org/targets/crew.html) for working on clusters and other high performance computing structures. We ran into an issue, though, with running on a colleague's beefy multicore computer (which isn't running queueing software, but it's one with a large amount of RAM and over a hundred CPUs). We used [crew](https://wlandau.github.io/crew/) with targets to handle batching out jobs to the CPUs. The issue is that while this could make sure there were CPUs available, it was not tracking memory use. The jobs we were sending out involved doing analyses on simulated trees: these could be just a handful of species or many thousands, and so the jobs were wildly different in terms of memory usage. If we figured out the average memory usage for a job and set to not hit the cap on average, there was still a chance of using up too much memory, especially as smaller jobs finished earlier so the population of running jobs becomes more enriched for slow, high memory jobs later in the run. On the other hand, if we conservatively set the number of CPUs used to a low number, we're taking longer to run things than we need to as we're nowhere near the memory or CPU limit. Perhaps with a more sophisticated batching system memory use would be incorporated, but it's an odd kind of job for this because memory need varies a lot based on the input object.
+
+So, a kludge I made:
+
+To do parallel, we use crew:
+
+```
+tar_option_set(
+        packages = c( "tidyverse",  "tarchetypes", "ggplot2", "RColorBrewer", "ggrepel", "ggtext",  "pdftools", "readr", "parallel", "phytools", "TreeSim", "viridis", "RPANDA", "epm", "parallel", "ggbeeswarm", "JuliaCall", "memuse"),
+		controller= crew_controller_local(workers = 80, seconds_timeout = 600, garbage_collection = TRUE)
+)
+```
+
+Our relevant slow target is:
+
+```
+	tar_target(
+		inference_results,
+		command = DoInference(many_trees),
+		pattern = map(many_trees),
+		iteration = "list"
+	)
+```
+
+Where we have simulated trees from previous simulation steps in the list `many_trees`.
+
+In the `DoInference()` function, I set a threshold of 10 GB for desired amount of free RAM on the cluster (`free_GBram_threshold`) then used this code before the actual analysis starts:
+
+```
+	Sys.sleep(runif(1, 0, ntax)) # sleep for a random amount of time to avoid all processes starting at the same time, have bigger trees start later
+	freeGBram <- .Call(memuse:::R_meminfo_raminfo)$freeram / 1e9
+	while(freeGBram < max(free_GBram_threshold, sqrt(ntax))) {
+		Sys.sleep(10)
+		freeGBram <- .Call(memuse:::R_meminfo_raminfo)$freeram / 1e9
+	}
+```
+
+`ntax` is the number of species on a tree, roughly proportional to how big a job it will be to run.
+
+This uses the `memuse` package to see how much RAM is available on the system, and then does a loop to wait until there is enough free before starting the expensive part of the analysis. If there is enough RAM, everything runs happily, with a slight bias for starting easier jobs sooner. As RAM fills up, the same number of jobs are technically running, but some are just doing repeated sleep cycles until there's memory capacity. This isn't ideal -- there could be low-memory jobs that would fit easily, but the big jobs are just occupying a CPU running `Sys.sleep()` forever -- but for our setup, where there was one user on the computer trying to juggle memory, it worked ok.
+
+___
+
+To subscribe, go to <https://brianomeara.info/blog.xml> in an RSS reader.

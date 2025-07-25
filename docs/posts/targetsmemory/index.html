@@ -6,8 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Brian O’Meara">
+<meta name="dcterms.date" content="2025-07-25">
+<meta name="description" content="Quick way to keep from running out of memory when running targets in R">
 
-<title>Useful links – Brian O’Meara</title>
+<title>Watching memory in targets in R – Brian O’Meara</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,23 +26,23 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./logo.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-7ad6542725e80d1433b1f8ee26c2a1fc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../logo.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-7ad6542725e80d1433b1f8ee26c2a1fc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -74,11 +77,11 @@ ul.task-list li input[type="checkbox"] {
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Brian O’Meara</span>
     </a>
   </div>
@@ -89,7 +92,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -98,35 +101,35 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-cv-etc.">    
         <li>
-    <a class="dropdown-item" href="./cv.html">
+    <a class="dropdown-item" href="../../cv.html">
  <span class="dropdown-text">CV</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./calendar.html">
+    <a class="dropdown-item" href="../../calendar.html">
  <span class="dropdown-text">Calendar</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./feedback.html">
+    <a class="dropdown-item" href="../../feedback.html">
  <span class="dropdown-text">Feedback</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./useful.html">
+    <a class="dropdown-item" href="../../useful.html">
  <span class="dropdown-text">Useful links</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./tenure.html">
+    <a class="dropdown-item" href="../../tenure.html">
  <span class="dropdown-text">Materials for promotion to associate (and tenure)</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./promotion.html">
+    <a class="dropdown-item" href="../../promotion.html">
  <span class="dropdown-text">Materials for promotion to full</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./SSB.html">
+    <a class="dropdown-item" href="../../SSB.html">
  <span class="dropdown-text">Candidacy for SSB president</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./evol2023.html">
+    <a class="dropdown-item" href="../../evol2023.html">
  <span class="dropdown-text">SSB Presidential Address 2023</span></a>
   </li>  
     </ul>
@@ -137,51 +140,51 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-lab">    
         <li>
-    <a class="dropdown-item" href="./personnel.html">
+    <a class="dropdown-item" href="../../personnel.html">
  <span class="dropdown-text">People</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./guidelines.html">
+    <a class="dropdown-item" href="../../guidelines.html">
  <span class="dropdown-text">Guidelines &amp; Recommendations</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./location.html">
+    <a class="dropdown-item" href="../../location.html">
  <span class="dropdown-text">Location/Contact</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./opportunities.html">
+    <a class="dropdown-item" href="../../opportunities.html">
  <span class="dropdown-text">Opportunities</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./learningobjectives.html">
+    <a class="dropdown-item" href="../../learningobjectives.html">
  <span class="dropdown-text">Learning objectives</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./better-letter.html">
+    <a class="dropdown-item" href="../../better-letter.html">
  <span class="dropdown-text">BetterLetter</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./shouldyougotogradschool.html">
+    <a class="dropdown-item" href="../../shouldyougotogradschool.html">
  <span class="dropdown-text">Should you go to grad school to be a professor?</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./tenure.html">
+    <a class="dropdown-item" href="../../tenure.html">
  <span class="dropdown-text">Materials for promotion to associate (and tenure)</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./promotion.html">
+    <a class="dropdown-item" href="../../promotion.html">
  <span class="dropdown-text">Materials for promotion to full</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./general.html">
+    <a class="dropdown-item" href="../../general.html">
  <span class="dropdown-text">Info for general public</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./covid.html">
+    <a class="dropdown-item" href="../../covid.html">
  <span class="dropdown-text">COVID</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./schedule.html">
+    <a class="dropdown-item" href="../../schedule.html">
  <span class="dropdown-text">EEB scheduling</span></a>
   </li>  
     </ul>
@@ -192,11 +195,11 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-teaching">    
         <li>
-    <a class="dropdown-item" href="./teaching.html">
+    <a class="dropdown-item" href="../../teaching.html">
  <span class="dropdown-text">Teaching overall</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./eeb464.html">
+    <a class="dropdown-item" href="../../eeb464.html">
  <span class="dropdown-text">Macroevolution (EEB464)</span></a>
   </li>  
         <li>
@@ -211,11 +214,11 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-tutorials">    
         <li>
-    <a class="dropdown-item" href="./aic.html">
+    <a class="dropdown-item" href="../../aic.html">
  <span class="dropdown-text">AIC</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./phylogenetics.html">
+    <a class="dropdown-item" href="../../phylogenetics.html">
  <span class="dropdown-text">Phylogenetics</span></a>
   </li>  
     </ul>
@@ -226,11 +229,11 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-blog">    
         <li>
-    <a class="dropdown-item" href="./blog.html">
+    <a class="dropdown-item" href="../../blog.html">
  <span class="dropdown-text">Blog</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./blog.xml">
+    <a class="dropdown-item" href="../../blog.xml">
  <span class="dropdown-text">RSS feed</span></a>
   </li>  
     </ul>
@@ -243,108 +246,102 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Watching memory in targets in R</h1>
+                  <div>
+        <div class="description">
+          Quick way to keep from running out of memory when running targets in R
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">Rstats</div>
+                <div class="quarto-category">targets</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Brian O’Meara </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">July 25, 2025</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#r" id="toc-r" class="nav-link active" data-scroll-target="#r">R</a></li>
-  <li><a href="#other-software" id="toc-other-software" class="nav-link" data-scroll-target="#other-software">Other software</a></li>
-  <li><a href="#diversity-in-science" id="toc-diversity-in-science" class="nav-link" data-scroll-target="#diversity-in-science">Diversity in science</a></li>
-  <li><a href="#knoxville" id="toc-knoxville" class="nav-link" data-scroll-target="#knoxville">Knoxville</a></li>
-  <li><a href="#fun" id="toc-fun" class="nav-link" data-scroll-target="#fun">Fun</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Useful links</h1>
-</div>
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
 
 
-</header>
-
-
-<p>Keeping sets of useful links has gone out of vogue, but I keep searching for the same things again and again. So, aggregate:</p>
-<section id="r" class="level2">
-<h2 class="anchored" data-anchor-id="r">R</h2>
+<p>I loved drake for R workflows, and I love using its successor, <a href="https://books.ropensci.org/targets/">targets</a> – great thanks to author Will Landau, his funder, Eli Lilly &amp; Company, and its host, rOpenSci. The basic workflow it creates is simple and reproducible:</p>
 <ul>
-<li>Fast Rmarkdown websites (<code>rmarkdown::render_site()</code>): <a href="https://bookdown.org/yihui/rmarkdown/rmarkdown-site.html" class="uri">https://bookdown.org/yihui/rmarkdown/rmarkdown-site.html</a></li>
-<li>Figure out what dependencies are needed when making an R package: <a href="https://github.com/Thinkr-open/attachment" class="uri">https://github.com/Thinkr-open/attachment</a></li>
-<li>ropensci have a ton of useful packages: <a href="https://ropensci.org/" class="uri">https://ropensci.org/</a></li>
-<li>rorcid is a way to pull info from the Orcid repository of information: <a href="https://github.com/ropensci/rorcid" class="uri">https://github.com/ropensci/rorcid</a> for the package, my Orcid page is at <a href="https://orcid.org/0000-0002-0337-5997" class="uri">https://orcid.org/0000-0002-0337-5997</a> (free, get your own)</li>
+<li>A file of functions.</li>
+<li>A list of targets that use your functions and other functions to create a series of steps</li>
 </ul>
-</section>
-<section id="other-software" class="level2">
-<h2 class="anchored" data-anchor-id="other-software">Other software</h2>
-<ul>
-<li>I usually use <a href="https://www.httrack.com/">httrack</a> to download entire websites, but https://github.com/Y2Z/monolith looks interesting (pulls down javascript, too)</li>
-<li><a href="https://jetstream-cloud.org/">NSF Jetstream</a>, <a href="https://www.cyverse.org/">cyverse</a> for running analyses.</li>
-</ul>
-</section>
-<section id="diversity-in-science" class="level2">
-<h2 class="anchored" data-anchor-id="diversity-in-science">Diversity in science</h2>
-<ul>
-<li>National Academy report (you don’t have to buy it – go to the download free pdf or read online links): <a href="https://www.nap.edu/catalog/24994/sexual-harassment-of-women-climate-culture-and-consequences-in-academic" class="uri">https://www.nap.edu/catalog/24994/sexual-harassment-of-women-climate-culture-and-consequences-in-academic</a></li>
-<li>Overview of sexism facing women (links to many studies, good way to find evidence): <a href="https://nplusonemag.com/issue-34/essays/sexism-in-the-academy/" class="uri">https://nplusonemag.com/issue-34/essays/sexism-in-the-academy/</a></li>
-<li><a href="https://geocognitionresearchlaboratory.com/">Julie Libarkin</a>’s database of academics with evidence of misconduct: <a href="https://academic-sexual-misconduct-database.org/" class="uri">https://academic-sexual-misconduct-database.org/</a></li>
-<li>Spreadsheet of codes of conduct and ethics for scientific societies: <a href="https://docs.google.com/spreadsheets/d/19sj3Q6pHeQB54HceirN06t3aXCfWIqdJmFzrvs2_zDY/edit#gid=0" class="uri">https://docs.google.com/spreadsheets/d/19sj3Q6pHeQB54HceirN06t3aXCfWIqdJmFzrvs2_zDY/edit#gid=0</a></li>
-<li>SafeEvolution website: <a href="https://www.evolutionmeetings.org/safe-evolution.html" class="uri">https://www.evolutionmeetings.org/safe-evolution.html</a></li>
-<li>Poster on behavior at Evolution: <a href="https://figshare.com/articles/Unwelcome_behaviors_at_the_Evolution_meetings_Survey_results/8311595" class="uri">https://figshare.com/articles/Unwelcome_behaviors_at_the_Evolution_meetings_Survey_results/8311595</a></li>
-<li><a href="https://antiracisminstem.wordpress.com/">Responses to 10 common criticisms of anti-racism action in STEM</a></li>
-</ul>
-</section>
-<section id="knoxville" class="level2">
-<h2 class="anchored" data-anchor-id="knoxville">Knoxville</h2>
-<ul>
-<li>Distressed faculty and staff: <a href="https://hr.utk.edu/care/" class="uri">https://hr.utk.edu/care/</a> 865-946-2273</li>
-<li>Distressed students: <a href="https://dos.utk.edu/974-help/our-approach/" class="uri">https://dos.utk.edu/974-help/our-approach/</a> 865-974-4357</li>
-<li>Resources (discounts, child care options, policies, etc.): <a href="https://ascend.utk.edu/work-and-life/work-and-life-resources/" class="uri">https://ascend.utk.edu/work-and-life/work-and-life-resources/</a></li>
-<li>Title IX reporting: <a href="https://titleix.utk.edu/" class="uri">https://titleix.utk.edu/</a></li>
-<li>Campus map (note it includes info like lactation rooms, accessible building entrances): <a href="https://maps.utk.edu/?id=314" class="uri">https://maps.utk.edu/?id=314</a></li>
-<li>Campus dining hours: <a href="https://dining.utk.edu/hours/" class="uri">https://dining.utk.edu/hours/</a></li>
-<li>Academic calendar: <a href="https://registrar.utk.edu/calendar/academic-calendars/" class="uri">https://registrar.utk.edu/calendar/academic-calendars/</a></li>
-<li>EEB department: <a href="https://eeb.utk.edu/" class="uri">https://eeb.utk.edu/</a></li>
-<li>NIMBioS: <a href="https://nimbios.org" class="uri">https://nimbios.org</a></li>
-<li>Local newspaper: <a href="https://www.knoxnews.com/" class="uri">https://www.knoxnews.com/</a> (they often have deals – support local journalism if you’re able)</li>
-<li>Inside of Knoxville: <a href="https://insideofknoxville.com" class="uri">https://insideofknoxville.com</a>. blog about goings on downtown. See the ten day planner: <a href="https://insideofknoxville.com/ten-day-planner/https://insideofknoxville.com/" class="uri">https://insideofknoxville.com/ten-day-planner/https://insideofknoxville.com/</a></li>
-<li>Lawyers in Knoxville: <a href="https://www.laet.org">Legal aid of East TN</a>, <a href="https://www.knoxbar.org/index.cfm?pg=onlinereferralform">Knoxville Bar Association find a lawyer service</a>. Groups like the <a href="https://www.aclu-tn.org/">ACLU</a> may also be helpful for some legal questions.</li>
-</ul>
-</section>
-<section id="fun" class="level2">
-<h2 class="anchored" data-anchor-id="fun">Fun</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://www.air-resource.net/GRSMNFGap/gsng.jpg" class="img-fluid figure-img"></p>
-<figcaption>Image from Newfound Gap in the Smokies</figcaption>
-</figure>
-</div>
-<ul>
-<li>My academic ancestors and descendants (the latter is more diverse): <a href="https://academictree.org/evolution/tree.php?pid=129230" class="uri">https://academictree.org/evolution/tree.php?pid=129230</a></li>
-<li>Webcams of the Smokies: <a href="https://www.nps.gov/grsm/learn/photosmultimedia/webcams.htm" class="uri">https://www.nps.gov/grsm/learn/photosmultimedia/webcams.htm</a></li>
-<li>Also see R section.</li>
-</ul>
+<p>It’s much more logical than the mixture of functions and workflow you see in a lot of beginning R user scripts. It also saves time: if you have a three step process, A -&gt; B -&gt; C, you can run it through once, decide step B needs to be tweaked, change the function for that step, and it will know to run only steps B and C again, keeping A unchanged. This is great for doing simulation analyses: “oh, let’s add more conditions to understand the behavior between t=5 and t=50, as that is where things seem to change” – only the new values will be run. I use targets for everything from <a href="https://github.com/bomeara/hyperbolic_rates/blob/main/hyperanalysis/_targets.R">analyses and creating figures for papers</a> to creating a <a href="https://collegetables.info">multi-thousand page website</a> for helping my kids compare colleges (as one does).</p>
+<p>It has <a href="https://books.ropensci.org/targets/crew.html">great abilities</a> for working on clusters and other high performance computing structures. We ran into an issue, though, with running on a colleague’s beefy multicore computer (which isn’t running queueing software, but it’s one with a large amount of RAM and over a hundred CPUs). We used <a href="https://wlandau.github.io/crew/">crew</a> with targets to handle batching out jobs to the CPUs. The issue is that while this could make sure there were CPUs available, it was not tracking memory use. The jobs we were sending out involved doing analyses on simulated trees: these could be just a handful of species or many thousands, and so the jobs were wildly different in terms of memory usage. If we figured out the average memory usage for a job and set to not hit the cap on average, there was still a chance of using up too much memory, especially as smaller jobs finished earlier so the population of running jobs becomes more enriched for slow, high memory jobs later in the run. On the other hand, if we conservatively set the number of CPUs used to a low number, we’re taking longer to run things than we need to as we’re nowhere near the memory or CPU limit. Perhaps with a more sophisticated batching system memory use would be incorporated, but it’s an odd kind of job for this because memory need varies a lot based on the input object.</p>
+<p>So, a kludge I made:</p>
+<p>To do parallel, we use crew:</p>
+<pre><code>tar_option_set(
+        packages = c( "tidyverse",  "tarchetypes", "ggplot2", "RColorBrewer", "ggrepel", "ggtext",  "pdftools", "readr", "parallel", "phytools", "TreeSim", "viridis", "RPANDA", "epm", "parallel", "ggbeeswarm", "JuliaCall", "memuse"),
+        controller= crew_controller_local(workers = 80, seconds_timeout = 600, garbage_collection = TRUE)
+)</code></pre>
+<p>Our relevant slow target is:</p>
+<pre><code>    tar_target(
+        inference_results,
+        command = DoInference(many_trees),
+        pattern = map(many_trees),
+        iteration = "list"
+    )</code></pre>
+<p>Where we have simulated trees from previous simulation steps in the list <code>many_trees</code>.</p>
+<p>In the <code>DoInference()</code> function, I set a threshold of 10 GB for desired amount of free RAM on the cluster (<code>free_GBram_threshold</code>) then used this code before the actual analysis starts:</p>
+<pre><code>    Sys.sleep(runif(1, 0, ntax)) # sleep for a random amount of time to avoid all processes starting at the same time, have bigger trees start later
+    freeGBram &lt;- .Call(memuse:::R_meminfo_raminfo)$freeram / 1e9
+    while(freeGBram &lt; max(free_GBram_threshold, sqrt(ntax))) {
+        Sys.sleep(10)
+        freeGBram &lt;- .Call(memuse:::R_meminfo_raminfo)$freeram / 1e9
+    }</code></pre>
+<p><code>ntax</code> is the number of species on a tree, roughly proportional to how big a job it will be to run.</p>
+<p>This uses the <code>memuse</code> package to see how much RAM is available on the system, and then does a loop to wait until there is enough free before starting the expensive part of the analysis. If there is enough RAM, everything runs happily, with a slight bias for starting easier jobs sooner. As RAM fills up, the same number of jobs are technically running, but some are just doing repeated sleep cycles until there’s memory capacity. This isn’t ideal – there could be low-memory jobs that would fit easily, but the big jobs are just occupying a CPU running <code>Sys.sleep()</code> forever – but for our setup, where there was one user on the computer trying to juggle memory, it worked ok.</p>
+<hr>
+<p>To subscribe, go to <a href="https://brianomeara.info/blog.xml" class="uri">https://brianomeara.info/blog.xml</a> in an RSS reader.</p>
 
 
-</section>
 
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{o'meara2025,
+  author = {O’Meara, Brian},
+  title = {Watching Memory in Targets in {R}},
+  date = {2025-07-25},
+  url = {https://brianomeara.info/posts/targetsmemory/},
+  langid = {en}
+}
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-o'meara2025" class="csl-entry quarto-appendix-citeas" role="listitem">
+O’Meara, Brian. 2025. <span>“Watching Memory in Targets in R.”</span>
+July 25, 2025. <a href="https://brianomeara.info/posts/targetsmemory/">https://brianomeara.info/posts/targetsmemory/</a>.
+</div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

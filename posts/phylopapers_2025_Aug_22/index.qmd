@@ -1,0 +1,37 @@
+---
+title: "PhyloPapers 2025, first class"
+description: "Presentation for first class in new phylogenetic papers class, focused on tree building"
+author: "Brian O'Meara"
+date: "08/22/2025"
+citation: true
+categories: [phylopapers, phylogenetics, teaching] 
+---
+
+I'm teaching a new class this semester. It is a graduate-level seminar reading recent phylogenetic papers, but also with a bit of instruction at the beginnng of each class as a gentle way of onboarding people into phylogenetic methods and evolutionary thinking. My hope is that it will be good for people just learning in this area while still getting deep for those already in the field. So far it has 13 students enrolled and 9 people auditing (generally fellow faculty). Before each class, enrollees are asked:
+
+1. What was the discovery or innovation in this paper?
+2. How this was supported?
+3. What didn't you understand about the paper, the methods, the questions, and/or the organisms?
+
+My goal is to make it a positive learning experience -- sometimes classes focusing on papers can devolve into "paper shredding" sessions where everyone takes pot shots at it. This can be a cheap way to perform competence at one another, but it's not fair to the paper's authors and also can lead to cynicism about the possibility of learning. Nearly all papers have a mixture of good and bad features, often due to very real constraints we all face, but they also do contribute insights about the world.
+
+For the first week I wanted to show student a recent paper where making the phylogeny helped with understanding the biology. The focus is to have students learn a bit about why and how we make phylogenies and then build in deeper. I chose
+
+> Alison R. Irwin, Nicholas W. Roberts, Ellen E. Strong, Yasunori Kano, Daniel I. Speiser, Elizabeth M. Harper, and Suzanne T. Williams. 2025 “Evolution of Large Eyes in Stromboidea (Gastropoda): Impact of Photic Environment and Life History Traits” Systematic Biology 74(2):301–322. <https://doi.org/10.1093/sysbio/syae063>
+
+as it uses a few different phylogenetic approaches in an appealing study system. 
+
+I made intro slides with some of my background material and some figures from the paper: [PDF](IrwinEtAl2025_BuildingPhylogenies.pdf) and [PowerPoint](IrwinEtAl2025_BuildingPhylogenies.pdf.pptx)
+
+Some of the material used:
+
+* The paper: <https://doi.org/10.1093/sysbio/syae063>
+* Sequences: <https://doi.org/doi:10.5061/dryad.pnvx0k6v0>
+* Other background info: <https://doi.org/10.5281/zenodo.13768189> (though I had to use [version 1](https://zenodo.org/records/8260767) as the more recent one is under embargo)
+* [Mesquite](https://www.mesquiteproject.org) for visualizing the sequences
+
+Note I wasn't involved in the Irwin et al. (2025) paper at all (not as a reviewer, AE, etc.), so I don't have any insights into its development.
+
+___
+
+To subscribe, go to <https://brianomeara.info/blog.xml> in an RSS reader.

@@ -29,6 +29,10 @@ Use of mailing lists just to sell courses is even worse outside R-sig-phylo -- f
 
 Email discussion lists are definitely declining (you can see looking through the R special interest lists how many are practically abandoned) -- we all get too many emails, and in some ways social media has replaced the need for mailing lists to ask questions and get answers (see `#rstats` on bluesky, for example). But one could imagine that in the coming era of AI slop, mailing lists with responses limited to those written by actual humans would once more become essential. It's sad to see something like R-sig-phylo, which has been a place for good discussion and could be again, get overwhelmed by companies choosing to use it to sell courses: who wants to join or stay on a list if only 4% of posts are directly connected to the list topic? I myself was considering unsubscribing this morning -- thus this plea for things to change (and I might as an intermediate step just block any mail from particular companies).
 
+### Update Aug 22, 2025
+
+Two of the companies involved have apologized for sending off-topic postings and said they will no longer do this. I'm glad to see this improvement.
+
 ___
 
 To subscribe, go to <https://brianomeara.info/blog.xml> in an RSS reader.

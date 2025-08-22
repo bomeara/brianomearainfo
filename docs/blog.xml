@@ -10,7 +10,60 @@
 <atom:link href="https://brianomeara.info/blog.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.6.40</generator>
-<lastBuildDate>Fri, 25 Jul 2025 04:00:00 GMT</lastBuildDate>
+<lastBuildDate>Fri, 22 Aug 2025 04:00:00 GMT</lastBuildDate>
+<item>
+  <title>PhyloPapers 2025, first class</title>
+  <dc:creator>Brian O&#39;Meara</dc:creator>
+  <link>https://brianomeara.info/posts/phylopapers_2025_Aug_22/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>I’m teaching a new class this semester. It is a graduate-level seminar reading recent phylogenetic papers, but also with a bit of instruction at the beginnng of each class as a gentle way of onboarding people into phylogenetic methods and evolutionary thinking. My hope is that it will be good for people just learning in this area while still getting deep for those already in the field. So far it has 13 students enrolled and 9 people auditing (generally fellow faculty). Before each class, enrollees are asked:</p>
+<ol type="1">
+<li>What was the discovery or innovation in this paper?</li>
+<li>How this was supported?</li>
+<li>What didn’t you understand about the paper, the methods, the questions, and/or the organisms?</li>
+</ol>
+<p>My goal is to make it a positive learning experience – sometimes classes focusing on papers can devolve into “paper shredding” sessions where everyone takes pot shots at it. This can be a cheap way to perform competence at one another, but it’s not fair to the paper’s authors and also can lead to cynicism about the possibility of learning. Nearly all papers have a mixture of good and bad features, often due to very real constraints we all face, but they also do contribute insights about the world.</p>
+<p>For the first week I wanted to show student a recent paper where making the phylogeny helped with understanding the biology. The focus is to have students learn a bit about why and how we make phylogenies and then build in deeper. I chose</p>
+<blockquote class="blockquote">
+<p>Alison R. Irwin, Nicholas W. Roberts, Ellen E. Strong, Yasunori Kano, Daniel I. Speiser, Elizabeth M. Harper, and Suzanne T. Williams. 2025 “Evolution of Large Eyes in Stromboidea (Gastropoda): Impact of Photic Environment and Life History Traits” Systematic Biology 74(2):301–322. <a href="https://doi.org/10.1093/sysbio/syae063" class="uri">https://doi.org/10.1093/sysbio/syae063</a></p>
+</blockquote>
+<p>as it uses a few different phylogenetic approaches in an appealing study system.</p>
+<p>I made intro slides with some of my background material and some figures from the paper: <a href="IrwinEtAl2025_BuildingPhylogenies.pdf">PDF</a> and <a href="IrwinEtAl2025_BuildingPhylogenies.pdf.pptx">PowerPoint</a></p>
+<p>Some of the material used:</p>
+<ul>
+<li>The paper: <a href="https://doi.org/10.1093/sysbio/syae063" class="uri">https://doi.org/10.1093/sysbio/syae063</a></li>
+<li>Sequences: <a href="https://doi.org/doi:10.5061/dryad.pnvx0k6v0" class="uri">https://doi.org/doi:10.5061/dryad.pnvx0k6v0</a></li>
+<li>Other background info: <a href="https://doi.org/10.5281/zenodo.13768189" class="uri">https://doi.org/10.5281/zenodo.13768189</a> (though I had to use <a href="https://zenodo.org/records/8260767">version 1</a> as the more recent one is under embargo)</li>
+<li><a href="https://www.mesquiteproject.org">Mesquite</a> for visualizing the sequences</li>
+</ul>
+<p>Note I wasn’t involved in the Irwin et al.&nbsp;(2025) paper at all (not as a reviewer, AE, etc.), so I don’t have any insights into its development.</p>
+<hr>
+<p>To subscribe, go to <a href="https://brianomeara.info/blog.xml" class="uri">https://brianomeara.info/blog.xml</a> in an RSS reader.</p>
+
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{o'meara2025,
+  author = {O’Meara, Brian},
+  title = {PhyloPapers 2025, First Class},
+  date = {2025-08-22},
+  url = {https://brianomeara.info/posts/phylopapers_2025_Aug_22/},
+  langid = {en}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-o'meara2025" class="csl-entry quarto-appendix-citeas">
+O’Meara, Brian. 2025. <span>“PhyloPapers 2025, First Class.”</span>
+August 22, 2025. <a href="https://brianomeara.info/posts/phylopapers_2025_Aug_22/">https://brianomeara.info/posts/phylopapers_2025_Aug_22/</a>.
+</div></div></section></div> ]]></description>
+  <category>phylopapers</category>
+  <category>phylogenetics</category>
+  <category>teaching</category>
+  <guid>https://brianomeara.info/posts/phylopapers_2025_Aug_22/</guid>
+  <pubDate>Fri, 22 Aug 2025 04:00:00 GMT</pubDate>
+</item>
 <item>
   <title>Watching memory in targets in R</title>
   <dc:creator>Brian O&#39;Meara</dc:creator>
@@ -98,10 +151,14 @@ July 25, 2025. <a href="https://brianomeara.info/posts/targetsmemory/">https://b
 <p>An easy criticism would be to argue for different moderation choices or actions, but any such move puts even more work on a long-serving community member. Why should someone volunteer their time to play whack-a-mole with multiple people who are paid to send out announcements as part of their day job? It’s not sustainable. It would be better if companies decided to be responsible and respect listserv rules (including the R-project’s request not to cross-post). They could even start their own R-sig listserv of courses that people could opt into – there’s a need for quality R courses, after all.</p>
 <p>Use of mailing lists just to sell courses is even worse outside R-sig-phylo – for example, in June the <a href="https://stat.ethz.ch/pipermail/r-sig-ecology/2025-June/thread.html">28 threads in the R-sig-ecology list</a> were ALL for courses (11 from Physalia, 8 from PR Statistics, 6 from the Institute for Statistical and Data Science, 2 from Transmitting Science, 1 from Highland Statistics), despite the huge number of R users in ecology, and the trend is continuing in July.</p>
 <p>Email discussion lists are definitely declining (you can see looking through the R special interest lists how many are practically abandoned) – we all get too many emails, and in some ways social media has replaced the need for mailing lists to ask questions and get answers (see <code>#rstats</code> on bluesky, for example). But one could imagine that in the coming era of AI slop, mailing lists with responses limited to those written by actual humans would once more become essential. It’s sad to see something like R-sig-phylo, which has been a place for good discussion and could be again, get overwhelmed by companies choosing to use it to sell courses: who wants to join or stay on a list if only 4% of posts are directly connected to the list topic? I myself was considering unsubscribing this morning – thus this plea for things to change (and I might as an intermediate step just block any mail from particular companies).</p>
+<section id="update-aug-22-2025" class="level3">
+<h3 class="anchored" data-anchor-id="update-aug-22-2025">Update Aug 22, 2025</h3>
+<p>Two of the companies involved have apologized for sending off-topic postings and said they will no longer do this. I’m glad to see this improvement.</p>
 <hr>
 <p>To subscribe, go to <a href="https://brianomeara.info/blog.xml" class="uri">https://brianomeara.info/blog.xml</a> in an RSS reader.</p>
 
 
+</section>
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{o'meara2025,
   author = {O’Meara, Brian},

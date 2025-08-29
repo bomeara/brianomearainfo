@@ -1,0 +1,31 @@
+---
+title: "PhyloPapers 2025, Bayesian analysis"
+description: "Discussion of Mulvey et al. (2025) about the fossilized birth death model"
+author: "Brian O'Meara"
+date: "08/29/2025"
+citation: true
+categories: [phylopapers, phylogenetics, teaching, FBD, Bayesian] 
+---
+
+This week I wanted students to learn more about the background for tree inference. We're reading
+
+> Laura P. A. Mulvey, Mark C. Nikolic, Bethany J. Allen, Tracy A. Heath and Rachel C. M. Warnock (2025). From fossils to phylogenies: exploring the integration of paleontological data into Bayesian phylogenetic inference. *Paleobiology* 51, 214–236. <https://doi.org/10.1017/pab.2024.47>
+
+It has good background on Bayesian approaches. It also brings in fossil data, which may appeal to some of the paleontologists in the class. The paper is very much in favor of Fossilized Birth Death (FBD) models, and is honest about this: "Through this review, we hope to celebrate the FBD model family, inform readers of its nuances and potential uses, and stimulate discussion around best practices for answering empirical questions."
+
+I agree these models are useful, but there can be caveats. Jeremy Beaulieu and I incorporated FBD models with likelihood in [hisse](https://speciationextinction.info/articles/adding_fossils.html), and tested the effect of less than perfect sampling of fossils: 
+
+> Jeremy M Beaulieu and Brian C O'Meara (2022) Fossils do not substantially improve, and may even harm, estimates of diversification rate heterogeneity. *Systematic Biology* 72(1), 50-61. <https://doi.org/10.1093/sysbio/syac049>
+
+I'm not having the students read our paper (we're still doing intro about tree building; I think doing both would be too much nuance at this stage), but others curious about FBD models might be interested and may overlook it (Mulvey et al. (2025) don't cite or mention it in their review, for example). The implementation is too slow for tree inference, but it can be used for estimating various diversification and fossil rates under a likelihood approach, so not requiring (or benefitting) from priors.
+
+For teaching, I really like how the Mulvey et al. (2025) paper gets into the various uses of the FBD model: to help with inferring the tree, dating, estimating parameters, etc. A lot of students think of models as tests, fit for one purpose, but models are general ways of representing the world and can be put to many uses. For example, Brownian motion models of continuous traits can be used for estimating ancestral states, but they can also help infer trees or for estimating rates of evolution, too: they're just a representation of how traits change over time under various assumptions. The same for FBD.
+
+I made intro slides with some of my background material and some figures from the paper: [PDF](MulveyEtAl2025_Bayesian_FBD.pdf) and [PowerPoint](MulveyEtAl2025_Bayesian_FBD.pptx)
+
+One thing I'm going to do this week is talk less -- last time the mini-lecture went on too long, but I want more student interaction.
+
+
+___
+
+To subscribe, go to <https://brianomeara.info/blog.xml> in an RSS reader.

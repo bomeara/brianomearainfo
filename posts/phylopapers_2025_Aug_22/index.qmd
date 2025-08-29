@@ -21,7 +21,7 @@ For the first week I wanted to show student a recent paper where making the phyl
 
 as it uses a few different phylogenetic approaches in an appealing study system. 
 
-I made intro slides with some of my background material and some figures from the paper: [PDF](IrwinEtAl2025_BuildingPhylogenies.pdf) and [PowerPoint](IrwinEtAl2025_BuildingPhylogenies.pdf.pptx)
+I made intro slides with some of my background material and some figures from the paper: [PDF](IrwinEtAl2025_BuildingPhylogenies.pdf) and [PowerPoint](IrwinEtAl2025_BuildingPhylogenies.pptx)
 
 Some of the material used:
 

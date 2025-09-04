@@ -10,7 +10,54 @@
 <atom:link href="https://brianomeara.info/blog.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.6.40</generator>
-<lastBuildDate>Fri, 29 Aug 2025 04:00:00 GMT</lastBuildDate>
+<lastBuildDate>Thu, 04 Sep 2025 04:00:00 GMT</lastBuildDate>
+<item>
+  <title>GRFP 2025</title>
+  <dc:creator>Brian O&#39;Meara</dc:creator>
+  <link>https://brianomeara.info/posts/grfp_2025/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>The <a href="https://www.nsf.gov/funding/opportunities/grfp-nsf-graduate-research-fellowship-program">US National Science Foundation Graduate Research Fellowship Program (GRFP)</a> has long been a way of supporting students going into grad school. In the US, students going to grad school in the sciences are often paid, and have tuition covered, for teaching or doing research (more common in PhD programs than Masters programs, and support can vary). The NSF GRFP pays students (typically more than university stipends) to do their work, without needing to use their time for other research or teaching (both can be valuable, but time is limited). It is an investment by the government in a student’s career; unusually for NSF, it’s an investment in the person rather than the project.</p>
+<p>Historically, deadlines were in mid-October, but so far this year the <a href="https://www.nsf.gov/funding/opportunities/grfp-nsf-graduate-research-fellowship-program/nsf24-591/solicitation">old solicitation</a> has not been updated and so the program isn’t taking proposals yet. A big question for students is whether it will run at all.</p>
+<p>There’s some good news. An August 28, 2025, <a href="https://www.aip.org/fyi/nsf-seeks-model-for-graduate-fellowships-co-funded-by-government-and-industry">article</a> on the American Institute of Physics site focused mostly on a new model on having fellowships co-funded by government and industry, but it had some details on the traditional GRFP, too:</p>
+<blockquote class="blockquote">
+<p>“An NSF spokesperson said GRFP will continue this year and that the solicitation is currently in development. They did not comment on whether the fellowship model that emerges from the UIDP workshop might replace GRFP.</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>“Most years, the solicitation goes out in July, allowing applicants 90 days to submit before the deadline in mid-October, former GRFP program directors Susan Brennan and Gisèle Muller-Parker said. They added that NSF may push back the application deadline to November or December, but that doing so would make it hard for the agency to finalize its decisions by its usual April deadline.</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>“The delay may be a result of current federal funding proposals for NSF. The president’s budget request proposes a 55% cut to GRFP for fiscal year 2026, while the Senate Appropriations Committee’s bill proposes flat funding, which would support 2,000 new fellowships, according to the bill report. The Senate and House are scheduled to return from their August recess next week and have until Sept.&nbsp;30 to pass their funding bills.”</p>
+</blockquote>
+<p>As of this morning (Sept.&nbsp;4, 2025) there hasn’t been a new solicitation. NSF has a <a href="https://www.nsf.gov/funding/overview#phase-1-proposal-preparation-and-submission-f9f">policy</a> that “Applicants have a minimum of 90 days from NSF’s announcement of a funding opportunity to prepare and submit a proposal.” Policies have been more fluid lately, but assuming that policy still holds, then the earliest possible deadline is Dec.&nbsp;3, 2025. It’s still probably a good idea to prepare earlier, but at least there’s a chance the call will still go out (but it’s still uncertain how many awards will be possible given funding changes).</p>
+<p>There also used to be a dedicated website for GRFP info: <a href="https://www.nsfgrfp.org/" class="uri">https://www.nsfgrfp.org/</a>, which now resolves to the NSF page for the upcoming solicitation. The Internet Archive has an <a href="https://web.archive.org/web/20250120221242/https://www.nsfgrfp.org/">older version of the website</a> which has some good information.</p>
+<p>(I posted much of the above on BlueSky last week, but discoverability isn’t great there, so I made this blog post).</p>
+<p>Under recent solicitations, people could apply to the GRFP twice: once as undergrads, and once (typically in their second year) in grad school. Since the people in the first set might also be applying to grad school, the <a href="https://applyingtoeeb.info" class="uri">https://applyingtoeeb.info</a> page I made may have some helpful info, too.</p>
+<hr>
+<p>To subscribe, go to <a href="https://brianomeara.info/blog.xml" class="uri">https://brianomeara.info/blog.xml</a> in an RSS reader.</p>
+
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{o'meara2025,
+  author = {O’Meara, Brian},
+  title = {GRFP 2025},
+  date = {2025-09-04},
+  url = {https://brianomeara.info/posts/grfp_2025/},
+  langid = {en}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-o'meara2025" class="csl-entry quarto-appendix-citeas">
+O’Meara, Brian. 2025. <span>“GRFP 2025.”</span> September 4, 2025. <a href="https://brianomeara.info/posts/grfp_2025/">https://brianomeara.info/posts/grfp_2025/</a>.
+</div></div></section></div> ]]></description>
+  <category>funding</category>
+  <category>GRFP</category>
+  <category>NSF</category>
+  <guid>https://brianomeara.info/posts/grfp_2025/</guid>
+  <pubDate>Thu, 04 Sep 2025 04:00:00 GMT</pubDate>
+</item>
 <item>
   <title>PhyloPapers 2025, Bayesian analysis</title>
   <dc:creator>Brian O&#39;Meara</dc:creator>
@@ -1404,52 +1451,6 @@ Phylogenetics.”</span> April 23, 2023. <a href="https://brianomeara.info/posts
   <category>reproducibility</category>
   <guid>https://brianomeara.info/posts/phylotasticruniverse/</guid>
   <pubDate>Sun, 23 Apr 2023 04:00:00 GMT</pubDate>
-</item>
-<item>
-  <title>Fossils do not help fix diversification parameter estimates</title>
-  <dc:creator>Brian O&#39;Meara</dc:creator>
-  <link>https://brianomeara.info/posts/fossilsdonothelp/</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<p>Jeremy Beaulieu and I have a <a href="https://doi.org/10.1093/sysbio/syac049">paper</a> in <em>Systematic Biology</em> on the impact of fossils on estimating diversification rates. There has been a lot of interest in the fossilized birth-death process, FBD (<a href="https://doi-org.utk.idm.oclc.org/10.1016/j.jtbi.2010.09.010">Stadler 2010</a>), and with the rediscovery in the field that diversification methods might be telling tales signifying nothing, Jeremy and I thought about how the FBD might help. We know fossils help, a lot, with things like ancestral state reconstruction and dating trees: knowing about fossils might help with diversification processes (especially with parameters relating to extinction).</p>
-<p>Jeremy implemented it in <a href="https://speciationextinction.info/"><em>hisse</em></a>. One thing we discussed in the implementation is how there are two kinds of fossils FBD uses:</p>
-<p><img src="https://brianomeara.info/posts/fossilsdonothelp/fbd_fig1.png" class="img-fluid" alt="Figure 1 from Beaulieu and O'Meara (2022), showing the distribution of fossils on two trees. The left tree shows the sampled fossils; the right plot shows the distinction between parent fossils (ones that have a descendant sample, either a fossil or a tip) and childless fossils (terminal fossils)."></p>
-<p>One is terminals that are fossils with no sampled descendants (‘<em>m</em>’ type). The other is parent fossils (‘<em>k</em>’ type): they have a sampled descendant on the tree (which could be a fossil or extant tip). We worried that the methods assume equal probability of sampling for all these fossils, but that empiricists might not be generating data that meet these assumptions. For example, one might put a single <em>T. rex</em> fossil specimen on the tree, but would one put on every individual? All but the most recent one would be parent fossils, and we suspected they could be missing.</p>
-<p>We made predictions based on the math, but it’s also useful to test with simulations. Simulations can be tricky when testing models: all models are simplifications of the world that can fail if the world is complex in the wrong ways. One can always write “method X fails under real world conditions Y” if conditions are extreme enough, but that doesn’t necessarily mean that it will fail in everyday use. So in setting up our simulations for this study, we chose to make it biased towards FBD working and based on realistic parameters. One way we biased it was including mass extinctions: methods using only tip data should do terribly for that, and fossils might help.</p>
-<p>The key result is in Figure 4:</p>
-<p><img src="https://brianomeara.info/posts/fossilsdonothelp/fbd_fig4b.png" class="img-fluid" alt="Figure 4b from Beaulieu and O'Meara (2022), showing the estimated turnover rate with different true turnover rates and different way of running the analysis. It shows a grouping of box plots, with red lines showing the true values. Using extant data only performed far better than using extant with sampled fossil tips; using all the parent and terminal fossils performed about as well as no fossils at all."></p>
-<p>Using just the extant tips (dark purple) performed better than using extant tips and fossil tips (white bars) and similarly to using all the fossils, which based on limited data (see our Figure 3) is rarely done empirically. This surprised us: we were expecting fossils to pretty clearly help except when there was a bias to only use tip fossils. It is frankly a little disappointing that even perfect fossil data (we assumed fossil positions were known exactly, for example) does not help noticeably with estimating diversification models (though they remain important for dating, for ancestral state reconstruction, and likely for tree inference, as well).</p>
-<p>To see all the code we used, go to https://github.com/thej022214/Fossils_impact_BO .</p>
-<p>To see how to use fossils in <em>hisse</em>, including in models with and without traits, look at Jeremy’s vignette: https://speciationextinction.info/articles/adding_fossils.html . Based on our analysis, fossils don’t help much with diversification, but you can prove us wrong for your data, and you can use these tools for things like looking at correlations where fossils might indeed help.</p>
-<hr>
-<p>To subscribe, go to <a href="https://brianomeara.info/blog.xml" class="uri">https://brianomeara.info/blog.xml</a> in an RSS reader.</p>
-
-
-
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{o'meara2023,
-  author = {O’Meara, Brian},
-  title = {Fossils Do Not Help Fix Diversification Parameter Estimates},
-  date = {2023-04-22},
-  url = {https://brianomeara.info/posts/fossilsdonothelp/},
-  langid = {en}
-}
-</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-o'meara2023" class="csl-entry quarto-appendix-citeas">
-O’Meara, Brian. 2023. <span>“Fossils Do Not Help Fix Diversification
-Parameter Estimates.”</span> April 22, 2023. <a href="https://brianomeara.info/posts/fossilsdonothelp/">https://brianomeara.info/posts/fossilsdonothelp/</a>.
-</div></div></section></div> ]]></description>
-  <category>fossil</category>
-  <category>R</category>
-  <category>hisse</category>
-  <category>misse</category>
-  <category>diversification</category>
-  <category>simulation</category>
-  <category>publication</category>
-  <guid>https://brianomeara.info/posts/fossilsdonothelp/</guid>
-  <pubDate>Sat, 22 Apr 2023 04:00:00 GMT</pubDate>
 </item>
 </channel>
 </rss>

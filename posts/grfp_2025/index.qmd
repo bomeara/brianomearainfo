@@ -1,0 +1,34 @@
+---
+title: "GRFP 2025"
+description: "Potential of the NSF GRFP for 2025"
+author: "Brian O'Meara"
+date: "09/04/2025"
+citation: true
+categories: [funding, GRFP, NSF] 
+---
+
+The [US National Science Foundation Graduate Research Fellowship Program (GRFP)](https://www.nsf.gov/funding/opportunities/grfp-nsf-graduate-research-fellowship-program) has long been a way of supporting students going into grad school. In the US, students going to grad school in the sciences are often paid, and have tuition covered, for teaching or doing research (more common in PhD programs than Masters programs, and support can vary). The NSF GRFP pays students (typically more than university stipends) to do their work, without needing to use their time for other research or teaching (both can be valuable, but time is limited). It is an investment by the government in a student's career; unusually for NSF, it's an investment in the person rather than the project.
+
+Historically, deadlines were in mid-October, but so far this year the [old solicitation](https://www.nsf.gov/funding/opportunities/grfp-nsf-graduate-research-fellowship-program/nsf24-591/solicitation) has not been updated and so the program isn't taking proposals yet. A big question for students is whether it will run at all. 
+
+There's some good news. An August 28, 2025, [article](https://www.aip.org/fyi/nsf-seeks-model-for-graduate-fellowships-co-funded-by-government-and-industry) on the American Institute of Physics site focused mostly on a new model on having fellowships co-funded by government and industry, but it had some details on the traditional GRFP, too:
+
+> “An NSF spokesperson said GRFP will continue this year and that the solicitation is currently in development. They did not comment on whether the fellowship model that emerges from the UIDP workshop might replace GRFP.
+
+> "Most years, the solicitation goes out in July, allowing applicants 90 days to submit before the deadline in mid-October, former GRFP program directors Susan Brennan and Gisèle Muller-Parker said. They added that NSF may push back the application deadline to November or December, but that doing so would make it hard for the agency to finalize its decisions by its usual April deadline.
+
+> "The delay may be a result of current federal funding proposals for NSF. The president’s budget request  proposes a 55% cut to GRFP for fiscal year 2026, while the Senate Appropriations Committee’s bill proposes flat funding, which would support 2,000 new fellowships, according to the bill report.  The Senate and House are scheduled to return from their August recess next week and have until Sept. 30 to pass their funding bills."
+
+As of this morning (Sept. 4, 2025) there hasn't been a new solicitation. NSF has a [policy](https://www.nsf.gov/funding/overview#phase-1-proposal-preparation-and-submission-f9f) that "Applicants have a minimum of 90 days from NSF's announcement of a funding opportunity to prepare and submit a proposal." Policies have been more fluid lately, but assuming that policy still holds, then the earliest possible deadline is Dec. 3, 2025. It's still probably a good idea to prepare earlier, but at least there's a chance the call will still go out (but it's still uncertain how many awards will be possible given funding changes).
+
+There also used to be a dedicated website for GRFP info: <https://www.nsfgrfp.org/>, which now resolves to the NSF page for the upcoming solicitation. The Internet Archive has an [older version of the website](https://web.archive.org/web/20250120221242/https://www.nsfgrfp.org/) which has some good information.
+
+(I posted much of the above on BlueSky last week, but discoverability isn't great there, so I made this blog post).
+
+Under recent solicitations, people could apply to the GRFP twice: once as undergrads, and once (typically in their second year) in grad school. Since the people in the first set might also be applying to grad school, the <https://applyingtoeeb.info> page I made may have some helpful info, too.
+
+
+
+___
+
+To subscribe, go to <https://brianomeara.info/blog.xml> in an RSS reader.

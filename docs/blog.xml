@@ -10,7 +10,47 @@
 <atom:link href="https://brianomeara.info/blog.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.6.40</generator>
-<lastBuildDate>Thu, 04 Sep 2025 04:00:00 GMT</lastBuildDate>
+<lastBuildDate>Sat, 06 Sep 2025 04:00:00 GMT</lastBuildDate>
+<item>
+  <title>PhyloPapers 2025, Growth of the tree of life</title>
+  <dc:creator>Brian O&#39;Meara</dc:creator>
+  <link>https://brianomeara.info/posts/phylopapers_2025_Sep_05/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>This week I wanted students to learn more about the growth of our knowledge of the tree of life. We’re reading:</p>
+<blockquote class="blockquote">
+<p>Molly Chen, Artem I. Kholodov and Laura A. Hug (2025). The evolution of the tree of life. Phil. Trans. R. Soc. B 380: 20240091. <a href="https://doi.org/10.1098/rstb.2024.0091" class="uri">https://doi.org/10.1098/rstb.2024.0091</a></p>
+</blockquote>
+<p>This is a really cool paper: it took snapshots of the info in GenBank at five year intervals, built trees from the available info at each time step, and compared how the trees changed over time. It also looked at trees from key papers over time. I also liked it for class as it touched on long branch attraction and tree distances, which are useful background for students to know. The paper also generated discussion of tree construction, including use of backbone trees, as well as the need for taxonomic name resolution and massive deletion of sequences (for example, going from 2.2 million genomes down to 333K after filtering). I still remember the days of <a href="https://www.ncbi.nlm.nih.gov/portal/utils/pageresolver.fcgi?recordid=68bce924dbd3fe45a71f670a">fighting hard for every base pair</a>, so the shift in the genomic era to tossing most info is still viscerally painful, but useful.</p>
+<p>This is also a paper where the supplement has some genuinely useful info: it’s available at <a href="https://doi.org/10.6084/m9.figshare.c.7897347.v1" class="uri">https://doi.org/10.6084/m9.figshare.c.7897347.v1</a>.</p>
+<p>One thing that became apparent is how many of us, myself included, have nearly all our natural history and taxonomic knowledge focused on eukaryotes. Even issues like the possible lack of monophyly of Archaea were revelations to many: the three domain view of life is often still taught as the default. I plan to read more widely to understand the diversity of life better (my secret hope is that at some point <a href="https://rileyblack.net">Riley Black</a> will write a book on single-celled life as engaging as her other ones…).</p>
+<p>I made intro slides with some of my background material and some figures from the paper: <a href="ChenEtAl2025_EvolutionOfTheTreeOfLife.pdf">PDF</a> and <a href="ChenEtAl2025_EvolutionOfTheTreeOfLife.pptx">PowerPoint</a>.</p>
+<hr>
+<p>To subscribe, go to <a href="https://brianomeara.info/blog.xml" class="uri">https://brianomeara.info/blog.xml</a> in an RSS reader.</p>
+
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{o'meara2025,
+  author = {O’Meara, Brian},
+  title = {PhyloPapers 2025, {Growth} of the Tree of Life},
+  date = {2025-09-06},
+  url = {https://brianomeara.info/posts/phylopapers_2025_Sep_05/},
+  langid = {en}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-o'meara2025" class="csl-entry quarto-appendix-citeas">
+O’Meara, Brian. 2025. <span>“PhyloPapers 2025, Growth of the Tree of
+Life.”</span> September 6, 2025. <a href="https://brianomeara.info/posts/phylopapers_2025_Sep_05/">https://brianomeara.info/posts/phylopapers_2025_Sep_05/</a>.
+</div></div></section></div> ]]></description>
+  <category>phylopapers</category>
+  <category>phylogenetics</category>
+  <category>teaching</category>
+  <guid>https://brianomeara.info/posts/phylopapers_2025_Sep_05/</guid>
+  <pubDate>Sat, 06 Sep 2025 04:00:00 GMT</pubDate>
+</item>
 <item>
   <title>GRFP 2025</title>
   <dc:creator>Brian O&#39;Meara</dc:creator>
@@ -1393,64 +1433,6 @@ O’Meara, Brian. 2023. <span>“Joining Mastodon.”</span> April 30, 2023.
   <category>social media</category>
   <guid>https://brianomeara.info/posts/joiningmastodon/</guid>
   <pubDate>Sun, 30 Apr 2023 04:00:00 GMT</pubDate>
-</item>
-<item>
-  <title>An alternative to CRAN for phylogenetics</title>
-  <dc:creator>Brian O&#39;Meara</dc:creator>
-  <link>https://brianomeara.info/posts/phylotasticruniverse/</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<p>For installing R packages, <a href="https://cran.r-project.org/">CRAN</a> is the main place to go. It’s a fantastic free service that checks R packages to make sure they meet standards and then compiles them for multiple architectures. It’s largely a <a href="https://cran.r-project.org/CRAN_team.htm">volunteer effort</a> and is important to keep packages working together. <a href="https://www.bioconductor.org/">Bioconductor</a> is a more specialized repository. Getting a package to pass the checks to go on CRAN has long been a point of pride, and it does lead to higher quality packages, though with odd constraints (the overall package size must be small, all examples must run very quickly, and more).</p>
-<p>However, <em>keeping</em> a package on CRAN is an issue. Requirements keep changing: will this package work on the development version of R on Debian with a clang compiler, Fedora with a gcc compiler, Mac with both arm and x86 chips, Windows, etc. and continue to do so as operating systems, hardware, and compilers change? For example, our <a href="https://cran.r-project.org/web/checks/check_results_hisse.html"><em>hisse</em></a> package was removed briefly from CRAN in spring 2023 (it’s back online) because of an issue where, while the package passed all checks for Mac, Windows, Linux, all R-devel, R-patched, R-release, and R-oldrel, it would generate a warning if compiled using the <code>-Wlto-type-mismatch</code> flag to GCC. Our code hadn’t changed, and this wouldn’t have affected any users, but CRAN gave us two weeks to fix the warning. We didn’t do it on time, so it was archived, which <em>does</em> affect users (making it impossible for most users on Mac or Windows to use it, for example, as they don’t have compilers installed).</p>
-<p>If you are part of an ecosystem, there are further risks. Many phylogenetics packages depend or import <a href="https://cran.r-project.org/web/packages/geiger/index.html"><code>geiger</code></a> – CRAN removed that package, and then two weeks later would have also archived every package that depends on it. Geiger’s authors got it restored in time, but it shows how brittle CRAN’s policies make our community. It’s like the <a href="https://xkcd.com/2347/">Randall Munroe XKCD cartoon</a>:</p>
-<p><img src="https://imgs.xkcd.com/comics/dependency_2x.png" class="img-fluid" alt="XKCD cartoon showing a stack of boxes labeled 'All modern digital infrastructure' carefullly balancing on a small box labeled 'A project some random person in Nebraska has been thanklessly maintaining since 2003'"></p>
-<p>but with the poor maintainer in Nebraska putting the whole ecosystem at risk if they take two weeks off and there is a new requirement in the interim.</p>
-<p>The nature of academia makes this even more precarious. A student might work on a package for their dissertation and others could find it very useful. There is no guarantee that the student remains in the field: it’s not unusual for someone to go into teaching, or working at a nonprofit, or working for a company, and even the weak incentive of getting more citations is no longer sufficiently relevant for them to volunteer their time to meet changing CRAN standards. Ongoing maintenance would be ideal for the field, but it is a high bar.</p>
-<p>Fortunately, rOpenSci has made an alternative: <a href="https://ropensci.org/r-universe/">r-universe</a>. This creates a place where R packages can be built automatically for different platforms, just as CRAN does, but in nearly real time. If a package is in an open source repository (the best known is GitHub), and the r-universe instance knows about it, it will try to compile it. Thus, even if something goes off CRAN, students taking a class can likely still install it from r-universe.</p>
-<p>To help our community, I’ve created an instance for phylogenetics. The instance is at https://phylotastic.r-universe.dev/ . Information on how to use it is at http://phylotastic.org/phylotastic.r-universe.dev/. For the packages, I’ve used everything from the <a href="https://cran.r-project.org/web/views/Phylogenetics.html">CRAN task view for phylogenetics</a> (something I maintained for over a decade, now taken over by <a href="https://williamgearty.com/">Dr.&nbsp;William Gearty</a> who has assembled a team to keep it going), as well as other packages used in phylogenetics in R, including packages in development.</p>
-<section id="using-the-universe" class="level3">
-<h3 class="anchored" data-anchor-id="using-the-universe">Using the universe</h3>
-<p>To use the most recent available version of each package:</p>
-<pre><code>options(repos = c(
-  phylotastic = 'https://phylotastic.r-universe.dev',
-  CRAN = 'https://cloud.r-project.org')
- )</code></pre>
-<p>This will check the phylotastic r-universe, and only go to CRAN for packages that are not there.</p>
-<p>To use the CRAN package if available, then use phylotastic as a backup:</p>
-<pre><code>options(repos = c(
-  CRAN = 'https://cloud.r-project.org',
-  phylotastic = 'https://phylotastic.r-universe.dev')
- )</code></pre>
-</section>
-<section id="why-phylotastic" class="level3">
-<h3 class="anchored" data-anchor-id="why-phylotastic">Why “phylotastic”?</h3>
-<p>Phylotastic started as an idea launched at the [US] National Evolutionary Synthesis Center, NESCent, in 2012. Over hackathons and other events, and later an NSF grant (written by Arlin Stoltzfus, Enrico Pontelli, and me) it resulted in various tools for phylogenetics (includng http://datelife.opentreeoflife.org/ ). I wanted to keep that connection, not least so that people could use phylotastic R packages even when there are CRAN hiccups.</p>
-<hr>
-<p>To subscribe, go to <a href="https://brianomeara.info/blog.xml" class="uri">https://brianomeara.info/blog.xml</a> in an RSS reader.</p>
-
-
-</section>
-
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{o'meara2023,
-  author = {O’Meara, Brian},
-  title = {An Alternative to {CRAN} for Phylogenetics},
-  date = {2023-04-23},
-  url = {https://brianomeara.info/posts/phylotasticruniverse/},
-  langid = {en}
-}
-</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-o'meara2023" class="csl-entry quarto-appendix-citeas">
-O’Meara, Brian. 2023. <span>“An Alternative to CRAN for
-Phylogenetics.”</span> April 23, 2023. <a href="https://brianomeara.info/posts/phylotasticruniverse/">https://brianomeara.info/posts/phylotasticruniverse/</a>.
-</div></div></section></div> ]]></description>
-  <category>R</category>
-  <category>rbloggers</category>
-  <category>reproducibility</category>
-  <guid>https://brianomeara.info/posts/phylotasticruniverse/</guid>
-  <pubDate>Sun, 23 Apr 2023 04:00:00 GMT</pubDate>
 </item>
 </channel>
 </rss>

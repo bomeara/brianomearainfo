@@ -7,6 +7,29 @@ citation: true
 categories: [funding, GRFP, NSF] 
 ---
 
+### Update (Sept 9, 2025):
+
+GRFP is LIVE!!! <https://www.nsf.gov/funding/opportunities/grfp-nsf-graduate-research-fellowship-program> 
+
+Deadline is Oct. 27, 2025, for life sciences (which suggests they plan to fund life sciences), and shortly after that for other fields. There still isn't a full solicitation (the detailed guidelines of what they want in a proposal), and they oddly do not link to the [old solicitation](https://www.nsf.gov/funding/opportunities/grfp-nsf-graduate-research-fellowship-program/nsf24-591/solicitation). This could mean they're changing something (page count, what they ask, etc.) but it's hard to know. This is also fewer days than I had been expecting given the [policy](https://www.nsf.gov/funding/overview#phase-1-proposal-preparation-and-submission-f9f) of 90 days from them announcing an opportunity to applying, but maybe they're considering that the fact that this is a renewal of a program as meaning they don't have to meet the window (and really, who would rather them have a deadline go much later so grad students and programs don't know about GRFP funding until very late in the cycle?).
+
+Another interesting part of the webpage is that the estimated number of awards is:
+
+>1 to 3000 - NSF will support up to 3000 new Graduate Research Fellowships per fiscal year under this program solicitation pending availability of funds.
+
+That is different from last year's language of 
+
+>Estimated Number of Awards: 2,300
+
+>NSF will support up to 2,300 new Graduate Research Fellowships per fiscal year under this program solicitation pending availability of funds.
+
+They're giving a 1-3,000 range rather than what typically is the expected number of awards. My guess is they're still hoping to get a large number of awards. Given the [potential external funders](https://www.aip.org/fyi/nsf-seeks-model-for-graduate-fellowships-co-funded-by-government-and-industry), maybe NSF is leaving room for them to fund the typical awardees *plus* honorable mention students. Though it also opens the possibility that in March NSF will announce "congrats to the NSF GRFP awardees: Martha. Just Martha."
+
+Regarding availability of funding, there is currently uncertainty about a potential government shutdown at the end of September (as well as uncertainty about next year's NSF funding in general). During a shutdown, NSF staff will not be able to respond to any questions; with some shutdowns, government websites go dark (in the past [I've archived ones](https://www.science.org/content/article/latest-shutdown-information-nih-and-nsf-funded-researchers-update)), and deadlines *might* be pushed back (but do not count on it). Potential applicants should thus stay on top of this news and prepare.
+
+
+### Original post (Sept 4, 2025):
+
 The [US National Science Foundation Graduate Research Fellowship Program (GRFP)](https://www.nsf.gov/funding/opportunities/grfp-nsf-graduate-research-fellowship-program) has long been a way of supporting students going into grad school. In the US, students going to grad school in the sciences are often paid, and have tuition covered, for teaching or doing research (more common in PhD programs than Masters programs, and support can vary). The NSF GRFP pays students (typically more than university stipends) to do their work, without needing to use their time for other research or teaching (both can be valuable, but time is limited). It is an investment by the government in a student's career; unusually for NSF, it's an investment in the person rather than the project.
 
 Historically, deadlines were in mid-October, but so far this year the [old solicitation](https://www.nsf.gov/funding/opportunities/grfp-nsf-graduate-research-fellowship-program/nsf24-591/solicitation) has not been updated and so the program isn't taking proposals yet. A big question for students is whether it will run at all. 

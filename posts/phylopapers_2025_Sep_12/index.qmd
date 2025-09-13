@@ -1,0 +1,30 @@
+---
+title: "PhyloPapers 2025, Genomic species delimitation"
+description: "Discussion of Singhal et al. (2025) about using genomics for species delimitation"
+author: "Brian O'Meara"
+date: "09/12/2025"
+citation: true
+categories: [phylopapers, phylogenetics, teaching, delimitation, genomics] 
+---
+
+This week I wanted students to learn more about modern approaches for species delimitation:
+
+>Sonal Singhal, Adam D. Leaché, Matthew K. Fujita, Carlos Daniel Cadena, and Felipe Zapata. 2025. “A Genomic Perspective on Species Delimitation” Annu. Rev. Ecol. Evol. Syst. 2025. 56:467–89 <https://doi.org/10.1146/annurev-ecolsys-102723-055311>
+
+In contrast to the other papers so far in the class, this is a review paper rather than original research (though, like many modern review papers, it actually does a fair amount of new bibliometric analysis). I'm not going to have us read a lot of review papers, but this one touched on various topics that came up in previous discussions (like the multispecies coalescent) and was a bit of a breather for students in that it had less jargon. They loved it and found it understandable. I think it was a very thorough and fair overview of the subject.
+
+The two biggest questions students had were about the machine learning mentions and the *gdi* metric ([Jackson et al. 2017](https://pubmed.ncbi.nlm.nih.gov/28003535/)). People now often think of AI as large language models like ChatGPT, but it covers a wide variety of approaches: image recognition, like that used by iNaturalist; approaches to impute missing data; methods to infer relationships from large sets of data; etc. One could imagine hoping for a genomic equivalent for the long wished-for "barcoding gap" (a discrete difference between intra- and interspecific differences), for example. The *gdi* is a measure we came up with to compare differences between potential species: it is scaled from 0 for panmixia to 1 for strong divergence. (I actually fought my coauthors, because I didn't really like the *gdi*, but my collaborators won out and they were right). I think part of the confusion from the Singhal et al. paper is that the *gdi* in their Fig 2 is shown as a property of a population, when it's actually a measure used between two populations.
+
+One thing that both I and the attendees liked was the discussion at the end of the paper about not making genomic approaches a requirement for species delimitation publications. Genomics brings a lot of possibilities (such as looking for genomic regions correlated with lack of gene flow), and it may even be cheaper than older sorts of data which have less information. But genomic data are still not feasible for all researchers or locations. Especially given the need to do basic species discovery in so many groups, using available data to understand biodiversity is more critical than waiting until one can do multiple full genomes.
+
+An interesting data point from the bibliometric analysis was that only in 36% of cases did discoveries about a need to change taxonomy lead to a taxonomic change in the papers. This is in line with my anecdotal experience. There are good reasons for this (a taxonomic change is a big deal and requires expertise -- one doesn't want to rush into it) but it is a bit odd that methods intended to discover new species or collapse oversplit ones usually don't lead to this in a usable way.
+
+Overall, I expect this paper to become widely used in teaching and for people getting into the field.
+
+I made intro slides with some of my background material and some figures from the paper: [PDF](SinghalEtAl2025_GenomicSpeciesDelimitation.pdf) and [PowerPoint](SinghalEtAl2025_GenomicSpeciesDelimitation.pptx).
+
+
+
+___
+
+To subscribe, go to <https://brianomeara.info/blog.xml> in an RSS reader.

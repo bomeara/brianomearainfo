@@ -10,7 +10,51 @@
 <atom:link href="https://brianomeara.info/blog.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.6.40</generator>
-<lastBuildDate>Sat, 06 Sep 2025 04:00:00 GMT</lastBuildDate>
+<lastBuildDate>Fri, 12 Sep 2025 04:00:00 GMT</lastBuildDate>
+<item>
+  <title>PhyloPapers 2025, Genomic species delimitation</title>
+  <dc:creator>Brian O&#39;Meara</dc:creator>
+  <link>https://brianomeara.info/posts/phylopapers_2025_Sep_12/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>This week I wanted students to learn more about modern approaches for species delimitation:</p>
+<blockquote class="blockquote">
+<p>Sonal Singhal, Adam D. Leaché, Matthew K. Fujita, Carlos Daniel Cadena, and Felipe Zapata. 2025. “A Genomic Perspective on Species Delimitation” Annu. Rev.&nbsp;Ecol. Evol. Syst. 2025. 56:467–89 <a href="https://doi.org/10.1146/annurev-ecolsys-102723-055311" class="uri">https://doi.org/10.1146/annurev-ecolsys-102723-055311</a></p>
+</blockquote>
+<p>In contrast to the other papers so far in the class, this is a review paper rather than original research (though, like many modern review papers, it actually does a fair amount of new bibliometric analysis). I’m not going to have us read a lot of review papers, but this one touched on various topics that came up in previous discussions (like the multispecies coalescent) and was a bit of a breather for students in that it had less jargon. They loved it and found it understandable. I think it was a very thorough and fair overview of the subject.</p>
+<p>The two biggest questions students had were about the machine learning mentions and the <em>gdi</em> metric (<a href="https://pubmed.ncbi.nlm.nih.gov/28003535/">Jackson et al.&nbsp;2017</a>). People now often think of AI as large language models like ChatGPT, but it covers a wide variety of approaches: image recognition, like that used by iNaturalist; approaches to impute missing data; methods to infer relationships from large sets of data; etc. One could imagine hoping for a genomic equivalent for the long wished-for “barcoding gap” (a discrete difference between intra- and interspecific differences), for example. The <em>gdi</em> is a measure we came up with to compare differences between potential species: it is scaled from 0 for panmixia to 1 for strong divergence. (I actually fought my coauthors, because I didn’t really like the <em>gdi</em>, but my collaborators won out and they were right). I think part of the confusion from the Singhal et al.&nbsp;paper is that the <em>gdi</em> in their Fig 2 is shown as a property of a population, when it’s actually a measure used between two populations.</p>
+<p>One thing that both I and the attendees liked was the discussion at the end of the paper about not making genomic approaches a requirement for species delimitation publications. Genomics brings a lot of possibilities (such as looking for genomic regions correlated with lack of gene flow), and it may even be cheaper than older sorts of data which have less information. But genomic data are still not feasible for all researchers or locations. Especially given the need to do basic species discovery in so many groups, using available data to understand biodiversity is more critical than waiting until one can do multiple full genomes.</p>
+<p>An interesting data point from the bibliometric analysis was that only in 36% of cases did discoveries about a need to change taxonomy lead to a taxonomic change in the papers. This is in line with my anecdotal experience. There are good reasons for this (a taxonomic change is a big deal and requires expertise – one doesn’t want to rush into it) but it is a bit odd that methods intended to discover new species or collapse oversplit ones usually don’t lead to this in a usable way.</p>
+<p>Overall, I expect this paper to become widely used in teaching and for people getting into the field.</p>
+<p>I made intro slides with some of my background material and some figures from the paper: <a href="SinghalEtAl2025_GenomicSpeciesDelimitation.pdf">PDF</a> and <a href="SinghalEtAl2025_GenomicSpeciesDelimitation.pptx">PowerPoint</a>.</p>
+<hr>
+<p>To subscribe, go to <a href="https://brianomeara.info/blog.xml" class="uri">https://brianomeara.info/blog.xml</a> in an RSS reader.</p>
+
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{o'meara2025,
+  author = {O’Meara, Brian},
+  title = {PhyloPapers 2025, {Genomic} Species Delimitation},
+  date = {2025-09-12},
+  url = {https://brianomeara.info/posts/phylopapers_2025_Sep_12/},
+  langid = {en}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-o'meara2025" class="csl-entry quarto-appendix-citeas">
+O’Meara, Brian. 2025. <span>“PhyloPapers 2025, Genomic Species
+Delimitation.”</span> September 12, 2025. <a href="https://brianomeara.info/posts/phylopapers_2025_Sep_12/">https://brianomeara.info/posts/phylopapers_2025_Sep_12/</a>.
+</div></div></section></div> ]]></description>
+  <category>phylopapers</category>
+  <category>phylogenetics</category>
+  <category>teaching</category>
+  <category>delimitation</category>
+  <category>genomics</category>
+  <guid>https://brianomeara.info/posts/phylopapers_2025_Sep_12/</guid>
+  <pubDate>Fri, 12 Sep 2025 04:00:00 GMT</pubDate>
+</item>
 <item>
   <title>PhyloPapers 2025, Growth of the tree of life</title>
   <dc:creator>Brian O&#39;Meara</dc:creator>
@@ -1352,108 +1396,6 @@ O’Meara, Brian. 2023. <span>“Grad Core Class in Evolutionary Biology,
   <category>EEB511</category>
   <guid>https://brianomeara.info/posts/evolutioncore2023/</guid>
   <pubDate>Thu, 11 May 2023 04:00:00 GMT</pubDate>
-</item>
-<item>
-  <title>Joining Mastodon</title>
-  <dc:creator>Brian O&#39;Meara</dc:creator>
-  <link>https://brianomeara.info/posts/joiningmastodon/</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<p>Social media keeps changing. I stopped using Facebook years ago (I still have an account, as my kids’ schools and some scientific orgs use it for communication, but I’m not active). I stopped using Twitter in November, 2022, though still keep an account to avoid impersonation (though people could find better accounts to impersonate). I’m now using this blog, but it’s unidirectional – you can read it or not, but I deliberately don’t have any way for people to comment.</p>
-<p>I’m increasingly active on Mastodon, and various scientific societies and colleagues are now active there, too. Here’s an overview.</p>
-<p>It’s probably easiest to think of Mastodon as</p>
-<ol type="1">
-<li>Similar to an email account: are you <code>example@gmail.com</code> or <code>example@harvard.edu</code>, but now it’s <code>@example@mastodon.social</code> or <code>@example@sauropods.win</code>. People on one provider (“instance” in Mastodon jargon) can generally see information from people on others, unless one of them has put a block on it (in the same way that your email provider may block emails from certain spammy domains).</li>
-<li>But set up so that by default you can see what everyone on your instance posts.</li>
-</ol>
-<section id="it-is-not-a-11-twitter-replacement" class="level3">
-<h3 class="anchored" data-anchor-id="it-is-not-a-11-twitter-replacement">It is not a 1:1 Twitter replacement</h3>
-<ul>
-<li>You can search for hashtags but not post content otherwise (people sometimes make sites to allow full search, but this is apparently against the norms and there’s pushback)</li>
-<li>The algorithm is based on recency only. That <em>is</em> an algorithm, of course – it says people who are active at the same time you are should be prioritized. And it’s better than many other algorithms in social media (“prioritize things that make people angry”, “prioritize posts by the owner”, “prioritize people with the wealth to pay for it”, etc.). But I’d love to see something that prioritizes users I engage with the most even if they have different sleep schedules.</li>
-<li>You can “like” or “boost”. Like tells the poster you like something – it does nothing for ranking that or later posts, for you or for others. Boost sends the post to all of your followers and onto your general instance feed.</li>
-<li>There is no quote-tweeting. You can reply, or you can write a new post that has a link to the old, but the whole “wrap another post with your commentary” doesn’t exist (yet). This is seen as a way by those influencial in Mastodon as a way to prevent bullying, but taking a screen shot of a post is still possible.</li>
-<li>Posts can be edited, easily.</li>
-<li>There is a strong culture of including alternative text on images so that those who cannot see the images well know what they are. This is a good thing; do it.</li>
-<li>Due to how the instances are organized, they can block one another (“defederate”), just as your email provider could block all emails from a certain domain. This can be a way of blocking from instances that don’t have good moderation.</li>
-<li>Anyone can set up an instance; it’s easier than setting up an email provider. However, it’s a lot of responsibility: moderating is HARD.</li>
-<li>You can change your instance easily. It’s like moving from hotmail to gmail: you can move your contacts (people you follow), but your posts won’t follow.</li>
-<li>Moderation is up to each instance (similar to reddit subreddits). Some do a good job, others do not. And sometimes people may disagree on what moves are important to them. For example, there was a debate a few months ago about defederating from a journalism instance: a user posted a very bad article from a major US newspaper on the instance: should other instances block this whole instance (which has journalists from many media sources) since they allow this sort of post, or should it still be allowed to communicate? The person administrating your server decides (though you may still block individual people on your own).</li>
-<li>It still lacks some features important for safety: see <a href="https://hachyderm.io/@mekkaokereke/110272951321280411">this thread</a>, for example. Twitter was not perfect, either, and media reports that it is getting even worse, but this does not mean that Mastodon is doing everything right.</li>
-</ul>
-</section>
-<section id="which-instance-to-join" class="level3">
-<h3 class="anchored" data-anchor-id="which-instance-to-join">Which instance to join?</h3>
-<ul>
-<li>One of the biggest, and the one run by the main developer, is <a href="https://mastodon.social/about">mastodon.social</a>. It has (as of the date of this post) about 212,000 users. It is a general instance. It’s the one I’m currently on: <a href="https://mastodon.social/@omearabrian">https://mastodon.social/<span class="citation" data-cites="omearabrian">@omearabrian</span></a> . I like it because I use social media to attempt to have reach. It’s also likely stable – it won’t go down if a check bounces or if an admin loses interest. However, see if its moderation works for you. For social media, moderation is a big deal, and it can cover things like hate speech but also things like tone-policing; ignoring vs confronting racism, sexism, homophobia; whether bots are allowed; and more.</li>
-<li>A lot of people and journals in my academic sphere are on <a href="https://ecoevo.social/about">https://ecoevo.social/about</a>, which is moderated by <a href="https://www.normalesup.org/~asimon/">Dr.&nbsp;Alexis Simon</a>. It has 1,900 users, including groups like <a href="https://ecoevo.social/@SystBiol">https://ecoevo.social/<span class="citation" data-cites="SystBiol">@SystBiol</span></a>, <a href="https://ecoevo.social/@ASNAmNat">https://ecoevo.social/<span class="citation" data-cites="ASNAmNat">@ASNAmNat</span></a>, <a href="https://ecoevo.social/@sse_evolution">https://ecoevo.social/<span class="citation" data-cites="sse_evolution">@sse_evolution</span></a>, and <a href="https://ecoevo.social/@evol_mtg">https://ecoevo.social/<span class="citation" data-cites="evol_mtg">@evol_mtg</span></a>. It’s also a reasonable place to start.</li>
-<li>There’s an instance for bots: <a href="https://botsin.space/about">https://botsin.space/about</a>. I haven’t set up anything there yet, but stay tuned.</li>
-<li>There are a lot of other instances. You can find info at <a href="https://joinmastodon.org/servers">https://joinmastodon.org/servers</a>. Don’t overthink it: at this point, it’s like choosing between gmail and yahoo for email. There is a difference, but not as big a difference as between having email and not having email.</li>
-</ul>
-</section>
-<section id="how-to-find-people" class="level3">
-<h3 class="anchored" data-anchor-id="how-to-find-people">How to find people?</h3>
-<ul>
-<li>Searching for hashtags is good. You can get a tweetdeck-like interface by going to Preferences -&gt; Appearance -&gt; Enable advanced web interface and turning it on; then you can have columns dedicated to particular hashtags. See who is posting interesting stuff.</li>
-<li>You can see who other people are following. I’m following <a href="https://mastodon.social/@omearabrian/following">these people</a> (note that following does not mean endorsement or agreement, just that I want to hear what they say).</li>
-</ul>
-</section>
-<section id="how-to-use" class="level3">
-<h3 class="anchored" data-anchor-id="how-to-use">How to use?</h3>
-<ul>
-<li>There are dedicated apps (some free, some paid). I mostly just use the web instance.</li>
-</ul>
-</section>
-<section id="automate-all-the-things" class="level3">
-<h3 class="anchored" data-anchor-id="automate-all-the-things">Automate all the things</h3>
-<p>Though I’m on mastodon.social, many in my community are on ecoevo.social. So I wanted to follow them all. Here’s R code to do that, using <code>rtoot</code>:</p>
-<p>Schoch David and Chan Chung-hong (2023) rtoot: Collecting and analyzing Mastodon data. R package version 0.3.0, <a href="https://github.com/schochastics/rtoot">https://github.com/schochastics/rtoot</a>.</p>
-<p>Note that I assume this is all ok, and I have a pause to keep from overwhelming anything, but 1) you will be rate-limited at some point and will have to restart after waiting a bit (but it’ll only follow new people, so you won’t start from scratch), and 2) mass-following could be a scammy thing to do (i.e., someone could mass-follow everyone on a huge instance to try to game getting more followers). I like following ecoevo.social people because mastodon.social’s feed is huge and has lots of things not that interesting to me, while ecoeco.social (and a smaller instance, sauropods.win) does have a lot of interesting users, so I want to follow them. It also hopefully encourages new users: “someone want to hear what you say!”</p>
-<pre><code>library(rtoot)
-
-instance_name &lt;- 'ecoevo.social'
-
-my_following &lt;- read.csv("~/Downloads/following_accounts.csv")
-
-user_count &lt;- get_instance_general(instance_name)$stats$user_count
-number_of_calls &lt;- min(ceiling(user_count/40),4000)
-for (i in sequence(number_of_calls)) {
-  people &lt;- get_instance_directory(instance_name,offset=40*(i-1), limit=40, local=TRUE, order="new")
-  for (user in people$username) {
-    full_user &lt;- paste0(user, '@', instance_name)
-    print(full_user)
-    if(full_user %in% my_following$Account.address) {
-      print("Already following, not going to add")
-    } else {
-      system(paste0('toot follow ', user, '@', instance_name), timeout=30)
-    }
-    Sys.sleep(10)
-  }
-}</code></pre>
-<hr>
-<p>To subscribe, go to <a href="https://brianomeara.info/blog.xml" class="uri">https://brianomeara.info/blog.xml</a> in an RSS reader.</p>
-
-
-</section>
-
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{o'meara2023,
-  author = {O’Meara, Brian},
-  title = {Joining {Mastodon}},
-  date = {2023-04-30},
-  url = {https://brianomeara.info/posts/joiningmastodon/},
-  langid = {en}
-}
-</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-o'meara2023" class="csl-entry quarto-appendix-citeas">
-O’Meara, Brian. 2023. <span>“Joining Mastodon.”</span> April 30, 2023.
-<a href="https://brianomeara.info/posts/joiningmastodon/">https://brianomeara.info/posts/joiningmastodon/</a>.
-</div></div></section></div> ]]></description>
-  <category>social media</category>
-  <guid>https://brianomeara.info/posts/joiningmastodon/</guid>
-  <pubDate>Sun, 30 Apr 2023 04:00:00 GMT</pubDate>
 </item>
 </channel>
 </rss>

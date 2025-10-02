@@ -134,6 +134,7 @@ To help with this, several of us made a checklist. It is below. Feel free to ada
 
 -   Assess need for satellite phones or other communication devices
     that work without cell service
+	[Update Oct 2, 2025: satellite messaging from cell phones is becoming available. Recent iPhones can [send messages or ask for help](https://support.apple.com/en-us/105097), and T-Mobile has a service (included with some T-Mobile plans, but also available for $10/month for people on other plans) that lets users send [messages, use maps, and even video chat](https://www.theverge.com/news/790412/t-mobile-satellite-service-apps-x-whatsapp-google-maps) over satellite.]
 
 -   Appropriate field clothing (footwear, sun protection)
 

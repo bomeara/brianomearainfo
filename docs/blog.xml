@@ -10,7 +10,183 @@
 <atom:link href="https://brianomeara.info/blog.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.6.40</generator>
-<lastBuildDate>Fri, 12 Sep 2025 04:00:00 GMT</lastBuildDate>
+<lastBuildDate>Fri, 10 Oct 2025 04:00:00 GMT</lastBuildDate>
+<item>
+  <title>PhyloPapers 2025, Reticulate evolution</title>
+  <dc:creator>Brian O&#39;Meara</dc:creator>
+  <link>https://brianomeara.info/posts/phylopapers_2025_Oct_10/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>This week I wanted students to learn more about reticulate evolution (phylogenetic networks):</p>
+<blockquote class="blockquote">
+<p>Gil Yardeni, Michael H. J. Barfuss, Walter Till, Matthew R. Thornton, Clara Groot Crego, Christian Lexer, Thibault Leroy and Ovidiu Paun. 2025. “The Explosive Radiation of the Neotropical Tillandsia Subgenus Tillandsia (Bromeliaceae) Has Been Accompanied by Pervasive Hybridization” Systematic Biology <a href="https://doi.org/10.1093/sysbio/syaf039" class="uri">https://doi.org/10.1093/sysbio/syaf039</a></p>
+</blockquote>
+<p>This looks at subgenus <em>Tillandsia</em> inside genus <em>Tillandsia</em>, a group of morphologically quite diverse plants.</p>
+<p>This paper was good for teaching because it was fairly focused: what is the phylogenetic network of the group and how is gene flow affecting this?</p>
+<p>It’s yet another paper showing the utility of deleting massive amounts of data – in this case, looking at windows of the genome far enough apart that there is likely ample recombination between them. It was also useful in showing how one has to compromise. They used ASTRAL-III to infer a phylogenetic tree of all their samples incorporating processes like incomplete lineage sorting that might case gene tree - species tree mismatch. But they then used a much reduced number of taxa to analyze the history with zero to three possible reticulation events; given the massively larger search space when going from a tree to a network, they used a reduced set of samples. These were reasonable choices, but it shows the need for software that can feasibly look for reticulations for problems of hundreds of taxa or more.</p>
+<p>The paper also used ABBA-BABA and related tests to scan along the genome to look for areas behaving unusually. Students have trouble understanding these at first (the ratio of the ‘wrong’ gene trees for sets of four lineages [ones that don’t match the species tree] having information about hybridization is a weird concept) but I think this paper explains it well, especially for an empirical paper not tasked with doing a review. It was also nice to see this being done as a genome scan as a discovery process. A lot of especially intro science is framed as rejection of dull hypotheses (“are these two different things not the same?”), but there’s still a lot of need for “let’s strap a camera on a sub and see what’s down there”, “let’s look at that galaxy in infrared”, “let’s see what <em>Tillandsia</em> are doing with their chromosomes”.</p>
+<p>Side note I only briefly touched on in class: subgenus <em>Tillandsia</em> within <em>Tillandsia</em>?! “I study <em>Tillandsia</em> species,” even for someone using the same taxonomic concepts as oneself, is an ambiguous statement without including the rank. Yet another advantage of phylocode, where <em>Tillandsia</em> would have only one definition (and if one wanted to name smaller groups within it, one could without having to use subgenera, subsubgenera, superspecies, etc.). Unfortunately, <em>Tillandsia</em> as of today doesn’t seem to be <a href="https://www.phyloregnum.org/?term=Tillandsia">defined at all in phylocode</a> based on the online name repository; it might be in the <a href="https://www.routledge.com/Phylonyms-A-Companion-to-the-PhyloCode/deQueiroz-Cantino-Gauthier/p/book/9781138332935"><strong>Phylonyms</strong> companion volume</a> to the code itself, but I lack a copy (but it’s on sale for $240 hardcover, only $225 for the eBook, so…).</p>
+<p>I made intro slides with some of my background material and some figures from the paper: <a href="YardeniEtAl2025_Networkss.pdf">PDF</a> and <a href="YardeniEtAl2025_Networks.pptx">PowerPoint</a>.</p>
+<hr>
+<p>To subscribe, go to <a href="https://brianomeara.info/blog.xml" class="uri">https://brianomeara.info/blog.xml</a> in an RSS reader.</p>
+
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{o'meara2025,
+  author = {O’Meara, Brian},
+  title = {PhyloPapers 2025, {Reticulate} Evolution},
+  date = {2025-10-10},
+  url = {https://brianomeara.info/posts/phylopapers_2025_Oct_10/},
+  langid = {en}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-o'meara2025" class="csl-entry quarto-appendix-citeas">
+O’Meara, Brian. 2025. <span>“PhyloPapers 2025, Reticulate
+Evolution.”</span> October 10, 2025. <a href="https://brianomeara.info/posts/phylopapers_2025_Oct_10/">https://brianomeara.info/posts/phylopapers_2025_Oct_10/</a>.
+</div></div></section></div> ]]></description>
+  <category>phylopapers</category>
+  <category>phylogenetics</category>
+  <category>teaching</category>
+  <category>reticulate</category>
+  <category>networks</category>
+  <guid>https://brianomeara.info/posts/phylopapers_2025_Oct_10/</guid>
+  <pubDate>Fri, 10 Oct 2025 04:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>PhyloPapers 2025, Behavior and genomics</title>
+  <dc:creator>Brian O&#39;Meara</dc:creator>
+  <link>https://brianomeara.info/posts/phylopapers_2025_Oct_03/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>This week I wanted students to learn more about using genomics to understand behavior:</p>
+<blockquote class="blockquote">
+<p>Sara E. Lipshutz, Mark S. Hibbins, Alexandra B. Bentz, Aaron M. Buechlein, Tara A. Empson, Elizabeth M. George, Mark E. Hauber, Douglas B. Rusch, Wendy M. Schelsky, Quinn K. Thomas, Samuel J. Torneo, Abbigail M. Turner, Sarah E. Wolf, Mary J. Woodruff, Matthew W. Hahn &amp; Kimberly A. Rosvall. 2025. “Repeated behavioural evolution is associated with convergence of gene expression in cavity-nesting songbirds” Nature Ecology &amp; Evolution. <a href="https://doi.org/10.1038/s41559-025-02675-x" class="uri">https://doi.org/10.1038/s41559-025-02675-x</a></p>
+</blockquote>
+<p>[Note my conflict of interest: I was on Sara Lipshutz’ PhD committee]</p>
+<p>One of the students in the class requested a modern paper on behavior. This paper had a lot of material for students to parse, but I think it’s good for them to see what a modern, chewy paper looks like. It has everything from careful natural history observations of birds attacking models to modern genomics to measures of hormones.</p>
+<p>In all my classes I emphasize the difficulty of discretizing biology. Nature is full of variation. Even things that seem easiy countable, like number of limbs, have had variation over time and within species (quick, how many femurs do snakes have? <a href="https://www.cell.com/current-biology/fulltext/S0960-9822(16)31069-7">Two in pythons</a>). For this paper, a question was about aggression in cavity-nesting birds (birds nesting in holes in trees, for example) versus ones making open nests (the classic “use a crayon to draw a bird nest” nests). But even there, some birds only use cavity nests, some only use open nests, and some use both – how to categorize those? And does it matter if 99% of pairs in a species use a cavity or 3% of pairs use a cavity? Even continuous measures, like amount of aggression towards a model armed with a bluetooth speaker, require careful decisions. Is glaring at the model included in time spent in aggression? Flying around it yelling? Making full contact? This paper was useful in illustrating how these decisions are made.</p>
+<p>The paper also had an interesting study design for a phylogenetics class. The authors chose non-overlapping pairs of species that differ in nesting habit. This is good, as it’s a lot like doing a twin study, but there still is differential relatedness between the pairs and so the authors used phylogenetic linear mixed models (PGLMMs – note, the “LLM” is not large language model) to control for relatedness. They also poked at the data in other ways to see if there could be confounding effects – for example, perhaps depth of the split between species in the pair had an effect on the results.</p>
+<p>The genomic aspects I think were also informative. They looked for groups of genes that were expressed consistently differently between cavity and open nesters. There were a few found, but it felt appropriately preliminary: it wasn’t presented as “these are the genes that lead to aggression” but rather as candidates for potential further study. It was also an opportunity to teach students about how we understand putative gene function (from gene ontology databases).</p>
+<p>I made intro slides with some of my background material and some figures from the paper: <a href="LipshutzEtAl_2025_BehaviorAndGenomics.pdf">PDF</a> and <a href="LipshutzEtAl_2025_BehaviorAndGenomics.pptx">PowerPoint</a>.</p>
+<p>[Note that this blog post is dated for the class date, but I’m actually pushing it on Oct.&nbsp;11, 2025]</p>
+<hr>
+<p>To subscribe, go to <a href="https://brianomeara.info/blog.xml" class="uri">https://brianomeara.info/blog.xml</a> in an RSS reader.</p>
+
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{o'meara2025,
+  author = {O’Meara, Brian},
+  title = {PhyloPapers 2025, {Behavior} and Genomics},
+  date = {2025-10-03},
+  url = {https://brianomeara.info/posts/phylopapers_2025_Oct_03/},
+  langid = {en}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-o'meara2025" class="csl-entry quarto-appendix-citeas">
+O’Meara, Brian. 2025. <span>“PhyloPapers 2025, Behavior and
+Genomics.”</span> October 3, 2025. <a href="https://brianomeara.info/posts/phylopapers_2025_Oct_03/">https://brianomeara.info/posts/phylopapers_2025_Oct_03/</a>.
+</div></div></section></div> ]]></description>
+  <category>phylopapers</category>
+  <category>phylogenetics</category>
+  <category>teaching</category>
+  <category>genomics</category>
+  <category>behavior</category>
+  <guid>https://brianomeara.info/posts/phylopapers_2025_Oct_03/</guid>
+  <pubDate>Fri, 03 Oct 2025 04:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>PhyloPapers 2025, Simulation</title>
+  <dc:creator>Brian O&#39;Meara</dc:creator>
+  <link>https://brianomeara.info/posts/phylopapers_2025_Sep_24/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>This week I wanted students to learn more about using simulations:</p>
+<blockquote class="blockquote">
+<p>Ornela N. Dehayem, Ryan F. A. Brewer, Luis Valente, Frederic Lens, Rampal S. Etienne. 2025. “Impact of sampling strategy on inference of community assembly processes in phylogenetic island biogeography”. Methods in Ecology and Evolution. 16:1507–1520. <a href="https://doi.org/10.1111/2041-210X.70058" class="uri">https://doi.org/10.1111/2041-210X.70058</a></p>
+</blockquote>
+<p>Simulation is used a lot to validate methods, but I like teaching it to students because it’s also important in power analyses. In my experience it is still rare for students to figure out if their proposed research will have enough species, data, etc. to potentially answer their question before embarking on it. It can save so much future heartache to spend a few days seeing whether, for example, if this trait leads to evolution of this other trait at a particular rate there’s any chance of being confident in a result from a likely 17-taxon tree.</p>
+<p>However, simulation is hard to do well. For one thing, the space of parameters to examine can grow very quickly. One of the reasons I first learned R was because I had done a bunch of simulations (perl to test a C++ program) to test some methods I made for species delimitation (<a href="https://doi.org/10.1093/sysbio/syp077">O’Meara 2010</a>) but I hadn’t realized how hard it would be to plot something like 6 variables at once (so why not bar charts on top of bar charts in an <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5841455/figure/fig4/">array of bar charts</a>?). “Number of taxa might matter… and speciation rate… and the rate of trait evolution… and tree shape… and age… and…”. It can also be hard to figure out for a given parameter what values to try. Does this new method to estimate different substitution rates work well? On a three-taxon tree with mis-estimated branches, nope, it works horribly. On a 10,000-taxon tree where branch lengths are perfectly correlated with time, it works splendidly. But what will be relevant to biologists? That’s one of the reasons Jeremy Beaulieu and I (<a href="https://doi.org/10.1111/evo.12614">Beaulieu &amp; O’Meara 2015</a>) made sure to include units in a simulation so people could see whether they’re reasonable (even though one reviewer asked for us to delete units!). The ability to pre-determine the outcome of a simulation can also lead to odd choices depending on who is doing the simulating. For example, one paper in our field evaluated the performance of a Bayesian method written by many of the same authors by using simulation parameters that match the priors used in the later analysis. Unsurprisingly, it worked well when its prior was centered on the truth – with such a sim, it might work even better without any data! On the other hand, one could simulate using models that violate the assumptions of a method and then show that the method fails (“the normal distribution is a terrible way to get confidence interval for a mean… when data are simulated from a univariate uniform distribution”).</p>
+<p>Dehayem et al.&nbsp;(2025) is interesting because it’s a paper testing a method created by many of the same authors, so presumably they’d be more accepting of results that show their method works, but it does a careful job. It is handling a complex scenario: arrival and diversification on islands, including hard to estimate parameters like extinction rate. There are some needed assumptions made in the simulation (for example, that this model describes the process so the parameter values are meaningful). It gets parameters from previously fit biological datasets, which is a good thing to do as it centers them on presumably realistic values. They also tried various ways to violate the model assumptions, such as a bias against sampling young species (there may be no gene flow, but humans haven’t recognized the populations as different species yet). There are many other potential things to vary, but it keeps it pretty focused and thus understandable. This made it an accessible jumping off point for discussions of simulations.</p>
+<p>I made intro slides with some of my background material and some figures from the paper: <a href="DehayemEtAl_2025_Simulation.pdf">PDF</a> and <a href="DehayemEtAl_2025_Simulation.pptx">PowerPoint</a>.</p>
+<p>[Note that this blog post is dated for the class date, but I’m actually pushing it on Oct.&nbsp;11, 2025]</p>
+<hr>
+<p>To subscribe, go to <a href="https://brianomeara.info/blog.xml" class="uri">https://brianomeara.info/blog.xml</a> in an RSS reader.</p>
+
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{o'meara2025,
+  author = {O’Meara, Brian},
+  title = {PhyloPapers 2025, {Simulation}},
+  date = {2025-09-24},
+  url = {https://brianomeara.info/posts/phylopapers_2025_Sep_24/},
+  langid = {en}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-o'meara2025" class="csl-entry quarto-appendix-citeas">
+O’Meara, Brian. 2025. <span>“PhyloPapers 2025, Simulation.”</span>
+September 24, 2025. <a href="https://brianomeara.info/posts/phylopapers_2025_Sep_24/">https://brianomeara.info/posts/phylopapers_2025_Sep_24/</a>.
+</div></div></section></div> ]]></description>
+  <category>phylopapers</category>
+  <category>phylogenetics</category>
+  <category>teaching</category>
+  <category>simulation</category>
+  <guid>https://brianomeara.info/posts/phylopapers_2025_Sep_24/</guid>
+  <pubDate>Wed, 24 Sep 2025 04:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>PhyloPapers 2025, Phylogeography</title>
+  <dc:creator>Brian O&#39;Meara</dc:creator>
+  <link>https://brianomeara.info/posts/phylopapers_2025_Sep_17/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>This week I wanted students to learn more about phylogeography:</p>
+<blockquote class="blockquote">
+<p>Manica Balant<em>, Daniel Vitales</em>, Zhiqiang Wang*, Zoltán Barina, Lin Fu, Tiangang Gao, Teresa Garnatje, Airy Gras, Muhammad Qasim Hayat, Marine Oganesian, Jaume Pellicer, Seyed A. Salami, Alexey P. Seregin, Nina Stepanyan-Gandilyan, Nusrat Sultana, Shagdar Tsooj, Magsar Urgamal, Joan Vallès, Robin van Velzen, Lisa Pokorny. 2025. “Integrating target capture with whole genome sequencing of recent and natural history collections to explain the phylogeography of wild-growing and cultivated <em>Cannabis</em>”. Plants People Planet. 1-18. <a href="https://doi.org/10.1002/ppp3.70043" class="uri">https://doi.org/10.1002/ppp3.70043</a> [* = equal contributions]</p>
+</blockquote>
+<p>This study examines wild and cultvated <em>Cannabis</em>, which is according to the paper has been used “as fibre (ropes, fabric and paper), medicinally (over 200 recorded uses), as food (nutrient-rich seeds) and in various magico-religious rituals”. It uses many samples from around the globe and genomic data to examine population structure.</p>
+<p>One thing that has stood out in this paper and others considered for the course is the now apparent standard toolset of using <a href="https://mafft.cbrc.jp/alignment/software/">mafft</a>, <a href="https://web.stanford.edu/group/pritchardlab/structure.html">Structure</a>, <a href="https://github.com/smirarab/ASTRAL">ASTRAL-III</a>, and <a href="https://github.com/iqtree/iqtree2">IQ-TREE2</a>. The age of some of the software is unexpected: the latest release of Structure is from over 13 years ago, and for ASTRAL-III it’s over five years ago. That’s not necessarily a bad thing – it’s not like hackers are trying to take over the banking system by exploiting potential vulnerabilities in unpatched phylogenetic software – it’s just surprising. You would think that especially for popular analytical questions there would be new innovations or just <a href="https://www.youtube.com/watch?v=jn_P13FkQYw">new hotness</a>. For ASTRAL the developers “encourage using the new code” of <a href="https://github.com/chaoszhang/ASTER">ASTER</a>, though as this only was <a href="https://doi.org/10.1093/molbev/msaf172">published in a peer-reviewed journal</a> in July 2025 it’s reasonable that papers we’re reading now don’t use it yet (and I doubt answers under ASTRAL-III are wrong). But I do worry as researchers continue to use ChatGPT and similar for analyses and ask “<a href="https://scienceforeveryone.science/statistics-in-the-era-of-ai/">what’s the problem in doing stats with an (AI) consultant?</a>” popular approaches will be baked into the training data and then will be continually suggested as the options to use, even when <a href="https://doi.org/10.1038/s41586-020-2176-1">papers come out showing problems with classic approaches</a> (and see all the studies STILL looking at net diversification rate through time) or new approaches unlock new questions. There’s already a bias towards that built into the field – it’s more efficient to use approaches one already knows (and you might know the limitations well, too, which is important), and all the tutorials or posts are about the classic software, but at least new info is constantly being put into our human brains, where we could have a preference towards recent approaches (though on R-sig-phylo there was a counterargument that the agentic AIs will learn about new approaches and suggest them). Though I guess one advantage of fossilization of methods advice is we’ll all start using <a href="https://subulatepalpomere.com/2013/04/16/changing-of-the-guard/">MacClade</a> again.</p>
+<p>One thing I loved about the paper was the use of herbarium and fresh specimens. It’s yet another example of the benefits of repositories of biological information (recognized at many, but not <a href="https://www.science.org/content/article/tragic-mistake-decision-close-duke-university-s-herbarium-triggers-furor">all</a>, places) as well as expertise to collect in the field. The paper also demonstrated the feasibility of genomic scale data.</p>
+<p>A shift in thinking I’ve undergone but still feels unnatural is how in modern evolutionary biology a key workflow step is <strong>massively deleting</strong> data. It wasn’t that long ago we were looking at chromatograms in Sequencher to identify every possible base by eye (while still excluding bad reads); in contrast, in this paper the data were filtered from 68,212 single nucleotide polymorphisms (SNPS) down to just 2,875. This is important to do for data from GBIF (“nope, that oak is not from the ocean, someone flipped a sign”) and things like the TRY database of plant traits, too. This paper was useful for discussing this shift with students.</p>
+<p>A conclusion from the paper was that <em>Cannibis sativa</em> is one species (as hypothesized by Linnaeus) and not two with the addition of <em>C. indica</em>. Perhaps a useful anecdote for intro bio when the standard move is to dunk on “Lamarckism” (though this requires more nuance than the cartoon version): the describer of the incorrectly split <em>C. indica</em>: Jean-Baptiste Lamarck. Though one student raised a good point: it would be interesting to redo the Structure analyses using only the wild plants, not escaped or domesticated cultivars – one possibility is that human meddling allowed interbreeding of <em>C. sativa</em> and <em>C. indica</em> that would have been relatively reproductively isolated otherwise.</p>
+<p>One note for those who might want to teach the paper: I made sure to let students know that some uses of the plant are illegal in this jurisdiction (true at both our state and federal level) before asking them to provide information (for discussion questions on the paper before class, for example). I don’t want students trying to, say, make a joke, put in writing something that could be read by others as disclosure of illegal drug use – who knows how such info could be scraped into systems and misinterpreted in the future.</p>
+<p>I made intro slides with some of my background material and some figures from the paper: <a href="BalantVitalesWangEtAl_Phylogeography.pdf">PDF</a> and <a href="BalantVitalesWangEtAl_Phylogeography.pptx">PowerPoint</a>.</p>
+<p>[Note that this blog post is dated for the class date, but I’m actually pushing it on Oct.&nbsp;11, 2025]</p>
+<hr>
+<p>To subscribe, go to <a href="https://brianomeara.info/blog.xml" class="uri">https://brianomeara.info/blog.xml</a> in an RSS reader.</p>
+
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{o'meara2025,
+  author = {O’Meara, Brian},
+  title = {PhyloPapers 2025, {Phylogeography}},
+  date = {2025-09-17},
+  url = {https://brianomeara.info/posts/phylopapers_2025_Sep_17/},
+  langid = {en}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-o'meara2025" class="csl-entry quarto-appendix-citeas">
+O’Meara, Brian. 2025. <span>“PhyloPapers 2025, Phylogeography.”</span>
+September 17, 2025. <a href="https://brianomeara.info/posts/phylopapers_2025_Sep_17/">https://brianomeara.info/posts/phylopapers_2025_Sep_17/</a>.
+</div></div></section></div> ]]></description>
+  <category>phylopapers</category>
+  <category>phylogenetics</category>
+  <category>teaching</category>
+  <category>phylogeography</category>
+  <guid>https://brianomeara.info/posts/phylopapers_2025_Sep_17/</guid>
+  <pubDate>Wed, 17 Sep 2025 04:00:00 GMT</pubDate>
+</item>
 <item>
   <title>PhyloPapers 2025, Genomic species delimitation</title>
   <dc:creator>Brian O&#39;Meara</dc:creator>
@@ -1094,308 +1270,6 @@ Targets.”</span> October 28, 2023. <a href="https://brianomeara.info/posts/col
   <category>rmarkdown</category>
   <guid>https://brianomeara.info/posts/collegetables/</guid>
   <pubDate>Sat, 28 Oct 2023 04:00:00 GMT</pubDate>
-</item>
-<item>
-  <title>SSB Code of Ethics</title>
-  <dc:creator>Brian O&#39;Meara</dc:creator>
-  <link>https://brianomeara.info/posts/codeofethics/</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<p>People who are members of the Society of Systematic Biologists should check for an email with subject: “SSB Code of Ethics”. It contains a link to a ballot and more information.</p>
-<blockquote class="blockquote">
-<p>Dear SSB Members,</p>
-<p>Based on 4+ years of intensive work by multiple ASN/SSB/SSE joint committees, SSB has developed a Code of Ethics and an accompanying <a href="https://www.evolutioncodeofethics.org/uploads/1/3/9/1/139124864/ssb_coe_-_final.docx.pdf">Enforcement Policy</a>. Here, we ask members to vote on amending the SSB Governance Documents (<a href="https://github.com/systbiol/docs/blob/master/constitution.txt">Constitution and Bylaws</a>) to require members to adhere to this Code of Ethics, to empower the Council to establish and enforce this Code of Ethics, and to establish a mechanism whereby the Code of Ethics can be updated in the future.</p>
-<p><strong>The SSB Council has already voted in favor of this Code of Ethics. However, before the Code takes effect, we believe it is necessary to amend the SSB Governance documents (Constitution and Bylaws).</strong></p>
-<p>The proposed changes are described in detail, along with accompanying explanations, on the voting page linked below [BCO: only for members; I don’t include the link here]. The proposed amendments are also <a href="https://github.com/systbiol/docs/pull/9/files">available to view in SSB’s GitHub repository</a>, in the context of the entire SSB Constitution.</p>
-<p>Voting will remain open through Nov.&nbsp;10th.</p>
-<p>As always, thank you for your continued participation in the Society!</p>
-<p>The SSB Council</p>
-</blockquote>
-<p>This reflects a lot of work by a lot of people across SSB, the Society for the Study of Evolution (SSE), and the American Society of Naturalists (ASN), as well as experts outside the societies, and rounds of feedback by members and councils.</p>
-<p>I really hope this passes in SSB and ASN (it already did, overwhelmingly, in SSE). I talked a bit about why in my SSB Presidential address this summer (<a href="https://brianomeara.info/evol2023.html">go here</a> for materials from it, <a href="https://youtu.be/2lbfjtOVntA?si=qCNx4-8iv_xj32Lh&amp;t=1002">and here</a> to jump right to the section of the speech on this area). We know misconduct happens in our field, both anecdotally and from quantitative data. One extreme response, though historically common, is ignoring it completely. Another extreme is to do things unofficially based on rumors. A good approach is to have a robust code of ethics with clear procedures. SSB Council has approved a code that has strong protections for confidentiality (but does not allow anonymous reporting), has a trained investigator get evidence in a case, and has a committee of peers decide on any possible sanctions. Now it’s up to the membership to vote on a constitution and bylaw change so the Council can implement it and tweak it as needed. Despite all the work that’s gone into it, there will likely be things that need to be adjusted in future years – this will let the Council do minor changes, while major ones will go to the membership for another vote.</p>
-<p>For more on the code, go to <a href="https://www.evolutioncodeofethics.org" class="uri">https://www.evolutioncodeofethics.org</a>, which has an FAQ, diagrams of how it all works, and more.</p>
-<p>And a big thank you to all the people who worked on this. Please vote!</p>
-<hr>
-<p>To subscribe, go to <a href="https://brianomeara.info/blog.xml" class="uri">https://brianomeara.info/blog.xml</a> in an RSS reader.</p>
-
-
-
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{o'meara2023,
-  author = {O’Meara, Brian},
-  title = {SSB {Code} of {Ethics}},
-  date = {2023-10-26},
-  url = {https://brianomeara.info/posts/codeofethics/},
-  langid = {en}
-}
-</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-o'meara2023" class="csl-entry quarto-appendix-citeas">
-O’Meara, Brian. 2023. <span>“SSB Code of Ethics.”</span> October 26,
-2023. <a href="https://brianomeara.info/posts/codeofethics/">https://brianomeara.info/posts/codeofethics/</a>.
-</div></div></section></div> ]]></description>
-  <category>code of ethics</category>
-  <category>SSB</category>
-  <category>systematics</category>
-  <category>ethics</category>
-  <guid>https://brianomeara.info/posts/codeofethics/</guid>
-  <pubDate>Thu, 26 Oct 2023 04:00:00 GMT</pubDate>
-</item>
-<item>
-  <title>Fraction of history</title>
-  <dc:creator>Brian O&#39;Meara</dc:creator>
-  <link>https://brianomeara.info/posts/percentageage/</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<p>On mastodon, <a href="https://mastodon.social/@gundersen">Marius Gunderen</a>, <a href="https://mastodon.social/@gundersen/110972549747804838">posted</a>:</p>
-<p>“It’s wild to think about how short human history is. For example, the iron age started approximately 1200BC, which means that if you are 32 years old you have been alive for 1% of the time humans have used iron. If you are 54 years old then you have lived through 1% of horses being domesticated, the wheel being used for transport, written language and living in towns.”</p>
-<p>I thought it would be interesting educationally to do this with many events. Enter a human age in years below to do this, then click somewhere outside the box:</p>
-<form>
-Age in years: <input type="text" id="age" value="44" onchange="convert_age()"><br>
-</form>
-<p><br></p>
-<h3 class="anchored">
-Been alive for what percentage of time since:
-</h3>
-<ul>
-<li>Domestication of corn (6700 BCE): <span id="corn"></span>%</li>
-<li>Start of the iron age (1200 BCE): <span id="iron"></span>%</li>
-<li>Gutenberg printing press (1400 CE): <span id="printing"></span>%</li>
-<li>First usable light bulb (1879): <span id="lightbulb"></span>%</li>
-<li>First flight (1903): <span id="flight"></span>%</li>
-<li>US women right to vote (1920): <span id="womenvote"></span>%</li>
-<li>Discovery of the structure of DNA (1953): <span id="dna"></span>%</li>
-<li>US banning of segregation (1964): <span id="segregation"></span>%</li>
-<li>Widespread scientific acceptance of plate tectonics (1965): <span id="platetectonics"></span>%</li>
-<li>First email (1971): <span id="email"></span>%</li>
-<li>US discrimination in lending banned (1974): <span id="credit"></span>%</li>
-</ul>
-<hr>
-<p>To subscribe, go to <a href="https://brianomeara.info/blog.xml" class="uri">https://brianomeara.info/blog.xml</a></p>
-
-
-
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{o'meara2023,
-  author = {O’Meara, Brian},
-  title = {Fraction of History},
-  date = {2023-09-01},
-  url = {https://brianomeara.info/posts/percentageage/},
-  langid = {en}
-}
-</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-o'meara2023" class="csl-entry quarto-appendix-citeas">
-O’Meara, Brian. 2023. <span>“Fraction of History.”</span> September 1,
-2023. <a href="https://brianomeara.info/posts/percentageage/">https://brianomeara.info/posts/percentageage/</a>.
-</div></div></section></div> ]]></description>
-  <category>history</category>
-  <category>mastodon</category>
-  <guid>https://brianomeara.info/posts/percentageage/</guid>
-  <pubDate>Fri, 01 Sep 2023 04:00:00 GMT</pubDate>
-</item>
-<item>
-  <title>Github rate limit</title>
-  <dc:creator>Brian O&#39;Meara</dc:creator>
-  <link>https://brianomeara.info/posts/githubratelimit/</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<p>Lately I have been getting this error on occasion when running <code>devtools::install()</code> in R:</p>
-<pre><code>&gt; devtools::install()
-Error: HTTP error 401.
-  Bad credentials
-
-  Rate limit remaining: 59/60
-  Rate limit reset at: 2023-07-27 21:55:54 UTC</code></pre>
-<p>The solution, from <a href="https://community.rstudio.com/t/unable-to-install-packages-from-github/124372" class="uri">https://community.rstudio.com/t/unable-to-install-packages-from-github/124372</a>, is to do</p>
-<pre><code>Sys.unsetenv("GITHUB_PAT")</code></pre>
-<p>There have been past reports on this in the devtools package, but it was apparently fixed some time ago. I am using Mac OS 13.4, R 4.2.3. This line does fix it, though.</p>
-<hr>
-<p>To subscribe, go to <a href="https://brianomeara.info/blog.xml" class="uri">https://brianomeara.info/blog.xml</a> in an RSS reader.</p>
-
-
-
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{o'meara2023,
-  author = {O’Meara, Brian},
-  title = {Github Rate Limit},
-  date = {2023-07-27},
-  url = {https://brianomeara.info/posts/githubratelimit/},
-  langid = {en}
-}
-</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-o'meara2023" class="csl-entry quarto-appendix-citeas">
-O’Meara, Brian. 2023. <span>“Github Rate Limit.”</span> July 27, 2023.
-<a href="https://brianomeara.info/posts/githubratelimit/">https://brianomeara.info/posts/githubratelimit/</a>.
-</div></div></section></div> ]]></description>
-  <category>github</category>
-  <category>software</category>
-  <category>rstats</category>
-  <guid>https://brianomeara.info/posts/githubratelimit/</guid>
-  <pubDate>Thu, 27 Jul 2023 04:00:00 GMT</pubDate>
-</item>
-<item>
-  <title>Grad core class in evolutionary biology, 2023 edition</title>
-  <dc:creator>Brian O&#39;Meara</dc:creator>
-  <link>https://brianomeara.info/posts/evolutioncore2023/</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<p>Our department has long had a core class: one semester on ecology, one on evolution. It originated before I started here (it was somewhat modeled on UC Davis Population Biology’s core class, which I took as a student, in fact), but I’ve taught parts of it (usually a few weeks on phylogenetics and macroevolution) nearly every year I’ve been here. This year, I took over as the instructor for the evolution semester. Years ago the course was largely team taught with perhaps four or five instructors per semester; over time, this has winnowed down. I chose to do it as the sole instructor, with one guest discussion with Dr.&nbsp;Nina Fefferman on getting grants (she’s <a href="http://feffermanlab.org/funding.html">very good</a> at it), as the students wanted to have a discussion on this.</p>
-<p>This course is described as “Readings, lectures, and discussion about key concepts in evolution.” In practice, it has several goals:</p>
-<ol type="1">
-<li>Replace the evolution written exam that was formerly part of qualifying exams (so quals can now focus just on the research project itself). This necessitates broad coverage and robust assessments of knowledge.</li>
-<li>Make students fluent in evolutionary thought: students emerging with a Masters or PhD in an ecology and evolutionary biology department should be able to talk about genetic drift, the Modern Synthesis, speciation, and more to people studying evolution, even if the students specialize on some other aspect of science and come with a very different background.</li>
-<li>Help students understand how evolution science is done. “Science” is a corpus of knowledge (“the mitochondrion is the powerhouse of the cell”) and is often presented as this in undergraduate courses, but it is also a way to get this knowledge. Students will learn how we gain knowledge in evolution.</li>
-<li>Onboarding to the department. This is a particular set of people, assembled with care and at great expense: how to thrive in the department, who people are, etc.</li>
-</ol>
-<p>Course structure was based on particular topics, with students typically given a paper or two to read and ask questions about, then work through the topic and questions in class (lots of think-pair-share, class questions, etc.). Students asked for more structure, so I started adding basic slides to give broader overviews of the topics and giving sample final exam questions for each topic so they could better understand the type of depth of knowledge I was expecting them to get.</p>
-<p>Often this sort of course covers a lot of history of the field, famous scientists, and the like. I focused instead on current understandings of the topics. This aligns with the course description (“key concepts in evolution”) but I argue that it’s more important for students who are doing their own research: what do we know, and what is still left to learn, rather than who thought what in 1968. That said, there is still vocab people should know in the field, including names of people and organisms, as well as local info (faculty members, Scopes trial, and similar), so I made a <a href="Jargonfest.csv">list of jargon (.csv)</a>, see also Section&nbsp;4, and had some multiple choice quizzes and part of the final to encourage students to learn about these terms.</p>
-<section id="overall-topics-covered" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="overall-topics-covered"><span class="header-section-number">1</span> Overall topics covered</h2>
-<ul>
-<li>Jan 24 Intro</li>
-<li>Jan 26 Effective population size: <a href="https://doi.org/10.1038/nrg2526">Charlesworth (2009)</a></li>
-<li>Jan 31 Adaptation: <a href="http://dx.doi.org/10.1016/j.tree.2016.12.005">Kokko et al.&nbsp;(2017)</a></li>
-<li>Feb 2 Spandrels: <a href="https://doi.org/10.1098/rspb.1979.0086">Gould &amp; Lewontin (1979)</a></li>
-<li>Feb 7 Neutral theory I: <a href="https://doi.org/10.1146/annurev-genom-082908-150129">Nei et al.&nbsp;(2010, pages 265-274)</a></li>
-<li>Feb 9 Neutral theory II: <a href="https://doi.org/10.1146/annurev-genom-082908-150129">Nei et al.&nbsp;(2010, pages 274-289)</a></li>
-<li>Feb 14 R (see Section&nbsp;3.1)</li>
-<li>Feb 16 Python (see Section&nbsp;3.2)</li>
-<li>Feb 21 Game theory: <a href="https://doi.org/10.1146/annurev.es.14.110183.002113">Riechert &amp; Hammerstein (1984)</a> [UTK author]</li>
-<li>Feb 23 Quantitative genetics and evolvabililty: <a href="https://doi.org/10.1146/annurev-ecolsys-011121-021241">Hansen &amp; Pélabon (2021)</a></li>
-<li>Feb 28 Sexual selection I: <a href="https://doi.org/10.1126/science.abi6308">Rosenthal &amp; Ryan (2022)</a></li>
-<li>Mar 2 Sexual selection II: <a href="https://doi.org/10.1007/978-94-017-9585-2_5">Roughgarden (2015)</a></li>
-<li>Mar 7 Species concepts: <a href="https://repository.si.edu/handle/10088/4652">de Queiroz (1998)</a></li>
-<li>Mar 9 Species delimitation: <a href="https://doi.org/10.1093/sysbio/syw100">Morales et al (2016)</a> [UTK coauthor; COI]</li>
-<li>Mar 21 Bayesian, maximum likelihood, and phylogenetics: <a href="https://doi.org/10.1016/s0169-5347(00)02025-5">Lewis (2001)</a></li>
-<li>Mar 23 Phylogenetics discrete characters: <a href="https://doi.org/10.1146/annurev-ecolsys-110411-160331">O’Meara (2012)</a> [UTK author; COI]</li>
-<li>Mar 28 Phylogenetics utility: slides for this</li>
-<li>Mar 30 Work session for students to study and figure out questions</li>
-<li>Apr 4 Phylogenetics continuous models: slides, also paper above.</li>
-<li>Apr 11 Diversification: <a href="https://doi.org/10.1016/j.tree.2007.06.013">Ricklefs (2007)</a></li>
-<li>Apr 14 Timeline of life: <a href="https://www.newscientist.com/article/dn17453-timeline-the-evolution-of-life/" class="uri">https://www.newscientist.com/article/dn17453-timeline-the-evolution-of-life/</a></li>
-<li>Apr 18 Biogeography: <a href="https://doi.org/10.1007/s12052-012-0421-2">Sanmartín (2012)</a></li>
-<li>Apr 20 Paleontology: <a href="https://doi.org/10.1146/annurev-ecolsys-110617-062638">Stigall (2019)</a> [UTK author]</li>
-<li>Apr 25 Evolution of behavior: <a href="https://doi.org/10.1146/annurev-ecolsys-110218-025040">Whiten (2019)</a></li>
-<li>Apr 27 EvoDevo: <a href="https://doi.org/10.1146/annurev-cellbio-101011-155732">Mallarino &amp; Abzhanov (2012)</a></li>
-<li>May 2 Grants (with Dr.&nbsp;Nina Fefferman)</li>
-<li>May 4 Eugenics: <a href="https://www.ashg.org/wp-content/uploads/2023/01/Facing_Our_History-Building_an_Equitable_Future_Final_Report_January_2023.pdf">“Facing our History – Building an Equitable Future” by American Society of Human Genetics, page 5-15</a> and <a href="https://www.nytimes.com/2022/06/08/magazine/eugenics-movement-america.html?unlocked_article_code=Yd0N6bRMTs9hkiFQjlNyB5EYekKtNRfbRxktfpFMCF_IbOUR5SeUjL0wEYaloYcd4LfTIKspaC31l8N7flxkVtM8NsLmR36mM_0wfoUPGOit7Cxvn-2yd1SUUGplzyIuXlNRylugiCqAC6tDwoA7feN7ILjzA_DHXO6H-JdLmjZUGhgsdxmo4dMy8Y-t2PG1n7GjSO33NofeAVTh4tGOcqLCttGWVo04KPwEDP2oFCyt_UFyPHvz-rKSEx8V2kze-43rjIUOsRL2B5OIkRw452JxvUAl5qRSdu6UcJ-nfTo1AiDu0Vu97NsG_CD8jYmWwegZH6CkXd_VYbuGtGIm-EEydtQ&amp;smid=url-share">Villarosa (2019)</a></li>
-<li>May 9 Human evolution: <a href="https://doi.org/10.1038/s41586-021-03244-5">Bergström et al.&nbsp;(2021)</a></li>
-</ul>
-<p>Given the audience (a course like this is varied: some are students with a Masters degree in evolution, some have had very little biology and come from fields like linguistics, math, or geography), slightly more than half the articles are reviews, while others are particular studies that illustrate what a field can be. I tried to focus discussions on helping with confusing concepts and then talking about why this area of research and its questions can matter. I worked to pull from authors from a variety of backgrounds and perspectives; I’ll be continuing to revisit the set of papers used in the class in the future (and suggestions welcome!).</p>
-</section>
-<section id="sec-accessibility" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="sec-accessibility"><span class="header-section-number">2</span> Accessibility</h2>
-<p>Some steps I took to attempt to help with accessibility:</p>
-<ul>
-<li>PowerPoint live captioning is great: even when the slide show part of a class was done, I’d leave it open and running so that people can see what is being said</li>
-<li>The class was in person, but I always had a zoom stream going. No more than one or two students used it at a time, but it still gave flexibility for those who needed it.</li>
-<li>I used clear N95 masks: <a href="https://optrel.us/product/p-air-clear-n95-masks-20-pack/" class="uri">https://optrel.us/product/p-air-clear-n95-masks-20-pack/</a>. They’re more expensive than the regular masks, but they let students see my lips while giving me and them some degree of protection.</li>
-<li>Quizzes and tests are not timed (other than a deadline to turn them in, days after they were made available)</li>
-</ul>
-</section>
-<section id="sec-programming" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="sec-programming"><span class="header-section-number">3</span> Programming</h2>
-<p>We spent one week on programming. My goal was to have students get a bit of exposure and get over initial fear: they’re not going to be writing packages after a week, but they’ll know some of how this all works, that error messages are normal, how to get help, how to start using R and python, etc.</p>
-<section id="sec-r" class="level3" data-number="3.1">
-<h3 data-number="3.1" class="anchored" data-anchor-id="sec-r"><span class="header-section-number">3.1</span> R</h3>
-<p>I made an exercise at <a href="https://github.com/bomeara/geewhizR" class="uri">https://github.com/bomeara/geewhizR</a>, focused on this Rmarkdown file (<a href="https://github.com/bomeara/geewhizR/blob/main/main.Rmd" class="uri">https://github.com/bomeara/geewhizR/blob/main/main.Rmd</a>) for students to download; we worked through it in class. You can see it rendered fully here as a <a href="main.pdf">pdf</a>. Some of the basic concepts I wanted them to learn:</p>
-<ul>
-<li>Rmarkdown for reproducibility and keeping things organized</li>
-<li>Installing and loading packages</li>
-<li>The importance of actually looking at datasets (using <a href="https://blog.revolutionanalytics.com/2017/05/the-datasaurus-dozen.html">datasaurus</a>)</li>
-<li>Getting information from online sources like GBIF, iNaturalist, and Datelife</li>
-<li>Making maps</li>
-</ul>
-<p>The script does all this and gives them something to build from. I also gave them links to these resources:</p>
-<ul>
-<li><a href="https://swirlstats.com/" class="uri">https://swirlstats.com/</a>: good way to learn basic R</li>
-<li><a href="https://posit.co/resources/cheatsheets/" class="uri">https://posit.co/resources/cheatsheets/</a>: summaries of functions in popular packages</li>
-<li><a href="https://cran.r-project.org/web/views/" class="uri">https://cran.r-project.org/web/views/</a>: overviews of packages in particular domains. Phylogenetics can be particularly useful</li>
-<li><a href="https://adv-r.hadley.nz/" class="uri">https://adv-r.hadley.nz/</a>: free online R textbook</li>
-<li><a href="https://rmarkdown.rstudio.com/" class="uri">https://rmarkdown.rstudio.com/</a>: Rmarkdown, a way to combine code and text</li>
-<li><a href="https://quarto.org/" class="uri">https://quarto.org/</a>: The successor to Rmarkdown; works better with both python and R</li>
-<li><a href="https://books.ropensci.org/targets/" class="uri">https://books.ropensci.org/targets/</a>: a package for doing complex workflows</li>
-</ul>
-</section>
-<section id="sec-python" class="level3" data-number="3.2">
-<h3 data-number="3.2" class="anchored" data-anchor-id="sec-python"><span class="header-section-number">3.2</span> Python</h3>
-<p>I’ve barely used any python so far (I’m heavily invested in the R ecosystem) but it’s worth having students learn it: it’s especially important in genomics and machine learning. I thought showing them how to do machine learning could be useful, including having them viscerally feel the issues that could come from image classification. For a sample problem, since I had shown them a local salamander in the R tutorial, and they were interested, I suggested solving a problem of using machine learning to assess whether a sampled individual was a juvenile or adult (<a href="https://www.inaturalist.org/taxa/27805-Notophthalmus-viridescens/browse_photos"><em>Notophthalmus viridescens</em>, the Eastern Newt</a>) – sort of an “awesome, I can see how this could scale up for my research” inspiration. Thus, I made this exercise (<a href="https://github.com/bomeara/geewhizPython" class="uri">https://github.com/bomeara/geewhizPython</a>), especially this sample script (<a href="https://github.com/bomeara/geewhizPython/blob/main/salamander.py" class="uri">https://github.com/bomeara/geewhizPython/blob/main/salamander.py</a>). I wanted them to learn:</p>
-<ul>
-<li>Installing python libraries</li>
-<li>How to import from python libraries</li>
-<li>How to point to a folder (directory)</li>
-<li>How to do machine learning with a training and testing dataset</li>
-<li>How to pull in information from iNaturalist</li>
-<li>Possibilities and problems with machine learning results</li>
-</ul>
-<p>Some of the other resources I pointed them to:</p>
-<ul>
-<li><a href="https://pyinaturalist.readthedocs.io/en/stable/examples/Tutorial_1_Observations.html" class="uri">https://pyinaturalist.readthedocs.io/en/stable/examples/Tutorial_1_Observations.html</a>: the pyinaturalist Python package for using iNaturalist data</li>
-<li><a href="https://keras.io" class="uri">https://keras.io</a>: for machine learning in general</li>
-<li><a href="https://www.tensorflow.org" class="uri">https://www.tensorflow.org</a>: for a very popular machine learning framework</li>
-<li><a href="https://www.anaconda.com/products/distribution" class="uri">https://www.anaconda.com/products/distribution</a>: Anaconda for making isolated python environments</li>
-<li><a href="https://jupyter.org" class="uri">https://jupyter.org</a>: Jupyter notebooks (like Rmarkdown, but for python, and often working online)</li>
-<li><a href="https://colab.research.google.com" class="uri">https://colab.research.google.com</a>: Google colab, for running python on the web (though consider long term stability: <a href="https://killedbygoogle.com" class="uri">https://killedbygoogle.com</a>)</li>
-<li><a href="https://en.wikipedia.org/wiki/Weapons_of_Math_Destruction" class="uri">https://en.wikipedia.org/wiki/Weapons_of_Math_Destruction</a>: Overview of a book on how algorithms can cause harm (and there’s been a lot more work on this topic since)</li>
-<li><a href="https://diffusionbee.com" class="uri">https://diffusionbee.com</a>: An application for making AI art</li>
-<li><a href="https://en.wikipedia.org/wiki/Stable_Diffusion" class="uri">https://en.wikipedia.org/wiki/Stable_Diffusion</a>: Stable Diffusion, an AI for making art</li>
-<li><a href="https://chat.openai.com/chat" class="uri">https://chat.openai.com/chat</a>: ChatGPT, an engine that can respond to prompts in various ways, including suggesting code.</li>
-</ul>
-</section>
-</section>
-<section id="sec-jargon" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="sec-jargon"><span class="header-section-number">4</span> Jargon</h2>
-<p>This can be downloaded as a <a href="Jargonfest.csv">csv file</a>.</p>
-<div class="cell">
-<div class="cell-output-display">
-<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-dd5000d92242385f90c8" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-dd5000d92242385f90c8">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59","60","61","62","63","64","65","66","67","68","69","70","71","72","73","74","75","76","77","78","79","80","81","82","83","84","85","86","87","88","89","90","91","92","93","94","95","96","97","98","99","100","101","102","103","104","105","106","107","108","109","110","111","112","113","114","115","116","117","118","119","120","121","122","123","124","125","126","127","128","129","130","131","132","133","134","135","136","137","138","139","140","141","142","143","144","145","146","147","148","149","150","151","152","153","154","155","156","157","158","159","160","161","162","163","164","165","166","167","168","169","170","171","172","173","174","175","176","177","178","179","180","181","182","183","184","185","186","187","188","189","190","191","192","193","194","195","196","197","198","199","200","201","202","203","204","205","206","207","208","209","210","211","212","213","214","215","216","217","218","219","220","221","222","223","224","225","226","227","228","229","230","231","232","233","234","235","236","237","238","239","240","241","242","243","244","245","246","247","248","249","250","251","252","253","254","255","256","257","258","259","260","261","262","263","264","265","266","267","268","269","270","271","272","273","274","275","276","277","278","279","280","281","282","283","284","285","286","287","288","289","290","291","292","293","294","295","296","297","298","299","300","301","302","303","304","305","306","307","308","309","310","311","312","313","314","315","316","317","318","319","320","321","322","323","324","325","326","327","328","329","330","331","332","333","334","335","336","337","338","339","340","341","342","343","344","345","346","347","348","349","350","351","352","353","354","355","356","357","358","359","360","361","362","363","364","365","366","367","368","369","370","371","372","373","374","375","376","377","378","379","380","381","382","383","384","385","386","387","388","389","390","391","392","393","394","395","396","397","398","399","400","401","402","403","404","405","406","407","408","409","410","411","412","413","414","415","416","417","418","419"],["adaptation","adaptive landscape","arms race","artificial selection","asexual reproduction","Batesian mimicry","biological constraints","Brownian motion","census population size","central dogma","coadaptation","coevolution","colonization","commensalism","cytoplasmic isolation","dispersal","Dobzhansky-Muller model","dynamic equilibrium","ecological niche","effective population size","endemism","endosymbiosis","ethology","evolutionary medicine","extant","fitness","iteroparity","K-strategy","lek","logistic growth","LUCA","negative selection","neontology","niche","NP-hard","phenotype","phylogeography","population","postzygotic isolating mechanism","prezygotic isolating mechanism","R-strategy","r/K selection","reinforcement","semelparity","sexual dimorphism","sexual selection","social Darwinism","survival of the fittest","theory","urban evolution","zygote","allometry","evo-devo","ontogeny","altruism","alternative splicing","assortative mating","backcrossing","bottleneck","Breeder's equation","canalization","candidate gene","cis-regulatory element","cline","coalescent","codon","codon usage bias","constitutive expression","crossing over","degeneracy of genetic code","dominant","dosage compensation","epigenetics","epistasis","exon","facultative expression","fixation (of alleles)","founder effect","frameshift mutation","frequency-dependent selection","G matrix","gamete","gene","gene dosage","gene drive","gene duplication","gene flow","gene pool","generation time","genetic distance","genetic drift","genetic hitchhiking","genetic load","genetic marker","genomic imprinting","genotype","germ line","haplodiploidy","Hardy-Weinberg principle","hemizygous","heredity","heritability","heterogametic sex","heterosis","homozygous","hox genes","hybrid","hybrid inviability","hybrid swarm","hybrid zone","identical by descent","identical by state","inbreeding depression","indel","intergenic region","intragenomic conflict","introgression","intron","isolation by distance","junk DNA","karyotype","kin selection","linkage disequilibrium","maternal effect","meiosis","Mendelian inheritance","migration","missense mutation","mitosis","Moran process","mutation","mutation rate","N_e","nearly neutral theory","neutral mutation","neutral theory","non-Mendelian inheritance","nonsense mutation","ortholog","panmixia","point mutation","polymorphism","polyploidy","positive selection","psuedogene","Punnett square","quantitative genetics","random mating","reaction norm","recessive","recombination","runaway sexual selection","secondary contact","selection coefficient","selective pressure","selective sweep","selfish genetic element","sex chromosome","stabilizing selection","trans-regulatory element","transcription","translation","wild type","Wright-Fisher process","X-linked gene","Y-linked gene","Alfred Russel Wallace","Alfred Wegener","Austin Peay","Ben Fitzpatrick","Beth Schussler","Brandon Matheny","Carl Woese","Carolus Linnaeus","Charles Darwin","Charles Lyell","Clarence Darrow","Dan Simberloff","Ed Schilling","Elisabeth Vrba","EO Wilson","Ernst Mayr","G. Ledyard Stebbins","George Gaylord Simpson","Gregor Mendel","Henreitte Jager","JBS Haldane","Jean-Baptiste Lamark","Jen Schweitzer","Jessica Budke","Jessie Tanner","Jim Fordyce","Joe Bailey","Joe Williams","John Edmonstone","John Maynard Smith","John Scopes","Julian Huxley","Karen Hughes","Kimberly Sheldon","Laura Russo","Leigh Van Valen","Liz Derryberry","Lynn Margulis","Mary Anning","Michael Gilchrist","Mona Papeş","Montgomery Slatkin","Motoo Kimura","Muller's ratchet","Nina Fefferman","Orou Gaoue","Paul Armsworth","Randy Small","Richard Dawkins","Richard Lewontin","Richard Owen","Ronald Fisher","Rosemary &amp; Peter Gillespie","Sebastian Stockmaier","Sergey Gavrilets","Sewall Wright","Stephanie Kivlin","Steven J. Gould","Theodosius Dobzhansky","Thomas Malthus","Udny Yule","Xingli Giam","Butler Act","Gary Scott","who won the Scopes trial","William Jennings Bryan","adaptationalism","adaptive radiation","allochronic speciation","allopatric speciation","anagenesis","ancestral trait","apomorphy","aptation","background extinction rate","biogeography","biological species concept","Burgess shale","Cambrian explosion","character displacement","chronospecies","cladistics","cladogenesis","comparative methods","continental drift","convergent evolution","Cope's rule","crown group","cryptic species","Deccan traps","derived trait","disruptive seelction","End-Permian extinction","eugenics","evolutionary arms race","exaptation","extinction","extinction rate","fossil record","geologic time scale","ghost lineages","Gondwana","gradualism","Great oxidation event","green beard","group selection","Haldane's rule","Hamilton's Rule","homology","homoplasy","inclusive fitness","island biogeography","island model","isolating mechanism","KT extinction","land bridge","Laurasia","left wall of minimal complexity","mating system","mechanical isolation","meme","mimicry","Modern Synthesis","MRCA","Müllerian mimicry","multifurcation","mutualism","natural selection","net diversification rate","non-independence","outgroup","paleontology","Pangaea","parallel evolution","parapatric speciation","paraphyly","parasitism","parsimony","parthenogenisis","peripatric speciation","phenetics","phylogeny","plesiomorphy","polyphyly","punctuated equilibrium","recapitulation","Red queen hypothesis","refugium","reproductive isolation","reticulate evolution","ring species","RNA world","saltation","spandrel","speciation","speciation rate","species selection","species sorting","stag hunt","stem group","sympatric speciation","symplesiomorphy","synapomorphy","taphonomic bias","taxon","trait","turnover rate","variance","vestigial","vicariance","vicariance biogeography","virulence","allele","allele frequency","Acromyrmex","Amborella","Amborella","ammonite","angiosperm","Anolis","Anolis","Anomalocaris","Archaea","bdelloid rotifers","bonobo","brachiopod","Buchnera","crinoid","Darwin's finches","diatoms","Dimetrodon","Dionaea muscipula","Ediacaran fauna","eubacteria","fig wasp","Gasterosteus aculeatus","Geospizinae","gingko","Hawaiian honeycreepers","HIV","Ichthyornis dispar","isopod","lycophytes","Maiasaura","Plasmodium","red panda","rift lake cichlids","silversword","spiny anteater","Strepsiptera","Thermus aquaticus","Tiktaalik","Tribolium","trilobite","tunicates","Welwischia","Wolbachia","16S","amber fossil","approximate Bayesian computation","Bayes rule","Bayesianism","binomial nomenclature","BLAST","body fossil","bootstrap","chloroplast DNA","CRISPR","fossil","frequentist","holotype","impression fossil","in silico","in situ","in vivo","inbred line","independent contrasts","likelihood","microsatellites","mitochondrial DNA","molecular clock","NCBI","neotype","nuclear DNA","paratype","PCR","posterior","prior","Robert FitzRoy","rock strata","Sanger sequencing","SNP","type specimen"],["general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","general","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","microevolution","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","people","local interest","local interest","local interest","local interest","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","macroevolution","microevolution","microevolution","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","organism","tools","tools","tools","tools","tools","tools","tools","tools","tools","tools","tools","tools","tools","tools","tools","tools","tools","tools","tools","tools","tools","tools","tools","tools","tools","tools","tools","tools","tools","tools","tools","tools","tools","tools","tools","tools"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Term<\/th>\n      <th>Type<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":10,"columnDefs":[{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
-</div>
-</div>
-</section>
-<section id="things-to-change" class="level2" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="things-to-change"><span class="header-section-number">5</span> Things to change</h2>
-<p>Assuming I teach this again in 2024, some of the things I’d like to change:</p>
-<ul>
-<li>Continued revision of chosen papers: most worked ok, but some got in too much depth; also broader sampling of the literature</li>
-<li>More use of overview slides early in the course</li>
-<li>More frequent assessments: this could help students self-assess their knowledge over time</li>
-<li>Encourage more evenness of classroom participation: everyone contributed, but the evenness could be improved</li>
-<li>Add more contemporary human evolution, like the Framingham heart study</li>
-<li>Other things students will suggest via their feedback forms</li>
-</ul>
-<hr>
-<p>To subscribe, go to <a href="https://brianomeara.info/blog.xml" class="uri">https://brianomeara.info/blog.xml</a> in an RSS reader.</p>
-
-
-</section>
-
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{o'meara2023,
-  author = {O’Meara, Brian},
-  title = {Grad Core Class in Evolutionary Biology, 2023 Edition},
-  date = {2023-05-11},
-  url = {https://brianomeara.info/posts/evolutioncore2023/},
-  langid = {en}
-}
-</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-o'meara2023" class="csl-entry quarto-appendix-citeas">
-O’Meara, Brian. 2023. <span>“Grad Core Class in Evolutionary Biology,
-2023 Edition.”</span> May 11, 2023. <a href="https://brianomeara.info/posts/evolutioncore2023/">https://brianomeara.info/posts/evolutioncore2023/</a>.
-</div></div></section></div> ]]></description>
-  <category>teaching</category>
-  <category>evolution</category>
-  <category>core</category>
-  <category>EEB511</category>
-  <guid>https://brianomeara.info/posts/evolutioncore2023/</guid>
-  <pubDate>Thu, 11 May 2023 04:00:00 GMT</pubDate>
 </item>
 </channel>
 </rss>

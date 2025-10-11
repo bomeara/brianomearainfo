@@ -1,0 +1,28 @@
+---
+title: "PhyloPapers 2025, Reticulate evolution"
+description: "Discussion of Yardeni et al. (2025) reticulate evolution"
+author: "Brian O'Meara"
+date: "10/10/2025"
+citation: true
+categories: [phylopapers, phylogenetics, teaching, reticulate, networks] 
+---
+
+This week I wanted students to learn more about reticulate evolution (phylogenetic networks):
+
+>Gil Yardeni, Michael H. J. Barfuss, Walter Till, Matthew R. Thornton, Clara Groot Crego, Christian Lexer, Thibault Leroy and Ovidiu Paun. 2025. “The Explosive Radiation of the Neotropical Tillandsia Subgenus Tillandsia (Bromeliaceae) Has Been Accompanied by Pervasive Hybridization” Systematic Biology <https://doi.org/10.1093/sysbio/syaf039>
+
+This looks at subgenus *Tillandsia* inside genus *Tillandsia*, a group of morphologically quite diverse plants. 
+
+This paper was good for teaching because it was fairly focused: what is the phylogenetic network of the group and how is gene flow affecting this? 
+
+It's yet another paper showing the utility of deleting massive amounts of data -- in this case, looking at windows of the genome far enough apart that there is likely ample recombination between them. It was also useful in showing how one has to compromise. They used ASTRAL-III to infer a phylogenetic tree of all their samples incorporating processes like incomplete lineage sorting that might case gene tree - species tree mismatch. But they then used a much reduced number of taxa to analyze the history with zero to three possible reticulation events; given the massively larger search space when going from a tree to a network, they used a reduced set of samples. These were reasonable choices, but it shows the need for software that can feasibly look for reticulations for problems of hundreds of taxa or more. 
+
+The paper also used ABBA-BABA and related tests to scan along the genome to look for areas behaving unusually. Students have trouble understanding these at first (the ratio of the 'wrong' gene trees for sets of four lineages [ones that don't match the species tree] having information about hybridization is a weird concept) but I think this paper explains it well, especially for an empirical paper not tasked with doing a review. It was also nice to see this being done as a genome scan as a discovery process. A lot of especially intro science is framed as rejection of dull hypotheses ("are these two different things not the same?"), but there's still a lot of need for "let's strap a camera on a sub and see what's down there", "let's look at that galaxy in infrared", "let's see what *Tillandsia* are doing with their chromosomes".
+
+Side note I only briefly touched on in class: subgenus *Tillandsia* within *Tillandsia*?! "I study *Tillandsia* species," even for someone using the same taxonomic concepts as oneself, is an ambiguous statement without including the rank. Yet another advantage of phylocode, where *Tillandsia* would have only one definition (and if one wanted to name smaller groups within it, one could without having to use subgenera, subsubgenera, superspecies, etc.). Unfortunately, *Tillandsia* as of today doesn't seem to be [defined at all in phylocode](https://www.phyloregnum.org/?term=Tillandsia) based on the online name repository; it might be in the [**Phylonyms** companion volume](https://www.routledge.com/Phylonyms-A-Companion-to-the-PhyloCode/deQueiroz-Cantino-Gauthier/p/book/9781138332935) to the code itself, but I lack a copy (but it's on sale for $240 hardcover, only $225 for the eBook, so...).
+
+I made intro slides with some of my background material and some figures from the paper: [PDF](YardeniEtAl2025_Networkss.pdf) and [PowerPoint](YardeniEtAl2025_Networks.pptx).
+
+___
+
+To subscribe, go to <https://brianomeara.info/blog.xml> in an RSS reader.

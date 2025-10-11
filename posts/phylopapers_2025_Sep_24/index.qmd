@@ -1,0 +1,27 @@
+---
+title: "PhyloPapers 2025, Simulation"
+description: "Discussion of Dehayem et al. (2025) about use of simulation"
+author: "Brian O'Meara"
+date: "09/24/2025"
+citation: true
+categories: [phylopapers, phylogenetics, teaching, simulation] 
+---
+
+This week I wanted students to learn more about using simulations:
+
+>Ornela N. Dehayem, Ryan F. A. Brewer, Luis Valente,  Frederic Lens, Rampal S. Etienne. 2025. “Impact of sampling strategy on inference of community  assembly processes in phylogenetic island biogeography”. Methods in Ecology and Evolution. 16:1507–1520. <https://doi.org/10.1111/2041-210X.70058>
+
+Simulation is used a lot to validate methods, but I like teaching it to students because it's also important in power analyses. In my experience it is still rare for students to figure out if their proposed research will have enough species, data, etc. to potentially answer their question before embarking on it. It can save so much future heartache to spend a few days seeing whether, for example, if this trait leads to evolution of this other trait at a particular rate there's any chance of being confident in a result from a likely 17-taxon tree. 
+
+However, simulation is hard to do well. For one thing, the space of parameters to examine can grow very quickly. One of the reasons I first learned R was because I had done a bunch of simulations (perl to test a C++ program) to test some methods I made for species delimitation ([O'Meara 2010](https://doi.org/10.1093/sysbio/syp077)) but I hadn't realized how hard it would be to plot something like 6 variables at once (so why not bar charts on top of bar charts in an [array of bar charts](https://pmc.ncbi.nlm.nih.gov/articles/PMC5841455/figure/fig4/)?). "Number of taxa might matter... and speciation rate... and the rate of trait evolution... and tree shape... and age... and...". It can also be hard to figure out for a given parameter what values to try. Does this new method to estimate different substitution rates work well? On a three-taxon tree with mis-estimated branches, nope, it works horribly. On a 10,000-taxon tree where branch lengths are perfectly correlated with time, it works splendidly. But what will be relevant to biologists? That's one of the reasons Jeremy Beaulieu and I ([Beaulieu & O'Meara 2015](https://doi.org/10.1111/evo.12614)) made sure to include units in a simulation so people could see whether they're reasonable (even though one reviewer asked for us to delete units!). The ability to pre-determine the outcome of a simulation can also lead to odd choices depending on who is doing the simulating. For example, one paper in our field evaluated the performance of a Bayesian method written by many of the same authors by using simulation parameters that match the priors used in the later analysis. Unsurprisingly, it worked well when its prior was centered on the truth -- with such a sim, it might work even better without any data! On the other hand, one could simulate using models that violate the assumptions of a method and then show that the method fails ("the normal distribution is a terrible way to get confidence interval for a mean... when data are simulated from a univariate uniform distribution").
+
+Dehayem et al. (2025) is interesting because it's a paper testing a method created by many of the same authors, so presumably they'd be more accepting of results that show their method works, but it does a careful job. It is handling a complex scenario: arrival and diversification on islands, including hard to estimate parameters like extinction rate. There are some needed assumptions made in the simulation (for example, that this model describes the process so the parameter values are meaningful). It gets parameters from previously fit biological datasets, which is a good thing to do as it centers them on presumably realistic values. They also tried various ways to violate the model assumptions, such as a bias against sampling young species (there may be no gene flow, but humans haven't recognized the populations as different species yet). There are many other potential things to vary, but it keeps it pretty focused and thus understandable. This made it an accessible jumping off point for discussions of simulations. 
+
+I made intro slides with some of my background material and some figures from the paper: [PDF](DehayemEtAl_2025_Simulation.pdf) and [PowerPoint](DehayemEtAl_2025_Simulation.pptx).
+
+
+[Note that this blog post is dated for the class date, but I'm actually pushing it on Oct. 11, 2025]
+
+___
+
+To subscribe, go to <https://brianomeara.info/blog.xml> in an RSS reader.

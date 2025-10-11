@@ -1,0 +1,32 @@
+---
+title: "PhyloPapers 2025, Behavior and genomics"
+description: "Discussion of Lipshutz et al. (2025) genomics and behavior"
+author: "Brian O'Meara"
+date: "10/03/2025"
+citation: true
+categories: [phylopapers, phylogenetics, teaching, genomics, behavior] 
+---
+
+This week I wanted students to learn more about using genomics to understand behavior:
+
+>Sara E. Lipshutz, Mark S. Hibbins, Alexandra B. Bentz, Aaron M. Buechlein, Tara A. Empson, Elizabeth M. George, Mark E. Hauber, Douglas B. Rusch, Wendy M. Schelsky, Quinn K. Thomas, Samuel J. Torneo, Abbigail M. Turner, Sarah E. Wolf, Mary J. Woodruff, Matthew W. Hahn & Kimberly A. Rosvall. 2025. “Repeated behavioural evolution is associated with convergence of gene expression in cavity-nesting songbirds” Nature Ecology & Evolution. <https://doi.org/10.1038/s41559-025-02675-x>
+
+[Note my conflict of interest: I was on Sara Lipshutz' PhD committee]
+
+One of the students in the class requested a modern paper on behavior. This paper had a lot of material for students to parse, but I think it's good for them to see what a modern, chewy paper looks like. It has everything from careful natural history observations of birds attacking models to modern genomics to measures of hormones.
+
+In all my classes I emphasize the difficulty of discretizing biology. Nature is full of variation. Even things that seem easiy countable, like number of limbs, have had variation over time and within species (quick, how many femurs do snakes have? [Two in pythons](https://www.cell.com/current-biology/fulltext/S0960-9822(16)31069-7)). For this paper, a question was about aggression in cavity-nesting birds (birds nesting in holes in trees, for example) versus ones making open nests (the classic "use a crayon to draw a bird nest" nests). But even there, some birds only use cavity nests, some only use open nests, and some use both -- how to categorize those? And does it matter if 99% of pairs in a species use a cavity or 3% of pairs use a cavity? Even continuous measures, like amount of aggression towards a model armed with a bluetooth speaker, require careful decisions. Is glaring at the model included in time spent in aggression? Flying around it yelling? Making full contact? This paper was useful in illustrating how these decisions are made. 
+
+The paper also had an interesting study design for a phylogenetics class. The authors chose non-overlapping pairs of species that differ in nesting habit. This is good, as it's a lot like doing a twin study, but there still is differential relatedness between the pairs and so the authors used phylogenetic linear mixed models (PGLMMs -- note, the "LLM" is not large language model) to control for relatedness. They also poked at the data in other ways to see if there could be confounding effects -- for example, perhaps depth of the split between species in the pair had an effect on the results.
+
+The genomic aspects I think were also informative. They looked for groups of genes that were expressed consistently differently between cavity and open nesters. There were a few found, but it felt appropriately preliminary: it wasn't presented as "these are the genes that lead to aggression" but rather as candidates for potential further study. It was also an opportunity to teach students about how we understand putative gene function (from gene ontology databases). 
+
+
+I made intro slides with some of my background material and some figures from the paper: [PDF](LipshutzEtAl_2025_BehaviorAndGenomics.pdf) and [PowerPoint](LipshutzEtAl_2025_BehaviorAndGenomics.pptx).
+
+
+[Note that this blog post is dated for the class date, but I'm actually pushing it on Oct. 11, 2025]
+
+___
+
+To subscribe, go to <https://brianomeara.info/blog.xml> in an RSS reader.

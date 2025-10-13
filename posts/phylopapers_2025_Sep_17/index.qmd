@@ -9,7 +9,7 @@ categories: [phylopapers, phylogenetics, teaching, phylogeography]
 
 This week I wanted students to learn more about phylogeography:
 
->Manica Balant*, Daniel Vitales*, Zhiqiang Wang*, Zoltán Barina, Lin Fu, Tiangang Gao, Teresa Garnatje, Airy Gras, Muhammad Qasim Hayat, Marine Oganesian, Jaume Pellicer, Seyed A. Salami, Alexey P. Seregin, Nina Stepanyan-Gandilyan, Nusrat Sultana, Shagdar Tsooj, Magsar Urgamal, Joan Vallès, Robin van Velzen, Lisa Pokorny. 2025. “Integrating target capture with whole genome sequencing of recent and natural history collections to explain the phylogeography of wild-growing and cultivated *Cannabis*”. Plants People Planet. 1-18. <https://doi.org/10.1002/ppp3.70043> [* = equal contributions]
+>Manica Balant^1^, Daniel Vitales^1^, Zhiqiang Wang^1^, Zoltán Barina, Lin Fu, Tiangang Gao, Teresa Garnatje, Airy Gras, Muhammad Qasim Hayat, Marine Oganesian, Jaume Pellicer, Seyed A. Salami, Alexey P. Seregin, Nina Stepanyan-Gandilyan, Nusrat Sultana, Shagdar Tsooj, Magsar Urgamal, Joan Vallès, Robin van Velzen, Lisa Pokorny. 2025. “Integrating target capture with whole genome sequencing of recent and natural history collections to explain the phylogeography of wild-growing and cultivated *Cannabis*”. Plants People Planet. 1-18. <https://doi.org/10.1002/ppp3.70043> [^1^ = equal contributions]
 
 This study examines wild and cultvated *Cannabis*, which is according to the paper has been used "as fibre (ropes, fabric and paper), medicinally (over 200 recorded uses), as food (nutrient-rich seeds) and in various magico-religious rituals". It uses many samples from around the globe and genomic data to examine population structure. 
 

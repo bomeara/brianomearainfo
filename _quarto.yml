@@ -17,6 +17,7 @@ website:
   site-url: https://brianomeara.info
   title: "Brian O'Meara"
   favicon: logo.png
+  google-analytics: "G-RVCXWEM7GH"
   navbar:
     left:
       - text: "Home"

@@ -10,7 +10,62 @@
 <atom:link href="https://brianomeara.info/blog.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.6.40</generator>
-<lastBuildDate>Fri, 10 Oct 2025 04:00:00 GMT</lastBuildDate>
+<lastBuildDate>Fri, 07 Nov 2025 05:00:00 GMT</lastBuildDate>
+<item>
+  <title>AI optimization</title>
+  <dc:creator>Brian O&#39;Meara</dc:creator>
+  <link>https://brianomeara.info/posts/ai_optimization/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>A colleague recently pointed out a preprint on arXiv, <a href="https://arxiv.org/abs/2511.02824">Mitchener et al.&nbsp;2025</a>, “Kosmos: An AI Scientist for Autonomous Discovery”. Part of its abstract, emphasis mine:</p>
+<blockquote class="blockquote">
+<p>Here we present Kosmos, an AI scientist that automates data-driven discovery. Given an open-ended objective and a dataset, Kosmos runs for up to 12 hours performing cycles of parallel data analysis, literature search, and hypothesis generation before synthesizing discoveries into scientific reports. Unlike prior systems, Kosmos uses a structured world model to share information between a data analysis agent and a literature search agent. The world model enables Kosmos to coherently pursue the specified objective over 200 agent rollouts, collectively executing an average of 42,000 lines of code and <strong>reading 1,500 papers per run</strong>. Kosmos <strong>cites all statements</strong> in its reports with code or primary literature, ensuring its reasoning is traceable. Independent scientists found <strong>79.4% of statements in Kosmos reports to be accurate</strong>, and collaborators reported that <strong>a single 20-cycle Kosmos run performed the equivalent of 6 months of their own research time</strong> on average.</p>
+</blockquote>
+<p>I’m not planning to use this (my accuracy is better than a C+, I’d hope), but I imagine colleagues will, and this is just its first generation. And researchers and others are using ChatGPT and related approaches to help with papers already, despite the known issues with made up citations. Popular app Grammarly now offers a <a href="https://www.grammarly.com/citations">service</a> that lets users write scientific statements (their example is from geology) and then it automatically finds and cites relevant papers – no need to actually read the literature, just decorate your text with the funny names and numbers in parentheses that make it look credible. Grammarly claims it is both a “partner for better grades” and will help you “turn claims into supported arguments.”</p>
+<p>There’s a whole discussion to have about the ethics of using such services and the wisdom of the many colleges paying for their communities to have access to them. But I want to talk about something different: <strong><em>which papers these services will choose</em></strong>.</p>
+<p>Search Engine Optimization (SEO) has long been a concern for website owners: how do we make it so that when people search “vacation in Aruba” my hotel site is the top hit? That matters for people in science, too (people on the job market, make sure you have a good website!), but it’s less of an emphasis. For writing papers, there’s some optimization (like the endless debate over the wisdom of including colons in titles), but it’s a messy, human process. And journals have various tactics for bumping up their impact factor (“Hey, want to publish version 1.2.1 of your popular software package in our journal?”; “Has there been a really good review of this popular subject published this week? Let’s commission one and get those citations!”). But <strong>increasingly, the entities “reading” our papers and deciding what to cite won’t be humans: they’ll be AI recommendation engines</strong> telling people what is most relevant. Even once the rumored AI economic bubble bursts, I suspect it’s unlikely tools like this will go away, unless there becomes enough of a pushback on their use that it becomes unprofitable to provide them.</p>
+<section id="consequences-of-aio-artificial-intelligence-optimization-for-scientific-publishing" class="level3">
+<h3 class="anchored" data-anchor-id="consequences-of-aio-artificial-intelligence-optimization-for-scientific-publishing">Consequences of AIO (artificial intelligence optimization) for scientific publishing</h3>
+<ul>
+<li><p><strong>Pressure to get in the corpus</strong>: Initially, AI was trained on huge chunks of the internet, books, and other sources, under a legal theory that it’s transformative fair use (various lawsuits by authors and publishers beg to differ). There are now some licensing deals arising for AI training, like <a href="https://www.latimes.com/business/story/2025-09-17/reddit-seeks-to-strike-next-ai-content-pact-with-google-openai">Reddit’s deal with Google</a>. In the search engine space, such deals are rare: for most websites (especially under the standard ad-supported model), views are what matter, so unless one has a truly unique resource (which arguably is Reddit) one doesn’t block any search engine, and in fact web publishers take steps to make searching easier (like creating site maps). The same pressures will come for publishing. A publisher might cut a deal to allow only AI company 1 to learn from their articles, and the publisher will get some money from that. If AI company 2 is what Grammarly uses to generate citations, then none of the publisher’s articles get cited by people using Grammarly to do their work, dropping impact factors across the board for that publisher’s journals. This also increases the pressure for work to be open access so there’s no paywall blocking indexing (not that paywalls have stopped scraping in the past).</p></li>
+<li><p><strong>Formatting for bots</strong>: If most “readers” aren’t humans, one wants articles structured in such a way that the bots can parse them easily, to make them more likely to be recommended. This could lead to nice things like accessible metadata, but it could also lead to things like very inflexible article structure. My guess is that publishers will try to optimize for this as it’s pretty easy for them to test and control.</p></li>
+<li><p><strong>Writing for bots</strong>: Every recipe online starts with a multi-paragraph essay before getting into the actual recipe (with a few exceptions – huzzah for <a href="https://www.kingarthurbaking.com/recipes/fudge-brownies-recipe">King Arthur</a>!). This supposedly helps with ranking in search engines; it also <a href="https://copyrightalliance.org/are-recipes-cookbooks-protected-by-copyright/">helps with copyright</a>. It annoys actual humans who get to the recipe (thus the addition of “Jump to recipe” buttons on pages) but this wall of text helps get views in the first place. I don’t think that’s happening yet in science, but my guess is that making writing work best for AIO is coming. For example, Nature Publishing Group (NPG) now has a <a href="https://natureresearchassistant.com">manuscript advisor</a> that will give advice on style, alternative titles, abstracts, etc. (as well as suggest references). It would be easy to tune this so that the advice reflects what works best for getting a paper recommended later. I don’t know what specific advice that would be yet: maybe shorter sentences, maybe bulleted texts (like buzzfeed listicles), maybe long introductions so the paper is enriched for the words that signal its relevance to a field. Many journals are now including abstracts in two languages: the standard one for that journal and the language for the region where the work was done. If AIs deprioritize work with two languages, will there be pressure to discontinue two language abstracts?</p></li>
+<li><p><strong>Figures for bots</strong>: Right now we create figures to appeal to people (“I’m limited to two figures – fine, see panel K of figure 1”). Recommendation engines focus on text at the moment, but there are enough video and image generation AI efforts that we can expect generators to start suggesting existing figures (with citations) as well, especially for student work. This will prioritize figures that each make a single point rather than multipanel figures, figures with insets, etc. This honestly is probably a good thing (if the number of figures is allowed to go up), especially for accessibility, but I expect this to start happening.</p></li>
+<li><p><strong>Reviewing by bots</strong>: “Is this article a good fit for this journal?” is a question human associate editors are often faced with, and part of “fit” is often “important enough.” It’s a very fuzzy concept and subject to all sorts of issues. I doubt we’re far off from being able to predict number of citations for a manuscript using a machine learning tool (based on factors like the subject of the research, nature of the discovery, connectedness of the authors, and more). For example, in my field, a paper describing new species is likely to have far fewer citations over the next few years than a paper describing a new software package, but their importance doesn’t necessarily match this. What will happen when editors, in addition to seeing “major revision, minor revision, minor revision” from human reviewers sees “this manuscript is expected to have only 48-57% of the citations of the median paper in your journal”? With pressures to improve impact factors (which are flawed but still used a lot) this may start having an effect. Some solutions for improving a potential low impact paper might be beneficial for science (“write this in a more accessible manner, making sure to define your terms”) some might not be (“have Bob write a few sentences and become a coauthor – everyone always cites Bob’s papers a lot, including him when he writes invited reviews”).</p></li>
+<li><p><strong>Biases</strong>: We know that AIs and other algorithms trained on data can reflect human biases (see Cathy O’Neil’s <a href="https://en.wikipedia.org/wiki/Weapons_of_Math_Destruction"><em>Weapons of Math Destruction</em></a> which came out nearly a decade ago, as well as the work of <a href="https://en.wikipedia.org/wiki/Timnit_Gebru">Timnit Gebru</a> and many others). It’s not like humans picking papers to read and cite are bias free, but the AIs will have some of the same plus biases unique to them. For example, perhaps a recommendation engine prefers using fewer words (reduced use of tokens, maybe), so articles from <em>Evolution</em> might be recommended more than articles from <em>Proceedings of the Royal Society B: Biological Sciences</em> which requires more words to cite (maybe until it launches its rebranded title, <em>SirBio</em>).</p></li>
+<li><p><strong>Spiraling</strong>: Mad cow and other prion diseases are what you get when you feed an animal on tissue from a closely related animal: a malformed protein is similar enough to its own proteins to lead to more malformed proteins, etc. and this gets worse the more cycles of cannibalism occur. There is a lot of work on the issues that can come from AI being trained on AI-generated material, and this is definitely going to happen, especially as there will be incentives to hide whether material in a paper is AI-created. To take a simple made-up example: if 10% of papers cited are from the Nature Publishing Group (a guess), and their Manuscript Adviser tends to recommend papers from their journals for legit reasons (“avoid super spammy journals from that bad publisher over there”), then perhaps the next year of papers has 11% NPG citations, and that then becomes the corpus for future years, and so forth.</p></li>
+<li><p><strong>Stasis</strong>: “What software should I use to make a phylogenetic tree?” The best software twenty years ago is not the best software today, and there could be some amazing new thing released tomorrow. Trained on a corpus of fifty years of papers on making trees, what will a recommendation engine suggest? More papers will use the older software, but perhaps it will have a bias for what the most recent papers use (if programmed in). But nothing in the training corpus will have used the new great tool. How long will it take to start recommending the newest, best thing? Probably longer than it would take a trusted colleague who keeps up with the literature to recommend the new software. This is especially true if one wants to prioritize work done pre-AI to prevent the spiraling issue.</p></li>
+</ul>
+<p>I’m not sure how to make this actionable for people at the moment – we don’t know enough about how AIO will work (maybe someone will launch a consulting company to start doing this). My guess is that it will lead to more harms than benefits. I do think it’s going to be the case that whether or not we individually <a href="https://en.wikipedia.org/wiki/Just_Say_No#/media/File:Photograph_of_Mrs._Reagan_speaking_at_a_%22Just_Say_No%22_Rally_in_Los_Angeles_-_NARA_-_198584.jpg">want</a> to use AI to help write papers, our professional incentives will lead us to make sure our work is present in the training corpus used by such tools and is optimized for its use. I also believe publishers are going to start acting to make the AIs happy. We can steer what happens to try to avoid the pitfalls, but it’s worth considering the structural incentives that will encourage certain changes.</p>
+<p><em>Note after writing this, I noticed that the R package <code>pkgdown</code>, used to make websites, now has a <a href="https://tidyverse.org/blog/2025/11/pkgdown-2-2-0/">new function</a> that “that automatically creates files that make it easier for LLMs to read your documentation.” So optimization for output (in this case, help files for R packages one writes) to be used in a training corpus has already come for software.</em></p>
+<hr>
+<p>To subscribe, go to <a href="https://brianomeara.info/blog.xml" class="uri">https://brianomeara.info/blog.xml</a> in an RSS reader.</p>
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{o'meara2025,
+  author = {O’Meara, Brian},
+  title = {AI Optimization},
+  date = {2025-11-07},
+  url = {https://brianomeara.info/posts/ai_optimization/},
+  langid = {en}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-o'meara2025" class="csl-entry quarto-appendix-citeas">
+O’Meara, Brian. 2025. <span>“AI Optimization.”</span> November 7, 2025.
+<a href="https://brianomeara.info/posts/ai_optimization/">https://brianomeara.info/posts/ai_optimization/</a>.
+</div></div></section></div> ]]></description>
+  <category>ai</category>
+  <category>optimization</category>
+  <category>seo</category>
+  <category>publishing</category>
+  <guid>https://brianomeara.info/posts/ai_optimization/</guid>
+  <pubDate>Fri, 07 Nov 2025 05:00:00 GMT</pubDate>
+</item>
 <item>
   <title>PhyloPapers 2025, Reticulate evolution</title>
   <dc:creator>Brian O&#39;Meara</dc:creator>
@@ -1126,150 +1181,6 @@ O’Meara, Brian. 2024. <span>“Dentist for Likelihood.”</span> February
   <category>publication</category>
   <guid>https://brianomeara.info/posts/dentist/</guid>
   <pubDate>Thu, 29 Feb 2024 05:00:00 GMT</pubDate>
-</item>
-<item>
-  <title>13,000 page site with Rmarkdown and targets</title>
-  <dc:creator>Brian O&#39;Meara</dc:creator>
-  <link>https://brianomeara.info/posts/collegetables/</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<p>Last year, one of my kids was a junior starting to look at colleges. Picking a college is a big deal; when I get stressed, I like data: my security blanket is a big matrix. There are sites that allow you to compare colleges, but they often use weird metrics (how do provosts rate other colleges), don’t often have a nice table for comparison (turns out some of them put public data behind a paywall, too), and omit some important information (are the instructors used in the student-to-instructor ratio tenure track faculty (who have stability in their jobs) or more contingent faculty who might have to scramble to make ends meet semester to semester?). So I decided to gather data: initially I just wanted to get a table, but then thought, well, it woudn’t be that much harder to put it online, and then… it snowballed into the current site at <a href="https://collegetables.info/" class="uri">https://collegetables.info/</a> with 13,424 pages (including one page for every college and every major). It also was featured in a <a href="https://www.nytimes.com/2023/04/15/your-money/college-cost-data-tools.html?unlocked_article_code=hN2IwBdFONp5CmgbxhKM-HVUid0P2EEoomfIcGniJ6EcogeoxOwoimKabx7gynOb0f6-QxIpIELuqqT35rk-nLmDMZMDAljFtcY-YQBvNGWVgLCKOj7omvSxUjcQbXnG4B8H67gTFWQA8USo6Y3Xs5RWuXjQ8Chp2WchftGv-k9oTf7m0nPvki2JmPoQiawOquJTtiwFG9lxEX5-vSzJIvBPu5Gl_-jhW5wisUpTZCQWfzr9Ar56ix7q2rQ2B4qqyQxpPWqow2gJ_D0eF5c4PhAzh-QksTofGv9rUG0SJmgnDhUkCcF361B0kpugBjccqwqYBuaTbSFMqBowPacjapogDFA&amp;giftCopy=1_CurrentCopy&amp;smid=url-share">column</a> by Ron Lieber in the <em>New York Times</em>.</p>
-<section id="overview" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="overview"><span class="header-section-number">1</span> Overview</h2>
-<ul>
-<li>I use R to gather data from the US government and other sources and make it into a giant table on schools as well as individual pages for each school (and separate pages on fields and majors). There are lots of small plots, too.</li>
-<li>You can see all the packages used <a href="https://github.com/bomeara/collegetables_source/blob/main/_packages.R">here</a>.</li>
-<li>I use <a href="https://docs.ropensci.org/targets/"><code>targets</code></a> to manage the workflow.</li>
-<li>I use <a href="https://bookdown.org/yihui/rmarkdown/"><code>rmarkdown</code></a> to make the individual pages.</li>
-<li><a href="https://rstudio.github.io/crosstalk/index.html"><code>crosstalk</code></a> is used to dynamically filter the table and maps.</li>
-<li>GitHub pages to host all the individual pages.</li>
-<li>Sensible structure for the pages: the ID number for Johns Hopkins is 162928, so its page is <a href="https://collegetables.info/162928.html" class="uri">https://collegetables.info/162928.html</a>; PhD programs in general history are at <a href="https://collegetables.info/majors_Doctorate_History_General.html" class="uri">https://collegetables.info/majors_Doctorate_History_General.html</a>.</li>
-</ul>
-</section>
-<section id="targets" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="targets"><span class="header-section-number">2</span> Targets</h2>
-<p>I knew that running this could take a while so having some way to do a workflow and cache completed steps would be important. The <a href="https://docs.ropensci.org/targets/"><code>targets</code></a> package (authored by William Michael Landau of Eli Lilly, package part of ropensci, paper at <a href="https://joss.theoj.org/papers/10.21105/joss.02959" class="uri">https://joss.theoj.org/papers/10.21105/joss.02959</a>) is a good way to do this (I used to use <code>targets</code>’ predecessor, <code>drake</code>). The basic idea is that you have a workflow that is a directed acyclic graph (DAG) of steps, and you can run the workflow and it will only run steps that need to be run. It also caches results, so if you change something, it will only rerun the steps that need to be rerun.</p>
-<p>Here is the final workflow for the site:</p>
-<p><img src="https://brianomeara.info/posts/collegetables/final_workflow.png" class="img-fluid" alt="Directed acyclic graph showing inputs and outputs of workflow"></p>
-<p>The main things we care about are the <code>pages_new</code> square on the right (which has one page for each college) and the <code>field_pages</code>, <code>majors</code>, and <code>index_et_al</code> circles which represent pages for fields, majors, and things like the index and about pages. Information flows from the left to the right until the website is all generated.</p>
-</section>
-<section id="main-data" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="main-data"><span class="header-section-number">3</span> Main data</h2>
-<p>The US National Center for Education Statistics (NCES) has an Integrated Postsecondary Education Data System (IPEDS) that has info on postsecondary schools: schools that students enroll in after high school. It includes colleges and universities, seminaries, trade schools, and more. They have one <a href="https://nces.ed.gov/ipeds/use-the-data/download-access-database">dataset per year</a> stored as a Microsoft Access database which turned out to be hard to convert (and I didn’t want to buy MS Access). They also have <a href="https://nces.ed.gov/ipeds/datacenter/DataFiles.aspx?gotoReportId=7&amp;fromIpeds=true">individual data files per year</a>. Here is a subset of files from 2022:</p>
-<p><img src="https://brianomeara.info/posts/collegetables/ipeds_files_2022.png" class="img-fluid" alt="Picture of table of IPEDS files for 2022"></p>
-<p>Files are in csv; there is also a data dictionary file in Excel with more info on what each column and states within it means: for example, that “LOCALE” in table “HD2022” means “Locale codes identify the geographic status of a school on an urban continuum ranging from large city to rural” and that code 12 means “City: Midsize”, 31 means “Town, Fringe”, etc.</p>
-<p>To get the files, I first made a list of all the file name types (admissions data are in ADM2021, ADM2020, etc.): function <a href="https://github.com/bomeara/collegetables_source/blob/209e413716d90da8527b22d36eef9154fa7efb08/R/functions.R#L10"><code>GetIPEDSNames()</code></a> stores this (functions without a package:: prefix are ones written for the workflow; links go to the function source) – it stores the abbreviations in a vector, with better descriptions of the files as names of the vector.</p>
-<p>I then try to get the data files for each year, download them, and do some basic processing using <a href="https://github.com/bomeara/collegetables_source/blob/209e413716d90da8527b22d36eef9154fa7efb08/R/functions.R#L50"><code>GetIPEDSDirectly()</code></a>. Each file is in a zipped directory (which may include multiple files, for example if there is both the original file and a later revised one). I also download the data dictionary. The correct file is loaded (using <code>readr::read_csv</code> unless the file is too large, when I use <code>arrow::read_csv_arrow</code>), the data dictionary is loaded with <code>readxl::read_excel</code>, and then the data dictionary is used to give columns and entries more informative names. These are all then saved as csv files in a local directory.</p>
-<p>This is the <code>ipeds_directly</code> step in the highlighted workflow below.</p>
-<p><img src="https://brianomeara.info/posts/collegetables/ipeds_workflow.png" class="img-fluid" alt="Highlighted workflow showing IPEDS data steps"></p>
-<p>I then use <a href="https://github.com/bomeara/collegetables_source/blob/209e413716d90da8527b22d36eef9154fa7efb08/R/functions.R#L784"><code>AggregateDirectIPEDSDirect()</code></a> to load all the files and store them in an SQLite database (yes, I probably should have just paid for Microsoft Access and gotten the original files in this format).</p>
-<p>The next step is creating a massive table (<code>comparison_table_core</code>): one row per institution per year with only the columns I might care about. It’s 86798 rows by 890 columns, using 669.9 MB of memory. One very nice feature of IPEDS data is each institution having a unique UNITID, allowing stitching together of data from different tables and even sometimes different sources. Things like institution names can be duplicated, but the UNITID is unique.</p>
-<p>The above steps are the main difficult ones, and I’m omitting various details (handling errors in the datasets, odd formats, etc.). But we have the main data! Info on majors and fields is similar.</p>
-</section>
-<section id="additional-data" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="additional-data"><span class="header-section-number">4</span> Additional data</h2>
-<p>Another aspect missing from IPEDS data and many college ranking sites is the overall social and natural environment. Things like access to health care procedures, gun regulations, and more are changing and may change into the future. Other things of interest are whether a college is in a desert or forest, how far it is from mountains (one of my kids was interested), and even life expectancy (hopefully not relevant to undergrads, but for people choosing to build a career at an institution, this might be useful info). A lot of info is aggregated at state level (like Erin Reed’s <a href="https://www.erininthemorning.com/p/anti-trans-legislative-risk-assessment">risk of anti-trans legislation map</a> or the Guttmacher Institute’s <a href="https://states.guttmacher.org/policies/">abortion access</a> map), making adding this to the massive table easy; other data like biome or distance to mountains could be per location. A series of functions append info on these various factors to the main table.</p>
-<p>I have my own views on which factors and in which directions are important, but I wanted to make the site neutral: someone can filter for colleges in states with high or low proportion of US reps who vote in favor of protecting access to contraception, for example, with no default ordering put in place by me.</p>
-<p><a href="https://github.com/GMBA-biodiversity/gmbaR">gmbaR</a> was essential in the distances to mountains calculation.</p>
-<p>There are other sources of information I would like to include on social climate (even down to the campus level), but many do not allow reuse of their data, and I wanted to respect their wishes.</p>
-</section>
-<section id="individual-pages" class="level2" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="individual-pages"><span class="header-section-number">5</span> Individual pages</h2>
-<p>Parametric rmarkdown is used for institution pages. <a href="https://bookdown.org/yihui/rmarkdown/">Rmarkdown</a> was developed by Yihui Xie and builds on from work by John Gruber (markdown) and John McFarlane (pandoc). Rmarkdown lets you write in text with easy to read formatting and insert blocks of code that can be run when compiling the document. Parametric rmarkdown lets you pass arguments into the document: you could have a template of a report and have it pass in company info: “Over the past quarter stocks in <code>company_name</code> have <code>changed</code> by <code>percent_change</code>, but this is not a guarantee of future stock motion.” You can also have it embed plots or tables. Quarto is in some ways a successor to rmarkdown (I use it for my personal website), but when I was developing collegetables quarto was new enough that I encountered some issues.</p>
-<p>For each institution page, I use the template <a href="https://github.com/bomeara/collegetables_source/blob/main/_institution.Rmd">_institution.Rmd</a>. Its header includes the following parameters:</p>
-<pre><code>params:
-  institution_name: "nothing"
-  institution_long_name: "nothing"
-  institution_id: "nothing"
-  comparison_table: "nothing"
-  spark_width: 200
-  spark_height: 60
-  weatherspark: "nothing"
-  index_table: "index_table"
-  life_expectancy: "nothing"
-  population_by_state_by_age: "nothing"</code></pre>
-<p>And then within the body of the template it includes text and some functions to compute info for tables and plots as well as to pass in notes. For example, if the focal institution’s enrollment is decreasing over time, a <a href="https://github.com/bomeara/collegetables_source/blob/209e413716d90da8527b22d36eef9154fa7efb08/_institution.Rmd#L299">note</a> is prepended to the output document. Not all notes are bad, but they are things that people might want to look into.</p>
-<p>Then the <a href="https://github.com/bomeara/collegetables_source/blob/209e413716d90da8527b22d36eef9154fa7efb08/R/functions.R#L1538">RenderSingleInstitutionPage()</a> function does a basic loop to pass in information to create the page for each institution. Each page has lots of graphs, as well as embedded things like some javascript libraries. To save on space, I use the <code>self_contained: false</code> argument in the header YAML: that way all the files are not embedded in each page. I also make the graphs as separate files to load (though I might have javascript render them on the fly in the future: I wasn’t satisfied with the information density of the graphs available in javascript when I was first doing them). Alt tags for each image are also generated within the rmarkdown file for improved accessibility.</p>
-<p>Getting the initial data is done infrequently; changing the institution pages is more frequent as I tweak something or as one of the state-level datasets changes. So much of the time is spent on re-rendering the institution pages. I now have it in targets do this as a map so if it stops halfway through, it can pick up with the next institution rather than restarting:</p>
-<pre><code> tar_target(
-    pages_new, 
-    RenderSingleInstitutionPage(institution_unitid, comparison_table, fields_and_majors, maxcount=maxcount, CIPS_codes=CIPS_codes, weatherspark=weatherspark, yml=yml, index_table=index_table, life_expectancy=life_expectancy, population_by_state_by_age=population_by_state_by_age, institution_rmd=institution_rmd),
-    pattern=map(institution_unitid)
- ),</code></pre>
-</section>
-<section id="field-and-majors-pages" class="level2" data-number="6">
-<h2 data-number="6" class="anchored" data-anchor-id="field-and-majors-pages"><span class="header-section-number">6</span> Field and majors pages</h2>
-<p>I also wanted pages on every field and major to let people drill down and search: if I want to major in computer science, which universities are putting out graduates?</p>
-<p>I’m still not happy with the soluton, but I made one page of all the major fields of study (<a href="https://collegetables.info/fields_overview.html" class="uri">https://collegetables.info/fields_overview.html</a>) so people can do full text search (or it might pop up a general search engine), then they can did down into the individual fields (i.e., <a href="https://collegetables.info/Library_Science.html" class="uri">https://collegetables.info/Library_Science.html</a>). They can then dig further down into degrees by majors (<a href="https://collegetables.info/majors_Doctorate_Astronomy.html" class="uri">https://collegetables.info/majors_Doctorate_Astronomy.html</a>). I’ve thought of using a treemap or other way to visualize the categories, but it’s hard because the basic level of fields has 48 large categories and 2321 fields within those. This area is probably not as useful for undergrads (who might not know their major in fine detail yet) but could be good for grad students looking to specialize (i.e., “where can I get a Masters in forestry?”: <a href="https://collegetables.info/majors_Masters_Forestry_General.html" class="uri">https://collegetables.info/majors_Masters_Forestry_General.html</a>, though don’t forget the separate degree of <a href="https://collegetables.info/majors_Masters_UrbanForestry.html">urban forestry</a>).</p>
-</section>
-<section id="interactive-home-page" class="level2" data-number="7">
-<h2 data-number="7" class="anchored" data-anchor-id="interactive-home-page"><span class="header-section-number">7</span> Interactive home page</h2>
-<p>For the home page with a table, I wanted to have:</p>
-<ul>
-<li>A table of all the schools</li>
-<li>A way to filter the table</li>
-<li>A way to show or hide columns</li>
-</ul>
-<p>Also, any table needs to have a default ordering. Visitors will want to see colleges they know early in the table, so I needed some way to sort.</p>
-<pre><code>Psuedoranking = (100 - Admission %) + Yield % + 6-yr grad rate + 10*log1p(Number of undergrads) + 10*log1p(Number of tenure-stream faculty)</code></pre>
-<p>This is arbitrary, but it weights colleges by <del>how many dreams they crush</del> selectivity of admissions, whether students who are admitted choose to go there, if those students graduate, how big the school is, and how they are investing in faculty.</p>
-<p>For the main table, I use <a href="https://glin.github.io/reactable/"><code>reactable</code></a> to make one that can work on different screen sizes and have filtering and sorting, incluing showing or hiding sets of columns. I use <a href="https://rstudio.github.io/crosstalk/index.html"><code>crosstalk</code></a> to allow filtering of the table to also filter the map, which is made in <a href="https://rstudio.github.io/leaflet/">‘leaflet’</a>.</p>
-</section>
-<section id="hosting" class="level2" data-number="8">
-<h2 data-number="8" class="anchored" data-anchor-id="hosting"><span class="header-section-number">8</span> Hosting</h2>
-<p>I use GitHub pages to host the site. It’s stored in two repositories: <a href="https://github.com/bomeara/collegetables_source" class="uri">https://github.com/bomeara/collegetables_source</a> for the source code and <a href="https://github.com/bomeara/collegetables_site" class="uri">https://github.com/bomeara/collegetables_site</a> for the rendered site (I originally had it in one, but it’s a lot of blobby files for git to deal with, and it allows me to separate the development and production branches).</p>
-</section>
-<section id="learning" class="level2" data-number="9">
-<h2 data-number="9" class="anchored" data-anchor-id="learning"><span class="header-section-number">9</span> Learning</h2>
-<p>I work in higher ed, so I thought I knew a fair bit about the higher ed landscape going in. However, a few things surprised me:</p>
-<ul>
-<li><strong>“Traditional” isn’t</strong>: Our conventional view of college is it’s a four-year experience in fancy buildings, students live in dorms, tenured faculty walk the halls. Harvard, Berkeley, and the like. But a huge proportion of undergrad degrees are coming from places like <a href="https://collegetables.info/433387.html">Western Governors University</a>, which has 108,000 undergrads, three times as many as <a href="https://collegetables.info/110635.html">UC Berkeley</a>. Yet one of the trade publications for higher education, the <em>Chronicle of Higher Education</em>, mentions “Western Governors University” 362 times, Berkeley 6,442 times, and the even smaller Harvard 14,735 times. Undergraduate enrollment isn’t the only component of higher education: research and other creative activities, service to the community (including public scholarship, ag outreach, and more), commercial spinoffs, graduate education, and more are all important and often are a focus at the more famous schools. But even in discussion of undergrad education, schools affecting lots of students remain not a major focus. (Also, “a four-year experience” is often a lie: the graduation rates commonly reported are six-year graduation rates, and many, many students take longer than the nominal four years for a bachelors degree. Families, look at the four- and six-year grad rates before yelling at your students for taking too long).</li>
-<li><strong>Ignore sticker price</strong>: Listed tuitions aren’t what many people pay, and traditional knowledge of what schools are “cheap” versus “expensive” are often wrong. For example, what’s cheaper, U. of Oklahoma or Princeton? For a family making $30K-48K a year getting federal aid, the average cost of Oklahoma is $16,097 but for Princeton it’s $4,502. There are all sorts of things that affect cost (including state aid, institutional aid, loans versus grants, and more), but the sticker price is not a good guide. To help make people think about this, I added a comparison to “expensive” Harvard to every institution page.</li>
-<li><strong>Rise in disabilities</strong>: for example, at <a href="https://collegetables.info/130794.html#student-details">Yale</a> the percentage of students with disabilities went from 6% in 2015 to 22% in 2021. <a href="https://www.insidehighered.com/news/2022/05/03/more-students-report-psychological-disabilities">Others have reported</a> on this, but it really jumped out of the data.</li>
-<li><strong>Lack of information on mental health resources</strong>: mental health matters a lot in college. What’s the ratio of therapists to students? What’s the wait time to get an appointment? Is there a cap on sessions? I could not find data on this.</li>
-<li><strong>Disappearance of books</strong>: many universities seem to be shrinking libraries. Physical circulation is also decreasing, while digital increases. For example, here’s the <a href="https://collegetables.info/100751.html#library-facilities">data for U. of Alabama</a>:</li>
-</ul>
-<p><img src="https://brianomeara.info/posts/collegetables/UAlabama_library.png" class="img-fluid" alt="Table showing changes in U of Alabama library collection size (decreasing) and usage"></p>
-<p>It still has a lot of books, and the number has become stable, but there was a longer term decrease in their collections size. The use of physical collections is decreasing (I divide by the number of faculty and students to get an estimate normalized by university size): on average, every student or faculty member there seems to check out less than one physical thing a year. * <strong>There are many small schools</strong>. For example, there are many schools for hair styling. The beauty of parametric rmarkdown is that including these takes no extra work, and it might help somebody.</p>
-</section>
-<section id="future" class="level2" data-number="10">
-<h2 data-number="10" class="anchored" data-anchor-id="future"><span class="header-section-number">10</span> Future</h2>
-<p>My elder kid is applying to colleges now (Fall 2023); they hopefully won’t need this again until they start thinking about potential law / med / theology / grad / etc. schools. My younger kid is only a freshman in high school, so still has some time. I’ll keep poking at the site, though.</p>
-<p>I’d love to get more data on life at the colleges: how involved are students in club activities, are fraternities or sororities a big part of campus culture, etc. Mental health resources would also be good. There are data on crimes, but we know underreporting is a huge problem: I worry that the schools that look “worst” for some crimes might be the ones that actually have earned the trust of survivors to report.</p>
-</section>
-<section id="thank-you" class="level2" data-number="11">
-<h2 data-number="11" class="anchored" data-anchor-id="thank-you"><span class="header-section-number">11</span> Thank you</h2>
-<p>This would have been impossible without freely available open federal data; I also really appreciate the efforts of people who compiled data at the state level, especially about laws that can affect many. The R ecosystem of packages, including well-written documentation and answered questions online, was also essential. rOpenSci and Posit (formerly Rstudio) were key players in a lot of the important packages. Thanks to my kids for beta-testing.</p>
-<p>Note that nothing on the site reflects the views of any of my past, present, or future employers, nor any granting agencies (this was all done in my spare time). It’s had benefits, though, in improving my R and sqlite skills, which does help my day job – I’m actually finishing up a grant proposal using similar techniques (but more in my core research area of evolutionary biology).</p>
-<hr>
-<p>To subscribe, go to <a href="https://brianomeara.info/blog.xml" class="uri">https://brianomeara.info/blog.xml</a> in an RSS reader.</p>
-
-
-</section>
-
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{o'meara2023,
-  author = {O’Meara, Brian},
-  title = {13,000 Page Site with {Rmarkdown} and Targets},
-  date = {2023-10-28},
-  url = {https://brianomeara.info/posts/collegetables/},
-  langid = {en}
-}
-</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-o'meara2023" class="csl-entry quarto-appendix-citeas">
-O’Meara, Brian. 2023. <span>“13,000 Page Site with Rmarkdown and
-Targets.”</span> October 28, 2023. <a href="https://brianomeara.info/posts/collegetables/">https://brianomeara.info/posts/collegetables/</a>.
-</div></div></section></div> ]]></description>
-  <category>github</category>
-  <category>software</category>
-  <category>rstats</category>
-  <category>highered</category>
-  <category>targets</category>
-  <category>rmarkdown</category>
-  <guid>https://brianomeara.info/posts/collegetables/</guid>
-  <pubDate>Sat, 28 Oct 2023 04:00:00 GMT</pubDate>
 </item>
 </channel>
 </rss>

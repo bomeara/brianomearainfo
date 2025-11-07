@@ -7,10 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Brian O’Meara">
-<meta name="dcterms.date" content="2024-05-08">
-<meta name="description" content="Info on field safety protocols">
+<meta name="dcterms.date" content="2025-11-07">
+<meta name="description" content="Optimization of papers for AI parsing?">
 
-<title>Field Safety – Brian O’Meara</title>
+<title>AI optimization – Brian O’Meara</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -258,18 +258,17 @@ gtag('config', 'G-RVCXWEM7GH', { 'anonymize_ip': true});
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Field Safety</h1>
+      <h1 class="title">AI optimization</h1>
                   <div>
         <div class="description">
-          Info on field safety protocols
+          Optimization of papers for AI parsing?
         </div>
       </div>
                           <div class="quarto-categories">
-                <div class="quarto-category">field safety</div>
-                <div class="quarto-category">fieldwork</div>
-                <div class="quarto-category">safety</div>
-                <div class="quarto-category">NSF</div>
-                <div class="quarto-category">inclusion</div>
+                <div class="quarto-category">ai</div>
+                <div class="quarto-category">optimization</div>
+                <div class="quarto-category">seo</div>
+                <div class="quarto-category">publishing</div>
               </div>
                   </div>
   </div>
@@ -287,7 +286,7 @@ gtag('config', 'G-RVCXWEM7GH', { 'anonymize_ip': true});
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">May 8, 2024</p>
+        <p class="date">November 7, 2025</p>
       </div>
     </div>
     
@@ -298,8 +297,14 @@ gtag('config', 'G-RVCXWEM7GH', { 'anonymize_ip': true});
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#consequences-of-aio-artificial-intelligence-optimization-for-scientific-publishing" id="toc-consequences-of-aio-artificial-intelligence-optimization-for-scientific-publishing" class="nav-link active" data-scroll-target="#consequences-of-aio-artificial-intelligence-optimization-for-scientific-publishing">Consequences of AIO (artificial intelligence optimization) for scientific publishing</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
@@ -308,144 +313,43 @@ gtag('config', 'G-RVCXWEM7GH', { 'anonymize_ip': true});
 
 
 
-<p>Over the 2023-2024 academic year, a committee in UTK EEB worked on field safety. This involves things like avoiding snakebite and traffic accidents (see Richard Conniff’s <a href="https://strangebehaviors.wordpress.com/2011/01/14/the-wall-of-the-dead/">memorial to fallen naturalists</a>) but also social factors. I am putting some information from this here to help others access it, but note it is a team effort.</p>
-<p>We went through a set of readings. Some relevant ones in this area include:</p>
+<p>A colleague recently pointed out a preprint on arXiv, <a href="https://arxiv.org/abs/2511.02824">Mitchener et al.&nbsp;2025</a>, “Kosmos: An AI Scientist for Autonomous Discovery”. Part of its abstract, emphasis mine:</p>
+<blockquote class="blockquote">
+<p>Here we present Kosmos, an AI scientist that automates data-driven discovery. Given an open-ended objective and a dataset, Kosmos runs for up to 12 hours performing cycles of parallel data analysis, literature search, and hypothesis generation before synthesizing discoveries into scientific reports. Unlike prior systems, Kosmos uses a structured world model to share information between a data analysis agent and a literature search agent. The world model enables Kosmos to coherently pursue the specified objective over 200 agent rollouts, collectively executing an average of 42,000 lines of code and <strong>reading 1,500 papers per run</strong>. Kosmos <strong>cites all statements</strong> in its reports with code or primary literature, ensuring its reasoning is traceable. Independent scientists found <strong>79.4% of statements in Kosmos reports to be accurate</strong>, and collaborators reported that <strong>a single 20-cycle Kosmos run performed the equivalent of 6 months of their own research time</strong> on average.</p>
+</blockquote>
+<p>I’m not planning to use this (my accuracy is better than a C+, I’d hope), but I imagine colleagues will, and this is just its first generation. And researchers and others are using ChatGPT and related approaches to help with papers already, despite the known issues with made up citations. Popular app Grammarly now offers a <a href="https://www.grammarly.com/citations">service</a> that lets users write scientific statements (their example is from geology) and then it automatically finds and cites relevant papers – no need to actually read the literature, just decorate your text with the funny names and numbers in parentheses that make it look credible. Grammarly claims it is both a “partner for better grades” and will help you “turn claims into supported arguments.”</p>
+<p>There’s a whole discussion to have about the ethics of using such services and the wisdom of the many colleges paying for their communities to have access to them. But I want to talk about something different: <strong><em>which papers these services will choose</em></strong>.</p>
+<p>Search Engine Optimization (SEO) has long been a concern for website owners: how do we make it so that when people search “vacation in Aruba” my hotel site is the top hit? That matters for people in science, too (people on the job market, make sure you have a good website!), but it’s less of an emphasis. For writing papers, there’s some optimization (like the endless debate over the wisdom of including colons in titles), but it’s a messy, human process. And journals have various tactics for bumping up their impact factor (“Hey, want to publish version 1.2.1 of your popular software package in our journal?”; “Has there been a really good review of this popular subject published this week? Let’s commission one and get those citations!”). But <strong>increasingly, the entities “reading” our papers and deciding what to cite won’t be humans: they’ll be AI recommendation engines</strong> telling people what is most relevant. Even once the rumored AI economic bubble bursts, I suspect it’s unlikely tools like this will go away, unless there becomes enough of a pushback on their use that it becomes unprofitable to provide them.</p>
+<section id="consequences-of-aio-artificial-intelligence-optimization-for-scientific-publishing" class="level3">
+<h3 class="anchored" data-anchor-id="consequences-of-aio-artificial-intelligence-optimization-for-scientific-publishing">Consequences of AIO (artificial intelligence optimization) for scientific publishing</h3>
 <ul>
-<li>Demery &amp; Pipkin (2020): <a href="https://www.nature.com/articles/s41559-020-01328-5" class="uri">https://www.nature.com/articles/s41559-020-01328-5</a></li>
-<li>Rudzki et al.&nbsp;(2022): <a href="https://besjournals.onlinelibrary.wiley.com/doi/10.1111/2041-210X.13970" class="uri">https://besjournals.onlinelibrary.wiley.com/doi/10.1111/2041-210X.13970</a></li>
-<li>Blonder (2022): <a href="https://esajournals.onlinelibrary.wiley.com/doi/full/10.1002/bes2.2031" class="uri">https://esajournals.onlinelibrary.wiley.com/doi/full/10.1002/bes2.2031</a></li>
-<li>Clancy et al.&nbsp;(2014): <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0102172" class="uri">https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0102172</a></li>
+<li><p><strong>Pressure to get in the corpus</strong>: Initially, AI was trained on huge chunks of the internet, books, and other sources, under a legal theory that it’s transformative fair use (various lawsuits by authors and publishers beg to differ). There are now some licensing deals arising for AI training, like <a href="https://www.latimes.com/business/story/2025-09-17/reddit-seeks-to-strike-next-ai-content-pact-with-google-openai">Reddit’s deal with Google</a>. In the search engine space, such deals are rare: for most websites (especially under the standard ad-supported model), views are what matter, so unless one has a truly unique resource (which arguably is Reddit) one doesn’t block any search engine, and in fact web publishers take steps to make searching easier (like creating site maps). The same pressures will come for publishing. A publisher might cut a deal to allow only AI company 1 to learn from their articles, and the publisher will get some money from that. If AI company 2 is what Grammarly uses to generate citations, then none of the publisher’s articles get cited by people using Grammarly to do their work, dropping impact factors across the board for that publisher’s journals. This also increases the pressure for work to be open access so there’s no paywall blocking indexing (not that paywalls have stopped scraping in the past).</p></li>
+<li><p><strong>Formatting for bots</strong>: If most “readers” aren’t humans, one wants articles structured in such a way that the bots can parse them easily, to make them more likely to be recommended. This could lead to nice things like accessible metadata, but it could also lead to things like very inflexible article structure. My guess is that publishers will try to optimize for this as it’s pretty easy for them to test and control.</p></li>
+<li><p><strong>Writing for bots</strong>: Every recipe online starts with a multi-paragraph essay before getting into the actual recipe (with a few exceptions – huzzah for <a href="https://www.kingarthurbaking.com/recipes/fudge-brownies-recipe">King Arthur</a>!). This supposedly helps with ranking in search engines; it also <a href="https://copyrightalliance.org/are-recipes-cookbooks-protected-by-copyright/">helps with copyright</a>. It annoys actual humans who get to the recipe (thus the addition of “Jump to recipe” buttons on pages) but this wall of text helps get views in the first place. I don’t think that’s happening yet in science, but my guess is that making writing work best for AIO is coming. For example, Nature Publishing Group (NPG) now has a <a href="https://natureresearchassistant.com">manuscript advisor</a> that will give advice on style, alternative titles, abstracts, etc. (as well as suggest references). It would be easy to tune this so that the advice reflects what works best for getting a paper recommended later. I don’t know what specific advice that would be yet: maybe shorter sentences, maybe bulleted texts (like buzzfeed listicles), maybe long introductions so the paper is enriched for the words that signal its relevance to a field. Many journals are now including abstracts in two languages: the standard one for that journal and the language for the region where the work was done. If AIs deprioritize work with two languages, will there be pressure to discontinue two language abstracts?</p></li>
+<li><p><strong>Figures for bots</strong>: Right now we create figures to appeal to people (“I’m limited to two figures – fine, see panel K of figure 1”). Recommendation engines focus on text at the moment, but there are enough video and image generation AI efforts that we can expect generators to start suggesting existing figures (with citations) as well, especially for student work. This will prioritize figures that each make a single point rather than multipanel figures, figures with insets, etc. This honestly is probably a good thing (if the number of figures is allowed to go up), especially for accessibility, but I expect this to start happening.</p></li>
+<li><p><strong>Reviewing by bots</strong>: “Is this article a good fit for this journal?” is a question human associate editors are often faced with, and part of “fit” is often “important enough.” It’s a very fuzzy concept and subject to all sorts of issues. I doubt we’re far off from being able to predict number of citations for a manuscript using a machine learning tool (based on factors like the subject of the research, nature of the discovery, connectedness of the authors, and more). For example, in my field, a paper describing new species is likely to have far fewer citations over the next few years than a paper describing a new software package, but their importance doesn’t necessarily match this. What will happen when editors, in addition to seeing “major revision, minor revision, minor revision” from human reviewers sees “this manuscript is expected to have only 48-57% of the citations of the median paper in your journal”? With pressures to improve impact factors (which are flawed but still used a lot) this may start having an effect. Some solutions for improving a potential low impact paper might be beneficial for science (“write this in a more accessible manner, making sure to define your terms”) some might not be (“have Bob write a few sentences and become a coauthor – everyone always cites Bob’s papers a lot, including him when he writes invited reviews”).</p></li>
+<li><p><strong>Biases</strong>: We know that AIs and other algorithms trained on data can reflect human biases (see Cathy O’Neil’s <a href="https://en.wikipedia.org/wiki/Weapons_of_Math_Destruction"><em>Weapons of Math Destruction</em></a> which came out nearly a decade ago, as well as the work of <a href="https://en.wikipedia.org/wiki/Timnit_Gebru">Timnit Gebru</a> and many others). It’s not like humans picking papers to read and cite are bias free, but the AIs will have some of the same plus biases unique to them. For example, perhaps a recommendation engine prefers using fewer words (reduced use of tokens, maybe), so articles from <em>Evolution</em> might be recommended more than articles from <em>Proceedings of the Royal Society B: Biological Sciences</em> which requires more words to cite (maybe until it launches its rebranded title, <em>SirBio</em>).</p></li>
+<li><p><strong>Spiraling</strong>: Mad cow and other prion diseases are what you get when you feed an animal on tissue from a closely related animal: a malformed protein is similar enough to its own proteins to lead to more malformed proteins, etc. and this gets worse the more cycles of cannibalism occur. There is a lot of work on the issues that can come from AI being trained on AI-generated material, and this is definitely going to happen, especially as there will be incentives to hide whether material in a paper is AI-created. To take a simple made-up example: if 10% of papers cited are from the Nature Publishing Group (a guess), and their Manuscript Adviser tends to recommend papers from their journals for legit reasons (“avoid super spammy journals from that bad publisher over there”), then perhaps the next year of papers has 11% NPG citations, and that then becomes the corpus for future years, and so forth.</p></li>
+<li><p><strong>Stasis</strong>: “What software should I use to make a phylogenetic tree?” The best software twenty years ago is not the best software today, and there could be some amazing new thing released tomorrow. Trained on a corpus of fifty years of papers on making trees, what will a recommendation engine suggest? More papers will use the older software, but perhaps it will have a bias for what the most recent papers use (if programmed in). But nothing in the training corpus will have used the new great tool. How long will it take to start recommending the newest, best thing? Probably longer than it would take a trusted colleague who keeps up with the literature to recommend the new software. This is especially true if one wants to prioritize work done pre-AI to prevent the spiraling issue.</p></li>
 </ul>
-<p>To help with this, several of us made a checklist. It is below. Feel free to adapt it for your own use.</p>
-<p><strong>Work travel checklist</strong></p>
-<p><strong>Discussions to have before going</strong></p>
-<ul>
-<li><p>Introductions between all participants</p></li>
-<li><p>Comfort levels with risk, activities</p>
-<ul>
-<li>Discussing criteria for deciding when/if to end fieldwork; students (everyone) should be empowered to speak up about conditions and expectations</li>
-</ul></li>
-<li><p>Health needs, accessibility needs, safety needs of all participants, medication needs</p></li>
-<li><p>Financial arrangements: how paying for things works in the field: who is paying for what and how</p></li>
-<li><p>Housing arrangement discussions</p></li>
-<li><p>Personal space, downtime, bathroom needs / procedures</p></li>
-<li><p>Bathrooms: people should use the one they feel most comfortable with; it is no one on the team’s role to police others’ bathroom use. Note that various locations may have different policies; it is up to individuals to assess these for themselves.</p></li>
-<li><p>Culture, language, and etiquette of the location, especially internationally</p></li>
-<li><p>Weapons in the field</p>
-<ul>
-<li><p>People you will encounter in the field will be armed (and think about PTSD)</p></li>
-<li><p>Note <a href="https://policy.tennessee.edu/policy/sa0875-firearms/">UTK firearms policy</a> if any participant may be considering carrying</p></li>
-<li><p>UTK policies for weapons (e.g.&nbsp;knives, pepper spray): <a href="https://studentconduct.utk.edu/wp-content/uploads/sites/53/2021/08/2m3k1ac-Fall-StudentCodeOfConduct_WEB.pdf">UTK Student Code of Conduct</a>. Carrying a knife in the field can be useful if allowable</p></li>
-<li><p>Note policies of various places about firearms (GSMNP does not allow firearms, for example)</p></li>
-<li><p>Discuss safety in general</p></li>
-</ul></li>
-<li><p>Possible hazards at site</p>
-<ul>
-<li>List the ones possible: could be human factors (civil unrest), wildlife, falling branches, driving risks, etc.</li>
-</ul></li>
-</ul>
-<p><strong>To resolve months in advance</strong></p>
-<ul>
-<li><p>Vaccination requirements</p></li>
-<li><p>Research permits for site</p></li>
-<li><p>Import permits</p></li>
-<li><p>Chemical permits: look at EHS policies for chemical safety</p></li>
-<li><p>Visas (note that participants may be citizens of different countries leading to different requirements)</p></li>
-<li><p>State department guidelines for various countries</p></li>
-<li><p>California travel warnings for certain states</p></li>
-<li><p>LGBTQ travel advisories for non-US travel: <a href="https://travel.state.gov/content/travel/en/international-travel/before-you-go/travelers-with-special-considerations/lgbtqi.html" class="uri">https://travel.state.gov/content/travel/en/international-travel/before-you-go/travelers-with-special-considerations/lgbtqi.html</a></p></li>
-<li><p>Travel insurance: <a href="https://cge.utk.edu/intlsos/" class="uri">https://cge.utk.edu/intlsos/</a> if university-sponsored travel (ask EEB for funding if you are paying on your own)</p></li>
-<li><p>UTK travel authorization form (extra steps if international;​​ <a href="https://cge.utk.edu/travel/" class="uri">https://cge.utk.edu/travel/</a>)</p></li>
-<li><p>Have discussion about health needs, accessibility needs, safety needs of all participants, medication needs</p></li>
-<li><p>For air travel, documentation required for boarding (think about how equipment and chemicals will be shipped)</p></li>
-<li><p>Request travel advance from the department</p></li>
-</ul>
-<p><strong>At least a month in advance of field work</strong></p>
-<ul>
-<li><p>Daily communication plan established</p></li>
-<li><p>Hazard plan for each site established</p>
-<ul>
-<li><p>Consider all hazards, including but not limited to automobiles (wear seat belts!), landslides, flooding, volcanic eruptions, earthquakes, extreme heat, wildfires, civil unrest, protests, animals, plants, diseases, racism, sexism</p></li>
-<li><p>Recreational hazards: swimming in ocean, ziplining, rafting, etc.</p></li>
-</ul></li>
-<li><p>Field research letter from the department</p></li>
-<li><p>Notify residents near the field site about plans, get permissions if possible - in letter, email, phone, or go door to door</p></li>
-<li><p>Check if site or travel route has a recent history of incidents - for example, is it a possible <a href="https://justice.tougaloo.edu/sundown-towns/using-the-sundown-towns-database/state-map/">sundown town</a>? What places are not safe to stop for gas?</p>
-<ul>
-<li>Check for short term events that may cause risks, delays, etc.: anything from a parade to roads washing out to an event that could get heated</li>
-</ul></li>
-<li><p>Assess need for satellite phones or other communication devices that work without cell service [Update Oct 2, 2025: satellite messaging from cell phones is becoming available. Recent iPhones can <a href="https://support.apple.com/en-us/105097">send messages or ask for help</a>, and T-Mobile has a service (included with some T-Mobile plans, but also available for $10/month for people on other plans) that lets users send <a href="https://www.theverge.com/news/790412/t-mobile-satellite-service-apps-x-whatsapp-google-maps">messages, use maps, and even video chat</a> over satellite.]</p></li>
-<li><p>Appropriate field clothing (footwear, sun protection)</p></li>
-<li><p>Make sure there are enough vehicles (UTK fleet: <a href="https://fleetmanagement.utk.edu/" class="uri">https://fleetmanagement.utk.edu/</a>)</p></li>
-<li><p>Get book of receipts (for buying things that don’t usually come with receipts)</p></li>
-<li><p>Have protocol for saving receipts of all kinds</p></li>
-<li><p>Consider travel advance, especially for longer trips.</p></li>
-<li><p>Mileage logbook</p></li>
-<li><p>List of emergency contacts, including:</p>
-<ul>
-<li><p>Local contact info for emergency assistance (911 isn’t global); International SOS card <a href="https://cge.utk.edu/intlsos/" class="uri">https://cge.utk.edu/intlsos/</a></p></li>
-<li><p>Contacts of others on the trip</p></li>
-<li><p>UTK assistance:</p>
-<ul>
-<li><p>Travel office</p></li>
-<li><p>Title IX office (for harassment): <a href="https://titleix.utk.edu/" class="uri">https://titleix.utk.edu/</a></p></li>
-<li><p>Workmans’ compensation (for getting coverage for injuries during work/travel): <a href="https://riskmanagement.tennessee.edu/workers-compensation/" class="uri">https://riskmanagement.tennessee.edu/workers-compensation/</a></p></li>
-</ul></li>
-</ul></li>
-</ul>
-<p><strong>Before leaving</strong></p>
-<ul>
-<li><p>Project specific equipment: personal gear, safety gear (hard hats, gloves, etc.), scientific equipment, sharpies, baggies, etc. Spell them all out as a separate checklist specific to this activity.</p></li>
-<li><p>Cell phones charged</p></li>
-<li><p>Chargers</p></li>
-<li><p>Sufficient water <a href="https://www.rei.com/learn/expert-advice/hydrate.html">(0.5-1 liters per person per hour in the field)</a></p></li>
-<li><p>First aid kit on board (comprehensive, not just bandaids. Handle sprains, pain, deep cuts, etc.)</p></li>
-<li><p>Sunscreen</p></li>
-<li><p>Car magnets</p></li>
-<li><p>Food/snacks</p></li>
-<li><p>Hygiene products</p>
-<ul>
-<li><p>Hand sanitizer</p></li>
-<li><p>Soap</p></li>
-<li><p>Toilet paper, trowel for digging hole (when allowed in the field)</p></li>
-<li><p>Tampons/pads</p></li>
-</ul></li>
-<li><p>Personal medication (brought by each individual)</p>
-<ul>
-<li><p>Allergy medication</p></li>
-<li><p>Painkillers</p></li>
-<li><p>Digestive medications</p></li>
-</ul></li>
-<li><p>Flashlights (spare batteries?)</p></li>
-<li><p>Emergency tool kit (pliers, hammer, rope, screwdriver, pry bar, etc)</p></li>
-<li><p>GPS</p></li>
-<li><p>Signaling device (Garmin InReach, Motorola Defy Satellite Link, or similar) if going to an area without good cell coverage</p></li>
-<li><p>Trip plan (let someone know where you are, when you’ll be back, how often you’ll check in)</p></li>
-</ul>
-<p><strong>Handling problems when or after they arise</strong></p>
-<ul>
-<li><p>Reach out to the head or associate heads</p></li>
-<li><p>Title IX (for sexual harassment, stalking, or similar): <a href="https://titleix.utk.edu/" class="uri">https://titleix.utk.edu/</a></p></li>
-<li><p>Office of Equity and Diversity (racism, sexism, accessibility): <a href="https://oed.utk.edu/" class="uri">https://oed.utk.edu/</a></p></li>
-<li><p>Office of Environmental Health &amp; Safety (emergency response, safety issues): <a href="https://ehs.utk.edu/" class="uri">https://ehs.utk.edu/</a></p></li>
-<li><p>Ombudsperson (confidential advice): <a href="https://ombuds.utk.edu/" class="uri">https://ombuds.utk.edu/</a></p></li>
-<li><p>Office of Research Integrity (authorship conflicts, responsible conduct of research): <a href="https://research.utk.edu/research-integrity/" class="uri">https://research.utk.edu/research-integrity/</a></p></li>
-<li><p>NSF hotline: <a href="https://oig.nsf.gov/contact/hotline" class="uri">https://oig.nsf.gov/contact/hotline</a></p></li>
-</ul>
+<p>I’m not sure how to make this actionable for people at the moment – we don’t know enough about how AIO will work (maybe someone will launch a consulting company to start doing this). My guess is that it will lead to more harms than benefits. I do think it’s going to be the case that whether or not we individually <a href="https://en.wikipedia.org/wiki/Just_Say_No#/media/File:Photograph_of_Mrs._Reagan_speaking_at_a_%22Just_Say_No%22_Rally_in_Los_Angeles_-_NARA_-_198584.jpg">want</a> to use AI to help write papers, our professional incentives will lead us to make sure our work is present in the training corpus used by such tools and is optimized for its use. I also believe publishers are going to start acting to make the AIs happy. We can steer what happens to try to avoid the pitfalls, but it’s worth considering the structural incentives that will encourage certain changes.</p>
+<p><em>Note after writing this, I noticed that the R package <code>pkgdown</code>, used to make websites, now has a <a href="https://tidyverse.org/blog/2025/11/pkgdown-2-2-0/">new function</a> that “that automatically creates files that make it easier for LLMs to read your documentation.” So optimization for output (in this case, help files for R packages one writes) to be used in a training corpus has already come for software.</em></p>
 <hr>
 <p>To subscribe, go to <a href="https://brianomeara.info/blog.xml" class="uri">https://brianomeara.info/blog.xml</a> in an RSS reader.</p>
 
 
+</section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{o'meara2024,
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{o'meara2025,
   author = {O’Meara, Brian},
-  title = {Field {Safety}},
-  date = {2024-05-08},
-  url = {https://brianomeara.info/posts/fieldsafety/},
+  title = {AI Optimization},
+  date = {2025-11-07},
+  url = {https://brianomeara.info/posts/ai_optimization/},
   langid = {en}
 }
-</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-o'meara2024" class="csl-entry quarto-appendix-citeas" role="listitem">
-O’Meara, Brian. 2024. <span>“Field Safety.”</span> May 8, 2024. <a href="https://brianomeara.info/posts/fieldsafety/">https://brianomeara.info/posts/fieldsafety/</a>.
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-o'meara2025" class="csl-entry quarto-appendix-citeas" role="listitem">
+O’Meara, Brian. 2025. <span>“AI Optimization.”</span> November 7, 2025.
+<a href="https://brianomeara.info/posts/ai_optimization/">https://brianomeara.info/posts/ai_optimization/</a>.
 </div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {

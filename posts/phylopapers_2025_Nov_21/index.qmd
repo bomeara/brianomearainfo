@@ -1,0 +1,24 @@
+---
+title: "PhyloPapers 2025, Phylogenomics"
+description: "Discussion of Foley et al. (2025), Recombination desert and speciation"
+author: "Brian O'Meara"
+date: "11/21/2025"
+citation: true
+categories: [phylopapers, phylogenetics, teaching, phylogenomics, X chromosome, evolutionary genomics, recombination, machine learning] 
+---
+
+For the final reading, I wanted something a bit more in phylogenomics (which aligns well with a [job search](https://apply.interfolio.com/170735) our department has been running in evolutionary genomics). 
+
+>Nicole M. Foley, Richard G. Rasulis, Zoya Wani, Mayra N. Mendoza Cerna, Henrique V. Figueiró, Klaus Peter Koepfli, Terje Raudsepp & William J. Murphy. 2025. “An ancient recombination desert is a speciation supergene in placental mammals” *Nature* <https://doi.org/10.1038/s41586-025-09740-2>
+
+This paper used a deep learning approach (from way back in 2020! [Adrion, Galloway, & Kern 2020](https://academic.oup.com/mbe/article/37/6/1790/5741419)) to estimate recombination rate along multiple mammal species' genomes. It also aligned chromosomes to each other to show how overall structure remained fairly stable across evolutionary time.
+
+For teaching, this was useful at showing the utility of using sliding windows when scanning along a genome, deep learning for parameter estimation, and looking at conflicts between gene tree and species tree topologies and the frequencies of the different possible gene trees. This paper was also nice for showing the impact of very data-rich graphics that still communicate a clear message. The potential impact of genes on the X chromosome for speciation is also something worth investigating more.
+
+One reason I was excited to teach a class like this was to help my learning, which happened every week. The fun aspect of that in this paper was the conclusion that to understand phylogeny in tricky situations (such as ongoing gene flow) it could be better to focus on the non-recombining core of the X chromosome. I remember the days when we all used just mtDNA, then maybe a few nuclear genes, now various ways to sample across the entire genome. Going back to effectively a single history is counterintuitive, but after reading this paper it makes sense. I could see a use case for development of recombination-rate-aware gene tree - species tree approaches: use many genes and accommodate the realities of different gene histories, but with weighting so that areas with lower recombination rates have a greater weight in the final reconstruction. One could do a fast, dirty approach where one assigns weight to different genes (such as genes on the X chromosome having *w* times the weight of others, and do a sensitivity analyis of *w*) but if recombination is inferred as part of the analysis the impact would flow in naturally from the model. 
+
+I made intro slides with some of my background material and some figures from the paper: [PDF](FoleyEtAl_SpeciationDesert.pdf) and [PowerPoint](FoleyEtAl_SpeciationDesert.pptx). 
+
+___
+
+To subscribe, go to <https://brianomeara.info/blog.xml> in an RSS reader.

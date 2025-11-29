@@ -10,7 +10,144 @@
 <atom:link href="https://brianomeara.info/blog.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.6.40</generator>
-<lastBuildDate>Fri, 07 Nov 2025 05:00:00 GMT</lastBuildDate>
+<lastBuildDate>Fri, 21 Nov 2025 05:00:00 GMT</lastBuildDate>
+<item>
+  <title>PhyloPapers 2025, Phylogenomics</title>
+  <dc:creator>Brian O&#39;Meara</dc:creator>
+  <link>https://brianomeara.info/posts/phylopapers_2025_Nov_21/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>For the final reading, I wanted something a bit more in phylogenomics (which aligns well with a <a href="https://apply.interfolio.com/170735">job search</a> our department has been running in evolutionary genomics).</p>
+<blockquote class="blockquote">
+<p>Nicole M. Foley, Richard G. Rasulis, Zoya Wani, Mayra N. Mendoza Cerna, Henrique V. Figueiró, Klaus Peter Koepfli, Terje Raudsepp &amp; William J. Murphy. 2025. “An ancient recombination desert is a speciation supergene in placental mammals” <em>Nature</em> <a href="https://doi.org/10.1038/s41586-025-09740-2" class="uri">https://doi.org/10.1038/s41586-025-09740-2</a></p>
+</blockquote>
+<p>This paper used a deep learning approach (from way back in 2020! <a href="https://academic.oup.com/mbe/article/37/6/1790/5741419">Adrion, Galloway, &amp; Kern 2020</a>) to estimate recombination rate along multiple mammal species’ genomes. It also aligned chromosomes to each other to show how overall structure remained fairly stable across evolutionary time.</p>
+<p>For teaching, this was useful at showing the utility of using sliding windows when scanning along a genome, deep learning for parameter estimation, and looking at conflicts between gene tree and species tree topologies and the frequencies of the different possible gene trees. This paper was also nice for showing the impact of very data-rich graphics that still communicate a clear message. The potential impact of genes on the X chromosome for speciation is also something worth investigating more.</p>
+<p>One reason I was excited to teach a class like this was to help my learning, which happened every week. The fun aspect of that in this paper was the conclusion that to understand phylogeny in tricky situations (such as ongoing gene flow) it could be better to focus on the non-recombining core of the X chromosome. I remember the days when we all used just mtDNA, then maybe a few nuclear genes, now various ways to sample across the entire genome. Going back to effectively a single history is counterintuitive, but after reading this paper it makes sense. I could see a use case for development of recombination-rate-aware gene tree - species tree approaches: use many genes and accommodate the realities of different gene histories, but with weighting so that areas with lower recombination rates have a greater weight in the final reconstruction. One could do a fast, dirty approach where one assigns weight to different genes (such as genes on the X chromosome having <em>w</em> times the weight of others, and do a sensitivity analyis of <em>w</em>) but if recombination is inferred as part of the analysis the impact would flow in naturally from the model.</p>
+<p>I made intro slides with some of my background material and some figures from the paper: <a href="FoleyEtAl_SpeciationDesert.pdf">PDF</a> and <a href="FoleyEtAl_SpeciationDesert.pptx">PowerPoint</a>.</p>
+<hr>
+<p>To subscribe, go to <a href="https://brianomeara.info/blog.xml" class="uri">https://brianomeara.info/blog.xml</a> in an RSS reader.</p>
+
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{o'meara2025,
+  author = {O’Meara, Brian},
+  title = {PhyloPapers 2025, {Phylogenomics}},
+  date = {2025-11-21},
+  url = {https://brianomeara.info/posts/phylopapers_2025_Nov_21/},
+  langid = {en}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-o'meara2025" class="csl-entry quarto-appendix-citeas">
+O’Meara, Brian. 2025. <span>“PhyloPapers 2025, Phylogenomics.”</span>
+November 21, 2025. <a href="https://brianomeara.info/posts/phylopapers_2025_Nov_21/">https://brianomeara.info/posts/phylopapers_2025_Nov_21/</a>.
+</div></div></section></div> ]]></description>
+  <category>phylopapers</category>
+  <category>phylogenetics</category>
+  <category>teaching</category>
+  <category>phylogenomics</category>
+  <category>X chromosome</category>
+  <category>evolutionary genomics</category>
+  <category>recombination</category>
+  <category>machine learning</category>
+  <guid>https://brianomeara.info/posts/phylopapers_2025_Nov_21/</guid>
+  <pubDate>Fri, 21 Nov 2025 05:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>PhyloPapers 2025, Multivariate traits</title>
+  <dc:creator>Brian O&#39;Meara</dc:creator>
+  <link>https://brianomeara.info/posts/phylopapers_2025_Nov_14/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>Students requested a reading on multivariate (many character) morphological evolution. I chose:</p>
+<blockquote class="blockquote">
+<p>Emma Sherratt, Jenna Crowe-Riddell, Alessandro Palci, Ammresh, Mark N. Hutchinson, Michael S.Y. Lee, Kate L. Sanders. 2025. “Rapid evolution and cranial morphospace expansion during the terrestrial to marine transition in elapid snakes” Evolution, 2025, 0(0), 1–13 <a href="https://doi.org/10.1093/evolut/qpaf180" class="uri">https://doi.org/10.1093/evolut/qpaf180</a>.</p>
+</blockquote>
+<p>The paper looks at skull evolution changes as snakes went back to the sea. It is a great, modern take on how geometric morphometrics works, using X-ray microcomputed tomography of skulls. It uses landmarks to measure shape and a variety of approaches to visualize changes and to estimate rates of change. It is also an opportunity to introduce students to the <a href="https://en.wikipedia.org/wiki/Procrustes">Procrustes</a> myth (namesake of a statistical method).</p>
+<p>One especially nice feature of this paper was its use of simulations – always a good way to get a sense of what the fitted models are actually saying about the morphology.</p>
+<p>A necessary caveat when looking at spectacular evolutionary one-offs is that they are just that – N=1 examples. In this case, the group radiated into many species (and there’s also a different origin of a semi-aquatic species) but no matter how rigorous the statistics used are, it’s still a single origin of the change and the putatively correlated trait. The fully marine species do have a different shape and faster rate of evolution leading to them, but it could be due to something else changing on that branch besides the habitat shift. For example, if there were sexual selection for a sleeker head in that lineage, we would not know that led to the shift in shape rather than habitat – maybe the head shape shift unlocked the ability to be marine. This isn’t a criticism of this paper, but rather something everyone working on single synapomorphies must wrestle with, whether it’s the consequences of evolving a flower, vertebrate transition to land, or beaks in birds. It’s still possible to <em>reject</em> some hypotheses – for example, this paper had enough power that had it shown there was <em>no</em> association of the marine shift with head shape change, I would believe it, so showing there is an association present does give more weight to the idea that one change led to the other. It’s not the same as finding the same head shape change in five different cases when snakes went back to the ocean, but we just don’t have five such examples.</p>
+<p>Though it wasn’t a focus of this paper, its mention of earlier work showing a decoupling of rates between speciation and morphology was also a benefit. We often have what I call the Martha Steward macroevolutionary hypothesis: “It’s a good thing” [the catchphrase of this American TV and cookbook personality]. We assume that some presumably adaptive trait will lead to increased speciation, lower extinction, and faster rates of evolution overall, even when there is no clear mechanism as to why (for example, perhaps living in the ocean results in fewer mating barriers and so should <em>slow</em> the rate of species formation). Work like that in this group shows that these rates can in fact operate independently of each other (and that rate shifts that are detected aren’t driven by confounding factors, like branches that are estimated to be too short in one clade that then results in too high rate estimates).</p>
+<p>I made intro slides with some of my background material, especially about Ornstein-Uhlenbeck models, and some figures from the paper: <a href="SherrattEtAl_2025_SeaSnakes.pdf">PDF</a> and <a href="SherrattEtAl_2025_SeaSnakes.pptx">PowerPoint</a>. Sample figure from the slides, showing how OU models work (sigma is the amount of sugar the kid has been fed, alpha is the strength of pull of his cord, and theta is where he is being pulled to):</p>
+<p><img src="https://brianomeara.info/posts/phylopapers_2025_Nov_14/OU.png" class="img-fluid" alt="An image of a child wearing a harness thumbtacked to the background, above the OU equation (dX_T = sigma * dW_T + alpha * (theta - X_T))"></p>
+<hr>
+<p>To subscribe, go to <a href="https://brianomeara.info/blog.xml" class="uri">https://brianomeara.info/blog.xml</a> in an RSS reader.</p>
+
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{o'meara2025,
+  author = {O’Meara, Brian},
+  title = {PhyloPapers 2025, {Multivariate} Traits},
+  date = {2025-11-14},
+  url = {https://brianomeara.info/posts/phylopapers_2025_Nov_14/},
+  langid = {en}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-o'meara2025" class="csl-entry quarto-appendix-citeas">
+O’Meara, Brian. 2025. <span>“PhyloPapers 2025, Multivariate
+Traits.”</span> November 14, 2025. <a href="https://brianomeara.info/posts/phylopapers_2025_Nov_14/">https://brianomeara.info/posts/phylopapers_2025_Nov_14/</a>.
+</div></div></section></div> ]]></description>
+  <category>phylopapers</category>
+  <category>phylogenetics</category>
+  <category>teaching</category>
+  <category>multivariate</category>
+  <category>morphology</category>
+  <category>macroevolution</category>
+  <guid>https://brianomeara.info/posts/phylopapers_2025_Nov_14/</guid>
+  <pubDate>Fri, 14 Nov 2025 05:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>PhyloPapers 2025, Alpha taxonomy</title>
+  <dc:creator>Brian O&#39;Meara</dc:creator>
+  <link>https://brianomeara.info/posts/phylopapers_2025_Nov_7/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>This week I wanted students to review a bit on what they have learned as well as look at ultraconserved elements (UCEs) and alpha taxonomy. The paper was:</p>
+<blockquote class="blockquote">
+<p>Emma E. Jochim, James Starrett, Hanna R. Briggs, Jason E. Bond. 2025. “Speciation Pattern and Process in the California Coastal Dune Endemic Trapdoor Spider Aptostichus simus (Mygalomorphae: Euctenizidae) and Description of a New Cryptic Species” <em>Ecology and Evolution</em> 15:e72346 <a href="https://doi.org/10.1002/ece3.72346" class="uri">https://doi.org/10.1002/ece3.72346</a>.</p>
+</blockquote>
+<p>This revisits a clade of trapdoor spiders in California. It is noteworthy that even in a place with as many resources and researchers as California, and with organisms this charismatic, there remains open questions in taxonomy.</p>
+<p>This paper used ultraconserved elements, UCEs, which have been popular recently as they have a mix of rates, so in theory some are useful for the questions being studied (and they come from across the genome):</p>
+<p><img src="https://brianomeara.info/posts/phylopapers_2025_Nov_7/UCE.png" class="img-fluid" alt="A figure showing variation in UCEs versus position (from Faircloth et al. 2012) demonstrating the classic U-shape with little variation in the middle and more on the ends. Bands show areas that are 'Too cold', 'Just right', and 'Too hot.'"></p>
+<p>Students engaged well with this paper, asking good questions about sampling, amount of evidence for the species boundaries, and the various methods used.</p>
+<p>One thing that really impressed me about this paper was that it included the actual alpha taxonomy. I develop species delimitation methods, and so many published uses are basically “look, there are undescribed species here” and then the paper stops. This paper formally describes the new species: diagnostic characters, types, the works. Species boundaries are hypotheses, and I could imagine ongoing discussions about whether this group is under- or oversplit, but actually going from model conclusions to updating the taxonomy is a great step.</p>
+<p>The paper also spurred good discussions about the practice of naming in taxonomy. The new species is named after Dr.&nbsp;Martina G. Ramirez, who has <a href="https://scholar.google.com/citations?hl=en&amp;user=zOyyyQkAAAAJ&amp;view_op=list_works&amp;sortby=pubdate&amp;inst=9897619243961157265">worked</a> on spiders for decades, and who sounds like an <a href="https://web.archive.org/web/20240720122658/https://newsroom.lmu.edu/administrative/the-dream-of-living-authentically-and-the-spartacus-plan/">amazing mentor</a> for her students, so this naming avoids many of the issues of naming after people in the past with problematic impacts (see my <a href="https://brianomeara.info/evol2023.html">SSB presidential address</a> on this and related issues). However, naming organisms after people is very much an open question in our field, with reasonable advocates on many sides, so it was useful for students to work through the arguments in class to help understand the practice of taxonomy better.</p>
+<p>I made intro slides with some of my background material and some figures from the paper: <a href="JochimEtAl_2025_Trapdoor_Spiders.pdf">PDF</a> and <a href="JochimEtAl_2025_Trapdoor_Spiders.pptx">PowerPoint</a>.</p>
+<hr>
+<p>To subscribe, go to <a href="https://brianomeara.info/blog.xml" class="uri">https://brianomeara.info/blog.xml</a> in an RSS reader.</p>
+
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{o'meara2025,
+  author = {O’Meara, Brian},
+  title = {PhyloPapers 2025, {Alpha} Taxonomy},
+  date = {2025-11-07},
+  url = {https://brianomeara.info/posts/phylopapers_2025_Nov_7/},
+  langid = {en}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-o'meara2025" class="csl-entry quarto-appendix-citeas">
+O’Meara, Brian. 2025. <span>“PhyloPapers 2025, Alpha Taxonomy.”</span>
+November 7, 2025. <a href="https://brianomeara.info/posts/phylopapers_2025_Nov_7/">https://brianomeara.info/posts/phylopapers_2025_Nov_7/</a>.
+</div></div></section></div> ]]></description>
+  <category>phylopapers</category>
+  <category>phylogenetics</category>
+  <category>teaching</category>
+  <category>alpha taxonomy</category>
+  <category>spiders</category>
+  <category>phylogeography</category>
+  <category>UCEs</category>
+  <guid>https://brianomeara.info/posts/phylopapers_2025_Nov_7/</guid>
+  <pubDate>Fri, 07 Nov 2025 05:00:00 GMT</pubDate>
+</item>
 <item>
   <title>AI optimization</title>
   <dc:creator>Brian O&#39;Meara</dc:creator>
@@ -41,7 +178,7 @@
 <li><p><strong>Stasis</strong>: “What software should I use to make a phylogenetic tree?” The best software twenty years ago is not the best software today, and there could be some amazing new thing released tomorrow. Trained on a corpus of fifty years of papers on making trees, what will a recommendation engine suggest? More papers will use the older software, but perhaps it will have a bias for what the most recent papers use (if programmed in). But nothing in the training corpus will have used the new great tool. How long will it take to start recommending the newest, best thing? Probably longer than it would take a trusted colleague who keeps up with the literature to recommend the new software. This is especially true if one wants to prioritize work done pre-AI to prevent the spiraling issue.</p></li>
 </ul>
 <p>I’m not sure how to make this actionable for people at the moment – we don’t know enough about how AIO will work (maybe someone will launch a consulting company to start doing this). My guess is that it will lead to more harms than benefits. I do think it’s going to be the case that whether or not we individually <a href="https://en.wikipedia.org/wiki/Just_Say_No#/media/File:Photograph_of_Mrs._Reagan_speaking_at_a_%22Just_Say_No%22_Rally_in_Los_Angeles_-_NARA_-_198584.jpg">want</a> to use AI to help write papers, our professional incentives will lead us to make sure our work is present in the training corpus used by such tools and is optimized for its use. I also believe publishers are going to start acting to make the AIs happy. We can steer what happens to try to avoid the pitfalls, but it’s worth considering the structural incentives that will encourage certain changes.</p>
-<p><em>Note after writing this, I noticed that the R package <code>pkgdown</code>, used to make websites, now has a <a href="https://tidyverse.org/blog/2025/11/pkgdown-2-2-0/">new function</a> that “that automatically creates files that make it easier for LLMs to read your documentation.” So optimization for output (in this case, help files for R packages one writes) to be used in a training corpus has already come for software.</em></p>
+<p><em>Note: after writing this, I noticed that the R package <code>pkgdown</code>, used to make websites, now has a <a href="https://tidyverse.org/blog/2025/11/pkgdown-2-2-0/">new function</a> that “that automatically creates files that make it easier for LLMs to read your documentation.” So optimization for output (in this case, help files for R packages one writes) to be used in a training corpus has already come for software.</em></p>
 <hr>
 <p>To subscribe, go to <a href="https://brianomeara.info/blog.xml" class="uri">https://brianomeara.info/blog.xml</a> in an RSS reader.</p>
 
@@ -65,6 +202,148 @@ O’Meara, Brian. 2025. <span>“AI Optimization.”</span> November 7, 2025.
   <category>publishing</category>
   <guid>https://brianomeara.info/posts/ai_optimization/</guid>
   <pubDate>Fri, 07 Nov 2025 05:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>PhyloPapers 2025, Machine learning for traits</title>
+  <dc:creator>Brian O&#39;Meara</dc:creator>
+  <link>https://brianomeara.info/posts/phylopapers_2025_Oct_31/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>This week I wanted students to learn more about phylogenies potentially helping with missing data:</p>
+<blockquote class="blockquote">
+<p>Roberta Hunt, José L. Reyes-Hernández, Josh Jenkins Shaw, Alexey Solodovnikov, Kim Steenstrup Pedersen. 2025. “Integrating Deep Learning Derived Morphological Traits and Molecular Data for Total-Evidence Phylogenetics.” Systematic Biology 74(3): 453-468 <a href="https://doi.org/10.1093/sysbio/syae072" class="uri">https://doi.org/10.1093/sysbio/syae072</a></p>
+</blockquote>
+<p>Morphological traits have a long history in phylogenetics, and for some questions, like for reconstructions of long-dead species, they can be the only data available. This paper takes advantage of deep learning and a set of reference images for beetles to identify traits to use for phylogenetic reconstruction.</p>
+<p>One useful bit of background was this introduction to convolutional neural networks (<a href="https://learnopencv.com/understanding-convolutional-neural-networks-cnn/">original page</a>; <a href="https://web.archive.org/web/20250812162534/https://learnopencv.com/understanding-convolutional-neural-networks-cnn/">archived</a>). Note that “AI” covers a whole set of technologies, from ways to get text-based responses trained from a large corpus of text (“cheatGPT, write a five paragraph essay on the use of imagery in <em>The Scarlet Letter</em>”) to generating pictures or videos, to matching images or sounds to species (as in <a href="https://www.inaturalist.org">iNaturalist</a> or <a href="https://merlin.allaboutbirds.org">Merlin</a>); convolutional neural networks (CNN) are common ways to extract features and other information from images.</p>
+<p>I was expecting this paper to extract discrete characters, as that are what are used most commonly in phylogenetics for tree inference: things like presence or absence of “pygidium exposed” or “geniculate antennae.” Instead it used continuous traits. Those are commonly ratios or other concrete trait measurements: head width divided by length, angle between two elements, etc. This uses features that the machine learning approach discovered but which are harder to map back to traits humans identify; for example, here’s which pixels matter to one of the traits used:</p>
+<p><img src="https://brianomeara.info/posts/phylopapers_2025_Oct_31/beetle.png" class="img-fluid" alt="Figure 5c from Hunt et al. (2025). It shows a gray beetle silhouette on a black background, with whiter areas near its abdomen and parts of its hind legs."></p>
+<p>This paper shows these traits are informative and useful for recovering the phylogeny. It does not shy away from potential disadvantages, either, including the work still required and even the environmental cost of running these models.</p>
+<p>Another thing this paper does excellently is providing supplementary data:</p>
+<blockquote class="blockquote">
+<p>The data underlying this article are available at &lt;http://doi.org/10.17894/ucph.39619bba‐4569‐4415‐9f25‐d6a0ff6 4f0e3&gt; for the Rove‐Tree‐11 dataset and in the article’s dryad repository (&lt;https://doi.org/10.5061/dryad. 9cnp5hqqq&gt;) for the further molecular data and associated genbank accession numbers, example inference code, all generated trees, and stratified dataset split. All trained model runs and extracted trait matrices are available in the following erda repository <a href="https://erda.ku.dk/archives/440063cabdb1789ad82f31366c926b4e/published‐archive.html" class="uri">https://erda.ku.dk/archives/440063cabdb1789ad82f31366c926b4e/published‐archive.html</a>. The reference tree, best molecular tree and best total‐evidence tree can be found on TreeBASE at <a href="http://purl.org/phylo/treebase/phylows/study/TB2:S31300?x‐access‐code=397cc12bd8047bf52b312b4743f23e2b&amp;format=html" class="uri">http://purl.org/phylo/treebase/phylows/study/TB2:S31300?x‐access‐code=397cc12bd8047bf52b312b4743f23e2b&amp;format=html</a>. The code used in this analysis is available on github <a href="https://github.com/robertahunt/Revisiting_Deep_Metric_Learning_PyTorch" class="uri">https://github.com/robertahunt/Revisiting_Deep_Metric_Learning_PyTorch</a>, commit a6654453c3b7785a17511255e02c468c53fe6f5d, forked from Roth et al.&nbsp;(2020).</p>
+</blockquote>
+<p>It even includes putting the trees on TreeBase, something few in our field do despite the benefits to all (and citation bump for people who share).</p>
+<p>I made intro slides with some of my background material and some figures from the paper: <a href="HuntEtAl_2025_MachineLearningTraits.pdf">PDF</a> and <a href="HuntEtAl_2025_MachineLearningTraits.pptx">PowerPoint</a>.</p>
+<hr>
+<p>To subscribe, go to <a href="https://brianomeara.info/blog.xml" class="uri">https://brianomeara.info/blog.xml</a> in an RSS reader.</p>
+
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{o'meara2025,
+  author = {O’Meara, Brian},
+  title = {PhyloPapers 2025, {Machine} Learning for Traits},
+  date = {2025-10-31},
+  url = {https://brianomeara.info/posts/phylopapers_2025_Oct_31/},
+  langid = {en}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-o'meara2025" class="csl-entry quarto-appendix-citeas">
+O’Meara, Brian. 2025. <span>“PhyloPapers 2025, Machine Learning for
+Traits.”</span> October 31, 2025. <a href="https://brianomeara.info/posts/phylopapers_2025_Oct_31/">https://brianomeara.info/posts/phylopapers_2025_Oct_31/</a>.
+</div></div></section></div> ]]></description>
+  <category>phylopapers</category>
+  <category>phylogenetics</category>
+  <category>teaching</category>
+  <category>deep learning</category>
+  <category>AI</category>
+  <category>morphology</category>
+  <guid>https://brianomeara.info/posts/phylopapers_2025_Oct_31/</guid>
+  <pubDate>Fri, 31 Oct 2025 04:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>PhyloPapers 2025, Handling Data Deficiency</title>
+  <dc:creator>Brian O&#39;Meara</dc:creator>
+  <link>https://brianomeara.info/posts/phylopapers_2025_Oct_24/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>This week I wanted students to learn more about phylogenies potentially helping with missing data:</p>
+<blockquote class="blockquote">
+<p>Shubhi Sharma, Kevin Winner, Laura J. Pollock, James T. Thorson, Jussi Mäkinen, Cory Merow, Eric J. Pedersen, Kalkidan F. Chefira, Julia M. Portmann, Fabiola Iannarilli, Sara Beery, Riccardo De Lutio, Walter Jetz, 2025. No species left behind: borrowing strength to map data-deficient species. Trends in Ecology &amp; Evolution 40, 699–711. <a href="https://doi.org/10.1016/j.tree.2025.04.010" class="uri">https://doi.org/10.1016/j.tree.2025.04.010</a></p>
+</blockquote>
+<p>Figuring out where species can live now, where they could live in the future as climate shifts or habitat changes, and where they may have lived in the past are key questions for which species distribution models (SDM) can be helpful. There are many approaches, but in general they use many location points for a species, gather info on climate or other factors at those points, and use them to model where a species can and cannot occur. For example, palm trees do not do well where it is cold enough for them to freeze: all their points will be from areas without multiple freezing days, and a good model will use this and other factors to predict where they can live (and perhaps moving poleward as climate tends to warm). But the problem is that many species lack the data required to do this well.</p>
+<p>This paper sketches out a few ways to use information from a related species to help model a focal species. These can include using phylogenies to connect predictions or parameters between species as well as various other ways, such as co-occurrence, to have data-rich species help make inferenes for data-poor species.</p>
+<p>I like this sort of work because it makes continuous how we often treat individual species. We say we avoid typological thinking (“any member of this group is fundamentally the same as any other member”) but we de facto use this when we assume all members of a species are identical. The reality is that there will generally be more or less closely related subpopulations that are not 1:1 replacements for each other (though likely exchanging genes), but it’s reasonable that the populations are pretty good predictors for each other. However, for traditional approaches to SDM, we assumes this predictive similarity stops at the (somewhat arbitrary) “species” boundary. With some of the methods in this paper, some info can flow between related species. It is a good use for phylogeny, especially in a world where the amount of data can vary so dramatically between species. Another example of this was done by Jess Welch and Jeremy Beaulieu for <a href="https://doi.org/10.3390/d10030063">predicting bat extinction risk</a>.</p>
+<p>Another advantage of this paper for teaching this week is that it was a relatively short review paper (<em>TREE</em>). It can be a nice break for students more used to dealing with methods-heavy empirical papers.</p>
+<section id="brownian-motion-isnt-only-neutral" class="level2">
+<h2 class="anchored" data-anchor-id="brownian-motion-isnt-only-neutral">Brownian motion isn’t (only) neutral</h2>
+<p>A common idea in ecology and evolution, and touched on just briefly in this paper (thus providing an opportunity for this rant, but it’s not really a problem in this paper), is that Brownian motion means neutral evolution, genetic drift, etc. It’s true that these processes fit a Brownian motion model, but so do a lot of selective processes. I often point people back to the classic <a href="https://doi.org/10.1111/j.1558-5646.1996.tb03914.x">Hansen &amp; Martins (1996) paper</a> on this. Its Table 1 is especially useful (“Brownian” annotation by me):</p>
+<p><img src="https://brianomeara.info/posts/phylopapers_2025_Oct_24/HansenMartins1996.png" class="img-fluid" alt="Table 1 from Hansen &amp; Martins (1996). It shows various models such as drift-mutation balance and the expected covariance under these models. Models that boil down to 'a bunch of constants times time' are equivalent to Brownian motion (and I have annotated the table with labels showing where these are)"></p>
+<p>Lots of different models create situations where variance accumulates based on a set of constants (sometimes quite complex ones, but in these models unvarying across the tree) multiplied by time – effectively Brownian motion (ignoring movements of means). For example, if there is an optimum moving around due to various perturbations, and the species track that mean, that leads to a Brownian motion model. It’s only if the optimum moves in few, discrete jumps, or stays in one place for a long time, when models like an Ornstein-Uhlenbeck model might be worth the complexity. Genetic drift also leads to Brownian motion, but it’s far from the only cause. It is like if we see something moving across the sky: sure, it could be jet propulsion, but it could also be a spider ballooning in the breeze, a meteor falling, or an albatross flying. Many different processes create the same pattern of movement; it’s the same for Brownian motion where many evolutionary models, some with no selection, some with very large selection, can create the same pattern so we can’t go from pattern back to mechanism.</p>
+<p>Again, not really a hit on the paper, just a teachable moment coming from an aside in it.</p>
+<p>I made intro slides with some of my background material and some figures from the paper: <a href="Sharma_et_al_2025_DataDeficiency.pdf">PDF</a> and <a href="Sharma_et_al_2025_DataDeficiency.pptx">PowerPoint</a>.</p>
+<hr>
+<p>To subscribe, go to <a href="https://brianomeara.info/blog.xml" class="uri">https://brianomeara.info/blog.xml</a> in an RSS reader.</p>
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{o'meara2025,
+  author = {O’Meara, Brian},
+  title = {PhyloPapers 2025, {Handling} {Data} {Deficiency}},
+  date = {2025-10-24},
+  url = {https://brianomeara.info/posts/phylopapers_2025_Oct_24/},
+  langid = {en}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-o'meara2025" class="csl-entry quarto-appendix-citeas">
+O’Meara, Brian. 2025. <span>“PhyloPapers 2025, Handling Data
+Deficiency.”</span> October 24, 2025. <a href="https://brianomeara.info/posts/phylopapers_2025_Oct_24/">https://brianomeara.info/posts/phylopapers_2025_Oct_24/</a>.
+</div></div></section></div> ]]></description>
+  <category>phylopapers</category>
+  <category>phylogenetics</category>
+  <category>teaching</category>
+  <category>data deficiency</category>
+  <category>phylogenetic prediction</category>
+  <guid>https://brianomeara.info/posts/phylopapers_2025_Oct_24/</guid>
+  <pubDate>Fri, 24 Oct 2025 04:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>PhyloPapers 2025, Trait evolution</title>
+  <dc:creator>Brian O&#39;Meara</dc:creator>
+  <link>https://brianomeara.info/posts/phylopapers_2025_Oct_17/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>This week I wanted students to learn more about reticulate evolution (phylogenetic networks):</p>
+<blockquote class="blockquote">
+<p>Verónica A. Rincón-Rubio, Rosana Zenil-Ferguson, Alejandro Gonzalez-Voyer. 2025. “The macroevolutionary consequences of the association between frugivory and carotenoid-dependent plumage coloration in passerine birds” Evolution, 2025, 79(8), 1643–1657 <a href="https://doi.org/10.1093/evolut/qpaf105" class="uri">https://doi.org/10.1093/evolut/qpaf105</a></p>
+</blockquote>
+<p>This is an example of a thorough study that investigates trait evolution well. The paper looks at potential correlation between eating fruits and having feathers that use carotenoids for color. It’s fundamentally a trait correlation question, but the paper is careful to first check for possible association between the traits and diversification. As Wayne Maddison showed <a href="https://doi.org/10.1111/j.0014-3820.2006.tb00517.x">nearly two decades ago</a>, even if your question is about traits, ignoring the effect of differential diversification can cause problems: there are more state 1 than 0 at the tips because of a faster 0-&gt;1 than 1&lt;-0 rate, and/or higher diversification rate in state 1, and/or there hasn’t been enough time to move on from a state 1 ancestral state: one can’t just look at the transition rates alone. So this paper does a ton of work to examine potential confounding effects, finds none, and then goes on to find that the ancestor for passerines likely had carotenoid-dependent plumage and that in species that do not have both carotenoid-dependent plumage <em>and</em> frugivory they lose the other trait quickly as well.</p>
+<p>If I were to have a quibble with the paper, it would be its lack of units: for example, the rate of loss of carotenoid pigmentation in birds that don’t have frugivory (Fig 2) is “0.06” – no units indicated in figure or caption. Omitting units is standard for our field, but it can help with interpretation. For example, 0.06, assuming the tree branch lengths are in units of millions of years, is 0.06 events/MY or, perhaps more intuitively, an expected wait time per species of 1/0.06 = 16.7 MY to lose frugivory. Putting rates in terms of expected time until a change can help show if numbers are reasonable: this one, for example, suggests a leisurely amount of time for the change but still evolutionarily feasible: it’s not like an expected time of 10 years nor of 10 billion years.</p>
+<p>Overall, though, this is a great paper. Another teachable moment from it – it could have come across as a boring null result: “carotenoids for plumage (or frugivory) do not affect speciation or extinction” and maybe even left in a drawer. But it’s not! For one thing, the lack of correlation <em>is</em> a discovery – I would have thought that carotenoid-dependent plumage would increase speciation (by allowing more reinforcement of mating barriers that appear). And there is an additional story about the trait correlation themselves, and potential ancestral states, that help us understand evolution better.</p>
+<p>I made intro slides with some of my background material (SSE models, trait models) and some figures from the paper: <a href="Rincon-RubioEtAl_2025_SSE_Correlation.pdf">PDF</a> and <a href="Rincon-RubioEtAl_2025_SSE_Correlation.pptx">PowerPoint</a>.</p>
+<hr>
+<p>To subscribe, go to <a href="https://brianomeara.info/blog.xml" class="uri">https://brianomeara.info/blog.xml</a> in an RSS reader.</p>
+
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{o'meara2025,
+  author = {O’Meara, Brian},
+  title = {PhyloPapers 2025, {Trait} Evolution},
+  date = {2025-10-17},
+  url = {https://brianomeara.info/posts/phylopapers_2025_Oct_17/},
+  langid = {en}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-o'meara2025" class="csl-entry quarto-appendix-citeas">
+O’Meara, Brian. 2025. <span>“PhyloPapers 2025, Trait Evolution.”</span>
+October 17, 2025. <a href="https://brianomeara.info/posts/phylopapers_2025_Oct_17/">https://brianomeara.info/posts/phylopapers_2025_Oct_17/</a>.
+</div></div></section></div> ]]></description>
+  <category>phylopapers</category>
+  <category>phylogenetics</category>
+  <category>teaching</category>
+  <category>SSE</category>
+  <category>trait evolution</category>
+  <guid>https://brianomeara.info/posts/phylopapers_2025_Oct_17/</guid>
+  <pubDate>Fri, 17 Oct 2025 04:00:00 GMT</pubDate>
 </item>
 <item>
   <title>PhyloPapers 2025, Reticulate evolution</title>
@@ -752,435 +1031,6 @@ Grants.”</span> June 7, 2025. <a href="https://brianomeara.info/posts/williams
   <category>financing</category>
   <guid>https://brianomeara.info/posts/williamsgrants/</guid>
   <pubDate>Sat, 07 Jun 2025 04:00:00 GMT</pubDate>
-</item>
-<item>
-  <title>Periodical cicadas</title>
-  <dc:creator>Brian O&#39;Meara</dc:creator>
-  <link>https://brianomeara.info/posts/cicadas/</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<section id="periodical-cicadas" class="level1">
-<h1>Periodical cicadas</h1>
-<p>We aren’t used to abundance in the natural world any longer. There used to be millions of bison on the plains: now there are <a href="https://www.fws.gov/species/plains-bison-bison-bison-bison">around 20,000</a> (plus ones in commercial herds), not enough wild individuals to fill a fifth of the seats of our local football stadium. Passenger pigeons have gone from flocks taking days to pass overhead to extinction. There is scientific evidence for a <a href="https://www.pnas.org/doi/10.1073/pnas.2023989118">massive decline of insects</a> (plus the anecdotal evidence – how many insects have you had to clean off the front of your car, or how many have you seen circling the porch lights lately?). American chestnuts have gone from a population of billions to functional extinction.</p>
-<p>Given all this, it’s amazing that there are still creatures whose survival strategy is abundance: fill every hungry mouth, and the excess survive and reproduce. Periodical cicadas emerge at a location every 13 or 17 years (depends on the species) in tremendous numbers. We had one brood in Eastern Tennessee last year, and the brood this year is starting to emerge.</p>
-<p>It’s still early, but you can defintely hear them and if you look carefully, see them (follow the sound; then look for ones flying near the tops of trees; then look more closely at the places where they land; eventually you will get a good search image. Later in the year they’ll be extremely obvious in the places they live). Here’s a zoomed in picture from yesterday of several on a branch (look for bits peeking out behind leaves):</p>
-<p><img src="https://brianomeara.info/posts/cicadas/Cicadas.jpg" class="img-fluid" alt="Branch with many green leaves glowing in the sun. Two cicadas black with orange accents, are visible, with other ones partially hidden elsewhere on the branch."></p>
-<p>And the surprising thing is how accessible they are. These are on a bike path next to Calhoun’s in Oak Ridge, TN – I found them from the sound of their calling, over the sound of a podcast in a closed car. Here’s the tree with them now, so folks in Oak Ridge can find them (walk on the greenway from the rowing association towards Calhoun’s, look at the tops of the two trees on the right just after you cross the bridge close to the restaurant):</p>
-<p><img src="https://brianomeara.info/posts/cicadas/CicadaTree.png" class="img-fluid" alt="A tree next to a bike path has a red circle on it; a metal bridge handrail is to the side."></p>
-<p>And a <a href="https://www.google.com/maps?q=loc:36.0432778,-84.2026222">map</a> showing their location:</p>
-<p><img src="https://brianomeara.info/posts/cicadas/CicadaMap.png" class="img-fluid" alt="An aerial map of Oak Ridge, TN, showing the location of the cicadas with a marker, near Calhoun's restaurant."></p>
-<p>It is still early in the emergence – I hope for more as the season progresses. These were still pretty high up in the trees; last year they were lower and more accessible in a slightly different location (broods can overlap somewhat).</p>
-<p>One approach to finding them near you is to use iNaturalist, which has a <a href="https://www.inaturalist.org/observations?d1=2025-04-01&amp;subview=map&amp;taxon_id=83854">map</a> of periodical cicadas from this year:</p>
-<p><img src="https://brianomeara.info/posts/cicadas/CicadaINat.png" class="img-fluid" alt="A map of the eastern US showing the locations of periodical cicadas observed since April 1, 2025."></p>
-<p><a href="https://cicadasafari.org">Cicada Safari</a> has more info on periodical cicadas.</p>
-<hr>
-<p>To subscribe, go to <a href="https://brianomeara.info/blog.xml" class="uri">https://brianomeara.info/blog.xml</a> in an RSS reader.</p>
-
-
-</section>
-
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{o'meara2025,
-  author = {O’Meara, Brian},
-  title = {Periodical Cicadas},
-  date = {2025-05-18},
-  url = {https://brianomeara.info/posts/cicadas/},
-  langid = {en}
-}
-</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-o'meara2025" class="csl-entry quarto-appendix-citeas">
-O’Meara, Brian. 2025. <span>“Periodical Cicadas.”</span> May 18, 2025.
-<a href="https://brianomeara.info/posts/cicadas/">https://brianomeara.info/posts/cicadas/</a>.
-</div></div></section></div> ]]></description>
-  <category>cicadas</category>
-  <category>natural history</category>
-  <guid>https://brianomeara.info/posts/cicadas/</guid>
-  <pubDate>Sun, 18 May 2025 04:00:00 GMT</pubDate>
-</item>
-<item>
-  <title>Funding for tenure</title>
-  <dc:creator>Brian O&#39;Meara</dc:creator>
-  <link>https://brianomeara.info/posts/fundingfortenure/</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<p>In the US, science funding is being cut, including the elimination of entire areas of study from federal funding. There are predictions of yet more reductions. This will affect what will be studied, who can study it, and even who survive diseases. Various individuals and groups are working to address this. I want to address just one small part of this where faculty still have (some) control: criteria we use in awarding tenure.</p>
-<p>The standards for tenure can be opaque to various degrees: we all do teaching, research, and service, and institutions vary in how they weight each of these within the institution and across faculty members. Institutions vary in what constitutes evidence for each. For example, one person might teach a large number of intro classes and have peer evaluation of their teaching, while at a different institution someone may teach a few small enrollment classes and be evaluated on how well they are mentoring grad students. The AAUP has a <a href="https://www.aaup.org/report/2022-aaup-survey-tenure-practices">survey</a> of tenure practices, a quarter-century old <a href="https://www.aaup.org/sites/default/files/files/Good%20Practice%20in%20Tenure%20Evaluation.pdf">book</a> about best practices (probably due for some updating), and a <a href="https://www.aaup.org/issues/tenure/resources-tenure">page</a> aggregating additional resources for those seeking to learn more.</p>
-<p>But imagine if a department had a standard for tenure of using 10,000 pipette tips. Each time you finish a box of tips, you put an empty box against the wall: only 105 boxes total to get to tenure! Of course, this doesn’t work for people doing bird banding, or theoretical ecology, or any of a myriad of research programs. Pipette tips are a tool, not a goal. Within a narrow area they might be an okay proxy for productivity: back when I was <a href="https://www.ncbi.nlm.nih.gov/nuccore/?term=brian+o%27meara">sequencing ant DNA</a> my pipette box accumulation rate could have been a good way to spot check how much time I was spending in the ant lab. But it would have been a terrible way to measure how much work I was spending coding new methods or writing papers. And using tips as a criterion could warp the research program: instead of banding birds, someone might have to change the research to do blood draws on captured birds to have a wet lab component, just in order to use enough tips to get tenure.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://brianomeara.info/posts/fundingfortenure/emptyboxes.jpg" class="img-fluid figure-img" alt="Stack of about forty empty pipette boxes: navy blue boxes, most for 200 µl pipette tips, with opaque white covers, in a wood cabinet."></p>
-<figcaption>Enough boxes to be 38% of the way to tenure? Photo from <a href="https://www.reddit.com/r/labrats/comments/nvzy6b/what_on_earth_do_you_do_with_your_empty_tip_boxes/">reddit user strawspiderflower.</a></figcaption>
-</figure>
-</div>
-<p>I suggest funding is the same. It is a <em>tool</em> that enables research, outreach, and more, but it <em>isn’t the goal itself</em>. It’s fantastically useful, of course. I’ve been lucky to work with 17 postdocs so far as a mentor, all of whom needed money for things like food and health care: about half the time, that came from grants I wrote, with the rest of the time coming from grants written by others (thanks, NSF, and the UTK team who wrote the <a href="https://legacy.nimbios.org/about/impact">NIMBioS (National Institute for Mathematical and Biological Synthesis)</a> grant!). Other people need funding to pay for sequencing, or to fly to Costa Rica to collect insects, or to get a LI-COR to measure leaf respiration. And different research requires different amounts of funding – someone collecting fossils in the Arctic is not a better scientist than someone collecting fossils ten miles away from campus, but the former requires more money (and is generally less accessible to students). If both scientists are publishing good work at the same rate, why do we care that one person had to rent a helicopter and another a bicycle? It gets even more stark between fields: someone doing mathematical models may need far less funding than someone working on cancer research in a general biology department, and they also have access to different funding sources (at least historically, NIH provided more money than NSF), but the department is better for having both of them in the same place.</p>
-<p>This is a time when there is even less reason to judge people by their funding. Federal funders and others have been cutting off funding for entire subfields. Faculty are pivoting their science to be able to keep doing work that matters. We want to encourage this: let them grow their research program and adapt to the changing world (this does not mean not trying to make improvements, but it does recognize external constraints). Having a performance standard that is based on the quality of science they are communicating makes sense. Adding a second metric, funding, warps that. In evolutionary biology, we teach about tradeoffs: armor is great, so is flight, but we don’t have flying armored turtles. Funding can serve the science, but making it a criterion in itself creates potential tradeoffs between the best science to do and the best science to get funding.</p>
-<p><strong>Suggested action item</strong>: Departments should have conversations about criteria for tenure, and explictly discuss, and put in writing, that funding is NOT one of those criteria. Ideally, this should be put into departmental bylaws. The end of the semester is a hard time for this, but faculty are going to be trying to figure out what to do this summer: giving them reassurance about optimizing just for good science will let them focus on this. For some, this will require figuring out funding, but not for all. When people come back together in the Fall, bylaws that mention funding should be amended, as well as similar work at higher levels of an institution. There might be work that correlates with funding (Has a faculty member been able to recruit and mentor grad students? Have they been able to develop modern, publishable datasets?) but <em>the work</em> is what we care about, not the funding itself.</p>
-<section id="what-about-indirect-costs-startup-etc." class="level3">
-<h3 class="anchored" data-anchor-id="what-about-indirect-costs-startup-etc.">What about indirect costs, startup, etc.?</h3>
-<p>An objection to ignoring funding as a criterion for tenure is that grants are ways to support other aspects of the university. It is worth digging into the details of this, though.</p>
-<p>First, though it’s an imperfect analogy, it can be useful to compare a new lab to a new coffee shop. To start up a coffee shop, one needs to get a building, equipment, and supplies: everything from flour to make the donuts to a soap dispenser in the bathroom to cups for the coffee. Then one needs to hire and train staff. Only then can one open for business and start making money. For example, for a <a href="https://finance.yahoo.com/news/much-costs-own-starbucks-franchise-180021683.html">Starbucks</a>, it costs $315,000 to license a store (which includes some equipment) and one must have $700,000 in cash for other costs. [Note I really wanted to find the similar cost for the far superior Dunkin’ Donuts instead, but it’s not available]. That’s the same order of magnitude as starting a biology lab at a research-intensive university, where startups in the hundreds of thousands of dollars are common.</p>
-<p>One question any business owner has to face is how much to price each item. There’s the obvious cost of ingredients; there’s also the fractional cost of the employee that makes the coffee: a fancier coffee takes more time and so should cost more. But there are other costs that are harder to calculate. What fraction of a light bulb’s lifespan is used to illuminate the coffee station where the coffee is made? How much of the cash register’s overall cost is each cup of coffee responsible for? What about the person working the cash register? One way to do this would be to measure this exactly for everything: “hot tea” takes less time to say than “regular coffee black with two sugars” so the latter costs more of the cashier’s time. A different approach would be to figure out the obvious costs for the ingredients and direct labor, figure out all the other costs for the entire store, and find a ratio that makes it break even with a little extra for profit. For example, if a small cup of coffee costs $1.00 to make, add 50% to the cost of that to cover all the other costs and charge $1.50; maybe bump it up to $1.59 for a little profit.</p>
-<p>The same applies for a lab. If one is proposing a project to sequence ant DNA to infer their phylogeny, there’s the cost to go to collect the ants in the field, the DNA extraction kits, PCR reagents, sequencing costs, and more. There’s the cost for the grad student to do the work (stipend, health care, and tuition). These are all calculated ahead of time and charged to the funder. But there are also all the other costs: someone to make sure the lab is run safely, having a building to do the work in, paying to run the -80 ˚C freezer, and more. Rather than figuring out these costs per project, the institution where the work happens negotiates with the federal government about the average overall costs. At a university, every $100 of direct cost might mean $50-60 in indirect costs, so that can be the negotiated rate. For institutions like children’s hospitals, it can be even higher, like <a href="https://www.childrenshospital.org/sites/default/files/2024-09/BCH%20RATE%20AGREEMENT_03.18.24.pdf">78%</a> at Children’s Hospital Boston.</p>
-<p>The thing is, the folk wisdom about this (backed by research: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3987954/">Holbrook and Sanberg (2013)</a>) is that universities lose money on this. The indirect costs do not quite cover the cost of the research. In some ways, this is like athletics programs: they only <a href="https://sportsdata.usatoday.com/ncaa/finances">rarely</a> make money, but they help with brand recognition, student spirit, and more. Research is even more central to the mission of a university – universities are about generating new knowledge and sharing it, and funded research is a major part of this. Overall amount of research expenditure is also a metric used in rating or categorizing universities – it looks “good” by metrics some care about to have a lot of research expenditure.</p>
-<p>Moreover, just in terms of earnings per square foot, research labs are a spectacularly bad way to make money. Take the University of Florida, a major research university. As of the latest data (2023), it had <a href="https://ncses.nsf.gov/surveys/science-engineering-research-facilities/2023#survey-info">3,884,000 square feet</a> for research and engineering; it also spent (from external funds) <a href="https://ncsesdata.nsf.gov/profiles/site?method=rankingbysource&amp;ds=herd">$1,250,201,000</a>, for an average of $322 per square foot. A Starbucks has sales of $700/sqft, McDonald’s $2196/sqft, an Apple store $25,000/sqft, and even Walmart is $407/sqft (from <a href="https://www.analystinterview.com/article/understanding-sales-per-square-foot-a-key-metric-in-retail-food-and-beverages">here</a>, which is not peer-reviewed). And consider the cost to run a Walmart compared to a bunch of labs with the same total amount of square footage: Walmart has no fume hoods, no centrifuges, few expensive freezers, minimal computers, etc. and yet it only makes about 3% profit on this earnings per square foot. Walmart’s earnings for this space are 25% higher than what U. of Florida brings in with grants – it is hard to imagine U. of Florida is breaking even at this rate (and that is before proposed cuts in indirect rates). But the university is fostering <a href="https://explore.research.ufl.edu">great research</a> that has both immediate impacts (<a href="https://news.ufl.edu/2025/01/citrus-greening-research/">helping citrus growers</a>) and long-term discoveries (<a href="https://explore.research.ufl.edu/secrets-of-the-sea.html">detecting wildlife with wisps of DNA in the ocean</a>) while also training students and postdocs as part of its educational mission. And this sort of contribution is common for the thousands of universities across the US.</p>
-<p>So, TL;DR: any university is likely losing money on research in general; given the high variance in how much funding different research groups bring in, it is likely that nearly all individual labs are overall subsidized by the university (the “Use AI to find people who are bad credit risks” or the “Patent a banana that stays yellow for months” labs might be exceptions). Many people, even from “successful” labs (based on grants), are not bringing in enough funding to break even, but they are worth the investment due to their discoveries. Our institutions at a high level realize that the research is what matters and focus on that. For those of us who are even closer to the research, in the same departments as those doing the work, we should similarly value the quality of the work, not the money or other tools used to help achieve it. We must put in structural changes to reassure our junior colleagues that we will evaluate their work, not their funding, especially now.</p>
-<hr>
-<p>To subscribe, go to <a href="https://brianomeara.info/blog.xml" class="uri">https://brianomeara.info/blog.xml</a> in an RSS reader.</p>
-
-
-</section>
-
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{o'meara2025,
-  author = {O’Meara, Brian},
-  title = {Funding for Tenure},
-  date = {2025-05-04},
-  url = {https://brianomeara.info/posts/fundingfortenure/},
-  langid = {en}
-}
-</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-o'meara2025" class="csl-entry quarto-appendix-citeas">
-O’Meara, Brian. 2025. <span>“Funding for Tenure.”</span> May 4, 2025. <a href="https://brianomeara.info/posts/fundingfortenure/">https://brianomeara.info/posts/fundingfortenure/</a>.
-</div></div></section></div> ]]></description>
-  <category>NSF</category>
-  <category>NIH</category>
-  <category>tenure</category>
-  <category>funding</category>
-  <category>indirect costs</category>
-  <guid>https://brianomeara.info/posts/fundingfortenure/</guid>
-  <pubDate>Sun, 04 May 2025 04:00:00 GMT</pubDate>
-</item>
-<item>
-  <title>How long does balance in eponymous names require?</title>
-  <dc:creator>Brian O&#39;Meara</dc:creator>
-  <link>https://brianomeara.info/posts/eponymous_birds/</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<p>Today I saw a <a href="https://bsky.app/profile/zoojlinnsoc.bsky.social/post/3llgxuqt7pg2x">post</a> on bluesky from the <em>Zoological Journal of the Linnean Society</em> about a <a href="https://doi.org/10.1093/zoolinnean/zlaf022">new paper</a> by Dr.&nbsp;George Sangster on eponyms in birds: naming birds after people. This is an issue I’ve been curious about for some time, partly due to the related issue of naming awards after people (see <a href="https://brianomeara.info/evol2023.html#award-naming">here</a>). Issues that come up in these areas are 1) should we name organisms after people who did awful things? 2) how extensive are the biases in who gets species named after them? 3) what are the effects of either of the above on recruiting and retainng people in the field? and 4) how will changes in naming practices, both moving forward and (more controversially) changing existing names affect the above three points? The paper represents a tremendous amount of careful work to address the second question, including an analysis of how the biases have changed over time.</p>
-<p>The <a href="https://doi.org/10.1093/zoolinnean/zlaf022">paper</a> is well worth reading and contributes greatly to this discussion. However, I was a bit surprised by one of its conclusions:</p>
-<p>“Importantly, there is no need for drastic changes in naming practices, because the desired changes (greater representation of women and non-western people) are already taking place (and have been for several decades).”</p>
-<p>The paper does identify trends in this direction, but I was curious about how long the changes would require. Dr.&nbsp;Sangster generously released the analyzed data as a supplemental file, so I downloaded it to run some analyses. It already had some linear regressions showing changes in representation since 1900; I threw the file into R to do similar analyses, but extrapolating to the future.</p>
-<section id="proportionality-in-new-names" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="proportionality-in-new-names"><span class="header-section-number">1</span> Proportionality in new names</h2>
-<p>The first question is how long with current trends it will take for a proportional fraction of the eponymous names to be named after people in the different groups. For gender, if we limit the population of potential namesakes to women and men only, and assume they are equal frequencies in the population, parity is at 50%. For Western vs non-Western, one standard would also be 50%; a better one might be to use proportion of the world population that is Western vs non-Western (though this has also changed over time). Using populations sizes from <a href="https://www.worldometers.info/world-population/">here</a>, and adopting the definition of Western the paper seemed to use, 85.8% of people are non-Western.</p>
-<p>Using these thresholds and linear regression, with a 95% confidence interval:</p>
-<ul>
-<li><strong>Year when half of NEW eponyms are named for women: 2340 (2220, 2662)</strong></li>
-<li><strong>Year when half of NEW eponyms are named for non-Western people: 2101 (2070, 2156)</strong></li>
-<li><strong>Year when a proportional number of NEW eponyms are named for non-Western people: 2255 (2191, 2367)</strong></li>
-</ul>
-<p>So, it will take 315 years to have equal representation of women in new eponyms, and 230 years to have proportional representation of non-Western people, under the current yearly increase in representation in names taxonomists choose. This is about as far in the future as Linneaus was in the past. That’s a long time.</p>
-<p>Below are some plots showing the extrapolations. Clearly, extrapolating out this far is silly: but the big point is that even with current trends it’s going to take a very, very long time.</p>
-<p><img src="https://brianomeara.info/posts/eponymous_birds/women_future.jpg" class="img-fluid" alt="Scatter plot showing the proportion of women in eponymous names over time, with a linear regression line showing the trend. A dotted line shows the 50% value, which is not reached until far in the future."></p>
-<p><img src="https://brianomeara.info/posts/eponymous_birds/nonwestern_future.jpg" class="img-fluid" alt="Scatter plot showing the proportion of non-Western people in eponymous names over time, with a linear regression line showing the trend. A dotted line shows the 50% value and the 85% values."></p>
-</section>
-<section id="proportionality-in-all-names" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="proportionality-in-all-names"><span class="header-section-number">2</span> Proportionality in all names</h2>
-<p>A different question is how long it will take for half of the eponymous bird species to be named after women, and how long it will take for the proportion of eponymous names for non-Western people to be equal to their population. One issue is that birds are a well-studied group: the number of new species being described is declining (though not an argument for lack of a need for more taxonomy):</p>
-<p><img src="https://brianomeara.info/posts/eponymous_birds/new_birds.jpg" class="img-fluid" alt="Scatter plot showing the number of new bird species described over time, with a linear regression line and smooth regression line showing the trend after 1900."></p>
-<p>An extrapolation into the future quickly results in having a negative number of newly described species in future years. I instead used a more optimistic assumption that the future will resemble the 10 year average of the most recent years in the dataset, so with 16.7 species described per year.</p>
-<p>We can see how the number of species named after women, men, Westerners, and non-Westerners has changed over time up to the present:</p>
-<p><img src="https://brianomeara.info/posts/eponymous_birds/full_predictions_present.jpg" class="img-fluid" alt="Line plot showing the number of eponymous names over time. Men and Western are very similar (since they were the vast majority of people having species named after them) but the rate has slowed down; Women and non-Western people are increasing, but the number of such species is still far lower than for the first two groups."></p>
-<p>And then we can continue the trend into the future, incorporating the increasing proportion of species named for women and non-Western people but also the trend of a greater proportion of eponyms overall (which I was surprised to learn about in the original paper). I ran the model for a thousand years into the future:</p>
-<p><img src="https://brianomeara.info/posts/eponymous_birds/full_predictions_future.jpg" class="img-fluid" alt="Line plot showing the number of eponymous names over time from 1758 to 3025. Lines for Men and Westerners continue to be well above the lines for Women and non-Westerners for the duration of the plot."></p>
-<p>So at least over the next thousand years, eponymous bird names will not reach parity with human population proportions for the groups analyzed in this paper.</p>
-</section>
-<section id="conclusions" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="conclusions"><span class="header-section-number">3</span> Conclusions</h2>
-<p>Taxonomy works on long time scales. But if having more representative names is considered important, business as usual, even with trends for more inclusive naming practices, are at best centuries from reaching parity for new names and may never reach it for all names in birds.</p>
-</section>
-<section id="analysis-code" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="analysis-code"><span class="header-section-number">4</span> Analysis code</h2>
-<p>This was all done in R using the packages <code>targets</code>, <code>tidyverse</code>, <code>ggplot2</code>, <code>readxl</code>, <code>ggpmisc</code>, <code>stringr</code>, <code>ggrepel</code>, and <code>RColorBrewer</code>. Source code is at <a href="https://github.com/bomeara/eponymous_birds" class="uri">https://github.com/bomeara/eponymous_birds</a>.</p>
-</section>
-<section id="acknowledgements" class="level2" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="acknowledgements"><span class="header-section-number">5</span> Acknowledgements</h2>
-<p>Thank you to Dr.&nbsp;Sangster for the detailed work on this important issue, for writing a compelling paper, and for making the data so available. Again, I encourage you to read <a href="https://doi.org/10.1093/zoolinnean/zlaf022">this work</a> for its insights.</p>
-<hr>
-<p>To subscribe, go to <a href="https://brianomeara.info/blog.xml" class="uri">https://brianomeara.info/blog.xml</a> in an RSS reader.</p>
-
-
-</section>
-
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{o'meara2025,
-  author = {O’Meara, Brian},
-  title = {How Long Does Balance in Eponymous Names Require?},
-  date = {2025-03-28},
-  url = {https://brianomeara.info/posts/eponymous_birds/},
-  langid = {en}
-}
-</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-o'meara2025" class="csl-entry quarto-appendix-citeas">
-O’Meara, Brian. 2025. <span>“How Long Does Balance in Eponymous Names
-Require?”</span> March 28, 2025. <a href="https://brianomeara.info/posts/eponymous_birds/">https://brianomeara.info/posts/eponymous_birds/</a>.
-</div></div></section></div> ]]></description>
-  <category>taxonomy</category>
-  <category>birds</category>
-  <category>rstats</category>
-  <guid>https://brianomeara.info/posts/eponymous_birds/</guid>
-  <pubDate>Fri, 28 Mar 2025 04:00:00 GMT</pubDate>
-</item>
-<item>
-  <title>Uncertainty and risk</title>
-  <dc:creator>Brian O&#39;Meara</dc:creator>
-  <link>https://brianomeara.info/posts/uncertaintyandrisk/</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<p>As I write this (Jan 31, 2025), it is an odd time. The new US presidential administration cut off disbursement of most federal funds; a court order then stayed this, and the memo pausing disbursement was retracted, but there is still an argument as to whether funds may flow. Regardless, the National Science Foundation is still not disbursing funds, even to PRFB postdocs who rely on requested withdrawals to be paid (even requests from last week are not being processed). There is an “updated often” <a href="https://web.archive.org/web/20250131165539/https://new.nsf.gov/executive-orders">page</a> from NSF that hasn’t changed in a couple of days. It’s not clear when or if funding will resume, nor what programs, if any, might be cut. Some colleges have told people to rein in expenditures, others just to limit expenditures that might violate an executive order, some have said change nothing in how funds should be used.</p>
-<p>In the meantime, on social media there are many splashy advertisements to recruit students for NSF-sponsored research experiences for undergrads (REUs). These can be transformative: undergrads are supported over a summer to do new research they drive, often surrounded by strong mentoring and other support structures. If a student takes this, it replaces essentially a summer job or other internship.</p>
-<p>This is also a time when grad recruiting is happening: some programs are flying students out for interviews and visits. In the sciences, generally students are both admitted to a program <strong>and</strong> offered a job as a teaching assistant or research assistant; the job pays tuition, offers healthcare, and gives a student a stipend. TAs are generally centrally funded: there must be people to run discussion sections or labs, and so departments get a certain number of lines to staff their classes. The funding for these will generally come out of university funds, a mixture of tuition and perhaps state support or endowment funds. RAs are generally funded by external grants (with some exceptions). If an RA dries up, a student might then be put on a TA line.</p>
-<p>The uncertainty is what happens to REUs and RA lines in the future. It could be that everything reverts to how it was: it is a rigorous process to select what the government will fund (with the vast majority of proposals being rejected), using criteria that were passed into law and have been stable for many years, and so changing them, especially on already awarded funds, might not take place (and there are legal and prudential arguments for such an outcome). The other extreme is that all current NSF funding is cut, eliminating REUs and RAs entirely, and even existing TAs might be needed for current grad students on an RA. Or it could be something in between. There is nothing public that is definitive either way. And even if we had perfect knowledge of current plans, that is of only modest predictive value: maybe a lawsuit stops one intended outcome, maybe another Sputnik moment leads to an <em>increase</em> in funding. We just can’t know, and that may go on for a while.</p>
-<section id="what-we-can-do" class="level3">
-<h3 class="anchored" data-anchor-id="what-we-can-do">What we can do</h3>
-<p>There are lots of discussions about what various external actors should be doing with this; a thing we have control of is <strong>how we handle this uncertainty</strong>. A big part of that is deciding <strong>who inherits the risk</strong> and <strong>how the risk is communicated</strong>.</p>
-<ul>
-<li><strong>Business as usual</strong> <em>(high student risk, low university risk, max opportunities)</em>: For example, one approach is to assume things continue as before: anything with allocated or promised funding will continue to receive funds. Offers are made to an REU or grad school, likely with a small parenthetical statement on “(subject to availability of funds),” and students jump at the offered chance and get rid of their other options. This is optimal for the REU or grad program: if all goes well, great students sign up early, so the grant or the RA line is filled with strong candidates. If funds do go away, the students are out of a job and have to scramble, but the program itself is fine – no loss of money. This maximizes risk to students. It also incentivizes minimizing communication of risk so students feel safe signing up early. But students are in a very poor position to understand risk: if faculty and administrators don’t know what is going on, what chance does a sophomore applying to an REU or a senior applying for a grad program have?</li>
-<li><strong>University steps up</strong> <em>(low student risk, high university risk, min opportunities)</em>: A different approach would be to have the university assume the risk. Make the offers, but if funding does not arrive, the university takes on the burden of supporting the students. This is a major risk to the university, but the university at least has better ways to assess risk (through connections to lobbyists, legislators, etc.) than a bunch of undergrads do. A university also likely has a much fatter savings account (endowment) than students, though often with contraints on how it can be spent. Besides the risk to the university, this does also lead to fewer opportunities: the university might be able to support only half the enrollment a grant would, so fewer students get an offer.</li>
-<li><strong>Max transparency</strong> <em>(low student risk, moderate university risk, moderate opportunities)</em>: An intermediate approach would be maximal communication. Be very up front about risks to funding and that, even if the program wants to admit them, students should keep a backup plan up to some reasonable date. One approach to this, borrowed from college athletics, could be letters of intent. “We intend to admit you to our REU / grad program with this offer, but cannot formally promise this until [some date].” Then, when funding is assured or the university is comfortable assuming the risk for the student, send a formal offer of admissions. The risk is that “good” students might go to a university adopting the first approach (“I have a letter of intent from you, but they gave me an offer [with an asterisk I missed], so I’m going there”); the benefit is that it’s possible that there are more students admitted than under approach two. It’s also less dishonest than the first approach (which does not exactly lie, but is far from forthcoming about possibilities).</li>
-</ul>
-<p>This is likely to be a long period of uncertainty, with a lot of focus on what people can do to change things at national levels. But we do have (more) control on what we do within our own institutions. We will need to continually ask ourselves who we are helping, who we are putting at risk, and how we can be honest about this. This is on us.</p>
-<hr>
-<p>To subscribe, go to <a href="https://brianomeara.info/blog.xml" class="uri">https://brianomeara.info/blog.xml</a> in an RSS reader.</p>
-
-
-</section>
-
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{o'meara2025,
-  author = {O’Meara, Brian},
-  title = {Uncertainty and Risk},
-  date = {2025-01-31},
-  url = {https://brianomeara.info/posts/uncertaintyandrisk/},
-  langid = {en}
-}
-</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-o'meara2025" class="csl-entry quarto-appendix-citeas">
-O’Meara, Brian. 2025. <span>“Uncertainty and Risk.”</span> January 31,
-2025. <a href="https://brianomeara.info/posts/uncertaintyandrisk/">https://brianomeara.info/posts/uncertaintyandrisk/</a>.
-</div></div></section></div> ]]></description>
-  <category>NSF</category>
-  <category>REU</category>
-  <category>gradschool</category>
-  <category>funding</category>
-  <guid>https://brianomeara.info/posts/uncertaintyandrisk/</guid>
-  <pubDate>Fri, 31 Jan 2025 05:00:00 GMT</pubDate>
-</item>
-<item>
-  <title>Field Safety</title>
-  <dc:creator>Brian O&#39;Meara</dc:creator>
-  <link>https://brianomeara.info/posts/fieldsafety/</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<p>Over the 2023-2024 academic year, a committee in UTK EEB worked on field safety. This involves things like avoiding snakebite and traffic accidents (see Richard Conniff’s <a href="https://strangebehaviors.wordpress.com/2011/01/14/the-wall-of-the-dead/">memorial to fallen naturalists</a>) but also social factors. I am putting some information from this here to help others access it, but note it is a team effort.</p>
-<p>We went through a set of readings. Some relevant ones in this area include:</p>
-<ul>
-<li>Demery &amp; Pipkin (2020): <a href="https://www.nature.com/articles/s41559-020-01328-5" class="uri">https://www.nature.com/articles/s41559-020-01328-5</a></li>
-<li>Rudzki et al.&nbsp;(2022): <a href="https://besjournals.onlinelibrary.wiley.com/doi/10.1111/2041-210X.13970" class="uri">https://besjournals.onlinelibrary.wiley.com/doi/10.1111/2041-210X.13970</a></li>
-<li>Blonder (2022): <a href="https://esajournals.onlinelibrary.wiley.com/doi/full/10.1002/bes2.2031" class="uri">https://esajournals.onlinelibrary.wiley.com/doi/full/10.1002/bes2.2031</a></li>
-<li>Clancy et al.&nbsp;(2014): <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0102172" class="uri">https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0102172</a></li>
-</ul>
-<p>To help with this, several of us made a checklist. It is below. Feel free to adapt it for your own use.</p>
-<p><strong>Work travel checklist</strong></p>
-<p><strong>Discussions to have before going</strong></p>
-<ul>
-<li><p>Introductions between all participants</p></li>
-<li><p>Comfort levels with risk, activities</p>
-<ul>
-<li>Discussing criteria for deciding when/if to end fieldwork; students (everyone) should be empowered to speak up about conditions and expectations</li>
-</ul></li>
-<li><p>Health needs, accessibility needs, safety needs of all participants, medication needs</p></li>
-<li><p>Financial arrangements: how paying for things works in the field: who is paying for what and how</p></li>
-<li><p>Housing arrangement discussions</p></li>
-<li><p>Personal space, downtime, bathroom needs / procedures</p></li>
-<li><p>Bathrooms: people should use the one they feel most comfortable with; it is no one on the team’s role to police others’ bathroom use. Note that various locations may have different policies; it is up to individuals to assess these for themselves.</p></li>
-<li><p>Culture, language, and etiquette of the location, especially internationally</p></li>
-<li><p>Weapons in the field</p>
-<ul>
-<li><p>People you will encounter in the field will be armed (and think about PTSD)</p></li>
-<li><p>Note <a href="https://policy.tennessee.edu/policy/sa0875-firearms/">UTK firearms policy</a> if any participant may be considering carrying</p></li>
-<li><p>UTK policies for weapons (e.g.&nbsp;knives, pepper spray): <a href="https://studentconduct.utk.edu/wp-content/uploads/sites/53/2021/08/2m3k1ac-Fall-StudentCodeOfConduct_WEB.pdf">UTK Student Code of Conduct</a>. Carrying a knife in the field can be useful if allowable</p></li>
-<li><p>Note policies of various places about firearms (GSMNP does not allow firearms, for example)</p></li>
-<li><p>Discuss safety in general</p></li>
-</ul></li>
-<li><p>Possible hazards at site</p>
-<ul>
-<li>List the ones possible: could be human factors (civil unrest), wildlife, falling branches, driving risks, etc.</li>
-</ul></li>
-</ul>
-<p><strong>To resolve months in advance</strong></p>
-<ul>
-<li><p>Vaccination requirements</p></li>
-<li><p>Research permits for site</p></li>
-<li><p>Import permits</p></li>
-<li><p>Chemical permits: look at EHS policies for chemical safety</p></li>
-<li><p>Visas (note that participants may be citizens of different countries leading to different requirements)</p></li>
-<li><p>State department guidelines for various countries</p></li>
-<li><p>California travel warnings for certain states</p></li>
-<li><p>LGBTQ travel advisories for non-US travel: <a href="https://travel.state.gov/content/travel/en/international-travel/before-you-go/travelers-with-special-considerations/lgbtqi.html" class="uri">https://travel.state.gov/content/travel/en/international-travel/before-you-go/travelers-with-special-considerations/lgbtqi.html</a></p></li>
-<li><p>Travel insurance: <a href="https://cge.utk.edu/intlsos/" class="uri">https://cge.utk.edu/intlsos/</a> if university-sponsored travel (ask EEB for funding if you are paying on your own)</p></li>
-<li><p>UTK travel authorization form (extra steps if international;​​ <a href="https://cge.utk.edu/travel/" class="uri">https://cge.utk.edu/travel/</a>)</p></li>
-<li><p>Have discussion about health needs, accessibility needs, safety needs of all participants, medication needs</p></li>
-<li><p>For air travel, documentation required for boarding (think about how equipment and chemicals will be shipped)</p></li>
-<li><p>Request travel advance from the department</p></li>
-</ul>
-<p><strong>At least a month in advance of field work</strong></p>
-<ul>
-<li><p>Daily communication plan established</p></li>
-<li><p>Hazard plan for each site established</p>
-<ul>
-<li><p>Consider all hazards, including but not limited to automobiles (wear seat belts!), landslides, flooding, volcanic eruptions, earthquakes, extreme heat, wildfires, civil unrest, protests, animals, plants, diseases, racism, sexism</p></li>
-<li><p>Recreational hazards: swimming in ocean, ziplining, rafting, etc.</p></li>
-</ul></li>
-<li><p>Field research letter from the department</p></li>
-<li><p>Notify residents near the field site about plans, get permissions if possible - in letter, email, phone, or go door to door</p></li>
-<li><p>Check if site or travel route has a recent history of incidents - for example, is it a possible <a href="https://justice.tougaloo.edu/sundown-towns/using-the-sundown-towns-database/state-map/">sundown town</a>? What places are not safe to stop for gas?</p>
-<ul>
-<li>Check for short term events that may cause risks, delays, etc.: anything from a parade to roads washing out to an event that could get heated</li>
-</ul></li>
-<li><p>Assess need for satellite phones or other communication devices that work without cell service [Update Oct 2, 2025: satellite messaging from cell phones is becoming available. Recent iPhones can <a href="https://support.apple.com/en-us/105097">send messages or ask for help</a>, and T-Mobile has a service (included with some T-Mobile plans, but also available for $10/month for people on other plans) that lets users send <a href="https://www.theverge.com/news/790412/t-mobile-satellite-service-apps-x-whatsapp-google-maps">messages, use maps, and even video chat</a> over satellite.]</p></li>
-<li><p>Appropriate field clothing (footwear, sun protection)</p></li>
-<li><p>Make sure there are enough vehicles (UTK fleet: <a href="https://fleetmanagement.utk.edu/" class="uri">https://fleetmanagement.utk.edu/</a>)</p></li>
-<li><p>Get book of receipts (for buying things that don’t usually come with receipts)</p></li>
-<li><p>Have protocol for saving receipts of all kinds</p></li>
-<li><p>Consider travel advance, especially for longer trips.</p></li>
-<li><p>Mileage logbook</p></li>
-<li><p>List of emergency contacts, including:</p>
-<ul>
-<li><p>Local contact info for emergency assistance (911 isn’t global); International SOS card <a href="https://cge.utk.edu/intlsos/" class="uri">https://cge.utk.edu/intlsos/</a></p></li>
-<li><p>Contacts of others on the trip</p></li>
-<li><p>UTK assistance:</p>
-<ul>
-<li><p>Travel office</p></li>
-<li><p>Title IX office (for harassment): <a href="https://titleix.utk.edu/" class="uri">https://titleix.utk.edu/</a></p></li>
-<li><p>Workmans’ compensation (for getting coverage for injuries during work/travel): <a href="https://riskmanagement.tennessee.edu/workers-compensation/" class="uri">https://riskmanagement.tennessee.edu/workers-compensation/</a></p></li>
-</ul></li>
-</ul></li>
-</ul>
-<p><strong>Before leaving</strong></p>
-<ul>
-<li><p>Project specific equipment: personal gear, safety gear (hard hats, gloves, etc.), scientific equipment, sharpies, baggies, etc. Spell them all out as a separate checklist specific to this activity.</p></li>
-<li><p>Cell phones charged</p></li>
-<li><p>Chargers</p></li>
-<li><p>Sufficient water <a href="https://www.rei.com/learn/expert-advice/hydrate.html">(0.5-1 liters per person per hour in the field)</a></p></li>
-<li><p>First aid kit on board (comprehensive, not just bandaids. Handle sprains, pain, deep cuts, etc.)</p></li>
-<li><p>Sunscreen</p></li>
-<li><p>Car magnets</p></li>
-<li><p>Food/snacks</p></li>
-<li><p>Hygiene products</p>
-<ul>
-<li><p>Hand sanitizer</p></li>
-<li><p>Soap</p></li>
-<li><p>Toilet paper, trowel for digging hole (when allowed in the field)</p></li>
-<li><p>Tampons/pads</p></li>
-</ul></li>
-<li><p>Personal medication (brought by each individual)</p>
-<ul>
-<li><p>Allergy medication</p></li>
-<li><p>Painkillers</p></li>
-<li><p>Digestive medications</p></li>
-</ul></li>
-<li><p>Flashlights (spare batteries?)</p></li>
-<li><p>Emergency tool kit (pliers, hammer, rope, screwdriver, pry bar, etc)</p></li>
-<li><p>GPS</p></li>
-<li><p>Signaling device (Garmin InReach, Motorola Defy Satellite Link, or similar) if going to an area without good cell coverage</p></li>
-<li><p>Trip plan (let someone know where you are, when you’ll be back, how often you’ll check in)</p></li>
-</ul>
-<p><strong>Handling problems when or after they arise</strong></p>
-<ul>
-<li><p>Reach out to the head or associate heads</p></li>
-<li><p>Title IX (for sexual harassment, stalking, or similar): <a href="https://titleix.utk.edu/" class="uri">https://titleix.utk.edu/</a></p></li>
-<li><p>Office of Equity and Diversity (racism, sexism, accessibility): <a href="https://oed.utk.edu/" class="uri">https://oed.utk.edu/</a></p></li>
-<li><p>Office of Environmental Health &amp; Safety (emergency response, safety issues): <a href="https://ehs.utk.edu/" class="uri">https://ehs.utk.edu/</a></p></li>
-<li><p>Ombudsperson (confidential advice): <a href="https://ombuds.utk.edu/" class="uri">https://ombuds.utk.edu/</a></p></li>
-<li><p>Office of Research Integrity (authorship conflicts, responsible conduct of research): <a href="https://research.utk.edu/research-integrity/" class="uri">https://research.utk.edu/research-integrity/</a></p></li>
-<li><p>NSF hotline: <a href="https://oig.nsf.gov/contact/hotline" class="uri">https://oig.nsf.gov/contact/hotline</a></p></li>
-</ul>
-<hr>
-<p>To subscribe, go to <a href="https://brianomeara.info/blog.xml" class="uri">https://brianomeara.info/blog.xml</a> in an RSS reader.</p>
-
-
-
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{o'meara2024,
-  author = {O’Meara, Brian},
-  title = {Field {Safety}},
-  date = {2024-05-08},
-  url = {https://brianomeara.info/posts/fieldsafety/},
-  langid = {en}
-}
-</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-o'meara2024" class="csl-entry quarto-appendix-citeas">
-O’Meara, Brian. 2024. <span>“Field Safety.”</span> May 8, 2024. <a href="https://brianomeara.info/posts/fieldsafety/">https://brianomeara.info/posts/fieldsafety/</a>.
-</div></div></section></div> ]]></description>
-  <category>field safety</category>
-  <category>fieldwork</category>
-  <category>safety</category>
-  <category>NSF</category>
-  <category>inclusion</category>
-  <guid>https://brianomeara.info/posts/fieldsafety/</guid>
-  <pubDate>Wed, 08 May 2024 04:00:00 GMT</pubDate>
-</item>
-<item>
-  <title>Dentist for likelihood</title>
-  <dc:creator>Brian O&#39;Meara</dc:creator>
-  <link>https://brianomeara.info/posts/dentist/</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<p>If you want to estimate the uncertainty in parameter estimates, including potential correlation issues between parameters, you can use our new package <code>dentist</code> (<a href="https://doi.org/10.1111/2041-210X.14297">Boyko and O’Meara, 2024</a>). It can take a function that computes a likelihood and explore parameters around it to get uncertainty, including varying by multiple parameters at once to help detect ridges.</p>
-<p>If you don’t know <em>why</em> you want this, read on.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://brianomeara.info/posts/dentist/images/Fig3b.png" class="img-fluid figure-img" alt="Two univariate scatterplots showing a mixture of black points near the optimum and gray further out. It also has a bivariate plot showing a tilted ellipse with black points in the good enough region."></p>
-<figcaption>Figure 3b from the <a href="https://doi.org/10.1111/2041-210X.14297">dentist</a> paper, showing the focal region in black, maximum likelihood estimate in red, and other sampled points too far from the optimum in gray</figcaption>
-</figure>
-</div>
-<p>There are many R functions that use likelihood to fit models (<code>OUwie</code>, <code>geiger</code>, <code>corHMM</code>, <code>phytools</code>, and many more), which are often compared with measures like the Akaike Information Criterion (AIC). Jeremy Beaulieu and I (among <em>many</em> others) have long pushed for for people to focus on parameter estimates rather than just which model fits best. An Ornstein-Uhlenbeck model with two optima might fit better than a model with one, but while it is statistically supported it might not be biologically very relevant if the optima are close and the tip values range much more widely due to a low pull parameter. If different species range in size from 2 to 30 mm, two optima of 5 and 7 mm rather than one of 6 mm might not matter much in practice.</p>
-<p>But even when people report parameter estimates, they often don’t report uncertainty in those estimates. This is deeply weird. We’re used to seeing “42 (CI 37-52) mm” or “42 ± 9 mm” but in comparative methods, people will only report “42 mm” (or, more commonly, “42” since we often omit units, too?!).</p>
-<p>A major reason for this is lack of tools. Some software does not calculate uncertainty at all. Some does, but only using an approximation of curvature at the peak itself (methods using the Hessian). Others do it with a Bayesian approach, which has some advantages, but requires setting a prior, and which can hide ridges in the likelihood surface if the prior is uniform, lognormal, normal, exponential, or anything else that is not perfectly flat for all values.</p>
-<p>Dentist is a new approach. It has something of the feel of MCMC, but rather than traversing a surface of likelihood times prior, it explores a “dented” likelihood surface to find the contour with points far enough from the optimum to represent a confidence interval. Imagine a likelihood surface is a mountain peak; we dent it so that it looks like a crater, and we try to find the rim. We have algorithms to do this with different kinds of moves if needed.</p>
-<p>When it is done, the user gets not only the best parameter estimate but also a visualization of the confidence region around this space and a table with the parameter bounds. They can thus see ridges, as well as get a good estimate based on looking at the actual surface rather than just an estimate at the discovered peak.</p>
-<p>For more details on why to use it, how to use it, and how it can fail, please see the <a href="https://doi.org/10.1111/2041-210X.14297">paper</a>.</p>
-<p>It was a joy working with James Boyko on this. He was essential for pushing it forward, testing methods, writing, and so much more.</p>
-<p>Our paper has the usual boilerplate about thanking the reviewers and associate editor (Natalie Cooper). But in this case it is genuine. The paper, and method, improved through peer review (most essentially by encouraging us to let the threshold be set based on the number of parameters rather than left entirely up to the users, but in other ways, too, including pushing us to compare more directly with other approaches). There are lots of issues with peer review (biases in the reviews, unpaid expert efforts for obscenely profitable companies, delays in publication, impact selection, and more) but it really can help sometimes, as it did here.</p>
-<p>And finally, thank you to the US National Science Foundation (grant DEB-1916539) and the Eric and Wendy Schmidt AI in Science Postdoctoral Fellowship, a Schmidt Futures programme.</p>
-<hr>
-<p>To subscribe, go to <a href="https://brianomeara.info/blog.xml" class="uri">https://brianomeara.info/blog.xml</a> in an RSS reader.</p>
-
-
-
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{o'meara2024,
-  author = {O’Meara, Brian},
-  title = {Dentist for Likelihood},
-  date = {2024-02-29},
-  url = {https://brianomeara.info/posts/dentist/},
-  langid = {en}
-}
-</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-o'meara2024" class="csl-entry quarto-appendix-citeas">
-O’Meara, Brian. 2024. <span>“Dentist for Likelihood.”</span> February
-29, 2024. <a href="https://brianomeara.info/posts/dentist/">https://brianomeara.info/posts/dentist/</a>.
-</div></div></section></div> ]]></description>
-  <category>R</category>
-  <category>Rstats</category>
-  <category>likelihood</category>
-  <category>uncertainty</category>
-  <category>publication</category>
-  <guid>https://brianomeara.info/posts/dentist/</guid>
-  <pubDate>Thu, 29 Feb 2024 05:00:00 GMT</pubDate>
 </item>
 </channel>
 </rss>

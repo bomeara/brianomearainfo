@@ -1,0 +1,28 @@
+---
+title: "PhyloPapers 2025, Multivariate traits"
+description: "Discussion of Sherratt et al. (2025), Multivariate trait evolution in sea snakes"
+author: "Brian O'Meara"
+date: "11/14/2025"
+citation: true
+categories: [phylopapers, phylogenetics, teaching, multivariate, morphology, macroevolution] 
+---
+
+Students requested a reading on multivariate (many character) morphological evolution. I chose:
+
+>Emma Sherratt, Jenna Crowe-Riddell, Alessandro Palci, Ammresh, Mark N. Hutchinson, Michael S.Y. Lee, Kate L. Sanders. 2025. “Rapid evolution and cranial morphospace expansion  during the terrestrial to marine transition in elapid snakes” Evolution, 2025, 0(0), 1–13 <https://doi.org/10.1093/evolut/qpaf180>. 
+
+The paper looks at skull evolution changes as snakes went back to the sea. It is a great, modern take on how geometric morphometrics works, using X-ray microcomputed tomography of skulls. It uses landmarks to measure shape and a variety of approaches to visualize changes and to estimate rates of change. It is also an opportunity to introduce students to the [Procrustes](https://en.wikipedia.org/wiki/Procrustes) myth (namesake of a statistical method).
+
+One especially nice feature of this paper was its use of simulations -- always a good way to get a sense of what the fitted models are actually saying about the morphology.
+
+A necessary caveat when looking at spectacular evolutionary one-offs is that they are just that -- N=1 examples. In this case, the group radiated into many species (and there's also a different origin of a semi-aquatic species) but no matter how rigorous the statistics used are, it's still a single origin of the change and the putatively correlated trait. The fully marine species do have a different shape and faster rate of evolution leading to them, but it could be due to something else changing on that branch besides the habitat shift. For example, if there were sexual selection for a sleeker head in that lineage, we would not know that led to the shift in shape rather than habitat -- maybe the head shape shift unlocked the ability to be marine. This isn't a criticism of this paper, but rather something everyone working on single synapomorphies must wrestle with, whether it's the consequences of evolving a flower, vertebrate transition to land, or beaks in birds. It's still possible to *reject* some hypotheses -- for example, this paper had enough power that had it shown there was *no* association of the marine shift with head shape change, I would believe it, so showing there is an association present does give more weight to the idea that one change led to the other. It's not the same as finding the same head shape change in five different cases when snakes went back to the ocean, but we just don't have five such examples.
+
+Though it wasn't a focus of this paper, its mention of earlier work showing a decoupling of rates between speciation and morphology was also a benefit. We often have what I call the Martha Steward macroevolutionary hypothesis: "It's a good thing" [the catchphrase of this American TV and cookbook personality]. We assume that some presumably adaptive trait will lead to increased speciation, lower extinction, and faster rates of evolution overall, even when there is no clear mechanism as to why (for example, perhaps living in the ocean results in fewer mating barriers and so should *slow* the rate of species formation). Work like that in this group shows that these rates can in fact operate independently of each other (and that rate shifts that are detected aren't driven by confounding factors, like branches that are estimated to be too short in one clade that then results in too high rate estimates). 
+
+I made intro slides with some of my background material, especially about Ornstein-Uhlenbeck models, and some figures from the paper: [PDF](SherrattEtAl_2025_SeaSnakes.pdf) and [PowerPoint](SherrattEtAl_2025_SeaSnakes.pptx). Sample figure from the slides, showing how OU models work (sigma is the amount of sugar the kid has been fed, alpha is the strength of pull of his cord, and theta is where he is being pulled to):
+
+![](OU.png){fig-alt="An image of a child wearing a harness thumbtacked to the background, above the OU equation (dX_T = sigma * dW_T + alpha * (theta - X_T))"}
+
+___
+
+To subscribe, go to <https://brianomeara.info/blog.xml> in an RSS reader.

@@ -1,0 +1,24 @@
+---
+title: "PhyloPapers 2025, Trait evolution"
+description: "Discussion of Rincón-Rubio et al. (2025) SSE models"
+author: "Brian O'Meara"
+date: "10/17/2025"
+citation: true
+categories: [phylopapers, phylogenetics, teaching, SSE, trait evolution] 
+---
+
+This week I wanted students to learn more about reticulate evolution (phylogenetic networks):
+
+>Verónica A. Rincón-Rubio, Rosana Zenil-Ferguson, Alejandro Gonzalez-Voyer. 2025. “The macroevolutionary consequences of the association  between frugivory and carotenoid-dependent plumage  coloration in passerine birds” Evolution, 2025, 79(8), 1643–1657  <https://doi.org/10.1093/evolut/qpaf105>
+
+This is an example of a thorough study that investigates trait evolution well. The paper looks at potential correlation between eating fruits and having feathers that use carotenoids for color. It's fundamentally a trait correlation question, but the paper is careful to first check for possible association between the traits and diversification. As Wayne Maddison showed [nearly two decades ago](https://doi.org/10.1111/j.0014-3820.2006.tb00517.x), even if your question is about traits, ignoring the effect of differential diversification can cause problems: there are more state 1 than 0 at the tips because of a faster 0->1 than 1<-0 rate, and/or higher diversification rate in state 1, and/or there hasn't been enough time to move on from a state 1 ancestral state: one can't just look at the transition rates alone. So this paper does a ton of work to examine potential confounding effects, finds none, and then goes on to find that the ancestor for passerines likely had carotenoid-dependent plumage and that in species that do not have both carotenoid-dependent plumage *and* frugivory they lose the other trait quickly as well. 
+
+If I were to have a quibble with the paper, it would be its lack of units: for example, the rate of loss of carotenoid pigmentation in birds that don't have frugivory (Fig 2) is "0.06" -- no units indicated in figure or caption. Omitting units is standard for our field, but it can help with interpretation. For example, 0.06, assuming the tree branch lengths are in units of millions of years, is 0.06 events/MY or, perhaps more intuitively, an expected wait time per species of 1/0.06 = 16.7 MY to lose frugivory. Putting rates in terms of expected time until a change can help show if numbers are reasonable: this one, for example, suggests a leisurely amount of time for the change but still evolutionarily feasible: it's not like an expected time of 10 years nor of 10 billion years. 
+
+Overall, though, this is a great paper. Another teachable moment from it -- it could have come across as a boring null result: "carotenoids for plumage (or frugivory) do not affect speciation or extinction" and maybe even left in a drawer. But it's not! For one thing, the lack of correlation *is* a discovery -- I would have thought that carotenoid-dependent plumage would increase speciation (by allowing more reinforcement of mating barriers that appear). And there is an additional story about the trait correlation themselves, and potential ancestral states, that help us understand evolution better.
+
+I made intro slides with some of my background material (SSE models, trait models) and some figures from the paper: [PDF](Rincon-RubioEtAl_2025_SSE_Correlation.pdf) and [PowerPoint](Rincon-RubioEtAl_2025_SSE_Correlation.pptx).
+
+___
+
+To subscribe, go to <https://brianomeara.info/blog.xml> in an RSS reader.

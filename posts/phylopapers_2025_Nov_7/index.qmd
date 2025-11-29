@@ -1,0 +1,31 @@
+---
+title: "PhyloPapers 2025, Alpha taxonomy"
+description: "Discussion of Jochim et al. (2025), alpha taxonomy in trapdoor spiders using UCEs"
+author: "Brian O'Meara"
+date: "11/07/2025"
+citation: true
+categories: [phylopapers, phylogenetics, teaching, alpha taxonomy, spiders, phylogeography, UCEs] 
+---
+
+This week I wanted students to review a bit on what they have learned as well as look at ultraconserved elements (UCEs) and alpha taxonomy. The paper was:
+
+>Emma E. Jochim, James Starrett, Hanna R. Briggs, Jason E. Bond. 2025. "Speciation Pattern and Process in the California Coastal Dune Endemic Trapdoor Spider Aptostichus simus (Mygalomorphae: Euctenizidae) and Description of a New Cryptic Species" *Ecology and Evolution* 15:e72346 <https://doi.org/10.1002/ece3.72346>. 
+
+This revisits a clade of trapdoor spiders in California. It is noteworthy that even in a place with as many resources and researchers as California, and with organisms this charismatic, there remains open questions in taxonomy.
+
+This paper used ultraconserved elements, UCEs, which have been popular recently as they have a mix of rates, so in theory some are useful for the questions being studied (and they come from across the genome):
+
+![](UCE.png){fig-alt="A figure showing variation in UCEs versus position (from Faircloth et al. 2012) demonstrating the classic U-shape with little variation in the middle and more on the ends. Bands show areas that are 'Too cold', 'Just right', and 'Too hot.'"}
+
+Students engaged well with this paper, asking good questions about sampling, amount of evidence for the species boundaries, and the various methods used.
+
+One thing that really impressed me about this paper was that it included the actual alpha taxonomy. I develop species delimitation methods, and so many published uses are basically "look, there are undescribed species here" and then the paper stops. This paper formally describes the new species: diagnostic characters, types, the works. Species boundaries are hypotheses, and I could imagine ongoing discussions about whether this group is under- or oversplit, but actually going from model conclusions to updating the taxonomy is a great step.
+
+The paper also spurred good discussions about the practice of naming in taxonomy. The new species is named after Dr. Martina G. Ramirez, who has [worked](https://scholar.google.com/citations?hl=en&user=zOyyyQkAAAAJ&view_op=list_works&sortby=pubdate&inst=9897619243961157265) on spiders for decades, and who sounds like an [amazing mentor](https://web.archive.org/web/20240720122658/https://newsroom.lmu.edu/administrative/the-dream-of-living-authentically-and-the-spartacus-plan/) for her students, so this naming avoids many of the issues of naming after people in the past with problematic impacts (see my [SSB presidential address](https://brianomeara.info/evol2023.html) on this and related issues). However, naming organisms after people is very much an open question in our field, with reasonable advocates on many sides, so it was useful for students to work through the arguments in class to help understand the practice of taxonomy better.
+
+I made intro slides with some of my background material and some figures from the paper: [PDF](JochimEtAl_2025_Trapdoor_Spiders.pdf) and [PowerPoint](JochimEtAl_2025_Trapdoor_Spiders.pptx). 
+
+
+___
+
+To subscribe, go to <https://brianomeara.info/blog.xml> in an RSS reader.

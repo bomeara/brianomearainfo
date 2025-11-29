@@ -1,0 +1,36 @@
+---
+title: "PhyloPapers 2025, Machine learning for traits"
+description: "Discussion of Hunt et al. (2025), a method that deep learning to recover traits for phylogenetics"
+author: "Brian O'Meara"
+date: "10/31/2025"
+citation: true
+categories: [phylopapers, phylogenetics, teaching, deep learning, AI, morphology] 
+---
+
+This week I wanted students to learn more about phylogenies potentially helping with missing data:
+
+>Roberta Hunt, José L. Reyes-Hernández, Josh Jenkins Shaw, Alexey Solodovnikov, Kim Steenstrup Pedersen. 2025. “Integrating Deep Learning Derived Morphological Traits and Molecular Data for Total-Evidence Phylogenetics.” Systematic Biology 74(3): 453-468 <https://doi.org/10.1093/sysbio/syae072>
+
+Morphological traits have a long history in phylogenetics, and for some questions, like for reconstructions of long-dead species, they can be the only data available. This paper takes advantage of deep learning and a set of reference images for beetles to identify traits to use for phylogenetic reconstruction.
+
+One useful bit of background was this introduction to convolutional neural networks ([original page](https://learnopencv.com/understanding-convolutional-neural-networks-cnn/); [archived](https://web.archive.org/web/20250812162534/https://learnopencv.com/understanding-convolutional-neural-networks-cnn/)). Note that "AI" covers a whole set of technologies, from ways to get text-based responses trained from a large corpus of text ("cheatGPT, write a five paragraph essay on the use of imagery in *The Scarlet Letter*") to generating pictures or videos, to matching images or sounds to species (as in [iNaturalist](https://www.inaturalist.org) or [Merlin](https://merlin.allaboutbirds.org)); convolutional neural networks (CNN) are common ways to extract features and other information from images.
+
+I was expecting this paper to extract discrete characters, as that are what are used most commonly in phylogenetics for tree inference: things like presence or absence of "pygidium exposed" or  "geniculate antennae." Instead it used continuous traits. Those are commonly ratios or other concrete trait measurements: head width divided by length, angle between two elements, etc. This uses features that the machine learning approach discovered but which are harder to map back to traits humans identify; for example, here's which pixels matter to one of the traits used:
+
+![](beetle.png){fig-alt="Figure 5c from Hunt et al. (2025). It shows a gray beetle silhouette on a black background, with whiter areas near its abdomen and parts of its hind legs."}
+
+This paper shows these traits are informative and useful for recovering the phylogeny. It does not shy away from potential disadvantages, either, including the work still required and even the environmental cost of running these models.
+
+Another thing this paper does excellently is providing supplementary data:
+
+> The data underlying this article are available at <http://doi.org/10.17894/ucph.39619bba‐4569‐4415‐9f25‐d6a0ff6 4f0e3> for the Rove‐Tree‐11 dataset and in the article’s dryad repository (<https://doi.org/10.5061/dryad. 9cnp5hqqq>) for the further molecular data and associated genbank accession numbers, example inference code, all generated trees, and stratified dataset split. All trained model runs and extracted trait matrices are available in the following erda repository <https://erda.ku.dk/archives/440063cabdb1789ad82f31366c926b4e/published‐archive.html>. The reference tree, best molecular tree and best total‐evidence tree can be found on TreeBASE at <http://purl.org/phylo/treebase/phylows/study/TB2:S31300?x‐access‐code=397cc12bd8047bf52b312b4743f23e2b&format=html>. The code used in this analysis is available on github <https://github.com/robertahunt/Revisiting_Deep_Metric_Learning_PyTorch>, commit a6654453c3b7785a17511255e02c468c53fe6f5d, forked from Roth et al. (2020).
+
+It even includes putting the trees on TreeBase, something few in our field do despite the benefits to all (and citation bump for people who share). 
+
+I made intro slides with some of my background material and some figures from the paper: [PDF](HuntEtAl_2025_MachineLearningTraits.pdf) and [PowerPoint](HuntEtAl_2025_MachineLearningTraits.pptx). 
+
+
+
+___
+
+To subscribe, go to <https://brianomeara.info/blog.xml> in an RSS reader.

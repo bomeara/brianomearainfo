@@ -1,0 +1,40 @@
+---
+title: "PhyloPapers 2025, Handling Data Deficiency"
+description: "Discussion of Sharma et al. (2025) on ways to model distributions for data-deficient species"
+author: "Brian O'Meara"
+date: "10/24/2025"
+citation: true
+categories: [phylopapers, phylogenetics, teaching, data deficiency, phylogenetic prediction] 
+---
+
+This week I wanted students to learn more about phylogenies potentially helping with missing data:
+
+>Shubhi Sharma, Kevin Winner, Laura J. Pollock, James T. Thorson, Jussi Mäkinen, Cory Merow, Eric J. Pedersen, Kalkidan F. Chefira, Julia M. Portmann, Fabiola Iannarilli, Sara Beery, Riccardo De Lutio, Walter Jetz, 2025. No species left behind: borrowing strength to map data-deficient species. Trends in Ecology & Evolution 40, 699–711. <https://doi.org/10.1016/j.tree.2025.04.010>
+
+Figuring out where species can live now, where they could live in the future as climate shifts or habitat changes, and where they may have lived in the past are key questions for which species distribution models (SDM) can be helpful. There are many approaches, but in general they use many location points for a species, gather info on climate or other factors at those points, and use them to model where a species can and cannot occur. For example, palm trees do not do well where it is cold enough for them to freeze: all their points will be from areas without multiple freezing days, and a good model will use this and other factors to predict where they can live (and perhaps moving poleward as climate tends to warm). But the problem is that many species lack the data required to do this well. 
+
+This paper sketches out a few ways to use information from a related species to help model a focal species. These can include using phylogenies to connect predictions or parameters between species as well as various other ways, such as co-occurrence, to have data-rich species help make inferenes for data-poor species.
+
+I like this sort of work because it makes continuous how we often treat individual species. We say we avoid typological thinking ("any member of this group is fundamentally the same as any other member") but we de facto use this when we assume all members of a species are identical. The reality is that there will generally be more or less closely related subpopulations that are not 1:1 replacements for each other (though likely exchanging genes), but it's reasonable that the populations are pretty good predictors for each other. However, for traditional approaches to SDM, we assumes this predictive similarity stops at the (somewhat arbitrary) "species" boundary. With some of the methods in this paper, some info can flow between related species. It is a good use for phylogeny, especially in a world where the amount of data can vary so dramatically between species. Another example of this was done by Jess Welch and Jeremy Beaulieu for [predicting bat extinction risk](https://doi.org/10.3390/d10030063). 
+
+Another advantage of this paper for teaching this week is that it was a relatively short review paper (*TREE*). It can be a nice break for students more used to dealing with methods-heavy empirical papers.
+
+
+## Brownian motion isn't (only) neutral
+
+A common idea in ecology and evolution, and touched on just briefly in this paper (thus providing an opportunity for this rant, but it's not really a problem in this paper), is that Brownian motion means neutral evolution, genetic drift, etc. It's true that these processes fit a Brownian motion model, but so do a lot of selective processes. I often point people back to the classic [Hansen & Martins (1996) paper](https://doi.org/10.1111/j.1558-5646.1996.tb03914.x) on this. Its Table 1 is especially useful ("Brownian" annotation by me):
+
+![](HansenMartins1996.png){fig-alt="Table 1 from Hansen & Martins (1996). It shows various models such as drift-mutation balance and the expected covariance under these models. Models that boil down to 'a bunch of constants times time' are equivalent to Brownian motion (and I have annotated the table with labels showing where these are)"}
+
+Lots of different models create situations where variance accumulates based on a set of constants (sometimes quite complex ones, but in these models unvarying across the tree) multiplied by time -- effectively Brownian motion (ignoring movements of means). For example, if there is an optimum moving around due to various perturbations, and the species track that mean, that leads to a Brownian motion model. It's only if the optimum moves in few, discrete jumps, or stays in one place for a long time, when models like an Ornstein-Uhlenbeck model might be worth the complexity. Genetic drift also leads to Brownian motion, but it's far from the only cause. It is like if we see something moving across the sky: sure, it could be jet propulsion, but it could also be a spider ballooning in the breeze, a meteor falling, or an albatross flying. Many different processes create the same pattern of movement; it's the same for Brownian motion where many evolutionary models, some with no selection, some with very large selection, can create the same pattern so we can't go from pattern back to mechanism.
+
+Again, not really a hit on the paper, just a teachable moment coming from an aside in it. 
+
+
+I made intro slides with some of my background material and some figures from the paper: [PDF](Sharma_et_al_2025_DataDeficiency.pdf) and [PowerPoint](Sharma_et_al_2025_DataDeficiency.pptx). 
+
+
+
+___
+
+To subscribe, go to <https://brianomeara.info/blog.xml> in an RSS reader.

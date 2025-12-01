@@ -10,7 +10,63 @@
 <atom:link href="https://brianomeara.info/blog.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.6.40</generator>
-<lastBuildDate>Fri, 21 Nov 2025 05:00:00 GMT</lastBuildDate>
+<lastBuildDate>Mon, 01 Dec 2025 05:00:00 GMT</lastBuildDate>
+<item>
+  <title>PhyloPapers 2025, Summary</title>
+  <dc:creator>Brian O&#39;Meara</dc:creator>
+  <link>https://brianomeara.info/posts/phylopapers_2025_summary/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>Class is finished! A mixture of grad students, postdocs, and faculty attended the sessions. Students taking it for credit were asked on the eve of each class:</p>
+<ul>
+<li>What was the discovery or innovation in this paper?</li>
+<li>How this was supported by evidence in the paper?</li>
+<li>What didn’t you understand about the paper, the methods, the questions, and/or the organisms?</li>
+</ul>
+<p>I would use this info to tune what I covered in the intro for each class session. People brought a range of experience to the class, and I wanted to structure it so that everyone would learn a bit within each class session. Below are links to the posts for each week’s reading (slides, reflections on the paper, etc.):</p>
+<ul>
+<li><strong>Tree building</strong> (<a href="https://brianomeara.info/posts/phylopapers_2025_Aug_22/">Aug 22, 2025</a>): Alison R. Irwin, Nicholas W. Roberts, Ellen E. Strong, Yasunori Kano, Daniel I. Speiser, Elizabeth M. Harper, and Suzanne T. Williams. 2025. “Evolution of Large Eyes in Stromboidea (Gastropoda): Impact of Photic Environment and Life History Traits” <em>Systematic Biology</em> 74(2):301–322. <a href="https://doi.org/10.1093/sysbio/syae063" class="uri">https://doi.org/10.1093/sysbio/syae063</a></li>
+<li><strong>Bayesian analysis &amp; fossilized birth death models</strong> (<a href="https://brianomeara.info/posts/phylopapers_2025_Aug_29/">Aug 29, 2025</a>): Laura P. A. Mulvey, Mark C. Nikolic, Bethany J. Allen, Tracy A. Heath and Rachel C. M. Warnock. 2025. “From fossils to phylogenies: exploring the integration of paleontological data into Bayesian phylogenetic inference” <em>Paleobiology</em> 51, 214–236. <a href="https://doi.org/10.1017/pab.2024.47" class="uri">https://doi.org/10.1017/pab.2024.47</a></li>
+<li><strong>Growth of the tree of life</strong> (<a href="https://brianomeara.info/posts/phylopapers_2025_Sep_05/">Sep 05, 2025</a>): Molly Chen, Artem I. Kholodov and Laura A. Hug (2025). “The evolution of the tree of life” <em>Phil. Trans. R. Soc. B</em> 380: 20240091. <a href="https://doi.org/10.1098/rstb.2024.0091" class="uri">https://doi.org/10.1098/rstb.2024.0091</a></li>
+<li><strong>Genomic species delimitation</strong> (<a href="https://brianomeara.info/posts/phylopapers_2025_Sep_12/">Sep 12, 2025</a>): Sonal Singhal, Adam D. Leaché, Matthew K. Fujita, Carlos Daniel Cadena, and Felipe Zapata. 2025. “A Genomic Perspective on Species Delimitation” <em>Annu. Rev.&nbsp;Ecol. Evol. Syst.</em> 2025. 56:467–89 <a href="https://doi.org/10.1146/annurev-ecolsys-102723-055311" class="uri">https://doi.org/10.1146/annurev-ecolsys-102723-055311</a></li>
+<li><strong>Phylogeography</strong> (<a href="https://brianomeara.info/posts/phylopapers_2025_Sep_17/">Sep 17, 2025</a>): Manica Balant<sup>1</sup>, Daniel Vitales<sup>1</sup>, Zhiqiang Wang<sup>1</sup>, Zoltán Barina, Lin Fu, Tiangang Gao, Teresa Garnatje, Airy Gras, Muhammad Qasim Hayat, Marine Oganesian, Jaume Pellicer, Seyed A. Salami, Alexey P. Seregin, Nina Stepanyan-Gandilyan, Nusrat Sultana, Shagdar Tsooj, Magsar Urgamal, Joan Vallès, Robin van Velzen, Lisa Pokorny. 2025. “Integrating target capture with whole genome sequencing of recent and natural history collections to explain the phylogeography of wild-growing and cultivated <em>Cannabis</em>” <em>Plants People Planet</em>. 1-18. <a href="https://doi.org/10.1002/ppp3.70043" class="uri">https://doi.org/10.1002/ppp3.70043</a> [<sup>1</sup> = equal contributions]</li>
+<li><strong>Simulation</strong> (<a href="https://brianomeara.info/posts/phylopapers_2025_Sep_24/">Sep 24, 2025</a>): Ornela N. Dehayem, Ryan F. A. Brewer, Luis Valente, Frederic Lens, Rampal S. Etienne. 2025. “Impact of sampling strategy on inference of community assembly processes in phylogenetic island biogeography” <em>Methods in Ecology and Evolution</em>. 16:1507–1520. <a href="https://doi.org/10.1111/2041-210X.70058" class="uri">https://doi.org/10.1111/2041-210X.70058</a></li>
+<li><strong>Behavior and genomics</strong> (<a href="https://brianomeara.info/posts/phylopapers_2025_Oct_03/">Oct 3, 2025</a>): Sara E. Lipshutz, Mark S. Hibbins, Alexandra B. Bentz, Aaron M. Buechlein, Tara A. Empson, Elizabeth M. George, Mark E. Hauber, Douglas B. Rusch, Wendy M. Schelsky, Quinn K. Thomas, Samuel J. Torneo, Abbigail M. Turner, Sarah E. Wolf, Mary J. Woodruff, Matthew W. Hahn &amp; Kimberly A. Rosvall. 2025. “Repeated behavioural evolution is associated with convergence of gene expression in cavity-nesting songbirds” <em>Nature Ecology &amp; Evolution</em>. <a href="https://doi.org/10.1038/s41559-025-02675-x" class="uri">https://doi.org/10.1038/s41559-025-02675-x</a></li>
+<li><strong>Reticulate evolution</strong> (<a href="https://brianomeara.info/posts/phylopapers_2025_Oct_10/">Oct 10, 2025</a>): Gil Yardeni, Michael H. J. Barfuss, Walter Till, Matthew R. Thornton, Clara Groot Crego, Christian Lexer, Thibault Leroy and Ovidiu Paun. 2025. “The Explosive Radiation of the Neotropical <em>Tillandsia</em> Subgenus <em>Tillandsia</em> (Bromeliaceae) Has Been Accompanied by Pervasive Hybridization” <em>Systematic Biology</em> <a href="https://doi.org/10.1093/sysbio/syaf039" class="uri">https://doi.org/10.1093/sysbio/syaf039</a></li>
+<li><strong>Trait evolution</strong> (<a href="https://brianomeara.info/posts/phylopapers_2025_Oct_17/">Oct 17, 2025</a>): Verónica A. Rincón-Rubio, Rosana Zenil-Ferguson, Alejandro Gonzalez-Voyer. 2025. “The macroevolutionary consequences of the association between frugivory and carotenoid-dependent plumage coloration in passerine birds” <em>Evolution</em>, 2025, 79(8), 1643–1657 <a href="https://doi.org/10.1093/evolut/qpaf105" class="uri">https://doi.org/10.1093/evolut/qpaf105</a></li>
+<li><strong>Handling data deficiency in SDMs</strong> (<a href="https://brianomeara.info/posts/phylopapers_2025_Oct_24/">Oct 24, 2025</a>): Shubhi Sharma, Kevin Winner, Laura J. Pollock, James T. Thorson, Jussi Mäkinen, Cory Merow, Eric J. Pedersen, Kalkidan F. Chefira, Julia M. Portmann, Fabiola Iannarilli, Sara Beery, Riccardo De Lutio, Walter Jetz, 2025. “No species left behind: borrowing strength to map data-deficient species” <em>Trends in Ecology &amp; Evolution</em> 40, 699–711. <a href="https://doi.org/10.1016/j.tree.2025.04.010" class="uri">https://doi.org/10.1016/j.tree.2025.04.010</a></li>
+<li><strong>Machine learning for traits</strong> (<a href="https://brianomeara.info/posts/phylopapers_2025_Oct_31/">Oct 31, 2025</a>): Roberta Hunt, José L. Reyes-Hernández, Josh Jenkins Shaw, Alexey Solodovnikov, Kim Steenstrup Pedersen. 2025. “Integrating Deep Learning Derived Morphological Traits and Molecular Data for Total-Evidence Phylogenetics.” <em>Systematic Biology</em> 74(3): 453-468 <a href="https://doi.org/10.1093/sysbio/syae072" class="uri">https://doi.org/10.1093/sysbio/syae072</a></li>
+<li><strong>Alpha taxonomy and UCEs</strong> (<a href="https://brianomeara.info/posts/phylopapers_2025_Nov_7/">Nov 7, 2025</a>): Emma E. Jochim, James Starrett, Hanna R. Briggs, Jason E. Bond. 2025. “Speciation Pattern and Process in the California Coastal Dune Endemic Trapdoor Spider <em>Aptostichus simus</em> (Mygalomorphae: Euctenizidae) and Description of a New Cryptic Species” <em>Ecology and Evolution</em> 15:e72346 <a href="https://doi.org/10.1002/ece3.72346" class="uri">https://doi.org/10.1002/ece3.72346</a></li>
+<li><strong>Multivariate traits</strong> (<a href="https://brianomeara.info/posts/phylopapers_2025_Nov_14/">Nov 14, 2025</a>): Emma Sherratt, Jenna Crowe-Riddell, Alessandro Palci, Ammresh, Mark N. Hutchinson, Michael S.Y. Lee, Kate L. Sanders. 2025. “Rapid evolution and cranial morphospace expansion during the terrestrial to marine transition in elapid snakes” <em>Evolution</em> 1–13 <a href="https://doi.org/10.1093/evolut/qpaf180" class="uri">https://doi.org/10.1093/evolut/qpaf180</a></li>
+<li><strong>Phylogenomics, recombination desert, and speciation</strong> (<a href="https://brianomeara.info/posts/phylopapers_2025_Nov_21/">Nov 21, 2025</a>): Nicole M. Foley, Richard G. Rasulis, Zoya Wani, Mayra N. Mendoza Cerna, Henrique V. Figueiró, Klaus Peter Koepfli, Terje Raudsepp &amp; William J. Murphy. 2025. “An ancient recombination desert is a speciation supergene in placental mammals” <em>Nature</em> <a href="https://doi.org/10.1038/s41586-025-09740-2" class="uri">https://doi.org/10.1038/s41586-025-09740-2</a></li>
+</ul>
+<p>Each week I’d decide on a topic, then look on <a href="https://openalex.org">OpenAlex</a>, <a href="https://scholar.google.com">Google Scholar</a>, and sometimes various journal websites for recent (only 2025) papers relevant to the topic. I would then read through these to find a paper that I thought would be useful for teaching, including whether I thought it was a good example of what to do (all papers have compromises, but I think students learn more from “good” papers than from ripping apart “bad” papers). I chose not to limit the papers only to ones in <a href="https://dafnee.isem-evolution.fr">DAFNEE</a> journals or only papers that are open access. There are issues with the publishing ecosystem, but for this class using that to limit papers would have resulted in too small a pool of papers this semester.</p>
+<hr>
+<p>To subscribe, go to <a href="https://brianomeara.info/blog.xml" class="uri">https://brianomeara.info/blog.xml</a> in an RSS reader.</p>
+
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{o'meara2025,
+  author = {O’Meara, Brian},
+  title = {PhyloPapers 2025, {Summary}},
+  date = {2025-12-01},
+  url = {https://brianomeara.info/posts/phylopapers_2025_summary/},
+  langid = {en}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-o'meara2025" class="csl-entry quarto-appendix-citeas">
+O’Meara, Brian. 2025. <span>“PhyloPapers 2025, Summary.”</span> December
+1, 2025. <a href="https://brianomeara.info/posts/phylopapers_2025_summary/">https://brianomeara.info/posts/phylopapers_2025_summary/</a>.
+</div></div></section></div> ]]></description>
+  <category>phylopapers</category>
+  <category>phylogenetics</category>
+  <category>teaching</category>
+  <guid>https://brianomeara.info/posts/phylopapers_2025_summary/</guid>
+  <pubDate>Mon, 01 Dec 2025 05:00:00 GMT</pubDate>
+</item>
 <item>
   <title>PhyloPapers 2025, Phylogenomics</title>
   <dc:creator>Brian O&#39;Meara</dc:creator>
@@ -984,53 +1040,6 @@ O’Meara, Brian. 2025. <span>“Conference Locations.”</span> June 19,
   <category>meetings</category>
   <guid>https://brianomeara.info/posts/conferencelocations/</guid>
   <pubDate>Thu, 19 Jun 2025 04:00:00 GMT</pubDate>
-</item>
-<item>
-  <title>Williams College stops seeking federal grants</title>
-  <dc:creator>Brian O&#39;Meara</dc:creator>
-  <link>https://brianomeara.info/posts/williamsgrants/</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<p>Jeffrey Mervis in <em>Science</em> is reporting that <a href="https://www.science.org/content/article/u-s-college-first-decline-federal-science-grants-because-new-dei-language">Williams College is declining federal science grants</a>. According to the article:</p>
-<blockquote class="blockquote">
-<p>School officials told the faculty Williams won’t accept new grants from the National Science Foundation (NSF) or the National Institutes of Health (NIH) until the agencies clarify new language requiring grantee institutions to certify they aren’t doing anything to “promote or advance diversity, equity, and inclusion (DEI) … in violation of federal antidiscrimination laws.”</p>
-</blockquote>
-<p>and</p>
-<blockquote class="blockquote">
-<p>The provost’s email to faculty also cites a new initiative from the U.S. Department of Justice that allows private citizens to file a complaint against institutions receiving federal funds that they believe are violating federal civil rights laws. Refusing federal grants might decrease the risk that Williams could be sued, the email notes.</p>
-</blockquote>
-<p>Williams College is a small liberal arts college with a high graduation rate, good ratio of tenure stream faculty to students, and an increasing ratio of applicants to available positions (see <a href="https://collegetables.info/168342.html">here</a>). Their faculty, staff, and students publish <a href="https://openalex.org/works?page=1&amp;filter=authorships.institutions.lineage%3Ai22675022&amp;sort=publication_year%3Adesc">hundreds of academic works per year</a>. They have a <a href="https://investment.williams.edu/endowment/">robust endowment</a>. Williams has taken <a href="https://williamsrecord.com/464356/news/williams-college-budget-fiscal-year-2024-explained-fy24/">steps</a> to control expenses while focusing on priorities. All this is just to say that, from a poorly informed external perspective (mine), they seem to do be doing well overall – while there is concern about a lot of small liberal arts colleges, Williams is likely not in that set.</p>
-<p>So one question I had was what the potential impact of declining grants could be on a college like this. Looking up grants at <a href="https://www.nsf.gov/awardsearch/advancedSearch.jsp">NSF</a> and <a href="https://reporter.nih.gov">NIH</a>, Williams College was listed as getting nine NSF grants worth $2M in 2024 and nine NSF grants worth $1.8M in 2023; it had no NIH grants in 2024 and one worth $435K in 2023. Based on its budget guide, its F&amp;A rate (the negotiated amount that <em>mostly</em> covers the cost of infrastructure, personnel, and similar to support the research) is 50.8%. So, if we take its two year average of NSF and NIH funding, it could expect $2.1M in grants per year, of which about $1.4M is direct costs and $713K is indirect costs (the exact numbers are hard to calculate as not all direct costs are subject to the F&amp;A rate).</p>
-<p>This can pay for a lot of research, and so its <strong>loss will have a real impact on Williams College</strong>, and on <strong>everyone else who would benefit from the discoveries that would have been made</strong>. Federal funding is a zero sum game (if things work well) so the grant money Williams will not get will hopefully flow somewhere else, but Williams stepping back from competing means the pool of ideas to fund is impoverished, the same as any competition if a set of people are excluded from it.</p>
-<p>The policy of declining funding has to be weighed against the risks associated with that funding, but some of those risks are unknown – for example, what are the potential risks from a private citizen complaint, and what is the probability of those risks? One federal sanction applied to a different college has been to prohibit international student enrollment (as of today, June 7, 2025, that has been temporarily put on hold, but the final resolution is not certain). International students often pay full tuition, so their loss would be a significant financial hit; that could be less true at Williams since it gives <a href="https://www.williams.edu/admission-aid/financial-aid/international/">substantial aid</a> to many international students, but it would still be costly (quick calculation: 2,146 undergrads, 9% are international, 30% of international pay full tuition = $4.2M in tuition just from these ~58 students, far more than the grant funding loss). Other potential risks include changing taxes on endowments or pressure to remove accreditation. Maybe forgoing federal research funding reduces these risks, though there still are requirements that come with things like federal funding for students that Williams still accepts (a few colleges, like Hillsdale College, <a href="https://www.washingtonpost.com/local/education/hillsdale-college-subject-of-senate-debate-is-known-for-rejecting-federal-funds/2017/12/04/126f94ca-d91b-11e7-b1a8-62589434a581_story.html">choose not to accept federal funds</a> and thus are not subject to Title IV and some other regulations).</p>
-<p>This policy also reduces the risk of wasted effort on grant proposals. According to the <a href="https://nsf-gov-resources.nsf.gov/files/00-NSF-FY26-CJ-Entire-Rollup.pdf">proposed NSF budget</a> (see Summary Tables page 5), the success rate for grants will drop from 26% to 7%. That suggests that, if Williams College proposals have the same success rate as the average (likely wrong due to variation across programs and areas, but wrong in an unclear direction), faculty would have written 35 proposals to get their nine funded ones in 2024, but next budget year would have to write 129 to get nine funded ones. Presumably scaling up writing this much wouldn’t be feasible: if instead they put in as many proposals as likely in the past, they could only expect 2-3 grants under the proposed budget. So the prohibition on receiving funding from proposals (and presumably not writing them) means a loss of 2-3 grants rather than 9 (if the proposed budget becomes the de facto one that NSF spends), but also saves the effort of writing 14 proposals for each one that happens to get funded.</p>
-<p>One other effect is on tenure expectations. Williams’ new policy makes it less likely to fire early career faculty for not getting major grants (in a tough climate to win funding) since the institution prohibits getting those grants for now (see another <a href="https://brianomeara.info/posts/fundingfortenure/">post</a> by me on this).</p>
-<p>These are all rough numbers based on readily available external information only – I’m not part of the Williams community to know all the factors at play, and I have no special insight into what is happening and could happen at the federal level. I also could have just made simple errors (such as missing a whole set of grants in the NSF data).</p>
-<p>Overall, I’m not sure if the Williams College policy is a good one or not. It is more likely to be good if it came from a shared governance process so that a lot of smart, concerned people who would be affected by it helped craft it. But my first response to questions like this is to run numbers and analyses, and try to consider all the potential pros and cons, so I’m putting the rough analysis here in case others find parts of it useful.</p>
-<hr>
-<p>To subscribe, go to <a href="https://brianomeara.info/blog.xml" class="uri">https://brianomeara.info/blog.xml</a> in an RSS reader.</p>
-
-
-
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{o'meara2025,
-  author = {O’Meara, Brian},
-  title = {Williams {College} Stops Seeking Federal Grants},
-  date = {2025-06-07},
-  url = {https://brianomeara.info/posts/williamsgrants/},
-  langid = {en}
-}
-</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-o'meara2025" class="csl-entry quarto-appendix-citeas">
-O’Meara, Brian. 2025. <span>“Williams College Stops Seeking Federal
-Grants.”</span> June 7, 2025. <a href="https://brianomeara.info/posts/williamsgrants/">https://brianomeara.info/posts/williamsgrants/</a>.
-</div></div></section></div> ]]></description>
-  <category>grants</category>
-  <category>financing</category>
-  <guid>https://brianomeara.info/posts/williamsgrants/</guid>
-  <pubDate>Sat, 07 Jun 2025 04:00:00 GMT</pubDate>
 </item>
 </channel>
 </rss>

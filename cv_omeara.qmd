@@ -115,7 +115,7 @@ total_funding <- sum(funding_amounts)
 * **Publications**: `r nrow(orcid_pubs_not_preprints)` publications, `r g.profile$total_cites` citations, h-index of `r g.profile$h_index`
 * **Funding**: $`r formatC(total_funding, format="d", big.mark=",")` in external funding from `r length(funding_amounts)` grants
 * **Mentoring**: Mentored 17 postdocs, 8 grad students (including 2 current), 5 undergrad students, 4 faculty, and served on numerous grad student committees
-* **Service**: President of the Society of Systematic Biologists, Associate Head of EEB, Associate Director of NIMBioS, Code of Conduct for three evolution societies, and much more
+* **Service**: President (2022) and Trustee (2026-present) of the Society of Systematic Biologists, Associate Head of EEB (2016-2022), Associate Director of NIMBioS (2026-present), Code of Conduct Committee for three evolution societies (2019-present), and much more
 
 # Research
 
@@ -222,7 +222,7 @@ These are students for whom I was their advisor or co-advisor. Note that I inclu
 |:-------------------------------------------------------------------------|:-----------|:------------|:------------------------------|
 |[Sam Borstein](https://fish4thought.wordpress.com/)                       |PhD student |2014-2019    |                               |
 |[Jenn Bosco](https://sites.google.com/site/jenniferboscoinfo/home)        |PhD student |2012-2017    |Co-advised with Susan Riechert |
-|[Amanda Chandler](https://www.linkedin.com/in/amanda-chandler-90045b1b9/)                       |Masters student |2024-present    | 
+|[Amanda Chandler](https://www.linkedin.com/in/amanda-chandler-90045b1b9/)                       |Masters student |2024-2025    | 
 |[Krista De Cooke](https://www.linkedin.com/in/krista-de-cooke-163a87116/) |Masters student |2020-2023 |Co-advised with Dan Simberloff |
 |[Katie Massana](https://sites.google.com/site/kathrynamassana/home)       |PhD student |2012-2017    |        
 |[Alivia Nytko](https://alivianytko8.wixsite.com/alivia-nytko)       |PhD student |2024-present    |Co-advised with Joe Bailey |
@@ -239,7 +239,7 @@ These are students for whom I was their advisor or co-advisor. Note that I inclu
 |Stephen Ray                                                               |Undergrad |2019-2020   |     |
 |Zach Tharpe                                                               |Undergrad |2019-2020   |     |
 |[Christian Yarber](https://www.researchgate.net/profile/Christian_Yarber) |Undergrad |2015-2016   |     |
-|[John Anderson](https://sites.google.com/view/john-anderson-research)	   |Undergrad |2021-present   |     |
+|John Anderson	   |Undergrad |2021-2022   |     |
 
 ## Faculty
 

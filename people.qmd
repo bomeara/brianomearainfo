@@ -33,10 +33,12 @@ I have mentored numerous postdocs off of my own grants and/or as one of their ch
 
 |Name                                                                      |Stage       |Time in Lab  |Note                           |
 |:-------------------------------------------------------------------------|:-----------|:------------|:------------------------------|
+|[Laya Aban Amini](https://www.linkedin.com/in/laya-aban-amini-6a3532183/)                       |PhD student |2025-present   |   Co-advised with Colin Sumrall (Laya is an EEPS student)  |
 |[Sam Borstein](https://fish4thought.wordpress.com/)                       |PhD student |2014-2019    |                               |
 |[Jenn Bosco](https://sites.google.com/site/jenniferboscoinfo/home)        |PhD student |2012-2017    |Co-advised with Susan Riechert |
 |[Amanda Chandler](https://www.linkedin.com/in/amanda-chandler-90045b1b9/)                       |Masters student |2024-present    | 
 |[Krista De Cooke](https://www.linkedin.com/in/krista-de-cooke-163a87116/) |Masters student |2020-2023 |Co-advised with Dan Simberloff |
+|[Cassie Edmonds](https://eeb.utk.edu/people/cassie-edmonds/) |Masters student |2025-present | |
 |[Katie Massana](https://sites.google.com/site/kathrynamassana/home)       |PhD student |2012-2017    |        
 |[Alivia Nytko](https://alivianytko8.wixsite.com/alivia-nytko)       |PhD student |2024-present    |Co-advised with Joe Bailey |
 |[Orlando Schwery](https://sites.google.com/site/orlandoschwery/home)      |PhD student |2014-2020    |                               |
@@ -66,6 +68,7 @@ In addition to my own students, of course.
 |:------------------------|:------------|
 |Will Atwood              |Geology      |
 |Jen Bauer                |Geology      |
+|Renata Pereira Beco      |EEB          |
 |James Boyko              |U Arkansas   |
 |Sharon Clemmensen        |EEB          |
 |Troy Fadiga              |Geology      |
@@ -82,6 +85,8 @@ In addition to my own students, of course.
 |Sara Lipshutz            |EEB          |
 |Bryan Looney             |EEB          |
 |Liam Mueller             |EEB          |
+|Ainun Nadhifah           |EEB          |
+|Ashlesh Pattanaik        |EEB          |
 |Tyson Paulson            |EEB          |
 |Todd Pierson             |EEB          |
 |Ryan Rooney              |Geology      |
@@ -109,6 +114,7 @@ Our department now has faculty mentored by a committee of later career faculty. 
 
 ## Service
 
+-   SSB Trustee, 2026-present
 -   Joint Code of Conduct committee for Society for the Study of
     Evolution, Society of Systematic Biologists, and American Society of
     Naturalists, 2018-present

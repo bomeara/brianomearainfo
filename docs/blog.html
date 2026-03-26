@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.40">
+<meta name="generator" content="quarto-1.8.27">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -33,15 +33,17 @@ ul.task-list li input[type="checkbox"] {
 <link href="./logo.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-listing/list.min.js"></script>
 <script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-7ad6542725e80d1433b1f8ee26c2a1fc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-80f6653e4bad1240590acd7234152a3f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -123,7 +125,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -141,7 +143,7 @@ window.Quarto = {
 
 <link rel="alternate" type="application/rss+xml" title="Brian O'Meara" href="blog.xml" data-external="1"></head>
 
-<body class="nav-fixed">
+<body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -318,7 +320,7 @@ window.Quarto = {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(35)</span></div><div class="category" data-category="QUk=">AI <span class="quarto-category-count">(1)</span></div><div class="category" data-category="QmF5ZXNpYW4=">Bayesian <span class="quarto-category-count">(1)</span></div><div class="category" data-category="RUVCNTEx">EEB511 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="RkJE">FBD <span class="quarto-category-count">(1)</span></div><div class="category" data-category="R1JGUA==">GRFP <span class="quarto-category-count">(1)</span></div><div class="category" data-category="TklI">NIH <span class="quarto-category-count">(1)</span></div><div class="category" data-category="TlNG">NSF <span class="quarto-category-count">(4)</span></div><div class="category" data-category="Ug==">R <span class="quarto-category-count">(3)</span></div><div class="category" data-category="UkVV">REU <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UnN0YXRz">Rstats <span class="quarto-category-count">(3)</span></div><div class="category" data-category="U1NC">SSB <span class="quarto-category-count">(1)</span></div><div class="category" data-category="U1NF">SSE <span class="quarto-category-count">(1)</span></div><div class="category" data-category="VUNFcw==">UCEs <span class="quarto-category-count">(1)</span></div><div class="category" data-category="WCUyMGNocm9tb3NvbWU=">X chromosome <span class="quarto-category-count">(1)</span></div><div class="category" data-category="YWk=">ai <span class="quarto-category-count">(1)</span></div><div class="category" data-category="YWxwaGElMjB0YXhvbm9teQ==">alpha taxonomy <span class="quarto-category-count">(1)</span></div><div class="category" data-category="YmVoYXZpb3I=">behavior <span class="quarto-category-count">(1)</span></div><div class="category" data-category="YmlyZHM=">birds <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y2ljYWRhcw==">cicadas <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y29kZSUyMG9mJTIwZXRoaWNz">code of ethics <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y29uZmVyZW5jZXM=">conferences <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y29yZQ==">core <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZGF0YSUyMGRlZmljaWVuY3k=">data deficiency <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZGVlcCUyMGxlYXJuaW5n">deep learning <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZGVsaW1pdGF0aW9u">delimitation <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZGl2ZXJzaWZpY2F0aW9u">diversification <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZXRoaWNz">ethics <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZXZvbHV0aW9u">evolution <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZXZvbHV0aW9uYXJ5JTIwZ2Vub21pY3M=">evolutionary genomics <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZmllbGQlMjBzYWZldHk=">field safety <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZmllbGR3b3Jr">fieldwork <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZmluYW5jaW5n">financing <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Zm9zc2ls">fossil <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZnVuZGluZw==">funding <span class="quarto-category-count">(3)</span></div><div class="category" data-category="Z2Vub21pY3M=">genomics <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Z2l0aHVi">github <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Z3JhZHNjaG9vbA==">gradschool <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Z3JhbnRz">grants <span class="quarto-category-count">(1)</span></div><div class="category" data-category="aGlnaGVyZWQ=">highered <span class="quarto-category-count">(1)</span></div><div class="category" data-category="aGlzc2U=">hisse <span class="quarto-category-count">(1)</span></div><div class="category" data-category="aGlzdG9yeQ==">history <span class="quarto-category-count">(1)</span></div><div class="category" data-category="aW5jbHVzaW9u">inclusion <span class="quarto-category-count">(1)</span></div><div class="category" data-category="aW5kaXJlY3QlMjBjb3N0cw==">indirect costs <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bGlrZWxpaG9vZA==">likelihood <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bWFjaGluZSUyMGxlYXJuaW5n">machine learning <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bWFjcm9ldm9sdXRpb24=">macroevolution <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bWFzdG9kb24=">mastodon <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bWVldGluZ3M=">meetings <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bWlzc2U=">misse <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bW9ycGhvbG9neQ==">morphology <span class="quarto-category-count">(2)</span></div><div class="category" data-category="bXVsdGl2YXJpYXRl">multivariate <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bmF0dXJhbCUyMGhpc3Rvcnk=">natural history <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bmV0d29ya3M=">networks <span class="quarto-category-count">(1)</span></div><div class="category" data-category="b3B0aW1pemF0aW9u">optimization <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cGh5bG9nZW5ldGljJTIwcHJlZGljdGlvbg==">phylogenetic prediction <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cGh5bG9nZW5ldGljcw==">phylogenetics <span class="quarto-category-count">(15)</span></div><div class="category" data-category="cGh5bG9nZW5vbWljcw==">phylogenomics <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cGh5bG9nZW9ncmFwaHk=">phylogeography <span class="quarto-category-count">(2)</span></div><div class="category" data-category="cGh5bG9wYXBlcnM=">phylopapers <span class="quarto-category-count">(15)</span></div><div class="category" data-category="cHVibGljYXRpb24=">publication <span class="quarto-category-count">(2)</span></div><div class="category" data-category="cHVibGlzaGluZw==">publishing <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cmJsb2dnZXJz">rbloggers <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cmVjb21iaW5hdGlvbg==">recombination <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cmVwcm9kdWNpYmlsaXR5">reproducibility <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cmV0aWN1bGF0ZQ==">reticulate <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cm1hcmtkb3du">rmarkdown <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cnN0YXRz">rstats <span class="quarto-category-count">(3)</span></div><div class="category" data-category="c2FmZXR5">safety <span class="quarto-category-count">(1)</span></div><div class="category" data-category="c2Vv">seo <span class="quarto-category-count">(1)</span></div><div class="category" data-category="c2ltdWxhdGlvbg==">simulation <span class="quarto-category-count">(2)</span></div><div class="category" data-category="c29jaWFsJTIwbWVkaWE=">social media <span class="quarto-category-count">(1)</span></div><div class="category" data-category="c29mdHdhcmU=">software <span class="quarto-category-count">(2)</span></div><div class="category" data-category="c3BpZGVycw==">spiders <span class="quarto-category-count">(1)</span></div><div class="category" data-category="c3lzdGVtYXRpY3M=">systematics <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dGFyZ2V0cw==">targets <span class="quarto-category-count">(2)</span></div><div class="category" data-category="dGF4b25vbXk=">taxonomy <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dGVhY2hpbmc=">teaching <span class="quarto-category-count">(16)</span></div><div class="category" data-category="dGVudXJl">tenure <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dHJhaXQlMjBldm9sdXRpb24=">trait evolution <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dHJhdmVs">travel <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dW5jZXJ0YWludHk=">uncertainty <span class="quarto-category-count">(1)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(35)</span></div><div class="category" data-category="YWk=">ai <span class="quarto-category-count">(1)</span></div><div class="category" data-category="QUk=">AI <span class="quarto-category-count">(1)</span></div><div class="category" data-category="YWxwaGElMjB0YXhvbm9teQ==">alpha taxonomy <span class="quarto-category-count">(1)</span></div><div class="category" data-category="QmF5ZXNpYW4=">Bayesian <span class="quarto-category-count">(1)</span></div><div class="category" data-category="YmVoYXZpb3I=">behavior <span class="quarto-category-count">(1)</span></div><div class="category" data-category="YmlyZHM=">birds <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y2ljYWRhcw==">cicadas <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y29kZSUyMG9mJTIwZXRoaWNz">code of ethics <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y29uZmVyZW5jZXM=">conferences <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y29yZQ==">core <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZGF0YSUyMGRlZmljaWVuY3k=">data deficiency <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZGVlcCUyMGxlYXJuaW5n">deep learning <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZGVsaW1pdGF0aW9u">delimitation <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZGl2ZXJzaWZpY2F0aW9u">diversification <span class="quarto-category-count">(1)</span></div><div class="category" data-category="RUVCNTEx">EEB511 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZXRoaWNz">ethics <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZXZvbHV0aW9u">evolution <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZXZvbHV0aW9uYXJ5JTIwZ2Vub21pY3M=">evolutionary genomics <span class="quarto-category-count">(1)</span></div><div class="category" data-category="RkJE">FBD <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZmllbGQlMjBzYWZldHk=">field safety <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZmllbGR3b3Jr">fieldwork <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZmluYW5jaW5n">financing <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Zm9zc2ls">fossil <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZnVuZGluZw==">funding <span class="quarto-category-count">(3)</span></div><div class="category" data-category="Z2Vub21pY3M=">genomics <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Z2l0aHVi">github <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Z3JhZHNjaG9vbA==">gradschool <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Z3JhbnRz">grants <span class="quarto-category-count">(1)</span></div><div class="category" data-category="R1JGUA==">GRFP <span class="quarto-category-count">(1)</span></div><div class="category" data-category="aGlnaGVyZWQ=">highered <span class="quarto-category-count">(1)</span></div><div class="category" data-category="aGlzc2U=">hisse <span class="quarto-category-count">(1)</span></div><div class="category" data-category="aGlzdG9yeQ==">history <span class="quarto-category-count">(1)</span></div><div class="category" data-category="aW5jbHVzaW9u">inclusion <span class="quarto-category-count">(1)</span></div><div class="category" data-category="aW5kaXJlY3QlMjBjb3N0cw==">indirect costs <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bGlrZWxpaG9vZA==">likelihood <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bWFjaGluZSUyMGxlYXJuaW5n">machine learning <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bWFjcm9ldm9sdXRpb24=">macroevolution <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bWFzdG9kb24=">mastodon <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bWVldGluZ3M=">meetings <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bWlzc2U=">misse <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bW9ycGhvbG9neQ==">morphology <span class="quarto-category-count">(2)</span></div><div class="category" data-category="bXVsdGl2YXJpYXRl">multivariate <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bmF0dXJhbCUyMGhpc3Rvcnk=">natural history <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bmV0d29ya3M=">networks <span class="quarto-category-count">(1)</span></div><div class="category" data-category="TklI">NIH <span class="quarto-category-count">(1)</span></div><div class="category" data-category="TlNG">NSF <span class="quarto-category-count">(4)</span></div><div class="category" data-category="b3B0aW1pemF0aW9u">optimization <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cGh5bG9nZW5ldGljJTIwcHJlZGljdGlvbg==">phylogenetic prediction <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cGh5bG9nZW5ldGljcw==">phylogenetics <span class="quarto-category-count">(15)</span></div><div class="category" data-category="cGh5bG9nZW5vbWljcw==">phylogenomics <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cGh5bG9nZW9ncmFwaHk=">phylogeography <span class="quarto-category-count">(2)</span></div><div class="category" data-category="cGh5bG9wYXBlcnM=">phylopapers <span class="quarto-category-count">(15)</span></div><div class="category" data-category="cHVibGljYXRpb24=">publication <span class="quarto-category-count">(2)</span></div><div class="category" data-category="cHVibGlzaGluZw==">publishing <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Ug==">R <span class="quarto-category-count">(3)</span></div><div class="category" data-category="cmJsb2dnZXJz">rbloggers <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cmVjb21iaW5hdGlvbg==">recombination <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cmVwcm9kdWNpYmlsaXR5">reproducibility <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cmV0aWN1bGF0ZQ==">reticulate <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UkVV">REU <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cm1hcmtkb3du">rmarkdown <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UnN0YXRz">Rstats <span class="quarto-category-count">(3)</span></div><div class="category" data-category="cnN0YXRz">rstats <span class="quarto-category-count">(3)</span></div><div class="category" data-category="c2FmZXR5">safety <span class="quarto-category-count">(1)</span></div><div class="category" data-category="c2Vv">seo <span class="quarto-category-count">(1)</span></div><div class="category" data-category="c2ltdWxhdGlvbg==">simulation <span class="quarto-category-count">(2)</span></div><div class="category" data-category="c29jaWFsJTIwbWVkaWE=">social media <span class="quarto-category-count">(1)</span></div><div class="category" data-category="c29mdHdhcmU=">software <span class="quarto-category-count">(2)</span></div><div class="category" data-category="c3BpZGVycw==">spiders <span class="quarto-category-count">(1)</span></div><div class="category" data-category="U1NC">SSB <span class="quarto-category-count">(1)</span></div><div class="category" data-category="U1NF">SSE <span class="quarto-category-count">(1)</span></div><div class="category" data-category="c3lzdGVtYXRpY3M=">systematics <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dGFyZ2V0cw==">targets <span class="quarto-category-count">(2)</span></div><div class="category" data-category="dGF4b25vbXk=">taxonomy <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dGVhY2hpbmc=">teaching <span class="quarto-category-count">(16)</span></div><div class="category" data-category="dGVudXJl">tenure <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dHJhaXQlMjBldm9sdXRpb24=">trait evolution <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dHJhdmVs">travel <span class="quarto-category-count">(1)</span></div><div class="category" data-category="VUNFcw==">UCEs <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dW5jZXJ0YWludHk=">uncertainty <span class="quarto-category-count">(1)</span></div><div class="category" data-category="WCUyMGNocm9tb3NvbWU=">X chromosome <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -350,20 +352,20 @@ window.Quarto = {
 <div class="quarto-listing quarto-listing-container-default" id="listing-listing">
 <div class="listing-actions-group">
    <div class="input-group input-group-sm quarto-listing-sort">
-     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
-     <select id="listing-listing-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
-       <option value="" disabled="" selected="" hidden="">Order By</option>
-       <option value="index" data-direction="asc">Default</option>
-         <option value="listing-title" data-direction="asc">
-          Title
-        </option>
-         <option value="listing-date-sort" data-direction="asc">
-          Date - Oldest
-        </option>
-         <option value="listing-date-sort" data-direction="desc">
-          Date - Newest
-        </option>
-     </select>
+    <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
+    <select id="listing-listing-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
+      <option value="" disabled="" selected="" hidden="">Order By</option>
+      <option value="index" data-direction="asc">Default</option>
+      <option value="listing-title" data-direction="asc">
+        Title
+      </option>
+      <option value="listing-date-sort" data-direction="asc">
+        Date - Oldest
+      </option>
+      <option value="listing-date-sort" data-direction="desc">
+        Date - Newest
+      </option>
+    </select>
   </div>
     <div class="input-group input-group-sm quarto-listing-filter">
       <span class="input-group-text"><i class="bi bi-search"></i></span>
@@ -376,23 +378,18 @@ window.Quarto = {
 <h3 class="no-anchor listing-title">
 <a href="./posts/phylopapers_2025_summary/index.html" class="no-external">PhyloPapers 2025, Summary</a>
 </h3>
-<div class="listing-subtitle">
-<a href="./posts/phylopapers_2025_summary/index.html" class="no-external"></a>
-</div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('cGh5bG9wYXBlcnM='); return false;">
-phylopapers
+
+<div class="listing-category" onclick="window.quartoListingCategory('cGh5bG9wYXBlcnM='); return false;">phylopapers</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('cGh5bG9nZW5ldGljcw=='); return false;">phylogenetics</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('dGVhY2hpbmc='); return false;">teaching</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('cGh5bG9nZW5ldGljcw=='); return false;">
-phylogenetics
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('dGVhY2hpbmc='); return false;">
-teaching
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/phylopapers_2025_summary/index.html" class="no-external">Links to all sessions for the class</a>
-</div>
+<div class="delink listing-description"><a href="./posts/phylopapers_2025_summary/index.html" class="no-external">
+<p>Links to all sessions for the class</p>
+</a></div>
 </div>
 <div class="metadata">
 <a href="./posts/phylopapers_2025_summary/index.html" class="no-external">
@@ -407,38 +404,28 @@ Dec 1, 2025
 <h3 class="no-anchor listing-title">
 <a href="./posts/phylopapers_2025_Nov_21/index.html" class="no-external">PhyloPapers 2025, Phylogenomics</a>
 </h3>
-<div class="listing-subtitle">
-<a href="./posts/phylopapers_2025_Nov_21/index.html" class="no-external"></a>
-</div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('cGh5bG9wYXBlcnM='); return false;">
-phylopapers
+
+<div class="listing-category" onclick="window.quartoListingCategory('cGh5bG9wYXBlcnM='); return false;">phylopapers</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('cGh5bG9nZW5ldGljcw=='); return false;">phylogenetics</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('dGVhY2hpbmc='); return false;">teaching</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('cGh5bG9nZW5vbWljcw=='); return false;">phylogenomics</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('WCUyMGNocm9tb3NvbWU='); return false;">X chromosome</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('ZXZvbHV0aW9uYXJ5JTIwZ2Vub21pY3M='); return false;">evolutionary genomics</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('cmVjb21iaW5hdGlvbg=='); return false;">recombination</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('bWFjaGluZSUyMGxlYXJuaW5n'); return false;">machine learning</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('cGh5bG9nZW5ldGljcw=='); return false;">
-phylogenetics
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('dGVhY2hpbmc='); return false;">
-teaching
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('cGh5bG9nZW5vbWljcw=='); return false;">
-phylogenomics
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('WCUyMGNocm9tb3NvbWU='); return false;">
-X chromosome
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('ZXZvbHV0aW9uYXJ5JTIwZ2Vub21pY3M='); return false;">
-evolutionary genomics
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('cmVjb21iaW5hdGlvbg=='); return false;">
-recombination
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('bWFjaGluZSUyMGxlYXJuaW5n'); return false;">
-machine learning
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/phylopapers_2025_Nov_21/index.html" class="no-external">Discussion of Foley et al.&nbsp;(2025), Recombination desert and speciation</a>
-</div>
+<div class="delink listing-description"><a href="./posts/phylopapers_2025_Nov_21/index.html" class="no-external">
+<p>Discussion of Foley et al.&nbsp;(2025), Recombination desert and speciation</p>
+</a></div>
 </div>
 <div class="metadata">
 <a href="./posts/phylopapers_2025_Nov_21/index.html" class="no-external">
@@ -453,32 +440,24 @@ Nov 21, 2025
 <h3 class="no-anchor listing-title">
 <a href="./posts/phylopapers_2025_Nov_14/index.html" class="no-external">PhyloPapers 2025, Multivariate traits</a>
 </h3>
-<div class="listing-subtitle">
-<a href="./posts/phylopapers_2025_Nov_14/index.html" class="no-external"></a>
-</div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('cGh5bG9wYXBlcnM='); return false;">
-phylopapers
+
+<div class="listing-category" onclick="window.quartoListingCategory('cGh5bG9wYXBlcnM='); return false;">phylopapers</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('cGh5bG9nZW5ldGljcw=='); return false;">phylogenetics</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('dGVhY2hpbmc='); return false;">teaching</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('bXVsdGl2YXJpYXRl'); return false;">multivariate</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('bW9ycGhvbG9neQ=='); return false;">morphology</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('bWFjcm9ldm9sdXRpb24='); return false;">macroevolution</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('cGh5bG9nZW5ldGljcw=='); return false;">
-phylogenetics
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('dGVhY2hpbmc='); return false;">
-teaching
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('bXVsdGl2YXJpYXRl'); return false;">
-multivariate
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('bW9ycGhvbG9neQ=='); return false;">
-morphology
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('bWFjcm9ldm9sdXRpb24='); return false;">
-macroevolution
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/phylopapers_2025_Nov_14/index.html" class="no-external">Discussion of Sherratt et al.&nbsp;(2025), Multivariate trait evolution in sea snakes</a>
-</div>
+<div class="delink listing-description"><a href="./posts/phylopapers_2025_Nov_14/index.html" class="no-external">
+<p>Discussion of Sherratt et al.&nbsp;(2025), Multivariate trait evolution in sea snakes</p>
+</a></div>
 </div>
 <div class="metadata">
 <a href="./posts/phylopapers_2025_Nov_14/index.html" class="no-external">
@@ -493,35 +472,26 @@ Nov 14, 2025
 <h3 class="no-anchor listing-title">
 <a href="./posts/phylopapers_2025_Nov_7/index.html" class="no-external">PhyloPapers 2025, Alpha taxonomy</a>
 </h3>
-<div class="listing-subtitle">
-<a href="./posts/phylopapers_2025_Nov_7/index.html" class="no-external"></a>
-</div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('cGh5bG9wYXBlcnM='); return false;">
-phylopapers
+
+<div class="listing-category" onclick="window.quartoListingCategory('cGh5bG9wYXBlcnM='); return false;">phylopapers</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('cGh5bG9nZW5ldGljcw=='); return false;">phylogenetics</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('dGVhY2hpbmc='); return false;">teaching</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('YWxwaGElMjB0YXhvbm9teQ=='); return false;">alpha taxonomy</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('c3BpZGVycw=='); return false;">spiders</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('cGh5bG9nZW9ncmFwaHk='); return false;">phylogeography</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('VUNFcw=='); return false;">UCEs</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('cGh5bG9nZW5ldGljcw=='); return false;">
-phylogenetics
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('dGVhY2hpbmc='); return false;">
-teaching
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('YWxwaGElMjB0YXhvbm9teQ=='); return false;">
-alpha taxonomy
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('c3BpZGVycw=='); return false;">
-spiders
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('cGh5bG9nZW9ncmFwaHk='); return false;">
-phylogeography
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('VUNFcw=='); return false;">
-UCEs
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/phylopapers_2025_Nov_7/index.html" class="no-external">Discussion of Jochim et al.&nbsp;(2025), alpha taxonomy in trapdoor spiders using UCEs</a>
-</div>
+<div class="delink listing-description"><a href="./posts/phylopapers_2025_Nov_7/index.html" class="no-external">
+<p>Discussion of Jochim et al.&nbsp;(2025), alpha taxonomy in trapdoor spiders using UCEs</p>
+</a></div>
 </div>
 <div class="metadata">
 <a href="./posts/phylopapers_2025_Nov_7/index.html" class="no-external">
@@ -536,26 +506,20 @@ Nov 7, 2025
 <h3 class="no-anchor listing-title">
 <a href="./posts/ai_optimization/index.html" class="no-external">AI optimization</a>
 </h3>
-<div class="listing-subtitle">
-<a href="./posts/ai_optimization/index.html" class="no-external"></a>
-</div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('YWk='); return false;">
-ai
+
+<div class="listing-category" onclick="window.quartoListingCategory('YWk='); return false;">ai</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('b3B0aW1pemF0aW9u'); return false;">optimization</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('c2Vv'); return false;">seo</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('cHVibGlzaGluZw=='); return false;">publishing</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('b3B0aW1pemF0aW9u'); return false;">
-optimization
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('c2Vv'); return false;">
-seo
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('cHVibGlzaGluZw=='); return false;">
-publishing
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/ai_optimization/index.html" class="no-external">Optimization of papers for AI parsing?</a>
-</div>
+<div class="delink listing-description"><a href="./posts/ai_optimization/index.html" class="no-external">
+<p>Optimization of papers for AI parsing?</p>
+</a></div>
 </div>
 <div class="metadata">
 <a href="./posts/ai_optimization/index.html" class="no-external">
@@ -570,32 +534,24 @@ Nov 7, 2025
 <h3 class="no-anchor listing-title">
 <a href="./posts/phylopapers_2025_Oct_31/index.html" class="no-external">PhyloPapers 2025, Machine learning for traits</a>
 </h3>
-<div class="listing-subtitle">
-<a href="./posts/phylopapers_2025_Oct_31/index.html" class="no-external"></a>
-</div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('cGh5bG9wYXBlcnM='); return false;">
-phylopapers
+
+<div class="listing-category" onclick="window.quartoListingCategory('cGh5bG9wYXBlcnM='); return false;">phylopapers</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('cGh5bG9nZW5ldGljcw=='); return false;">phylogenetics</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('dGVhY2hpbmc='); return false;">teaching</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('ZGVlcCUyMGxlYXJuaW5n'); return false;">deep learning</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('QUk='); return false;">AI</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('bW9ycGhvbG9neQ=='); return false;">morphology</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('cGh5bG9nZW5ldGljcw=='); return false;">
-phylogenetics
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('dGVhY2hpbmc='); return false;">
-teaching
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('ZGVlcCUyMGxlYXJuaW5n'); return false;">
-deep learning
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('QUk='); return false;">
-AI
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('bW9ycGhvbG9neQ=='); return false;">
-morphology
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/phylopapers_2025_Oct_31/index.html" class="no-external">Discussion of Hunt et al.&nbsp;(2025), a method that deep learning to recover traits for phylogenetics</a>
-</div>
+<div class="delink listing-description"><a href="./posts/phylopapers_2025_Oct_31/index.html" class="no-external">
+<p>Discussion of Hunt et al.&nbsp;(2025), a method that deep learning to recover traits for phylogenetics</p>
+</a></div>
 </div>
 <div class="metadata">
 <a href="./posts/phylopapers_2025_Oct_31/index.html" class="no-external">
@@ -610,29 +566,22 @@ Oct 31, 2025
 <h3 class="no-anchor listing-title">
 <a href="./posts/phylopapers_2025_Oct_24/index.html" class="no-external">PhyloPapers 2025, Handling Data Deficiency</a>
 </h3>
-<div class="listing-subtitle">
-<a href="./posts/phylopapers_2025_Oct_24/index.html" class="no-external"></a>
-</div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('cGh5bG9wYXBlcnM='); return false;">
-phylopapers
+
+<div class="listing-category" onclick="window.quartoListingCategory('cGh5bG9wYXBlcnM='); return false;">phylopapers</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('cGh5bG9nZW5ldGljcw=='); return false;">phylogenetics</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('dGVhY2hpbmc='); return false;">teaching</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('ZGF0YSUyMGRlZmljaWVuY3k='); return false;">data deficiency</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('cGh5bG9nZW5ldGljJTIwcHJlZGljdGlvbg=='); return false;">phylogenetic prediction</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('cGh5bG9nZW5ldGljcw=='); return false;">
-phylogenetics
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('dGVhY2hpbmc='); return false;">
-teaching
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('ZGF0YSUyMGRlZmljaWVuY3k='); return false;">
-data deficiency
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('cGh5bG9nZW5ldGljJTIwcHJlZGljdGlvbg=='); return false;">
-phylogenetic prediction
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/phylopapers_2025_Oct_24/index.html" class="no-external">Discussion of Sharma et al.&nbsp;(2025) on ways to model distributions for data-deficient species</a>
-</div>
+<div class="delink listing-description"><a href="./posts/phylopapers_2025_Oct_24/index.html" class="no-external">
+<p>Discussion of Sharma et al.&nbsp;(2025) on ways to model distributions for data-deficient species</p>
+</a></div>
 </div>
 <div class="metadata">
 <a href="./posts/phylopapers_2025_Oct_24/index.html" class="no-external">
@@ -647,29 +596,22 @@ Oct 24, 2025
 <h3 class="no-anchor listing-title">
 <a href="./posts/phylopapers_2025_Oct_17/index.html" class="no-external">PhyloPapers 2025, Trait evolution</a>
 </h3>
-<div class="listing-subtitle">
-<a href="./posts/phylopapers_2025_Oct_17/index.html" class="no-external"></a>
-</div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('cGh5bG9wYXBlcnM='); return false;">
-phylopapers
+
+<div class="listing-category" onclick="window.quartoListingCategory('cGh5bG9wYXBlcnM='); return false;">phylopapers</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('cGh5bG9nZW5ldGljcw=='); return false;">phylogenetics</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('dGVhY2hpbmc='); return false;">teaching</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('U1NF'); return false;">SSE</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('dHJhaXQlMjBldm9sdXRpb24='); return false;">trait evolution</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('cGh5bG9nZW5ldGljcw=='); return false;">
-phylogenetics
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('dGVhY2hpbmc='); return false;">
-teaching
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('U1NF'); return false;">
-SSE
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('dHJhaXQlMjBldm9sdXRpb24='); return false;">
-trait evolution
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/phylopapers_2025_Oct_17/index.html" class="no-external">Discussion of Rincón-Rubio et al.&nbsp;(2025) SSE models</a>
-</div>
+<div class="delink listing-description"><a href="./posts/phylopapers_2025_Oct_17/index.html" class="no-external">
+<p>Discussion of Rincón-Rubio et al.&nbsp;(2025) SSE models</p>
+</a></div>
 </div>
 <div class="metadata">
 <a href="./posts/phylopapers_2025_Oct_17/index.html" class="no-external">
@@ -684,29 +626,22 @@ Oct 17, 2025
 <h3 class="no-anchor listing-title">
 <a href="./posts/phylopapers_2025_Oct_10/index.html" class="no-external">PhyloPapers 2025, Reticulate evolution</a>
 </h3>
-<div class="listing-subtitle">
-<a href="./posts/phylopapers_2025_Oct_10/index.html" class="no-external"></a>
-</div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('cGh5bG9wYXBlcnM='); return false;">
-phylopapers
+
+<div class="listing-category" onclick="window.quartoListingCategory('cGh5bG9wYXBlcnM='); return false;">phylopapers</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('cGh5bG9nZW5ldGljcw=='); return false;">phylogenetics</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('dGVhY2hpbmc='); return false;">teaching</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('cmV0aWN1bGF0ZQ=='); return false;">reticulate</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('bmV0d29ya3M='); return false;">networks</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('cGh5bG9nZW5ldGljcw=='); return false;">
-phylogenetics
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('dGVhY2hpbmc='); return false;">
-teaching
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('cmV0aWN1bGF0ZQ=='); return false;">
-reticulate
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('bmV0d29ya3M='); return false;">
-networks
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/phylopapers_2025_Oct_10/index.html" class="no-external">Discussion of Yardeni et al.&nbsp;(2025) reticulate evolution</a>
-</div>
+<div class="delink listing-description"><a href="./posts/phylopapers_2025_Oct_10/index.html" class="no-external">
+<p>Discussion of Yardeni et al.&nbsp;(2025) reticulate evolution</p>
+</a></div>
 </div>
 <div class="metadata">
 <a href="./posts/phylopapers_2025_Oct_10/index.html" class="no-external">
@@ -721,29 +656,22 @@ Oct 10, 2025
 <h3 class="no-anchor listing-title">
 <a href="./posts/phylopapers_2025_Oct_03/index.html" class="no-external">PhyloPapers 2025, Behavior and genomics</a>
 </h3>
-<div class="listing-subtitle">
-<a href="./posts/phylopapers_2025_Oct_03/index.html" class="no-external"></a>
-</div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('cGh5bG9wYXBlcnM='); return false;">
-phylopapers
+
+<div class="listing-category" onclick="window.quartoListingCategory('cGh5bG9wYXBlcnM='); return false;">phylopapers</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('cGh5bG9nZW5ldGljcw=='); return false;">phylogenetics</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('dGVhY2hpbmc='); return false;">teaching</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Z2Vub21pY3M='); return false;">genomics</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('YmVoYXZpb3I='); return false;">behavior</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('cGh5bG9nZW5ldGljcw=='); return false;">
-phylogenetics
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('dGVhY2hpbmc='); return false;">
-teaching
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Z2Vub21pY3M='); return false;">
-genomics
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('YmVoYXZpb3I='); return false;">
-behavior
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/phylopapers_2025_Oct_03/index.html" class="no-external">Discussion of Lipshutz et al.&nbsp;(2025) genomics and behavior</a>
-</div>
+<div class="delink listing-description"><a href="./posts/phylopapers_2025_Oct_03/index.html" class="no-external">
+<p>Discussion of Lipshutz et al.&nbsp;(2025) genomics and behavior</p>
+</a></div>
 </div>
 <div class="metadata">
 <a href="./posts/phylopapers_2025_Oct_03/index.html" class="no-external">
@@ -758,26 +686,20 @@ Oct 3, 2025
 <h3 class="no-anchor listing-title">
 <a href="./posts/phylopapers_2025_Sep_24/index.html" class="no-external">PhyloPapers 2025, Simulation</a>
 </h3>
-<div class="listing-subtitle">
-<a href="./posts/phylopapers_2025_Sep_24/index.html" class="no-external"></a>
-</div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('cGh5bG9wYXBlcnM='); return false;">
-phylopapers
+
+<div class="listing-category" onclick="window.quartoListingCategory('cGh5bG9wYXBlcnM='); return false;">phylopapers</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('cGh5bG9nZW5ldGljcw=='); return false;">phylogenetics</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('dGVhY2hpbmc='); return false;">teaching</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('c2ltdWxhdGlvbg=='); return false;">simulation</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('cGh5bG9nZW5ldGljcw=='); return false;">
-phylogenetics
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('dGVhY2hpbmc='); return false;">
-teaching
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('c2ltdWxhdGlvbg=='); return false;">
-simulation
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/phylopapers_2025_Sep_24/index.html" class="no-external">Discussion of Dehayem et al.&nbsp;(2025) about use of simulation</a>
-</div>
+<div class="delink listing-description"><a href="./posts/phylopapers_2025_Sep_24/index.html" class="no-external">
+<p>Discussion of Dehayem et al.&nbsp;(2025) about use of simulation</p>
+</a></div>
 </div>
 <div class="metadata">
 <a href="./posts/phylopapers_2025_Sep_24/index.html" class="no-external">
@@ -792,26 +714,20 @@ Sep 24, 2025
 <h3 class="no-anchor listing-title">
 <a href="./posts/phylopapers_2025_Sep_17/index.html" class="no-external">PhyloPapers 2025, Phylogeography</a>
 </h3>
-<div class="listing-subtitle">
-<a href="./posts/phylopapers_2025_Sep_17/index.html" class="no-external"></a>
-</div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('cGh5bG9wYXBlcnM='); return false;">
-phylopapers
+
+<div class="listing-category" onclick="window.quartoListingCategory('cGh5bG9wYXBlcnM='); return false;">phylopapers</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('cGh5bG9nZW5ldGljcw=='); return false;">phylogenetics</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('dGVhY2hpbmc='); return false;">teaching</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('cGh5bG9nZW9ncmFwaHk='); return false;">phylogeography</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('cGh5bG9nZW5ldGljcw=='); return false;">
-phylogenetics
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('dGVhY2hpbmc='); return false;">
-teaching
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('cGh5bG9nZW9ncmFwaHk='); return false;">
-phylogeography
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/phylopapers_2025_Sep_17/index.html" class="no-external">Discussion of Balant, Vitales, Wang et al.&nbsp;(2025) about phylogeography of wild-growing and cultivated plants</a>
-</div>
+<div class="delink listing-description"><a href="./posts/phylopapers_2025_Sep_17/index.html" class="no-external">
+<p>Discussion of Balant, Vitales, Wang et al.&nbsp;(2025) about phylogeography of wild-growing and cultivated plants</p>
+</a></div>
 </div>
 <div class="metadata">
 <a href="./posts/phylopapers_2025_Sep_17/index.html" class="no-external">
@@ -826,29 +742,22 @@ Sep 17, 2025
 <h3 class="no-anchor listing-title">
 <a href="./posts/phylopapers_2025_Sep_12/index.html" class="no-external">PhyloPapers 2025, Genomic species delimitation</a>
 </h3>
-<div class="listing-subtitle">
-<a href="./posts/phylopapers_2025_Sep_12/index.html" class="no-external"></a>
-</div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('cGh5bG9wYXBlcnM='); return false;">
-phylopapers
+
+<div class="listing-category" onclick="window.quartoListingCategory('cGh5bG9wYXBlcnM='); return false;">phylopapers</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('cGh5bG9nZW5ldGljcw=='); return false;">phylogenetics</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('dGVhY2hpbmc='); return false;">teaching</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('ZGVsaW1pdGF0aW9u'); return false;">delimitation</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Z2Vub21pY3M='); return false;">genomics</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('cGh5bG9nZW5ldGljcw=='); return false;">
-phylogenetics
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('dGVhY2hpbmc='); return false;">
-teaching
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('ZGVsaW1pdGF0aW9u'); return false;">
-delimitation
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Z2Vub21pY3M='); return false;">
-genomics
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/phylopapers_2025_Sep_12/index.html" class="no-external">Discussion of Singhal et al.&nbsp;(2025) about using genomics for species delimitation</a>
-</div>
+<div class="delink listing-description"><a href="./posts/phylopapers_2025_Sep_12/index.html" class="no-external">
+<p>Discussion of Singhal et al.&nbsp;(2025) about using genomics for species delimitation</p>
+</a></div>
 </div>
 <div class="metadata">
 <a href="./posts/phylopapers_2025_Sep_12/index.html" class="no-external">
@@ -863,23 +772,18 @@ Sep 12, 2025
 <h3 class="no-anchor listing-title">
 <a href="./posts/phylopapers_2025_Sep_05/index.html" class="no-external">PhyloPapers 2025, Growth of the tree of life</a>
 </h3>
-<div class="listing-subtitle">
-<a href="./posts/phylopapers_2025_Sep_05/index.html" class="no-external"></a>
-</div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('cGh5bG9wYXBlcnM='); return false;">
-phylopapers
+
+<div class="listing-category" onclick="window.quartoListingCategory('cGh5bG9wYXBlcnM='); return false;">phylopapers</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('cGh5bG9nZW5ldGljcw=='); return false;">phylogenetics</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('dGVhY2hpbmc='); return false;">teaching</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('cGh5bG9nZW5ldGljcw=='); return false;">
-phylogenetics
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('dGVhY2hpbmc='); return false;">
-teaching
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/phylopapers_2025_Sep_05/index.html" class="no-external">Discussion of Chen et al.&nbsp;(2025) about the growth of the tree of life</a>
-</div>
+<div class="delink listing-description"><a href="./posts/phylopapers_2025_Sep_05/index.html" class="no-external">
+<p>Discussion of Chen et al.&nbsp;(2025) about the growth of the tree of life</p>
+</a></div>
 </div>
 <div class="metadata">
 <a href="./posts/phylopapers_2025_Sep_05/index.html" class="no-external">
@@ -894,23 +798,18 @@ Sep 6, 2025
 <h3 class="no-anchor listing-title">
 <a href="./posts/grfp_2025/index.html" class="no-external">GRFP 2025</a>
 </h3>
-<div class="listing-subtitle">
-<a href="./posts/grfp_2025/index.html" class="no-external"></a>
-</div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('ZnVuZGluZw=='); return false;">
-funding
+
+<div class="listing-category" onclick="window.quartoListingCategory('ZnVuZGluZw=='); return false;">funding</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('R1JGUA=='); return false;">GRFP</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('TlNG'); return false;">NSF</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('R1JGUA=='); return false;">
-GRFP
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('TlNG'); return false;">
-NSF
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/grfp_2025/index.html" class="no-external">Potential of the NSF GRFP for 2025</a>
-</div>
+<div class="delink listing-description"><a href="./posts/grfp_2025/index.html" class="no-external">
+<p>Potential of the NSF GRFP for 2025</p>
+</a></div>
 </div>
 <div class="metadata">
 <a href="./posts/grfp_2025/index.html" class="no-external">
@@ -925,29 +824,22 @@ Sep 4, 2025
 <h3 class="no-anchor listing-title">
 <a href="./posts/phylopapers_2025_Aug_29/index.html" class="no-external">PhyloPapers 2025, Bayesian analysis</a>
 </h3>
-<div class="listing-subtitle">
-<a href="./posts/phylopapers_2025_Aug_29/index.html" class="no-external"></a>
-</div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('cGh5bG9wYXBlcnM='); return false;">
-phylopapers
+
+<div class="listing-category" onclick="window.quartoListingCategory('cGh5bG9wYXBlcnM='); return false;">phylopapers</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('cGh5bG9nZW5ldGljcw=='); return false;">phylogenetics</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('dGVhY2hpbmc='); return false;">teaching</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('RkJE'); return false;">FBD</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('QmF5ZXNpYW4='); return false;">Bayesian</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('cGh5bG9nZW5ldGljcw=='); return false;">
-phylogenetics
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('dGVhY2hpbmc='); return false;">
-teaching
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('RkJE'); return false;">
-FBD
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('QmF5ZXNpYW4='); return false;">
-Bayesian
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/phylopapers_2025_Aug_29/index.html" class="no-external">Discussion of Mulvey et al.&nbsp;(2025) about the fossilized birth death model</a>
-</div>
+<div class="delink listing-description"><a href="./posts/phylopapers_2025_Aug_29/index.html" class="no-external">
+<p>Discussion of Mulvey et al.&nbsp;(2025) about the fossilized birth death model</p>
+</a></div>
 </div>
 <div class="metadata">
 <a href="./posts/phylopapers_2025_Aug_29/index.html" class="no-external">
@@ -962,23 +854,18 @@ Aug 29, 2025
 <h3 class="no-anchor listing-title">
 <a href="./posts/phylopapers_2025_Aug_22/index.html" class="no-external">PhyloPapers 2025, first class</a>
 </h3>
-<div class="listing-subtitle">
-<a href="./posts/phylopapers_2025_Aug_22/index.html" class="no-external"></a>
-</div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('cGh5bG9wYXBlcnM='); return false;">
-phylopapers
+
+<div class="listing-category" onclick="window.quartoListingCategory('cGh5bG9wYXBlcnM='); return false;">phylopapers</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('cGh5bG9nZW5ldGljcw=='); return false;">phylogenetics</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('dGVhY2hpbmc='); return false;">teaching</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('cGh5bG9nZW5ldGljcw=='); return false;">
-phylogenetics
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('dGVhY2hpbmc='); return false;">
-teaching
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/phylopapers_2025_Aug_22/index.html" class="no-external">Presentation for first class in new phylogenetic papers class, focused on tree building</a>
-</div>
+<div class="delink listing-description"><a href="./posts/phylopapers_2025_Aug_22/index.html" class="no-external">
+<p>Presentation for first class in new phylogenetic papers class, focused on tree building</p>
+</a></div>
 </div>
 <div class="metadata">
 <a href="./posts/phylopapers_2025_Aug_22/index.html" class="no-external">
@@ -993,20 +880,16 @@ Aug 22, 2025
 <h3 class="no-anchor listing-title">
 <a href="./posts/targetsmemory/index.html" class="no-external">Watching memory in targets in R</a>
 </h3>
-<div class="listing-subtitle">
-<a href="./posts/targetsmemory/index.html" class="no-external"></a>
-</div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('UnN0YXRz'); return false;">
-Rstats
+
+<div class="listing-category" onclick="window.quartoListingCategory('UnN0YXRz'); return false;">Rstats</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('dGFyZ2V0cw=='); return false;">targets</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('dGFyZ2V0cw=='); return false;">
-targets
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/targetsmemory/index.html" class="no-external">Quick way to keep from running out of memory when running targets in R</a>
-</div>
+<div class="delink listing-description"><a href="./posts/targetsmemory/index.html" class="no-external">
+<p>Quick way to keep from running out of memory when running targets in R</p>
+</a></div>
 </div>
 <div class="metadata">
 <a href="./posts/targetsmemory/index.html" class="no-external">
@@ -1021,17 +904,14 @@ Jul 25, 2025
 <h3 class="no-anchor listing-title">
 <a href="./posts/rsig/index.html" class="no-external">Course ads on R-sig-phylo</a>
 </h3>
-<div class="listing-subtitle">
-<a href="./posts/rsig/index.html" class="no-external"></a>
-</div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('UnN0YXRz'); return false;">
-Rstats
+
+<div class="listing-category" onclick="window.quartoListingCategory('UnN0YXRz'); return false;">Rstats</div>
+
 </div>
-</div>
-<div class="listing-description">
-<a href="./posts/rsig/index.html" class="no-external">The main mailing list for phylogenetics in R, R-sig-phylo, is now nearly all ads for courses from a small set of companies. It would be great if they stopped this.</a>
-</div>
+<div class="delink listing-description"><a href="./posts/rsig/index.html" class="no-external">
+<p>The main mailing list for phylogenetics in R, R-sig-phylo, is now nearly all ads for courses from a small set of companies. It would be great if they stopped this.</p>
+</a></div>
 </div>
 <div class="metadata">
 <a href="./posts/rsig/index.html" class="no-external">
@@ -1046,23 +926,18 @@ Jul 18, 2025
 <h3 class="no-anchor listing-title">
 <a href="./posts/conferencelocations/index.html" class="no-external">Conference locations</a>
 </h3>
-<div class="listing-subtitle">
-<a href="./posts/conferencelocations/index.html" class="no-external"></a>
-</div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Y29uZmVyZW5jZXM='); return false;">
-conferences
+
+<div class="listing-category" onclick="window.quartoListingCategory('Y29uZmVyZW5jZXM='); return false;">conferences</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('dHJhdmVs'); return false;">travel</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('bWVldGluZ3M='); return false;">meetings</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('dHJhdmVs'); return false;">
-travel
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('bWVldGluZ3M='); return false;">
-meetings
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/conferencelocations/index.html" class="no-external">Overview of considerations for selecting a location for a conference</a>
-</div>
+<div class="delink listing-description"><a href="./posts/conferencelocations/index.html" class="no-external">
+<p>Overview of considerations for selecting a location for a conference</p>
+</a></div>
 </div>
 <div class="metadata">
 <a href="./posts/conferencelocations/index.html" class="no-external">
@@ -1077,20 +952,16 @@ Jun 19, 2025
 <h3 class="no-anchor listing-title">
 <a href="./posts/williamsgrants/index.html" class="no-external">Williams College stops seeking federal grants</a>
 </h3>
-<div class="listing-subtitle">
-<a href="./posts/williamsgrants/index.html" class="no-external"></a>
-</div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Z3JhbnRz'); return false;">
-grants
+
+<div class="listing-category" onclick="window.quartoListingCategory('Z3JhbnRz'); return false;">grants</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('ZmluYW5jaW5n'); return false;">financing</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('ZmluYW5jaW5n'); return false;">
-financing
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/williamsgrants/index.html" class="no-external">Williams College announced it will stop seeking federal research grants – running numbers on impact</a>
-</div>
+<div class="delink listing-description"><a href="./posts/williamsgrants/index.html" class="no-external">
+<p>Williams College announced it will stop seeking federal research grants – running numbers on impact</p>
+</a></div>
 </div>
 <div class="metadata">
 <a href="./posts/williamsgrants/index.html" class="no-external">
@@ -1105,20 +976,16 @@ Jun 7, 2025
 <h3 class="no-anchor listing-title">
 <a href="./posts/cicadas/index.html" class="no-external">Periodical cicadas</a>
 </h3>
-<div class="listing-subtitle">
-<a href="./posts/cicadas/index.html" class="no-external"></a>
-</div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Y2ljYWRhcw=='); return false;">
-cicadas
+
+<div class="listing-category" onclick="window.quartoListingCategory('Y2ljYWRhcw=='); return false;">cicadas</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('bmF0dXJhbCUyMGhpc3Rvcnk='); return false;">natural history</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('bmF0dXJhbCUyMGhpc3Rvcnk='); return false;">
-natural history
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/cicadas/index.html" class="no-external">The long wait is over: periodical cicadas are here!</a>
-</div>
+<div class="delink listing-description"><a href="./posts/cicadas/index.html" class="no-external">
+<p>The long wait is over: periodical cicadas are here!</p>
+</a></div>
 </div>
 <div class="metadata">
 <a href="./posts/cicadas/index.html" class="no-external">
@@ -1133,29 +1000,22 @@ May 18, 2025
 <h3 class="no-anchor listing-title">
 <a href="./posts/fundingfortenure/index.html" class="no-external">Funding for tenure</a>
 </h3>
-<div class="listing-subtitle">
-<a href="./posts/fundingfortenure/index.html" class="no-external"></a>
-</div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('TlNG'); return false;">
-NSF
+
+<div class="listing-category" onclick="window.quartoListingCategory('TlNG'); return false;">NSF</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('TklI'); return false;">NIH</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('dGVudXJl'); return false;">tenure</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('ZnVuZGluZw=='); return false;">funding</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('aW5kaXJlY3QlMjBjb3N0cw=='); return false;">indirect costs</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('TklI'); return false;">
-NIH
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('dGVudXJl'); return false;">
-tenure
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('ZnVuZGluZw=='); return false;">
-funding
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('aW5kaXJlY3QlMjBjb3N0cw=='); return false;">
-indirect costs
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/fundingfortenure/index.html" class="no-external">Faculty funding should not play a role in tenure decisions, especially now</a>
-</div>
+<div class="delink listing-description"><a href="./posts/fundingfortenure/index.html" class="no-external">
+<p>Faculty funding should not play a role in tenure decisions, especially now</p>
+</a></div>
 </div>
 <div class="metadata">
 <a href="./posts/fundingfortenure/index.html" class="no-external">
@@ -1170,23 +1030,18 @@ May 4, 2025
 <h3 class="no-anchor listing-title">
 <a href="./posts/eponymous_birds/index.html" class="no-external">How long does balance in eponymous names require?</a>
 </h3>
-<div class="listing-subtitle">
-<a href="./posts/eponymous_birds/index.html" class="no-external"></a>
-</div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('dGF4b25vbXk='); return false;">
-taxonomy
+
+<div class="listing-category" onclick="window.quartoListingCategory('dGF4b25vbXk='); return false;">taxonomy</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('YmlyZHM='); return false;">birds</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('cnN0YXRz'); return false;">rstats</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('YmlyZHM='); return false;">
-birds
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('cnN0YXRz'); return false;">
-rstats
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/eponymous_birds/index.html" class="no-external">An analysis of data from Sanster (2025) on eponymous birds</a>
-</div>
+<div class="delink listing-description"><a href="./posts/eponymous_birds/index.html" class="no-external">
+<p>An analysis of data from Sanster (2025) on eponymous birds</p>
+</a></div>
 </div>
 <div class="metadata">
 <a href="./posts/eponymous_birds/index.html" class="no-external">
@@ -1201,26 +1056,20 @@ Mar 28, 2025
 <h3 class="no-anchor listing-title">
 <a href="./posts/uncertaintyandrisk/index.html" class="no-external">Uncertainty and risk</a>
 </h3>
-<div class="listing-subtitle">
-<a href="./posts/uncertaintyandrisk/index.html" class="no-external"></a>
-</div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('TlNG'); return false;">
-NSF
+
+<div class="listing-category" onclick="window.quartoListingCategory('TlNG'); return false;">NSF</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('UkVV'); return false;">REU</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Z3JhZHNjaG9vbA=='); return false;">gradschool</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('ZnVuZGluZw=='); return false;">funding</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('UkVV'); return false;">
-REU
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Z3JhZHNjaG9vbA=='); return false;">
-gradschool
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('ZnVuZGluZw=='); return false;">
-funding
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/uncertaintyandrisk/index.html" class="no-external">How we communicate and handle risks to students from federal funding uncertainty</a>
-</div>
+<div class="delink listing-description"><a href="./posts/uncertaintyandrisk/index.html" class="no-external">
+<p>How we communicate and handle risks to students from federal funding uncertainty</p>
+</a></div>
 </div>
 <div class="metadata">
 <a href="./posts/uncertaintyandrisk/index.html" class="no-external">
@@ -1235,29 +1084,22 @@ Jan 31, 2025
 <h3 class="no-anchor listing-title">
 <a href="./posts/fieldsafety/index.html" class="no-external">Field Safety</a>
 </h3>
-<div class="listing-subtitle">
-<a href="./posts/fieldsafety/index.html" class="no-external"></a>
-</div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('ZmllbGQlMjBzYWZldHk='); return false;">
-field safety
+
+<div class="listing-category" onclick="window.quartoListingCategory('ZmllbGQlMjBzYWZldHk='); return false;">field safety</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('ZmllbGR3b3Jr'); return false;">fieldwork</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('c2FmZXR5'); return false;">safety</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('TlNG'); return false;">NSF</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('aW5jbHVzaW9u'); return false;">inclusion</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('ZmllbGR3b3Jr'); return false;">
-fieldwork
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('c2FmZXR5'); return false;">
-safety
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('TlNG'); return false;">
-NSF
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('aW5jbHVzaW9u'); return false;">
-inclusion
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/fieldsafety/index.html" class="no-external">Info on field safety protocols</a>
-</div>
+<div class="delink listing-description"><a href="./posts/fieldsafety/index.html" class="no-external">
+<p>Info on field safety protocols</p>
+</a></div>
 </div>
 <div class="metadata">
 <a href="./posts/fieldsafety/index.html" class="no-external">
@@ -1272,29 +1114,22 @@ May 8, 2024
 <h3 class="no-anchor listing-title">
 <a href="./posts/dentist/index.html" class="no-external">Dentist for likelihood</a>
 </h3>
-<div class="listing-subtitle">
-<a href="./posts/dentist/index.html" class="no-external"></a>
-</div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">
-R
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('UnN0YXRz'); return false;">Rstats</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('bGlrZWxpaG9vZA=='); return false;">likelihood</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('dW5jZXJ0YWludHk='); return false;">uncertainty</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('cHVibGljYXRpb24='); return false;">publication</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('UnN0YXRz'); return false;">
-Rstats
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('bGlrZWxpaG9vZA=='); return false;">
-likelihood
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('dW5jZXJ0YWludHk='); return false;">
-uncertainty
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('cHVibGljYXRpb24='); return false;">
-publication
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/dentist/index.html" class="no-external">A new way to estimate uncertainty in likelihood</a>
-</div>
+<div class="delink listing-description"><a href="./posts/dentist/index.html" class="no-external">
+<p>A new way to estimate uncertainty in likelihood</p>
+</a></div>
 </div>
 <div class="metadata">
 <a href="./posts/dentist/index.html" class="no-external">
@@ -1309,32 +1144,24 @@ Feb 29, 2024
 <h3 class="no-anchor listing-title">
 <a href="./posts/collegetables/index.html" class="no-external">13,000 page site with Rmarkdown and targets</a>
 </h3>
-<div class="listing-subtitle">
-<a href="./posts/collegetables/index.html" class="no-external"></a>
-</div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Z2l0aHVi'); return false;">
-github
+
+<div class="listing-category" onclick="window.quartoListingCategory('Z2l0aHVi'); return false;">github</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('c29mdHdhcmU='); return false;">software</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('cnN0YXRz'); return false;">rstats</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('aGlnaGVyZWQ='); return false;">highered</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('dGFyZ2V0cw=='); return false;">targets</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('cm1hcmtkb3du'); return false;">rmarkdown</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('c29mdHdhcmU='); return false;">
-software
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('cnN0YXRz'); return false;">
-rstats
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('aGlnaGVyZWQ='); return false;">
-highered
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('dGFyZ2V0cw=='); return false;">
-targets
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('cm1hcmtkb3du'); return false;">
-rmarkdown
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/collegetables/index.html" class="no-external">How I made a site comparing every higher ed institution in the US</a>
-</div>
+<div class="delink listing-description"><a href="./posts/collegetables/index.html" class="no-external">
+<p>How I made a site comparing every higher ed institution in the US</p>
+</a></div>
 </div>
 <div class="metadata">
 <a href="./posts/collegetables/index.html" class="no-external">
@@ -1349,26 +1176,20 @@ Oct 28, 2023
 <h3 class="no-anchor listing-title">
 <a href="./posts/codeofethics/index.html" class="no-external">SSB Code of Ethics</a>
 </h3>
-<div class="listing-subtitle">
-<a href="./posts/codeofethics/index.html" class="no-external"></a>
-</div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Y29kZSUyMG9mJTIwZXRoaWNz'); return false;">
-code of ethics
+
+<div class="listing-category" onclick="window.quartoListingCategory('Y29kZSUyMG9mJTIwZXRoaWNz'); return false;">code of ethics</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('U1NC'); return false;">SSB</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('c3lzdGVtYXRpY3M='); return false;">systematics</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('ZXRoaWNz'); return false;">ethics</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('U1NC'); return false;">
-SSB
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('c3lzdGVtYXRpY3M='); return false;">
-systematics
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('ZXRoaWNz'); return false;">
-ethics
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/codeofethics/index.html" class="no-external">SSB is voting on a code of ethics</a>
-</div>
+<div class="delink listing-description"><a href="./posts/codeofethics/index.html" class="no-external">
+<p>SSB is voting on a code of ethics</p>
+</a></div>
 </div>
 <div class="metadata">
 <a href="./posts/codeofethics/index.html" class="no-external">
@@ -1383,20 +1204,16 @@ Oct 26, 2023
 <h3 class="no-anchor listing-title">
 <a href="./posts/percentageage/index.html" class="no-external">Fraction of history</a>
 </h3>
-<div class="listing-subtitle">
-<a href="./posts/percentageage/index.html" class="no-external"></a>
-</div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('aGlzdG9yeQ=='); return false;">
-history
+
+<div class="listing-category" onclick="window.quartoListingCategory('aGlzdG9yeQ=='); return false;">history</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('bWFzdG9kb24='); return false;">mastodon</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('bWFzdG9kb24='); return false;">
-mastodon
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/percentageage/index.html" class="no-external">Figure out what fraction of history you have lived through</a>
-</div>
+<div class="delink listing-description"><a href="./posts/percentageage/index.html" class="no-external">
+<p>Figure out what fraction of history you have lived through</p>
+</a></div>
 </div>
 <div class="metadata">
 <a href="./posts/percentageage/index.html" class="no-external">
@@ -1411,23 +1228,18 @@ Sep 1, 2023
 <h3 class="no-anchor listing-title">
 <a href="./posts/githubratelimit/index.html" class="no-external">Github rate limit</a>
 </h3>
-<div class="listing-subtitle">
-<a href="./posts/githubratelimit/index.html" class="no-external"></a>
-</div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Z2l0aHVi'); return false;">
-github
+
+<div class="listing-category" onclick="window.quartoListingCategory('Z2l0aHVi'); return false;">github</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('c29mdHdhcmU='); return false;">software</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('cnN0YXRz'); return false;">rstats</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('c29mdHdhcmU='); return false;">
-software
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('cnN0YXRz'); return false;">
-rstats
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/githubratelimit/index.html" class="no-external">How to fix the bad credentials error with devtools::install</a>
-</div>
+<div class="delink listing-description"><a href="./posts/githubratelimit/index.html" class="no-external">
+<p>How to fix the bad credentials error with devtools::install</p>
+</a></div>
 </div>
 <div class="metadata">
 <a href="./posts/githubratelimit/index.html" class="no-external">
@@ -1442,26 +1254,20 @@ Jul 27, 2023
 <h3 class="no-anchor listing-title">
 <a href="./posts/evolutioncore2023/index.html" class="no-external">Grad core class in evolutionary biology, 2023 edition</a>
 </h3>
-<div class="listing-subtitle">
-<a href="./posts/evolutioncore2023/index.html" class="no-external"></a>
-</div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('dGVhY2hpbmc='); return false;">
-teaching
+
+<div class="listing-category" onclick="window.quartoListingCategory('dGVhY2hpbmc='); return false;">teaching</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('ZXZvbHV0aW9u'); return false;">evolution</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Y29yZQ=='); return false;">core</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('RUVCNTEx'); return false;">EEB511</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('ZXZvbHV0aW9u'); return false;">
-evolution
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Y29yZQ=='); return false;">
-core
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('RUVCNTEx'); return false;">
-EEB511
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/evolutioncore2023/index.html" class="no-external">Topics and teaching in our core class in evolution for graduate students</a>
-</div>
+<div class="delink listing-description"><a href="./posts/evolutioncore2023/index.html" class="no-external">
+<p>Topics and teaching in our core class in evolution for graduate students</p>
+</a></div>
 </div>
 <div class="metadata">
 <a href="./posts/evolutioncore2023/index.html" class="no-external">
@@ -1476,17 +1282,14 @@ May 11, 2023
 <h3 class="no-anchor listing-title">
 <a href="./posts/joiningmastodon/index.html" class="no-external">Joining Mastodon</a>
 </h3>
-<div class="listing-subtitle">
-<a href="./posts/joiningmastodon/index.html" class="no-external"></a>
-</div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('c29jaWFsJTIwbWVkaWE='); return false;">
-social media
+
+<div class="listing-category" onclick="window.quartoListingCategory('c29jaWFsJTIwbWVkaWE='); return false;">social media</div>
+
 </div>
-</div>
-<div class="listing-description">
-<a href="./posts/joiningmastodon/index.html" class="no-external">Instructions for joining mastodon for social media</a>
-</div>
+<div class="delink listing-description"><a href="./posts/joiningmastodon/index.html" class="no-external">
+<p>Instructions for joining mastodon for social media</p>
+</a></div>
 </div>
 <div class="metadata">
 <a href="./posts/joiningmastodon/index.html" class="no-external">
@@ -1501,23 +1304,18 @@ Apr 30, 2023
 <h3 class="no-anchor listing-title">
 <a href="./posts/phylotasticruniverse/index.html" class="no-external">An alternative to CRAN for phylogenetics</a>
 </h3>
-<div class="listing-subtitle">
-<a href="./posts/phylotasticruniverse/index.html" class="no-external"></a>
-</div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">
-R
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('cmJsb2dnZXJz'); return false;">rbloggers</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('cmVwcm9kdWNpYmlsaXR5'); return false;">reproducibility</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('cmJsb2dnZXJz'); return false;">
-rbloggers
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('cmVwcm9kdWNpYmlsaXR5'); return false;">
-reproducibility
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/phylotasticruniverse/index.html" class="no-external">Phylotastic R-universe as a way of serving up phylogenetics packages in R</a>
-</div>
+<div class="delink listing-description"><a href="./posts/phylotasticruniverse/index.html" class="no-external">
+<p>Phylotastic R-universe as a way of serving up phylogenetics packages in R</p>
+</a></div>
 </div>
 <div class="metadata">
 <a href="./posts/phylotasticruniverse/index.html" class="no-external">
@@ -1532,35 +1330,26 @@ Apr 23, 2023
 <h3 class="no-anchor listing-title">
 <a href="./posts/fossilsdonothelp/index.html" class="no-external">Fossils do not help fix diversification parameter estimates</a>
 </h3>
-<div class="listing-subtitle">
-<a href="./posts/fossilsdonothelp/index.html" class="no-external"></a>
-</div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Zm9zc2ls'); return false;">
-fossil
+
+<div class="listing-category" onclick="window.quartoListingCategory('Zm9zc2ls'); return false;">fossil</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('aGlzc2U='); return false;">hisse</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('bWlzc2U='); return false;">misse</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('ZGl2ZXJzaWZpY2F0aW9u'); return false;">diversification</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('c2ltdWxhdGlvbg=='); return false;">simulation</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('cHVibGljYXRpb24='); return false;">publication</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">
-R
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('aGlzc2U='); return false;">
-hisse
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('bWlzc2U='); return false;">
-misse
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('ZGl2ZXJzaWZpY2F0aW9u'); return false;">
-diversification
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('c2ltdWxhdGlvbg=='); return false;">
-simulation
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('cHVibGljYXRpb24='); return false;">
-publication
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/fossilsdonothelp/index.html" class="no-external">Overview of ‘Fossils Do Not Substantially Improve, and May Even Harm, Estimates of Diversification Rate Heterogeneity’, published in Systematic Biology in 2022</a>
-</div>
+<div class="delink listing-description"><a href="./posts/fossilsdonothelp/index.html" class="no-external">
+<p>Overview of ‘Fossils Do Not Substantially Improve, and May Even Harm, Estimates of Diversification Rate Heterogeneity’, published in Systematic Biology in 2022</p>
+</a></div>
 </div>
 <div class="metadata">
 <a href="./posts/fossilsdonothelp/index.html" class="no-external">
@@ -1571,244 +1360,249 @@ Apr 22, 2023
 </div>
 </div>
 </div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
+<div class="listing-no-matching d-none">No matching items</div>
 <nav id="listing-pagination" class="listing-pagination" aria-label="Page Navigation">
   <ul class="pagination"></ul>
 </nav>
 </div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
-window.document.addEventListener("DOMContentLoaded", function (event) {
-  const toggleBodyColorMode = (bsSheetEl) => {
-    const mode = bsSheetEl.getAttribute("data-mode");
-    const bodyEl = window.document.querySelector("body");
-    if (mode === "dark") {
-      bodyEl.classList.add("quarto-dark");
-      bodyEl.classList.remove("quarto-light");
-    } else {
-      bodyEl.classList.add("quarto-light");
-      bodyEl.classList.remove("quarto-dark");
-    }
-  }
-  const toggleBodyColorPrimary = () => {
-    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-    if (bsSheetEl) {
-      toggleBodyColorMode(bsSheetEl);
-    }
-  }
-  toggleBodyColorPrimary();  
-  const icon = "";
-  const anchorJS = new window.AnchorJS();
-  anchorJS.options = {
-    placement: 'right',
-    icon: icon
-  };
-  anchorJS.add('.anchored');
-  const isCodeAnnotation = (el) => {
-    for (const clz of el.classList) {
-      if (clz.startsWith('code-annotation-')) {                     
-        return true;
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
       }
+      return false;
     }
-    return false;
-  }
-  const onCopySuccess = function(e) {
-    // button target
-    const button = e.trigger;
-    // don't keep focus
-    button.blur();
-    // flash "checked"
-    button.classList.add('code-copy-button-checked');
-    var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
-    let tooltip;
-    if (window.bootstrap) {
-      button.setAttribute("data-bs-toggle", "tooltip");
-      button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
-      tooltip = new bootstrap.Tooltip(button, 
-        { trigger: "manual", 
-          customClass: "code-copy-button-tooltip",
-          offset: [0, -8]});
-      tooltip.show();    
-    }
-    setTimeout(function() {
-      if (tooltip) {
-        tooltip.hide();
-        button.removeAttribute("data-bs-title");
-        button.removeAttribute("data-bs-toggle");
-        button.removeAttribute("data-bs-placement");
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
       }
-      button.setAttribute("title", currentTitle);
-      button.classList.remove('code-copy-button-checked');
-    }, 1000);
-    // clear code selection
-    e.clearSelection();
-  }
-  const getTextToCopy = function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
       for (const childEl of codeEl.children) {
         if (isCodeAnnotation(childEl)) {
           childEl.remove();
         }
       }
       return codeEl.innerText;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-    text: getTextToCopy
-  });
-  clipboard.on('success', onCopySuccess);
-  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-      text: getTextToCopy,
-      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
     });
-    clipboardModal.on('success', onCopySuccess);
-  }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-    var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/brianomeara\.info");
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
     }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-        // undo the damage that might have been done by quarto-nav.js in the case of
-        // links that we want to consider external
-        if (link.dataset.originalHref !== undefined) {
-          link.href = link.dataset.originalHref;
-        }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/brianomeara\.info");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
-    }
-  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-    const config = {
-      allowHTML: true,
-      maxWidth: 500,
-      delay: 100,
-      arrow: false,
-      appendTo: function(el) {
-          return el.parentElement;
-      },
-      interactive: true,
-      interactiveBorder: 10,
-      theme: 'quarto',
-      placement: 'bottom-start',
-    };
-    if (contentFn) {
-      config.content = contentFn;
-    }
-    if (onTriggerFn) {
-      config.onTrigger = onTriggerFn;
-    }
-    if (onUntriggerFn) {
-      config.onUntrigger = onUntriggerFn;
-    }
-    window.tippy(el, config); 
-  }
-  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-  for (var i=0; i<noterefs.length; i++) {
-    const ref = noterefs[i];
-    tippyHover(ref, function() {
-      // use id or data attribute instead here
-      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-      try { href = new URL(href).hash; } catch {}
-      const id = href.replace(/^#\/?/, "");
-      const note = window.document.getElementById(id);
-      if (note) {
-        return note.innerHTML;
-      } else {
-        return "";
-      }
-    });
-  }
-  const xrefs = window.document.querySelectorAll('a.quarto-xref');
-  const processXRef = (id, note) => {
-    // Strip column container classes
-    const stripColumnClz = (el) => {
-      el.classList.remove("page-full", "page-columns");
-      if (el.children) {
-        for (const child of el.children) {
-          stripColumnClz(child);
-        }
-      }
-    }
-    stripColumnClz(note)
-    if (id === null || id.startsWith('sec-')) {
-      // Special case sections, only their first couple elements
-      const container = document.createElement("div");
-      if (note.children && note.children.length > 2) {
-        container.appendChild(note.children[0].cloneNode(true));
-        for (let i = 1; i < note.children.length; i++) {
-          const child = note.children[i];
-          if (child.tagName === "P" && child.innerText === "") {
-            continue;
-          } else {
-            container.appendChild(child.cloneNode(true));
-            break;
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
           }
         }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(container);
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
         }
-        return container.innerHTML
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
       } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
         if (window.Quarto?.typesetMath) {
           window.Quarto.typesetMath(note);
         }
-        return note.innerHTML;
-      }
-    } else {
-      // Remove any anchor links if they are present
-      const anchorLink = note.querySelector('a.anchorjs-link');
-      if (anchorLink) {
-        anchorLink.remove();
-      }
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(note);
-      }
-      if (note.classList.contains("callout")) {
-        return note.outerHTML;
-      } else {
-        return note.innerHTML;
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
       }
     }
-  }
-  for (var i=0; i<xrefs.length; i++) {
-    const xref = xrefs[i];
-    tippyHover(xref, undefined, function(instance) {
-      instance.disable();
-      let url = xref.getAttribute('href');
-      let hash = undefined; 
-      if (url.startsWith('#')) {
-        hash = url;
-      } else {
-        try { hash = new URL(url).hash; } catch {}
-      }
-      if (hash) {
-        const id = hash.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note !== null) {
-          try {
-            const html = processXRef(id, note.cloneNode(true));
-            instance.setContent(html);
-          } finally {
-            instance.enable();
-            instance.show();
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
           }
         } else {
-          // See if we can fetch this
-          fetch(url.split('#')[0])
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
           .then(res => res.text())
           .then(html => {
             const parser = new DOMParser();
             const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.getElementById(id);
+            const note = htmlDoc.querySelector('main.content');
             if (note !== null) {
-              const html = processXRef(id, note);
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
               instance.setContent(html);
             } 
           }).finally(() => {
@@ -1816,185 +1610,161 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             instance.show();
           });
         }
-      } else {
-        // See if we can fetch a full url (with no hash to target)
-        // This is a special case and we should probably do some content thinning / targeting
-        fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.querySelector('main.content');
-          if (note !== null) {
-            // This should only happen for chapter cross references
-            // (since there is no id in the URL)
-            // remove the first header
-            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-              note.children[0].remove();
-            }
-            const html = processXRef(null, note);
-            instance.setContent(html);
-          } 
-        }).finally(() => {
-          instance.enable();
-          instance.show();
-        });
-      }
-    }, function(instance) {
-    });
-  }
-      let selectedAnnoteEl;
-      const selectorForAnnotation = ( cell, annotation) => {
-        let cellAttr = 'data-code-cell="' + cell + '"';
-        let lineAttr = 'data-code-annotation="' +  annotation + '"';
-        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-        return selector;
-      }
-      const selectCodeLines = (annoteEl) => {
-        const doc = window.document;
-        const targetCell = annoteEl.getAttribute("data-target-cell");
-        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-        const lineIds = lines.map((line) => {
-          return targetCell + "-" + line;
-        })
-        let top = null;
-        let height = null;
-        let parent = null;
-        if (lineIds.length > 0) {
-            //compute the position of the single el (top and bottom and make a div)
-            const el = window.document.getElementById(lineIds[0]);
-            top = el.offsetTop;
-            height = el.offsetHeight;
-            parent = el.parentElement.parentElement;
-          if (lineIds.length > 1) {
-            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-            height = bottom - top;
-          }
-          if (top !== null && height !== null && parent !== null) {
-            // cook up a div (if necessary) and position it 
-            let div = window.document.getElementById("code-annotation-line-highlight");
-            if (div === null) {
-              div = window.document.createElement("div");
-              div.setAttribute("id", "code-annotation-line-highlight");
-              div.style.position = 'absolute';
-              parent.appendChild(div);
-            }
-            div.style.top = top - 2 + "px";
-            div.style.height = height + 4 + "px";
-            div.style.left = 0;
-            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-            if (gutterDiv === null) {
-              gutterDiv = window.document.createElement("div");
-              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-              gutterDiv.style.position = 'absolute';
-              const codeCell = window.document.getElementById(targetCell);
-              const gutter = codeCell.querySelector('.code-annotation-gutter');
-              gutter.appendChild(gutterDiv);
-            }
-            gutterDiv.style.top = top - 2 + "px";
-            gutterDiv.style.height = height + 4 + "px";
-          }
-          selectedAnnoteEl = annoteEl;
-        }
-      };
-      const unselectCodeLines = () => {
-        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-        elementsIds.forEach((elId) => {
-          const div = window.document.getElementById(elId);
-          if (div) {
-            div.remove();
-          }
-        });
-        selectedAnnoteEl = undefined;
-      };
-        // Handle positioning of the toggle
-    window.addEventListener(
-      "resize",
-      throttle(() => {
-        elRect = undefined;
-        if (selectedAnnoteEl) {
-          selectCodeLines(selectedAnnoteEl);
-        }
-      }, 10)
-    );
-    function throttle(fn, ms) {
-    let throttle = false;
-    let timer;
-      return (...args) => {
-        if(!throttle) { // first call gets through
-            fn.apply(this, args);
-            throttle = true;
-        } else { // all the others get throttled
-            if(timer) clearTimeout(timer); // cancel #2
-            timer = setTimeout(() => {
-              fn.apply(this, args);
-              timer = throttle = false;
-            }, ms);
-        }
-      };
-    }
-      // Attach click handler to the DT
-      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-      for (const annoteDlNode of annoteDls) {
-        annoteDlNode.addEventListener('click', (event) => {
-          const clickedEl = event.target;
-          if (clickedEl !== selectedAnnoteEl) {
-            unselectCodeLines();
-            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-            if (activeEl) {
-              activeEl.classList.remove('code-annotation-active');
-            }
-            selectCodeLines(clickedEl);
-            clickedEl.classList.add('code-annotation-active');
-          } else {
-            // Unselect the line
-            unselectCodeLines();
-            clickedEl.classList.remove('code-annotation-active');
-          }
-        });
-      }
-  const findCites = (el) => {
-    const parentEl = el.parentElement;
-    if (parentEl) {
-      const cites = parentEl.dataset.cites;
-      if (cites) {
-        return {
-          el,
-          cites: cites.split(' ')
-        };
-      } else {
-        return findCites(el.parentElement)
-      }
-    } else {
-      return undefined;
-    }
-  };
-  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-  for (var i=0; i<bibliorefs.length; i++) {
-    const ref = bibliorefs[i];
-    const citeInfo = findCites(ref);
-    if (citeInfo) {
-      tippyHover(citeInfo.el, function() {
-        var popup = window.document.createElement('div');
-        citeInfo.cites.forEach(function(cite) {
-          var citeDiv = window.document.createElement('div');
-          citeDiv.classList.add('hanging-indent');
-          citeDiv.classList.add('csl-entry');
-          var biblioDiv = window.document.getElementById('ref-' + cite);
-          if (biblioDiv) {
-            citeDiv.innerHTML = biblioDiv.innerHTML;
-          }
-          popup.appendChild(citeDiv);
-        });
-        return popup.innerHTML;
+      }, function(instance) {
       });
     }
-  }
-});
-</script>
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
 </div> <!-- /content -->
 
 

@@ -110,6 +110,15 @@ Over my career, work in the lab has been funded by multiple NSF grants to me as 
 
 I owe my career to US National Science Foundation support: I was funded as a grad student by an NSF GRFP, postdoc at an NSF-funded synthesis center (NESCent), and continued support for over fifteen years as a faculty member.
 
+## Relevant side quests
+
+Much of my research is based on answering questions by aggregating large datasets and using them with new methods. I have used these skills for some other projects.
+
+* [collegetables.info](https://collegetables.info): When my elder child started looking at where to go to college, there were the usual assortment of "best college rankings" websites but not a nice giant table of info. So, I decided to make one, and it led to building a multi-thousand page website with info on all colleges in the US. It was later covered in the [NYTimes](https://www.nytimes.com/2023/04/15/your-money/college-cost-data-tools.html?unlocked_article_code=hN2IwBdFONp5CmgbxhKM-HVUid0P2EEoomfIcGniJ6EcogeoxOwoimKabx7gynOb0f6-QxIpIELuqqT35rk-nLmDMZMDAljFtcY-YQBvNGWVgLCKOj7omvSxUjcQbXnG4B8H67gTFWQA8USo6Y3Xs5RWuXjQ8Chp2WchftGv-k9oTf7m0nPvki2JmPoQiawOquJTtiwFG9lxEX5-vSzJIvBPu5Gl_-jhW5wisUpTZCQWfzr9Ar56ix7q2rQ2B4qqyQxpPWqow2gJ_D0eF5c4PhAzh-QksTofGv9rUG0SJmgnDhUkCcF361B0kpugBjccqwqYBuaTbSFMqBowPacjapogDFA&giftCopy=1_CurrentCopy&smid=url-share). It's all free without ads, and it uses federal and other data sources. One newish feature is the [predict](https://collegetables.info/predict.html) tab, which after loading (it takes a minute or two) runs an Rshiny interface to a naive Bayesian prediction model I used that helps students find colleges where people with their interests and supplied background tend to graduate (which can be very different from where people with such characteristics tend to attend, sadly). 
+* [rnsf](https://bomeara.github.io/rnsf/index.html): An R interface and cache of all of the over 500,000 grants made by the US National Science Foundation. Helpful for tracking funding trends and interests over time.
+* *Deprecated* [nursinghomecovid.info](https://web.archive.org/web/20250228031543/https://nursinghomecovid.info/): A dashboard and table of covid incidence and vaccination in US nursing homes. It was useful as every nursing home in the US had to report covid incidence and vaccination incidence among both workers and residents, so this was the only source of data on the ongoing situation in some entire states. However, the federal database stopped being updated in 2025, so I no longer run the site.
+* [Species Flash Cards](https://brianomeara.shinyapps.io/SpeciesFlashCards/): Another project for one of my children who was learning to recognize frogs of Tennessee: it pulls images from iNaturalist for a designated set of species (supplied by the user or from a webpage) and shows them for students to practice identifying the species.
+
 ## Contact
 
 To contact me, bomeara@utk.edu. I am also on [bluesky](https://bsky.app/profile/omearabrian.bsky.social). Office hours, including virtual ones are at my [calendar](calendar.qmd).

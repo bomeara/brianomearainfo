@@ -10,7 +10,241 @@
 <atom:link href="https://brianomeara.info/blog.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.8.27</generator>
-<lastBuildDate>Mon, 01 Dec 2025 05:00:00 GMT</lastBuildDate>
+<lastBuildDate>Sat, 04 Apr 2026 04:00:00 GMT</lastBuildDate>
+<item>
+  <title>rnsf</title>
+  <dc:creator>Brian O&#39;Meara</dc:creator>
+  <link>https://brianomeara.info/posts/rnsf/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>In 2018, I made a <a href="https://bomeara.github.io/rnsf/index.html">quick R package, <code>rnsf</code></a> for pulling from NSF’s <a href="https://resources.research.gov/common/webapi/awardapisearch-v1.htm">API</a>. Inspired by the work being done by <a href="https://bsky.app/profile/jeremymberg.bsky.social">Dr.&nbsp;Jeremy Berg</a> and <a href="https://grant-witness.us">Grant Witness</a> tracking some of the changes in federal funding for science, I decided to dust it off and make it more user-friendly. Also, once one has a tool for pulling in any funding info from NSF, why not pull in ALL funding info for all time from NSF? So the package has a dataset of all the info returned from the API, as well as a dataset of all the NSF GRFP awards through time. This will make it easier for folks looking for trends in what or where things are funded, how things are changing, and so forth.</p>
+<p>Detailed instructions on using it and installing it (it’s large, so install_github() won’t work) are at <a href="https://bomeara.github.io/rnsf/index.html" class="uri">https://bomeara.github.io/rnsf/index.html</a>. It includes all the data cached plus various utility functions.</p>
+<section id="plots" class="level1">
+<h1>Plots</h1>
+<p>The package makes it easy to make an updated “Bergogram” (line plots of funding by year, as popularized by Dr.&nbsp;Berg):</p>
+<p><img src="https://bomeara.github.io/rnsf/reference/figures/README-bergogram-1.png" class="img-fluid" alt="Line plot of awarded funding by year by NSF."></p>
+<p>See the <a href="https://bomeara.github.io/rnsf/index.html">rnsf page</a> for more plotting: making wordclouds, looking at frequency of topics or words over time, and much more.</p>
+</section>
+<section id="awards-in-2026" class="level1">
+<h1>Awards in 2026</h1>
+<p>With the federal shutdown and more, NSF has not released many funds this year. We can see exactly how few by using some of the functions in R NSF to look by state:</p>
+<div class="cell" data-warnings="false">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(rnsf)</span>
+<span id="cb1-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(tidyverse)</span></code></pre></div></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.2.0     ✔ readr     2.1.6
+✔ forcats   1.0.1     ✔ stringr   1.6.0
+✔ ggplot2   4.0.2     ✔ tibble    3.3.1
+✔ lubridate 1.9.5     ✔ tidyr     1.3.2
+✔ purrr     1.2.1     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(DT)</span>
+<span id="cb3-2"></span>
+<span id="cb3-3"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">data</span>(grants)</span>
+<span id="cb3-4">grants<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>academic_semester <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> rnsf<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">date_to_academic_semester</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">as.Date</span>(grants<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>date, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">format=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"%m/%d/%Y"</span>))</span>
+<span id="cb3-5">grants_aggregated <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> grants <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">filter</span>(academic_semester <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%in%</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">apply</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">expand.grid</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2024</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2026</span>), <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">" Fall"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"  Spring"</span>)), <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, paste0, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">collapse=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">""</span>)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">group_by</span>(academic_semester, awardeeStateCode) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">summarise</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">total_awarded =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">n</span>(), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">.groups =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"drop_last"</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ungroup</span>() <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span> tidyr<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">pivot_wider</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">names_from =</span> academic_semester, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">values_from=</span>total_awarded, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">values_fill=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span> dplyr<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">arrange</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">desc</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">`</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">2024 Fall</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">`</span>))</span>
+<span id="cb3-6"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">colnames</span>(grants_aggregated) <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">gsub</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"  "</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">" "</span>, <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">colnames</span>(grants_aggregated))</span>
+<span id="cb3-7"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">colnames</span>(grants_aggregated)[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>] <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Area"</span></span>
+<span id="cb3-8">grants_aggregated[,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>] <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> rnsf<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">abbreviation_to_state</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">unname</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">unlist</span>(grants_aggregated[,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>])))</span>
+<span id="cb3-9">grants_aggregated <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span> </span>
+<span id="cb3-10">  DT<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">datatable</span>(</span>
+<span id="cb3-11">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">caption =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Funding by state or territory"</span>,</span>
+<span id="cb3-12">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">filter=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"top"</span>) </span></code></pre></div></div>
+<div class="cell-output-display">
+<div class="datatables html-widget html-fill-item" id="htmlwidget-f7f75be238007e06b689" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-f7f75be238007e06b689">{"x":{"filter":"top","vertical":false,"filterHTML":"<tr>\n  <td><\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"integer\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"0\" data-max=\"508\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"integer\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"0\" data-max=\"752\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"integer\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"0\" data-max=\"361\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"integer\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"0\" data-max=\"586\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"integer\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"0\" data-max=\"70\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n<\/tr>","caption":"<caption>Funding by state or territory<\/caption>","data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55"],["California","New York","Texas","Massachusetts","Pennsylvania","Illinois","Virginia","Florida","Michigan","North Carolina","Colorado","Arizona","Georgia","Indiana","Maryland","New Jersey","Washington","Ohio","Tennessee","Alabama","Wisconsin","South Carolina","District of Columbia","Minnesota","Rhode Island","Oregon","Iowa","Louisiana","Utah","Missouri","Connecticut","New Mexico","Oklahoma","Kansas","Nebraska","Hawaii","Kentucky","Delaware","Idaho","Nevada","New Hampshire","Mississippi","Alaska","Montana","Maine","Arkansas","West Virginia","South Dakota","Vermont","Puerto Rico","Wyoming","North Dakota","Virgin Islands of the U.S.","American Samoa","Guam"],[508,371,324,327,243,218,161,184,208,153,111,101,137,130,118,123,97,110,78,63,76,60,51,79,66,68,54,54,44,74,66,34,42,29,39,15,36,18,16,12,21,38,10,19,30,27,28,20,13,7,10,11,0,0,0],[752,475,415,410,282,277,227,225,215,210,183,177,171,166,147,146,144,134,108,105,105,102,101,101,84,83,77,77,77,76,63,62,59,58,55,53,51,47,43,43,36,35,32,32,27,25,25,22,22,20,19,12,3,1,0],[361,256,224,189,165,122,89,105,97,103,73,65,78,83,79,90,68,73,41,51,64,31,42,47,46,41,36,30,35,64,52,21,23,14,22,16,28,31,16,11,21,19,4,8,10,10,8,17,12,9,7,9,1,0,2],[586,371,355,305,233,224,139,179,188,181,146,99,147,157,129,138,106,106,83,74,91,66,55,62,71,65,66,68,65,63,66,38,51,34,44,28,40,37,31,31,35,35,19,22,24,26,26,17,13,14,18,21,1,0,1],[70,37,40,18,26,14,14,24,20,21,9,12,11,13,21,10,7,12,5,14,11,12,9,3,11,5,4,6,7,14,6,5,7,7,1,2,1,4,2,1,1,3,0,3,0,4,1,1,3,0,1,1,0,0,0]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Area<\/th>\n      <th>2024 Spring<\/th>\n      <th>2024 Fall<\/th>\n      <th>2025 Spring<\/th>\n      <th>2025 Fall<\/th>\n      <th>2026 Spring<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[2,3,4,5,6]},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"Area","targets":1},{"name":"2024 Spring","targets":2},{"name":"2024 Fall","targets":3},{"name":"2025 Spring","targets":4},{"name":"2025 Fall","targets":5},{"name":"2026 Spring","targets":6}],"order":[],"autoWidth":false,"orderClasses":false,"orderCellsTop":true}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<section id="impact" class="level2">
+<h2 class="anchored" data-anchor-id="impact">Impact</h2>
+<p>The myriad negative impact of so few grants is clear, but one special population at risk are those people looking for postdocs, such as PhD students graduating this spring or postdocs whose previous support is ending. Delaying funding for a year or two is a substantial hit for an early career faculty member, and delays important science from getting done, but it is life-altering for someone who needs funding for a job: they will not have money to eat, healthcare, etc. and so must generally leave academia. Continuing grants with a postdoc line often have that position filled already – it is the new grants that open up new positions, except there are not that many (as of the writing of this, April 4, 2026) – even states with substantial basic research strengths have only received a handful of grants. Hopefully NSF will ramp up funding soon. If anyone has funding for postdocs, <strong>now is the time to start hiring them</strong>: there’s a great need and likely a large pool. This includes people with startup – letting someone know now you will hire them in August 2026 could really help a potential postdoc in May looking at nothing seemingly available otherwise.</p>
+</section>
+</section>
+<section id="caveats-for-package-usage" class="level1">
+<h1>Caveats for package usage</h1>
+<p>The original, canonical data are at NSF – use their <a href="https://www.nsf.gov/awardsearch/advanced-search">award search</a> for that. I try to minimally adjust the data (even, by default, not doing things like coercing dates to R’s date formats in the cached data), but it’s always possible that there is a bug that leads to some data being dropped or changed.</p>
+<hr>
+<p>To subscribe, go to <a href="https://brianomeara.info/blog.xml" class="uri">https://brianomeara.info/blog.xml</a> in an RSS reader.</p>
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{o'meara2026,
+  author = {O’Meara, Brian},
+  title = {Rnsf},
+  date = {2026-04-04},
+  url = {https://brianomeara.info/posts/rnsf/},
+  langid = {en}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-o'meara2026" class="csl-entry quarto-appendix-citeas">
+O’Meara, Brian. 2026. <span>“Rnsf.”</span> April 4, 2026. <a href="https://brianomeara.info/posts/rnsf/">https://brianomeara.info/posts/rnsf/</a>.
+</div></div></section></div> ]]></description>
+  <category>funding</category>
+  <category>NSF</category>
+  <guid>https://brianomeara.info/posts/rnsf/</guid>
+  <pubDate>Sat, 04 Apr 2026 04:00:00 GMT</pubDate>
+</item>
 <item>
   <title>PhyloPapers 2025, Summary</title>
   <dc:creator>Brian O&#39;Meara</dc:creator>
@@ -939,107 +1173,6 @@ O’Meara, Brian. 2025. <span>“Course Ads on R-Sig-Phylo.”</span> July 18,
   <category>Rstats</category>
   <guid>https://brianomeara.info/posts/rsig/</guid>
   <pubDate>Fri, 18 Jul 2025 04:00:00 GMT</pubDate>
-</item>
-<item>
-  <title>Conference locations</title>
-  <dc:creator>Brian O&#39;Meara</dc:creator>
-  <link>https://brianomeara.info/posts/conferencelocations/</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<p>A committee across three evolution societies (Society for the Study of Evolution, Society of Systematic Biologists, American Society of Naturalists) surveyed members and read the literature to make recommendations on how to select conference locations. I wasn’t on this committee, but I served as a liason between them and the joint meeting committee. Their report is <a href="https://www.evolutionmeetings.org/uploads/4/8/8/0/48804503/finalreport.toshare_c-conflocations_dec2024.pdf">here</a>. An important thing to note is that it was finalized in December 2024, before all the changes that have happened in the world since then.</p>
-<p>This is intended as a guide for the <a href="https://www.evolutionmeetings.org">Evolution meetings</a>, which happen most commonly in the US (where the majority of the members are) but which do rotate around the world (Brazil, New Zealand, France, Canada, and more). For years the meeting locations were decided based on avoiding states on the <a href="https://en.wikipedia.org/wiki/California_state-funded_travel_ban">California travel ban</a> for both potential safety reasons and due to limitations on travel from scientists in California, but California has now repealed this ban; other factors considered include cost (of travel, lodging, and the convention center), other safety issues, and spreading out where the meetings are. Appeal of the location also matters – the meetings are run to break even, not make or lose money, but having a location where people want to go is important.</p>
-<p>The committee noted how much members valued different factors and used these to develop a weighted rubric for choosing locations within the US. There is a separate level of decision about which country to have a conference in, and that can change radically with geopolitical realities, visa restrictions, distribution of members, and much more – this is an increasingly important question but was out of scope for the committee.</p>
-<p>So, assuming the conference will be somewhere in the US, the rubric on locations is:</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 29%">
-<col style="width: 62%">
-<col style="width: 7%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Factor</th>
-<th>Metric</th>
-<th>Weight</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Personal safety</td>
-<td>Gun safety (1-5, 1=strongest)</td>
-<td>3/16</td>
-</tr>
-<tr class="even">
-<td>Personal safety</td>
-<td>Hate crime incidence (1-5, 1=lowest)</td>
-<td>3/16</td>
-</tr>
-<tr class="odd">
-<td>Experiencing discrimination</td>
-<td>LGBTQ+ legal protection (1-5, 1=lowest)</td>
-<td>1/8</td>
-</tr>
-<tr class="even">
-<td>Experiencing discrimination</td>
-<td>Race/ethnicity legal protection (1-5, 1=high)</td>
-<td>1/8</td>
-</tr>
-<tr class="odd">
-<td>Availability of medical care</td>
-<td>Abortion policies (1-5, 1=least restrictive)</td>
-<td>1/8</td>
-</tr>
-<tr class="even">
-<td>Availability of medical care</td>
-<td>Gender affirming care laws (1-5, 1=least restrictive)</td>
-<td>1/8</td>
-</tr>
-<tr class="odd">
-<td>Legal risks</td>
-<td>Anti-trans bathroom laws (1-5, 1=no bans, 5=criminal offense)</td>
-<td>1/8</td>
-</tr>
-</tbody>
-</table>
-<p>Lower scores are better. The sources they pointed to for data included:</p>
-<ul>
-<li><a href="https://everytownresearch.org/rankings/" class="uri">https://everytownresearch.org/rankings/</a></li>
-<li><a href="https://www.justice.gov/hatecrimes/state-data" class="uri">https://www.justice.gov/hatecrimes/state-data</a></li>
-<li><a href="https://www.lgbtmap.org/" class="uri">https://www.lgbtmap.org/</a></li>
-<li><a href="https://bjs.ojp.gov/sites/g/files/xyckuh236/files/media/document/naacp_hate_crime_laws_by_state.pdf" class="uri">https://bjs.ojp.gov/sites/g/files/xyckuh236/files/media/document/naacp_hate_crime_laws_by_state.pdf</a></li>
-<li><a href="https://www.ncsl.org/civil-and-criminal-justice/racial-and-ethnic-disparities-in-the-criminal-justice-system#anchor5408" class="uri">https://www.ncsl.org/civil-and-criminal-justice/racial-and-ethnic-disparities-in-the-criminal-justice-system#anchor5408</a></li>
-<li><a href="https://states.guttmacher.org/policies/" class="uri">https://states.guttmacher.org/policies/</a></li>
-<li><a href="https://www.lgbtmap.org/equality-maps/healthcare_laws_and_policies" class="uri">https://www.lgbtmap.org/equality-maps/healthcare_laws_and_policies</a></li>
-<li><a href="https://www.lgbtmap.org/equality-maps/nondiscrimination/bathroom_bans" class="uri">https://www.lgbtmap.org/equality-maps/nondiscrimination/bathroom_bans</a></li>
-</ul>
-<p>This is not the only factor. For example, cost for travel and lodging can vary substanially between locations, and does not always follow conceptions of “expensive” places – a place on the US West Coast with lots of direct flights might be cheaper than a place with a lower cost of living but where most attendees would have to take two or three connecting flights.</p>
-<p>One issue that has come up in the past with the California ban list is changing conditions between when a conference is scheduled and when it is held: for example, Ohio was considered fine for years, then it changed its laws. For a meeting like the Evolution meetings, with around 1500 attendees, conference centers are reserved 4-5 years in advance. Things like laws on healthcare access can change dramatically over that time; they can also change at a national level making any state laws moot. Moving can result in large financial penalties – one back of the envelope calculation suggested changing one particular venue might result in hundreds of dollars more per individual registration. It can thus be infeasible to move events even with a year or two warning, making it even more important to try to understand trends before picking locations.</p>
-<p>For more detail on the committee’s reasoning and their insights from their survey, check out their <a href="https://www.evolutionmeetings.org/uploads/4/8/8/0/48804503/finalreport.toshare_c-conflocations_dec2024.pdf">PDF</a>. You can see more about choosing locations and other questions for the Evolution meeting <a href="https://www.evolutionmeetings.org/general-information.html">here</a>.</p>
-<hr>
-<p>To subscribe, go to <a href="https://brianomeara.info/blog.xml" class="uri">https://brianomeara.info/blog.xml</a> in an RSS reader.</p>
-
-
-
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{o'meara2025,
-  author = {O’Meara, Brian},
-  title = {Conference Locations},
-  date = {2025-06-19},
-  url = {https://brianomeara.info/posts/conferencelocations/},
-  langid = {en}
-}
-</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-o'meara2025" class="csl-entry quarto-appendix-citeas">
-O’Meara, Brian. 2025. <span>“Conference Locations.”</span> June 19,
-2025. <a href="https://brianomeara.info/posts/conferencelocations/">https://brianomeara.info/posts/conferencelocations/</a>.
-</div></div></section></div> ]]></description>
-  <category>conferences</category>
-  <category>travel</category>
-  <category>meetings</category>
-  <guid>https://brianomeara.info/posts/conferencelocations/</guid>
-  <pubDate>Thu, 19 Jun 2025 04:00:00 GMT</pubDate>
 </item>
 </channel>
 </rss>

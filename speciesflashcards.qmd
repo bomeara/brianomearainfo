@@ -1,0 +1,427 @@
+---
+title: "Species Flash Cards"
+output:
+  html_document:
+    includes:
+       in_header: GA_Script.html
+---
+
+```{=html}
+<style>
+    #flashcard-app {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 10px 20px 30px 20px;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        color: #333;
+    }
+    #flashcard-app #intro {
+        background: #eaf6ff;
+        border-left: 4px solid #3498db;
+        padding: 12px 16px;
+        margin-bottom: 16px;
+        line-height: 1.6;
+        font-size: 14px;
+    }
+    #flashcard-app textarea {
+        width: 100%;
+        max-width: 700px;
+        min-height: 120px;
+        padding: 10px;
+        font-size: 14px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        resize: vertical;
+        box-sizing: border-box;
+    }
+    #flashcard-app label.app-label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 6px;
+        margin-top: 12px;
+        font-size: 14px;
+    }
+    #flashcard-app button {
+        display: inline-block;
+        padding: 10px 22px;
+        margin: 10px 8px 10px 0;
+        font-size: 15px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        color: #fff;
+        transition: background 0.2s;
+    }
+    #flashcard-app #queryButton {
+        background: #2980b9;
+    }
+    #flashcard-app #queryButton:hover {
+        background: #1f6fa5;
+    }
+    #flashcard-app #queryButton:disabled {
+        background: #95a5a6;
+        cursor: not-allowed;
+    }
+    #flashcard-app #goButton {
+        background: #27ae60;
+    }
+    #flashcard-app #goButton:hover {
+        background: #1e8c4c;
+    }
+    #flashcard-app #goButton:disabled {
+        background: #95a5a6;
+        cursor: not-allowed;
+    }
+    #flashcard-app hr {
+        border: none;
+        border-top: 1px solid #ddd;
+        margin: 20px 0;
+    }
+    #flashcard-app #picture img {
+        max-width: 100%;
+        max-height: 600px;
+        border-radius: 6px;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+        margin-top: 12px;
+    }
+    #flashcard-app #credit {
+        margin-top: 8px;
+        font-size: 14px;
+        color: #555;
+    }
+    #flashcard-app #loaded {
+        margin-top: 10px;
+        font-weight: bold;
+        color: #2c3e50;
+    }
+    #flashcard-app #progress-container {
+        display: none;
+        margin-top: 10px;
+    }
+    #flashcard-app #progress-bar {
+        width: 100%;
+        max-width: 700px;
+        height: 22px;
+        background: #ecf0f1;
+        border-radius: 4px;
+        overflow: hidden;
+    }
+    #flashcard-app #progress-fill {
+        height: 100%;
+        background: #3498db;
+        width: 0%;
+        transition: width 0.3s;
+        border-radius: 4px;
+    }
+    #flashcard-app #progress-text {
+        font-size: 13px;
+        margin-top: 4px;
+        color: #666;
+    }
+    #flashcard-app.footer {
+        margin-top: 30px;
+        font-size: 13px;
+        color: #777;
+        line-height: 1.7;
+    }
+    #flashcard-app.footer a {
+        color: #2980b9;
+    }
+    #flashcard-app #webr-status {
+        padding: 8px 14px;
+        margin-bottom: 16px;
+        border-radius: 4px;
+        font-size: 14px;
+    }
+    #flashcard-app.status-loading {
+        background: #fff3cd;
+        color: #856404;
+        border: 1px solid #ffc107;
+    }
+    #flashcard-app.status-ready {
+        background: #d4edda;
+        color: #155724;
+        border: 1px solid #28a745;
+    }
+    #flashcard-app.status-error {
+        background: #f8d7da;
+        color: #721c24;
+        border: 1px solid #dc3545;
+    }
+</style>
+
+<div id="flashcard-app">
+
+    <div id="webr-status" class="status-loading">⏳ Loading webR runtime… please wait.</div>
+
+    <div id="intro">
+        Enter the species you want below, separated by commas. An example is
+        <code>Leopard frog, Hyla avivoca, Hyla chrysoscelis, Hyla gratiosa</code>.
+        You can use common names, scientific names, or a mixture.
+        Or you can enter a single URL, such as
+        <code><a href="https://www.nps.gov/grsm/learn/nature/fish-checklist.htm">https://www.nps.gov/grsm/learn/nature/fish-checklist.htm</a></code>,
+        and it will attempt to pull all species names (scientific names only) from that page.
+        Then click the <strong>Store image locations</strong> button. It will take some time to get
+        these locations — you should see a progress bar. After that, <strong>New image</strong> will
+        give you an image to identify; <strong>mouseover the image</strong> to see the species and
+        common name.
+    </div>
+
+    <label class="app-label" for="speciesArea">
+        Enter multiple species (scientific and/or common names), separating each by a comma,
+        OR enter a single URL. Then click "Store image locations" to get ready, then
+        "New image" to try one.
+    </label>
+    <textarea id="speciesArea">Ipomoea purpurea, Chamaecrista nictitans, Desmodium paniculatum, Ipomoea coccinea, Toxicodendron radicans, Parthenocissus quinquefolia, Oxalis stricta, Trifolium pratense, Oenothera biennis, Fagopyrum esculentum, Clematis terniflora, Ipomoea pandurata, Impatiens capensis, Lobelia cardinalis, Persicaria punctata, Cuscuta gronovii, Amphicarpaea bracteata, Agrimonia parviflora, Lycopus rubellus, Lespedeza cuneata, Acalypha rhomboidea, Phyla lanceolata, Daucus carota, Fallopia japonica, Rudbeckia fulgida, Helenium autumnale, Agalinas purpurea, Typha latifolia, Spiranthes cernua, Oxypolis rigidior, Iva annua, Chamaecrista fasciculata</textarea>
+
+    <br>
+    <button id="queryButton" disabled>Store image locations</button>
+
+    <hr>
+
+    <button id="goButton" disabled>New image!</button>
+
+    <div id="progress-container">
+        <div id="progress-bar"><div id="progress-fill"></div></div>
+        <div id="progress-text"></div>
+    </div>
+
+    <div id="picture"></div>
+    <div id="credit"></div>
+    <div id="loaded"></div>
+
+    <div class="footer">
+        This is made possible due to <a href="https://www.inaturalist.org/">iNaturalist.org</a>
+        and all their users who make observations and help identify species, but it is in no way
+        affiliated with them; if this app is having issues, please contact
+        <a href="mailto:omeara.brian@gmail.com">Brian O'Meara</a>, not the good iNaturalist folks.
+        This version runs entirely in your browser using
+        <a href="https://docs.r-wasm.org/webr/latest/">webR</a> (R compiled to WebAssembly).
+        Scientific name extraction from web pages is provided by
+        <a href="http://globalnames.org/">Global Names</a> using their
+        <a href="https://gnrd.globalnames.org/api">API</a> to their
+        <a href="https://github.com/gnames/gnfinder">gnfinder</a> tool.
+        The first draft of this was done to help my daughter study for a species identification
+        quiz in middle school.
+		The original R shiny code, written by Brian, was converted to something that would run without shiny (and the closing shinyapps.io) by Claude Opus 4.6 on April 5, 2026. The prompts used were "Convert the following to use webR" and then "Modify this so that it can be embedded in a quarto document".
+    </div>
+
+</div>
+```
+
+```{ojs}
+//| echo: false
+
+// =========================================================================
+// Species Flash Cards — webR + Quarto
+//
+// We use an OJS cell to dynamically import the webR ES module. This avoids
+// issues with Quarto's rendering pipeline and <script type="module"> blocks
+// inside raw HTML, which are not reliably executed in all Quarto output
+// contexts.
+// =========================================================================
+
+appBoot = {
+
+    // --- Import webR ---
+    const { WebR } = await import('https://webr.r-wasm.org/latest/webr.mjs');
+
+    // --- State ---
+    let imageList = [];
+    let webR = null;
+
+    // --- DOM refs ---
+    const statusEl          = document.getElementById('webr-status');
+    const queryButton       = document.getElementById('queryButton');
+    const goButton          = document.getElementById('goButton');
+    const speciesArea       = document.getElementById('speciesArea');
+    const pictureEl         = document.getElementById('picture');
+    const creditEl          = document.getElementById('credit');
+    const loadedEl          = document.getElementById('loaded');
+    const introEl           = document.getElementById('intro');
+    const progressContainer = document.getElementById('progress-container');
+    const progressFill      = document.getElementById('progress-fill');
+    const progressText      = document.getElementById('progress-text');
+
+    // --- Initialize webR ---
+    async function initWebR() {
+        try {
+            webR = new WebR();
+            await webR.init();
+            statusEl.textContent = '⏳ Installing R packages (jsonlite)…';
+            await webR.installPackages(['jsonlite'], { quiet: true });
+            statusEl.textContent = '✅ webR is ready!';
+            statusEl.className = 'status-ready';
+            queryButton.disabled = false;
+        } catch (e) {
+            statusEl.textContent = '❌ Failed to load webR: ' + e.message;
+            statusEl.className = 'status-error';
+            console.error(e);
+        }
+    }
+
+    // --- iNaturalist API v1: fetch observations for a query ---
+    async function getINatObs(query, maxResults = 50) {
+        const url =
+            `https://api.inaturalist.org/v1/observations?` +
+            `q=${encodeURIComponent(query)}` +
+            `&quality_grade=research` +
+            `&photos=true` +
+            `&per_page=${maxResults}` +
+            `&order=desc&order_by=id`;
+        try {
+            const resp = await fetch(url);
+            if (!resp.ok) return [];
+            const data = await resp.json();
+            if (!data.results || data.results.length === 0) return [];
+
+            return data.results.filter(obs => obs.photos && obs.photos.length > 0).map(obs => ({
+                    image_url:       obs.photos[0].url.replace('square', 'medium'),
+                    scientific_name: obs.taxon ? obs.taxon.name : (obs.species_guess || 'Unknown'),
+                    common_name:     obs.taxon && obs.taxon.preferred_common_name
+                                         ? obs.taxon.preferred_common_name
+                                         : (obs.species_guess || ''),
+                    user_login:      obs.user ? obs.user.login : 'unknown'
+                }));
+        } catch (e) {
+            console.warn('iNaturalist fetch failed for:', query, e);
+            return [];
+        }
+    }
+
+    // --- URL → species list via Global Names (webR + JS fallback) ---
+    async function urlToSpecies(inputUrl) {
+        // Try webR + jsonlite first
+        try {
+            const escaped = inputUrl.replace(/\\/g, '\\\\').replace(/"/g, '\\"');
+            const rCode = `
+                library(jsonlite)
+                mydata <- jsonlite::fromJSON(
+                    paste0("https://gnrd.globalnames.org/name_finder.json?url=",
+                           "${escaped}")
+                )
+                myspecies <- mydata$names$scientificName
+                countSpaces <- function(s) {
+                    sapply(gregexpr(" ", s), function(p) { sum(p >= 0) })
+                }
+                myspecies <- myspecies[which(countSpaces(myspecies) == 1)]
+                myspecies <- unique(myspecies)
+                paste(myspecies, collapse = "|||")
+            `;
+            const result = await webR.evalRString(rCode);
+            if (result && result !== '') {
+                return result.split('|||').map(s => s.trim()).filter(s => s.length > 0);
+            }
+        } catch (e) {
+            console.warn('webR Global Names lookup failed, trying JS fallback:', e);
+        }
+        // JS fallback
+        try {
+            const resp = await fetch(
+                `https://gnrd.globalnames.org/name_finder.json?url=${encodeURIComponent(inputUrl)}`
+            );
+            const data = await resp.json();
+            if (!data.names) return [];
+            let species = data.names.map(n => n.scientificName).filter(s => (s.match(/ /g) || []).length === 1);
+            return [...new Set(species)];
+        } catch (e2) {
+            console.error('Global Names JS fallback also failed:', e2);
+            return [];
+        }
+    }
+
+    // --- Show a random observation ---
+    function showRandomImage() {
+        if (imageList.length === 0) {
+            pictureEl.innerHTML = '<p>No images loaded yet.</p>';
+            creditEl.innerHTML  = '';
+            return;
+        }
+        const speciesIdx = Math.floor(Math.random() * imageList.length);
+        const obsArray   = imageList[speciesIdx];
+        const obs        = obsArray[Math.floor(Math.random() * obsArray.length)];
+
+        const titleText = `${obs.common_name} (${obs.scientific_name})`;
+        pictureEl.innerHTML =
+            `<img src="${obs.image_url}" ` +
+            `title="${titleText}" alt="Identify this species">`;
+        creditEl.innerHTML =
+            `Photo by user ` +
+            `<a href="https://www.inaturalist.org/people/${obs.user_login}">` +
+            `${obs.user_login}</a> submitted to ` +
+            `<a href="https://www.inaturalist.org/">iNaturalist.org</a>`;
+    }
+
+    // --- "Store image locations" ---
+    queryButton.addEventListener('click', async () => {
+        const rawInput = speciesArea.value.trim();
+        let speciesList = rawInput.split(',').map(s => s.trim()).filter(s => s.length > 0);
+
+        // Single URL?
+        if (speciesList.length === 1 && speciesList[0].startsWith('http')) {
+            loadedEl.textContent = 'Extracting species names from URL…';
+            speciesList = await urlToSpecies(speciesList[0]);
+            if (speciesList.length === 0) {
+                loadedEl.textContent = 'Could not extract any species names from that URL.';
+                return;
+            }
+            loadedEl.textContent =
+                `Found ${speciesList.length} species from URL. Now fetching images…`;
+        }
+
+        // Reset state
+        imageList = [];
+        const badSpecies = [];
+        queryButton.disabled = true;
+        goButton.disabled    = true;
+        introEl.style.display = 'none';
+        progressContainer.style.display = 'block';
+        progressFill.style.width = '0%';
+
+        for (let i = 0; i < speciesList.length; i++) {
+            const species = speciesList[i];
+            progressText.textContent = `Looking up: ${species}`;
+            loadedEl.textContent     = `Now looking up ${species}`;
+
+            const obs = await getINatObs(species, 50);
+            if (obs.length > 0) {
+                imageList.push(obs);
+            } else {
+                badSpecies.push(species);
+            }
+
+            progressFill.style.width = (((i + 1) / speciesList.length) * 100) + '%';
+
+            // Throttle to respect iNaturalist rate limits
+            if (i < speciesList.length - 1) {
+                await new Promise(r => setTimeout(r, 300));
+            }
+        }
+
+        progressContainer.style.display = 'none';
+        queryButton.disabled = false;
+
+        let msg = `Loaded addresses of info for ${imageList.length} species`;
+        if (badSpecies.length > 0) {
+            msg += ` but failed for ${badSpecies.join(', ')}`;
+        }
+        loadedEl.textContent = msg;
+
+        if (imageList.length > 0) {
+            goButton.disabled = false;
+            showRandomImage();
+        }
+    });
+
+    // --- "New image!" ---
+    goButton.addEventListener('click', () => {
+        loadedEl.textContent = '';
+        showRandomImage();
+    });
+
+    // --- Boot webR ---
+    await initWebR();
+
+    return 'Flash Cards app initialized';
+}
+```

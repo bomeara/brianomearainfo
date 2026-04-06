@@ -127,32 +127,9 @@ output:
     #flashcard-app.footer a {
         color: #2980b9;
     }
-    #flashcard-app #webr-status {
-        padding: 8px 14px;
-        margin-bottom: 16px;
-        border-radius: 4px;
-        font-size: 14px;
-    }
-    #flashcard-app.status-loading {
-        background: #fff3cd;
-        color: #856404;
-        border: 1px solid #ffc107;
-    }
-    #flashcard-app.status-ready {
-        background: #d4edda;
-        color: #155724;
-        border: 1px solid #28a745;
-    }
-    #flashcard-app.status-error {
-        background: #f8d7da;
-        color: #721c24;
-        border: 1px solid #dc3545;
-    }
 </style>
 
 <div id="flashcard-app">
-
-    <div id="webr-status" class="status-loading">⏳ Loading webR runtime… please wait.</div>
 
     <div id="intro">
         Enter the species you want below, separated by commas. An example is
@@ -175,7 +152,7 @@ output:
     <textarea id="speciesArea">Ipomoea purpurea, Chamaecrista nictitans, Desmodium paniculatum, Ipomoea coccinea, Toxicodendron radicans, Parthenocissus quinquefolia, Oxalis stricta, Trifolium pratense, Oenothera biennis, Fagopyrum esculentum, Clematis terniflora, Ipomoea pandurata, Impatiens capensis, Lobelia cardinalis, Persicaria punctata, Cuscuta gronovii, Amphicarpaea bracteata, Agrimonia parviflora, Lycopus rubellus, Lespedeza cuneata, Acalypha rhomboidea, Phyla lanceolata, Daucus carota, Fallopia japonica, Rudbeckia fulgida, Helenium autumnale, Agalinas purpurea, Typha latifolia, Spiranthes cernua, Oxypolis rigidior, Iva annua, Chamaecrista fasciculata</textarea>
 
     <br>
-    <button id="queryButton" disabled>Store image locations</button>
+    <button id="queryButton">Store image locations</button>
 
     <hr>
 
@@ -195,15 +172,12 @@ output:
         and all their users who make observations and help identify species, but it is in no way
         affiliated with them; if this app is having issues, please contact
         <a href="mailto:omeara.brian@gmail.com">Brian O'Meara</a>, not the good iNaturalist folks.
-        This version runs entirely in your browser using
-        <a href="https://docs.r-wasm.org/webr/latest/">webR</a> (R compiled to WebAssembly).
         Scientific name extraction from web pages is provided by
         <a href="http://globalnames.org/">Global Names</a> using their
         <a href="https://gnrd.globalnames.org/api">API</a> to their
         <a href="https://github.com/gnames/gnfinder">gnfinder</a> tool.
         The first draft of this was done to help my daughter study for a species identification
-        quiz in middle school.
-		The original R shiny code, written by Brian, was converted to something that would run without shiny (and the closing shinyapps.io) by Claude Opus 4.6 on April 5, 2026. The prompts used were "Convert the following to use webR" and then "Modify this so that it can be embedded in a quarto document".
+        quiz in middle school. It was converted from R by Claude Opus 4.6 in order to preserve the functionality given then impending shutdown of shinyapps.io using the prompt "Convert the original R code to a quarto document that just uses javascript only" on April 5, 2026.
     </div>
 
 </div>
@@ -213,25 +187,20 @@ output:
 //| echo: false
 
 // =========================================================================
-// Species Flash Cards — webR + Quarto
+// Species Flash Cards — Pure JavaScript (no R, no webR)
 //
-// We use an OJS cell to dynamically import the webR ES module. This avoids
-// issues with Quarto's rendering pipeline and <script type="module"> blocks
-// inside raw HTML, which are not reliably executed in all Quarto output
-// contexts.
+// Replaces:
+//   rinat::get_inat_obs()       → fetch() to iNaturalist API v1
+//   jsonlite + R string ops     → fetch() to Global Names API + JS parsing
+//   Shiny reactive UI           → direct DOM manipulation
 // =========================================================================
 
-appBoot = {
-
-    // --- Import webR ---
-    const { WebR } = await import('https://webr.r-wasm.org/latest/webr.mjs');
+app = {
 
     // --- State ---
     let imageList = [];
-    let webR = null;
 
     // --- DOM refs ---
-    const statusEl          = document.getElementById('webr-status');
     const queryButton       = document.getElementById('queryButton');
     const goButton          = document.getElementById('goButton');
     const speciesArea       = document.getElementById('speciesArea');
@@ -243,94 +212,100 @@ appBoot = {
     const progressFill      = document.getElementById('progress-fill');
     const progressText      = document.getElementById('progress-text');
 
-    // --- Initialize webR ---
-    async function initWebR() {
-        try {
-            webR = new WebR();
-            await webR.init();
-            statusEl.textContent = '⏳ Installing R packages (jsonlite)…';
-            await webR.installPackages(['jsonlite'], { quiet: true });
-            statusEl.textContent = '✅ webR is ready!';
-            statusEl.className = 'status-ready';
-            queryButton.disabled = false;
-        } catch (e) {
-            statusEl.textContent = '❌ Failed to load webR: ' + e.message;
-            statusEl.className = 'status-error';
-            console.error(e);
-        }
-    }
-
-    // --- iNaturalist API v1: fetch observations for a query ---
+    // =====================================================================
+    // iNaturalist API v1 — replaces rinat::get_inat_obs()
+    //
+    // Original R:
+    //   obs <- rinat::get_inat_obs(query=species[i], maxresults=50)
+    //   obs <- obs[nchar(obs$image_url)>5,]
+    //   obs <- subset(obs, quality_grade=="research")
+    // =====================================================================
     async function getINatObs(query, maxResults = 50) {
         const url =
-            `https://api.inaturalist.org/v1/observations?` +
-            `q=${encodeURIComponent(query)}` +
-            `&quality_grade=research` +
-            `&photos=true` +
-            `&per_page=${maxResults}` +
-            `&order=desc&order_by=id`;
+            'https://api.inaturalist.org/v1/observations?' +
+            'q=' + encodeURIComponent(query) +
+            '&quality_grade=research' +
+            '&photos=true' +
+            '&per_page=' + maxResults +
+            '&order=desc&order_by=id';
         try {
             const resp = await fetch(url);
             if (!resp.ok) return [];
             const data = await resp.json();
             if (!data.results || data.results.length === 0) return [];
 
-            return data.results.filter(obs => obs.photos && obs.photos.length > 0).map(obs => ({
-                    image_url:       obs.photos[0].url.replace('square', 'medium'),
-                    scientific_name: obs.taxon ? obs.taxon.name : (obs.species_guess || 'Unknown'),
-                    common_name:     obs.taxon && obs.taxon.preferred_common_name
-                                         ? obs.taxon.preferred_common_name
-                                         : (obs.species_guess || ''),
-                    user_login:      obs.user ? obs.user.login : 'unknown'
-                }));
+            return data.results.filter(function(obs) {
+                    return obs.photos && obs.photos.length > 0;
+                }).map(function(obs) {
+                    return {
+                        image_url:       obs.photos[0].url.replace('square', 'medium'),
+                        scientific_name: obs.taxon
+                                             ? obs.taxon.name
+                                             : (obs.species_guess || 'Unknown'),
+                        common_name:     obs.taxon && obs.taxon.preferred_common_name
+                                             ? obs.taxon.preferred_common_name
+                                             : (obs.species_guess || ''),
+                        user_login:      obs.user ? obs.user.login : 'unknown'
+                    };
+                });
         } catch (e) {
             console.warn('iNaturalist fetch failed for:', query, e);
             return [];
         }
     }
 
-    // --- URL → species list via Global Names (webR + JS fallback) ---
+    // =====================================================================
+    // Global Names API — replaces the R urltospecies() function
+    //
+    // Original R:
+    //   mydata <- jsonlite::stream_in(url(paste0(
+    //       "https://gnrd.globalnames.org/name_finder.json?url=", url)))
+    //   myspecies <- mydata$names[[1]]$scientificName
+    //   countSpaces <- function(s) {
+    //       sapply(gregexpr(" ", s), function(p) { sum(p>=0) })
+    //   }
+    //   myspecies <- myspecies[which(countSpaces(myspecies)==1)]
+    //   myspecies <- unique(myspecies)
+    // =====================================================================
     async function urlToSpecies(inputUrl) {
-        // Try webR + jsonlite first
-        try {
-            const escaped = inputUrl.replace(/\\/g, '\\\\').replace(/"/g, '\\"');
-            const rCode = `
-                library(jsonlite)
-                mydata <- jsonlite::fromJSON(
-                    paste0("https://gnrd.globalnames.org/name_finder.json?url=",
-                           "${escaped}")
-                )
-                myspecies <- mydata$names$scientificName
-                countSpaces <- function(s) {
-                    sapply(gregexpr(" ", s), function(p) { sum(p >= 0) })
-                }
-                myspecies <- myspecies[which(countSpaces(myspecies) == 1)]
-                myspecies <- unique(myspecies)
-                paste(myspecies, collapse = "|||")
-            `;
-            const result = await webR.evalRString(rCode);
-            if (result && result !== '') {
-                return result.split('|||').map(s => s.trim()).filter(s => s.length > 0);
-            }
-        } catch (e) {
-            console.warn('webR Global Names lookup failed, trying JS fallback:', e);
-        }
-        // JS fallback
         try {
             const resp = await fetch(
-                `https://gnrd.globalnames.org/name_finder.json?url=${encodeURIComponent(inputUrl)}`
+                'https://gnrd.globalnames.org/name_finder.json?url=' +
+                encodeURIComponent(inputUrl)
             );
             const data = await resp.json();
-            if (!data.names) return [];
-            let species = data.names.map(n => n.scientificName).filter(s => (s.match(/ /g) || []).length === 1);
-            return [...new Set(species)];
-        } catch (e2) {
-            console.error('Global Names JS fallback also failed:', e2);
+            if (!data.names || data.names.length === 0) return [];
+
+            // Filter to binomials (exactly one space = genus + species)
+            const seen = new Set();
+            const results = [];
+            for (let i = 0; i < data.names.length; i++) {
+                const name = data.names[i].scientificName;
+                if (!name) continue;
+                const spaceCount = (name.match(/ /g) || []).length;
+                if (spaceCount === 1 && !seen.has(name)) {
+                    seen.add(name);
+                    results.push(name);
+                }
+            }
+            return results;
+        } catch (e) {
+            console.error('Global Names lookup failed:', e);
             return [];
         }
     }
 
-    // --- Show a random observation ---
+    // =====================================================================
+    // Show a random observation — replaces the Shiny renderText() calls
+    //
+    // Original R:
+    //   i = sample(length(image_list),1)
+    //   local_obs <- image_list[[i]]
+    //   to_show <- local_obs[sample(sequence(nrow(local_obs)),1),]
+    //   output$picture <- renderText({c('<img src="', to_show$image_url,
+    //       '" title="', paste0(to_show$common_name, ' (',
+    //       to_show$scientific_name, ')'), '">')})
+    // =====================================================================
     function showRandomImage() {
         if (imageList.length === 0) {
             pictureEl.innerHTML = '<p>No images loaded yet.</p>';
@@ -341,35 +316,49 @@ appBoot = {
         const obsArray   = imageList[speciesIdx];
         const obs        = obsArray[Math.floor(Math.random() * obsArray.length)];
 
-        const titleText = `${obs.common_name} (${obs.scientific_name})`;
+        const titleText = obs.common_name + ' (' + obs.scientific_name + ')';
         pictureEl.innerHTML =
-            `<img src="${obs.image_url}" ` +
-            `title="${titleText}" alt="Identify this species">`;
+            '<img src="' + obs.image_url +
+            '" title="' + titleText +
+            '" alt="Identify this species">';
         creditEl.innerHTML =
-            `Photo by user ` +
-            `<a href="https://www.inaturalist.org/people/${obs.user_login}">` +
-            `${obs.user_login}</a> submitted to ` +
-            `<a href="https://www.inaturalist.org/">iNaturalist.org</a>`;
+            'Photo by user <a href="https://www.inaturalist.org/people/' +
+            obs.user_login + '">' + obs.user_login +
+            '</a> submitted to <a href="https://www.inaturalist.org/">iNaturalist.org</a>';
     }
 
-    // --- "Store image locations" ---
-    queryButton.addEventListener('click', async () => {
+    // =====================================================================
+    // "Store image locations" — replaces observeEvent(input$queryButton, …)
+    //
+    // Original R:
+    //   observeEvent(input$queryButton, {
+    //       species <- trimws(unlist(strsplit(input$speciesArea, ",")))
+    //...
+    //       for (i in seq_along(species)) {
+    //           obs <- rinat::get_inat_obs(query=species[i], maxresults=50)
+    //...
+    //       }
+    //   })
+    // =====================================================================
+    queryButton.addEventListener('click', async function() {
         const rawInput = speciesArea.value.trim();
-        let speciesList = rawInput.split(',').map(s => s.trim()).filter(s => s.length > 0);
+        let speciesList = rawInput.split(',').map(function(s) { return s.trim(); }).filter(function(s) { return s.length > 0; });
 
-        // Single URL?
+        // Single URL detection — replaces: if(length(species)==1) { species <- urltospecies(...) }
         if (speciesList.length === 1 && speciesList[0].startsWith('http')) {
             loadedEl.textContent = 'Extracting species names from URL…';
             speciesList = await urlToSpecies(speciesList[0]);
             if (speciesList.length === 0) {
-                loadedEl.textContent = 'Could not extract any species names from that URL.';
+                loadedEl.textContent =
+                    'Could not extract any species names from that URL.';
                 return;
             }
             loadedEl.textContent =
-                `Found ${speciesList.length} species from URL. Now fetching images…`;
+                'Found ' + speciesList.length +
+                ' species from URL. Now fetching images…';
         }
 
-        // Reset state
+        // Reset
         imageList = [];
         const badSpecies = [];
         queryButton.disabled = true;
@@ -380,8 +369,8 @@ appBoot = {
 
         for (let i = 0; i < speciesList.length; i++) {
             const species = speciesList[i];
-            progressText.textContent = `Looking up: ${species}`;
-            loadedEl.textContent     = `Now looking up ${species}`;
+            progressText.textContent = 'Looking up: ' + species;
+            loadedEl.textContent     = 'Now looking up ' + species;
 
             const obs = await getINatObs(species, 50);
             if (obs.length > 0) {
@@ -390,20 +379,21 @@ appBoot = {
                 badSpecies.push(species);
             }
 
-            progressFill.style.width = (((i + 1) / speciesList.length) * 100) + '%';
+            const pct = ((i + 1) / speciesList.length) * 100;
+            progressFill.style.width = pct + '%';
 
-            // Throttle to respect iNaturalist rate limits
+            // Throttle requests (iNaturalist rate limiting)
             if (i < speciesList.length - 1) {
-                await new Promise(r => setTimeout(r, 300));
+                await new Promise(function(r) { setTimeout(r, 300); });
             }
         }
 
         progressContainer.style.display = 'none';
         queryButton.disabled = false;
 
-        let msg = `Loaded addresses of info for ${imageList.length} species`;
+        let msg = 'Loaded addresses of info for ' + imageList.length + ' species';
         if (badSpecies.length > 0) {
-            msg += ` but failed for ${badSpecies.join(', ')}`;
+            msg += ' but failed for ' + badSpecies.join(', ');
         }
         loadedEl.textContent = msg;
 
@@ -413,14 +403,13 @@ appBoot = {
         }
     });
 
-    // --- "New image!" ---
-    goButton.addEventListener('click', () => {
+    // =====================================================================
+    // "New image!" — replaces observeEvent(input$goButton, …)
+    // =====================================================================
+    goButton.addEventListener('click', function() {
         loadedEl.textContent = '';
         showRandomImage();
     });
-
-    // --- Boot webR ---
-    await initWebR();
 
     return 'Flash Cards app initialized';
 }

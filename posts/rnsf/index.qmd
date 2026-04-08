@@ -1,0 +1,53 @@
+---
+title: "rnsf"
+description: "R package and cache of NSF grants"
+author: "Brian O'Meara"
+date: "04/04/2026"
+citation: true
+categories: [funding, NSF] 
+---
+
+In 2018, I made a [quick R package, `rnsf`](https://bomeara.github.io/rnsf/index.html) for pulling from NSF's [API](https://resources.research.gov/common/webapi/awardapisearch-v1.htm). Inspired by the work being done by [Dr. Jeremy Berg](https://bsky.app/profile/jeremymberg.bsky.social) and [Grant Witness](https://grant-witness.us) tracking some of the changes in federal funding for science, I decided to dust it off and make it more user-friendly. Also, once one has a tool for pulling in any funding info from NSF, why not pull in ALL funding info for all time from NSF? So the package has a dataset of all the info returned from the API, as well as a dataset of all the NSF GRFP awards through time. This will make it easier for folks looking for trends in what or where things are funded, how things are changing, and so forth.
+
+Detailed instructions on using it and installing it (it's large, so install_github() won't work) are at <https://bomeara.github.io/rnsf/index.html>. It includes all the data cached plus various utility functions.
+
+# Plots
+
+The package makes it easy to make an updated "Bergogram" (line plots of funding by year, as popularized by Dr. Berg):
+
+![](https://bomeara.github.io/rnsf/reference/figures/README-bergogram-1.png){fig-alt="Line plot of awarded funding by year by NSF."}
+
+See the [rnsf page](https://bomeara.github.io/rnsf/index.html) for more plotting: making wordclouds, looking at frequency of topics or words over time, and much more.
+
+# Awards in 2026
+
+With the federal shutdown and more, NSF has not released many funds this year. We can see exactly how few by using some of the functions in R NSF to look by state:
+
+```{r grants recent, warnings=FALSE}
+library(rnsf)
+library(tidyverse)
+library(DT)
+
+data(grants)
+grants$academic_semester <- rnsf::date_to_academic_semester(as.Date(grants$date, format="%m/%d/%Y"))
+grants_aggregated <- grants |> filter(academic_semester %in% apply(expand.grid(c(2024:2026), c(" Fall", "  Spring")), 1, paste0, collapse="")) |> group_by(academic_semester, awardeeStateCode) |> summarise(total_awarded = n(), .groups = "drop_last") |> ungroup() |> tidyr::pivot_wider(names_from = academic_semester, values_from=total_awarded, values_fill=0) |> dplyr::arrange(desc(`2024 Fall`))
+colnames(grants_aggregated) <- gsub("  ", " ", colnames(grants_aggregated))
+colnames(grants_aggregated)[1] <- "Area"
+grants_aggregated[,1] <- rnsf::abbreviation_to_state(unname(unlist(grants_aggregated[,1])))
+grants_aggregated |> 
+  DT::datatable(
+    caption = "Funding by state or territory",
+    filter="top") 
+```
+
+## Impact
+
+The myriad negative impact of so few grants is clear, but one special population at risk are those people looking for postdocs, such as PhD students graduating this spring or postdocs whose previous support is ending. Delaying funding for a year or two is a substantial hit for an early career faculty member, and delays important science from getting done, but it is life-altering for someone who needs funding for a job: they will not have money to eat, healthcare, etc. and so must generally leave academia. Continuing grants with a postdoc line often have that position filled already -- it is the new grants that open up new positions, except there are not that many (as of the writing of this, April 4, 2026) -- even states with substantial basic research strengths have only received a handful of grants. Hopefully NSF will ramp up funding soon. If anyone has funding for postdocs, **now is the time to start hiring them**: there's a great need and likely a large pool. This includes people with startup -- letting someone know now you will hire them in August 2026 could really help a potential postdoc in May looking at nothing seemingly available otherwise.
+
+# Caveats for package usage
+
+The original, canonical data are at NSF -- use their [award search](https://www.nsf.gov/awardsearch/advanced-search) for that. I try to minimally adjust the data (even, by default, not doing things like coercing dates to R's date formats in the cached data), but it's always possible that there is a bug that leads to some data being dropped or changed.
+
+___
+
+To subscribe, go to <https://brianomeara.info/blog.xml> in an RSS reader.

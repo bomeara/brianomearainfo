@@ -66,6 +66,7 @@ In addition to my own students, of course.
 
 |Name                     |Department   |
 |:------------------------|:------------|
+|Olivia Ares              |EEB          |
 |Will Atwood              |Geology      |
 |Jen Bauer                |Geology      |
 |Renata Pereira Beco      |EEB          |
@@ -84,6 +85,7 @@ In addition to my own students, of course.
 |Jasper Lee               |Microbiology |
 |Sara Lipshutz            |EEB          |
 |Bryan Looney             |EEB          |
+|Remington Motte          |U Arkansas   |
 |Liam Mueller             |EEB          |
 |Ainun Nadhifah           |EEB          |
 |Ashlesh Pattanaik        |EEB          |
@@ -96,6 +98,7 @@ In addition to my own students, of course.
 |Marisol Sanchez-Garcia   |EEB          |
 |Sarah Sheffield          |Geology      |
 |Jordan Utley             |GST          |
+|Susana Vega Betancur     |EEB          |
 |Jess Welch               |EEB          |
 |Rachel Wooliver          |EEB          |
 

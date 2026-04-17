@@ -32,7 +32,7 @@ Another note: while we all like to gripe about peer review (somehow especially p
 ## Citations
  
 * Alfaro, ME, F Santini, C Brock, H Alamillo, A Dornburg, DL Rabosky, G Carnevale, and LJ Harmon. 2009. Nine exceptional radiations plus high turnover explain species diversity in jawed vertebrates. Proceedings of the National Academy of Sciences 106: 13410-13414. <https://doi.org/10.1073/pnas.0811087106>
-* Beaulieu JM, O'Meara BC. 2018. Can we build it? Yes we can, but should we use it? Assessing the quality and value of a very large phylogeny of campanulid angiosperms. Am J Bot. 105(3):417-432. doi: 10.1002/ajb2.1020. Epub 2018 Mar 5. PMID: 29746717. < https://doi.org/10.1002/ajb2.1020>
+* Beaulieu JM, O'Meara BC. 2018. Can we build it? Yes we can, but should we use it? Assessing the quality and value of a very large phylogeny of campanulid angiosperms. Am J Bot. 105(3):417-432. doi: 10.1002/ajb2.1020. Epub 2018 Mar 5. PMID: 29746717. <https://doi.org/10.1002/ajb2.1020>
 * Beaulieu, J. M. and B. C.O'Meara. 2019. Diversity and skepticism are vital for comparative biology: a response to Donoghue and Edwards (2019). American Journal of Botany 106(5): 613–617. <https://doi.org/10.1002/ajb2.1278>
 * Beaulieu, J.M., O’Meara, B.C. 2025. Navigating “tip fog”: embracing uncertainty in tip measurements, Evolution, Volume 79, Issue 7, 1 July 2025, Pages 1131–1142, <https://doi.org/10.1093/evolut/qpaf067>
 * Statistical and Structural Bias in Birth-Death Models. Bull Math Biol 88, 81. <https://doi.org/10.1007/s11538-026-01644-0>

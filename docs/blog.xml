@@ -10,7 +10,68 @@
 <atom:link href="https://brianomeara.info/blog.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.8.27</generator>
-<lastBuildDate>Sat, 04 Apr 2026 04:00:00 GMT</lastBuildDate>
+<lastBuildDate>Fri, 17 Apr 2026 04:00:00 GMT</lastBuildDate>
+<item>
+  <title>Bias correction in diversification models</title>
+  <dc:creator>Brian O&#39;Meara</dc:creator>
+  <link>https://brianomeara.info/posts/biascorrection/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>Likelihood methods are powerful (they squeeze every last drop of information from the data) but often biased at low sample sizes (i.e., an estimated rate might be too high). They are often used in our field to estimate speciation, extinction, net diversification, and turnover (speciation + extinction) rates from dated phylogenies. Sometimes they’re embedded in Bayesian approaches, allowing priors to be added (for good or ill) and uncertainty to be more easily calculated in parameter estimates.</p>
+<p>In this age of genomics, who cares about low sample sizes? Well, some charismatic clades folks study are naturally small (there are only so many baleen whale species – maybe you should have worked on insects instead?). But a more common issue will occur in approaches that try to deal with the differences across the tree of life by applying different rates to different parts of the tree. Older approaches like Medusa (Alfaro et al.&nbsp;2009) and BAMM (Rabosky, 2014), and newer approaches like the Bayesian ClaDS (Maliet et al.&nbsp;2019) or non-Bayesian MiSSE (Vasconcelos et al.&nbsp;2022) also effectively subdivide the tree into different chunks (though this is done in a more continuous way with MiSSE, as it uses hidden states). So it’s possible a chunk is small enough that it has few enough taxa that it would be affected by bias in an estimator.</p>
+<p>Jeremy Beaulieu and I have been on a mission lately to address bias in estimators (note this is a different issue than some of the myriad other issues affecting diversification analyses; see, for example, <a href="https://ecoevorxiv.org/repository/view/3912/">one of our preprints</a>). There can be bias from ignoring measurement error (O’Meara &amp; Beaulieu, 2024; see also my poster at Evolution 2026), there can be bias from only looking at “interesting clades,” etc. Today we published the <a href="https://doi.org/10.1007/s11538-026-01644-0">latest paper in this series</a> (Beaulieu &amp; O’Meara 2026).</p>
+<p>Tanja Stadler (Stadler, 2013) wrote a key paper on estimators in diversification models, pointing out that the way different implementations estimate “the” speciation rate can vary and comparing different approaches. Inspired by this and some of our (well, largely Jeremy’s) work on finding an unbiased estimator in the Yule (pure birth, no extinction) case, we set out to find unbiased estimators for various diversification parameters.</p>
+<p>The way we did this was rather fun. There’s the “real” math way of doing it by deriving equations – we were able to do this for Yule and the critical branching process (speciation = extinction), and for incorporating the effect of not looking at trees of two taxa or fewer. However, for the more complicated case where speciation and extinction can both vary, we could not analytically find a solution.</p>
+<p>The approach we used instead has the polite name “<a href="https://en.wikipedia.org/wiki/Symbolic_regression">symbolic regression</a>” and is formally a machine learning approach (so maybe it aligns with NSF priorities for AI – program officers take note). But it boils down to, “well, we know a bias correction probably uses something about the number of taxa, and/or the age of the tree, and/or the speciation rate estimate, and/or the extinction rate estimate, and/or…” and “the correction might involve the likelihood estimate being multiplied by one (or more) of these, added to by one of these,…” and then trying ALL the possible equations to find the correction that works best. This follows my long-term strategy of “math can be difficult, let’s just make the computer work very hard” like the approach I used for parametric species delimitation (store the probabilities of all the gene trees (O’Meara 2009; see this <a href="https://github.com/bomeara/brownie/blob/master/cdfvectorholder.h">header file</a>)) or the <a href="https://www.phrapl.org">phrapl</a> series of papers for looking at phylogeography, gene flow, and species delimitation that involve estimating the probability of a gene tree by simulating many, many times. Here, we basically make all the reasonable corrections and try each to see which reduces the bias in the estimator. The key difficulty, as with approximate Bayesian computation, is to figure out a good way to estimate the distance from what we are getting and what we want. Something like RMSE is the obvious choice, but the issue is that for really tiny trees, the errors can be huge in a handful of simulations and those can overwhelmingly drive what is chosen. So instead we did a regression and saw how far the regression slope and intercept were from the ideal line.</p>
+<p>We validated this approach (which used a slightly modifed <a href="https://github.com/fnoorian/gramEvol">gramEvol R package</a> (Noorian et al.&nbsp;2016) to search exhaustively) on the Yule case where we knew the correct result, then applied it to the more complex birth-death result.</p>
+<p>Overall, it looked like the best unbiased estimator for speciation rate was the maximum likelihood estimate (MLE) for speciation rate times <code>(number of taxa on the tree - 1) / (number of taxa on the tree - 2)</code>. The correction approaches 1 as the number of taxa on the tree (ntax) increases, but at just three taxa, the unbiased speciation rate is twice that of the MLE. The extinction rate, which is famously hard to estimate well, is the MLE of extinction rate times <code>(ntax/(ntax-1) + extinction fraction)</code>, where extinction fraction is the MLE for extinction rate divided by the MLE for the speciation rate. However, read the <a href="https://doi.org/10.1007/s11538-026-01644-0">paper</a> for details.</p>
+<p><strong>It’s important to note that this is NOT another example of “diversification methods are wrong”</strong> – those that were wrong before are still wrong, and those that have yet to be proven wrong are still yet to be proven wrong<sup>1</sup>. However, it does suggest that if your question is about the parameter estimates themselves, it could be worth converting them to the unbiased estimates, especially when comparing between groups of different sizes. I suggest phylogenetic software start returning both the MLEs <em>and</em> the unbiased estimates to users; users could also convert the estimates themselves, as these are basic transformations.</p>
+<p>Another note: while we all like to gripe about peer review (somehow especially popular for those whose papers I review), this was a case where the manuscript was improved substantially by the people who volunteered to review it and AE Mike Steel, especially by one reviewer who caught an error in an earlier draft. Our thanks to the reviewers were heartfelt for this paper. This was my first time publishing in <a href="https://link.springer.com/journal/11538"><em>Bulletin of Mathematical Biology</em></a>, which is published by Springer for the <a href="https://www.smb.org">Society for Mathematical Biology</a> and it was a delightful process – fast, competent reviews and a quick turnaround for publication.</p>
+<section id="citations" class="level2">
+<h2 class="anchored" data-anchor-id="citations">Citations</h2>
+<ul>
+<li>Alfaro, ME, F Santini, C Brock, H Alamillo, A Dornburg, DL Rabosky, G Carnevale, and LJ Harmon. 2009. Nine exceptional radiations plus high turnover explain species diversity in jawed vertebrates. Proceedings of the National Academy of Sciences 106: 13410-13414. <a href="https://doi.org/10.1073/pnas.0811087106" class="uri">https://doi.org/10.1073/pnas.0811087106</a></li>
+<li>Beaulieu, J.M., O’Meara, B.C. 2026. Statistical and Structural Bias in Birth-Death Models. Bull Math Biol 88, 81. <a href="https://doi.org/10.1007/s11538-026-01644-0" class="uri">https://doi.org/10.1007/s11538-026-01644-0</a></li>
+<li>Maliet, O., Hartig, F. &amp; Morlon, H. 2019. A model with many small shifts for estimating species-specific diversification rates. Nat Ecol Evol 3, 1086–1092. <a href="https://doi.org/10.1038/s41559-019-0908-0" class="uri">https://doi.org/10.1038/s41559-019-0908-0</a></li>
+<li>Noorian F, de Silva A. M., Leong PHW. 2016. gramevol: Grammatical evolution in r. Journal of Statistical Software 71:1–26. <a href="https://doi.org/10.18637/jss.v071.i01" class="uri">https://doi.org/10.18637/jss.v071.i01</a>.</li>
+<li>O’Meara BC. 2009. New heuristic methods for joint species delimitation and species tree inference. Syst Biol. 2010 Jan;59(1):59-73. doi: 10.1093/sysbio/syp077.</li>
+<li>O’Meara BC, Beaulieu JM. 2024. Noise leads to the perceived increase in evolutionary rates over short time scales. PLOS Computational Biology 20(9): e1012458. <a href="https://doi.org/10.1093/sysbio/syp077" class="uri">https://doi.org/10.1093/sysbio/syp077</a></li>
+<li>Rabosky DL. 2014. Automatic Detection of Key Innovations, Rate Shifts, and Diversity-Dependence on Phylogenetic Trees. PLOS ONE 9(2): e89543. <a href="https://doi.org/10.1371/journal.pone.0089543" class="uri">https://doi.org/10.1371/journal.pone.0089543</a></li>
+<li>Stadler. T. 2013. How Can We Improve Accuracy of Macroevolutionary Rate Estimates?, Systematic Biology, Volume 62, Issue 2, March 2013, Pages 321–329, <a href="https://doi.org/10.1093/sysbio/sys073" class="uri">https://doi.org/10.1093/sysbio/sys073</a></li>
+<li>Vasconcelos, T, O’Meara, BC, Beaulieu, JM. 2022. A flexible method for estimating tip diversification rates across a range of speciation and extinction scenarios, Evolution, Volume 76, Issue 7 Pages 1420–1433, <a href="https://doi.org/10.1111/evo.14517" class="uri">https://doi.org/10.1111/evo.14517</a></li>
+</ul>
+<hr>
+<p>To subscribe, go to <a href="https://brianomeara.info/blog.xml" class="uri">https://brianomeara.info/blog.xml</a> in an RSS reader.</p>
+
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>If George Box worked in diversification, his famous quote, “All models are wrong, but some are useful” might have just been the far pithier “All models are wrong.” :-)↩︎</p></li>
+</ol>
+</section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{o'meara2026,
+  author = {O’Meara, Brian},
+  title = {Bias Correction in Diversification Models},
+  date = {2026-04-17},
+  url = {https://brianomeara.info/posts/biascorrection/},
+  langid = {en}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-o'meara2026" class="csl-entry quarto-appendix-citeas">
+O’Meara, Brian. 2026. <span>“Bias Correction in Diversification
+Models.”</span> April 17, 2026. <a href="https://brianomeara.info/posts/biascorrection/">https://brianomeara.info/posts/biascorrection/</a>.
+</div></div></section></div> ]]></description>
+  <category>diversification</category>
+  <category>math</category>
+  <guid>https://brianomeara.info/posts/biascorrection/</guid>
+  <pubDate>Fri, 17 Apr 2026 04:00:00 GMT</pubDate>
+</item>
 <item>
   <title>rnsf</title>
   <dc:creator>Brian O&#39;Meara</dc:creator>
@@ -1123,56 +1184,6 @@ July 25, 2025. <a href="https://brianomeara.info/posts/targetsmemory/">https://b
   <category>targets</category>
   <guid>https://brianomeara.info/posts/targetsmemory/</guid>
   <pubDate>Fri, 25 Jul 2025 04:00:00 GMT</pubDate>
-</item>
-<item>
-  <title>Course ads on R-sig-phylo</title>
-  <dc:creator>Brian O&#39;Meara</dc:creator>
-  <link>https://brianomeara.info/posts/rsig/</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<p>The R project maintains <a href="https://www.r-project.org/mail.html">special interest mailing lists</a>: using R in ecology, using R in phylogenetics, etc.:</p>
-<blockquote class="blockquote">
-<p>Additionally, there are several specific Special Interest Group (=: SIG) mailing lists; however do post to only one list at time (‘SIG’ or general one), cross-posting is considered to be impolite.</p>
-</blockquote>
-<p>The phylogenetics one has been a good place for discussion and learning; I even quote posts from it at length in the <a href="https://thej022214.github.io/OUwie/reference/OUwie.anc.html#details-1">help for ancestral state reconstruction</a> using Ornstein-Uhlenbeck models in the OUwie documentation, as Joe Felsenstein, Dave Bapst, Simone Blomberg, Marguerite Butler, Nick Matzke, and Thomas Hansen all weighed in (I wrote the function so that by default it gives an error until a user indicates they actually read the documentation about the risks of this analysis).</p>
-<p>However, lately the list is filled with posts for courses in R. It might not be unreasonable: a workshop in R for phylogenetics, like the <a href="https://eqgw.github.io/index.html">evolutionary quantitative genetics workshop</a> led by community members Josef Uyeda and Fabio Machado, could be appropriately sent to the list. But now the list nearly <em>all</em> ads for courses, most of which do not relate to phylogenetics. Out of the last 50 <a href="https://www.mail-archive.com/r-sig-phylo@r-project.org/index.html">threads</a> on the list (Feb 2025-July 2025):</p>
-<ul>
-<li>22 were by Carlo Pecoraro of Physalia Courses</li>
-<li>9 were by Oliver Hooker of PR Statistics</li>
-<li>8 were by Soledad De Esteban-Trivigno of Transmitting Science</li>
-</ul>
-<p>Nearly all of these were for paid courses offered by these groups.</p>
-<p>There were also two (2!) threads with actual questions on R in phylogenetics (only one of which had answers), a request to nominate scientists for a medal, and two posts from the long-serving volunteer list moderator, Hilmar Lapp, about proper conduct, including <a href="https://www.mail-archive.com/r-sig-phylo@r-project.org/msg06067.html">one about too many training course advertisements</a>. Hilmar’s request was that groups post no more than two courses a month and only post each course once (no “last chance of” or similar follow-ups). All the companies above violated this (links to examples): <a href="https://www.mail-archive.com/r-sig-phylo@r-project.org/msg06092.html">Physalia</a> (which also posts over 3.5 courses per month), <a href="https://www.mail-archive.com/r-sig-phylo@r-project.org/msg06082.html">PR Statistics</a>, and <a href="https://www.mail-archive.com/r-sig-phylo@r-project.org/msg06106.html">Transmitting Science</a>.</p>
-<p>An easy criticism would be to argue for different moderation choices or actions, but any such move puts even more work on a long-serving community member. Why should someone volunteer their time to play whack-a-mole with multiple people who are paid to send out announcements as part of their day job? It’s not sustainable. It would be better if companies decided to be responsible and respect listserv rules (including the R-project’s request not to cross-post). They could even start their own R-sig listserv of courses that people could opt into – there’s a need for quality R courses, after all.</p>
-<p>Use of mailing lists just to sell courses is even worse outside R-sig-phylo – for example, in June the <a href="https://stat.ethz.ch/pipermail/r-sig-ecology/2025-June/thread.html">28 threads in the R-sig-ecology list</a> were ALL for courses (11 from Physalia, 8 from PR Statistics, 6 from the Institute for Statistical and Data Science, 2 from Transmitting Science, 1 from Highland Statistics), despite the huge number of R users in ecology, and the trend is continuing in July.</p>
-<p>Email discussion lists are definitely declining (you can see looking through the R special interest lists how many are practically abandoned) – we all get too many emails, and in some ways social media has replaced the need for mailing lists to ask questions and get answers (see <code>#rstats</code> on bluesky, for example). But one could imagine that in the coming era of AI slop, mailing lists with responses limited to those written by actual humans would once more become essential. It’s sad to see something like R-sig-phylo, which has been a place for good discussion and could be again, get overwhelmed by companies choosing to use it to sell courses: who wants to join or stay on a list if only 4% of posts are directly connected to the list topic? I myself was considering unsubscribing this morning – thus this plea for things to change (and I might as an intermediate step just block any mail from particular companies).</p>
-<section id="update-aug-22-2025" class="level3">
-<h3 class="anchored" data-anchor-id="update-aug-22-2025">Update Aug 22, 2025</h3>
-<p>Two of the companies involved have apologized for sending off-topic postings and said they will no longer do this. I’m glad to see this improvement.</p>
-<hr>
-<p>To subscribe, go to <a href="https://brianomeara.info/blog.xml" class="uri">https://brianomeara.info/blog.xml</a> in an RSS reader.</p>
-
-
-</section>
-
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{o'meara2025,
-  author = {O’Meara, Brian},
-  title = {Course Ads on {R-sig-phylo}},
-  date = {2025-07-18},
-  url = {https://brianomeara.info/posts/rsig/},
-  langid = {en}
-}
-</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-o'meara2025" class="csl-entry quarto-appendix-citeas">
-O’Meara, Brian. 2025. <span>“Course Ads on R-Sig-Phylo.”</span> July 18,
-2025. <a href="https://brianomeara.info/posts/rsig/">https://brianomeara.info/posts/rsig/</a>.
-</div></div></section></div> ]]></description>
-  <category>Rstats</category>
-  <guid>https://brianomeara.info/posts/rsig/</guid>
-  <pubDate>Fri, 18 Jul 2025 04:00:00 GMT</pubDate>
 </item>
 </channel>
 </rss>

@@ -10,148 +10,7 @@
 <atom:link href="https://brianomeara.info/blog.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.8.27</generator>
-<lastBuildDate>Sat, 18 Apr 2026 04:00:00 GMT</lastBuildDate>
-<item>
-  <title>Reading bills</title>
-  <dc:creator>Brian O&#39;Meara</dc:creator>
-  <link>https://brianomeara.info/posts/readingbills/</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<!--
-Uses https://emilhvitfeldt.github.io/quarto-timeline/ for timeline
--->
-<p>In the US, a lot of interest focuses on proposed laws at the national level, but individuals’ lives can be dramatically affected by legislation passed at the state level. This post describes how I try to keep informed about legislation in the state I live in (Tennessee) but I suspect it will work well for other states, as well. It does not cover <em>how</em> to affect legislation one supports or opposes but merely how to just stay in the know.</p>
-<p>As an example, let’s focus on <a href="https://capitol.tn.gov/Bills/114/Bill/HB2194.pdf">House Bill 2194</a>, Senate Bill 2259, from Tennessee’s 114th general assembly, as it will be of interest to others in academia. It was signed into law on April 16, 2026. Its short description, based on the bill at the time it was first introduced (known as caption text), is “Education, Higher - As introduced, requires the board of regents, state university boards, and the board of trustees for the University of Tennessee system to adopt and implement policies that clearly distinguish between tenure decisions and disciplinary actions for faculty members.” A couple of sections (but it is worth reading the <a href="https://capitol.tn.gov/Bills/114/Bill/HB2194.pdf">full bill</a>)</p>
-<blockquote class="blockquote">
-<p>Prior to termination or suspension based on an allegation of misconduct, a tenured or non-tenured faculty member is only entitled to a written notice of the grounds for termination or suspension and an opportunity to be heard by the institution’s chief academic officer or chief executive officer. All terminations and suspensions based on an allegation of misconduct by the tenured or non-tenured faculty must be made by the institution’s chief executive officer or chief academic officer without any recommendation or vote by another faculty member at the institution.</p>
-</blockquote>
-<p>and</p>
-<blockquote class="blockquote">
-<p>The policies adopted pursuant to subsection (b) must: (1) Ensure that awarding, denial, or revocation of tenure is not used as a form of discipline; (2) Ensure that disciplinary actions do not alter or suspend a faculty member’s tenure status except as provided by institutional policy and after providing the faculty member due process; (3) Provide disciplinary procedures that are the same for tenured and non-tenured faculty for a faculty member’s misconduct; (4) Ensure due process for a faculty member; and (5) Comply with applicable state and federal law.</p>
-</blockquote>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>What is tenure? (click to expand)
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p><a href="https://www.aaup.org/tenure">Tenure</a> is a measure intended to preserve academic freedom: a tenured expert in a subject can teach and research without fear of being fired over their speech or findings. For example, someone could do a study of the impact of invasive ivy on local species and not worry that the powerful ivy grower lobby will get them fired if they publish that invasive ivy is harmful, nor worry that their college dean who hates ivy on their buildings will try to fire them if they teach students that invasive ivy is actually beneficial to birds and great to have on University Hall. In a world where “It is difficult to get a man to understand something when his salary depends upon his not understanding it” (quote attributed to Upton Sinclair), tenured faculty are deliberately placed in a situation where their salary does <strong>not</strong> depend on coming to a certain conclusion. Think about the current debate on whether social media use is harmful for children. A social media company that employs a researcher will be much happier if their employee finds social media is good for children; a lobbying group that dislikes social media because it takes ad revenue away from billboards will be happier with their researchers if they report that social media is harmful. The tenured researcher on social media at a college will keep their job no matter what they find, even if the finding annoys one or both groups, and even if it angers all their colleagues in the field of study. They could still feel various pressures about their results (finding a substantial effect is likely to get them more attention, they might like or dislike social media for their own reasons, they suspect their students will have trouble getting jobs if their colleagues think their results are wrong, etc.) but at least the huge pressure of “report/teach what a powerful group likes, not what you think in your expert opinion is true, or you’re fired” is not present.</p>
-<p>The protections of tenure are not absolute. From the <a href="https://www.aaup.org/sites/default/files/1940%20Statement.pdf">1940 Statement on Tenure</a>: “After the expiration of a probationary period, teachers or investigators should have permanent or continuous tenure, and their service should be terminated only for adequate cause, except in the case of retirement for age or under extraordinary circumstances because of financial exigencies.” Financial exigencies can include threats to a college’s survival (such as those that faced <a href="https://www.hampshire.edu/closure-information">Hampshire College</a>). Adequate cause can cover a variety of issues: as in any group of thousands of people, there are some faculty who do things that warrant firing, so much so that there is at least one database that tracks public cases of academic sexual misconduct (<a href="https://academic-sexual-misconduct-database.org" class="uri">https://academic-sexual-misconduct-database.org</a>). Universities have policies in place for disciplining faculty, including dismissal; for example, <a href="https://www.ucop.edu/academic-personnel-programs/_files/apm/apm-015.pdf">here</a> are the procedures for the University of California, Berkeley.</p>
-</div>
-</div>
-</div>
-<p>The point of this post is not to argue pros or cons of this bill (which has now been signed into a law that takes effect in July, 2026), but rather for explaining how I watch bills like this for those curious about future bills on related topics or other topics of interest can track their progress.</p>
-<section id="finding-bills-of-interest" class="level2">
-<h2 class="anchored" data-anchor-id="finding-bills-of-interest">Finding bills of interest</h2>
-<p>The first place I go is the page for the state legislature, once the session opens. In many (perhaps all?) states, legislatures do not run continually: a session opens, various bills are introduced; for the ones that eventually become laws, they proceed through committees, potentially receive amendments, are voted on by the state house of representatives and senate, and are then signed by the governor (or vetoed and the veto is overridden, or in some cases go unsigned and become law by default). Sometimes there can be thousands of bills introduced. Some of the bills might be placeholders with more text to be added later, sometimes called “<a href="https://www.wkrn.com/news/tennessee-politics/caption-bills-the-bills-designed-to-be-amended/">caption bills</a>”. Particularly newsworthy bills might be reported on, but there can be others that are important to particular groups but not broadly discussed when first introduced.</p>
-<p>In this case, <a href="https://wapp.capitol.tn.gov/apps/BillSearch/BillSearchAdvanced">searching the legislation page for the 114th General Assembly</a> for “tenure” will return just 12 bills out of the 2,671 House bills and 2,733 Senate bills. Not all are related to “tenure” in higher education, but many are. In Tennessee, they also helpfully organize bills <a href="https://wapp.capitol.tn.gov/apps/Indexes/SubjectIndex">by subject</a>; here are the <a href="https://wapp.capitol.tn.gov/apps/Indexes/BillsBySubject?PrimarySubject=4775&amp;ga=114">ones</a> related to higher education, for example.</p>
-</section>
-<section id="tracking-bills" class="level2">
-<h2 class="anchored" data-anchor-id="tracking-bills">Tracking bills</h2>
-<p>Once potential bills are identified, tracking their progress can be useful. Tennessee offers free tracking of bills on its <a href="https://wapp.capitol.tn.gov/apps/mybills/login.aspx">My Bills</a> page; <a href="https://legiscan.com" class="uri">https://legiscan.com</a> is a service that covers all US states and the US Congress, free for most uses (I’m not affiliated with this site, I just use it sometimes).</p>
-</section>
-<section id="reading-bills" class="level2">
-<h2 class="anchored" data-anchor-id="reading-bills">Reading bills</h2>
-<p>Novels, poems, scientific papers all are different forms of writing that take a bit of experience to understand. So are bills – they can be a bit opaque at first, but they are generally understandable. I find it most difficult if they are intricate modifications of various sections of existing laws than a discrete new section. Sample bill language is often created by various advocacy groups; legislators can use this as a starting point for crafting their own bills (for those interested in looking at those relationships, this <a href="https://doi.org/10.1126/science.aad4057"><em>Science</em> article</a> by my former postdoc Nick Matzke can be illuminating).</p>
-<p><img src="https://brianomeara.info/posts/readingbills/BillOverview.png" class="img-fluid" alt="A screen shot of the top left of the bill webpage, https://wapp.capitol.tn.gov/apps/BillInfo/Default?BillNumber=HB2194&amp;ga=114." width="200"></p>
-<p>To see the actual text, click on the bill number on top left of the <a href="https://wapp.capitol.tn.gov/apps/BillInfo/Default?BillNumber=HB2194&amp;ga=114">page</a>: “HB 2194” in this case. It is a link to the PDF, even though the text is not underlined as is more common.</p>
-<p>Note that House and Senate versions of bills can differ. You can click on the link below the current bill (i.e., click on “(SB 2259)”) to go to the bill’s page in the other legislative body, then click on the new top title to get the bill text.</p>
-</section>
-<section id="follow-the-money" class="level2">
-<h2 class="anchored" data-anchor-id="follow-the-money">Follow the money</h2>
-<p>New laws can affect state government revenue and expenditures. A tax targeting electric and hybrid vehicles can raise money for road maintenance; creation of a new state park will require funds to hire rangers, build infrastructure, and so forth. Sometimes there may be costs even if the bill does not call for spending or taxes/fees directly: for example, some potential laws if enacted are likely to spur lawsuits by those opposed to the law, and defending the state against those lawsuits will likely cost money. No one can know exactly how many lawsuits will result, how hard the litigation might be, but it can be useful to have a best effort estimate. Sometimes, if a bill is likely to result in potentially large financial costs, legislators might be less likely to vote for it.</p>
-<p>For the focal bill for this blog post, the fiscal analysis is <a href="https://capitol.tn.gov/Bills/114/Fiscal/SB2259.pdf">here</a>. The analyst ruled it “not significant.” It doesn’t mean that this will have no financial impact: defending against lawsuits from fired faculty will cost money, not having to defend against lawsuits by those who fired faculty would have victimized had they stayed longer could save money, making recruiting excellent faculty easier or harder (thus less or more expensive) depending on whether they like or dislike the new policy, etc. But at the state budget level, the analyst concluded the overall impact would be slight.</p>
-</section>
-<section id="bill-stopping-points" class="level2">
-<h2 class="anchored" data-anchor-id="bill-stopping-points">Bill stopping points</h2>
-<p>Amendments can change bills, and reconciliation of two different versions of the bill (one from House, one from Senate) can also result in changes (though at least in Tennessee, one chamber adopting the version from the other chamber isn’t uncommon, eliminating the need for reconciliation). There are several points where a bill’s progress to becoming a law can pause or stop (and a pause, if it lasts longer than the session, becomes a stop, though the same bill could be re-introduced in the future and start again):</p>
-<ul>
-<li>No one introduces it to the other chamber – for example, it has a House sponsor but no Senate sponsor</li>
-<li>It is introduced but a sponsor withdraws it from consideration</li>
-<li>The relevant committee (a subset of the legislature that focuses on bills relating to a particular area) does not add it to its agenda for a discussion or vote</li>
-<li>The committee does not vote for it to advance out of committee</li>
-<li>If it does advance out of committee, it does not get added to the agenda of the full House or Senate</li>
-<li>At least one legislative body does not vote it for approval</li>
-<li>Both the House and Senate approve it, but the governor vetoes it and the veto is not overridden</li>
-</ul>
-<p>There may be other stop points, but these are the ones I have noticed most often. The veto process is interesting. At the federal level, a 2/3 vote of each legislative body is required to override a veto, making it a high bar. In Tennessee, it just requires a simple majority to override a veto (the same as to pass the bill originally), though legislators’ minds might change about the bill given the governor’s arguments when choosing to veto or other considerations.</p>
-<p>Once a bill passes all these stages, it becomes a law (often with a start date some months later, usually July). It could later be ruled unconstitutional, though many bills now have severability clauses: if part of a law is ruled unconstitutional, the other parts remain in effect.</p>
-</section>
-<section id="timeline" class="level2">
-<h2 class="anchored" data-anchor-id="timeline">Timeline</h2>
-<p>It can be worth looking at the timeline of progress of a bill, including when it was reported on. If all you do is learn about bills from the news, when do you see it? Focusing on some (not all) key events for HB2194/SB2259:</p>
-<div class="timeline vertical">
-<div class="event" data-label="Feb 2, 2026">
-<p><strong>Introduction</strong> Bill introduced in House and Senate</p>
-</div>
-<div class="event" data-label="Feb 18, 2026">
-<p><strong>House Higher Ed Subcommittee</strong> Recommended for passage: 5-1</p>
-</div>
-<div class="event" data-label="Mar 3, 2026">
-<p><strong>House Education Committee</strong> Recommended for passage: 13-3</p>
-</div>
-<div class="event" data-label="Mar 5, 2026">
-<p><strong>House Calendar &amp; Rules Committee</strong> Placed on calendar, voice vote</p>
-</div>
-<div class="event" data-label="Mar 9, 2026">
-<p><strong>House Floor Vote</strong> Approved amendment: 72-21 Approved bill: 70-21</p>
-</div>
-<div class="event" data-label="Mar 11, 2026">
-<p><strong>Senate Education Committee</strong> Recommended for passage: 8-0</p>
-</div>
-<div class="event" data-label="Mar 11, 2026">
-<p><strong><em>Knox News Sentinel</em></strong> <a href="https://www.knoxnews.com/story/news/education/2026/03/18/state-bill-aims-to-strip-acedmic-tenure-protections-tennessee-universities/89120901007/">Newspaper article</a> by Keenan Thomas on the bill’s progress</p>
-</div>
-<div class="event" data-label="Mar 23, 2026">
-<p><strong>Senate Floor Vote</strong> Approved bill: 25-5</p>
-</div>
-<div class="event" data-label="Apr 3, 2026">
-<p><strong>WBIR</strong> <a href="https://www.wbir.com/article/news/local/knoxville/tennessee-bill-altering-tenure-protections-governors-desk/51-0b2f6a31-2222-45f7-a0f1-ee2c762679b9">News story</a> on the bill going to the Governor’s desk for a signature.</p>
-</div>
-<div class="event" data-label="Apr 16, 2026">
-<p><strong>Signed by governor</strong></p>
-</div>
-<div class="event" data-label="Apr 10, 2026">
-<p><strong><em>Inside Higher Ed</em></strong> <a href="https://www.insidehighered.com/news/government/state-policy/2026/04/10/bills-weakening-tenure-abolishing-faculty-senates-advance">Article</a> by Emma Whitford on this bill and others in different states as “4 State Bills Faculty Should Watch”</p>
-</div>
-<div class="event" data-label="July 1, 2026">
-<p><strong>Law takes effect</strong></p>
-</div>
-</div>
-<p>Note that frequent observers of higher ed in Tennessee, <a href="https://www.chronicle.com"><em>Chronicle of Higher Ed</em></a>, the <a href="https://web.archive.org/web/20260419143718/https://taaup.org/">TN Conference of the AAUP</a> and the <a href="https://web.archive.org/web/20260419150054/https://ucwtn.org/news">United Campus Workers</a>, as of writing have no information about this bill on their websites (but I can’t speak to any internal, non-public communications).</p>
-</section>
-<section id="caveats" class="level2">
-<h2 class="anchored" data-anchor-id="caveats">Caveats</h2>
-<p>Note this blog post is written in my personal capacity on my personal website, not as part of any professional role at any instituion. ___</p>
-<p>To subscribe, go to <a href="https://brianomeara.info/blog.xml" class="uri">https://brianomeara.info/blog.xml</a> in an RSS reader.</p>
-
-
-</section>
-
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{o'meara2026,
-  author = {O’Meara, Brian},
-  title = {Reading Bills},
-  date = {2026-04-18},
-  url = {https://brianomeara.info/posts/readingbills/},
-  langid = {en}
-}
-</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-o'meara2026" class="csl-entry quarto-appendix-citeas">
-O’Meara, Brian. 2026. <span>“Reading Bills.”</span> April 18, 2026. <a href="https://brianomeara.info/posts/readingbills/">https://brianomeara.info/posts/readingbills/</a>.
-</div></div></section></div> ]]></description>
-  <category>legislation</category>
-  <guid>https://brianomeara.info/posts/readingbills/</guid>
-  <pubDate>Sat, 18 Apr 2026 04:00:00 GMT</pubDate>
-</item>
+<lastBuildDate>Fri, 17 Apr 2026 04:00:00 GMT</lastBuildDate>
 <item>
   <title>Bias correction in diversification models</title>
   <dc:creator>Brian O&#39;Meara</dc:creator>
@@ -1267,6 +1126,67 @@ August 22, 2025. <a href="https://brianomeara.info/posts/phylopapers_2025_Aug_22
   <category>teaching</category>
   <guid>https://brianomeara.info/posts/phylopapers_2025_Aug_22/</guid>
   <pubDate>Fri, 22 Aug 2025 04:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Watching memory in targets in R</title>
+  <dc:creator>Brian O&#39;Meara</dc:creator>
+  <link>https://brianomeara.info/posts/targetsmemory/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>I loved drake for R workflows, and I love using its successor, <a href="https://books.ropensci.org/targets/">targets</a> – great thanks to author Will Landau, his funder, Eli Lilly &amp; Company, and its host, rOpenSci. The basic workflow it creates is simple and reproducible:</p>
+<ul>
+<li>A file of functions.</li>
+<li>A list of targets that use your functions and other functions to create a series of steps</li>
+</ul>
+<p>It’s much more logical than the mixture of functions and workflow you see in a lot of beginning R user scripts. It also saves time: if you have a three step process, A -&gt; B -&gt; C, you can run it through once, decide step B needs to be tweaked, change the function for that step, and it will know to run only steps B and C again, keeping A unchanged. This is great for doing simulation analyses: “oh, let’s add more conditions to understand the behavior between t=5 and t=50, as that is where things seem to change” – only the new values will be run. I use targets for everything from <a href="https://github.com/bomeara/hyperbolic_rates/blob/main/hyperanalysis/_targets.R">analyses and creating figures for papers</a> to creating a <a href="https://collegetables.info">multi-thousand page website</a> for helping my kids compare colleges (as one does).</p>
+<p>It has <a href="https://books.ropensci.org/targets/crew.html">great abilities</a> for working on clusters and other high performance computing structures. We ran into an issue, though, with running on a colleague’s beefy multicore computer (which isn’t running queueing software, but it’s one with a large amount of RAM and over a hundred cores). We used <a href="https://wlandau.github.io/crew/">crew</a> with targets to handle batching out jobs to the cores. The issue is that while this could make sure there were cores available, it was not tracking memory use. The jobs we were sending out involved doing analyses on simulated trees: these could be just a handful of species or many thousands, and so the jobs were wildly different in terms of memory usage. If we figured out the average memory usage for a job and set to not hit the cap on average, there was still a chance of using up too much memory, especially as smaller jobs finished earlier so the population of running jobs becomes more enriched for slow, high memory jobs later in the run. On the other hand, if we conservatively set the number of cores used to a low number, we’re taking longer to run things than we need to as we’re nowhere near the memory or core limit. Perhaps with a more sophisticated batching system memory use would be incorporated, but it’s an odd kind of job for this because memory need varies a lot based on the input object.</p>
+<p>So, a kludge I made:</p>
+<p>To do parallel, we use crew:</p>
+<pre><code>tar_option_set(
+        packages = c( "tidyverse",  "tarchetypes", "ggplot2", "RColorBrewer", "ggrepel", "ggtext",  "pdftools", "readr", "parallel", "phytools", "TreeSim", "viridis", "RPANDA", "epm", "parallel", "ggbeeswarm", "JuliaCall", "memuse"),
+        controller= crew_controller_local(workers = 80, seconds_timeout = 600, garbage_collection = TRUE)
+)</code></pre>
+<p>Our relevant slow target is:</p>
+<pre><code>    tar_target(
+        inference_results,
+        command = DoInference(many_trees),
+        pattern = map(many_trees),
+        iteration = "list"
+    )</code></pre>
+<p>Where we have simulated trees from previous simulation steps in the list <code>many_trees</code>.</p>
+<p>In the <code>DoInference()</code> function, I set a threshold of 10 GB for desired amount of free RAM on the cluster (<code>free_GBram_threshold</code>) then used this code before the actual analysis starts:</p>
+<pre><code>    Sys.sleep(runif(1, 0, ntax)) # sleep for a random amount of time to avoid all processes starting at the same time, have bigger trees start later
+    freeGBram &lt;- .Call(memuse:::R_meminfo_raminfo)$freeram / 1e9
+    while(freeGBram &lt; max(free_GBram_threshold, sqrt(ntax))) {
+        Sys.sleep(10)
+        freeGBram &lt;- .Call(memuse:::R_meminfo_raminfo)$freeram / 1e9
+    }</code></pre>
+<p><code>ntax</code> is the number of species on a tree, roughly proportional to how big a job it will be to run.</p>
+<p>This uses the <code>memuse</code> package to see how much RAM is available on the system, and then does a loop to wait until there is enough free before starting the expensive part of the analysis. If there is enough RAM, everything runs happily, with a slight bias for starting easier jobs sooner. As RAM fills up, the same number of jobs are technically running, but some are just doing repeated sleep cycles until there’s memory capacity. This isn’t ideal – there could be low-memory jobs that would fit easily, but the big jobs are just occupying a core running <code>Sys.sleep()</code> forever – but for our setup, where there was one user on the computer trying to juggle memory, it worked ok.</p>
+<hr>
+<p>To subscribe, go to <a href="https://brianomeara.info/blog.xml" class="uri">https://brianomeara.info/blog.xml</a> in an RSS reader.</p>
+
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{o'meara2025,
+  author = {O’Meara, Brian},
+  title = {Watching Memory in Targets in {R}},
+  date = {2025-07-25},
+  url = {https://brianomeara.info/posts/targetsmemory/},
+  langid = {en}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-o'meara2025" class="csl-entry quarto-appendix-citeas">
+O’Meara, Brian. 2025. <span>“Watching Memory in Targets in R.”</span>
+July 25, 2025. <a href="https://brianomeara.info/posts/targetsmemory/">https://brianomeara.info/posts/targetsmemory/</a>.
+</div></div></section></div> ]]></description>
+  <category>Rstats</category>
+  <category>targets</category>
+  <guid>https://brianomeara.info/posts/targetsmemory/</guid>
+  <pubDate>Fri, 25 Jul 2025 04:00:00 GMT</pubDate>
 </item>
 </channel>
 </rss>

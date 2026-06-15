@@ -1,0 +1,28 @@
+---
+title: "Evolution 2026 in person activities"
+description: "Our lab's activities at Evolution 2026 in person meeting"
+author: "Brian O'Meara"
+date: "06/15/2026"
+citation: true
+categories: [meetings, Evolution, talks] 
+---
+
+Our lab members (and alumni and coauthors) are doing various activities at the Evolution 2026 meetings in Cleveland, Ohio. So that you can know where to go (or which sessions to avoid 😉):
+
+* Sunday, June 21, 10:00 am, Room 25C, Evolutionary ecology 1: "Rare today, common tomorrow: Evolutionary transitions and non-equilibrium dynamics shape species rarity". [Alivia Nykto](https://anytko.github.io) and Brian O'Meara
+* Monday, June 22, 4:15 pm, Room 22, Macroevolution: "Are the phenotypic extremes ecological generalists? Testing Liem's paradox in a macroevolutionary framework" [Sam Borstein](https://www.bio.txst.edu/faculty-staff/sam-borstein.html) (lab alum) and [Matt McGee](https://www.monash.edu/science/schools/biological-sciences/staff/matt-mcgee)
+* Tuesday, June 23, 6 - 8:30 pm, Grand ballroom BC, Poster session 2: "Age-rate scaling in evolution is largely artifactual" Brian O'Meara and [Jeremy Beaulieu](https://www.jeremybeaulieu.org)
+* Wednesday, June 24, 2:30 pm, Room 21, Phylogenetic theory and methods: "Into the treeverse: Exploring the effects of topological uncertainty on comparative methods" [Remington Motte](https://remingtonrimo.github.io), Brian O'Meara, [Jeremy Beaulieu](https://www.jeremybeaulieu.org)
+
+There are a lot of great mixers, plenaries, and other events to attend. One thing I think folks overlook is the members' meetings for the three societies. Do you think organizations of scientists should be speaking out on a particular issue? Directing funding towards students or postdocs? Improving a meeting in a particular way? Doing something new with a journal? Even changing the society's name (something that was floated at an SSB meeting and later went out for a vote)? The members' meeting is a good place to bring this up. Our societies have hundreds to thousands of members, run popular meetings, sponsor journals, and more, but a single voice in a members' meeting can steer them in helpful new ways. The members' meetings are also big enough that if you want to lurk at the back and just get the vibe, that's ok, too. 
+
+Some other general meeting advice:
+
+* When you stand in a group to talk, form a C shape, so there's a hole for a new person to join. Once they join, open it up again. 
+* There's an active code of conduct for the meeting; it applies to the attendees throughout the conference: not just at the conference center, but also, say, at the bar after sessions end for the day. See more [here](https://www.evolutionmeetings.org/safe-evolution.html) and do what you can to help keep the meeting safe for all. Our safety officer seems good. There are also EvoAllies and members of the Code of Conduct committee who can help link to resources, but the only one who can do investigations is the safety officer (she's trained in how to properly interview respondents).
+* Rooms are often crowded. I still try to protect others and myself by wearing a mask. Evolution no longer enforces masking, but anyone can choose to mask. 
+
+
+___
+
+To subscribe, go to <https://brianomeara.info/blog.xml> in an RSS reader.

@@ -9,8 +9,54 @@
 <link>https://brianomeara.info/blog.html</link>
 <atom:link href="https://brianomeara.info/blog.xml" rel="self" type="application/rss+xml"/>
 <description></description>
-<generator>quarto-1.8.27</generator>
-<lastBuildDate>Sat, 25 Apr 2026 04:00:00 GMT</lastBuildDate>
+<generator>quarto-1.9.38</generator>
+<lastBuildDate>Mon, 15 Jun 2026 06:00:00 GMT</lastBuildDate>
+<item>
+  <title>Evolution 2026 in person activities</title>
+  <dc:creator>Brian O&#39;Meara</dc:creator>
+  <link>https://brianomeara.info/posts/evol2026inperson/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>Our lab members (and alumni and coauthors) are doing various activities at the Evolution 2026 meetings in Cleveland, Ohio. So that you can know where to go (or which sessions to avoid 😉):</p>
+<ul>
+<li>Sunday, June 21, 10:00 am, Room 25C, Evolutionary ecology 1: “Rare today, common tomorrow: Evolutionary transitions and non-equilibrium dynamics shape species rarity”. <a href="https://anytko.github.io">Alivia Nykto</a> and Brian O’Meara</li>
+<li>Monday, June 22, 4:15 pm, Room 22, Macroevolution: “Are the phenotypic extremes ecological generalists? Testing Liem’s paradox in a macroevolutionary framework” <a href="https://www.bio.txst.edu/faculty-staff/sam-borstein.html">Sam Borstein</a> (lab alum) and <a href="https://www.monash.edu/science/schools/biological-sciences/staff/matt-mcgee">Matt McGee</a></li>
+<li>Tuesday, June 23, 6 - 8:30 pm, Grand ballroom BC, Poster session 2: “Age-rate scaling in evolution is largely artifactual” Brian O’Meara and <a href="https://www.jeremybeaulieu.org">Jeremy Beaulieu</a></li>
+<li>Wednesday, June 24, 2:30 pm, Room 21, Phylogenetic theory and methods: “Into the treeverse: Exploring the effects of topological uncertainty on comparative methods” <a href="https://remingtonrimo.github.io">Remington Motte</a>, Brian O’Meara, <a href="https://www.jeremybeaulieu.org">Jeremy Beaulieu</a></li>
+</ul>
+<p>There are a lot of great mixers, plenaries, and other events to attend. One thing I think folks overlook is the members’ meetings for the three societies. Do you think organizations of scientists should be speaking out on a particular issue? Directing funding towards students or postdocs? Improving a meeting in a particular way? Doing something new with a journal? Even changing the society’s name (something that was floated at an SSB meeting and later went out for a vote)? The members’ meeting is a good place to bring this up. Our societies have hundreds to thousands of members, run popular meetings, sponsor journals, and more, but a single voice in a members’ meeting can steer them in helpful new ways. The members’ meetings are also big enough that if you want to lurk at the back and just get the vibe, that’s ok, too.</p>
+<p>Some other general meeting advice:</p>
+<ul>
+<li>When you stand in a group to talk, form a C shape, so there’s a hole for a new person to join. Once they join, open it up again.</li>
+<li>There’s an active code of conduct for the meeting; it applies to the attendees throughout the conference: not just at the conference center, but also, say, at the bar after sessions end for the day. See more <a href="https://www.evolutionmeetings.org/safe-evolution.html">here</a> and do what you can to help keep the meeting safe for all. Our safety officer seems good. There are also EvoAllies and members of the Code of Conduct committee who can help link to resources, but the only one who can do investigations is the safety officer (she’s trained in how to properly interview respondents).</li>
+<li>Rooms are often crowded. I still try to protect others and myself by wearing a mask. Evolution no longer enforces masking, but anyone can choose to mask.</li>
+</ul>
+<hr>
+<p>To subscribe, go to <a href="https://brianomeara.info/blog.xml" class="uri">https://brianomeara.info/blog.xml</a> in an RSS reader.</p>
+
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{o'meara2026,
+  author = {O’Meara, Brian},
+  title = {Evolution 2026 in Person Activities},
+  date = {2026-06-15},
+  url = {https://brianomeara.info/posts/evol2026inperson/},
+  langid = {en}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-o'meara2026" class="csl-entry quarto-appendix-citeas">
+O’Meara, Brian. 2026. <span>“Evolution 2026 in Person
+Activities.”</span> June 15. <a href="https://brianomeara.info/posts/evol2026inperson/">https://brianomeara.info/posts/evol2026inperson/</a>.
+</div></div></section></div> ]]></description>
+  <category>meetings</category>
+  <category>Evolution</category>
+  <category>talks</category>
+  <guid>https://brianomeara.info/posts/evol2026inperson/</guid>
+  <pubDate>Mon, 15 Jun 2026 06:00:00 GMT</pubDate>
+</item>
 <item>
   <title>Reading bills</title>
   <dc:creator>Brian O&#39;Meara</dc:creator>
@@ -152,11 +198,11 @@ Uses https://emilhvitfeldt.github.io/quarto-timeline/ for timeline
   langid = {en}
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-o'meara2026" class="csl-entry quarto-appendix-citeas">
-O’Meara, Brian. 2026. <span>“Reading Bills.”</span> April 25, 2026. <a href="https://brianomeara.info/posts/readingbills/">https://brianomeara.info/posts/readingbills/</a>.
+O’Meara, Brian. 2026. <span>“Reading Bills.”</span> April 25. <a href="https://brianomeara.info/posts/readingbills/">https://brianomeara.info/posts/readingbills/</a>.
 </div></div></section></div> ]]></description>
   <category>legislation</category>
   <guid>https://brianomeara.info/posts/readingbills/</guid>
-  <pubDate>Sat, 25 Apr 2026 04:00:00 GMT</pubDate>
+  <pubDate>Sat, 25 Apr 2026 06:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Bias correction in diversification models</title>
@@ -215,12 +261,12 @@ O’Meara, Brian. 2026. <span>“Reading Bills.”</span> April 25, 2026. <a hre
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-o'meara2026" class="csl-entry quarto-appendix-citeas">
 O’Meara, Brian. 2026. <span>“Bias Correction in Diversification
-Models.”</span> April 17, 2026. <a href="https://brianomeara.info/posts/biascorrection/">https://brianomeara.info/posts/biascorrection/</a>.
+Models.”</span> April 17. <a href="https://brianomeara.info/posts/biascorrection/">https://brianomeara.info/posts/biascorrection/</a>.
 </div></div></section></div> ]]></description>
   <category>diversification</category>
   <category>math</category>
   <guid>https://brianomeara.info/posts/biascorrection/</guid>
-  <pubDate>Fri, 17 Apr 2026 04:00:00 GMT</pubDate>
+  <pubDate>Fri, 17 Apr 2026 06:00:00 GMT</pubDate>
 </item>
 <item>
   <title>rnsf</title>
@@ -449,12 +495,12 @@ font-style: inherit;">"top"</span>) </span></code></pre></div></div>
   langid = {en}
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-o'meara2026" class="csl-entry quarto-appendix-citeas">
-O’Meara, Brian. 2026. <span>“Rnsf.”</span> April 4, 2026. <a href="https://brianomeara.info/posts/rnsf/">https://brianomeara.info/posts/rnsf/</a>.
+O’Meara, Brian. 2026. <span>“Rnsf.”</span> April 4. <a href="https://brianomeara.info/posts/rnsf/">https://brianomeara.info/posts/rnsf/</a>.
 </div></div></section></div> ]]></description>
   <category>funding</category>
   <category>NSF</category>
   <guid>https://brianomeara.info/posts/rnsf/</guid>
-  <pubDate>Sat, 04 Apr 2026 04:00:00 GMT</pubDate>
+  <pubDate>Sat, 04 Apr 2026 06:00:00 GMT</pubDate>
 </item>
 <item>
   <title>PhyloPapers 2025, Summary</title>
@@ -504,13 +550,13 @@ O’Meara, Brian. 2026. <span>“Rnsf.”</span> April 4, 2026. <a href="https:/
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-o'meara2025" class="csl-entry quarto-appendix-citeas">
 O’Meara, Brian. 2025. <span>“PhyloPapers 2025, Summary.”</span> December
-1, 2025. <a href="https://brianomeara.info/posts/phylopapers_2025_summary/">https://brianomeara.info/posts/phylopapers_2025_summary/</a>.
+1. <a href="https://brianomeara.info/posts/phylopapers_2025_summary/">https://brianomeara.info/posts/phylopapers_2025_summary/</a>.
 </div></div></section></div> ]]></description>
   <category>phylopapers</category>
   <category>phylogenetics</category>
   <category>teaching</category>
   <guid>https://brianomeara.info/posts/phylopapers_2025_summary/</guid>
-  <pubDate>Mon, 01 Dec 2025 05:00:00 GMT</pubDate>
+  <pubDate>Mon, 01 Dec 2025 07:00:00 GMT</pubDate>
 </item>
 <item>
   <title>PhyloPapers 2025, Phylogenomics</title>
@@ -544,7 +590,7 @@ O’Meara, Brian. 2025. <span>“PhyloPapers 2025, Summary.”</span> December
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-o'meara2025" class="csl-entry quarto-appendix-citeas">
 O’Meara, Brian. 2025. <span>“PhyloPapers 2025, Phylogenomics.”</span>
-November 21, 2025. <a href="https://brianomeara.info/posts/phylopapers_2025_Nov_21/">https://brianomeara.info/posts/phylopapers_2025_Nov_21/</a>.
+November 21. <a href="https://brianomeara.info/posts/phylopapers_2025_Nov_21/">https://brianomeara.info/posts/phylopapers_2025_Nov_21/</a>.
 </div></div></section></div> ]]></description>
   <category>phylopapers</category>
   <category>phylogenetics</category>
@@ -555,7 +601,7 @@ November 21, 2025. <a href="https://brianomeara.info/posts/phylopapers_2025_Nov_
   <category>recombination</category>
   <category>machine learning</category>
   <guid>https://brianomeara.info/posts/phylopapers_2025_Nov_21/</guid>
-  <pubDate>Fri, 21 Nov 2025 05:00:00 GMT</pubDate>
+  <pubDate>Fri, 21 Nov 2025 07:00:00 GMT</pubDate>
 </item>
 <item>
   <title>PhyloPapers 2025, Multivariate traits</title>
@@ -591,7 +637,7 @@ November 21, 2025. <a href="https://brianomeara.info/posts/phylopapers_2025_Nov_
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-o'meara2025" class="csl-entry quarto-appendix-citeas">
 O’Meara, Brian. 2025. <span>“PhyloPapers 2025, Multivariate
-Traits.”</span> November 14, 2025. <a href="https://brianomeara.info/posts/phylopapers_2025_Nov_14/">https://brianomeara.info/posts/phylopapers_2025_Nov_14/</a>.
+Traits.”</span> November 14. <a href="https://brianomeara.info/posts/phylopapers_2025_Nov_14/">https://brianomeara.info/posts/phylopapers_2025_Nov_14/</a>.
 </div></div></section></div> ]]></description>
   <category>phylopapers</category>
   <category>phylogenetics</category>
@@ -600,7 +646,7 @@ Traits.”</span> November 14, 2025. <a href="https://brianomeara.info/posts/phy
   <category>morphology</category>
   <category>macroevolution</category>
   <guid>https://brianomeara.info/posts/phylopapers_2025_Nov_14/</guid>
-  <pubDate>Fri, 14 Nov 2025 05:00:00 GMT</pubDate>
+  <pubDate>Fri, 14 Nov 2025 07:00:00 GMT</pubDate>
 </item>
 <item>
   <title>PhyloPapers 2025, Alpha taxonomy</title>
@@ -637,7 +683,7 @@ Traits.”</span> November 14, 2025. <a href="https://brianomeara.info/posts/phy
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-o'meara2025" class="csl-entry quarto-appendix-citeas">
 O’Meara, Brian. 2025. <span>“PhyloPapers 2025, Alpha Taxonomy.”</span>
-November 7, 2025. <a href="https://brianomeara.info/posts/phylopapers_2025_Nov_7/">https://brianomeara.info/posts/phylopapers_2025_Nov_7/</a>.
+November 7. <a href="https://brianomeara.info/posts/phylopapers_2025_Nov_7/">https://brianomeara.info/posts/phylopapers_2025_Nov_7/</a>.
 </div></div></section></div> ]]></description>
   <category>phylopapers</category>
   <category>phylogenetics</category>
@@ -647,7 +693,7 @@ November 7, 2025. <a href="https://brianomeara.info/posts/phylopapers_2025_Nov_7
   <category>phylogeography</category>
   <category>UCEs</category>
   <guid>https://brianomeara.info/posts/phylopapers_2025_Nov_7/</guid>
-  <pubDate>Fri, 07 Nov 2025 05:00:00 GMT</pubDate>
+  <pubDate>Fri, 07 Nov 2025 07:00:00 GMT</pubDate>
 </item>
 <item>
   <title>AI optimization</title>
@@ -694,15 +740,14 @@ November 7, 2025. <a href="https://brianomeara.info/posts/phylopapers_2025_Nov_7
   langid = {en}
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-o'meara2025" class="csl-entry quarto-appendix-citeas">
-O’Meara, Brian. 2025. <span>“AI Optimization.”</span> November 7, 2025.
-<a href="https://brianomeara.info/posts/ai_optimization/">https://brianomeara.info/posts/ai_optimization/</a>.
+O’Meara, Brian. 2025. <span>“AI Optimization.”</span> November 7. <a href="https://brianomeara.info/posts/ai_optimization/">https://brianomeara.info/posts/ai_optimization/</a>.
 </div></div></section></div> ]]></description>
   <category>ai</category>
   <category>optimization</category>
   <category>seo</category>
   <category>publishing</category>
   <guid>https://brianomeara.info/posts/ai_optimization/</guid>
-  <pubDate>Fri, 07 Nov 2025 05:00:00 GMT</pubDate>
+  <pubDate>Fri, 07 Nov 2025 07:00:00 GMT</pubDate>
 </item>
 <item>
   <title>PhyloPapers 2025, Machine learning for traits</title>
@@ -743,7 +788,7 @@ O’Meara, Brian. 2025. <span>“AI Optimization.”</span> November 7, 2025.
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-o'meara2025" class="csl-entry quarto-appendix-citeas">
 O’Meara, Brian. 2025. <span>“PhyloPapers 2025, Machine Learning for
-Traits.”</span> October 31, 2025. <a href="https://brianomeara.info/posts/phylopapers_2025_Oct_31/">https://brianomeara.info/posts/phylopapers_2025_Oct_31/</a>.
+Traits.”</span> October 31. <a href="https://brianomeara.info/posts/phylopapers_2025_Oct_31/">https://brianomeara.info/posts/phylopapers_2025_Oct_31/</a>.
 </div></div></section></div> ]]></description>
   <category>phylopapers</category>
   <category>phylogenetics</category>
@@ -752,7 +797,7 @@ Traits.”</span> October 31, 2025. <a href="https://brianomeara.info/posts/phyl
   <category>AI</category>
   <category>morphology</category>
   <guid>https://brianomeara.info/posts/phylopapers_2025_Oct_31/</guid>
-  <pubDate>Fri, 31 Oct 2025 04:00:00 GMT</pubDate>
+  <pubDate>Fri, 31 Oct 2025 06:00:00 GMT</pubDate>
 </item>
 <item>
   <title>PhyloPapers 2025, Handling Data Deficiency</title>
@@ -794,7 +839,7 @@ Traits.”</span> October 31, 2025. <a href="https://brianomeara.info/posts/phyl
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-o'meara2025" class="csl-entry quarto-appendix-citeas">
 O’Meara, Brian. 2025. <span>“PhyloPapers 2025, Handling Data
-Deficiency.”</span> October 24, 2025. <a href="https://brianomeara.info/posts/phylopapers_2025_Oct_24/">https://brianomeara.info/posts/phylopapers_2025_Oct_24/</a>.
+Deficiency.”</span> October 24. <a href="https://brianomeara.info/posts/phylopapers_2025_Oct_24/">https://brianomeara.info/posts/phylopapers_2025_Oct_24/</a>.
 </div></div></section></div> ]]></description>
   <category>phylopapers</category>
   <category>phylogenetics</category>
@@ -802,7 +847,7 @@ Deficiency.”</span> October 24, 2025. <a href="https://brianomeara.info/posts/
   <category>data deficiency</category>
   <category>phylogenetic prediction</category>
   <guid>https://brianomeara.info/posts/phylopapers_2025_Oct_24/</guid>
-  <pubDate>Fri, 24 Oct 2025 04:00:00 GMT</pubDate>
+  <pubDate>Fri, 24 Oct 2025 06:00:00 GMT</pubDate>
 </item>
 <item>
   <title>PhyloPapers 2025, Trait evolution</title>
@@ -836,7 +881,7 @@ Deficiency.”</span> October 24, 2025. <a href="https://brianomeara.info/posts/
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-o'meara2025" class="csl-entry quarto-appendix-citeas">
 O’Meara, Brian. 2025. <span>“PhyloPapers 2025, Trait Evolution.”</span>
-October 17, 2025. <a href="https://brianomeara.info/posts/phylopapers_2025_Oct_17/">https://brianomeara.info/posts/phylopapers_2025_Oct_17/</a>.
+October 17. <a href="https://brianomeara.info/posts/phylopapers_2025_Oct_17/">https://brianomeara.info/posts/phylopapers_2025_Oct_17/</a>.
 </div></div></section></div> ]]></description>
   <category>phylopapers</category>
   <category>phylogenetics</category>
@@ -844,7 +889,7 @@ October 17, 2025. <a href="https://brianomeara.info/posts/phylopapers_2025_Oct_1
   <category>SSE</category>
   <category>trait evolution</category>
   <guid>https://brianomeara.info/posts/phylopapers_2025_Oct_17/</guid>
-  <pubDate>Fri, 17 Oct 2025 04:00:00 GMT</pubDate>
+  <pubDate>Fri, 17 Oct 2025 06:00:00 GMT</pubDate>
 </item>
 <item>
   <title>PhyloPapers 2025, Reticulate evolution</title>
@@ -880,7 +925,7 @@ October 17, 2025. <a href="https://brianomeara.info/posts/phylopapers_2025_Oct_1
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-o'meara2025" class="csl-entry quarto-appendix-citeas">
 O’Meara, Brian. 2025. <span>“PhyloPapers 2025, Reticulate
-Evolution.”</span> October 10, 2025. <a href="https://brianomeara.info/posts/phylopapers_2025_Oct_10/">https://brianomeara.info/posts/phylopapers_2025_Oct_10/</a>.
+Evolution.”</span> October 10. <a href="https://brianomeara.info/posts/phylopapers_2025_Oct_10/">https://brianomeara.info/posts/phylopapers_2025_Oct_10/</a>.
 </div></div></section></div> ]]></description>
   <category>phylopapers</category>
   <category>phylogenetics</category>
@@ -888,7 +933,7 @@ Evolution.”</span> October 10, 2025. <a href="https://brianomeara.info/posts/p
   <category>reticulate</category>
   <category>networks</category>
   <guid>https://brianomeara.info/posts/phylopapers_2025_Oct_10/</guid>
-  <pubDate>Fri, 10 Oct 2025 04:00:00 GMT</pubDate>
+  <pubDate>Fri, 10 Oct 2025 06:00:00 GMT</pubDate>
 </item>
 <item>
   <title>PhyloPapers 2025, Behavior and genomics</title>
@@ -925,7 +970,7 @@ Evolution.”</span> October 10, 2025. <a href="https://brianomeara.info/posts/p
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-o'meara2025" class="csl-entry quarto-appendix-citeas">
 O’Meara, Brian. 2025. <span>“PhyloPapers 2025, Behavior and
-Genomics.”</span> October 3, 2025. <a href="https://brianomeara.info/posts/phylopapers_2025_Oct_03/">https://brianomeara.info/posts/phylopapers_2025_Oct_03/</a>.
+Genomics.”</span> October 3. <a href="https://brianomeara.info/posts/phylopapers_2025_Oct_03/">https://brianomeara.info/posts/phylopapers_2025_Oct_03/</a>.
 </div></div></section></div> ]]></description>
   <category>phylopapers</category>
   <category>phylogenetics</category>
@@ -933,7 +978,7 @@ Genomics.”</span> October 3, 2025. <a href="https://brianomeara.info/posts/phy
   <category>genomics</category>
   <category>behavior</category>
   <guid>https://brianomeara.info/posts/phylopapers_2025_Oct_03/</guid>
-  <pubDate>Fri, 03 Oct 2025 04:00:00 GMT</pubDate>
+  <pubDate>Fri, 03 Oct 2025 06:00:00 GMT</pubDate>
 </item>
 <item>
   <title>PhyloPapers 2025, Simulation</title>
@@ -968,14 +1013,14 @@ Genomics.”</span> October 3, 2025. <a href="https://brianomeara.info/posts/phy
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-o'meara2025" class="csl-entry quarto-appendix-citeas">
 O’Meara, Brian. 2025. <span>“PhyloPapers 2025, Simulation.”</span>
-September 24, 2025. <a href="https://brianomeara.info/posts/phylopapers_2025_Sep_24/">https://brianomeara.info/posts/phylopapers_2025_Sep_24/</a>.
+September 24. <a href="https://brianomeara.info/posts/phylopapers_2025_Sep_24/">https://brianomeara.info/posts/phylopapers_2025_Sep_24/</a>.
 </div></div></section></div> ]]></description>
   <category>phylopapers</category>
   <category>phylogenetics</category>
   <category>teaching</category>
   <category>simulation</category>
   <guid>https://brianomeara.info/posts/phylopapers_2025_Sep_24/</guid>
-  <pubDate>Wed, 24 Sep 2025 04:00:00 GMT</pubDate>
+  <pubDate>Wed, 24 Sep 2025 06:00:00 GMT</pubDate>
 </item>
 <item>
   <title>PhyloPapers 2025, Phylogeography</title>
@@ -1013,14 +1058,14 @@ September 24, 2025. <a href="https://brianomeara.info/posts/phylopapers_2025_Sep
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-o'meara2025" class="csl-entry quarto-appendix-citeas">
 O’Meara, Brian. 2025. <span>“PhyloPapers 2025, Phylogeography.”</span>
-September 17, 2025. <a href="https://brianomeara.info/posts/phylopapers_2025_Sep_17/">https://brianomeara.info/posts/phylopapers_2025_Sep_17/</a>.
+September 17. <a href="https://brianomeara.info/posts/phylopapers_2025_Sep_17/">https://brianomeara.info/posts/phylopapers_2025_Sep_17/</a>.
 </div></div></section></div> ]]></description>
   <category>phylopapers</category>
   <category>phylogenetics</category>
   <category>teaching</category>
   <category>phylogeography</category>
   <guid>https://brianomeara.info/posts/phylopapers_2025_Sep_17/</guid>
-  <pubDate>Wed, 17 Sep 2025 04:00:00 GMT</pubDate>
+  <pubDate>Wed, 17 Sep 2025 06:00:00 GMT</pubDate>
 </item>
 <item>
   <title>PhyloPapers 2025, Genomic species delimitation</title>
@@ -1056,7 +1101,7 @@ September 17, 2025. <a href="https://brianomeara.info/posts/phylopapers_2025_Sep
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-o'meara2025" class="csl-entry quarto-appendix-citeas">
 O’Meara, Brian. 2025. <span>“PhyloPapers 2025, Genomic Species
-Delimitation.”</span> September 12, 2025. <a href="https://brianomeara.info/posts/phylopapers_2025_Sep_12/">https://brianomeara.info/posts/phylopapers_2025_Sep_12/</a>.
+Delimitation.”</span> September 12. <a href="https://brianomeara.info/posts/phylopapers_2025_Sep_12/">https://brianomeara.info/posts/phylopapers_2025_Sep_12/</a>.
 </div></div></section></div> ]]></description>
   <category>phylopapers</category>
   <category>phylogenetics</category>
@@ -1064,7 +1109,7 @@ Delimitation.”</span> September 12, 2025. <a href="https://brianomeara.info/po
   <category>delimitation</category>
   <category>genomics</category>
   <guid>https://brianomeara.info/posts/phylopapers_2025_Sep_12/</guid>
-  <pubDate>Fri, 12 Sep 2025 04:00:00 GMT</pubDate>
+  <pubDate>Fri, 12 Sep 2025 06:00:00 GMT</pubDate>
 </item>
 <item>
   <title>PhyloPapers 2025, Growth of the tree of life</title>
@@ -1098,13 +1143,13 @@ Delimitation.”</span> September 12, 2025. <a href="https://brianomeara.info/po
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-o'meara2025" class="csl-entry quarto-appendix-citeas">
 O’Meara, Brian. 2025. <span>“PhyloPapers 2025, Growth of the Tree of
-Life.”</span> September 6, 2025. <a href="https://brianomeara.info/posts/phylopapers_2025_Sep_05/">https://brianomeara.info/posts/phylopapers_2025_Sep_05/</a>.
+Life.”</span> September 6. <a href="https://brianomeara.info/posts/phylopapers_2025_Sep_05/">https://brianomeara.info/posts/phylopapers_2025_Sep_05/</a>.
 </div></div></section></div> ]]></description>
   <category>phylopapers</category>
   <category>phylogenetics</category>
   <category>teaching</category>
   <guid>https://brianomeara.info/posts/phylopapers_2025_Sep_05/</guid>
-  <pubDate>Sat, 06 Sep 2025 04:00:00 GMT</pubDate>
+  <pubDate>Sat, 06 Sep 2025 06:00:00 GMT</pubDate>
 </item>
 <item>
   <title>GRFP 2025</title>
@@ -1166,13 +1211,13 @@ Life.”</span> September 6, 2025. <a href="https://brianomeara.info/posts/phylo
   langid = {en}
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-o'meara2025" class="csl-entry quarto-appendix-citeas">
-O’Meara, Brian. 2025. <span>“GRFP 2025.”</span> September 4, 2025. <a href="https://brianomeara.info/posts/grfp_2025/">https://brianomeara.info/posts/grfp_2025/</a>.
+O’Meara, Brian. 2025. <span>“GRFP 2025.”</span> September 4. <a href="https://brianomeara.info/posts/grfp_2025/">https://brianomeara.info/posts/grfp_2025/</a>.
 </div></div></section></div> ]]></description>
   <category>funding</category>
   <category>GRFP</category>
   <category>NSF</category>
   <guid>https://brianomeara.info/posts/grfp_2025/</guid>
-  <pubDate>Thu, 04 Sep 2025 04:00:00 GMT</pubDate>
+  <pubDate>Thu, 04 Sep 2025 06:00:00 GMT</pubDate>
 </item>
 <item>
   <title>PhyloPapers 2025, Bayesian analysis</title>
@@ -1211,7 +1256,7 @@ O’Meara, Brian. 2025. <span>“GRFP 2025.”</span> September 4, 2025. <a href
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-o'meara2025" class="csl-entry quarto-appendix-citeas">
 O’Meara, Brian. 2025. <span>“PhyloPapers 2025, Bayesian
-Analysis.”</span> August 29, 2025. <a href="https://brianomeara.info/posts/phylopapers_2025_Aug_29/">https://brianomeara.info/posts/phylopapers_2025_Aug_29/</a>.
+Analysis.”</span> August 29. <a href="https://brianomeara.info/posts/phylopapers_2025_Aug_29/">https://brianomeara.info/posts/phylopapers_2025_Aug_29/</a>.
 </div></div></section></div> ]]></description>
   <category>phylopapers</category>
   <category>phylogenetics</category>
@@ -1219,60 +1264,7 @@ Analysis.”</span> August 29, 2025. <a href="https://brianomeara.info/posts/phy
   <category>FBD</category>
   <category>Bayesian</category>
   <guid>https://brianomeara.info/posts/phylopapers_2025_Aug_29/</guid>
-  <pubDate>Fri, 29 Aug 2025 04:00:00 GMT</pubDate>
-</item>
-<item>
-  <title>PhyloPapers 2025, first class</title>
-  <dc:creator>Brian O&#39;Meara</dc:creator>
-  <link>https://brianomeara.info/posts/phylopapers_2025_Aug_22/</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<p>I’m teaching a new class this semester. It is a graduate-level seminar reading recent phylogenetic papers, but also with a bit of instruction at the beginnng of each class as a gentle way of onboarding people into phylogenetic methods and evolutionary thinking. My hope is that it will be good for people just learning in this area while still getting deep for those already in the field. So far it has 13 students enrolled and 9 people auditing (generally fellow faculty). Before each class, enrollees are asked:</p>
-<ol type="1">
-<li>What was the discovery or innovation in this paper?</li>
-<li>How this was supported?</li>
-<li>What didn’t you understand about the paper, the methods, the questions, and/or the organisms?</li>
-</ol>
-<p>My goal is to make it a positive learning experience – sometimes classes focusing on papers can devolve into “paper shredding” sessions where everyone takes pot shots at it. This can be a cheap way to perform competence at one another, but it’s not fair to the paper’s authors and also can lead to cynicism about the possibility of learning. Nearly all papers have a mixture of good and bad features, often due to very real constraints we all face, but they also do contribute insights about the world.</p>
-<p>For the first week I wanted to show student a recent paper where making the phylogeny helped with understanding the biology. The focus is to have students learn a bit about why and how we make phylogenies and then build in deeper. I chose</p>
-<blockquote class="blockquote">
-<p>Alison R. Irwin, Nicholas W. Roberts, Ellen E. Strong, Yasunori Kano, Daniel I. Speiser, Elizabeth M. Harper, and Suzanne T. Williams. 2025 “Evolution of Large Eyes in Stromboidea (Gastropoda): Impact of Photic Environment and Life History Traits” Systematic Biology 74(2):301–322. <a href="https://doi.org/10.1093/sysbio/syae063" class="uri">https://doi.org/10.1093/sysbio/syae063</a></p>
-</blockquote>
-<p>as it uses a few different phylogenetic approaches in an appealing study system.</p>
-<p>I made intro slides with some of my background material and some figures from the paper: <a href="IrwinEtAl2025_BuildingPhylogenies.pdf">PDF</a> and <a href="IrwinEtAl2025_BuildingPhylogenies.pptx">PowerPoint</a></p>
-<p>Some of the material used:</p>
-<ul>
-<li>The paper: <a href="https://doi.org/10.1093/sysbio/syae063" class="uri">https://doi.org/10.1093/sysbio/syae063</a></li>
-<li>Sequences: <a href="https://doi.org/doi:10.5061/dryad.pnvx0k6v0" class="uri">https://doi.org/doi:10.5061/dryad.pnvx0k6v0</a></li>
-<li>Other background info: <a href="https://doi.org/10.5281/zenodo.13768189" class="uri">https://doi.org/10.5281/zenodo.13768189</a> (though I had to use <a href="https://zenodo.org/records/8260767">version 1</a> as the more recent one is under embargo)</li>
-<li><a href="https://www.mesquiteproject.org">Mesquite</a> for visualizing the sequences</li>
-</ul>
-<p>Note I wasn’t involved in the Irwin et al.&nbsp;(2025) paper at all (not as a reviewer, AE, etc.), so I don’t have any insights into its development.</p>
-<hr>
-<p>To subscribe, go to <a href="https://brianomeara.info/blog.xml" class="uri">https://brianomeara.info/blog.xml</a> in an RSS reader.</p>
-
-
-
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{o'meara2025,
-  author = {O’Meara, Brian},
-  title = {PhyloPapers 2025, First Class},
-  date = {2025-08-22},
-  url = {https://brianomeara.info/posts/phylopapers_2025_Aug_22/},
-  langid = {en}
-}
-</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-o'meara2025" class="csl-entry quarto-appendix-citeas">
-O’Meara, Brian. 2025. <span>“PhyloPapers 2025, First Class.”</span>
-August 22, 2025. <a href="https://brianomeara.info/posts/phylopapers_2025_Aug_22/">https://brianomeara.info/posts/phylopapers_2025_Aug_22/</a>.
-</div></div></section></div> ]]></description>
-  <category>phylopapers</category>
-  <category>phylogenetics</category>
-  <category>teaching</category>
-  <guid>https://brianomeara.info/posts/phylopapers_2025_Aug_22/</guid>
-  <pubDate>Fri, 22 Aug 2025 04:00:00 GMT</pubDate>
+  <pubDate>Fri, 29 Aug 2025 06:00:00 GMT</pubDate>
 </item>
 </channel>
 </rss>

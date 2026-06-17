@@ -10,7 +10,40 @@
 <atom:link href="https://brianomeara.info/blog.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.9.38</generator>
-<lastBuildDate>Mon, 15 Jun 2026 06:00:00 GMT</lastBuildDate>
+<lastBuildDate>Wed, 17 Jun 2026 04:00:00 GMT</lastBuildDate>
+<item>
+  <title>Age rate scaling poster</title>
+  <dc:creator>Brian O&#39;Meara</dc:creator>
+  <link>https://brianomeara.info/posts/ageratescalingposter/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>Stub, more soon…</p>
+<hr>
+<p>To subscribe, go to <a href="https://brianomeara.info/blog.xml" class="uri">https://brianomeara.info/blog.xml</a> in an RSS reader.</p>
+
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{o'meara2026,
+  author = {O’Meara, Brian},
+  title = {Age Rate Scaling Poster},
+  date = {2026-06-17},
+  url = {https://brianomeara.info/posts/ageratescalingposter/},
+  langid = {en}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-o'meara2026" class="csl-entry quarto-appendix-citeas">
+O’Meara, Brian. 2026. <span>“Age Rate Scaling Poster.”</span> June 17.
+<a href="https://brianomeara.info/posts/ageratescalingposter/">https://brianomeara.info/posts/ageratescalingposter/</a>.
+</div></div></section></div> ]]></description>
+  <category>meetings</category>
+  <category>Evolution</category>
+  <category>talks</category>
+  <guid>https://brianomeara.info/posts/ageratescalingposter/</guid>
+  <pubDate>Wed, 17 Jun 2026 04:00:00 GMT</pubDate>
+</item>
 <item>
   <title>Evolution 2026 in person activities</title>
   <dc:creator>Brian O&#39;Meara</dc:creator>
@@ -55,7 +88,7 @@ Activities.”</span> June 15. <a href="https://brianomeara.info/posts/evol2026i
   <category>Evolution</category>
   <category>talks</category>
   <guid>https://brianomeara.info/posts/evol2026inperson/</guid>
-  <pubDate>Mon, 15 Jun 2026 06:00:00 GMT</pubDate>
+  <pubDate>Mon, 15 Jun 2026 04:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Reading bills</title>
@@ -202,7 +235,7 @@ O’Meara, Brian. 2026. <span>“Reading Bills.”</span> April 25. <a href="htt
 </div></div></section></div> ]]></description>
   <category>legislation</category>
   <guid>https://brianomeara.info/posts/readingbills/</guid>
-  <pubDate>Sat, 25 Apr 2026 06:00:00 GMT</pubDate>
+  <pubDate>Sat, 25 Apr 2026 04:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Bias correction in diversification models</title>
@@ -266,7 +299,7 @@ Models.”</span> April 17. <a href="https://brianomeara.info/posts/biascorrecti
   <category>diversification</category>
   <category>math</category>
   <guid>https://brianomeara.info/posts/biascorrection/</guid>
-  <pubDate>Fri, 17 Apr 2026 06:00:00 GMT</pubDate>
+  <pubDate>Fri, 17 Apr 2026 04:00:00 GMT</pubDate>
 </item>
 <item>
   <title>rnsf</title>
@@ -500,7 +533,7 @@ O’Meara, Brian. 2026. <span>“Rnsf.”</span> April 4. <a href="https://brian
   <category>funding</category>
   <category>NSF</category>
   <guid>https://brianomeara.info/posts/rnsf/</guid>
-  <pubDate>Sat, 04 Apr 2026 06:00:00 GMT</pubDate>
+  <pubDate>Sat, 04 Apr 2026 04:00:00 GMT</pubDate>
 </item>
 <item>
   <title>PhyloPapers 2025, Summary</title>
@@ -556,7 +589,7 @@ O’Meara, Brian. 2025. <span>“PhyloPapers 2025, Summary.”</span> December
   <category>phylogenetics</category>
   <category>teaching</category>
   <guid>https://brianomeara.info/posts/phylopapers_2025_summary/</guid>
-  <pubDate>Mon, 01 Dec 2025 07:00:00 GMT</pubDate>
+  <pubDate>Mon, 01 Dec 2025 05:00:00 GMT</pubDate>
 </item>
 <item>
   <title>PhyloPapers 2025, Phylogenomics</title>
@@ -601,7 +634,7 @@ November 21. <a href="https://brianomeara.info/posts/phylopapers_2025_Nov_21/">h
   <category>recombination</category>
   <category>machine learning</category>
   <guid>https://brianomeara.info/posts/phylopapers_2025_Nov_21/</guid>
-  <pubDate>Fri, 21 Nov 2025 07:00:00 GMT</pubDate>
+  <pubDate>Fri, 21 Nov 2025 05:00:00 GMT</pubDate>
 </item>
 <item>
   <title>PhyloPapers 2025, Multivariate traits</title>
@@ -646,7 +679,7 @@ Traits.”</span> November 14. <a href="https://brianomeara.info/posts/phylopape
   <category>morphology</category>
   <category>macroevolution</category>
   <guid>https://brianomeara.info/posts/phylopapers_2025_Nov_14/</guid>
-  <pubDate>Fri, 14 Nov 2025 07:00:00 GMT</pubDate>
+  <pubDate>Fri, 14 Nov 2025 05:00:00 GMT</pubDate>
 </item>
 <item>
   <title>PhyloPapers 2025, Alpha taxonomy</title>
@@ -693,7 +726,7 @@ November 7. <a href="https://brianomeara.info/posts/phylopapers_2025_Nov_7/">htt
   <category>phylogeography</category>
   <category>UCEs</category>
   <guid>https://brianomeara.info/posts/phylopapers_2025_Nov_7/</guid>
-  <pubDate>Fri, 07 Nov 2025 07:00:00 GMT</pubDate>
+  <pubDate>Fri, 07 Nov 2025 05:00:00 GMT</pubDate>
 </item>
 <item>
   <title>AI optimization</title>
@@ -747,7 +780,7 @@ O’Meara, Brian. 2025. <span>“AI Optimization.”</span> November 7. <a href=
   <category>seo</category>
   <category>publishing</category>
   <guid>https://brianomeara.info/posts/ai_optimization/</guid>
-  <pubDate>Fri, 07 Nov 2025 07:00:00 GMT</pubDate>
+  <pubDate>Fri, 07 Nov 2025 05:00:00 GMT</pubDate>
 </item>
 <item>
   <title>PhyloPapers 2025, Machine learning for traits</title>
@@ -797,7 +830,7 @@ Traits.”</span> October 31. <a href="https://brianomeara.info/posts/phylopaper
   <category>AI</category>
   <category>morphology</category>
   <guid>https://brianomeara.info/posts/phylopapers_2025_Oct_31/</guid>
-  <pubDate>Fri, 31 Oct 2025 06:00:00 GMT</pubDate>
+  <pubDate>Fri, 31 Oct 2025 04:00:00 GMT</pubDate>
 </item>
 <item>
   <title>PhyloPapers 2025, Handling Data Deficiency</title>
@@ -847,7 +880,7 @@ Deficiency.”</span> October 24. <a href="https://brianomeara.info/posts/phylop
   <category>data deficiency</category>
   <category>phylogenetic prediction</category>
   <guid>https://brianomeara.info/posts/phylopapers_2025_Oct_24/</guid>
-  <pubDate>Fri, 24 Oct 2025 06:00:00 GMT</pubDate>
+  <pubDate>Fri, 24 Oct 2025 04:00:00 GMT</pubDate>
 </item>
 <item>
   <title>PhyloPapers 2025, Trait evolution</title>
@@ -889,7 +922,7 @@ October 17. <a href="https://brianomeara.info/posts/phylopapers_2025_Oct_17/">ht
   <category>SSE</category>
   <category>trait evolution</category>
   <guid>https://brianomeara.info/posts/phylopapers_2025_Oct_17/</guid>
-  <pubDate>Fri, 17 Oct 2025 06:00:00 GMT</pubDate>
+  <pubDate>Fri, 17 Oct 2025 04:00:00 GMT</pubDate>
 </item>
 <item>
   <title>PhyloPapers 2025, Reticulate evolution</title>
@@ -933,7 +966,7 @@ Evolution.”</span> October 10. <a href="https://brianomeara.info/posts/phylopa
   <category>reticulate</category>
   <category>networks</category>
   <guid>https://brianomeara.info/posts/phylopapers_2025_Oct_10/</guid>
-  <pubDate>Fri, 10 Oct 2025 06:00:00 GMT</pubDate>
+  <pubDate>Fri, 10 Oct 2025 04:00:00 GMT</pubDate>
 </item>
 <item>
   <title>PhyloPapers 2025, Behavior and genomics</title>
@@ -978,7 +1011,7 @@ Genomics.”</span> October 3. <a href="https://brianomeara.info/posts/phylopape
   <category>genomics</category>
   <category>behavior</category>
   <guid>https://brianomeara.info/posts/phylopapers_2025_Oct_03/</guid>
-  <pubDate>Fri, 03 Oct 2025 06:00:00 GMT</pubDate>
+  <pubDate>Fri, 03 Oct 2025 04:00:00 GMT</pubDate>
 </item>
 <item>
   <title>PhyloPapers 2025, Simulation</title>
@@ -1020,7 +1053,7 @@ September 24. <a href="https://brianomeara.info/posts/phylopapers_2025_Sep_24/">
   <category>teaching</category>
   <category>simulation</category>
   <guid>https://brianomeara.info/posts/phylopapers_2025_Sep_24/</guid>
-  <pubDate>Wed, 24 Sep 2025 06:00:00 GMT</pubDate>
+  <pubDate>Wed, 24 Sep 2025 04:00:00 GMT</pubDate>
 </item>
 <item>
   <title>PhyloPapers 2025, Phylogeography</title>
@@ -1065,7 +1098,7 @@ September 17. <a href="https://brianomeara.info/posts/phylopapers_2025_Sep_17/">
   <category>teaching</category>
   <category>phylogeography</category>
   <guid>https://brianomeara.info/posts/phylopapers_2025_Sep_17/</guid>
-  <pubDate>Wed, 17 Sep 2025 06:00:00 GMT</pubDate>
+  <pubDate>Wed, 17 Sep 2025 04:00:00 GMT</pubDate>
 </item>
 <item>
   <title>PhyloPapers 2025, Genomic species delimitation</title>
@@ -1109,7 +1142,7 @@ Delimitation.”</span> September 12. <a href="https://brianomeara.info/posts/ph
   <category>delimitation</category>
   <category>genomics</category>
   <guid>https://brianomeara.info/posts/phylopapers_2025_Sep_12/</guid>
-  <pubDate>Fri, 12 Sep 2025 06:00:00 GMT</pubDate>
+  <pubDate>Fri, 12 Sep 2025 04:00:00 GMT</pubDate>
 </item>
 <item>
   <title>PhyloPapers 2025, Growth of the tree of life</title>
@@ -1149,7 +1182,7 @@ Life.”</span> September 6. <a href="https://brianomeara.info/posts/phylopapers
   <category>phylogenetics</category>
   <category>teaching</category>
   <guid>https://brianomeara.info/posts/phylopapers_2025_Sep_05/</guid>
-  <pubDate>Sat, 06 Sep 2025 06:00:00 GMT</pubDate>
+  <pubDate>Sat, 06 Sep 2025 04:00:00 GMT</pubDate>
 </item>
 <item>
   <title>GRFP 2025</title>
@@ -1217,54 +1250,7 @@ O’Meara, Brian. 2025. <span>“GRFP 2025.”</span> September 4. <a href="http
   <category>GRFP</category>
   <category>NSF</category>
   <guid>https://brianomeara.info/posts/grfp_2025/</guid>
-  <pubDate>Thu, 04 Sep 2025 06:00:00 GMT</pubDate>
-</item>
-<item>
-  <title>PhyloPapers 2025, Bayesian analysis</title>
-  <dc:creator>Brian O&#39;Meara</dc:creator>
-  <link>https://brianomeara.info/posts/phylopapers_2025_Aug_29/</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<p>This week I wanted students to learn more about the background for tree inference. We’re reading</p>
-<blockquote class="blockquote">
-<p>Laura P. A. Mulvey, Mark C. Nikolic, Bethany J. Allen, Tracy A. Heath and Rachel C. M. Warnock (2025). From fossils to phylogenies: exploring the integration of paleontological data into Bayesian phylogenetic inference. <em>Paleobiology</em> 51, 214–236. <a href="https://doi.org/10.1017/pab.2024.47" class="uri">https://doi.org/10.1017/pab.2024.47</a></p>
-</blockquote>
-<p>It has good background on Bayesian approaches. It also brings in fossil data, which may appeal to some of the paleontologists in the class. The paper is very much in favor of Fossilized Birth Death (FBD) models, and is honest about this: “Through this review, we hope to celebrate the FBD model family, inform readers of its nuances and potential uses, and stimulate discussion around best practices for answering empirical questions.”</p>
-<p>I agree these models are useful, but there can be caveats. Jeremy Beaulieu and I incorporated FBD models with likelihood in <a href="https://speciationextinction.info/articles/adding_fossils.html">hisse</a>, and tested the effect of less than perfect sampling of fossils:</p>
-<blockquote class="blockquote">
-<p>Jeremy M Beaulieu and Brian C O’Meara (2022) Fossils do not substantially improve, and may even harm, estimates of diversification rate heterogeneity. <em>Systematic Biology</em> 72(1), 50-61. <a href="https://doi.org/10.1093/sysbio/syac049" class="uri">https://doi.org/10.1093/sysbio/syac049</a></p>
-</blockquote>
-<p>I’m not having the students read our paper (we’re still doing intro about tree building; I think doing both would be too much nuance at this stage), but others curious about FBD models might be interested and may overlook it (Mulvey et al.&nbsp;(2025) don’t cite or mention it in their review, for example). The implementation is too slow for tree inference, but it can be used for estimating various diversification and fossil rates under a likelihood approach, so not requiring (or benefitting) from priors.</p>
-<p>For teaching, I really like how the Mulvey et al.&nbsp;(2025) paper gets into the various uses of the FBD model: to help with inferring the tree, dating, estimating parameters, etc. A lot of students think of models as tests, fit for one purpose, but models are general ways of representing the world and can be put to many uses. For example, Brownian motion models of continuous traits can be used for estimating ancestral states, but they can also help infer trees or for estimating rates of evolution, too: they’re just a representation of how traits change over time under various assumptions. The same for FBD.</p>
-<p>I made intro slides with some of my background material and some figures from the paper: <a href="MulveyEtAl2025_Bayesian_FBD.pdf">PDF</a> and <a href="MulveyEtAl2025_Bayesian_FBD.pptx">PowerPoint</a></p>
-<p>One thing I’m going to do this week is talk less – last time the mini-lecture went on too long, but I want more student interaction.</p>
-<hr>
-<p>To subscribe, go to <a href="https://brianomeara.info/blog.xml" class="uri">https://brianomeara.info/blog.xml</a> in an RSS reader.</p>
-
-
-
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{o'meara2025,
-  author = {O’Meara, Brian},
-  title = {PhyloPapers 2025, {Bayesian} Analysis},
-  date = {2025-08-29},
-  url = {https://brianomeara.info/posts/phylopapers_2025_Aug_29/},
-  langid = {en}
-}
-</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-o'meara2025" class="csl-entry quarto-appendix-citeas">
-O’Meara, Brian. 2025. <span>“PhyloPapers 2025, Bayesian
-Analysis.”</span> August 29. <a href="https://brianomeara.info/posts/phylopapers_2025_Aug_29/">https://brianomeara.info/posts/phylopapers_2025_Aug_29/</a>.
-</div></div></section></div> ]]></description>
-  <category>phylopapers</category>
-  <category>phylogenetics</category>
-  <category>teaching</category>
-  <category>FBD</category>
-  <category>Bayesian</category>
-  <guid>https://brianomeara.info/posts/phylopapers_2025_Aug_29/</guid>
-  <pubDate>Fri, 29 Aug 2025 06:00:00 GMT</pubDate>
+  <pubDate>Thu, 04 Sep 2025 04:00:00 GMT</pubDate>
 </item>
 </channel>
 </rss>

@@ -1,0 +1,14 @@
+---
+title: "Age rate scaling poster"
+description: "Age rate scaling poster"
+author: "Brian O'Meara"
+date: "06/17/2026"
+citation: true
+categories: [meetings, Evolution, talks] 
+---
+
+Stub, more soon...
+
+___
+
+To subscribe, go to <https://brianomeara.info/blog.xml> in an RSS reader.

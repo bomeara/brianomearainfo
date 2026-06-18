@@ -10,7 +10,72 @@
 <atom:link href="https://brianomeara.info/blog.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.9.38</generator>
-<lastBuildDate>Wed, 17 Jun 2026 04:00:00 GMT</lastBuildDate>
+<lastBuildDate>Thu, 18 Jun 2026 04:00:00 GMT</lastBuildDate>
+<item>
+  <title>Tenure and promotion letters</title>
+  <dc:creator>Brian O&#39;Meara</dc:creator>
+  <link>https://brianomeara.info/posts/tenureletters/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>In US academia, it’s common to have external evaluators write letters for faculty seeking to get tenure (a mechanism for maintaining academic freedom, to ensure someone can’t be fired for their research, teaching, or service work, while still allowing dismissal for misconduct or other causes) or promotion (moving up one academic rank, often assistant to associate professor or associate to full professor). Even within a discipline like biology, there are subfields, and it can be hard to assess the true impact of someone’s work if you are not in the subfield. For example, for people working on describing and revising species and other taxonomic groups, good work is adopted by other taxonomists, reflects careful examination of the evidence, vouchers are deposited in multiple collections, and so forth, but it will not generate a lot of citations immediately but will be cited for decades; on the other hand, a new software tool in phylogenetic methods might get highly cited for a few years but then be supplanted by a better tool or even a new version of the same.</p>
+<section id="steps-to-gathering-information" class="level2">
+<h2 class="anchored" data-anchor-id="steps-to-gathering-information">Steps to gathering information</h2>
+<p>When I write letters, I usually go through the following steps first:</p>
+<ul>
+<li>Read the unit’s standards for promotion and/or tenure: it’s basically the rubric the department and those above them will use, so it is worth keeping in mind when reading the candidate’s materials to find relevant points. Often, external reviewers are asked to assess research and maybe service – we generally don’t have enough evidence to comment on teaching.</li>
+<li>Read the candidate’s packet. This includes the CV (papers, chapters, service, etc.) as well as essays describing their research approach and history, teaching philosophy, and so forth. Some places have candidates include a handful of key papers (more should do this!): I read all of those, too.</li>
+<li>Read thoroughly several of the candidate’s papers. I prioritize recent papers (and only those within the review window), especially with the candidate as the first or senior author. I will also look at papers in “high profile” journals, even if the candidate was an intermediate author, as well as potentially unusual or key papers (“this person mostly studies beetles, but also had a key paper about field safety”). For most candidates I’ll read all their papers in the review period; for ones with many papers in the period (~20+) I’ll read the ones outlined above and look over the rest. I do not use AI to summarize the papers (or in ANY part of the process; more below).</li>
+<li>Look at other products or efforts (either indicated by the candidate or things I would expect from their publications – I don’t search online for whether their instagram has a lot of views, for example, but I will see if they share data from publications). Do they have software? A key for species? Outreach materials they chose to highlight? Deposited, public datasets? Effective actions to improve our field, including creating conditions for more people to thrive in it? These can become other points of strengths to highlight in the letter or potential issues (“they make great phylogenetic trees; unfortunately, they are not shared as supplemental materials or in any tree or data repositories, limiting their impact”; “their youtube channel on how samples are collected in the canopy has thousands of views, which shows their work reaches an audience”).</li>
+<li>Consider their record of mentorship: do they have undergrads coauthoring papers? Do their grad students and postdocs seem successful (publishing papers or other products, moving on to other opportunities, etc.)? Given disparities in opportunities across institutions and utility of students across fields, there’s no set standard I’m trying to look for, it’s more finding other sources of strength to highlight if possible. My goal isn’t for everyone I review to receive the promotion they seek (there are definitely cases where tenure isn’t warranted, for example), but I do want to help make sure things are not overlooked. Also, as an external reviewer, I can’t be sure an absence (“they mentored zero undergrads?!”) is not just due to lack of information available (“I mentor five undergrads a semester, but, like, of course I do, why would I list it?”), while a presence is more certain.</li>
+<li>Think about any special circumstances they may have chosen to include – for example, how covid may have impacted what work they could do.</li>
+</ul>
+</section>
+<section id="on-metrics" class="level2">
+<h2 class="anchored" data-anchor-id="on-metrics">On metrics</h2>
+<p>We like measuring things in science. Especially for something as squishy as judging people, it can feel fairer to throw numbers into a letter: Google scholar citation counts, h-index, number of papers published, impact factor of journals the candidate publishes in, and funding amounts. I love numbers, and I’m good at gathering them, but I hate the role of them in rating colleagues. First, we know there are lots of biases that come into all this: who gets cited, who gets invited to write review papers, who gets funding, etc. can depend on many factors apart from the quality of the science itself: a lot can be based on social connections, biases towards or against people with certain characteristics, preferences for certain institutions, etc. As perhaps a non-controversial example, I would expect a person in Hawaii will have fewer invited departmental seminars on their CV than the same person would if they were based out of Connecticut: all the colleges in RI, MA, NY, etc. could have a budget to have the Connecticut person drive out one day for a seminar, but might not be able to swing a plane ticket from Hawaii. Moreover, what could be a one day trip for the Connecticut person might be three days for the Hawaii person, making it much harder to say yes to giving a seminar if they have to balance child care, teaching duties, or even feeding their goldfish. That is just one example, but there are lots of examples showing MANY other social biases that can affect numbers. Moreover, our job as external experts is to evaluate the work and bring our expertise to the assessments, not just feed easily downloaded numbers that the department can already use if they choose to.</p>
+<p>I have seen funding lead to a lot of anxiety for tenure and promotion and be used in various ways. “I need a big grant before going up”; “We expect you to make back your startup”; “This person is a rock star, they’ve gotten $_M as an assistant professor.” Money does matter a lot. At its most basic, science requires <em>people</em>, and people require food, shelter, healthcare, etc. Grants have historically been an important way to get those in the US, and it is important to keep this funding stream robust.</p>
+<p>However, especially on an individual level, grants are a <strong>tool</strong>, not a metric. Science faculty are hired to do research and teach: funding can and does help with this, but so does DNA sequencing, trips to the field, photographs, and more. Imagine how warped our discipline would become if “miles flown by the research group” became a metric we evaluate for tenure. You could craft an argument for it (it’s a way of summarizing all the travel one does for communicating one’s science, can indicate bringing undergrads for a transformative experience in a biome different from their local one, can correlate with gathering specimens or looking at existing collections, it’s a way of helping colleagues in Hawaii finally beat ones in Connecticut, it makes the jet fuel company CEO on the board of trustees happier, etc.). But it would lead to predictable, harmful actions: spending more time jetting around than is optimal for the actual science goals; never, ever taking a direct flight (or a train); choosing field sites further away; etc. People will still vary in their ability to maximize these, so there will be variation to select on, and it’s not completely unrelated to the things we actually value, but science would be healhier without this metric. In some ways, funding is similar. It can correlate with ability to do good work (which can often be expensive), it can lead to more opportunities and more people trained. But it’s not the goal, it’s a tool.</p>
+<p>This is even more of the case now given changes in the US funding situation. For example, in <a href="https://content.govdelivery.com/accounts/USNSF/bulletins/4005589">January 2026</a>, NSF promised that it will “post broad funding opportunities for SBE [Social, Behavioral, and Economic] sciences that will accept proposals at any time” and pointed to past successes under that program, including two new recent Nobel prize winnners funded by NSF SBE. By April 2026, there were <a href="https://apsanet.org/wp-content/uploads/2026/04/FINAL-Dissolution-of-SBE.pdf">concerns</a> about the elimination of the relevant directorate and <em>all</em> funding in this area, and Grant Witness shows <a href="https://grant-witness.us/funding_curves_nsf.html">very few grants</a> in this area (as of June 2026). Going forward, faculty in this area may have fewer opportunities for funding, which will affect the research they can do. Using “did not get enough money” as a criterion adds harm – if they’re still managing to do substantial work despite the lack of funding, if anything being successful on a tight budget is even more impressive. The more we can focus on the work itself and not metrics like money, the more people can focus on doing impactful work.</p>
+<p>However, it’s still a fact that others in the tenure process are going to look at things like funding. To try to put some context into the record, I now include sections like the following in all my letters (anonymized, from an actual letter):</p>
+<blockquote class="blockquote">
+<p>“It is common in promotion and tenure letters to comment on metrics. Citations is one metric, though it varies dramatically by field: a taxonomic revision of a plant genus might be critical for future researchers and receive a slow trickle of citations for the next fifty years, while a new software package might get a burst of citations that quickly taper off. For his area of research, Dr.&nbsp;NAME is well cited, and not just from a few high-profile publications. Similarly, grant funding is often used as a metric, even though grants are just a tool for the science, not a goal in themselves. They are also an increasingly unpredictable and rare thing to get: as I write this letter, across all institutions in STATE only XX NSF grants have been awarded in 2026. Dr.&nbsp;NAME’s research record is strong, showing he gets adequate funding for successful research; the fact that the money to his institutions from his work is $X.XM should satisfy any unwritten criterion for amount of funding for promotion to full, let alone tenure.”</p>
+</blockquote>
+<p>I’m not sure if this actually has any effect, especially on others evaluating people in the process, but I try.</p>
+</section>
+<section id="the-letters-themselves" class="level2">
+<h2 class="anchored" data-anchor-id="the-letters-themselves">The letters themselves</h2>
+<p>The letters often start with how I know, or know of, the candidate. To prevent conflicts of interest they’re usually not coauthors (and if so, it’s usually on a massive multi-author paper) but I’ll try to disclose past contact or interactions. Depending on the requirements for the university I’ll include my background (they sometimes want you to demonstrate your expertise). Then I’ll go into the candidate’s research in general. I’ll discuss fully some of the papers of theirs I think are most relevant, putting in context why they matter and how they have affected or are expected to affect the field, usually a paragraph per paper. This is where our role as tenure letter writers is most important. It’s not “this was cited 15 times, yay” but being able to put in context, to people in related fields in biology and even those even more broadly, higher up in the tenure approval process, whether and how this work has an impact. I’ll also highlight unusual other aspects that are in scope: for example, has does this person run a lot of workshops compared to most people in the field, do they never appear as a lead or senior author, is their software well maintained, etc. I will also discuss whether their service as indicated in their packet is commensurate with expectations in their bylaws.</p>
+</section>
+<section id="overall" class="level2">
+<h2 class="anchored" data-anchor-id="overall">Overall</h2>
+<p>The part of science I hate the most is judging people. Reviewing papers or grant proposals is hard, but at least that’s a concrete item to assess, not the authors themselves: reviewing people for tenure, grad admissions, hiring, etc. is evaluating a large part of someone’s professional identity (which is not close to the full person, but it does reflect their professional output for years). And the stakes are very high: for a tenure decision, it results in either a (generally) stable job or being fired, for example. I think it’s important to do, though, especially if one tries to do it in a humane way, aware of some of the harmful preconceptions we as people can bring to the process. There are also situations where failure to get enough tenure or promotion writers can lead to someone not being allowed to go up. So it’s a good thing to do, so I usually say yes, but it is a substantial effort in many ways. It makes me grateful for the people who wrote promotion and tenure letters for me.<br>
+___</p>
+<p>To subscribe, go to <a href="https://brianomeara.info/blog.xml" class="uri">https://brianomeara.info/blog.xml</a> in an RSS reader.</p>
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{o'meara2026,
+  author = {O’Meara, Brian},
+  title = {Tenure and Promotion Letters},
+  date = {2026-06-18},
+  url = {https://brianomeara.info/posts/tenureletters/},
+  langid = {en}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-o'meara2026" class="csl-entry quarto-appendix-citeas">
+O’Meara, Brian. 2026. <span>“Tenure and Promotion Letters.”</span> June
+18. <a href="https://brianomeara.info/posts/tenureletters/">https://brianomeara.info/posts/tenureletters/</a>.
+</div></div></section></div> ]]></description>
+  <category>phylopapers</category>
+  <category>phylogenetics</category>
+  <category>teaching</category>
+  <guid>https://brianomeara.info/posts/tenureletters/</guid>
+  <pubDate>Thu, 18 Jun 2026 04:00:00 GMT</pubDate>
+</item>
 <item>
   <title>Age rate scaling poster</title>
   <dc:creator>Brian O&#39;Meara</dc:creator>
@@ -21,11 +86,66 @@
 
 
 
-<p>Stub, more soon…</p>
+<p>Here is info on our poster for Evolution 2026 in Cleveland, Ohio (download the <a href="2026vi21_Poster_AgeRateScaling.pdf">PDF</a> or <a href="2026vi21_Poster_AgeRateScaling.pptx">PPTX</a>).</p>
+<p>The poster is on display on Tuesday, June 23, 6 - 8:30 pm, Grand ballroom BC, Poster session 2: “Age-rate scaling in evolution is largely artifactual” Brian O’Meara and <a href="https://www.jeremybeaulieu.org">Jeremy Beaulieu</a></p>
+<section id="rationale" class="level2">
+<h2 class="anchored" data-anchor-id="rationale">Rationale</h2>
+<p>There has long been an intriguing pattern in looking at biological rates over time, as shown by this great summary plot from <a href="https://doi.org/10.1038/s41559-023-02116-7">Rolland et al.&nbsp;(2023)</a>:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://brianomeara.info/posts/ageratescalingposter/Rolland.png" class="img-fluid figure-img"></p>
+<figcaption>Eight scatter plots; the top row of four shows hyperbolic curves, the bottom row shows linear curves on a log plot. The data being plotted are molecular, morphological, speciation rate, and genus origination rate</figcaption>
+</figure>
+</div>
+<p>It would be very interesting if this pattern reflects some real biolgical pattern. But it’s sort of weird – we expect the present and the past to be similar, but these show that as you get closer to the present, rates always speed up, or that over short periods of time rates of evolution are always faster than over longer time periods. I’d expect on average there is roughly a constant rate of, say, DNA substitution, but with changes (at times of less UV radiation, clades with better DNA repair, longer generation times, etc. lower rates; other conditions, higher rates; but not an overall trend). There are things that will constrain amount of change over longer time periods (for example, body size of terrestrial mammals has practical minimum and maximum constraints), but still, the pattern seems a bit suspect. Jeremy Beaulieu and I have been poking at this pattern for years, and eventually wrote a <a href="https://doi.org/10.1371/journal.pcbi.1012458">paper</a> on this.</p>
+<p>In the paper, we showed that the pattern was nearly indistinguishable from what you’d get from randomizing the amount of change versus time: basically, plotting ∆x/∆t vs ∆t naturally leads to a hyperbola. We also developed an R package, <a href="https://github.com/bomeara/hyperr8">hyperr8</a>, to fit a model to allow separating the hyperbolic component from a rate that might change with time and a constant rate. It doesn’t mean all hope is lost – one reason we made the package is to help detect patterns – but it’s hard to do well.</p>
+<p>Recently, <a href="https://doi.org/10.1093/evolut/qpaf208">Kinneberg and Lysne Voje (2026)</a> included a careful analysis of time series datasets, using simulations to show that a random process would generate a different pattern from the observed empirical one. We were curious to apply our model to their datasets; <strong>the poster is mainly an analysis of this</strong>. The data come from the Phenotypic Evolution Time Series (PETS) <a href="https://pets.nhm.uio.no/PETS/">database</a> (Rugstad and Lysne Voje, 2023), featuring datasets uploaded by Gene Hunt, Melanie Hopkins, Kjetil Lysne Voje, Audun Rugstad, Mees F. Auener, Anieke Brombacher, Lee Hsiang Liow, Sunniva Løviknes, Kiyoko M. Gotanda, Lucas D. Gorné, Andrew Hendry, Shai Meiri, and Val J. P. Syverson.</p>
+<p>We found that most datasets were best fit by hyperbolic models (even though we believe that there is a nonzero underlying true rate of evolution). We highlighted a few to show in our poster, as not all 67 would fit. I chose the top four by dataset size (most power to pick up true patterns and more complex models) and then cherry-picked ones that showed particular interesting patterns, such as ones where the best model included a constant or changing rate of evolution. Here, I include the results for all the datasets, with the ∆AIC values for each model in the last columns of the <a href="summarized_results.csv">csv</a> file.</p>
+</section>
+<section id="r-package" class="level2">
+<h2 class="anchored" data-anchor-id="r-package">R package</h2>
+<p>The R package implementing the HMB model is <a href="https://github.com/bomeara/hyperr8" class="uri">https://github.com/bomeara/hyperr8</a>. I plan to add some of the visualization approaches from our paper (<a href="https://doi.org/10.1371/journal.pcbi.1012458">O’Meara and Beaulieu 2024</a>)</p>
+</section>
+<section id="lenticular" class="level2">
+<h2 class="anchored" data-anchor-id="lenticular">Lenticular</h2>
+<p>The poster has a missing rectangle in the upper right for Fig 2: that’s because I had it printed as a lenticular (remember those awesome bookmarks from elementary school that would show different images as you rotated them? That).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://brianomeara.info/posts/ageratescalingposter/lenticular.jpeg" class="img-fluid figure-img"></p>
+<figcaption>Picture of a plastic scatter chart in front of a landscape. It shows a faint stegosaurus and a more distinct bobcat</figcaption>
+</figure>
+</div>
+<p>I uploaded the following images:</p>
+<p><strong>Original</strong></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://brianomeara.info/posts/ageratescalingposter/body_size_original.jpeg" class="img-fluid figure-img"></p>
+<figcaption>Scatter plot of rates versus time, along with three phylopic showing particular comparisons</figcaption>
+</figure>
+</div>
+<p><strong>Replicate 1</strong> <img src="https://brianomeara.info/posts/ageratescalingposter/body_size_rep1.jpeg" class="img-fluid" alt="Scatter plot of rates versus time, along with three phylopic showing particular comparisons, for randomized data"></p>
+<p><strong>Replicate 2</strong> <img src="https://brianomeara.info/posts/ageratescalingposter/body_size_rep2.jpeg" class="img-fluid" alt="Scatter plot of rates versus time, along with three phylopic showing particular comparisons, for randomized data"></p>
+<p>I used <a href="https://3dreactions.com" class="uri">https://3dreactions.com</a> to print an 8 x 10” lenticular with three images. It’s arranged so that as people horizontally move by the poster (at the conference, and later when I put in the hallway outside my office), they’ll see the image shift. My hope is this will draw people in. I probably should have only done two images, not three, but I hope it will work.</p>
+</section>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">References</h2>
+<ul>
+<li>Kinneberg, VB &amp; K Lysne Voje, 2026. “Rate–time scaling in phenotypic evolution: Limitations of current models in capturing temporal dynamics” Evolution 80(1): 97-109</li>
+<li>O’Meara, BC &amp; JM Beaulieu, 2024. “Noise leads to the perceived increase in evolutionary rates over short time scales” PLOS Computational Biology 20(9)</li>
+<li>Rolland, J. et al.&nbsp;2023. “Conceptual and empirical bridges between micro- and macroevolution” Nature Ecology &amp; Evolution 7(8): 1181-1193</li>
+<li>Rugstad, A. and K. Lysne Voje, 2023. “The Phenotypic Evolution Time Series (pets) Database: Facilitating Research on Phenotypic Change Within Lineages” 10.1130/abs/2023AM-393128</li>
+<li>Phenotypic Evolution Time Series (PETS) database (https://pets.nhm.uio.no/)</li>
+<li>Uyeda, J.C. et al.&nbsp;2011. “The million-year wait for macroevolutionary bursts” PNAS 108(38): 15908-15913</li>
+</ul>
+</section>
+<section id="acknowledgements" class="level2">
+<h2 class="anchored" data-anchor-id="acknowledgements">Acknowledgements</h2>
+<p>This work was supported by US NSF grants DEB-1916558 and DEB-1916539.</p>
 <hr>
 <p>To subscribe, go to <a href="https://brianomeara.info/blog.xml" class="uri">https://brianomeara.info/blog.xml</a> in an RSS reader.</p>
 
 
+</section>
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{o'meara2026,
   author = {O’Meara, Brian},
@@ -1183,74 +1303,6 @@ Life.”</span> September 6. <a href="https://brianomeara.info/posts/phylopapers
   <category>teaching</category>
   <guid>https://brianomeara.info/posts/phylopapers_2025_Sep_05/</guid>
   <pubDate>Sat, 06 Sep 2025 04:00:00 GMT</pubDate>
-</item>
-<item>
-  <title>GRFP 2025</title>
-  <dc:creator>Brian O&#39;Meara</dc:creator>
-  <link>https://brianomeara.info/posts/grfp_2025/</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<section id="update-sept-9-2025" class="level3">
-<h3 class="anchored" data-anchor-id="update-sept-9-2025">Update (Sept 9, 2025):</h3>
-<p>GRFP is LIVE!!! <a href="https://www.nsf.gov/funding/opportunities/grfp-nsf-graduate-research-fellowship-program" class="uri">https://www.nsf.gov/funding/opportunities/grfp-nsf-graduate-research-fellowship-program</a></p>
-<p>Deadline is Oct.&nbsp;27, 2025, for life sciences (which suggests they plan to fund life sciences), and shortly after that for other fields. There still isn’t a full solicitation (the detailed guidelines of what they want in a proposal), and they oddly do not link to the <a href="https://www.nsf.gov/funding/opportunities/grfp-nsf-graduate-research-fellowship-program/nsf24-591/solicitation">old solicitation</a>. This could mean they’re changing something (page count, what they ask, etc.) but it’s hard to know. This is also fewer days than I had been expecting given the <a href="https://www.nsf.gov/funding/overview#phase-1-proposal-preparation-and-submission-f9f">policy</a> of 90 days from them announcing an opportunity to applying, but maybe they’re considering that the fact that this is a renewal of a program as meaning they don’t have to meet the window (and really, who would rather them have a deadline go much later so grad students and programs don’t know about GRFP funding until very late in the cycle?).</p>
-<p>Another interesting part of the webpage is that the estimated number of awards is:</p>
-<blockquote class="blockquote">
-<p>1 to 3000 - NSF will support up to 3000 new Graduate Research Fellowships per fiscal year under this program solicitation pending availability of funds.</p>
-</blockquote>
-<p>That is different from last year’s language of</p>
-<blockquote class="blockquote">
-<p>Estimated Number of Awards: 2,300</p>
-</blockquote>
-<blockquote class="blockquote">
-<p>NSF will support up to 2,300 new Graduate Research Fellowships per fiscal year under this program solicitation pending availability of funds.</p>
-</blockquote>
-<p>They’re giving a 1-3,000 range rather than what typically is the expected number of awards. My guess is they’re still hoping to get a large number of awards. Given the <a href="https://www.aip.org/fyi/nsf-seeks-model-for-graduate-fellowships-co-funded-by-government-and-industry">potential external funders</a>, maybe NSF is leaving room for them to fund the typical awardees <em>plus</em> honorable mention students. Though it also opens the possibility that in March NSF will announce “congrats to the NSF GRFP awardees: Martha. Just Martha.”</p>
-<p>Regarding availability of funding, there is currently uncertainty about a potential government shutdown at the end of September (as well as uncertainty about next year’s NSF funding in general). During a shutdown, NSF staff will not be able to respond to any questions; with some shutdowns, government websites go dark (in the past <a href="https://www.science.org/content/article/latest-shutdown-information-nih-and-nsf-funded-researchers-update">I’ve archived ones</a>), and deadlines <em>might</em> be pushed back (but do not count on it). Potential applicants should thus stay on top of this news and prepare.</p>
-</section>
-<section id="original-post-sept-4-2025" class="level3">
-<h3 class="anchored" data-anchor-id="original-post-sept-4-2025">Original post (Sept 4, 2025):</h3>
-<p>The <a href="https://www.nsf.gov/funding/opportunities/grfp-nsf-graduate-research-fellowship-program">US National Science Foundation Graduate Research Fellowship Program (GRFP)</a> has long been a way of supporting students going into grad school. In the US, students going to grad school in the sciences are often paid, and have tuition covered, for teaching or doing research (more common in PhD programs than Masters programs, and support can vary). The NSF GRFP pays students (typically more than university stipends) to do their work, without needing to use their time for other research or teaching (both can be valuable, but time is limited). It is an investment by the government in a student’s career; unusually for NSF, it’s an investment in the person rather than the project.</p>
-<p>Historically, deadlines were in mid-October, but so far this year the <a href="https://www.nsf.gov/funding/opportunities/grfp-nsf-graduate-research-fellowship-program/nsf24-591/solicitation">old solicitation</a> has not been updated and so the program isn’t taking proposals yet. A big question for students is whether it will run at all.</p>
-<p>There’s some good news. An August 28, 2025, <a href="https://www.aip.org/fyi/nsf-seeks-model-for-graduate-fellowships-co-funded-by-government-and-industry">article</a> on the American Institute of Physics site focused mostly on a new model on having fellowships co-funded by government and industry, but it had some details on the traditional GRFP, too:</p>
-<blockquote class="blockquote">
-<p>“An NSF spokesperson said GRFP will continue this year and that the solicitation is currently in development. They did not comment on whether the fellowship model that emerges from the UIDP workshop might replace GRFP.</p>
-</blockquote>
-<blockquote class="blockquote">
-<p>“Most years, the solicitation goes out in July, allowing applicants 90 days to submit before the deadline in mid-October, former GRFP program directors Susan Brennan and Gisèle Muller-Parker said. They added that NSF may push back the application deadline to November or December, but that doing so would make it hard for the agency to finalize its decisions by its usual April deadline.</p>
-</blockquote>
-<blockquote class="blockquote">
-<p>“The delay may be a result of current federal funding proposals for NSF. The president’s budget request proposes a 55% cut to GRFP for fiscal year 2026, while the Senate Appropriations Committee’s bill proposes flat funding, which would support 2,000 new fellowships, according to the bill report. The Senate and House are scheduled to return from their August recess next week and have until Sept.&nbsp;30 to pass their funding bills.”</p>
-</blockquote>
-<p>As of this morning (Sept.&nbsp;4, 2025) there hasn’t been a new solicitation. NSF has a <a href="https://www.nsf.gov/funding/overview#phase-1-proposal-preparation-and-submission-f9f">policy</a> that “Applicants have a minimum of 90 days from NSF’s announcement of a funding opportunity to prepare and submit a proposal.” Policies have been more fluid lately, but assuming that policy still holds, then the earliest possible deadline is Dec.&nbsp;3, 2025. It’s still probably a good idea to prepare earlier, but at least there’s a chance the call will still go out (but it’s still uncertain how many awards will be possible given funding changes).</p>
-<p>There also used to be a dedicated website for GRFP info: <a href="https://www.nsfgrfp.org/" class="uri">https://www.nsfgrfp.org/</a>, which now resolves to the NSF page for the upcoming solicitation. The Internet Archive has an <a href="https://web.archive.org/web/20250120221242/https://www.nsfgrfp.org/">older version of the website</a> which has some good information.</p>
-<p>(I posted much of the above on BlueSky last week, but discoverability isn’t great there, so I made this blog post).</p>
-<p>Under recent solicitations, people could apply to the GRFP twice: once as undergrads, and once (typically in their second year) in grad school. Since the people in the first set might also be applying to grad school, the <a href="https://applyingtoeeb.info" class="uri">https://applyingtoeeb.info</a> page I made may have some helpful info, too.</p>
-<hr>
-<p>To subscribe, go to <a href="https://brianomeara.info/blog.xml" class="uri">https://brianomeara.info/blog.xml</a> in an RSS reader.</p>
-
-
-</section>
-
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{o'meara2025,
-  author = {O’Meara, Brian},
-  title = {GRFP 2025},
-  date = {2025-09-04},
-  url = {https://brianomeara.info/posts/grfp_2025/},
-  langid = {en}
-}
-</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-o'meara2025" class="csl-entry quarto-appendix-citeas">
-O’Meara, Brian. 2025. <span>“GRFP 2025.”</span> September 4. <a href="https://brianomeara.info/posts/grfp_2025/">https://brianomeara.info/posts/grfp_2025/</a>.
-</div></div></section></div> ]]></description>
-  <category>funding</category>
-  <category>GRFP</category>
-  <category>NSF</category>
-  <guid>https://brianomeara.info/posts/grfp_2025/</guid>
-  <pubDate>Thu, 04 Sep 2025 04:00:00 GMT</pubDate>
 </item>
 </channel>
 </rss>

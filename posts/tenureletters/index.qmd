@@ -4,7 +4,7 @@ description: "How I write promotion and tenure letters and what factors we shoul
 author: "Brian O'Meara"
 date: "06/18/2026"
 citation: true
-categories: [phylopapers, phylogenetics, teaching] 
+categories: [service, letters, tenure] 
 ---
 
 In US academia, it's common to have external evaluators write letters for faculty seeking to get tenure (a mechanism for maintaining academic freedom, to ensure someone can't be fired for their research, teaching, or service work, while still allowing dismissal for misconduct or other causes) or promotion (moving up one academic rank, often assistant to associate professor or associate to full professor). Even within a discipline like biology, there are subfields, and it can be hard to assess the true impact of someone's work if you are not in the subfield. For example, for people working on describing and revising species and other taxonomic groups, good work is adopted by other taxonomists, reflects careful examination of the evidence, vouchers are deposited in multiple collections, and so forth, but it will not generate a lot of citations immediately but will be cited for decades; on the other hand, a new software tool in phylogenetic methods might get highly cited for a few years but then be supplanted by a better tool or even a new version of the same. 

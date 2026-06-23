@@ -50,6 +50,10 @@ I uploaded the following images:
 
 I used <https://3dreactions.com> to print an 8 x 10" lenticular with three images. It's arranged so that as people horizontally move by the poster (at the conference, and later when I put in the hallway outside my office), they'll see the image shift. My hope is this will draw people in. I probably should have only done two images, not three, but I hope it will work.
 
+## Come play
+
+There's a special issue of [Methods in Ecology & Evolution](https://besjournals.onlinelibrary.wiley.com/hub/journal/2041210x/call-for-papers/micro-macroevolutionary-Rates-time-dependency) on "Time-dependency in Micro- and Macroevolutionary Rates" -- if this topic engages you, maybe you want to write a paper in this area, too? Proposals are due July 10, 2026. Remember that *MEE* is a society-run journal with real peer review, not a for-profit that does a "special issue" to get more paid contributions or a chapter in a book that will be hard to get readership.
+
 ## References
 
 * Kinneberg, VB & K Lysne Voje, 2026. “Rate–time scaling in phenotypic evolution: Limitations of current models in capturing temporal dynamics” Evolution 80(1): 97-109

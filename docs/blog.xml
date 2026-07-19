@@ -10,7 +10,137 @@
 <atom:link href="https://brianomeara.info/blog.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.9.38</generator>
-<lastBuildDate>Thu, 18 Jun 2026 04:00:00 GMT</lastBuildDate>
+<lastBuildDate>Sun, 19 Jul 2026 04:00:00 GMT</lastBuildDate>
+<item>
+  <title>Museum Shards</title>
+  <dc:creator>Brian O&#39;Meara</dc:creator>
+  <link>https://brianomeara.info/posts/museumshards/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>Imagine going to your favorite famous museum and finding that all the paintings had been replaced by posters of the paintings, with the actual art locked away. “See our [photo reproduction of the] Mona Lisa!” Would anything change<sup>1</sup>?</p>
+<ol type="1">
+<li>For taking a selfie to put on Insta, no, not really, a reproduction doesn’t really affect the outcome. It could even help things if there are parallel lines for selfies with an array of duplicate Mona Lisas</li>
+<li>For appreciating the details of the composition and coloring, it has to be a fairly high quality replacement</li>
+<li>To appreciate the brushstrokes, an even higher fidelity reproduction is required</li>
+<li>To look at chemical composition of the pigments to understand what plants and minerals were used, there is no substitute for the actual physical object</li>
+</ol>
+<p>I recently toured the dinosaur exhibit at the Natural History Museum London. It’s justifiably famous due to the museum’s important place in the history of paleontology. However, many of the specimens on display are fake.<sup>2</sup> There’s no trickery involved: in small lettering on the displays it lists that the dinosaur is a cast. In paleontology this is widely accepted. The actual fossils can be too heavy to mount without the risk of damage, and they can be hard to study in depth once mounted 15 feet in the air, so it’s common practice to make a model of the fossil and mount that. Sometimes these are cast directly from the original specimen; sometimes they’re cast from a previously made cast. Some museums are very direct about this – the Field Museum, for example, with its famous “Sue” <em>T. rex</em> skeleton has the actual skull fossil on display and signs explaining that the one on the full skeleton is a re-creation (and not just a cast). Some museums now also have the recreations or models in a different color from the actual fossils so visitors can see the difference, or a placard showing which bones are real fossils versus reconstructions. The Natural History Museum London’s dinoaur gallery seems to be largely an older exhibit (i.e., prominent signage indicating that dinosaurs, which are “reptiles”, went extinct at the end of the Cretaceous but birds, which are a different group (?!), did not) did not make any major distinctions that I noticed. There is evidence that visitors prefer original specimens, not replicas (i.e., <a href="https://doi.org/10.1080/21548455.2018.1497218">van Gerven et al.&nbsp;2018</a>, <a href="https://doi.org/10.1080/21548455.2020.1831707">Carsten Connor &amp; Perin, 2020</a>), but that’s not the same as they learn nothing from a replica – it’s a widely accepted practice for very good reasons.</p>
+<p>So, why doesn’t every science museum have every dinosaur in life-sized replica form? Well, one thing is cost. A replica of the “Stan” <em>T. rex</em> <a href="https://fossilcatalog.com/products/stan-tyrannosaurus-rex®-skeleton-display-replica?pr_prod_strat=e5_desc&amp;pr_rec_id=449ef3786&amp;pr_rec_pid=7799363862572&amp;pr_ref_pid=7799366909996&amp;pr_seq=uniform">costs $150,000, plus shipping</a> from the Black Hills Institute, but one can also get a full-sized replica (perhaps less accurate) from a <a href="https://www.mydinosaurs.com/product/life-size-t-rex-skeleton-replica/">less well-known supplier for $50,000</a> and from <a href="https://onlydinosaurs.com/full-size-t-rex-skeleton-fossil/">another as cheap as $11,500</a>. Space also matters – a herd of sauropods takes a lot more room, and brings in less money, than a second dino gift shop.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://fossilcatalog.com/products/stan-tyrannosaurus-rex®-skeleton-display-replica?pr_prod_strat=e5_desc&amp;pr_rec_id=449ef3786&amp;pr_rec_pid=7799363862572&amp;pr_ref_pid=7799366909996&amp;pr_seq=uniform"><img src="https://brianomeara.info/posts/museumshards/150k.jpg" class="img-fluid figure-img" alt="Photo of a T. rex mounted with a person standing next to it"></a></p>
+<figcaption>$150K replica from the Black Hills Institute</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://www.mydinosaurs.com/product/life-size-t-rex-skeleton-replica/"><img src="https://brianomeara.info/posts/museumshards/50k.jpg" class="img-fluid figure-img" alt="Photo of a T. rex in a museum gallery"></a></p>
+<figcaption>$50K replica from My Dinosaurs Co.&nbsp;Ltd</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://onlydinosaurs.com/full-size-t-rex-skeleton-fossil/"><img src="https://brianomeara.info/posts/museumshards/12k.jpg" class="img-fluid figure-img" alt="Photo of a T. rex skeleton in a warehouse"></a></p>
+<figcaption>$12K replica from Only Dinosaurs</figcaption>
+</figure>
+</div>
+<p>It does still surprise me a bit, though: taking the pricey but accurate options, one could get full adult replicas of theropods <em>T. rex</em> ($150K), <em>Acrocanthosaurus</em> ($172K), <em>Allosaurus</em> ($86K), and <em>Struthiomimus</em> ($65K), plus a <em>Velociraptor</em> and <em>Protoceratops</em> locked together in death ($13K), plus full adult replicas of <em>Psittacosaurus</em> ($9K), <em>Triceratops</em> ($108K), <em>Stegosaurus</em> ($94K), and <em>Edmontosaurus</em> ($90K), for only $786,000 from the Black Hills Institute, and perhaps as little as a tenth of that from some of the less famous companies. Moreover, this all seems to predate the revolutions in 3D scanning (even your phone can generate 3D models, let alone all the tech available with lidar and similar) and 3D printing that could make it even more accessible. The Metropolitan Museum of Art, for example, has <a href="https://www.thisiscolossal.com/2026/03/metropolitan-museum-of-art-3d-models-art-history/">high definition 3D scans of many pieces in its collection</a>, and there are initiatives to share <a href="https://www.myminifactory.com/users/Scan%20The%20World?show=store&amp;sortBy=popularity&amp;page=1&amp;files=files&amp;price=free">thousands of scans from museums for printing</a>.</p>
+<section id="museum-shards-idea" class="level1">
+<h1>Museum shards idea</h1>
+<p>TL;DR: when we bring a bus of schoolkids to a museum, we are often showing them a replica of actual fossils, not real ones, and this is accepted. What if we instead take a piece of the museum – a shard – and put it at their school? Still a replica, perhaps of lower quality, but enough for a 9 year old to see the scale of a dinosaur, look at healed punctures in its jaw, imagine what the teeth were used for, and so forth. And this needn’t be limited to just dinosaurs: with permissions of their cultural descendants, one could include replicas of sculpture (Benin bronzes, Greek vases, Chinese funerary art, etc.), important paintings (done well, not just as posters) and more. Each year, shuffle the shards between schools so kids see new things.</p>
+<p>There are lots of precedents for this. There’s an <a href="https://www.dogwoodarts.com/sculptures">Art in Public Places Sculpture Program</a> that leases sculptures a year at a time in public locations and rotates them around – it costs <a href="https://www.dogwoodarts.com/_files/ugd/6aa64a_3167ca9f61b246d0b0945738e11b0763.pdf">$3500-5000 per sculpture per year</a>, which presumably includes compensation for the artists. The <a href="https://www.easyasplay.org/biology-in-a-box-units">Biology in a Box</a> program sends curriculum-aligned activity boxes to hundreds of classrooms with specimens to investigate. Since 1940, Oberlin has let people in their community, including students in their dorms, <a href="https://amam.oberlin.edu/art/collections/art-rental">borrow original works of art</a> (and some reproductions) for a small fee: “the collection features prints by Marc Chagall, Salvador Dalí, Honoré Daumier, Francisco Goya, Henri Matisse, Joan Miró, Pablo Picasso, and Henri de Toulouse-Lautrec, alongside works on paper and multiples by Mel Chin, Alex Katz, Ellsworth Kelly, Yasumasa Morimura, Faith Ringgold, and Lorna Simpson, among many others.” There are probably many other examples: librarians are amazing, and so I’m sure there are lots of iniatives to share things with the community beyond books.</p>
+</section>
+<section id="standards" class="level1">
+<h1>Standards</h1>
+<p>A key to making this scale would be modular standards. There would need to be set ways to mount the pieces and dimensions, so that a school could just say “we have room for a medium wall pice and an outdoor mounted piece” and get objects of the right size and weight. Some potential ideas:</p>
+<ul>
+<li><strong>Large flat wall mount</strong>: a single hook or similar capable of holding 20 pounds; the space extends 1.5 feet to the right and left of the hook, 1 foot above the hook, and 2 feet down from the hook (good for paintings, friezes, or similar)</li>
+<li><strong>Medium object case</strong>: a case capable of holding a 1 foot cube of volume object: bust of Nefertiti, dinosaur egg replica, Marie Curie notebook replica</li>
+<li><strong>Medium outdoor support</strong>: a 3 foot square of concrete, with 3/8” threaded stainless rod or bolts in each corner inset 4 inches from each face: a modern sculpture, a base for a small dinosaur mount, a demonstration bog in a large pot</li>
+</ul>
+<p>To actually develop standards, it would make sense for a small working group of a couple of people who work in facilities at schools, some teachers, some parents/guardians, some kids, museum curators, museum education specialists, and librarians to hammer out a small set of them, taking into account factors like cost, potential sizes of the objects to loan, and what protections might be prudent (how worried should we be about kids trying to climb something, protecting framed art from errant water guns during senior prank week, etc.). There should also be a standard for how information is included: is there a standard 5” by 8” placard with each object, should it have Braille, should it have a QR code, etc.? Publish some basic standards, make an opt-in database for schools listing what shard stands they have, and have a way for museums and other providers to list available shards. There could even be a market as companies like Carolina Biological Supply, PNSO, and others start creating realistic objects that can fit (even Home Depot could get into it, given its successes with relatively affordable but large <a href="https://abcnews.com/GMA/Living/home-depots-skelly-returns-upgrades-halfway-halloween-collection/story?id=131872594">“Skelly”</a> and friends, though it might want to add some more accuracy first). There are lots of examples of standards leading to a thriving ecosystem: <a href="https://www.anildash.com/2026/01/09/how-markdown-took-over-the-world/">Markdown</a>, <a href="https://littlefreelibrary.org">Little Free Library</a>, <a href="https://www.nwf.org/Native-Plant-Habitats/Create-and-Certify">Certified Wildlife Habitats</a>, <a href="https://nrail.org/T-TRAK-History">T-Trak</a>, and more.</p>
+</section>
+<section id="benefits" class="level1">
+<h1>Benefits</h1>
+<ul>
+<li>Persistent exposure to new information: every year the kids get a bunch of new objects to look at and start thinking about, but they are then there for the entire year. This gives the students a chance to, at some point, really examine the object and consider it. It also gives teachers a chance to include it in their lessons for that year.</li>
+<li>Connection: when they go to a museum, they can see the original object their shard was based on. “Oh, wow, the actual Archaeopteryx skeleton! In third grade we called ours ‘Archie’.” Museums can be large and intimidating at first – this gives students a familiar face.</li>
+<li>Museum and research outreach: “scientists at our museum have discovered a new sabertoothed cat!” – great, print 20 high-quality replicas of its skull and send them out as shards to schools in your state. Thousands of kids learn about the natural history in their state and might go to the museum to learn more. Same if the museum acquires a Georgia O’Keeffe painting: send out quality replica shards, and have students come to the museum to see the original and compare it with related works in the gallery. Researchers on NSF projects can include the creation of shards as part of their outreach plan.</li>
+<li>Beauty: all the shards will be educationally important and many will be simply beautiful. That’s a good and valuable thing in its own right.</li>
+<li>More than just schools: while schools would be the primary audience, this could extend to anywhere with space and foot traffic. Empty store on a street: fill its windows with a few museum shards so it functions as a popup museum. Airports already often have rotating or fixed exhibits (I sometimes choose Chicago as a layover just so I can see the dinosaur): this gives them an easier way to get fresh objects. Maybe for-profit companies could kick in some money to help support the museum shards program overall.</li>
+</ul>
+</section>
+<section id="risks" class="level1">
+<h1>Risks</h1>
+<ul>
+<li>Cost: there will be a cost to making the shard stands, especially larger outdoor ones. But it’s on the same order as a square of a sidewalk. Moving pieces will also have a cost, but a lot of the moves would be local.</li>
+<li>Damage: the world is a dangerous place: minivans might bump into an outdoor sculpture, the clumsy physics teacher might trip and pour their coffee on the painting, etc. Some of the shards could be put in relatively protected places (a small statue goes in the same case that holds the “Geography Bee Champions of Springfield County 1997” trophy), but some will be out and risk damage. Try to minimize it, but also – these are reproductions. They have a cost, but they are also not going to last forever. If we imagine that a shard is expected to have a life of twenty years before it’ll be retired, a 2% chance of destruction per year is not an unreasonable amount of risk to take: 2/3 of them will still be perfectly fine after twenty years.</li>
+<li>Censorship: Schools are working amid increasing constraints on allowable content: “All are welcome” is now a <a href="https://www.washingtonpost.com/education/2026/07/14/teachers-this-michigan-district-can-only-post-these-32-phrases-bulletin-boards/">banned sign in some parts of Michigan</a>, for example. Schools have experts trained in identifying appropriate content for students and following guidelines: librarians. Adding more work for them is never a good thing, but identifying a half dozen allowable objects from shards teachers request should be even less work than identifying the same number of books (less content to parse). They can then make a call as to whether the outdoor “properties of light” sculpture that includes a prism carries an unacceptably high risk of rainbows for it to be allowed by the local school board. And honestly, most shards will have almost no risk of pushback, perhaps with the exception of sculptures or paintings that show some nudity.</li>
+</ul>
+</section>
+<section id="next-steps" class="level1">
+<h1>Next steps</h1>
+<ul>
+<li>Create a working group of relevant experts (see above) to establish some standards</li>
+<li>Stand up a website with the standards and, later, schools and museum shard providers</li>
+<li>Build the shard stands (which could be as simple as clearing off some space in the dusty trophy case and put some hooks on the wall)</li>
+<li>Start getting museum shards: buy available replicas, get donations from museums, etc.</li>
+</ul>
+<p>I personally could do this, but I have lots of partially done initiatives, and I worry about rushing off to do this, getting it launched, and then finding a new shiny thing. So instead, I’m just sending this off into the ether for now to see if someone falls in love with it and wants to run with it. Maybe for your <a href="https://www.nsf.gov/funding/opportunities/career-faculty-early-career-development-program">NSF CAREER</a> grant? Or an outreach project in your new museum curator job? Or your professional society to sponsor as a working group? Reach out to me (omeara.brian@gmail.com) if you think I could be of help, but also feel free to just go for it completely on your own. My only main suggestion is that if you do launch this, make sure to check for published standards and try to work with them – I’ve seen far too many projects that fall into the XKCD standards trap.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://xkcd.com/927/"><img src="https://brianomeara.info/posts/museumshards/standards_2x.png" class="img-fluid figure-img" alt="Three panel cartoon. How standards proliferate. Situation: there are 14 competing standards. Person 1: 14?! Ridiculous, We need to develop one universal standard that covers everyone's use cases. Person 2: Yeah! Final panel: Soon: Situation, there are 15 competing standards"></a></p>
+<figcaption>“Standards” from Randall Munroe’s XKCD</figcaption>
+</figure>
+</div>
+</section>
+<section id="references" class="level1">
+<h1>References</h1>
+<p>Carsten Conner, L. D., &amp; Perin, S. M. (2020). Learning from the real versus the replicated: a comparative study. International Journal of Science Education, Part B, 10(3), 266–276. <a href="https://doi.org/10.1080/21548455.2020.1831707" class="uri">https://doi.org/10.1080/21548455.2020.1831707</a></p>
+<p>van Gerven, D., Land-Zandstra, A., &amp; Damsma, W. (2018). Authenticity matters: Children look beyond appearances in their appreciation of museum objects. International Journal of Science Education, Part B, 8(4), 325–339. <a href="https://doi.org/10.1080/21548455.2018.1497218" class="uri">https://doi.org/10.1080/21548455.2018.1497218</a></p>
+</section>
+<section id="footnotes" class="level1">
+<h1>Footnotes</h1>
+<hr>
+<p>To subscribe, go to <a href="https://brianomeara.info/blog.xml" class="uri">https://brianomeara.info/blog.xml</a> in an RSS reader.</p>
+
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>You thought I was going to make either a Magritte <em>Ceci n’est pas une pipe</em> or a Ship of Theseus comment here. But I didn’t!↩︎</p></li>
+<li id="fn2"><div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://memory-alpha.fandom.com/wiki/In_the_Pale_Moonlight_(episode)#Act_Four"><img src="https://brianomeara.info/posts/museumshards/ds9-deep-space-9.gif" class="img-fluid figure-img" alt="Picture of a Romulan senator holding up a data rod with the caption 'It is a fake'"></a></p>
+<figcaption>Image from Star Trek DS9’s In the Pale Moonlight episode where a Romulan senator announces video evidence on a data rod is a fake</figcaption>
+</figure>
+</div>
+↩︎</li>
+</ol>
+</section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{o'meara2026,
+  author = {O’Meara, Brian},
+  title = {Museum {Shards}},
+  date = {2026-07-19},
+  url = {https://brianomeara.info/posts/museumshards/},
+  langid = {en}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-o'meara2026" class="csl-entry quarto-appendix-citeas">
+O’Meara, Brian. 2026. <span>“Museum Shards.”</span> July 19. <a href="https://brianomeara.info/posts/museumshards/">https://brianomeara.info/posts/museumshards/</a>.
+</div></div></section></div> ]]></description>
+  <category>museums</category>
+  <category>outreach</category>
+  <category>scicomm</category>
+  <category>shards</category>
+  <guid>https://brianomeara.info/posts/museumshards/</guid>
+  <pubDate>Sun, 19 Jul 2026 04:00:00 GMT</pubDate>
+</item>
 <item>
   <title>Tenure and promotion letters</title>
   <dc:creator>Brian O&#39;Meara</dc:creator>
@@ -1267,46 +1397,6 @@ Delimitation.”</span> September 12. <a href="https://brianomeara.info/posts/ph
   <category>genomics</category>
   <guid>https://brianomeara.info/posts/phylopapers_2025_Sep_12/</guid>
   <pubDate>Fri, 12 Sep 2025 04:00:00 GMT</pubDate>
-</item>
-<item>
-  <title>PhyloPapers 2025, Growth of the tree of life</title>
-  <dc:creator>Brian O&#39;Meara</dc:creator>
-  <link>https://brianomeara.info/posts/phylopapers_2025_Sep_05/</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<p>This week I wanted students to learn more about the growth of our knowledge of the tree of life. We’re reading:</p>
-<blockquote class="blockquote">
-<p>Molly Chen, Artem I. Kholodov and Laura A. Hug (2025). The evolution of the tree of life. Phil. Trans. R. Soc. B 380: 20240091. <a href="https://doi.org/10.1098/rstb.2024.0091" class="uri">https://doi.org/10.1098/rstb.2024.0091</a></p>
-</blockquote>
-<p>This is a really cool paper: it took snapshots of the info in GenBank at five year intervals, built trees from the available info at each time step, and compared how the trees changed over time. It also looked at trees from key papers over time. I also liked it for class as it touched on long branch attraction and tree distances, which are useful background for students to know. The paper also generated discussion of tree construction, including use of backbone trees, as well as the need for taxonomic name resolution and massive deletion of sequences (for example, going from 2.2 million genomes down to 333K after filtering). I still remember the days of <a href="https://www.ncbi.nlm.nih.gov/portal/utils/pageresolver.fcgi?recordid=68bce924dbd3fe45a71f670a">fighting hard for every base pair</a>, so the shift in the genomic era to tossing most info is still viscerally painful, but useful.</p>
-<p>This is also a paper where the supplement has some genuinely useful info: it’s available at <a href="https://doi.org/10.6084/m9.figshare.c.7897347.v1" class="uri">https://doi.org/10.6084/m9.figshare.c.7897347.v1</a>.</p>
-<p>One thing that became apparent is how many of us, myself included, have nearly all our natural history and taxonomic knowledge focused on eukaryotes. Even issues like the possible lack of monophyly of Archaea were revelations to many: the three domain view of life is often still taught as the default. I plan to read more widely to understand the diversity of life better (my secret hope is that at some point <a href="https://rileyblack.net">Riley Black</a> will write a book on single-celled life as engaging as her other ones…).</p>
-<p>I made intro slides with some of my background material and some figures from the paper: <a href="ChenEtAl2025_EvolutionOfTheTreeOfLife.pdf">PDF</a> and <a href="ChenEtAl2025_EvolutionOfTheTreeOfLife.pptx">PowerPoint</a>.</p>
-<hr>
-<p>To subscribe, go to <a href="https://brianomeara.info/blog.xml" class="uri">https://brianomeara.info/blog.xml</a> in an RSS reader.</p>
-
-
-
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{o'meara2025,
-  author = {O’Meara, Brian},
-  title = {PhyloPapers 2025, {Growth} of the Tree of Life},
-  date = {2025-09-06},
-  url = {https://brianomeara.info/posts/phylopapers_2025_Sep_05/},
-  langid = {en}
-}
-</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-o'meara2025" class="csl-entry quarto-appendix-citeas">
-O’Meara, Brian. 2025. <span>“PhyloPapers 2025, Growth of the Tree of
-Life.”</span> September 6. <a href="https://brianomeara.info/posts/phylopapers_2025_Sep_05/">https://brianomeara.info/posts/phylopapers_2025_Sep_05/</a>.
-</div></div></section></div> ]]></description>
-  <category>phylopapers</category>
-  <category>phylogenetics</category>
-  <category>teaching</category>
-  <guid>https://brianomeara.info/posts/phylopapers_2025_Sep_05/</guid>
-  <pubDate>Sat, 06 Sep 2025 04:00:00 GMT</pubDate>
 </item>
 </channel>
 </rss>

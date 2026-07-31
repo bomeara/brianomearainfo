@@ -28,10 +28,6 @@ website:
             href: cv.html
           - text: "Calendar"
             href: "calendar.html"
-          - text: "Feedback"
-            href: "feedback.html"
-          - text: "Useful links"
-            href: "useful.html"
           - text: "Materials for promotion to associate (and tenure)"
             href: tenure.html
           - text: "Materials for promotion to full"
@@ -40,6 +36,8 @@ website:
             href: SSB.html
           - text: "SSB Presidential Address 2023"
             href: evol2023.html
+          - text: "Info for general public"
+            href: general.html
       - text: "Lab"
         menu:
           - text: "People"
@@ -52,22 +50,6 @@ website:
             href: opportunities.html
           - text: "Learning objectives"
             href: learningobjectives.html
-          - text: "BetterLetter"
-            href: better-letter.html
-          - text: "Should you go to grad school to be a professor?"
-            href: shouldyougotogradschool.html
-          - text: "Materials for promotion to associate (and tenure)"
-            href: tenure.html
-          - text: "Materials for promotion to full"
-            href: promotion.html
-          - text: "Info for general public"
-            href: general.html
-          - text: "COVID"
-            href: covid.html
-          - text: "EEB scheduling"
-            href: schedule.html
-          - text: "EcoEvoJobs simplified"
-            href: ecoevojobs.html
       - text: "Teaching"
         menu:
           - text: "Teaching overall"
@@ -76,12 +58,22 @@ website:
             href: eeb464.html
           - text: "Phylogenetic Methods"
             href: https://phylometh.info/
-      - text: "Tutorials"
+      - text: "Helpful info"
         menu:
           - text: "AIC"
             href: aic.html
           - text: "Phylogenetics"
             href: phylogenetics.html
+          - text: "EcoEvoJobs simplified"
+            href: ecoevojobs.html
+          - text: "Useful links"
+            href: "useful.html"
+          - text: "EEB scheduling"
+            href: schedule.html
+          - text: "BetterLetter"
+            href: better-letter.html
+          - text: "Should you go to grad school to be a professor?"
+            href: shouldyougotogradschool.html
       - text: "Blog"
         menu:
           - text: "Blog"
@@ -91,5 +83,5 @@ website:
 
 format:
   html:
-    theme: sandstone
+    theme: lux
     toc: true

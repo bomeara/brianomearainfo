@@ -242,12 +242,12 @@ For postdocs, it can be worth checking out the potential advisor on the <https:/
 
   initTable(
     'ecoevo-jobs-table',
-    'https://docs.google.com/spreadsheets/d/1P7BfU0emdcGFVIWIs_erFxyy0UGXXORw7h0rpU19gQ8/gviz/tq?tqx=out:json&gid=1219796980'
+    'https://docs.google.com/spreadsheets/d/1frP2LlZy_GibdpXxg_WDoHGjVAZk_8tb-GsPN_Thkms/gviz/tq?tqx=out:json&gid=332523242'
   );
 
   initTable(
     'ecoevo-postdocs-table',
-    'https://docs.google.com/spreadsheets/d/1P7BfU0emdcGFVIWIs_erFxyy0UGXXORw7h0rpU19gQ8/gviz/tq?tqx=out:json&gid=1228591705'
+    'https://docs.google.com/spreadsheets/d/1frP2LlZy_GibdpXxg_WDoHGjVAZk_8tb-GsPN_Thkms/gviz/tq?tqx=out:json&gid=900481761'
   );
 }());
 </script>

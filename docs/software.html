@@ -6,8 +6,6 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="brianomeara_ra6153">
-<meta name="dcterms.date" content="2015-07-26">
 
 <title>Software – Brian O’Meara</title>
 <style>
@@ -249,8 +247,15 @@ gtag('config', 'G-RVCXWEM7GH', { 'anonymize_ip': true});
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#current-software" id="toc-current-software" class="nav-link active" data-scroll-target="#current-software">Current software</a></li>
+  <li><a href="#past-software" id="toc-past-software" class="nav-link" data-scroll-target="#past-software">Past software:</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -264,19 +269,7 @@ gtag('config', 'G-RVCXWEM7GH', { 'anonymize_ip': true});
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>brianomeara_ra6153 </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">July 26, 2015</p>
-    </div>
-  </div>
   
     
   </div>
@@ -286,39 +279,64 @@ gtag('config', 'G-RVCXWEM7GH', { 'anonymize_ip': true});
 </header>
 
 
-<p>I develop a variety of open source software and scripts. I generally use perl for scripts and C/C++ for software, but I also code in R, PHP, javascript, and Matlab.</p>
-<p>Major:</p>
+<p>One of my major contributions is software for scientific research. Most recent work is in R; past work is in a variety of languages.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Installing my R packages: move on from CRAN
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>It used to be standard to share R packages in CRAN. It serves many purposes, but it has enough downsides<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> that I’ve now gone to releasing via R-Universe and Github, and made it so everyone in phylogenetics can do the same.</p>
+<p>Basically, in R, when you do <code>install.packages("OUwie")</code>, it goes by default to whatever you have set up as your CRAN mirror. <a href="https://ropensci.org/r-universe/">R-universe</a> by <a href="https://ropensci.org" class="uri">https://ropensci.org</a> functions as an alternative to CRAN, with compiling code inside R packages for various computer systems, but with more stability than CRAN chooses to offer and more frequent package updates.</p>
+<p>You can change options in an R session:</p>
+<pre><code>options(repos = c(
+  phylotastic = 'https://phylotastic.r-universe.dev',
+  CRAN = 'https://cloud.r-project.org')
+)</code></pre>
+<p>which will make it first check in the <a href="https://phylotastic.r-universe.dev/builds">phylotastic R-universe</a> that I curate and then on CRAN. Doing this, you can get the latest R packages from their GitHub main branch, including phylogenetics packages that are not on CRAN or have been kicked off the CRAN treadmill. Then it will check CRAN for any other needed packages. Some coauthors want their packages to go on CRAN, and that’s fine; for my part, I think it’s time for change.</p>
+</div>
+</div>
+</div>
+<p>I develop a variety of open source software and scripts. Over the years, what I code in has evolved: it is now mostly R, but in the past it has been C++ and perl, plus some python, PHP, javascript, and Matlab; SQL I’ve used includes SQLite, MySQL, and PostgreSQL. I also use quarto, markdown, and ansible (not really languages). Version control has changed through time: you can find most of my public work on my <a href="https://github.com/bomeara" class="uri">https://github.com/bomeara</a> page.</p>
+<p>You can see public R packages developed by collaborators and me at <a href="https://bomeara.r-universe.dev/builds" class="uri">https://bomeara.r-universe.dev/builds</a></p>
+<section id="current-software" class="level1">
+<h1>Current software</h1>
 <ul>
-<li><p><a href="https://www.brianomeara.info/brownie">Brownie</a>: Software for analyzing rate of continuous character evolution and testing for different rates in different groups. A version in beta testing allows investigation of correlation of discrete and continuous traits, many more models for discrete and continuous trait evolution, species delimitation, and more. There is even a graphical user interface! The code hosting has moved to <a href="https://code.google.com/p/brownie/">Google code</a></p></li>
-<li><p><a href="https://r-forge.r-project.org/projects/phylobase/">phylobase:</a> I co-organized a <a href="https://www.nescent.org/wg_phyloinformatics/R_Hackathon_1">hackathon in comparative methods in R</a>; the project I became involved in was a new package for R for loading and manipulating phylogenetic trees and data. My main contribution, developed with Derrick Zwickl, was code to load in NEXUS files of both trees and data.</p></li>
-<li><p><a href="https://www.brianomeara.info/mrfisher">MrFisher</a>: MrBayes modified to do likelihood searches. It’s just being tested more before being released. Code available <a href="https://code.google.com/p/mrfisher/">here</a></p></li>
-<li><p><a href="https://treetapper.nescent.org">TreeTapper:</a> The TreeTapper site uses a mixture of PostgreSQL, PHP, and javascript to organize and display data, such as automatically linking authors to their collaborators. It’s still in very active development, but will be released once it’s stabilized. See the <a href="https://treetapper-dev.blogspot.com/">development blog</a> for more info.</p></li>
-<li><p><a href="https://www.brianomeara.info/phylorunner">PhyloRunner</a>: PhyloRunner is a little program that allows you to double-click an icon to start a program and use Finder to navigate to the input file you want. It’s a way of running command-line only programs (r8s, recent PAUP, raxml, etc.) without having to use Terminal or learning Unix commands.</p></li>
+<li><strong>OUwie</strong>: Ornstein-Uhlenbeck models to allow for richer continuous trait evolution processes than only Brownian motion. Development led by Jeremy Beaulieu (we started collaborating when he was a grad student and I was a first year professor; he later came to UTK to postdoc, and we remain close collaborators).</li>
 </ul>
-<p>Minor:</p>
+</section>
+<section id="past-software" class="level1">
+<h1>Past software:</h1>
 <ul>
-<li><p><a href="https://code.google.com/p/superdouble/">Superdouble</a>: A header file with a new number class for C++ to reduce overflow and underflow errors (such as when calculating likelihoods on a tree and log-transforming isn’t an option). See <a href="https://treetapper-dev.blogspot.com/2008/10/using-large-trees-is-surprisingly.html">blog post</a> about this.</p></li>
+<li><p>Brownie: Software for analyzing rate of continuous character evolution and testing for different rates in different groups, done as a grad student and postdoc. A version in beta testing allows investigation of correlation of discrete and continuous traits, many more models for discrete and continuous trait evolution, species delimitation, and more. There is even a graphical user interface! The code hosting has moved to <a href="https://code.google.com/p/brownie/">Google code</a></p></li>
+<li><p><a href="https://r-forge.r-project.org/projects/phylobase/">phylobase:</a> I co-organized a <a href="https://www.nescent.org/wg_phyloinformatics/R_Hackathon_1">hackathon in comparative methods in R</a>; the project I became involved in was a new package for R for loading and manipulating phylogenetic trees and data. My main contribution, developed with Derrick Zwickl, was code to load in NEXUS files of both trees and data.</p></li>
+<li><p><a href="https://code.google.com/p/superdouble/">Superdouble</a>: A header file with a new number class for C++ to reduce overflow and underflow errors (such as when calculating likelihoods on a tree and log-transforming isn’t an option). It is used in treepl. See <a href="https://treetapper-dev.blogspot.com/2008/10/using-large-trees-is-surprisingly.html">blog post</a> about this.</p></li>
 <li><p><a href="https://code.google.com/p/dbgraphnav/">DBGraphNav</a>: This was proposed by me but written and largely designed by <a href="https://thefire.us/">Paul McMillan</a>, a UC Berkeley undergraduate I mentored through <a href="https://code.google.com/soc/2008/">Google Summer of Code</a>. It allows visual navigation of elements in a relational database by generating GraphViz image maps. It’s used in <a href="https://www.treetapper.org">TreeTapper</a> for coauthorship networks.</p></li>
-<li><p><a href="https://www.brianomeara.info/cgi-bin/modelpartition.cgi">ModelPartition</a>: A simple online tool for generating partitioned search commands for MrBayes.</p></li>
-<li><p><a href="https://www.brianomeara.info/SGEscripts.html">SGE scripts</a>: A series of bash and perl scripts I use to manage my jobs on a Rocks Sun Grid Engine Cluster. It basically allows queuing on top of the SGE queue, so that if I have thousands of jobs to submit, I can do so gradually rather than preventing other users from getting on the queue.</p></li>
-<li><p><a href="https://www.brianomeara.info/sites/default/files/concatenatenexusfiles.zip">Concatenate nexus files</a> script (.zip compressed): A simple perl script that takes a list of taxon names and a folder containing nexus files for individual genes and makes a new nexus file containing all the genes, dealing with missing taxa from some of the datasets appropriately, and makes charsets representing each of the genes. If the gene datasets have information on codon position from Mesquite or MacClade, this is used to make charsets for each gene and codon position, including introns.</p></li>
-<li><p><a href="https://brianomeara.info/sites/default/files/compareclades.zip">Compare clades</a> script (.zip compressed): A simple perl script that takes a list of observed newick gene trees, a list of simulated newick gene trees, and a list of assigments of samples to species and uses them to count the number of times each observed tree occurs in the list of simulated trees taking into account the many to one mappings of samples to species. I.e., if species A has samples 1,2,3 and species B has samples 4,5,6, tree ((1,(2,4)),(3(5,6)) matches tree ((2,(3,6)),(1(5,4)) [because they are both ((A,(A,B)),(A(B,B))]</p></li>
-<li><p><a href="https://brianomeara.info/sites/default/files/ProtTestToRAxML.zip">ProtTest to RAxML</a> script (.zip compressed): A simple perl script that takes a ProtTest output file and runs the appropriate RAxML model. It is still a bit rough (though it seems to work), so double check (that is why it outputs info on the models it is not using). It is currently configured to start a 200 rep quick bootstrap run automatically – you can turn this off by deleting the line that says “system($systemstring)”</p></li>
-<li><p><a href="https://www.brianomeara.info/researchtools/">Research Tools</a>: Software to manage collections and sequencing projects, including posting real-time information to the web and making dichotomous keys. Still in development, but see it in action on the <a href="https://www.brianomeara.info/myrmecocystus">Myrmecocystus</a> pages.</p></li>
 </ul>
 <p>Helpful links:</p>
 <ul>
 <li><p><a href="https://sourceforge.net/projects/ncl/">Nexus Class Library</a>: Allows C++ software to read NEXUS files. An older version is used in Brownie.</p></li>
-<li><p><a href="https://www.wxwidgets.org">wxWidgets</a>: Cross-platform library for creation of graphical user interfaces.</p></li>
 <li><p><a href="https://www.gnu.org/software/gsl/">GNU Scientific Library</a>: C code for math (linear algebra, numerical optimization, etc.).</p></li>
 <li><p><a href="https://taxonomy.zoology.gla.ac.uk/rod/rod.html">Rod Page</a>: Brownie uses his TreeLib.</p></li>
 <li><p><a href="https://home.uchicago.edu/%7Erhudson1/source/mksamples.html">ms</a>: A program to simulate gene trees under various models of population structure.</p></li>
-<li><p><a href="https://developer.yahoo.com/yui/">Yahoo! User Interface Library</a> (YUI): Javascript library for Ajax, tables, etc. (competing libraries are Dojo and Prototype). YUI has the best documentation and examples of any of the various javascript libraries I’ve seen.</p></li>
 </ul>
 
 
+</section>
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>CRAN is an amazing, volunteer effort that has been sustained for many years. Packages are automatically checked for meeting evolving standards and package authors notified of potential issues. Code is then compiled for a variety of operating systems, allowing them to be installed easily. It has some limits (like a 5 MB maximum package size) but it has allowed a thriving ecosystem to flourish. It is a marked contrast to repositories for some other languages where software dependencies stop working. All repositories have standards for accepting software or other data (see <a href="https://datadryad.org/mission#our-curation-and-publication-process">Dryad’s curation process</a>, for example), but CRAN is somewhat unusual in requiring that software be changed to meet changing standards. For example, CRAN added checking on a version of linux with an unusual compile flag. One of my packages generated a warning in this circumstance. I and my coauthors had two weeks to figure out how to fix this on this particular flavor of linux or everyone using CRAN for Mac, Windows, or any other linux flavor would also lose access to our package. It’s weird for a problem (a warning affecting a very small number of users) is resolved by creating enough pain for all other users (no longer have access to a binary of the package) as a punishment. As I write this (Aug 3, 2023), the key R package geiger, which hasn’t had code change for over three years, <a href="https://web.archive.org/web/20260804001839/https://cran.r-project.org/web/packages/geiger/index.html">now has until Aug 21, 2026</a>, to fix some formatting issues in the help and authors file or its binaries go away; two weeks after that, all the packages that depend on geiger also get purged. There has not been a line in geiger that has changed, nor a security issue – CRAN has now changed what it checks for, geiger does not meet the new standards, and now its authors, not all of whom remain in the field, have a limited time to fix it (slighly more than two weeks because CRAN itself is on its annual two week break where no code can be updated or fixed). This geiger elimination cascade almost happened a few years ago after another CRAN change got geiger removed temporarily. It is like a library that removes books that authors don’t update to keep up with the latest spelling in the dictionary (“it’s a ‘web page’ not a ‘webpage’ – the clock starts now”). The intent to make sure software all meets evolving standards is a good one, but I do not agree with holding users hostage to do so. Thus, I suggest R-universe as a way to install R software with CRAN as a fallback.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

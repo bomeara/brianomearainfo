@@ -28,6 +28,8 @@ website:
             href: cv.html
           - text: "Calendar"
             href: "calendar.html"
+          - text: "Software"
+            href: "software.html"
           - text: "Materials for promotion to associate (and tenure)"
             href: tenure.html
           - text: "Materials for promotion to full"

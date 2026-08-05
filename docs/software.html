@@ -119,6 +119,10 @@ gtag('config', 'G-RVCXWEM7GH', { 'anonymize_ip': true});
  <span class="dropdown-text">Calendar</span></a>
   </li>  
         <li>
+    <a class="dropdown-item" href="./software.html">
+ <span class="dropdown-text">Software</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="./tenure.html">
  <span class="dropdown-text">Materials for promotion to associate (and tenure)</span></a>
   </li>  
@@ -253,7 +257,7 @@ gtag('config', 'G-RVCXWEM7GH', { 'anonymize_ip': true});
    
   <ul>
   <li><a href="#current-software" id="toc-current-software" class="nav-link active" data-scroll-target="#current-software">Current software</a></li>
-  <li><a href="#past-software" id="toc-past-software" class="nav-link" data-scroll-target="#past-software">Past software:</a></li>
+  <li><a href="#selected-past-software" id="toc-selected-past-software" class="nav-link" data-scroll-target="#selected-past-software">Selected past software:</a></li>
   </ul>
 </nav>
     </div>
@@ -304,17 +308,24 @@ gtag('config', 'G-RVCXWEM7GH', { 'anonymize_ip': true});
 </div>
 </div>
 <p>I develop a variety of open source software and scripts. Over the years, what I code in has evolved: it is now mostly R, but in the past it has been C++ and perl, plus some python, PHP, javascript, and Matlab; SQL I’ve used includes SQLite, MySQL, and PostgreSQL. I also use quarto, markdown, and ansible (not really languages). Version control has changed through time: you can find most of my public work on my <a href="https://github.com/bomeara" class="uri">https://github.com/bomeara</a> page.</p>
-<p>You can see public R packages developed by collaborators and me at <a href="https://bomeara.r-universe.dev/builds" class="uri">https://bomeara.r-universe.dev/builds</a></p>
+<p>You can see public R packages developed by collaborators and me at <a href="https://bomeara.r-universe.dev/builds" class="uri">https://bomeara.r-universe.dev/builds</a>. Click on the note above for how to install it.</p>
 <section id="current-software" class="level1">
 <h1>Current software</h1>
 <ul>
-<li><strong>OUwie</strong>: Ornstein-Uhlenbeck models to allow for richer continuous trait evolution processes than only Brownian motion. Development led by Jeremy Beaulieu (we started collaborating when he was a grad student and I was a first year professor; he later came to UTK to postdoc, and we remain close collaborators).</li>
+<li><strong>phrapl</strong> [R package]: Phylogeography and species delimitation.</li>
+<li><strong>OUwie</strong> [R package]: Ornstein-Uhlenbeck models to allow for richer continuous trait evolution processes than only Brownian motion. It also allows investigation of discrete with continuous traits using the hOUwie model.</li>
+<li><strong>dentist</strong> [R package]: Compute uncertainty, including potential correlated parameters, for any likelihood model in R.</li>
+<li><strong>rnsf</strong> [R package]: Data on every NSF grant. Ever. Including GRFPs.</li>
+<li><strong>hisse</strong> [R package]: Diversification rate analyses: discrete traits, biogeography, tree-only.</li>
+<li><strong>corHMM</strong> [R package]: Correlated discrete trait evolution and complex trait univariate models.</li>
+<li><strong>datelife</strong> [R package and website]: Go from a clade name or set of taxa to a chronogram (dated tree)</li>
+<li><strong>taxon2tree</strong> [R package]: wrapper for phylotaR to automate workflows for inferring a tree</li>
 </ul>
 </section>
-<section id="past-software" class="level1">
-<h1>Past software:</h1>
+<section id="selected-past-software" class="level1">
+<h1>Selected past software:</h1>
 <ul>
-<li><p>Brownie: Software for analyzing rate of continuous character evolution and testing for different rates in different groups, done as a grad student and postdoc. A version in beta testing allows investigation of correlation of discrete and continuous traits, many more models for discrete and continuous trait evolution, species delimitation, and more. There is even a graphical user interface! The code hosting has moved to <a href="https://code.google.com/p/brownie/">Google code</a></p></li>
+<li><p>Brownie: Software for analyzing rate of continuous character evolution and testing for different rates in different groups, done as a grad student and postdoc. A version in beta testing allows investigation of correlation of discrete and continuous traits, many more models for discrete and continuous trait evolution, species delimitation, and more. There is even a graphical user interface! The code hosting has moved to <a href="https://code.google.com/p/brownie/">Google code</a>.</p></li>
 <li><p><a href="https://r-forge.r-project.org/projects/phylobase/">phylobase:</a> I co-organized a <a href="https://www.nescent.org/wg_phyloinformatics/R_Hackathon_1">hackathon in comparative methods in R</a>; the project I became involved in was a new package for R for loading and manipulating phylogenetic trees and data. My main contribution, developed with Derrick Zwickl, was code to load in NEXUS files of both trees and data.</p></li>
 <li><p><a href="https://code.google.com/p/superdouble/">Superdouble</a>: A header file with a new number class for C++ to reduce overflow and underflow errors (such as when calculating likelihoods on a tree and log-transforming isn’t an option). It is used in treepl. See <a href="https://treetapper-dev.blogspot.com/2008/10/using-large-trees-is-surprisingly.html">blog post</a> about this.</p></li>
 <li><p><a href="https://code.google.com/p/dbgraphnav/">DBGraphNav</a>: This was proposed by me but written and largely designed by <a href="https://thefire.us/">Paul McMillan</a>, a UC Berkeley undergraduate I mentored through <a href="https://code.google.com/soc/2008/">Google Summer of Code</a>. It allows visual navigation of elements in a relational database by generating GraphViz image maps. It’s used in <a href="https://www.treetapper.org">TreeTapper</a> for coauthorship networks.</p></li>

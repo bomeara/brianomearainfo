@@ -30,16 +30,23 @@ which will make it first check in the [phylotastic R-universe](https://phylotast
 
 I develop a variety of open source software and scripts. Over the years, what I code in has evolved: it is now mostly R, but in the past it has been C++ and perl, plus some python, PHP, javascript, and Matlab; SQL I've used includes SQLite, MySQL, and PostgreSQL. I also use quarto, markdown, and ansible (not really languages). Version control has changed through time: you can find most of my public work on my <https://github.com/bomeara> page.
   
-You can see public R packages developed by collaborators and me at <https://bomeara.r-universe.dev/builds>
+You can see public R packages developed by collaborators and me at <https://bomeara.r-universe.dev/builds>. Click on the note above for how to install it.
 
 # Current software
 
-* **OUwie**: Ornstein-Uhlenbeck models to allow for richer continuous trait evolution processes than only Brownian motion. Development led by Jeremy Beaulieu (we started collaborating when he was a grad student and I was a first year professor; he later came to UTK to postdoc, and we remain close collaborators).
+* **phrapl** [R package]: Phylogeography and species delimitation.
+* **OUwie** [R package]: Ornstein-Uhlenbeck models to allow for richer continuous trait evolution processes than only Brownian motion. It also allows investigation of discrete with continuous traits using the hOUwie model.
+* **dentist** [R package]: Compute uncertainty, including potential correlated parameters, for any likelihood model in R.
+* **rnsf** [R package]: Data on every NSF grant. Ever. Including GRFPs.
+* **hisse** [R package]: Diversification rate analyses: discrete traits, biogeography, tree-only.
+* **corHMM** [R package]: Correlated discrete trait evolution and complex trait univariate models.
+* **datelife** [R package and website]: Go from a clade name or set of taxa to a chronogram (dated tree)
+* **taxon2tree** [R package]: wrapper for phylotaR to automate workflows for inferring a tree
   
-# Past software:
+# Selected past software:
 
 
-  * Brownie: Software for analyzing rate of continuous character evolution and testing for different rates in different groups, done as a grad student and postdoc. A version in beta testing allows investigation of correlation of discrete and continuous traits, many more models for discrete and continuous trait evolution, species delimitation, and more. There is even a graphical user interface! The code hosting has moved to [Google code](https://code.google.com/p/brownie/)
+  * Brownie: Software for analyzing rate of continuous character evolution and testing for different rates in different groups, done as a grad student and postdoc. A version in beta testing allows investigation of correlation of discrete and continuous traits, many more models for discrete and continuous trait evolution, species delimitation, and more. There is even a graphical user interface! The code hosting has moved to [Google code](https://code.google.com/p/brownie/).
 
 
   * [phylobase:](https://r-forge.r-project.org/projects/phylobase/) I co-organized a [hackathon in comparative methods in R](https://www.nescent.org/wg_phyloinformatics/R_Hackathon_1); the project I became involved in was a new package for R for loading and manipulating phylogenetic trees and data. My main contribution, developed with Derrick Zwickl, was code to load in NEXUS files of both trees and data.

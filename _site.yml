@@ -11,8 +11,8 @@ navbar:
           href: cv.html
         - text: "Calendar"
           href: "calendar.html"
-        - text: "Feedback"
-          href: "feedback.html"
+        - text: "Software"
+          href: "software.html"
         - text: "Useful links"
           href: "useful.html"
         - text: "Materials for promotion to associate (and tenure)"

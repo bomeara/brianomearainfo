@@ -1,0 +1,57 @@
+# Software
+
+One of my major contributions is software for scientific research. Most recent work is in R; past work is in a variety of languages.
+
+> **NOTE:**
+>
+> It used to be standard to share R packages in CRAN. It serves many purposes, but it has enough downsides[^1] that I’ve now gone to releasing via R-Universe and Github, and made it so everyone in phylogenetics can do the same.
+>
+> Basically, in R, when you do `install.packages("OUwie")`, it goes by default to whatever you have set up as your CRAN mirror. [R-universe](https://ropensci.org/r-universe/) by <https://ropensci.org> functions as an alternative to CRAN, with compiling code inside R packages for various computer systems, but with more stability than CRAN chooses to offer and more frequent package updates.
+>
+> You can change options in an R session:
+>
+>     options(repos = c(
+>       phylotastic = 'https://phylotastic.r-universe.dev',
+>       CRAN = 'https://cloud.r-project.org')
+>     )
+>
+> which will make it first check in the [phylotastic R-universe](https://phylotastic.r-universe.dev/builds) that I curate and then on CRAN. Doing this, you can get the latest R packages from their GitHub main branch, including phylogenetics packages that are not on CRAN or have been kicked off the CRAN treadmill. Then it will check CRAN for any other needed packages. Some coauthors want their packages to go on CRAN, and that’s fine; for my part, I think it’s time for change.
+
+I develop a variety of open source software and scripts. Over the years, what I code in has evolved: it is now mostly R, but in the past it has been C++ and perl, plus some python, PHP, javascript, and Matlab; SQL I’ve used includes SQLite, MySQL, and PostgreSQL. I also use quarto, markdown, and ansible (not really languages). Version control has changed through time: you can find most of my public work on my <https://github.com/bomeara> page.
+
+You can see public R packages developed by collaborators and me at <https://bomeara.r-universe.dev/builds>. Click on the note above for how to install it.
+
+# Current software
+
+- **phrapl** \[R package\]: Phylogeography and species delimitation.
+- **OUwie** \[R package\]: Ornstein-Uhlenbeck models to allow for richer continuous trait evolution processes than only Brownian motion. It also allows investigation of discrete with continuous traits using the hOUwie model.
+- **dentist** \[R package\]: Compute uncertainty, including potential correlated parameters, for any likelihood model in R.
+- **rnsf** \[R package\]: Data on every NSF grant. Ever. Including GRFPs.
+- **hisse** \[R package\]: Diversification rate analyses: discrete traits, biogeography, tree-only.
+- **corHMM** \[R package\]: Correlated discrete trait evolution and complex trait univariate models.
+- **datelife** \[R package and website\]: Go from a clade name or set of taxa to a chronogram (dated tree)
+- **taxon2tree** \[R package\]: wrapper for phylotaR to automate workflows for inferring a tree
+
+# Selected past software:
+
+- Brownie: Software for analyzing rate of continuous character evolution and testing for different rates in different groups, done as a grad student and postdoc. A version in beta testing allows investigation of correlation of discrete and continuous traits, many more models for discrete and continuous trait evolution, species delimitation, and more. There is even a graphical user interface! The code hosting has moved to [Google code](https://code.google.com/p/brownie/).
+
+- [phylobase:](https://r-forge.r-project.org/projects/phylobase/) I co-organized a [hackathon in comparative methods in R](https://www.nescent.org/wg_phyloinformatics/R_Hackathon_1); the project I became involved in was a new package for R for loading and manipulating phylogenetic trees and data. My main contribution, developed with Derrick Zwickl, was code to load in NEXUS files of both trees and data.
+
+- [Superdouble](https://code.google.com/p/superdouble/): A header file with a new number class for C++ to reduce overflow and underflow errors (such as when calculating likelihoods on a tree and log-transforming isn’t an option). It is used in treepl. See [blog post](https://treetapper-dev.blogspot.com/2008/10/using-large-trees-is-surprisingly.html) about this.
+
+- [DBGraphNav](https://code.google.com/p/dbgraphnav/): This was proposed by me but written and largely designed by [Paul McMillan](https://thefire.us/), a UC Berkeley undergraduate I mentored through [Google Summer of Code](https://code.google.com/soc/2008/). It allows visual navigation of elements in a relational database by generating GraphViz image maps. It’s used in [TreeTapper](https://www.treetapper.org) for coauthorship networks.
+
+Helpful links:
+
+- [Nexus Class Library](https://sourceforge.net/projects/ncl/): Allows C++ software to read NEXUS files. An older version is used in Brownie.
+
+- [GNU Scientific Library](https://www.gnu.org/software/gsl/): C code for math (linear algebra, numerical optimization, etc.).
+
+- [Rod Page](https://taxonomy.zoology.gla.ac.uk/rod/rod.html): Brownie uses his TreeLib.
+
+- [ms](https://home.uchicago.edu/%7Erhudson1/source/mksamples.html): A program to simulate gene trees under various models of population structure.
+
+## Footnotes
+
+[^1]: CRAN is an amazing, volunteer effort that has been sustained for many years. Packages are automatically checked for meeting evolving standards and package authors notified of potential issues. Code is then compiled for a variety of operating systems, allowing them to be installed easily. It has some limits (like a 5 MB maximum package size) but it has allowed a thriving ecosystem to flourish. It is a marked contrast to repositories for some other languages where software dependencies stop working. All repositories have standards for accepting software or other data (see [Dryad’s curation process](https://datadryad.org/mission#our-curation-and-publication-process), for example), but CRAN is somewhat unusual in requiring that software be changed to meet changing standards. For example, CRAN added checking on a version of linux with an unusual compile flag. One of my packages generated a warning in this circumstance. I and my coauthors had two weeks to figure out how to fix this on this particular flavor of linux or everyone using CRAN for Mac, Windows, or any other linux flavor would also lose access to our package. It’s weird for a problem (a warning affecting a very small number of users) is resolved by creating enough pain for all other users (no longer have access to a binary of the package) as a punishment. As I write this (Aug 3, 2023), the key R package geiger, which hasn’t had code change for over three years, [now has until Aug 21, 2026](https://web.archive.org/web/20260804001839/https://cran.r-project.org/web/packages/geiger/index.html), to fix some formatting issues in the help and authors file or its binaries go away; two weeks after that, all the packages that depend on geiger also get purged. There has not been a line in geiger that has changed, nor a security issue – CRAN has now changed what it checks for, geiger does not meet the new standards, and now its authors, not all of whom remain in the field, have a limited time to fix it (slighly more than two weeks because CRAN itself is on its annual two week break where no code can be updated or fixed). This geiger elimination cascade almost happened a few years ago after another CRAN change got geiger removed temporarily. It is like a library that removes books that authors don’t update to keep up with the latest spelling in the dictionary (“it’s a ‘web page’ not a ‘webpage’ – the clock starts now”). The intent to make sure software all meets evolving standards is a good one, but I do not agree with holding users hostage to do so. Thus, I suggest R-universe as a way to install R software with CRAN as a fallback.

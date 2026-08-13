@@ -1,0 +1,3 @@
+# Calendar
+
+If you’d like to meet with me, please sign up for a zoom meeting at <https://calendly.com/bomeara-utk/one-on-one-meeting>. It’s in ten minute slots; if you need more time, please sign up for multiple slots. Slots are available in a sliding window of about 2 weeks. If you need to meet sooner, please email me at bomeara@utk.edu .

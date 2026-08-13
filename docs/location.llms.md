@@ -1,0 +1,23 @@
+# Location/Contact
+
+Our lab is located at the [University of Tennessee, Knoxville](https://www.utk.edu) in the [Department of Ecology and Evolutionary Biology](https://eeb.bio.utk.edu/). The nearest airport is [Knoxville McGhee Tyson Airport (TYS)](https://www.tys.org/) and we are at the intersection of I-40 and I-75. We’re about three hours by car from Atlanta and Nashville (the nearest airports with direct flights to many destinations). The nearest Amtrak station is about three hours away by car (Atlanta, GA), and we’re approx. 60 miles away from the Appalachian Trail.
+
+- **Faculty office**: 446 Hesler
+- **Postdoc/student/visitor office**: 425a Hesler
+- **Email**: <bomeara@utk.edu>
+- **Social media**: [Mastodon](https://mastodon.social/@omearabrian) (Note that I am no longer active on Twitter or Facebook)
+- **Map**: <https://goo.gl/maps/Xn1Z>
+
+Mailing address:
+
+O’Meara Lab
+
+Department of Ecology & Evolutionary Biology
+
+569 Dabney Hall
+
+University of Tennessee
+
+Knoxville, Tennessee
+
+37996-1610

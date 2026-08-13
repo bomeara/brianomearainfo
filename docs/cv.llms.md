@@ -1,0 +1,5 @@
+# CV
+
+PDF is [here](cv_omeara.pdf).
+
+Also see [Google Scholar](https://scholar.google.com/citations?hl=en&user=vpjEkQwAAAAJ&view_op=list_works&sortby=pubdate&inst=9897619243961157265).

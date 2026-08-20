@@ -10,7 +10,149 @@
 <atom:link href="https://brianomeara.info/blog.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.9.38</generator>
-<lastBuildDate>Sun, 19 Jul 2026 04:00:00 GMT</lastBuildDate>
+<lastBuildDate>Mon, 17 Aug 2026 04:00:00 GMT</lastBuildDate>
+<item>
+  <title>Fossilized birth-death with terminal taxa only</title>
+  <dc:creator>Brian O&#39;Meara</dc:creator>
+  <link>https://brianomeara.info/posts/fbdt/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<section id="tldr" class="level2">
+<h2 class="anchored" data-anchor-id="tldr">TLDR</h2>
+<p>New <a href="https://doi.org/10.64898/2026.08.13.744712">preprint</a> by Jeremy Beaulieu and me on a fossilized birth-death model that uses at most one fossil per species, which is more appropriate for a lot of empirical datasets.</p>
+</section>
+<section id="here-is-the-problem" class="level2">
+<h2 class="anchored" data-anchor-id="here-is-the-problem">Here is the problem</h2>
+<p>If you only interview lottery winners, you’ll get a warped sense of odds of winning the lottery. If you only look at traits that are variable, you’ll get a warped sense of how quickly characters change. A few years ago, Jeremy Beaulieu and I showed that the same is happening with use of fossils in popular fossilized birth death (FBD; Stadler, 2010) analyses. The model assumes that organisms are being fossilized and then recovered at a constant rate. Everyone knows that this isn’t true (you need sedimentary rocks of the right age, for example, and those aren’t evenly distributed), but it might be a decent enough approximation for a first pass. But the model also assumes that any fossil in a group once discovered has the same chance of being included on a tree, no matter if it’s the oldest, youngest, or 17th fossil for that species. The model does distinguish the most recent fossil (“<em>m</em>-type”) from any of the older fossils in a lineage (<em>k</em>-type), but there’s nothing special about the two kinds, so they are all fit by the same fossil recovery rate parameter. We showed (Beaulieu &amp; O’Meara, 2023) that across a range of simulations (also shown in simulations by Zhang et al.&nbsp;(2016)), there should be a lot of <em>k</em>-type intermediate fossils: for a given fossil species, say <em>T. rex</em>, we don’t expect to find just one fossil with no descendants (the <em>m</em>-type fossil) but actually multiple fossils from the species, all but the most recent being <em>k</em>-type fossils. However, we showed in our paper that a lot of empirical datasets (but not all) have a near complete absence of such fossils:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://brianomeara.info/posts/fbdt/syac049f3.jpeg" class="img-fluid figure-img" alt="Histogram showing percentage of simulated datasets with a given proportion of k-type fossils -- most are 50% or higher. Also shown are empirical datasets: three near zero, and one around 50%"></p>
+<figcaption>From Beaulieu &amp; O’Meara (2023): Histogram of the fraction of k-type fossils sampled across a large set of simulations over a wide range of conditions in relation to k-type fossils used in empirical FBD studies. Specifically, we generated a grid that make up all possible combinations of elements from vectors of turnover rate (incrementing turnover 0.1–1.0, sampling every 0.1), extinction fraction (incrementing extinction fraction 0.05–0.95, sampling every 0.1), and sampling rate (⁠ 0.1, 0.05, 0.10, 0.20). We repeated each generating parameter 20 times, resulting in 8000 simulation replicates in total, with the histogram representing the distribution of the fraction of <em>k</em>-type fossils sampled across all replicates. Despite the wide range of simulation conditions, empirical studies (blue dots) appear to have fewer sampled ancestors. The red line along the x-axis represents the approximate range of simulated values from Zhang et al.&nbsp;(2016), and the blue dot corresponding to the study of Zhang et al.&nbsp;(2016) represents the median fraction across the range used in their analysis of Hymenoptera.</figcaption>
+</figure>
+</div>
+<p>So the models are being fed data that for whatever reason are missing a lot of fossils along branches. The models don’t know about this biased input (same as a model of the lottery won’t know if only those winning are given as data), so the way they can explain that each fossil species has only one specimen (or just a few) discovered is by having a low fossilization rate and a high rate of species turnover: if each species only survives for a short time before going extinct or speciating into two new species, then it makes sense that there are few fossils per species, even if there are lots of fossils across the clade of interest. <strong><em>It’s not the abundance or paucity of fossils themselves that’s the problem, but the biased sampling of them per species that can lead to problematic results.</em></strong> It is like excluding invariant sites when looking at morphology (Lewis 2001): the issues don’t come from not having enough variable sites, but the biased complete exclusion of invariant sites from models that expect to see them makes the models estimate really fast - and wrong - rates of evolution.</p>
+<p>I don’t think we communicated this well. Interpretations seemed to be that we just don’t like fossils (not true - see below) or that we were talking about problems from a low fossilization rate (it’s not that, it’s the bias in which fossils are used). Our point was that sufficiently biased data led to problems, so much so that one might actually get better estimates of diversification parameters by excluding the biased data (in this case, fossils) and using just a smaller modern dataset. Barido-Sottani and Morlon (2026) found a similar situation when there is not enough information to accurately place fossils (not due to bias, just insufficient data) - results can sometimes be as good or better by excluding fossils (but in other cases fossils can dramatically help).</p>
+<p>But in phylogenetics, as in the rest of life, a common response to someone saying “there’s a problem” is “ok, but I’m careful.” Driving is dangerous: it’s good to be careful, but it’s even better to invent seatbelts, airbags, and protected bike lanes. Covid remains <a href="https://www.npr.org/2026/08/14/nx-s1-5927115/summer-vaccine-covid-19-surge">dangerous</a>: it’s good to be vaguely “careful” around people who are showing what we think are symptoms, but it’s better if everyone has a mask and is vaccinated. To actually change human behavior it’s not enough to point out a problem, there has to be a fairly easy solution, too<sup>1</sup>.</p>
+</section>
+<section id="yo-we-solved-it" class="level2">
+<h2 class="anchored" data-anchor-id="yo-we-solved-it">Yo, we solved it</h2>
+<p>So, just as Maddison (2006) showed a problem in conflating diversification differences and trait evolution differences and later was part of a team that developed a solution (Maddison et al.&nbsp;2007), we’ve also now developed what we think is a solution to the biased data problem while still allowing use of the data (though we’re <a href="https://en.wikipedia.org/wiki/Senator,_you%27re_no_Jack_Kennedy#Transcript">no Maddison et al.</a>).</p>
+<p><strong><em>We have a preprint out on this here: <a href="https://doi.org/10.64898/2026.08.13.744712" class="uri">https://doi.org/10.64898/2026.08.13.744712</a></em></strong>.</p>
+<p>The original FBD model (Stadler, 2010) requires data with random fossil occurrences. The stratigraphic range model (Stadler et al., 2018) requires data with just a start and end time for lineages. The new model, which we’re calling the <strong><em>FBDT</em></strong> model, is a third flavor for a different kind of data: one where we include only the most recent recovered fossil for an extinct species. This matches the kind of data used in a lot of empirical datasets. “Most recent recovered” corresponds to the <em>m</em>-type fossils in the canonical FBD model, but basically whatever one fossil you include per species is definitionally this type of fossil - it’s not the last <a href="https://www.galapagos.org/about_galapagos/lonesome-george/">Lonesome George</a> specimen, just any specimen. The model might work slightly better if one takes the youngest rather than oldest specimen per species, but honestly, I suspect it doesn’t matter much - the main point is that if the data are biased such that you have a lot more <em>m</em>-type than <em>k</em>-type fossils - in other words, often no more than one specimen per fossil species - the new FBDT model gives better rate estimates than other models. But check the <a href="https://doi.org/10.64898/2026.08.13.744712">preprint</a> to see if you agree.</p>
+<p>My hope is that this just gets added to the bestiary of FBD models. Have stratigraphic data? Cool, use the stratigraphic range model. Using every fossil per species from Paleobiology Database? Cool, (probably) use the standard FBD model. Only using one specimen per fossil species? Use the FBDT model. <strong><em>It’s not a replacement, and the other models are not wrong or flawed</em></strong> - it’s just a matter of making sure the model used is appropriate to the data provided. It’s like the Lewis MKV model: it doesn’t mean you can’t use a Cavendar-Farris-Neyman model for binary data, but if you have a dataset that excludes invariant sites, it’s the right model (or, more correctly, least bad) to use. A vague rule of thumb in the preprint is that if you don’t have at least as many <em>k</em>-type fossils as <em>m</em>-type fossils, FBDT might be better than standard FBD (there can be biological cases where one only has <em>m</em>-type terminal fossils under true unbiased fossil sampling, but that is for high turnover rate and low fossil recovery rate, and FBDT should still work in that case).</p>
+</section>
+<section id="on-parameters" class="level2">
+<h2 class="anchored" data-anchor-id="on-parameters">On parameters</h2>
+<p>There are various parameters people talk about with diversification models, with typical units:</p>
+<ul>
+<li>Speciation rate: λ (events/MY)</li>
+<li>Extinction rate: μ (events/MY)</li>
+<li>Net diversification rate: λ-μ (net events/MY)</li>
+<li>Turnover rate: λ+μ (total events/MY)</li>
+<li>Extinction fraction: μ/λ (unitless)</li>
+</ul>
+<p>Or the reciprocals for wait times:</p>
+<ul>
+<li>Expected species lifetime: 1/(λ+μ) (MY until event)</li>
+<li>Wait time for speciation: 1/λ (MY until event)</li>
+<li>Wait time for extinction: 1/μ (MY until event)</li>
+</ul>
+<p>That’s a lot of different parameters, but not a lot of Greek symbols, just the two, λ and μ. It’s because there are only two degrees of freedom here. Basically, if you tell me any two parameters above, I can calculate <strong><em>all</em></strong> of the others<sup>2</sup>. And while it’s convention to write these with λ and μ, I could instead rewrite them using a symbol for, say, extinction fraction and turnover: the equations are a little messier, but it’s just algebra, and there’s nothing special about which terms get the Greek symbols.</p>
+<p>Why does this matter? Two main reasons:</p>
+<ol type="1">
+<li>For people, some parameters are easier to understand than others. If I say, “the speciation rate is 0.14 events/MY” is that fast or slow? But if I use the reciprocal, “the average wait time until a speciation event on a lineage is 7 million years” you have a much more intuitive sense of the speed. This matters a lot at extremes: your analysis says the speciation rate is 0.0001 or 7.3 events/MY - ok, not weird, maybe, but that actually corresponds to waiting time for speciation of 10,000 million years (aka 10 billion years) in the first case and 0.14 MY (aka 140,000 years) in the second case.</li>
+<li>Some of the discussion in response to our 2023 paper has been “well, they estimated parameters A and B, and we estimated C and D, so maybe it’s just a problem with A and B? 🤷.” One can do algebra to go from C and D to A and B, or vice versa, to directly check - if you have estimates for two you have estimates for all. Since all this zoo of parameters only has two degrees of freedom, it can’t be the case that A and B have a problem but C and D don’t (it is technically possible for A and B to have a problem and C does but D doesn’t, if things align particularly well) - everything is tied together.</li>
+</ol>
+<p>That’s not to say everything is equally easy to estimate. Extinction rates are notoriously and justifiably hard to precisely estimate, for example. This essentially comes from the relative flatness of a likelihood surface. For a maximum likelihood estimate, you’re trying to find the highest point. Compare to finding the highest point on a landscape. All you have is a way to estimate the elevation where you are, a record of elevation at past places you’ve been, and, if you’re lucky, info on which way the ground at your feet is sloping (gradient) - you can’t just look around and “see” a mountain, you have to be standing on it to know its height <em>and</em> to have been in the lowlands to know it’s higher. In such a scenario, it’s a lot easier to find, say, the highest point in Japan, especially if you start on the slopes of Mt. Fuji, than the highest point in Florida, which is quite flat. For Bayesian approaches, the goal isn’t to find the single highest point: it’s more that it’s to find the height of all the land by spending more time at the highest elevations, but it’s still easier if there are smooth, steep peaks. Even with the first papers in this area, it’s been clear that some directions are steeper than others, and it’s easier to estimate parameters lying on a steep axis than those on a shallower axis:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://brianomeara.info/posts/fbdt/NeeEtAl.png" class="img-fluid figure-img" alt="Figures 5 and 6 from Nee et al. (1994). Both show a likelihood surface for net diversification vs extinction fraction. The surfaces are not nice cones but instead oblong shapes, in the first case with the peak lying against a minimum bound."></p>
+<figcaption>Figures 5 and 6 from Nee et al.&nbsp;(1994). Think of them like contour maps for hiking, but in this case we want to go in the steepest directions. For these, it’s steeper along the y axis (for b-d, aka net diversification rate) than along the x axis (extinction fraction), with the caveat that the units are not the same on the two axes. We could look at these surfaces along different axes by reparameterizing (converting two of the parameters into another two).</figcaption>
+</figure>
+</div>
+</section>
+<section id="use-the-force-software-luke" class="level2">
+<h2 class="anchored" data-anchor-id="use-the-force-software-luke">Use the <del>force</del> software, Luke</h2>
+<p>Incidentally, another cool thing in our 2023 paper, Jeremy’s implementation of both the standard FBD model and the stratigraphic range model, within the hisse family of models in <code>hisse</code> in R, so you can do hidden states’ effects on diversification parameters using both fossil and modern data in a likelihood framework, seems also pretty overlooked. Do carnivorous dinosaurs (including most birds) have a lower diversification rate than herbivorous ones, or is the heterogeneity in diversification rates explained by some other factor? <code>hisse</code> has been able to do that with a peer-reviewed implementation for three years! Go forth and use it already!!</p>
+<p>Given that we know the likelihood surfaces can be pretty flat for diversification model parameters, I personally like having the ability to do this in a likelihood framework: if we combine flat likelihood surfaces with priors, as in the various widely used Bayesian implementations, the results you get back can reflect the prior beliefs we put into the analysis (or copied from one of the excellent tutorials out there), and note that different individual priors can interact to make an unexpected joint prior. Putting prior info in can be really helpful in some areas (I personally like priors for fossil ages a lot), but for this area, it can be good to try to give the data the loudest voice one can. It’s still good to estimate uncertainty, though (<a href="https://doi.org/10.1111/2041-210X.14297">shameless self-promotion</a>, but there are other approaches, too - people often overlook that <code>ape::birthdeath()</code> gives you uncertainty estimates automatically, for example). And just for robustness, doing an analysis with and without priors can be informative (though in rare cases, even if priors have no effect, a likelihood and Bayesian approach can sometimes give non-overlapping estimates: likelihood seeks the peak, Bayesian seeks the credible area, so the former might choose a tall narrow spike but the latter might choose a neighoring slightly less tall but far wider hill).</p>
+<p>The new FBDT model is also in the <a href="https://github.com/thej022214/hisse">GitHub version of hisse</a>, but has not benefited from formal peer review, so I wouldn’t use that yet - but the other stuff is as fine as phylogenetic software gets these days (I think the FBDT work is fine, too, and I wouldn’t try to publish it otherwise - but I could be wrong).</p>
+</section>
+<section id="i-like-fossils-summer-vacation" class="level2">
+<h2 class="anchored" data-anchor-id="i-like-fossils-summer-vacation">I like fossils (summer vacation)</h2>
+<p>I worry that our work on whether or not fossils help in this problem space may leave the impression that I’m anti-fossil. I love fossils! I grew up wanting to be a paleontologist (until I was amazed by the power of modern phylogenetics taking Brian Farrell’s intro bio class in college) and still love ’em. I’m happy to be co-advising an Earth, Environmental, and Planetary Sciences (aka geology) PhD student now (<a href="https://www.linkedin.com/in/laya-aban-amini-6a3532183/">Laya Aban Amini</a>).</p>
+<p>But mostly I added this section to the blog post because I wanted a hook to show my summer vacation photos. My son was taking a math course in England over the summer (he also consulted on the math appendix for the FBDT preprint, earning his first acknowledgement), and my wife and I went over to visit with him. But a highlight of the trip was going to Lyme Regis to look at the fossils!</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://brianomeara.info/posts/fbdt/Ammonite.jpeg" class="img-fluid figure-img" alt="Picture of an ammonite fossil on a beach, with an eroding cliff in the background"></p>
+<figcaption>Ammonite on the Jurassic Coast</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://brianomeara.info/posts/fbdt/Coast.jpeg" class="img-fluid figure-img" alt="Picture of me with a beard, glasses, and floppy hat on a rocky beach"></p>
+<figcaption>Me on the coastline wearing my <a href="https://www.alexanderwild.com/Ants/Myrmecology-the-Study-of-Ants/Personalities/i-JqMzqBp">ant-collecting</a> hat</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://brianomeara.info/posts/fbdt/Hand.jpeg" class="img-fluid figure-img" alt="Picture of an ammonite fossil (white fossil in gray rock) on a beach, with my hand dwarfed by it"></p>
+<figcaption>Hand for scale</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://brianomeara.info/posts/fbdt/Anning.jpeg" class="img-fluid figure-img" alt="Picture of two people in front of a green bronze statue; the statue shows a woman in a bonnet holding a fossil in her hand and with a basket on her hip"></p>
+<figcaption>My wife (right) and me with a statue of Mary Anning, a pioneering but often unrecognized paleontologist who found many early marine fossils right here</figcaption>
+</figure>
+</div>
+</section>
+<section id="citations" class="level2">
+<h2 class="anchored" data-anchor-id="citations">Citations</h2>
+<ul>
+<li>Barido-Sottani, J, and H. Morlon. 2026. “Integrating fossils samples with heterogeneous diversification rates: a combined Multi-Type Fossilized Birth-Death model” <em>Systematic Biology</em> <a href="https://doi.org/10.1093/sysbio/syag011" class="uri">https://doi.org/10.1093/sysbio/syag011</a></li>
+<li>Beaulieu, J. M., &amp; O’Meara, B. C. 2023. “Fossils do not substantially improve, and may even harm, estimates of diversification rate heterogeneity. <em>Systematic Biology</em>, 72(1), 50-61. <a href="https://doi.org/10.1093/sysbio/syac049" class="uri">https://doi.org/10.1093/sysbio/syac049</a></li>
+<li>Lewis, P. 2001. “A Likelihood Approach to Estimating Phylogeny from Discrete Morphological Character Data” <em>Systematic Biology</em> 50(6): 913–925. <a href="https://doi.org/10.1080/106351501753462876" class="uri">https://doi.org/10.1080/106351501753462876</a></li>
+<li>Maddison, W.P. 2006. “Confounding assymetries in evolutionary diversificatin and character change.” <em>Evolution</em>, 60: 1743-1746. <a href="https://doi.org/10.1111/j.0014-3820.2006.tb00517.x" class="uri">https://doi.org/10.1111/j.0014-3820.2006.tb00517.x</a></li>
+<li>Maddison, W. P., Midford, P. E., &amp; Otto, S. P. 2007. “Estimating a binary character’s effect on speciation and extinction”. <em>Systematic Biology</em>, 56(5), 701-710. <a href="https://doi.org/10.1080/10635150701607033" class="uri">https://doi.org/10.1080/10635150701607033</a></li>
+<li>Stadler, T. 2010. “Sampling-through-time in birth-death trees.” <em>Journal of Theoretical Biology</em>, 267(3), 396-404. <a href="https://doi.org/10.1016/j.jtbi.2010.09.010" class="uri">https://doi.org/10.1016/j.jtbi.2010.09.010</a></li>
+<li>Stadler, T., Gavryushkina, A., Warnock, R. C. M., Drummond, A. J., &amp; Heath, T. A. 2018. The fossilized birth-death model for the analysis of stratigraphic range data under different speciation modes. Journal of Theoretical Biology, 3447(14), 41-55. <a href="https://doi.org/10.1016/j.jtbi.2018.03.005" class="uri">https://doi.org/10.1016/j.jtbi.2018.03.005</a></li>
+<li>Zhang, C. Stadler, T., Klopfstein, S., Heath, T.A., Ronquist, F. 2016. “Total-Evidence Dating under the Fossilized Birth–Death Process.” <em>Systematic Biology</em> 65(2: )228–249. <a href="https://doi.org/10.1093/sysbio/syv080" class="uri">https://doi.org/10.1093/sysbio/syv080</a></li>
+</ul>
+<hr>
+<p>To subscribe, go to <a href="https://brianomeara.info/blog.xml" class="uri">https://brianomeara.info/blog.xml</a> in an RSS reader.</p>
+
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>It’s like people being told to eat more fiber in their diets, and the rise of foods with sneaky fiber, like in candy bars. We should make an R package that does all the right things for phylogenetics analyses but easily for the user: “Have good macroevolution health: add <code>phiber</code> to your R workflow”↩︎</p></li>
+<li id="fn2"><p>With the trivial exceptions of just giving me two that are the reciprocal of each other: if I know only 1/λ and λ, it’s impossible to calculate μ, for example. But for any of the popular ones (speciation rate, extinction rate, turnover rate, net diversification rate, extinction fraction) any two gives you all the others.↩︎</p></li>
+</ol>
+</section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{o'meara2026,
+  author = {O’Meara, Brian},
+  title = {Fossilized Birth-Death with Terminal Taxa Only},
+  date = {2026-08-17},
+  url = {https://brianomeara.info/posts/fbdt/},
+  langid = {en}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-o'meara2026" class="csl-entry quarto-appendix-citeas">
+O’Meara, Brian. 2026. <span>“Fossilized Birth-Death with Terminal Taxa
+Only.”</span> August 17. <a href="https://brianomeara.info/posts/fbdt/">https://brianomeara.info/posts/fbdt/</a>.
+</div></div></section></div> ]]></description>
+  <category>diversification</category>
+  <category>fbd</category>
+  <category>fbdt</category>
+  <category>hisse</category>
+  <guid>https://brianomeara.info/posts/fbdt/</guid>
+  <pubDate>Mon, 17 Aug 2026 04:00:00 GMT</pubDate>
+</item>
 <item>
   <title>Museum Shards</title>
   <dc:creator>Brian O&#39;Meara</dc:creator>
@@ -1353,50 +1495,6 @@ September 17. <a href="https://brianomeara.info/posts/phylopapers_2025_Sep_17/">
   <category>phylogeography</category>
   <guid>https://brianomeara.info/posts/phylopapers_2025_Sep_17/</guid>
   <pubDate>Wed, 17 Sep 2025 04:00:00 GMT</pubDate>
-</item>
-<item>
-  <title>PhyloPapers 2025, Genomic species delimitation</title>
-  <dc:creator>Brian O&#39;Meara</dc:creator>
-  <link>https://brianomeara.info/posts/phylopapers_2025_Sep_12/</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<p>This week I wanted students to learn more about modern approaches for species delimitation:</p>
-<blockquote class="blockquote">
-<p>Sonal Singhal, Adam D. Leaché, Matthew K. Fujita, Carlos Daniel Cadena, and Felipe Zapata. 2025. “A Genomic Perspective on Species Delimitation” Annu. Rev.&nbsp;Ecol. Evol. Syst. 2025. 56:467–89 <a href="https://doi.org/10.1146/annurev-ecolsys-102723-055311" class="uri">https://doi.org/10.1146/annurev-ecolsys-102723-055311</a></p>
-</blockquote>
-<p>In contrast to the other papers so far in the class, this is a review paper rather than original research (though, like many modern review papers, it actually does a fair amount of new bibliometric analysis). I’m not going to have us read a lot of review papers, but this one touched on various topics that came up in previous discussions (like the multispecies coalescent) and was a bit of a breather for students in that it had less jargon. They loved it and found it understandable. I think it was a very thorough and fair overview of the subject.</p>
-<p>The two biggest questions students had were about the machine learning mentions and the <em>gdi</em> metric (<a href="https://pubmed.ncbi.nlm.nih.gov/28003535/">Jackson et al.&nbsp;2017</a>). People now often think of AI as large language models like ChatGPT, but it covers a wide variety of approaches: image recognition, like that used by iNaturalist; approaches to impute missing data; methods to infer relationships from large sets of data; etc. One could imagine hoping for a genomic equivalent for the long wished-for “barcoding gap” (a discrete difference between intra- and interspecific differences), for example. The <em>gdi</em> is a measure we came up with to compare differences between potential species: it is scaled from 0 for panmixia to 1 for strong divergence. (I actually fought my coauthors, because I didn’t really like the <em>gdi</em>, but my collaborators won out and they were right). I think part of the confusion from the Singhal et al.&nbsp;paper is that the <em>gdi</em> in their Fig 2 is shown as a property of a population, when it’s actually a measure used between two populations.</p>
-<p>One thing that both I and the attendees liked was the discussion at the end of the paper about not making genomic approaches a requirement for species delimitation publications. Genomics brings a lot of possibilities (such as looking for genomic regions correlated with lack of gene flow), and it may even be cheaper than older sorts of data which have less information. But genomic data are still not feasible for all researchers or locations. Especially given the need to do basic species discovery in so many groups, using available data to understand biodiversity is more critical than waiting until one can do multiple full genomes.</p>
-<p>An interesting data point from the bibliometric analysis was that only in 36% of cases did discoveries about a need to change taxonomy lead to a taxonomic change in the papers. This is in line with my anecdotal experience. There are good reasons for this (a taxonomic change is a big deal and requires expertise – one doesn’t want to rush into it) but it is a bit odd that methods intended to discover new species or collapse oversplit ones usually don’t lead to this in a usable way.</p>
-<p>Overall, I expect this paper to become widely used in teaching and for people getting into the field.</p>
-<p>I made intro slides with some of my background material and some figures from the paper: <a href="SinghalEtAl2025_GenomicSpeciesDelimitation.pdf">PDF</a> and <a href="SinghalEtAl2025_GenomicSpeciesDelimitation.pptx">PowerPoint</a>.</p>
-<hr>
-<p>To subscribe, go to <a href="https://brianomeara.info/blog.xml" class="uri">https://brianomeara.info/blog.xml</a> in an RSS reader.</p>
-
-
-
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{o'meara2025,
-  author = {O’Meara, Brian},
-  title = {PhyloPapers 2025, {Genomic} Species Delimitation},
-  date = {2025-09-12},
-  url = {https://brianomeara.info/posts/phylopapers_2025_Sep_12/},
-  langid = {en}
-}
-</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-o'meara2025" class="csl-entry quarto-appendix-citeas">
-O’Meara, Brian. 2025. <span>“PhyloPapers 2025, Genomic Species
-Delimitation.”</span> September 12. <a href="https://brianomeara.info/posts/phylopapers_2025_Sep_12/">https://brianomeara.info/posts/phylopapers_2025_Sep_12/</a>.
-</div></div></section></div> ]]></description>
-  <category>phylopapers</category>
-  <category>phylogenetics</category>
-  <category>teaching</category>
-  <category>delimitation</category>
-  <category>genomics</category>
-  <guid>https://brianomeara.info/posts/phylopapers_2025_Sep_12/</guid>
-  <pubDate>Fri, 12 Sep 2025 04:00:00 GMT</pubDate>
 </item>
 </channel>
 </rss>

@@ -4,6 +4,12 @@ Here I have various blog posts. I created the blog on April 22, 2023, to provide
 
 You can filter and search here, but you can also get the RSS feed at [blog.xml](blog.xml). RSS is a format for distributing new content: it is most commonly used for blogs, but it is also a way things like new episodes of podcasts roll out. [Here](https://www.wired.com/story/best-rss-feed-readers/) (*Wired*, soft paywall) is an accessible overview of RSS and how to read it.
 
+### [GRFP 2026](posts/grfp_2026/index.llms.md)
+
+Preparing for the GRFP in 2026
+
+Sep 8, 2026
+
 ### [Fossilized birth-death with terminal taxa only](posts/fbdt/index.llms.md)
 
 Fossilized birth death models are often applied to datasets missing some kinds of fossils. We developed an approach to handle this issue

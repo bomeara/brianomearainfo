@@ -1,0 +1,59 @@
+# Overview
+
+For seniors, graduated undergrads, and first year grad students: write a 3-page personal statement and a 2-page research statement, get some letters of rec and transcripts, and then possibly get three years of largely string-free funding for grad school, including a stipend (\$37,000) higher than what many grad schools pay students.
+
+Deadline is 8 pm US Eastern, Oct. 19, 2026, for life sciences (slightly later for other fields).
+
+For detailed information: <https://www.nsf.gov/funding/opportunities/grfp-nsf-graduate-research-fellowship-program>
+
+# Eligibility
+
+- “U.S. citizens, nationals, or permanent residents”
+- “Senior undergraduates, bachelor’s degree-holders with no graduate study, and beginning graduate students” (note that in the past grad students entering their second year could also apply – that is not the case any more. First years, apply now or never).
+- Attending or planning to attend an “accredited, non-profit institution with a campus located in the United States, its territories or possessions, or the Commonwealth of Puerto Rico”. Undergrads won’t have been admitted to grad school when they apply for the fellowship (most won’t have even started applying to grad school yet): that is fine. But you can’t apply, get the fellowship, and then use the stipend to pay you while you start a business, for example: it’s only awarded for graduate study.
+- Topic area limits: look for details [here](https://www.nsf.gov/funding/opportunities/grfp-nsf-graduate-research-fellowship-program/nsf26-526/solicitation#appendix) but the main things to consider are that NSF does not fund work that relates directly to public health, human disease, food safety, maximizing crop yields, and similar. See also this [article](https://www.science.org/content/article/nsf-shrinks-support-social-sciences-prestigious-graduate-fellowship-program).
+
+# Resources
+
+- [Solicitation](https://www.nsf.gov/funding/opportunities/grfp-nsf-graduate-research-fellowship-program/nsf26-526/solicitation): NSF describing what the program is, the criteria used, and how to apply. Read it in its entirety (no, do not use an AI summary).
+- FAQ; NSF offers two: [this](https://www.nsf.gov/funding/initiatives/grfp/applicants/faq) and [that](https://www.nsf.gov/funding/information/faq-additional-faq-nsf-graduate-research-fellowship-program).
+- [Alex Lang webpage](https://www.alexhunterlang.com/nsf-fellowship): A comprehensive page with advice, links to past [example proposals](https://docs.google.com/spreadsheets/d/1xoezGhbtcpg3BvNdag2F5dTQM-Xl2EELUgAfG1eUg0s/edit?gid=0#gid=0), and more.
+  - Note that this page dates from 2021. There have been some substantial changes in NSF’s priorities and procedures since then. For example, artificial intelligence is a greater priority now than in the past (though far from the only thing funded). [USKeywords.org](https://uskeywords.org) has links to words or phrases that have reportedly led to recent scrutiny and in some cases attempts to cancel NSF grants (though, as far as I know, there is no evidence that any of these have been used in a GRFP review process).
+- [Broad Institute Advice](https://mitcommlab.mit.edu/broad/commkit/nsf-research-proposal/): discusses advice for potential proposals
+- [ManuSights guide](https://manusights.com/resources/nsf-grfp-guide): “Common mistakes” section is especially helpful
+- [ApplyingToEEB.info](https://applyingtoeeb.info): general info on applying to grad school in the US, especially for people going into ecology & evolutionary biology fields. It has some ideas about identifying good potential mentors that can help.
+- **Your grants or research office**: if you are currently at a university, especially one with a research program that uses federal funding, they probably have an office staffed with people whose job it is to help members of your community write successful grants. This grant is essentially \$159K (\$37K stipend + \$16K for tuition and other costs for three years) and adds to the institution’s prestige – many grants offices will want to help you. That said, they often need some lead time, so reach out now. They might have workshops or other things to help.
+
+# General advice from me
+
+- NSF is investing in the person, not the project, for this program. It’s why the personal statement is 50% longer than the research proposal. You also are not committed to pursue the research spelled out in the proposal (though if there’s a substantial change in subject, that might warrant a discussion with NSF). If you propose studying song in birds at University of X, and end up studying frog calls at Z College instead, that’s ok.
+- That said, you have a much better chance if you get feedback from faculty, including at least one person you are considering working with (note “with”, not “for”) in grad school. Reach out to them now.
+- NSF uses [two criteria](https://www.nsf.gov/funding/merit-review) to prioritize research. **Make sure you address both**
+  - Intellectual Merit: Impact of the proposed work on the field, why the research matters to other scientists
+  - Broader Impacts: How the work benefits society. The limits for this have somewhat changed, so **past examples might have language that is no longer fundable**. This [page](https://proposaldev.ucdavis.edu/news/funding-agency-update-nsf) has information on some of the changes. The big difference is that targeting based on protected characteristics is no longer allowed: one can’t do a workshop for “women in paleontology” but could do it on “careers in paleontology.”
+- Follow the instructions exactly. Wrong font size? Proposal rejected without appeal. Missed the due date by five minutes? Proposal rejected without appeal. (That said, if something far outside your control happens, do try reaching out to NSF, but I would not count on this working absent a substantial emergency, and probably not even then).
+- Don’t use AI to write. Besides all the reasons you already know, even if you’re just optimizing for yourself, it’s going to make your proposal sound like all the others and thus not be extraordinary.
+- This is support for *you* for three years. Make sure what you propose is feasible for you. That includes the research and the outreach or other activities. It’s better to pick things that flow from your expertise or story than go for all the areas. You, as a grad student, are unlikely to enhance national security, create the STEM workforce, increase economic competitiveness, *and* enhance health and welfare (without it being too close to NIH’s areas) all at the same time over this period. Pick something you can credibly do.
+- [It is possible to make no mistakes and still lose](https://www.youtube.com/watch?v=t4A-Ml8YHyM). Last year, many proposals were [returned without review without explanation](https://www.science.org/content/article/nsf-s-flagship-fellowship-program-rejecting-applicants-without-peer-review) (including a dozen in ecology); every year, thousands of excellent proposals do not get funded, and that will be especially true with the expected number of awards this year. Applying for this fellowship is an emotional and time investment, and you should decide if it is worth it for you or not – but if you apply and don’t get it, it is not an indicator that you lack the potential to be a great scientist. Strangers are judging five pages you write, plus some letters and grades – their judgement can be flawed, their knowledge is definitely imperfect, and there are unknown factors that lead to some proposals being ultimately funded and others not.
+
+------------------------------------------------------------------------
+
+To subscribe, go to <https://brianomeara.info/blog.xml> in an RSS reader.
+
+## Citation
+
+BibTeX citation:
+
+``` quarto-appendix-bibtex
+@online{o'meara2026,
+  author = {O’Meara, Brian},
+  title = {GRFP 2026},
+  date = {2026-09-08},
+  url = {https://brianomeara.info/posts/grfp_2026/},
+  langid = {en}
+}
+```
+
+For attribution, please cite this work as:
+
+O’Meara, Brian. 2026. “GRFP 2026.” September 8. <https://brianomeara.info/posts/grfp_2026/>.

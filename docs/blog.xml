@@ -10,7 +10,84 @@
 <atom:link href="https://brianomeara.info/blog.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.9.38</generator>
-<lastBuildDate>Mon, 17 Aug 2026 04:00:00 GMT</lastBuildDate>
+<lastBuildDate>Tue, 08 Sep 2026 04:00:00 GMT</lastBuildDate>
+<item>
+  <title>GRFP 2026</title>
+  <dc:creator>Brian O&#39;Meara</dc:creator>
+  <link>https://brianomeara.info/posts/grfp_2026/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<section id="overview" class="level1">
+<h1>Overview</h1>
+<p>For seniors, graduated undergrads, and first year grad students: write a 3-page personal statement and a 2-page research statement, get some letters of rec and transcripts, and then possibly get three years of largely string-free funding for grad school, including a stipend ($37,000) higher than what many grad schools pay students.</p>
+<p>Deadline is 8 pm US Eastern, Oct.&nbsp;19, 2026, for life sciences (slightly later for other fields).</p>
+<p>For detailed information: <a href="https://www.nsf.gov/funding/opportunities/grfp-nsf-graduate-research-fellowship-program" class="uri">https://www.nsf.gov/funding/opportunities/grfp-nsf-graduate-research-fellowship-program</a></p>
+</section>
+<section id="eligibility" class="level1">
+<h1>Eligibility</h1>
+<ul>
+<li>“U.S. citizens, nationals, or permanent residents”</li>
+<li>“Senior undergraduates, bachelor’s degree-holders with no graduate study, and beginning graduate students” (note that in the past grad students entering their second year could also apply – that is not the case any more. First years, apply now or never).</li>
+<li>Attending or planning to attend an “accredited, non-profit institution with a campus located in the United States, its territories or possessions, or the Commonwealth of Puerto Rico”. Undergrads won’t have been admitted to grad school when they apply for the fellowship (most won’t have even started applying to grad school yet): that is fine. But you can’t apply, get the fellowship, and then use the stipend to pay you while you start a business, for example: it’s only awarded for graduate study.</li>
+<li>Topic area limits: look for details <a href="https://www.nsf.gov/funding/opportunities/grfp-nsf-graduate-research-fellowship-program/nsf26-526/solicitation#appendix">here</a> but the main things to consider are that NSF does not fund work that relates directly to public health, human disease, food safety, maximizing crop yields, and similar. See also this <a href="https://www.science.org/content/article/nsf-shrinks-support-social-sciences-prestigious-graduate-fellowship-program">article</a>.</li>
+</ul>
+</section>
+<section id="resources" class="level1">
+<h1>Resources</h1>
+<ul>
+<li><a href="https://www.nsf.gov/funding/opportunities/grfp-nsf-graduate-research-fellowship-program/nsf26-526/solicitation">Solicitation</a>: NSF describing what the program is, the criteria used, and how to apply. Read it in its entirety (no, do not use an AI summary).</li>
+<li>FAQ; NSF offers two: <a href="https://www.nsf.gov/funding/initiatives/grfp/applicants/faq">this</a> and <a href="https://www.nsf.gov/funding/information/faq-additional-faq-nsf-graduate-research-fellowship-program">that</a>.</li>
+<li><a href="https://www.alexhunterlang.com/nsf-fellowship">Alex Lang webpage</a>: A comprehensive page with advice, links to past <a href="https://docs.google.com/spreadsheets/d/1xoezGhbtcpg3BvNdag2F5dTQM-Xl2EELUgAfG1eUg0s/edit?gid=0#gid=0">example proposals</a>, and more.
+<ul>
+<li>Note that this page dates from 2021. There have been some substantial changes in NSF’s priorities and procedures since then. For example, artificial intelligence is a greater priority now than in the past (though far from the only thing funded). <a href="https://uskeywords.org">USKeywords.org</a> has links to words or phrases that have reportedly led to recent scrutiny and in some cases attempts to cancel NSF grants (though, as far as I know, there is no evidence that any of these have been used in a GRFP review process).</li>
+</ul></li>
+<li><a href="https://mitcommlab.mit.edu/broad/commkit/nsf-research-proposal/">Broad Institute Advice</a>: discusses advice for potential proposals</li>
+<li><a href="https://manusights.com/resources/nsf-grfp-guide">ManuSights guide</a>: “Common mistakes” section is especially helpful</li>
+<li><a href="https://applyingtoeeb.info">ApplyingToEEB.info</a>: general info on applying to grad school in the US, especially for people going into ecology &amp; evolutionary biology fields. It has some ideas about identifying good potential mentors that can help.</li>
+<li><strong>Your grants or research office</strong>: if you are currently at a university, especially one with a research program that uses federal funding, they probably have an office staffed with people whose job it is to help members of your community write successful grants. This grant is essentially $159K ($37K stipend + $16K for tuition and other costs for three years) and adds to the institution’s prestige – many grants offices will want to help you. That said, they often need some lead time, so reach out now. They might have workshops or other things to help.</li>
+</ul>
+</section>
+<section id="general-advice-from-me" class="level1">
+<h1>General advice from me</h1>
+<ul>
+<li>NSF is investing in the person, not the project, for this program. It’s why the personal statement is 50% longer than the research proposal. You also are not committed to pursue the research spelled out in the proposal (though if there’s a substantial change in subject, that might warrant a discussion with NSF). If you propose studying song in birds at University of X, and end up studying frog calls at Z College instead, that’s ok.</li>
+<li>That said, you have a much better chance if you get feedback from faculty, including at least one person you are considering working with (note “with”, not “for”) in grad school. Reach out to them now.</li>
+<li>NSF uses <a href="https://www.nsf.gov/funding/merit-review">two criteria</a> to prioritize research. <strong>Make sure you address both</strong>
+<ul>
+<li>Intellectual Merit: Impact of the proposed work on the field, why the research matters to other scientists</li>
+<li>Broader Impacts: How the work benefits society. The limits for this have somewhat changed, so <strong>past examples might have language that is no longer fundable</strong>. This <a href="https://proposaldev.ucdavis.edu/news/funding-agency-update-nsf">page</a> has information on some of the changes. The big difference is that targeting based on protected characteristics is no longer allowed: one can’t do a workshop for “women in paleontology” but could do it on “careers in paleontology.”</li>
+</ul></li>
+<li>Follow the instructions exactly. Wrong font size? Proposal rejected without appeal. Missed the due date by five minutes? Proposal rejected without appeal. (That said, if something far outside your control happens, do try reaching out to NSF, but I would not count on this working absent a substantial emergency, and probably not even then).</li>
+<li>Don’t use AI to write. Besides all the reasons you already know, even if you’re just optimizing for yourself, it’s going to make your proposal sound like all the others and thus not be extraordinary.</li>
+<li>This is support for <em>you</em> for three years. Make sure what you propose is feasible for you. That includes the research and the outreach or other activities. It’s better to pick things that flow from your expertise or story than go for all the areas. You, as a grad student, are unlikely to enhance national security, create the STEM workforce, increase economic competitiveness, <em>and</em> enhance health and welfare (without it being too close to NIH’s areas) all at the same time over this period. Pick something you can credibly do.</li>
+<li><a href="https://www.youtube.com/watch?v=t4A-Ml8YHyM">It is possible to make no mistakes and still lose</a>. Last year, many proposals were <a href="https://www.science.org/content/article/nsf-s-flagship-fellowship-program-rejecting-applicants-without-peer-review">returned without review without explanation</a> (including a dozen in ecology); every year, thousands of excellent proposals do not get funded, and that will be especially true with the expected number of awards this year. Applying for this fellowship is an emotional and time investment, and you should decide if it is worth it for you or not – but if you apply and don’t get it, it is not an indicator that you lack the potential to be a great scientist. Strangers are judging five pages you write, plus some letters and grades – their judgement can be flawed, their knowledge is definitely imperfect, and there are unknown factors that lead to some proposals being ultimately funded and others not.</li>
+</ul>
+<hr>
+<p>To subscribe, go to <a href="https://brianomeara.info/blog.xml" class="uri">https://brianomeara.info/blog.xml</a> in an RSS reader.</p>
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{o'meara2026,
+  author = {O’Meara, Brian},
+  title = {GRFP 2026},
+  date = {2026-09-08},
+  url = {https://brianomeara.info/posts/grfp_2026/},
+  langid = {en}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-o'meara2026" class="csl-entry quarto-appendix-citeas">
+O’Meara, Brian. 2026. <span>“GRFP 2026.”</span> September 8. <a href="https://brianomeara.info/posts/grfp_2026/">https://brianomeara.info/posts/grfp_2026/</a>.
+</div></div></section></div> ]]></description>
+  <category>funding</category>
+  <category>GRFP</category>
+  <category>NSF</category>
+  <guid>https://brianomeara.info/posts/grfp_2026/</guid>
+  <pubDate>Tue, 08 Sep 2026 04:00:00 GMT</pubDate>
+</item>
 <item>
   <title>Fossilized birth-death with terminal taxa only</title>
   <dc:creator>Brian O&#39;Meara</dc:creator>
@@ -1450,51 +1527,6 @@ September 24. <a href="https://brianomeara.info/posts/phylopapers_2025_Sep_24/">
   <category>simulation</category>
   <guid>https://brianomeara.info/posts/phylopapers_2025_Sep_24/</guid>
   <pubDate>Wed, 24 Sep 2025 04:00:00 GMT</pubDate>
-</item>
-<item>
-  <title>PhyloPapers 2025, Phylogeography</title>
-  <dc:creator>Brian O&#39;Meara</dc:creator>
-  <link>https://brianomeara.info/posts/phylopapers_2025_Sep_17/</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<p>This week I wanted students to learn more about phylogeography:</p>
-<blockquote class="blockquote">
-<p>Manica Balant<sup>1</sup>, Daniel Vitales<sup>1</sup>, Zhiqiang Wang<sup>1</sup>, Zoltán Barina, Lin Fu, Tiangang Gao, Teresa Garnatje, Airy Gras, Muhammad Qasim Hayat, Marine Oganesian, Jaume Pellicer, Seyed A. Salami, Alexey P. Seregin, Nina Stepanyan-Gandilyan, Nusrat Sultana, Shagdar Tsooj, Magsar Urgamal, Joan Vallès, Robin van Velzen, Lisa Pokorny. 2025. “Integrating target capture with whole genome sequencing of recent and natural history collections to explain the phylogeography of wild-growing and cultivated <em>Cannabis</em>”. Plants People Planet. 1-18. <a href="https://doi.org/10.1002/ppp3.70043" class="uri">https://doi.org/10.1002/ppp3.70043</a> [<sup>1</sup> = equal contributions]</p>
-</blockquote>
-<p>This study examines wild and cultvated <em>Cannabis</em>, which is according to the paper has been used “as fibre (ropes, fabric and paper), medicinally (over 200 recorded uses), as food (nutrient-rich seeds) and in various magico-religious rituals”. It uses many samples from around the globe and genomic data to examine population structure.</p>
-<p>One thing that has stood out in this paper and others considered for the course is the now apparent standard toolset of using <a href="https://mafft.cbrc.jp/alignment/software/">mafft</a>, <a href="https://web.stanford.edu/group/pritchardlab/structure.html">Structure</a>, <a href="https://github.com/smirarab/ASTRAL">ASTRAL-III</a>, and <a href="https://github.com/iqtree/iqtree2">IQ-TREE2</a>. The age of some of the software is unexpected: the latest release of Structure is from over 13 years ago, and for ASTRAL-III it’s over five years ago. That’s not necessarily a bad thing – it’s not like hackers are trying to take over the banking system by exploiting potential vulnerabilities in unpatched phylogenetic software – it’s just surprising. You would think that especially for popular analytical questions there would be new innovations or just <a href="https://www.youtube.com/watch?v=jn_P13FkQYw">new hotness</a>. For ASTRAL the developers “encourage using the new code” of <a href="https://github.com/chaoszhang/ASTER">ASTER</a>, though as this only was <a href="https://doi.org/10.1093/molbev/msaf172">published in a peer-reviewed journal</a> in July 2025 it’s reasonable that papers we’re reading now don’t use it yet (and I doubt answers under ASTRAL-III are wrong). But I do worry as researchers continue to use ChatGPT and similar for analyses and ask “<a href="https://scienceforeveryone.science/statistics-in-the-era-of-ai/">what’s the problem in doing stats with an (AI) consultant?</a>” popular approaches will be baked into the training data and then will be continually suggested as the options to use, even when <a href="https://doi.org/10.1038/s41586-020-2176-1">papers come out showing problems with classic approaches</a> (and see all the studies STILL looking at net diversification rate through time) or new approaches unlock new questions. There’s already a bias towards that built into the field – it’s more efficient to use approaches one already knows (and you might know the limitations well, too, which is important), and all the tutorials or posts are about the classic software, but at least new info is constantly being put into our human brains, where we could have a preference towards recent approaches (though on R-sig-phylo there was a counterargument that the agentic AIs will learn about new approaches and suggest them). Though I guess one advantage of fossilization of methods advice is we’ll all start using <a href="https://subulatepalpomere.com/2013/04/16/changing-of-the-guard/">MacClade</a> again.</p>
-<p>One thing I loved about the paper was the use of herbarium and fresh specimens. It’s yet another example of the benefits of repositories of biological information (recognized at many, but not <a href="https://www.science.org/content/article/tragic-mistake-decision-close-duke-university-s-herbarium-triggers-furor">all</a>, places) as well as expertise to collect in the field. The paper also demonstrated the feasibility of genomic scale data.</p>
-<p>A shift in thinking I’ve undergone but still feels unnatural is how in modern evolutionary biology a key workflow step is <strong>massively deleting</strong> data. It wasn’t that long ago we were looking at chromatograms in Sequencher to identify every possible base by eye (while still excluding bad reads); in contrast, in this paper the data were filtered from 68,212 single nucleotide polymorphisms (SNPS) down to just 2,875. This is important to do for data from GBIF (“nope, that oak is not from the ocean, someone flipped a sign”) and things like the TRY database of plant traits, too. This paper was useful for discussing this shift with students.</p>
-<p>A conclusion from the paper was that <em>Cannibis sativa</em> is one species (as hypothesized by Linnaeus) and not two with the addition of <em>C. indica</em>. Perhaps a useful anecdote for intro bio when the standard move is to dunk on “Lamarckism” (though this requires more nuance than the cartoon version): the describer of the incorrectly split <em>C. indica</em>: Jean-Baptiste Lamarck. Though one student raised a good point: it would be interesting to redo the Structure analyses using only the wild plants, not escaped or domesticated cultivars – one possibility is that human meddling allowed interbreeding of <em>C. sativa</em> and <em>C. indica</em> that would have been relatively reproductively isolated otherwise.</p>
-<p>One note for those who might want to teach the paper: I made sure to let students know that some uses of the plant are illegal in this jurisdiction (true at both our state and federal level) before asking them to provide information (for discussion questions on the paper before class, for example). I don’t want students trying to, say, make a joke, put in writing something that could be read by others as disclosure of illegal drug use – who knows how such info could be scraped into systems and misinterpreted in the future.</p>
-<p>I made intro slides with some of my background material and some figures from the paper: <a href="BalantVitalesWangEtAl_Phylogeography.pdf">PDF</a> and <a href="BalantVitalesWangEtAl_Phylogeography.pptx">PowerPoint</a>.</p>
-<p>[Note that this blog post is dated for the class date, but I’m actually pushing it on Oct.&nbsp;11, 2025]</p>
-<hr>
-<p>To subscribe, go to <a href="https://brianomeara.info/blog.xml" class="uri">https://brianomeara.info/blog.xml</a> in an RSS reader.</p>
-
-
-
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{o'meara2025,
-  author = {O’Meara, Brian},
-  title = {PhyloPapers 2025, {Phylogeography}},
-  date = {2025-09-17},
-  url = {https://brianomeara.info/posts/phylopapers_2025_Sep_17/},
-  langid = {en}
-}
-</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-o'meara2025" class="csl-entry quarto-appendix-citeas">
-O’Meara, Brian. 2025. <span>“PhyloPapers 2025, Phylogeography.”</span>
-September 17. <a href="https://brianomeara.info/posts/phylopapers_2025_Sep_17/">https://brianomeara.info/posts/phylopapers_2025_Sep_17/</a>.
-</div></div></section></div> ]]></description>
-  <category>phylopapers</category>
-  <category>phylogenetics</category>
-  <category>teaching</category>
-  <category>phylogeography</category>
-  <guid>https://brianomeara.info/posts/phylopapers_2025_Sep_17/</guid>
-  <pubDate>Wed, 17 Sep 2025 04:00:00 GMT</pubDate>
 </item>
 </channel>
 </rss>

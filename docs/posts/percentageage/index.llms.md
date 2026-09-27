@@ -4,9 +4,9 @@ On mastodon, [Marius Gunderen](https://mastodon.social/@gundersen), [posted](htt
 
 I thought it would be interesting educationally to do this with many events. Enter a human age in years below to do this, then click somewhere outside the box:
 
-Age in years:  
+Age in years:\
 
-  
+\
 
 ### Been alive for what percentage of time since:
 

@@ -9,8 +9,73 @@
 <link>https://brianomeara.info/blog.html</link>
 <atom:link href="https://brianomeara.info/blog.xml" rel="self" type="application/rss+xml"/>
 <description></description>
-<generator>quarto-1.9.38</generator>
-<lastBuildDate>Tue, 08 Sep 2026 04:00:00 GMT</lastBuildDate>
+<generator>quarto-1.10.18</generator>
+<lastBuildDate>Sat, 26 Sep 2026 04:00:00 GMT</lastBuildDate>
+<item>
+  <title>Rule of three for federal financing</title>
+  <dc:creator>Brian O&#39;Meara</dc:creator>
+  <link>https://brianomeara.info/posts/ruleofthree/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>For emergency preparedness, people often <a href="https://tooelehealth.org/rule-of-three-simple-rule-of-priorities-when-planning-for-an-emergency/">recommend</a> prioritizing by a rule of threes. You can survive for:</p>
+<ul>
+<li>3 minutes without air</li>
+<li>3 hours without shelter (in a harsh environment)</li>
+<li>3 days without water</li>
+<li>3 weeks without food</li>
+</ul>
+<p>So in a difficult situation, you work down the list for priorities – first make sure to get shelter, then worry about water. The “3” is not really a good point estimate, of course, but the big thing is that it converts a scary situation into steps one needs to take.</p>
+<p>There is a crisis in US science funding. In biology, according to <a href="https://grantwitness.org/nsf/analyses/agency-pulse-nsf-grants#nsf-awards-by-directorate">GrantWitness</a>, as of now the number of awards (543) are half what they used to be, and the total amount of biology funding ($562M) is 2/3 of normal<sup>1</sup>. That there is still this much reflects a lot of advocacy and hard work by many people, inside and outside of NSF. But going forward, NSF is only planning to give out <a href="https://www.nsf.gov/funding/opportunities/bio-core-core-research-biological-sciences/nsf26-517/solicitation">250-300 awards totalling $280M in its core biology program</a> (though there are other sources of funds for biology). And for next year, NSF is <a href="https://nsf-gov-resources.nsf.gov/files/FY-2027-NSF-Budget-Request-to-Congress.pdf">requesting $3.9B</a> (plus $900M for a ship), down from its current <a href="https://aas.org/posts/news/2026/01/congress-passes-fiscal-year-2026-spending-bills-nsf-nasa-and-doe">Congressionally-allocated budget of $8.8B</a>. Congress might again allocate more than requested, though even so, spending within NSF might not continue as before. For example, though the overall budget for NSF this year is similar to last year, and not that much less than the previous year, the number of grants in social, behavioral, and economic sciences has gone from 716 in 2024 down to 476 in 2025 and now just 91 at this point in 2026; obligated money has gone from $219M to $95M in that time. The same could happen for biology.</p>
+<p>I suspect that it’s worth having a rule of thumb for such an eventuality. I think a “rule of three” could also be useful when prioritizing science funding. One main mission for NSF is maintaining US science capacity; part of that is keeping people from being forced out of science. A quick rule of thumb based on how quickly people will be pushed out if they don’t get funding:</p>
+<ul>
+<li>3 months: a graduating PhD student, current postdoc, or soft money staff member who can’t find a position</li>
+<li>3 years: a pre-tenure faculty member who can’t get funding for their research once their startup ends</li>
+<li>3 decades: a tenured faculty member without grants</li>
+</ul>
+<p>The rule of three for funding is probably even less accurate than for emergencies (“But I got a grant only 19 years ago – sure there are <em>some</em> undergrads older than my last grant, but it’s unfair to say <em>all</em>”). But for an objective of maintaining the scientific workforce, it’s a decent rule of thumb. If we think of “where will people in science get money for food,” for undergrads it’s not from NSF (there are exceptions, like REUs, but while important for training and inspiration it’s not the case that a large proportion of biology undergrads are directly supported by NSF). For grad students, support comes from serving as teaching assistants, research assistantships, and dedicated funds like the NSF Graduate Research Fellowship. NSF support is critical there in creating opportunities for training the next generation of great scientists, and I was glad to see that the GRFP program is continuing. When those students graduate, for those who want to take an academic route, one of the only options is grant-supported postdocs; in basic science, NSF is a major contributor (it probably funds the vast majority of such postdocs, but I don’t have those data). Then, for faculty starting their labs in basic science, NSF is again one of the major funders. Though it shouldn’t be (see my rant on this <a href="https://brianomeara.info/posts/tenureletters/#on-metrics">here</a>), getting external funding is seen as a requirement for tenure in many places, and the reality is that a lot of work does require funding to be feasible. People can get by for a few years with startup funds, but by the time they’re coming up for tenure they might be rejected if NSF hasn’t come through. Grants do tremendously help tenured faculty (I’ve benefited greatly from them, and largely used them to support excellent postdocs) but while not getting grants hurts the science they can do, it doesn’t lead directly to “not having a job” in the same way it does for grad students looking for a postdoc or assistant professors failing to get tenure.</p>
+<p>Note that the “<strong>maintaining the scientific workforce</strong>” criterion is not the only metric that should be used (or which is used). “<strong>Supporting the best science</strong>” also matters greatly, and often can be in conflict with the first criterion. I’m far faster at doing work and writing papers than I was when I was an assistant professor, and I think I’m better at mentoring, too. Giving me a grant now is going to get more science and impact per dollar than giving it to a younger equivalent of me. But we might not have current me if NSF hadn’t been so good at supporting earlier me. An important consideration is timescale: to get the best science out this year, ignoring career stage makes sense; to get the best science out ten years from now, we can’t grind our seed corn: we need to protect early career folks.</p>
+<section id="what-to-do" class="level1">
+<h1>What to do</h1>
+<p>A few suggestions are below, but not all will be feasible. And it’s also important to recognize that the support that does exist (postdoc research fellowship program, in biology, graduate research fellowship program, CAREER, the core programs, and more) also reflects a ton of public and behind the scenes work – I’m sure there’s been lots of pressure to cut these even further, and so there are a lot of quiet wins for science already. None of these suggestions are “work harder” – the people involved are already maxed out, I suspect. But these might be policy changes that can help.</p>
+<ul>
+<li><strong>Set a beginning investigator floor</strong>: NSF already tracks “beginning investigators,” those without previous NSF grants. Look at the average annual number of grants to beginning investigators from 2017-2024 (across two different administrations, so it’s a bipartisan average), and use that count (not the proportion) as the intended floor for the next grant cycle. For example, if the average was that 3,000 awards annually had a beginning investigator, have that the target this year, even if the total number of awards possible drops to, say, 4,000. The tenure system was by no means easy or fair in 2017-2024, but it was sufficiently functional, with new faculty able to get grants. This keeps it working for those people first. It also creates an incentive for more senior faculty to mentor and collaborate with junior faculty, as junior faculty-led proposals will have a clear greater chance of getting funded. I know junior people still are getting funded, so maybe this is already in place (or just reflects a preference for proposals from beginning investigators), but making it a public commitment would ease some concerns from junior faculty and encourage cross-generational collaboration.</li>
+<li><strong>Report person-months by career stage funded by a proposal</strong>: I’ve led a couple of well-reviewed but ultimately not successful <a href="https://www.nsf.gov/funding/opportunities/us-national-science-foundation-research-traineeship-program">NRT</a> proposals, which are focused on graduate training, and a big part of those is listing how many students will benefit directly from program funding. We already compute person-months in our NSF budgets for the postdocs, faculty, staff, and more. Just extract that as a field and 1) <strong>provide it as a table to reviewers</strong> and 2) <strong>include it in the API</strong> output so places like <a href="https://grantwitness.org">grantwitness</a> or <a href="https://bomeara.github.io/rnsf/index.html">rnsf</a> can consume it and show it. A reviewer can say, “Proposal A costs the same as Proposal B but supports an undergrad for a summer, 24 person-months for PhD students, and a three year postdoc, while B only supports summer salary for the PI.” It could be that Proposal B has more impactful science and should still be supported, but a table like this would just surface the information about sustaining the workforce in a way easier to parse. Having this information returned in a machine-readable way from the API or grants search page will help build the case for funding. NSF already tracks and releases info on which congressional districts are associated with a grant; this just lets local media and others say, “In our district, grants supported 15 postdocs, 20 grad students, 50 undergrads, all doing cutting edge STEM research.” Heck, if this becomes available in an API, I promise to make a web page for each state and congressional district in the US listing this info (I do something similar for info on <a href="https://collegetables.info">US colleges already</a> (it even got in the <a href="https://www.nytimes.com/2023/04/15/your-money/college-cost-data-tools.html?unlocked_article_code=hN2IwBdFONp5CmgbxhKM-HVUid0P2EEoomfIcGniJ6EcogeoxOwoimKabx7gynOb0f6-QxIpIELuqqT35rk-nLmDMZMDAljFtcY-YQBvNGWVgLCKOj7omvSxUjcQbXnG4B8H67gTFWQA8USo6Y3Xs5RWuXjQ8Chp2WchftGv-k9oTf7m0nPvki2JmPoQiawOquJTtiwFG9lxEX5-vSzJIvBPu5Gl_-jhW5wisUpTZCQWfzr9Ar56ix7q2rQ2B4qqyQxpPWqow2gJ_D0eF5c4PhAzh-QksTofGv9rUG0SJmgnDhUkCcF361B0kpugBjccqwqYBuaTbSFMqBowPacjapogDFA&amp;giftCopy=1_CurrentCopy&amp;smid=url-share"><em>NYTimes</em></a>), I already wrote an <a href="(https://bomeara.github.io/rnsf/index.html)">R package</a> that consumes NSF’s API – launching something like this would be just a fun Saturday morning for me).</li>
+<li><strong>Continue re-tuning existing programs so they maintain support</strong>: Historically, the <a href="https://www.nsf.gov/funding/opportunities/prfb-postdoctoral-research-fellowships-biology">Postdoc Research Fellowship in Biology</a> has been a great way for new PhDs to pursue important research. This year, it is narrowly tuned to the “Intersection of Artificial Intelligence and Biological Sciences to Strengthen and Safeguard Biotechnology Innovations.” I have no actual knowledge of what caused the focus, but I have guesses (these areas seem popular with those making decisions above NSF). I personally think that having a broader focus is more likely to lead to more important discoveries, but if I had a choice between arguing for a narrow focus to keep the program alive versus having a broader program killed, I’d choose the former (rule of three: protect the postdocs first). Not everyone’s research will fit in this lifeboat, but some will be saved, and that also leaves more seats open in other lifeboats. Maybe there are other programs that are feasible in this environment. A broad geology postdoc research fellowship program probably isn’t feasible, but what about one targeting discovery of critical minerals?</li>
+<li><strong>Support NSF folks doing the work</strong>: People go into science to make discoveries; some people then temporarily (rotators) or permanently put aside most or all of their own discovery work to become managers helping to distribute funds in the best way possible, just to enable our community to do even more work. “Best” is very hard, and we all have slightly different understandings of that. And even in the happiest of times the job requires saying “no” to 80% or more of the proposals that come in, often rejecting months of work by teams of colleagues. I don’t know what it’s like working there now, but I do know that many people have left, some were fired and some eventually rehired, the agency lost their whole building, and more – I suspect it’s even more fraught than usual. There have been changes at NSF that many colleagues outside NSF haven’t liked, but I think we have to assume that often these are out of the hands of, and have even been argued against, many of the people who we contact most commonly at NSF. For example, under the new proposal guide reviewers no longer see safe fieldwork plans – these only go in to NSF after a proposal is moving forward for funding. I think safe fieldwork is important, and it involves more dimensions than just physical health (see <a href="https://brianomeara.info/posts/fieldsafety/">more</a>), and I believe having reviewers see the plans helps encourage better community norms. But approaching NSF with, “why don’t you care about safety anymore?” is less kind (and likely to be less effective) than “I appreciate the steps NSF has taken to encourage field safety, but I worry that with the new policy…”. It gives the people we’re talking with info to pass up the chain that “the community really wants to continue peer review of safety plans” and also invites a conversation – I look at these plans periodically as a reviewer but the people in NSF have a better sense of how they work in aggregate, what the constraints are, and perhaps how past arguments for and against review have fared. I remain impressed by the professionalism throughout NSF: they all seem to be faithfully executing official policy (for example, I’m sure that even if they had argued internally for a broader PRFB, once the decision for an AI+biotech focus came down they will work hard to evaluate proposals using that metric). I believe we have to trust (or at least use as a very strong prior) that they are making the decisions we would make if we were in their shoes, because they basically are samples of us (though their population is enriched for those willing to perform this service full time). Our colleagues working at NSF face highly constrained optimization problems, often with barriers that those of us on the outside don’t see. So while I think it’s good for us to give suggestions and ideas, and even pushback on policies we see as problematic, it has to come from a place of gratitude to those who are doing this work every day.</li>
+</ul>
+<p>Thanks again to the people at NSF for all you’re doing to sustain science and the people who make it happen.</p>
+<hr>
+<p>To subscribe, go to <a href="https://brianomeara.info/blog.xml" class="uri">https://brianomeara.info/blog.xml</a> in an RSS reader.</p>
+
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>The lower grant number but less reduced number of awards comes partly from how NSF is changing how it awards money for multi-year grants, now tending to award it all at once rather than releasing it a year at a time. This gives NSF more flexibility for the future: rather than having a lot of their funds obligated to pay out for grants awarded in past years, it could eventually just pay for grants of the year.↩︎</p></li>
+</ol>
+</section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{o'meara2026,
+  author = {O’Meara, Brian},
+  title = {Rule of Three for Federal Financing},
+  date = {2026-09-26},
+  url = {https://brianomeara.info/posts/ruleofthree/},
+  langid = {en}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-o'meara2026" class="csl-entry quarto-appendix-citeas">
+O’Meara, Brian. 2026. <span>“Rule of Three for Federal
+Financing.”</span> September 26. <a href="https://brianomeara.info/posts/ruleofthree/">https://brianomeara.info/posts/ruleofthree/</a>.
+</div></div></section></div> ]]></description>
+  <category>NSF</category>
+  <category>funding</category>
+  <guid>https://brianomeara.info/posts/ruleofthree/</guid>
+  <pubDate>Sat, 26 Sep 2026 04:00:00 GMT</pubDate>
+</item>
 <item>
   <title>GRFP 2026</title>
   <dc:creator>Brian O&#39;Meara</dc:creator>
@@ -1485,48 +1550,6 @@ Genomics.”</span> October 3. <a href="https://brianomeara.info/posts/phylopape
   <category>behavior</category>
   <guid>https://brianomeara.info/posts/phylopapers_2025_Oct_03/</guid>
   <pubDate>Fri, 03 Oct 2025 04:00:00 GMT</pubDate>
-</item>
-<item>
-  <title>PhyloPapers 2025, Simulation</title>
-  <dc:creator>Brian O&#39;Meara</dc:creator>
-  <link>https://brianomeara.info/posts/phylopapers_2025_Sep_24/</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<p>This week I wanted students to learn more about using simulations:</p>
-<blockquote class="blockquote">
-<p>Ornela N. Dehayem, Ryan F. A. Brewer, Luis Valente, Frederic Lens, Rampal S. Etienne. 2025. “Impact of sampling strategy on inference of community assembly processes in phylogenetic island biogeography”. Methods in Ecology and Evolution. 16:1507–1520. <a href="https://doi.org/10.1111/2041-210X.70058" class="uri">https://doi.org/10.1111/2041-210X.70058</a></p>
-</blockquote>
-<p>Simulation is used a lot to validate methods, but I like teaching it to students because it’s also important in power analyses. In my experience it is still rare for students to figure out if their proposed research will have enough species, data, etc. to potentially answer their question before embarking on it. It can save so much future heartache to spend a few days seeing whether, for example, if this trait leads to evolution of this other trait at a particular rate there’s any chance of being confident in a result from a likely 17-taxon tree.</p>
-<p>However, simulation is hard to do well. For one thing, the space of parameters to examine can grow very quickly. One of the reasons I first learned R was because I had done a bunch of simulations (perl to test a C++ program) to test some methods I made for species delimitation (<a href="https://doi.org/10.1093/sysbio/syp077">O’Meara 2010</a>) but I hadn’t realized how hard it would be to plot something like 6 variables at once (so why not bar charts on top of bar charts in an <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5841455/figure/fig4/">array of bar charts</a>?). “Number of taxa might matter… and speciation rate… and the rate of trait evolution… and tree shape… and age… and…”. It can also be hard to figure out for a given parameter what values to try. Does this new method to estimate different substitution rates work well? On a three-taxon tree with mis-estimated branches, nope, it works horribly. On a 10,000-taxon tree where branch lengths are perfectly correlated with time, it works splendidly. But what will be relevant to biologists? That’s one of the reasons Jeremy Beaulieu and I (<a href="https://doi.org/10.1111/evo.12614">Beaulieu &amp; O’Meara 2015</a>) made sure to include units in a simulation so people could see whether they’re reasonable (even though one reviewer asked for us to delete units!). The ability to pre-determine the outcome of a simulation can also lead to odd choices depending on who is doing the simulating. For example, one paper in our field evaluated the performance of a Bayesian method written by many of the same authors by using simulation parameters that match the priors used in the later analysis. Unsurprisingly, it worked well when its prior was centered on the truth – with such a sim, it might work even better without any data! On the other hand, one could simulate using models that violate the assumptions of a method and then show that the method fails (“the normal distribution is a terrible way to get confidence interval for a mean… when data are simulated from a univariate uniform distribution”).</p>
-<p>Dehayem et al.&nbsp;(2025) is interesting because it’s a paper testing a method created by many of the same authors, so presumably they’d be more accepting of results that show their method works, but it does a careful job. It is handling a complex scenario: arrival and diversification on islands, including hard to estimate parameters like extinction rate. There are some needed assumptions made in the simulation (for example, that this model describes the process so the parameter values are meaningful). It gets parameters from previously fit biological datasets, which is a good thing to do as it centers them on presumably realistic values. They also tried various ways to violate the model assumptions, such as a bias against sampling young species (there may be no gene flow, but humans haven’t recognized the populations as different species yet). There are many other potential things to vary, but it keeps it pretty focused and thus understandable. This made it an accessible jumping off point for discussions of simulations.</p>
-<p>I made intro slides with some of my background material and some figures from the paper: <a href="DehayemEtAl_2025_Simulation.pdf">PDF</a> and <a href="DehayemEtAl_2025_Simulation.pptx">PowerPoint</a>.</p>
-<p>[Note that this blog post is dated for the class date, but I’m actually pushing it on Oct.&nbsp;11, 2025]</p>
-<hr>
-<p>To subscribe, go to <a href="https://brianomeara.info/blog.xml" class="uri">https://brianomeara.info/blog.xml</a> in an RSS reader.</p>
-
-
-
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{o'meara2025,
-  author = {O’Meara, Brian},
-  title = {PhyloPapers 2025, {Simulation}},
-  date = {2025-09-24},
-  url = {https://brianomeara.info/posts/phylopapers_2025_Sep_24/},
-  langid = {en}
-}
-</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-o'meara2025" class="csl-entry quarto-appendix-citeas">
-O’Meara, Brian. 2025. <span>“PhyloPapers 2025, Simulation.”</span>
-September 24. <a href="https://brianomeara.info/posts/phylopapers_2025_Sep_24/">https://brianomeara.info/posts/phylopapers_2025_Sep_24/</a>.
-</div></div></section></div> ]]></description>
-  <category>phylopapers</category>
-  <category>phylogenetics</category>
-  <category>teaching</category>
-  <category>simulation</category>
-  <guid>https://brianomeara.info/posts/phylopapers_2025_Sep_24/</guid>
-  <pubDate>Wed, 24 Sep 2025 04:00:00 GMT</pubDate>
 </item>
 </channel>
 </rss>

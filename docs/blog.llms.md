@@ -4,6 +4,12 @@ Here I have various blog posts. I created the blog on April 22, 2023, to provide
 
 You can filter and search here, but you can also get the RSS feed at [blog.xml](blog.xml). RSS is a format for distributing new content: it is most commonly used for blogs, but it is also a way things like new episodes of podcasts roll out. [Here](https://www.wired.com/story/best-rss-feed-readers/) (*Wired*, soft paywall) is an accessible overview of RSS and how to read it.
 
+### [Rule of three for federal financing](posts/ruleofthree/index.llms.md)
+
+How to prioritize funding to sustain science
+
+Sep 26, 2026
+
 ### [GRFP 2026](posts/grfp_2026/index.llms.md)
 
 Preparing for the GRFP in 2026

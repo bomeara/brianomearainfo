@@ -40,7 +40,7 @@ Sign Up
 
 #### Brian O'MearaX
 
-- [Distance](distance.php?pid1=129230)  
+- [Distance](distance.php?pid1=129230)\
 - [Show Fewer Parents](tree.php?pid=129230&pnodecount=3&cnodecount=2)
 - [Show More Parents](tree.php?pid=129230&pnodecount=5&cnodecount=2)
 - [Show Fewer Children](tree.php?pid=129230&cnodecount=1&pnodecount=4)
@@ -49,37 +49,41 @@ Sign Up
 - [Link to this page](#)
 - http://academictree.org/evolution/tree.php?pid=129230&pnodecount=4&cnodecount=2&fontsize=1
 
-**Adding trainee for Brian O'Meara**  
+**Adding trainee for Brian O'Meara**\
 Type a name and select match from the drop-down list. If no match exists, you will be prompted to add a new person to the tree.
 
-Name:  
-School:  
-Department:  
-Relationship: research assistant grad student post-doc research scientist  
-Comments:  
+Name:\
+School:\
+Department:\
+Relationship: research assistant grad student post-doc research scientist\
+Comments:\
 
 Cancel
 
 Save
 
-**Adding mentor for Brian O'Meara**  
+**Adding mentor for Brian O'Meara**\
 Type a name and select match from the drop-down list. If no match exists, you will be prompted to add a new person to the tree.
 
-Name:  
-School:  
-Department:  
-Relationship: research assistant grad student post-doc research scientist  
-Comments:  
+Name:\
+School:\
+Department:\
+Relationship: research assistant grad student post-doc research scientist\
+Comments:\
 
 Cancel
 
 Save
 
-[Link to this page](#) - Is someone missing from the tree? [Register/sign in](#) to make changes.  
-![](https://neurotree.org/sess_align.php?w=PHPSESSID&x=1hef180dp5715i0bmrjcgq8aa9)Question? Ideas? Want to start a new tree? Contact *evotree at vt dot edu* - [Report bug/error](reporterror.php?pid=129230&refurl=https%3A%2F%2Facademictree.org%2Fevolution%2Ftree.php%3Fpid%3D129230)  
+[Link to this page](#) - Is someone missing from the tree? [Register/sign in](#) to make changes.\
+![](https://neurotree.org/sess_align.php?w=PHPSESSID&x=t769oha43s2vu4hqcnjc1k896u)Question? Ideas? Want to start a new tree? Contact *evotree at vt dot edu* - [Report bug/error](reporterror.php?pid=129230&refurl=https%3A%2F%2Facademictree.org%2Fevolution%2Ftree.php%3Fpid%3D129230)\
 ©2005-2026 The Academic Family Tree - [Data licensed for re-use with attribution to this site (CC-BY 3.0).](faq.php#license)
 
 [Tweet](https://twitter.com/share)
+
+![](https://static.xx.fbcdn.net/rsrc.php/y9/r/1wu2QLdHhT9.webp)Share
+
+ 
 
 But here is a more traditional view:
 

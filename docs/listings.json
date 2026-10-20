@@ -2,6 +2,7 @@
   {
     "listing": "/blog.html",
     "items": [
+      "/posts/mcmc/index.html",
       "/posts/ruleofthree/index.html",
       "/posts/grfp_2026/index.html",
       "/posts/fbdt/index.html",
